@@ -31,7 +31,7 @@
   },
   {
     "id": "sirasi",
-    "icon": "🎯",
+    "icon": "🧭",
     "name": "Öğrenme Sırası",
     "desc": "Hangi sırayla öğrenmeliyim?",
     "explain": "Karmaşık bir konuyu en verimli ve mantıksal sırayla parçalara bölerek adım adım rota çıkarır.",

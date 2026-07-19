@@ -31,7 +31,7 @@
   },
   {
     "id": "sirasi",
-    "icon": "🎯",
+    "icon": "🧭",
     "name": "Learning Path",
     "desc": "In what sequence?",
     "explain": "Breaks down the topic into the most efficient logical learning sequence.",
@@ -220,7 +220,11 @@
     "icon": "🔮",
     "name": "Future Projections",
     "desc": "Where is it heading?",
-    "explain": "Project how this concept/technology will evolve in the coming years and what paradigm shifts it will trigger:\n- 5 Years Out: What updates and integrations are expected in the near future?\n- 20 Years Out: Long term, what will this concept transform into, or what will replace it?\n- Multiplier Effect: What revolutionary impacts will this evolution trigger in adjacent industries?",
+    "explain": "Predicts how this topic or technology will take shape over the next 5, 10, or 50 years.",
+    "requires": [
+      "evrim"
+    ],
+    "prompt": "FUTURE PROJECTIONS\nProject how this concept/technology will evolve in the coming years and what paradigm shifts it will trigger:\n- 5 Years Out: What updates and integrations are expected in the near future?\n- 20 Years Out: Long term, what will this concept transform into, or what will replace it?\n- Multiplier Effect: What revolutionary impacts will this evolution trigger in adjacent industries?",
     "layer": "context"
   },
   {
@@ -270,7 +274,11 @@
     "icon": "🔥",
     "name": "Crisis Scenarios",
     "desc": "Failure or disaster moments",
-    "explain": "Analyze the disaster scenarios and collapse architectures this system might encounter under extreme conditions:\n- Triggering Crises (What external forces or internal failures initiate a cascading collapse?)\n- Collapse Mechanism (How does the system fail step-by-step? How does the domino effect propagate?)\n- Recovery Protocol (What emergency mitigation steps should be applied to recover from the failure or restore stability?)",
+    "explain": "Examines what can go wrong when the system or structure collapses, and how to recover it.",
+    "requires": [
+      "kirilma"
+    ],
+    "prompt": "CRISIS & COLLAPSE SCENARIOS\nAnalyze the disaster scenarios and collapse architectures this system might encounter under extreme conditions:\n- Triggering Crises (What external forces or internal failures initiate a cascading collapse?)\n- Collapse Mechanism (How does the system fail step-by-step? How does the domino effect propagate?)\n- Recovery Protocol (What emergency mitigation steps should be applied to recover from the failure or restore stability?)",
     "layer": "boundaries"
   },
   {
@@ -278,7 +286,11 @@
     "icon": "📈",
     "name": "Scale Analysis",
     "desc": "What happens when scaled?",
-    "explain": "Analyze how the rules and behaviors change when the system's dimensions scale radically:\n- Micro Scale: If the system is shrunk 10x or load decreases 10x, what new constraints emerge?\n- Macro Scale: If the system scales up 100x or load increases 100x, what bottlenecks occur, and what architectural changes become mandatory?",
+    "explain": "Analyzes how the rules change when the system shrinks 10x or grows 100x.",
+    "requires": [
+      "mekanizma"
+    ],
+    "prompt": "SCALE ANALYSIS\nAnalyze how the rules and behaviors change when the system's dimensions scale radically:\n- Micro Scale: If the system is shrunk 10x or load decreases 10x, what new constraints emerge?\n- Macro Scale: If the system scales up 100x or load increases 100x, what bottlenecks occur, and what architectural changes become mandatory?",
     "layer": "boundaries"
   },
   {
@@ -286,7 +298,11 @@
     "icon": "🔥",
     "name": "Contradiction Mode",
     "desc": "Find the paradoxes",
-    "explain": "Analyze logical dilemmas, unsolved paradoxes, or controversial aspects within the theoretical framework of this topic.\n- Explain at least 2 critical contradictions or paradoxes.\n- Show what causes these contradictions (e.g., inadequacy of boundary conditions, flawed assumptions).\n- Elevate the topic from superficial concepts into advanced scientific/technical inquiry.",
+    "explain": "Finds the internal inconsistencies of the theory to elevate you to a research-level inquiry.",
+    "requires": [
+      "varsayimlar"
+    ],
+    "prompt": "CONTRADICTIONS & PARADOXES\nAnalyze logical dilemmas, unsolved paradoxes, or controversial aspects within the theoretical framework of this topic.\n- Explain at least 2 critical contradictions or paradoxes.\n- Show what causes these contradictions (e.g., inadequacy of boundary conditions, flawed assumptions).\n- Elevate the topic from superficial concepts into advanced scientific/technical inquiry.",
     "layer": "boundaries"
   },
   {
@@ -324,7 +340,12 @@
     "icon": "📝",
     "name": "Comprehension Quiz",
     "desc": "Test knowledge & application",
-    "explain": "Prepare a quiz that measures deep conceptual comprehension rather than rote memory.\n- 3 Conceptual Understanding Questions (Testing connections between sub-concepts)\n- 2 Technical Scenario Questions (Applying the concept to practical or broken engineering situations)\n- 1 Transfer Question (Requiring me to map the logic to a completely different discipline)\nInstruction: Ask the questions but do not provide the answers immediately. Await my response first.",
+    "explain": "Asks questions that both test knowledge and force application to confirm you truly understand.",
+    "requires": [
+      "ontoloji",
+      "mekanizma"
+    ],
+    "prompt": "COMPREHENSION QUIZ\nPrepare a quiz that measures deep conceptual comprehension rather than rote memory.\n- 3 Conceptual Understanding Questions (Testing connections between sub-concepts)\n- 2 Technical Scenario Questions (Applying the concept to practical or broken engineering situations)\n- 1 Transfer Question (Requiring me to map the logic to a completely different discipline)\nInstruction: Ask the questions but do not provide the answers immediately. Await my response first.",
     "layer": "application"
   },
   {
@@ -332,7 +353,11 @@
     "icon": "🔄",
     "name": "Transfer Questions",
     "desc": "Apply to other fields",
-    "explain": "Ask deep thought and application questions that map the core logic of this concept onto 3 completely unrelated disciplines.\nExample format: 'If we take the rule X of this system and apply it to problem Z in field Y, what mechanism emerges?'\nThese questions should build new neural connections, forcing me to abstract and generalize the concept.",
+    "explain": "Asks you to map the structure you learned onto a completely unrelated discipline.",
+    "requires": [
+      "mekanizma"
+    ],
+    "prompt": "TRANSFER QUESTIONS\nAsk deep thought and application questions that map the core logic of this concept onto 3 completely unrelated disciplines.\nExample format: 'If we take the rule X of this system and apply it to problem Z in field Y, what mechanism emerges?'\nThese questions should build new neural connections, forcing me to abstract and generalize the concept.",
     "layer": "application"
   },
   {
@@ -340,7 +365,9 @@
     "icon": "🧠",
     "name": "Meta-Learning",
     "desc": "How to study better",
-    "explain": "Extract cognitive strategies to learn this topic fastest, with maximum retention, and minimum friction:\n- Fast Mastery Path (The most efficient learning roadmap and feedback/practice loops)\n- Cognitive Traps (Where do learners waste the most time, and how do you avoid it?)\n- Feedback Loop (How can I test and correct my own progress and misunderstandings fastest?)",
+    "explain": "Lists how to study and develop this topic or skill most efficiently on your own.",
+    "requires": [],
+    "prompt": "META-LEARNING STRATEGY\nExtract cognitive strategies to learn this topic fastest, with maximum retention, and minimum friction:\n- Fast Mastery Path (The most efficient learning roadmap and feedback/practice loops)\n- Cognitive Traps (Where do learners waste the most time, and how do you avoid it?)\n- Feedback Loop (How can I test and correct my own progress and misunderstandings fastest?)",
     "layer": "application"
   },
   {
@@ -348,7 +375,9 @@
     "icon": "📚",
     "name": "Resource Map",
     "desc": "Next steps",
-    "explain": "Recommend the highest-quality, authoritative, and calibrated resources to continue studying this topic independently.\nFormat: List recommendations in these categories:\n- Foundational Resources (Best books, articles, or documentation for beginners)\n- Advanced Resources (Academic papers, expert books, or open-source repositories)\n- Practice Tools (Libraries, simulators, or sandboxes to test what you learn)",
+    "explain": "Recommends calibrated resources (books, videos, etc.) to keep learning independently.",
+    "requires": [],
+    "prompt": "RESOURCE MAP\nRecommend the highest-quality, authoritative, and calibrated resources to continue studying this topic independently.\nFormat: List recommendations in these categories:\n- Foundational Resources (Best books, articles, or documentation for beginners)\n- Advanced Resources (Academic papers, expert books, or open-source repositories)\n- Practice Tools (Libraries, simulators, or sandboxes to test what you learn)",
     "layer": "application"
   }
 ]

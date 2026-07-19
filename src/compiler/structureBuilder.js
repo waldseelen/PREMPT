@@ -29,6 +29,8 @@ export function buildPromptStructure(state, sortedModules) {
 
     // 5. [INSTRUCTIONS] (Tasks grouped by layers or topologically)
     const taskPrompts = sortedModules.map((m, index) => {
+        // {{ALAN}} is a domain-injection token used intentionally only by the "esleme"
+        // (Structural Mapping) module; for every other module this replace is a no-op.
         return `Step ${index + 1} (${m.layer.toUpperCase()}): ${m.prompt.replace('{{ALAN}}', alanText)}`;
     });
     structure[labels.instructions] = taskPrompts.join('\n\n');

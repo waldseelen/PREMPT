@@ -24,20 +24,28 @@ This is the brain of the application. It never touches the DOM.
 - **Structure Builder**: Assembles the final string. It injects the system role, formatting rules, user depth/level parameters, internal monologue commands, and concatenates the selected module prompts in a deterministic order.
 - **Intelligence Layer**: Uses a Declarative Rules Engine to suggest modules to the user based on their current configuration.
 
-### 2. The Data Layer (`src/data/modules.js`)
-Modules are strictly objects. No logic is executed here.
+### 2. The Data Layer (`src/data/modules_en.json` + `src/data/modules_tr.json`)
+Modules live in two parallel, bilingual JSON files (one per language), loaded via
+`src/engine/moduleRegistry.js` (`getModuleRegistry(lang)` / `getModuleById(id, lang)`).
+The two files must stay in sync: identical `id` set in identical order. Modules are strictly
+data objects — no logic is executed here.
 ```javascript
 {
-    id: 'mekanizma', 
-    icon: '⚙️', 
+    id: 'mekanizma',
+    icon: '⚙️',
     name: 'Mekanizma',
     desc: 'Girdi → Süreç → Çıktı',
     explain: 'Sistemin nasıl çalıştığını adım adım açıklar.',
     requires: ['ontoloji'], // Dependency definition
-    prompt: `MEKANİZMA\nSistemin çalışma mekanizmasını...`
+    prompt: `MEKANİZMA\nSistemin çalışma mekanizmasını...`,
+    layer: 'mechanism'     // foundation | mechanism | context | boundaries | application
 }
 ```
 This data-driven approach means adding a new feature/module requires exactly zero changes to the UI or Engine logic.
+
+**Validation:** run `npm run validate` (`scripts/validate-modules.mjs`) to guard against silent
+drift — it checks TR/EN parity (same ids, same order), required fields, valid `layer` values,
+and that every `requires` entry points to an existing module.
 
 ### 3. State Management (`src/store/engineState.js`)
 Powered by **Zustand**. 
