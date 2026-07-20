@@ -3,22 +3,21 @@ import { COMPILER_TEXTS } from '../locales/compilerTexts';
 export function buildPromptStructure(state, sortedModules) {
     const { config, injectedRules } = state;
     const lang = config.lang || 'tr';
-    const texts = COMPILER_TEXTS[lang];
+    const domain = config.domain || 'learning';
+    const texts = (COMPILER_TEXTS[domain] || COMPILER_TEXTS.learning)[lang];
     const labels = texts.labels;
     const alanText = config.alan || (lang === 'en' ? 'Not specified' : 'Belirtilmedi');
-    const seviyeLabel = config.seviye === 'otomatik' 
-        ? (lang === 'en' ? 'AI will determine' : 'AI tarafından belirlenecek') 
+    const seviyeLabel = config.seviye === 'otomatik'
+        ? (lang === 'en' ? 'AI will determine' : 'AI tarafından belirlenecek')
         : config.seviye;
 
     const structure = {};
 
     // 1. [ROLE]
-    structure[labels.role] = texts.mod[config.mod] || texts.mod.karma;
+    structure[labels.role] = texts.mod[config.mod] || Object.values(texts.mod)[0];
 
-    // 2. [GOAL]
-    structure[labels.goal] = lang === 'en' 
-        ? `To understand the topic "${config.konu}" not superficially, but at a mechanical and causal level.`
-        : `"${config.konu}" konusunu yüzeysel değil, mekanik ve nedensel seviyede kavramak.`;
+    // 2. [GOAL] — goalTemplate carries a {{KONU}} placeholder for the topic/task text.
+    structure[labels.goal] = texts.goalTemplate.replace('{{KONU}}', config.konu);
 
     // 3. [CONTEXT]
     structure[labels.context] = `Domain: ${alanText}\nLevel: ${seviyeLabel}`;
@@ -36,19 +35,14 @@ export function buildPromptStructure(state, sortedModules) {
     structure[labels.instructions] = taskPrompts.join('\n\n');
 
     // 6. [OUTPUT FORMAT]
-    structure[labels.format] = `${texts.format[config.format] || texts.format.markdown}\nDepth Requirement: ${texts.derinlik[config.derinlik] || texts.derinlik.orta}`;
+    structure[labels.format] = `${texts.format[config.format] || Object.values(texts.format)[0]}\nDepth Requirement: ${texts.derinlik[config.derinlik] || Object.values(texts.derinlik)[0]}`;
 
-    // 7. [CONSTRAINTS / SAFETY]
-    const constraints = [
-        lang === 'en' ? "Get straight to the point, no unnecessary introductions." : "Doğrudan konuya gir, gereksiz giriş cümlesi yazma.",
-        lang === 'en' ? "Explain technical jargon simply." : "Teknik terim kullanırsan hemen sade dille açıkla.",
-        lang === 'en' ? "Explicitly state any uncertainties." : "Belirsiz yer varsa bunu açıkça belirt."
-    ];
+    // 7. [CONSTRAINTS / SAFETY] — base constraints come from the active domain's
+    // compiler text bundle (e.g. Learning softens jargon, Code demands complete code).
+    const constraints = [...texts.constraintsBase];
 
     if (config.monolog) {
-        constraints.push(lang === 'en' 
-            ? "INTERNAL MONOLOGUE: Before answering each step, evaluate boundary conditions using your internal monologue (<thinking> tags) from at least 3 perspectives. Do not show this internal monologue in the final output."
-            : "İÇ SES MODU: Her adımı yanıtlamadan önce konunun sınır koşullarını (<thinking> tagleri içerisinde) en az 3 farklı açıdan değerlendir. Ancak nihai kullanıcı çıktısına bu iç sesi yansıtma.");
+        constraints.push(texts.monologueText);
     }
 
     if (injectedRules && injectedRules.length > 0) {

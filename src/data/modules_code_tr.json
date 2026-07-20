@@ -1,0 +1,242 @@
+[
+  {
+    "id": "req-clarify",
+    "icon": "📋",
+    "name": "Gereksinim Netleştirme",
+    "desc": "Belirsiz isteği spesifikasyona çevir",
+    "explain": "Kod yazılmadan önce belirsiz bir görev tanımından net fonksiyonel ve fonksiyonel olmayan gereksinimleri çıkarır.",
+    "requires": [],
+    "prompt": "GEREKSİNİM NETLEŞTİRME\nHerhangi bir uygulama önerisi sunmadan önce, bu görevin arkasındaki gerçek gereksinimleri çıkar ve netleştir.\n- Fonksiyonel Gereksinimler (Sistem tam olarak ve test edilebilir şekilde ne yapmalı?)\n- Fonksiyonel Olmayan Gereksinimler (Bağlamdan anlaşılan performans, ölçeklenebilirlik, güvenlik ve erişilebilirlik kısıtları)\n- Açık Sorular (İnsan bir paydaşa sorman gereken belirsizlikler — bunları sessizce varsaymak yerine açıkça listele)\n- Açık Varsayımlar (İlerlemek için bir şey varsaymak zorundaysan, varsayımı ve neden makul olduğunu belirt)\nBu adımda kod yazma; yalnızca netleştirilmiş gereksinim setini üret.",
+    "layer": "design"
+  },
+  {
+    "id": "api-design",
+    "icon": "🔌",
+    "name": "API / Arayüz Tasarımı",
+    "desc": "Gövdeden önce sözleşmeyi tasarla",
+    "explain": "Uygulama henüz yokken, genel arayüzü (fonksiyonlar, endpoint'ler veya tipler) kararlı bir sözleşme olarak tasarlar.",
+    "requires": ["req-clarify"],
+    "prompt": "API / ARAYÜZ TASARIMI\nİç uygulamayı yazmadan önce bu görev için genel arayüz(ler)i kararlı bir sözleşme olarak tasarla.\n- İmza Tasarımı (Fonksiyon imzaları, endpoint route/method'ları veya tip tanımları — bağlama uygun olanı)\n- Girdi ve Çıktılar (Parametre tipleri, dönüş tipleri, request/response şekilleri, hata durumları dahil)\n- İsimlendirme Gerekçesi (Bu isimlerin neden belirsizlik içermediğini ve çevredeki alan kelime dağarcığıyla tutarlı olduğunu açıkla)\n- Versiyonlama ve Uyumluluk (Bu arayüz, mevcut çağıranları bozmadan nasıl evrilebilir?)\nFormat: Arayüzü, bağlamdan anlaşılan dil/framework'e uygun bir kod bloğunda sun.",
+    "layer": "design"
+  },
+  {
+    "id": "data-model",
+    "icon": "🗄️",
+    "name": "Veri Modeli ve Şema Tasarımı",
+    "desc": "Mantıktan önce veriyi şekillendir",
+    "explain": "Özelliğin üzerinde çalışacağı varlıkları, ilişkileri ve kısıtları tasarlar.",
+    "requires": ["req-clarify"],
+    "prompt": "VERİ MODELİ VE ŞEMA TASARIMI\nBu görevin gerektirdiği veri modelini, üzerinde çalışan mantığı yazmadan önce tasarla.\n- Varlıklar ve Alanlar (Temel varlıklar, alanları ve tipleri)\n- İlişkiler (Bire-bir, bire-çok, çoka-çok — ve nedeni)\n- Kısıtlar ve Değişmezler (Her zaman geçerli olması gereken benzersizlik, zorunlu alan, geçerli aralık ve referans bütünlüğü kuralları)\n- Normalizasyon vs. Denormalizasyon Ödünleşimi (Hangisini seçtiğini ve muhtemel okuma/yazma örüntüsüne göre nedenini belirt)\nFormat: Şemayı bir tablo veya şema/DDL tarzı kod bloğu olarak sun, bağlama uygun olanı.",
+    "layer": "design"
+  },
+  {
+    "id": "architecture",
+    "icon": "🏗️",
+    "name": "Mimari / Sistem Tasarımı",
+    "desc": "Bileşenler, sınırlar, veri akışı",
+    "explain": "Sistemi bileşenlere, sorumluluklarına ve aralarındaki veri/kontrol akışına haritalar.",
+    "requires": ["req-clarify"],
+    "prompt": "MİMARİ / SİSTEM TASARIMI\nUygulama başlamadan önce bu sistemi veya özelliği tutarlı bir mimariye haritala.\n- Bileşenler (Her bileşeni/modülü ve tek bir sorumluluğunu listele)\n- Veri ve Kontrol Akışı (Bir istek veya olay bileşenler arasında adım adım nasıl hareket eder?)\n- Sınırlar (Bu sistem harici sistemlerle, veritabanlarıyla veya üçüncü taraf servislerle nerede konuşur ve her sınırı hangi sözleşme yönetir?)\n- Kritik Tasarım Kararları (En büyük etkiye sahip 2-3 kararı ve her biri için reddettiğin alternatifi belirt)\nFormat: Bileşenleri ve bağlantılarını gösteren basit bir ASCII veya metin tabanlı diyagramı bir kod bloğu içinde ekle.",
+    "layer": "design"
+  },
+  {
+    "id": "tech-select",
+    "icon": "🧰",
+    "name": "Teknoloji ve Kütüphane Seçimi",
+    "desc": "İş için doğru aracı seç",
+    "explain": "Aday dilleri, framework'leri veya kütüphaneleri, en popüler seçeneğe varsayılan olarak yönelmek yerine görevin gerçek kısıtlarına göre değerlendirir.",
+    "requires": [],
+    "prompt": "TEKNOLOJİ VE KÜTÜPHANE SEÇİMİ\nBu görevle ilgili teknoloji, framework veya kütüphane seçeneklerini değerlendir.\nFormat: Karşılaştırmayı şu sütunlarla bir markdown tablosu olarak sun:\n- | Aday |\n- | Bu Kullanım İçin Güçlü Yönler |\n- | Zayıf Yönler / Riskler |\n- | Olgunluk ve Bakım Sinyali |\n- | Karar |\nTablodan sonra nihai önerini ve bu spesifik bağlamda (genel olarak değil) neden kazandığının tek en büyük nedenini belirt.",
+    "layer": "design"
+  },
+  {
+    "id": "implement",
+    "icon": "⌨️",
+    "name": "Spesifikasyondan Uygulama",
+    "desc": "Çalışan uygulamayı yaz",
+    "explain": "Daha önce tanımlanan kısıtları ve arayüzleri uygulayarak gerçek çalışan implementasyonu yazar.",
+    "requires": [],
+    "prompt": "SPESİFİKASYONDAN UYGULAMA\nBu görevi çalışan, çalıştırılabilir kod olarak uygula.\n- Bu konuşmada zaten oluşturulmuş arayüzleri, veri modellerini veya mimariyi takip et; sessizce yeniden tasarlama.\n- Tam kod yaz, parça değil — \"...implementasyonun geri kalanı burada\" gibi yer tutucular kullanma.\n- Sadece mutlu yolu değil, hata yollarını da ele al.\n- Koddan sonra, açıkça belirtilmemiş her şey için kısa bir \"Yapılan Varsayımlar\" listesi ekle.\nFormat: Uygulamayı doğru etiketlenmiş bir kod bloğunda sun.",
+    "layer": "build"
+  },
+  {
+    "id": "scaffold",
+    "icon": "🧩",
+    "name": "İskelet / Boilerplate",
+    "desc": "Başlangıç yapısını üret",
+    "explain": "Uygulamaya hemen başlanabilmesi için başlangıç proje veya modül yapısını — dosyalar, klasörler, config — üretir.",
+    "requires": [],
+    "prompt": "İSKELET / BOILERPLATE\nUygulamaya hemen başlanabilmesi için bu görevin başlangıç iskeletini üret.\n- Dosya/Klasör Yapısı (Oluşturulması gereken dizin ağacını göster)\n- Boilerplate İçerik (Her dosya için minimal çalışan başlangıç içeriğini ver — importlar, exportlar, boş handler'lar — tam iş mantığı değil)\n- Konfigürasyon (İskeleti çalıştırmak için gereken config dosyaları, ortam değişkenleri veya bağımlılık manifesto girdileri)\n- Sonraki Adımlar (Önce, sonra ve daha sonra neyin uygulanacağının kısa sıralı listesi)\nFormat: Dizin ağacı için bir kod bloğu, her dosya için ayrı etiketlenmiş kod blokları kullan.",
+    "layer": "build"
+  },
+  {
+    "id": "algorithm",
+    "icon": "🧮",
+    "name": "Algoritma Tasarımı (+ Big-O)",
+    "desc": "Algoritmayı tasarla ve analiz et",
+    "explain": "Problemin çekirdek algoritmasını tasarlar ve zaman/alan karmaşıklığını formel olarak analiz eder.",
+    "requires": [],
+    "prompt": "ALGORİTMA TASARIMI (+ BIG-O)\nBu problemi verimli şekilde çözmek için gereken çekirdek algoritmayı tasarla.\n- Yaklaşım (Herhangi bir koddan önce algoritmik stratejiyi sade dille açıkla)\n- Doğruluk (Bu yaklaşımın, uç durumları nasıl ele aldığı dahil, neden doğru bir sonuç ürettiğini kısaca gerekçelendir)\n- Karmaşıklık Analizi (Big-O notasyonuyla zaman ve alan karmaşıklığını belirt ve algoritmanın hangi kısmının her birine hakim olduğunu açıkla)\n- Alternatif Yaklaşımlar (En az bir alternatif algoritma/veri yapısı adlandır ve neden seçilmediğini belirt — genellikle bir karmaşıklık veya sadelik ödünleşimi)\nFormat: Bağlama göre daha kullanışlı olanı — pseudo-code veya gerçek kod implementasyonu — sağla.",
+    "layer": "build"
+  },
+  {
+    "id": "idioms",
+    "icon": "🎨",
+    "name": "Deyimsel Kalıplar",
+    "desc": "Bu dilin beklediği gibi yaz",
+    "explain": "Kodu, ait olduğu dil/framework'e özgü deyimlere, isimlendirme kurallarına ve standart kütüphane kullanımına uyacak şekilde yeniden yazar veya inceler.",
+    "requires": [],
+    "prompt": "DEYİMSEL KALIPLAR\nBu kodu (veya yazmak üzere olduğun kodu) dilinin/framework'ünün deyimsel kurallarına göre değerlendir.\n- Dil Deyimleri (Kod nerede bu dilde doğal olmayan veya önerilmeyen kalıplar kullanıyor ve deyimsel karşılığı nedir?)\n- Standart Kütüphane Kullanımı (Kod nerede standart kütüphanenin veya yerleşik bir kuralın zaten sağladığı bir şeyi yeniden icat ediyor?)\n- İsimlendirme ve Yapı Kuralları (İsimlendirme, dosya organizasyonu ve hata yönetimi, bu ekosistemdeki deneyimli bir geliştiricinin bekleyeceğiyle eşleşiyor mu?)\n- Yeniden Yazım (Neyin neden değiştiğini işaretleyen satır içi yorumlarla deyimsel versiyonu ver.)",
+    "layer": "build"
+  },
+  {
+    "id": "explain",
+    "icon": "💬",
+    "name": "Bu Kodu Açıkla",
+    "desc": "Bu kod gerçekte ne yapıyor?",
+    "explain": "Bir kod parçasının ne yaptığını ve neden bu şekilde yazıldığını bölüm bölüm açıklar.",
+    "requires": [],
+    "prompt": "BU KODU AÇIKLA\nBu kodu daha önce hiç görmemiş yetkin bir geliştiriciyi işe alıştırıyormuş gibi bölüm bölüm açıkla.\n- Üst Düzey Özet (Bu kod hangi problemi çözüyor, 2-3 cümlede?)\n- Bölüm Bölüm İnceleme (Anlamlı blokları sırayla gez; her birinin ne yaptığını ve neden bu şekilde yapılandırıldığını açıkla)\n- Sıra Dışı Kararlar (Alışılmadık görünen her şeyi işaretle ve muhtemel nedenini açıkla)\n- Tuzaklar (Yeni bir okuyucunun ilk okumada muhtemelen yanlış anlayacağı şeyler)",
+    "layer": "comprehend"
+  },
+  {
+    "id": "trace",
+    "icon": "🐾",
+    "name": "Yürütme İzi",
+    "desc": "Çalıştırmayı adım adım takip et",
+    "explain": "Somut bir girdinin kodun gerçek yürütme yolunu satır satır izler, her adımda durumu gösterir.",
+    "requires": ["explain"],
+    "prompt": "YÜRÜTME İZİ\nBu kodun somut, spesifik bir girdi için yürütülmesini adım adım izle.\n- Başlangıç Durumu (Kesin girdi ve başlangıç değişken/durum değerleri)\n- Adım Adım İz (Yürütülen her satır veya blok için nelerin değiştiğini — değişken değerleri, alınan kontrol akışı, yapılan fonksiyon çağrıları — sırasıyla göster)\n- Son Durum (Yürütmenin sonundaki çıktı ve son durum)\nFormat: İzi | Adım | Satır/Blok | Durum Değişimi | Notlar | sütunlarıyla bir tablo olarak sun, ya da kodun şekli tabloya uymuyorsa numaralı bir sıra olarak.",
+    "layer": "comprehend"
+  },
+  {
+    "id": "codebase-map",
+    "icon": "🗺️",
+    "name": "Kod Tabanı Haritası",
+    "desc": "Yabancı bir kod tabanında yön bul",
+    "explain": "Yabancı bir kod tabanının veya modül kümesinin yapısal bir haritasını çıkarır — ne var, parçalar nasıl ilişkili, nereden başlanmalı.",
+    "requires": [],
+    "prompt": "KOD TABANI HARİTASI\nHızlıca yön bulabilmem için bu kod tabanının (veya verilen kod/dosyaların) yapısal bir haritasını çıkar.\n- Modül/Dosya Envanteri (Ana dosyalar veya modüller neler ve her biri neden sorumlu?)\n- Bağımlılık İlişkileri (Hangi parçalar hangilerine bağımlı — her importu değil, önemli bağlantıları açıkla)\n- Giriş Noktaları (Yeni bir katkıcı sistemi uçtan uca anlamak için nereden okumaya başlamalı?)\n- Önerilen Okuma Sırası (Önce, sonra ve daha sonra hangi dosya/modüllerin okunacağının kısa sıralı listesi ve bu sıranın neden kafa karışıklığını en aza indirdiği)\nFormat: Bir kod bloğu içinde basit bir ASCII ağacı veya bağımlılık diyagramı ekle.",
+    "layer": "comprehend"
+  },
+  {
+    "id": "compare-approaches",
+    "icon": "⚖️",
+    "name": "Yaklaşım Karşılaştırması",
+    "desc": "Uygulama stratejilerini tart",
+    "explain": "Aynı şeyi uygulamanın birden fazla geçerli yolunu, açık bir ödünleşim analiziyle karşılaştırır.",
+    "requires": [],
+    "prompt": "YAKLAŞIM KARŞILAŞTIRMASI\nBu görevi uygulamanın farklı geçerli yaklaşımlarını karşılaştır.\nFormat: Karşılaştırmayı şu sütunlarla bir markdown tablosu olarak sun:\n- | Yaklaşım |\n- | Nasıl Çalışır |\n- | Güçlü Yönler |\n- | Zayıf Yönler / Riskler |\n- | En Uygun Olduğu Durum |\nTablodan sonra, BU spesifik bağlam için net bir öneri ver ve öneriyi değiştirecek tek koşulu belirt.",
+    "layer": "comprehend"
+  },
+  {
+    "id": "review",
+    "icon": "🔍",
+    "name": "Kod İncelemesi",
+    "desc": "Kıdemli seviye inceleme geçişi",
+    "explain": "Kodu, bir pull request'te kıdemli bir mühendisin yapacağı gibi — doğruluk, tasarım ve sürdürülebilirlik açısından — inceler.",
+    "requires": [],
+    "prompt": "KOD İNCELEMESİ\nBu kodu, bir pull request incelemesinde kıdemli bir mühendisin yapacağı gibi incele.\n- Doğruluk Sorunları (Hatalar, mantık yanlışları, ele alınmamış durumlar — spesifik satırı veya bloğu belirt)\n- Tasarım ve Sürdürülebilirlik (Kod tabanı büyüdükçe sorun yaratacak her şey: sıkı bağlaşım, belirsiz sorumluluk, eksik soyutlama)\n- Okunabilirlik (Gelecekteki bir okuyucuyu kafası karıştıracak isimlendirme, yapı veya yorum eksikliği)\n- Ufak Notlar (Yukarıdaki sorunlarla aynı ağırlığı almaması için açıkça ayrılmış küçük stil sorunları)\nHer sorun için önem derecesini (Engelleyici / Düzeltilmeli / Ufak Not) ve somut bir düzeltme önerisi belirt. Açık bir ONAYLA / DEĞİŞİKLİK İSTE kararıyla ve nedeniyle bitir.",
+    "layer": "harden"
+  },
+  {
+    "id": "security",
+    "icon": "🛡️",
+    "name": "Güvenlik Denetimi (OWASP)",
+    "desc": "İstismar edilebilir zayıflıkları bul",
+    "explain": "Kodu, ilgili yerlerde OWASP Top 10 kategorilerini kontrol listesi olarak kullanarak güvenlik açıkları için denetler.",
+    "requires": [],
+    "prompt": "GÜVENLİK DENETİMİ (OWASP)\nİlgili yerlerde OWASP Top 10 kategorilerini (injection, kırık erişim kontrolü, kriptografik hatalar vb.) bir kontrol listesi olarak kullanarak bu kodu güvenlik açıkları için denetle.\n- Bulunan Açıklar (Her biri için: ne olduğu, kodda tam olarak nerede olduğu, ve nasıl istismar edilebileceğini gösteren somut bir senaryo)\n- Önem Derecesi (Etki ve istismar edilebilirliği kullanarak Kritik / Yüksek / Orta / Düşük)\n- Giderim (Genel tavsiye değil, düzelten spesifik kod değişikliği veya kontrol)\n- Güven Sınırları (Güvenilmeyen girdi bu sisteme nereden giriyor ve o sınırda doğrulanıyor/temizleniyor mu?)\nFormat: Bulguları | Açık | Konum | Önem Derecesi | Düzeltme | sütunlarıyla bir tablo olarak sun.",
+    "layer": "harden"
+  },
+  {
+    "id": "performance",
+    "icon": "⚡",
+    "name": "Performans ve Karmaşıklık",
+    "desc": "Darboğazı bul",
+    "explain": "Kodu performans darboğazları ve karmaşıklık sorunları için analiz eder ve düzeltmeleri gerçek etkiye göre önceliklendirir.",
+    "requires": [],
+    "prompt": "PERFORMANS VE KARMAŞIKLIK\nBu kodu performans sorunları için analiz et.\n- Darboğazlar (Çalışma zamanına veya belleğe hakim olması muhtemel spesifik işlemleri belirle — örn. gereksiz döngüler, N+1 sorguları, sınırsız tahsisler)\n- Karmaşıklık (Kritik yolun mevcut zaman/alan karmaşıklığını ve önerdiğin düzeltmeden sonra ne olacağını belirt)\n- Etki Sıralaması (Sorunları düzeltmesi ne kadar kolay olduğuna göre değil, beklenen gerçek dünya etkisine göre sırala)\n- Düzeltme (En önemli 1-3 sorun için spesifik kod değişikliğini ve varsa getirdiği risk/ödünleşimi ver)\nErken optimizasyonun gerçek bir risk olduğunu varsay — belirtilmiş veya açıkça ima edilmiş bir darboğazı ele almadıkça mikro optimizasyon önerme.",
+    "layer": "harden"
+  },
+  {
+    "id": "tests",
+    "icon": "✅",
+    "name": "Test Üretimi",
+    "desc": "Bozulmadan önce kapsa",
+    "explain": "Kod için, sadece birkaç mutlu-yol kontrolü değil, test kategorisine göre organize edilmiş kapsamlı bir test paketi üretir.",
+    "requires": [],
+    "prompt": "TEST ÜRETİMİ\nBu kod için kapsamlı bir test paketi üret.\n- Mutlu Yol Testleri (Temel beklenen davranış)\n- Uç Durum Testleri (Boş girdi, sınır değerleri, maksimum/minimum boyutlar)\n- Hata/Başarısızlık Testleri (Geçersiz girdi, istisnalar, harici hatalar — sadece çökmediğini değil, doğru hata davranışını doğrula)\n- Regresyon Testleri (Uygunsa, kodu okurken fark ettiğin bir hatayı spesifik olarak kodlayan bir test)\nÇevredeki kod/bağlamdan anlaşılan test framework'ünü ve kurallarını kullan (hiçbiri belirtilmemişse varsayımını belirt). Her test adı, implementasyonu değil, doğrulanan davranışı tanımlamalı.",
+    "layer": "harden"
+  },
+  {
+    "id": "edge-cases",
+    "icon": "🎯",
+    "name": "Uç Durum ve Hata Avı",
+    "desc": "Bu gerçekte nerede bozulur?",
+    "explain": "Kodun sessizce yanlış sonuç ürettiği veya çöktüğü girdileri ve koşulları sistematik olarak avlar.",
+    "requires": [],
+    "prompt": "UÇ DURUM VE HATA AVI\nBu kodun yanlış sonuç ürettiği veya çöktüğü girdi ve koşulları sistematik olarak avla.\n- Sınır Değerleri (Boş, sıfır, negatif, maksimum boyut, tekil eleman durumları)\n- Eşzamanlılık ve Zamanlama (Uygunsa: yarış koşulları, sıralama varsayımları, atomik olmayan işlemler)\n- Harici Hata Modları (Bir ağ çağrısı zaman aşımına uğrarsa, bir bağımlılık bozuk veri döndürürse veya bir kaynak kullanılamazsa ne olur?)\n- Sessiz Hatalar (Kodun ÇÖKMEDİĞİ ama herhangi bir sinyal olmadan yanlış sonuç ürettiği durumlar — bunlar en tehlikeli olanlardır)\nBulduğun her durum için, sadece \"bu bir sorun olabilir\" değil, tetikleyen koşulu ve gerçek (gözlemlenen veya çıkarılan) davranışı belirt.",
+    "layer": "harden"
+  },
+  {
+    "id": "debug",
+    "icon": "🐛",
+    "name": "Kök Neden Hata Ayıklama",
+    "desc": "Belirtiden kök nedene",
+    "explain": "Sistematik bir hipotez-ve-eleme süreciyle gözlemlenen bir hata veya hatadan gerçek kök nedene doğru geriye çalışır.",
+    "requires": ["trace"],
+    "prompt": "KÖK NEDEN HATA AYIKLAMA\nBu hatayı, gözlemlenen belirtiden gerçek kök nedene doğru sistematik olarak teşhis et.\n- Belirtiyi Yeniden İfade Et (Tam olarak ne oluyor, beklenene karşı ne olmalı)\n- Hipotezler (Olasılığa göre sıralanmış 2-4 makul kök neden listele)\n- İnceleme (En olası hipotez için, onu doğrulayacak veya eleyecek tam yürütme yolunu veya durumu izle — varsa yürütme izine referans ver)\n- Kök Neden (Sadece belirtiyi değil, doğrulanmış kök nedeni belirt)\n- Düzeltme ve Regresyon Koruması (Spesifik kod düzeltmesi, artı bu hatayı yakalayacak bir test)\nKök neden tahmin değil kanıtla belirlenmeden bir düzeltme önerme.",
+    "layer": "harden"
+  },
+  {
+    "id": "refactor",
+    "icon": "🔧",
+    "name": "Yeniden Yapılandırma (Davranış Korunarak)",
+    "desc": "Yapıyı iyileştir, davranışı koru",
+    "explain": "Kodun harici davranışını biçimsel olarak koruyarak okunabilirlik ve sürdürülebilirlik için yeniden yapılandırır.",
+    "requires": [],
+    "prompt": "YENİDEN YAPILANDIRMA (DAVRANIŞ KORUNARAK)\nBu kodu, harici davranışını kesinlikle koruyarak yapısını ve okunabilirliğini iyileştirmek için yeniden yapılandır.\n- Ele Alınan Sorunlar (Mevcut yapıda spesifik olarak ne yanlış — tekrar, kötü isimlendirme, karışık sorumluluklar, derin iç içe geçme)\n- Yeniden Yapılandırılmış Kod (Tam yeniden yazılmış kod)\n- Davranış Garantisi (Hangi girdi/çıktıların aynı kaldığını doğruladığını açıkça belirt ve davranışı korumasından %100 emin olmadığın her şeyi işaretle)\n- Diff Özeti (İncelemecinin diff'ten yeniden çıkarmak zorunda kalmaması için nelerin ve neden değiştiğinin kısa madde listesi)\nBu adımda yeni özellik, bağımlılık veya davranış değişikliği ekleme — bu ayrı bir görev.",
+    "layer": "ship"
+  },
+  {
+    "id": "patterns",
+    "icon": "🧱",
+    "name": "Tasarım Deseni Uygulaması",
+    "desc": "Trend değil, doğru deseni uygula",
+    "explain": "Bilinen bir tasarım deseninin probleme gerçekten uyup uymadığını belirler ve yalnızca karmaşıklığını hak ediyorsa uygular.",
+    "requires": [],
+    "prompt": "TASARIM DESENİ UYGULAMASI\nBilinen bir tasarım deseninin bu kodu gerçekten iyileştirip iyileştirmediğini değerlendir ve öyleyse uygula.\n- Aday Desen(ler) (Uygulanabilecek deseni/desenleri adlandır, örn. Strategy, Factory, Observer, Decorator)\n- Uyum Gerekçesi (Bu desenin mevcut kodda tam olarak hangi sorunu çözdüğünü açıkla — sadece \"Strategy bunun için var\" değil)\n- Karmaşıklık Maliyeti (Eklenen dolaylılık/soyutlama maliyeti konusunda dürüst ol, ve bu kodun mevcut boyutu ve değişim sıklığında haklı olup olmadığını belirt)\n- Uygulama (Haklıysa, deseni uygulayan yeniden yapılandırılmış kodu ver. Haklı DEĞİLSE, bunu açıkça söyle ve mevcut daha basit formun neden daha iyi olduğunu açıkla.)",
+    "layer": "ship"
+  },
+  {
+    "id": "migration",
+    "icon": "🚚",
+    "name": "Göç / Modernizasyon",
+    "desc": "Yeniye güvenle geç",
+    "explain": "Riskli bir big-bang yeniden yazım olmadan, eski bir kütüphaneden/sürümden/kalıptan yenisine güvenli, aşamalı bir göç planlar.",
+    "requires": ["refactor"],
+    "prompt": "GÖÇ / MODERNİZASYON\nMevcut yaklaşımdan/kütüphaneden/sürümden hedeflenene güvenli bir göç planla.\n- Fark Analizi (Eski ve yeni arasındaki somut kırıcı değişiklikler veya davranış farkları neler?)\n- Göç Stratejisi (Big-bang yeniden yazım yerine aşamalı bir yolu — örn. strangler pattern, feature flag'ler, paralel çalıştırma — tercih et; seçilen stratejiyi gerekçelendir)\n- Adım Adım Plan (Her biri mümkün olduğunca bağımsız olarak yayınlanabilir ve geri alınabilir sıralı adımlar)\n- Risk ve Geri Alma (Riskli her adım için, ters giderse geri alma planını belirt)\nFormat: Adım adım planı, her adımın neyi değiştirdiğini ve bir sonrakine geçmeden önce nasıl doğrulanacağını adlandıran numaralı bir liste olarak sun.",
+    "layer": "ship"
+  },
+  {
+    "id": "docs",
+    "icon": "📄",
+    "name": "Dokümantasyon (Docstring/README/ADR)",
+    "desc": "Düzgünce yaz",
+    "explain": "Artefakta uygun dokümantasyon üretir — satır içi docstring, bir README bölümü veya bir mimari karar kaydı.",
+    "requires": [],
+    "prompt": "DOKÜMANTASYON (DOCSTRING / README / ADR)\nBu artefakta uygun dokümantasyonu üret; düzyazıyı varsayılan olarak seçmek yerine doğru formatı seç.\n- Bir fonksiyon/sınıf dokümante ediyorsan: Amacı, parametreleri, dönüş değerini, fırlatılan istisnaları ve bir kullanım örneğini kapsayan docstring/yorumlar yaz.\n- Bir modül/proje dokümante ediyorsan: Ne yaptığını, nasıl kullanılacağını ve temel konfigürasyonu kapsayan bir README bölümü yaz.\n- Bir karar dokümante ediyorsan: Kısa bir Mimari Karar Kaydı (Bağlam, Karar, Sonuçlar, Değerlendirilen Alternatifler) yaz.\nKodu çalıştıracak bağlama sahip ama neden bu şekilde inşa edildiği bağlamına sahip olmayan bir okuyucu için yaz — amaç, sana sormak zorunda kalmalarını önlemek.",
+    "layer": "ship"
+  },
+  {
+    "id": "commit-pr",
+    "icon": "📮",
+    "name": "Commit ve PR Mesajı",
+    "desc": "Diff'i değil, değişikliği açıkla",
+    "explain": "Sadece ne değiştiğini değil, değişikliğin neden yapıldığını açıklayan net bir commit mesajı ve pull request açıklaması yazar.",
+    "requires": [],
+    "prompt": "COMMIT VE PR MESAJI\nBu değişiklik için bir commit mesajı ve pull request açıklaması yaz.\n- Commit Mesajı (Kısa, emir kipinde bir özet satırı, ardından değişikliğin NEDEN yapıldığını açıklayan bir gövde — diff zaten neyin değiştiğini gösteriyor)\n- PR Açıklaması (Değişikliğin özeti, motivasyon/bağlam, nasıl test edildiği, ve bir incelemecinin bilmesi gereken riskler veya takip işleri)\n- Kırıcı Değişiklikler (Tüketiciler için kırıcı değişiklikleri ve göç adımlarını açıkça belirt, yoksa 'Yok' de)\nBağlamdan farklı bir kural anlaşılmadıkça, commit mesajı başlık satırı için Conventional Commits stilini takip et.",
+    "layer": "ship"
+  }
+]

@@ -1,4 +1,8 @@
-export const PRESETS = {
+// Domain-scoped presets: PRESETS_BY_DOMAIN[domain][presetId].
+// Module ids referenced by `forceModules` are language-agnostic (same id in
+// modules_{en,tr}.json / modules_code_{en,tr}.json), so presets don't need a
+// `lang` parameter — only `domain`.
+const LEARNING_PRESETS = {
     hizli: {
         id: 'hizli',
         forceModules: ['mekanizma', 'ornekler', 'pareto'],
@@ -61,8 +65,68 @@ export const PRESETS = {
     }
 };
 
-export function applyPreset(presetId, lang = 'tr') {
-    const preset = PRESETS[presetId];
+const CODE_PRESETS = {
+    'ship-feature': {
+        id: 'ship-feature',
+        forceModules: ['req-clarify', 'api-design', 'implement', 'tests'],
+        override: { derinlik: 'orta', format: 'explained', mod: 'senior' },
+        injectRules: ["Prioritize a working, correct implementation over premature abstraction.", "Flag any requirement ambiguity instead of silently guessing."]
+    },
+    'code-review': {
+        id: 'code-review',
+        forceModules: ['review', 'security', 'performance'],
+        override: { derinlik: 'derin', format: 'explained', mod: 'reviewer' },
+        injectRules: ["Separate blocking issues from nitpicks explicitly.", "End with an explicit APPROVE / REQUEST CHANGES verdict."]
+    },
+    debug: {
+        id: 'debug',
+        forceModules: ['trace', 'debug', 'tests'],
+        override: { derinlik: 'derin', format: 'stepwise', mod: 'senior' },
+        injectRules: ["Do not propose a fix before the root cause is confirmed with evidence.", "Include a regression test that would have caught this bug."]
+    },
+    refactor: {
+        id: 'refactor',
+        forceModules: ['explain', 'refactor', 'tests'],
+        override: { derinlik: 'orta', format: 'diff', mod: 'senior' },
+        injectRules: ["Preserve external behavior exactly; no new features in this pass.", "Summarize what changed and why for the reviewer."]
+    },
+    'system-design': {
+        id: 'system-design',
+        forceModules: ['architecture', 'api-design', 'data-model', 'tech-select'],
+        override: { derinlik: 'kapsamli', format: 'explained', mod: 'architect' },
+        injectRules: ["Justify every major decision against the alternative you rejected.", "Make trust and system boundaries explicit."]
+    },
+    onboard: {
+        id: 'onboard',
+        forceModules: ['codebase-map', 'explain', 'trace'],
+        override: { derinlik: 'orta', format: 'explained', mod: 'pair' },
+        injectRules: ["Optimize for a new contributor's first hour in this codebase.", "Recommend a concrete reading order, not just a description."]
+    },
+    harden: {
+        id: 'harden',
+        forceModules: ['security', 'edge-cases', 'performance'],
+        override: { derinlik: 'kapsamli', format: 'explained', mod: 'security' },
+        injectRules: ["Think like an attacker: assume every input is hostile until proven otherwise.", "Prioritize findings by real-world exploitability, not theoretical risk."]
+    },
+    document: {
+        id: 'document',
+        forceModules: ['docs', 'commit-pr', 'explain'],
+        override: { derinlik: 'orta', format: 'explained', mod: 'senior' },
+        injectRules: ["Write for a reader who can run the code but not read your mind.", "Prefer the documentation format that matches the artifact, not prose by default."]
+    }
+};
+
+export const PRESETS_BY_DOMAIN = {
+    learning: LEARNING_PRESETS,
+    code: CODE_PRESETS
+};
+
+export function getPresets(domain = 'learning') {
+    return PRESETS_BY_DOMAIN[domain] || LEARNING_PRESETS;
+}
+
+export function applyPreset(presetId, domain = 'learning') {
+    const preset = getPresets(domain)[presetId];
     if (!preset) return { forceModules: [], override: {}, injectRules: [] };
     return preset;
 }
