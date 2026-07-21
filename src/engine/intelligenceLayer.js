@@ -15,6 +15,9 @@ export const DEPTH = {
 export const FORMAT = {
     LECTURE: 'ders'
 };
+export const LEVEL = {
+    HARDENED: 'hardened'
+};
 
 const LEARNING_RULES = [
     {
@@ -51,7 +54,7 @@ const CODE_RULES = [
         action: (suggestions) => suggestions.add('api-design')
     },
     {
-        condition: (config) => config.seviye === 'hardened',
+        condition: (config) => config.seviye === LEVEL.HARDENED,
         action: (suggestions, has) => {
             if (!has('security')) suggestions.add('security');
             if (!has('edge-cases')) suggestions.add('edge-cases');
