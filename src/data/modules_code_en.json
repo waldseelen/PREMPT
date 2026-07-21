@@ -50,6 +50,16 @@
     "layer": "design"
   },
   {
+    "id": "concurrency",
+    "icon": "🔀",
+    "name": "Concurrency & Thread-Safety Design",
+    "desc": "Design for safe parallel execution",
+    "explain": "Designs the concurrency model — what runs in parallel, what must be synchronized, and how shared state is protected — before implementation begins.",
+    "requires": [],
+    "prompt": "CONCURRENCY & THREAD-SAFETY DESIGN\nDesign the concurrency model for this task before writing implementation code.\n- Concurrency Units (What runs in parallel — threads, async tasks, processes, distributed workers? Be specific about the execution model.)\n- Shared State (What state is accessed by more than one concurrency unit, and how is it protected — locks, atomics, immutability, message-passing?)\n- Ordering & Race Conditions (Where could operations interleave in an unexpected order, and what specifically prevents that?)\n- Deadlock/Starvation Risk (Identify any lock ordering or resource contention that could deadlock or starve a unit, and how the design avoids it.)\nFormat: State your chosen concurrency primitives explicitly (e.g. mutex, channel, actor, optimistic locking) and justify why each fits this specific workload.",
+    "layer": "design"
+  },
+  {
     "id": "implement",
     "icon": "⌨️",
     "name": "Implement from Spec",
@@ -87,6 +97,16 @@
     "explain": "Rewrites or reviews code so it follows the idioms, naming conventions, and standard library usage native to its language/framework.",
     "requires": [],
     "prompt": "IDIOMATIC PATTERNS\nEvaluate this code (or the code you are about to write) against the idiomatic conventions of its language/framework.\n- Language Idioms (Where does the code use patterns that are unnatural or discouraged in this language, and what is the idiomatic equivalent?)\n- Standard Library Usage (Where is the code reinventing something the standard library or a well-established convention already provides?)\n- Naming & Structure Conventions (Does naming, file organization, and error handling match what an experienced developer in this ecosystem would expect?)\n- Rewrite (Provide the idiomatic version, with inline comments marking what changed and why.)",
+    "layer": "build"
+  },
+  {
+    "id": "observability",
+    "icon": "📡",
+    "name": "Observability & Logging",
+    "desc": "Instrument it so failures are diagnosable",
+    "explain": "Designs what to log, measure, and trace as the code is built, so production issues are diagnosable instead of invisible.",
+    "requires": [],
+    "prompt": "OBSERVABILITY & LOGGING\nDesign the observability instrumentation for this code as you build it, not as an afterthought.\n- Logging (What events must be logged, at what level (debug/info/warn/error), and what context — request id, user id, key parameters — must each log line carry to be useful during an incident?)\n- Metrics (What counters, gauges, or histograms would let you detect this code degrading before a user reports it?)\n- Tracing (If this spans multiple services/functions, what needs a trace span, and what attributes should it carry?)\n- Signal-to-Noise (Explicitly call out what NOT to log — sensitive data, high-volume noise that would drown out real signal.)\nFormat: Show the instrumentation inline in the code (as comments or actual logging/metrics calls), not as a separate abstract list.",
     "layer": "build"
   },
   {
@@ -190,6 +210,26 @@
     "layer": "harden"
   },
   {
+    "id": "supply-chain",
+    "icon": "📦",
+    "name": "Dependency & Supply-Chain Audit",
+    "desc": "Audit what you're trusting when you import it",
+    "explain": "Audits the third-party dependencies this code relies on for known vulnerabilities, maintenance health, and blast radius if one is compromised.",
+    "requires": [],
+    "prompt": "DEPENDENCY & SUPPLY-CHAIN AUDIT\nAudit the third-party dependencies this code relies on.\n- Known Vulnerabilities (Flag any dependency with known CVEs relevant to how it's actually used here, not just present in the tree.)\n- Maintenance Health (Is each critical dependency actively maintained? What happens to this code if it isn't?)\n- Blast Radius (If a specific dependency were compromised — e.g. a malicious version published — what could an attacker access through it? Minimize what each dependency can reach.)\n- Pinning & Verification (Are versions pinned/locked? Is there integrity verification — checksums, lockfiles, signed packages?)\nFormat: Present findings as a table with | Dependency | Risk | Why | Mitigation |, prioritized by actual exploitability in this codebase, not a generic severity score.",
+    "layer": "harden"
+  },
+  {
+    "id": "a11y",
+    "icon": "♿",
+    "name": "Accessibility Audit",
+    "desc": "Audit for users who don't use it like you do",
+    "explain": "Audits the interface for accessibility — keyboard navigation, screen reader support, color contrast, and other barriers that exclude users.",
+    "requires": [],
+    "prompt": "ACCESSIBILITY AUDIT\nAudit this interface for accessibility barriers.\n- Keyboard Navigation (Can every interactive element be reached and operated without a mouse? Is focus order logical and focus state visible?)\n- Screen Reader Support (Do interactive elements have accessible names/roles? Are dynamic updates announced? Is semantic HTML used instead of generic divs where it matters?)\n- Visual Accessibility (Color contrast ratios, reliance on color alone to convey information, text scaling/zoom behavior.)\n- Standards Compliance (Map findings to the relevant WCAG success criteria and their conformance level (A/AA/AAA).)\nFormat: Present findings as a table with | Issue | WCAG Criterion | Severity | Fix |, ordered by how completely each issue blocks a given user, not by how easy the fix is.",
+    "layer": "harden"
+  },
+  {
     "id": "refactor",
     "icon": "🔧",
     "name": "Refactor (Behavior-Preserving)",
@@ -237,6 +277,16 @@
     "explain": "Writes a clear commit message and pull-request description that explains why the change was made, not just what changed.",
     "requires": [],
     "prompt": "COMMIT & PR MESSAGE\nWrite a commit message and pull request description for this change.\n- Commit Message (A concise imperative summary line, followed by a body explaining WHY the change was made — the diff already shows what changed)\n- PR Description (Summary of the change, motivation/context, how it was tested, and any risks or follow-up work a reviewer should know about)\n- Breaking Changes (Explicitly call out any breaking changes and migration steps for consumers, or state 'None' if there are none)\nFollow Conventional Commits style for the commit message subject line unless the context implies a different convention is in use.",
+    "layer": "ship"
+  },
+  {
+    "id": "cicd",
+    "icon": "🚀",
+    "name": "CI/CD Pipeline Design",
+    "desc": "Design the path from commit to production",
+    "explain": "Designs the automated pipeline stages — build, test, security scan, deploy — that take this code from commit to running in production safely.",
+    "requires": [],
+    "prompt": "CI/CD PIPELINE DESIGN\nDesign the CI/CD pipeline that should carry this code from commit to production.\n- Pipeline Stages (Build, lint, unit tests, integration tests, security/dependency scan, deploy — in what order, and which stages can run in parallel?)\n- Gate Criteria (What must pass for the pipeline to proceed to the next stage? Be specific — e.g. \"90% coverage on changed lines\", not \"good test coverage\".)\n- Deployment Strategy (Blue-green, canary, rolling, or straight replace — justify the choice for this specific workload's risk tolerance.)\n- Rollback Trigger (What automated signal should trigger an automatic rollback, and how fast?)\nFormat: Present the pipeline as an ordered stage list or a simple flow diagram in a code block, plus the concrete config/YAML sketch if a specific CI platform is implied by context.",
     "layer": "ship"
   }
 ]

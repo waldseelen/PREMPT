@@ -19,8 +19,10 @@ export function buildPromptStructure(state, sortedModules) {
     // 2. [GOAL] — goalTemplate carries a {{KONU}} placeholder for the topic/task text.
     structure[labels.goal] = texts.goalTemplate.replace('{{KONU}}', config.konu);
 
-    // 3. [CONTEXT]
-    structure[labels.context] = `Domain: ${alanText}\nLevel: ${seviyeLabel}`;
+    // 3. [CONTEXT] — labels come from the active domain's compiler text bundle
+    // so this respects `lang` instead of always printing English.
+    const { domain: domainLabel, level: levelLabel, depthRequirement: depthRequirementLabel } = texts.contextLabels;
+    structure[labels.context] = `${domainLabel} ${alanText}\n${levelLabel} ${seviyeLabel}`;
 
     // 4. [ACTIVE MODULES]
     const moduleList = sortedModules.map(m => `- ${m.name} (${m.layer})`);
@@ -35,7 +37,7 @@ export function buildPromptStructure(state, sortedModules) {
     structure[labels.instructions] = taskPrompts.join('\n\n');
 
     // 6. [OUTPUT FORMAT]
-    structure[labels.format] = `${texts.format[config.format] || Object.values(texts.format)[0]}\nDepth Requirement: ${texts.derinlik[config.derinlik] || Object.values(texts.derinlik)[0]}`;
+    structure[labels.format] = `${texts.format[config.format] || Object.values(texts.format)[0]}\n${depthRequirementLabel} ${texts.derinlik[config.derinlik] || Object.values(texts.derinlik)[0]}`;
 
     // 7. [CONSTRAINTS / SAFETY] — base constraints come from the active domain's
     // compiler text bundle (e.g. Learning softens jargon, Code demands complete code).

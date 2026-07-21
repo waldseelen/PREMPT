@@ -16,7 +16,8 @@ import {
     ClipboardList, Plug, Database, Blocks, Package, Puzzle,
     Calculator, Palette, MessageSquare, Footprints, Map, Scale,
     Search, ShieldCheck, ListChecks, Bug, Shapes, Truck, FileText,
-    GitPullRequest
+    GitPullRequest, GitBranch, Radio, PackageSearch,
+    Accessibility, Rocket
 } from 'lucide-react';
 
 const moduleIcons = {
@@ -80,7 +81,12 @@ const moduleIcons = {
     patterns: Shapes,
     migration: Truck,
     docs: FileText,
-    'commit-pr': GitPullRequest
+    'commit-pr': GitPullRequest,
+    concurrency: GitBranch,
+    observability: Radio,
+    'supply-chain': PackageSearch,
+    a11y: Accessibility,
+    cicd: Rocket
 };
 
 export default function ModuleGrid() {
@@ -121,10 +127,11 @@ export default function ModuleGrid() {
                                     </span>
                                 ))}
                                 {suggestions.map((sug) => {
-                                    const modName = modules.find(m => m.id === sug)?.name;
+                                    const modName = modules.find(m => m.id === sug.id)?.name;
+                                    const reasonText = t.suggestionReasons?.[sug.reasonKey] || t.suggestAdd;
                                     return (
-                                        <span key={`sug-${sug}`} style={{ color: 'var(--accent-2)', cursor: 'pointer' }} onClick={() => toggleModule(sug)}>
-                                            {t.aiSuggestion}: "{modName}" {t.suggestAdd} ({t.clickToAdd})
+                                        <span key={`sug-${sug.id}`} style={{ color: 'var(--accent-2)', cursor: 'pointer' }} onClick={() => toggleModule(sug.id)}>
+                                            {t.aiSuggestion}: "{modName}" — {reasonText} ({t.clickToAdd})
                                         </span>
                                     );
                                 })}
@@ -167,7 +174,7 @@ export default function ModuleGrid() {
                             <div className="category-modules-list">
                                 {catModules.map(mod => {
                                     const isActive = selectedModules.includes(mod.id);
-                                    const isSuggested = suggestions.includes(mod.id);
+                                    const isSuggested = suggestions.some(s => s.id === mod.id);
                                     const Icon = moduleIcons[mod.id] || Box;
                                     
                                     return (

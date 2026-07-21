@@ -50,6 +50,16 @@
     "layer": "design"
   },
   {
+    "id": "concurrency",
+    "icon": "🔀",
+    "name": "Eşzamanlılık ve Thread-Safety Tasarımı",
+    "desc": "Güvenli paralel çalışma için tasarla",
+    "explain": "Uygulamaya başlamadan önce eşzamanlılık modelini — neyin paralel çalışacağını, neyin senkronize edilmesi gerektiğini ve paylaşılan durumun nasıl korunacağını — tasarlar.",
+    "requires": [],
+    "prompt": "EŞZAMANLILIK VE THREAD-SAFETY TASARIMI\nUygulama kodunu yazmadan önce bu görev için eşzamanlılık modelini tasarla.\n- Eşzamanlılık Birimleri (Paralel çalışan nedir — thread'ler, async görevler, süreçler, dağıtık worker'lar? Yürütme modelini net belirt.)\n- Paylaşılan Durum (Birden fazla eşzamanlılık birimi tarafından erişilen durum nedir ve nasıl korunuyor — lock'lar, atomikler, immutability, mesaj geçişi?)\n- Sıralama ve Yarış Koşulları (İşlemler beklenmedik bir sırada iç içe geçebileceği yerler nerede, ve tam olarak ne bunu engelliyor?)\n- Deadlock/Starvation Riski (Bir birimi kilitleyebilecek veya aç bırakabilecek herhangi bir lock sıralaması veya kaynak çekişmesini belirle ve tasarımın bunu nasıl önlediğini açıkla.)\nFormat: Seçtiğin eşzamanlılık ilkellerini (örn. mutex, channel, actor, optimistic locking) açıkça belirt ve her birinin bu spesifik iş yükü için neden uygun olduğunu gerekçelendir.",
+    "layer": "design"
+  },
+  {
     "id": "implement",
     "icon": "⌨️",
     "name": "Spesifikasyondan Uygulama",
@@ -87,6 +97,16 @@
     "explain": "Kodu, ait olduğu dil/framework'e özgü deyimlere, isimlendirme kurallarına ve standart kütüphane kullanımına uyacak şekilde yeniden yazar veya inceler.",
     "requires": [],
     "prompt": "DEYİMSEL KALIPLAR\nBu kodu (veya yazmak üzere olduğun kodu) dilinin/framework'ünün deyimsel kurallarına göre değerlendir.\n- Dil Deyimleri (Kod nerede bu dilde doğal olmayan veya önerilmeyen kalıplar kullanıyor ve deyimsel karşılığı nedir?)\n- Standart Kütüphane Kullanımı (Kod nerede standart kütüphanenin veya yerleşik bir kuralın zaten sağladığı bir şeyi yeniden icat ediyor?)\n- İsimlendirme ve Yapı Kuralları (İsimlendirme, dosya organizasyonu ve hata yönetimi, bu ekosistemdeki deneyimli bir geliştiricinin bekleyeceğiyle eşleşiyor mu?)\n- Yeniden Yazım (Neyin neden değiştiğini işaretleyen satır içi yorumlarla deyimsel versiyonu ver.)",
+    "layer": "build"
+  },
+  {
+    "id": "observability",
+    "icon": "📡",
+    "name": "Gözlemlenebilirlik ve Loglama",
+    "desc": "Hataların teşhis edilebilir olmasını sağla",
+    "explain": "Kod inşa edilirken neyin loglanacağını, ölçüleceğini ve izleneceğini tasarlar, böylece production sorunları görünmez değil teşhis edilebilir olur.",
+    "requires": [],
+    "prompt": "GÖZLEMLENEBİLİRLİK VE LOGLAMA\nBu kodun gözlemlenebilirlik enstrümantasyonunu, sonradan eklenecek bir şey değil, inşa ederken tasarla.\n- Loglama (Hangi olaylar hangi seviyede (debug/info/warn/error) loglanmalı, ve bir olay anında faydalı olması için her log satırı hangi bağlamı (request id, kullanıcı id, ana parametreler) taşımalı?)\n- Metrikler (Bu kodun bir kullanıcı şikayet etmeden önce bozulduğunu tespit etmeni sağlayacak hangi sayaçlar, gauge'lar veya histogramlar olurdu?)\n- Trace (Birden fazla servisi/fonksiyonu kapsıyorsa, neyin bir trace span'ine ihtiyacı var ve hangi öznitelikleri taşımalı?)\n- Sinyal/Gürültü Oranı (Neyin LOGLANMAMASI gerektiğini açıkça belirt — hassas veri, gerçek sinyali boğacak yüksek hacimli gürültü.)\nFormat: Enstrümantasyonu ayrı soyut bir liste olarak değil, kodun içinde (yorum olarak veya gerçek loglama/metrik çağrıları olarak) göster.",
     "layer": "build"
   },
   {
@@ -190,6 +210,26 @@
     "layer": "harden"
   },
   {
+    "id": "supply-chain",
+    "icon": "📦",
+    "name": "Bağımlılık ve Tedarik Zinciri Denetimi",
+    "desc": "Import ederken neye güvendiğini denetle",
+    "explain": "Bu kodun dayandığı üçüncü taraf bağımlılıkları bilinen güvenlik açıkları, bakım sağlığı ve biri ele geçirilirse etki alanı açısından denetler.",
+    "requires": [],
+    "prompt": "BAĞIMLILIK VE TEDARİK ZİNCİRİ DENETİMİ\nBu kodun dayandığı üçüncü taraf bağımlılıkları denetle.\n- Bilinen Güvenlik Açıkları (Sadece ağaçta bulunmakla kalmayıp, burada gerçekten nasıl kullanıldığıyla ilgili bilinen CVE'leri işaretle.)\n- Bakım Sağlığı (Her kritik bağımlılık aktif olarak bakımı yapılıyor mu? Yapılmıyorsa bu koda ne olur?)\n- Etki Alanı (Belirli bir bağımlılık ele geçirilseydi — örn. kötü amaçlı bir versiyon yayınlansaydı — bir saldırgan onun üzerinden neye erişebilirdi? Her bağımlılığın erişebileceği alanı en aza indir.)\n- Sabitleme ve Doğrulama (Versiyonlar sabitlenmiş/kilitlenmiş mi? Bütünlük doğrulaması var mı — checksum, lockfile, imzalı paketler?)\nFormat: Bulguları | Bağımlılık | Risk | Neden | Giderim | sütunlarıyla bir tablo olarak sun, genel bir önem skoruna göre değil, bu kod tabanındaki gerçek istismar edilebilirliğe göre önceliklendir.",
+    "layer": "harden"
+  },
+  {
+    "id": "a11y",
+    "icon": "♿",
+    "name": "Erişilebilirlik Denetimi",
+    "desc": "Senin gibi kullanmayan kullanıcılar için denetle",
+    "explain": "Arayüzü erişilebilirlik açısından — klavye navigasyonu, ekran okuyucu desteği, renk kontrastı ve kullanıcıları dışlayan diğer engeller — denetler.",
+    "requires": [],
+    "prompt": "ERİŞİLEBİLİRLİK DENETİMİ\nBu arayüzü erişilebilirlik engelleri için denetle.\n- Klavye Navigasyonu (Her etkileşimli öğeye fare olmadan ulaşılabiliyor ve kullanılabiliyor mu? Focus sırası mantıklı ve focus durumu görünür mü?)\n- Ekran Okuyucu Desteği (Etkileşimli öğelerin erişilebilir isimleri/rolleri var mı? Dinamik güncellemeler duyuruluyor mu? Önemli yerlerde generic div yerine semantik HTML kullanılıyor mu?)\n- Görsel Erişilebilirlik (Renk kontrast oranları, bilgiyi iletmek için yalnızca renge bağımlılık, metin ölçeklendirme/zoom davranışı.)\n- Standart Uyumluluğu (Bulguları ilgili WCAG başarı kriterlerine ve uyum seviyelerine (A/AA/AAA) eşle.)\nFormat: Bulguları | Sorun | WCAG Kriteri | Önem Derecesi | Düzeltme | sütunlarıyla bir tablo olarak sun, düzeltmenin kolaylığına göre değil, her sorunun belirli bir kullanıcıyı ne kadar tamamen engellediğine göre sırala.",
+    "layer": "harden"
+  },
+  {
     "id": "refactor",
     "icon": "🔧",
     "name": "Yeniden Yapılandırma (Davranış Korunarak)",
@@ -237,6 +277,16 @@
     "explain": "Sadece ne değiştiğini değil, değişikliğin neden yapıldığını açıklayan net bir commit mesajı ve pull request açıklaması yazar.",
     "requires": [],
     "prompt": "COMMIT VE PR MESAJI\nBu değişiklik için bir commit mesajı ve pull request açıklaması yaz.\n- Commit Mesajı (Kısa, emir kipinde bir özet satırı, ardından değişikliğin NEDEN yapıldığını açıklayan bir gövde — diff zaten neyin değiştiğini gösteriyor)\n- PR Açıklaması (Değişikliğin özeti, motivasyon/bağlam, nasıl test edildiği, ve bir incelemecinin bilmesi gereken riskler veya takip işleri)\n- Kırıcı Değişiklikler (Tüketiciler için kırıcı değişiklikleri ve göç adımlarını açıkça belirt, yoksa 'Yok' de)\nBağlamdan farklı bir kural anlaşılmadıkça, commit mesajı başlık satırı için Conventional Commits stilini takip et.",
+    "layer": "ship"
+  },
+  {
+    "id": "cicd",
+    "icon": "🚀",
+    "name": "CI/CD Pipeline Tasarımı",
+    "desc": "Commit'ten production'a giden yolu tasarla",
+    "explain": "Bu kodu commit'ten production'da güvenle çalışır hale getiren otomatik pipeline aşamalarını — build, test, güvenlik taraması, deploy — tasarlar.",
+    "requires": [],
+    "prompt": "CI/CD PIPELINE TASARIMI\nBu kodu commit'ten production'a taşıması gereken CI/CD pipeline'ını tasarla.\n- Pipeline Aşamaları (Build, lint, birim testleri, entegrasyon testleri, güvenlik/bağımlılık taraması, deploy — hangi sırada, ve hangi aşamalar paralel çalışabilir?)\n- Geçiş Kriterleri (Pipeline'ın bir sonraki aşamaya geçmesi için ne sağlanmalı? Net ol — örn. \"değişen satırlarda %90 kapsama\", \"iyi test kapsamı\" değil.)\n- Deploy Stratejisi (Blue-green, canary, rolling veya doğrudan değiştirme — bu spesifik iş yükünün risk toleransı için seçimi gerekçelendir.)\n- Geri Alma Tetikleyicisi (Hangi otomatik sinyal otomatik bir geri almayı tetiklemeli, ve ne kadar hızlı?)\nFormat: Pipeline'ı sıralı bir aşama listesi veya bir kod bloğu içinde basit bir akış diyagramı olarak sun, ve bağlamdan belirli bir CI platformu anlaşılıyorsa somut config/YAML taslağını ekle.",
     "layer": "ship"
   }
 ]

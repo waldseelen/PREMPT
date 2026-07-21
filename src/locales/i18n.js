@@ -157,6 +157,13 @@ export const i18n = {
         boundaries: 'Sınırlar & Riskler',
         application: 'Pratik & Gelişim'
       },
+      suggestionReasons: {
+        quizNeedsFoundations: 'Quiz seçtiniz; sağlam bir temel için önce bunu ekleyin.',
+        basicNeedsMentalModel: 'Temel derinlik seçili; akılda kalıcı bir zihinsel model anlamayı hızlandırır.',
+        lectureNeedsPrereqs: 'Ders Notu formatı seçili; ön koşulları netleştirmek akışı daha sağlam kurar.',
+        expertNeedsBoundaries: 'Uzman seviyesi seçili; sınır koşullarını ve varsayımları da görmelisiniz.',
+        firstPrinciplesNeedsMisconceptions: 'Birinci İlkeler modundasınız; yaygın yanılgıları sorgulamak bu yaklaşımı tamamlar.'
+      },
       tourSteps: [
         {
           title: "PROMPTER'a Hoş Geldiniz!",
@@ -261,6 +268,12 @@ export const i18n = {
         comprehend: 'Kavrama',
         harden: 'Sertleştirme',
         ship: 'Yayınlama'
+      },
+      suggestionReasons: {
+        implementNeedsTests: 'Implementasyon/hata ayıklama seçili; testler olmadan doğruluğu kanıtlayamazsınız.',
+        architectureNeedsApiDesign: 'Mimari seçili; arayüz sözleşmesini de netleştirmelisiniz.',
+        hardenedNeedsSecurity: 'Sertleştirilmiş seviye seçili; güvenlik ve uç durum denetimi şart.',
+        migrationNeedsTests: 'Göç/modernizasyon seçili; davranışın korunduğunu testlerle doğrulamalısınız.'
       },
       tourSteps: [
         {
@@ -438,6 +451,13 @@ export const i18n = {
         boundaries: 'Limits & Risks',
         application: 'Practice & Growth'
       },
+      suggestionReasons: {
+        quizNeedsFoundations: 'You selected Quiz; add this first for a solid foundation.',
+        basicNeedsMentalModel: 'Basic depth selected; a memorable mental model speeds up understanding.',
+        lectureNeedsPrereqs: 'Lecture Notes format selected; clarifying prerequisites makes the flow more solid.',
+        expertNeedsBoundaries: 'Expert level selected; you should also see the boundary conditions and assumptions.',
+        firstPrinciplesNeedsMisconceptions: "You're in First Principles mode; questioning common misconceptions completes this approach."
+      },
       tourSteps: [
         {
           title: "Welcome to PROMPTER!",
@@ -542,6 +562,12 @@ export const i18n = {
         comprehend: 'Comprehend',
         harden: 'Harden',
         ship: 'Ship'
+      },
+      suggestionReasons: {
+        implementNeedsTests: "Implementation/debugging selected; you can't prove correctness without tests.",
+        architectureNeedsApiDesign: 'Architecture selected; you should also nail down the interface contract.',
+        hardenedNeedsSecurity: 'Hardened level selected; a security and edge-case pass is essential.',
+        migrationNeedsTests: 'Migration/modernization selected; you need tests to prove behavior is preserved.'
       },
       tourSteps: [
         {

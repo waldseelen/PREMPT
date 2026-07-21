@@ -37,6 +37,7 @@ export const COMPILER_TEXTS = {
                 format: '[OUTPUT FORMAT]',
                 constraints: '[CONSTRAINTS / SAFETY]'
             },
+            contextLabels: { domain: 'Alan:', level: 'Seviye:', depthRequirement: 'Derinlik Gereksinimi:' },
             goalTemplate: '"{{KONU}}" konusunu yüzeysel değil, mekanik ve nedensel seviyede kavramak.',
             constraintsBase: [
                 'Doğrudan konuya gir, gereksiz giriş cümlesi yazma.',
@@ -74,6 +75,7 @@ export const COMPILER_TEXTS = {
                 format: '[OUTPUT FORMAT]',
                 constraints: '[CONSTRAINTS / SAFETY]'
             },
+            contextLabels: { domain: 'Domain:', level: 'Level:', depthRequirement: 'Depth Requirement:' },
             goalTemplate: 'To understand the topic "{{KONU}}" not superficially, but at a mechanical and causal level.',
             constraintsBase: [
                 'Get straight to the point, no unnecessary introductions.',
@@ -113,6 +115,7 @@ export const COMPILER_TEXTS = {
                 format: '[OUTPUT FORMAT]',
                 constraints: '[CONSTRAINTS / SAFETY]'
             },
+            contextLabels: { domain: 'Alan:', level: 'Seviye:', depthRequirement: 'Derinlik Gereksinimi:' },
             goalTemplate: "\"{{KONU}}\" görevini doğru, sürdürülebilir ve production'a hazır bir mühendislik çözümüyle tamamlamak.",
             constraintsBase: [
                 'Doğrudan çözüme gir, gereksiz giriş cümlesi yazma.',
@@ -150,6 +153,7 @@ export const COMPILER_TEXTS = {
                 format: '[OUTPUT FORMAT]',
                 constraints: '[CONSTRAINTS / SAFETY]'
             },
+            contextLabels: { domain: 'Domain:', level: 'Level:', depthRequirement: 'Depth Requirement:' },
             goalTemplate: 'To complete the task "{{KONU}}" with a correct, maintainable, production-ready engineering solution.',
             constraintsBase: [
                 'Get straight to the solution, no unnecessary preamble.',
