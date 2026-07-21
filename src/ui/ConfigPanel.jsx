@@ -36,7 +36,7 @@ export default function ConfigPanel() {
                         </label>
                         <select id="sel-seviye" value={config.seviye} onChange={(e) => setConfig('seviye', e.target.value)}>
                             {domain.levelIds.map((id) => (
-                                <option key={id} value={id}>{t.levels[id]}</option>
+                                <option key={id} value={id}>{t.levels?.[id]}</option>
                             ))}
                         </select>
                     </div>
@@ -58,7 +58,7 @@ export default function ConfigPanel() {
                         </label>
                         <select id="sel-mod" value={config.mod} onChange={(e) => setConfig('mod', e.target.value)}>
                             {domain.modeIds.map((id) => (
-                                <option key={id} value={id}>{t.modes[id]}</option>
+                                <option key={id} value={id}>{t.modes?.[id]}</option>
                             ))}
                         </select>
                     </div>
@@ -80,7 +80,7 @@ export default function ConfigPanel() {
                         </label>
                         <select id="sel-derinlik" value={config.derinlik} onChange={(e) => setConfig('derinlik', e.target.value)}>
                             {domain.depthIds.map((id) => (
-                                <option key={id} value={id}>{t.depths[id]}</option>
+                                <option key={id} value={id}>{t.depths?.[id]}</option>
                             ))}
                         </select>
                     </div>
@@ -102,7 +102,7 @@ export default function ConfigPanel() {
                         </label>
                         <select id="sel-format" value={config.format} onChange={(e) => setConfig('format', e.target.value)}>
                             {domain.formatIds.map((id) => (
-                                <option key={id} value={id}>{t.formats[id]}</option>
+                                <option key={id} value={id}>{t.formats?.[id]}</option>
                             ))}
                         </select>
                     </div>

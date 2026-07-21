@@ -84,13 +84,12 @@ const moduleIcons = {
 };
 
 export default function ModuleGrid() {
-    const { config, selectedModules, setModules, toggleModule, dependencyHints, activePreset } = useEngineState(useShallow(state => ({
+    const { config, selectedModules, setModules, toggleModule, dependencyHints } = useEngineState(useShallow(state => ({
         config: state.config,
         selectedModules: state.selectedModules,
         setModules: state.setModules,
         toggleModule: state.toggleModule,
-        dependencyHints: state.dependencyHints,
-        activePreset: state.activePreset
+        dependencyHints: state.dependencyHints
     })));
     
     const modules = getModuleRegistry(config.domain, config.lang);
@@ -98,8 +97,8 @@ export default function ModuleGrid() {
     const layers = getDomain(config.domain).layers;
 
     const suggestions = useMemo(() => {
-        return getSuggestions(config, selectedModules, activePreset);
-    }, [config, selectedModules, activePreset]);
+        return getSuggestions(config, selectedModules);
+    }, [config, selectedModules]);
 
     return (
         <section className="card delay-4" style={{ position: 'relative', paddingTop: 0 }}>

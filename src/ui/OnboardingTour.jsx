@@ -11,7 +11,7 @@ export default function OnboardingTour() {
     const cardRef = useRef(null);
 
     const t = getTranslation(config.lang, config.domain);
-    const steps = t.tour?.steps || [];
+    const steps = t.tourSteps || [];
 
     // Reset step when the tour is (re)launched. Adjusting state directly
     // during render (rather than in a useEffect) avoids an extra render pass.

@@ -1,9 +1,8 @@
 import { useEngineState } from '../store/engineState';
 import { useShallow } from 'zustand/react/shallow';
 import { getTranslation } from '../locales/i18n';
+import { DOMAINS, DEFAULT_DOMAIN } from '../domains';
 import { Sun, Moon, HelpCircle } from 'lucide-react';
-
-const DOMAIN_ORDER = ['learning', 'code'];
 
 export default function Header() {
     const { config, setTheme, setConfig, setDomain, startTour } = useEngineState(useShallow(state => ({
@@ -14,7 +13,7 @@ export default function Header() {
         startTour: state.startTour
     })));
     const t = getTranslation(config.lang, config.domain);
-    const activeDomain = config.domain ?? 'learning';
+    const activeDomain = config.domain ?? DEFAULT_DOMAIN;
 
     const toggleTheme = () => {
         setTheme(config.theme === 'light' ? 'dark' : 'light');
@@ -34,15 +33,15 @@ export default function Header() {
             </div>
             <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexShrink: 0 }}>
                 <div className="domain-switch" role="tablist" aria-label="Domain">
-                    {DOMAIN_ORDER.map((domainId) => (
+                    {Object.values(DOMAINS).map((d) => (
                         <button
-                            key={domainId}
+                            key={d.id}
                             role="tab"
-                            aria-selected={activeDomain === domainId}
-                            className={`domain-switch-pill ${activeDomain === domainId ? 'active' : ''}`}
-                            onClick={() => setDomain(domainId)}
+                            aria-selected={activeDomain === d.id}
+                            className={`domain-switch-pill ${activeDomain === d.id ? 'active' : ''}`}
+                            onClick={() => setDomain(d.id)}
                         >
-                            {domainId === 'learning' ? t.domainSwitchLearn : t.domainSwitchCode}
+                            {getTranslation(config.lang, d.id).switchLabel}
                         </button>
                     ))}
                 </div>

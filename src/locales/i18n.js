@@ -1,3 +1,5 @@
+import { DEFAULT_DOMAIN } from '../domains/index.js';
+
 // UI strings. Chrome shared across domains (buttons, toasts, tour, footer,
 // badge, etc.) lives at the top level. Everything that varies by domain
 // (titles, option-set labels/descriptions, presets, module categories) lives
@@ -43,39 +45,16 @@ export const i18n = {
  statModules: 'Modül',
  statLayers: 'Katman Derinliği',
  statComplexity: 'Karmaşıklık Skoru',
- domainSwitchLearn: 'Öğren',
- domainSwitchCode: 'Kod',
  tour: {
     btnSkip: 'Geç',
     btnNext: 'Sonraki',
     btnBack: 'Geri',
     btnFinish: 'Bitir',
-    btnReplay: 'Kullanım Turu',
-    steps: [
-      {
-        title: "PROMPTER'a Hoş Geldiniz!",
-        content: "Yapay zekadan en derinlikli ve yapılandırılmış yanıtları almak için tasarlanmış gelişmiş parametrik prompt mühendisine adım attınız. Bu kısa turda arayüzü hızlıca tanıyalım.",
-        selector: "body"
-      },
-      {
-        title: "1. Parametre Konfigürasyonu",
-        content: "Buradan yapay zekanın bilgi seviyesini, öğrenme modunu (Feynman, Sokratik vb.), analiz derinliğini ve çıktı formatını ayarlayabilirsiniz. İç Ses (Reasoning) modunu açarak AI'ın arka plandaki düşünme adımlarını tetikleyebilirsiniz.",
-        selector: ".sidebar"
-      },
-      {
-        title: "2. Şablonlar ve Öğrenme Modülleri",
-        content: "Üstteki hazır şablonlarla tek tıkla en iyi ayarları yükleyebilir, altındaki modülleri (Analoji, Kodlama, Quiz vb.) tek tek seçerek promptunuzun hangi öğrenme başlıklarını içereceğini belirleyebilirsiniz.",
-        selector: ".main-content"
-      },
-      {
-        title: "3. Konu Girişi ve Üretim",
-        content: "Öğrenmek istediğiniz konuyu ve bildiğiniz uzmanlık alanını yazıp 'Prompt Üret' butonuna tıklayın. Oluşan promptu kopyalayarak ChatGPT, Claude veya Gemini gibi AI modellerine doğrudan yapıştırabilirsiniz.",
-        selector: ".right-sidebar"
-      }
-    ]
+    btnReplay: 'Kullanım Turu'
   },
   domains: {
     learning: {
+      switchLabel: 'Öğren',
       title: 'Parametrik Prompt Mühendisi',
       subtitle: 'Herhangi bir konuyu sistematik olarak parçala, analiz et, öğren.',
       topicLabel: 'Öğrenilecek Konu',
@@ -159,9 +138,32 @@ export const i18n = {
         context: 'Bağlantılar',
         boundaries: 'Sınırlar & Riskler',
         application: 'Pratik & Gelişim'
-      }
+      },
+      tourSteps: [
+        {
+          title: "PROMPTER'a Hoş Geldiniz!",
+          content: "Yapay zekadan en derinlikli ve yapılandırılmış yanıtları almak için tasarlanmış gelişmiş parametrik prompt mühendisine adım attınız. Bu kısa turda arayüzü hızlıca tanıyalım.",
+          selector: "body"
+        },
+        {
+          title: "1. Parametre Konfigürasyonu",
+          content: "Buradan yapay zekanın bilgi seviyesini, öğrenme modunu (Feynman, Sokratik vb.), analiz derinliğini ve çıktı formatını ayarlayabilirsiniz. İç Ses (Reasoning) modunu açarak AI'ın arka plandaki düşünme adımlarını tetikleyebilirsiniz.",
+          selector: ".sidebar"
+        },
+        {
+          title: "2. Şablonlar ve Öğrenme Modülleri",
+          content: "Üstteki hazır şablonlarla tek tıkla en iyi ayarları yükleyebilir, altındaki modülleri (Analoji, Kodlama, Quiz vb.) tek tek seçerek promptunuzun hangi öğrenme başlıklarını içereceğini belirleyebilirsiniz.",
+          selector: ".main-content"
+        },
+        {
+          title: "3. Konu Girişi ve Üretim",
+          content: "Öğrenmek istediğiniz konuyu ve bildiğiniz uzmanlık alanını yazıp 'Prompt Üret' butonuna tıklayın. Oluşan promptu kopyalayarak ChatGPT, Claude veya Gemini gibi AI modellerine doğrudan yapıştırabilirsiniz.",
+          selector: ".right-sidebar"
+        }
+      ]
     },
     code: {
+      switchLabel: 'Kod',
       title: 'Parametrik Kod Mühendisi',
       subtitle: "Yazılımı sistematik olarak tasarla, geliştir, incele ve yayına al.",
       topicLabel: 'Yapılacak Görev / Özellik',
@@ -241,7 +243,29 @@ export const i18n = {
         comprehend: 'Kavrama',
         harden: 'Sertleştirme',
         ship: 'Yayınlama'
-      }
+      },
+      tourSteps: [
+        {
+          title: "PROMPTER'a Hoş Geldiniz! (Kod Modu)",
+          content: "Yapay zekadan yapılandırılmış, production'a hazır mühendislik promptları almak için tasarlanmış parametrik kod mühendisine adım attınız. Bu kısa turda arayüzü hızlıca tanıyalım.",
+          selector: "body"
+        },
+        {
+          title: "1. Parametre Konfigürasyonu",
+          content: "Buradan hedef olgunluğu (Prototip, Production, Sertleştirilmiş), mühendislik personasını (Kıdemli, İnceleyici, Mimar vb.), analiz derinliğini ve kod çıktı formatını ayarlayabilirsiniz. İç Ses modunu açarak AI'ın arka plandaki düşünme adımlarını tetikleyebilirsiniz.",
+          selector: ".sidebar"
+        },
+        {
+          title: "2. Şablonlar ve Kod Modülleri",
+          content: "Üstteki hazır şablonlarla (Özellik Yayınla, Kod İncelemesi, Hata Ayıklama vb.) tek tıkla en iyi ayarları yükleyebilir, altındaki modülleri (Gereksinimler, Mimari, Testler, Güvenlik vb.) tek tek seçerek promptunuzun neleri kapsayacağını belirleyebilirsiniz.",
+          selector: ".main-content"
+        },
+        {
+          title: "3. Görev Girişi ve Üretim",
+          content: "Yapmak istediğiniz görevi/özelliği ve teknoloji yığınınızı yazıp 'Prompt Üret' butonuna tıklayın. Oluşan promptu kopyalayarak ChatGPT, Claude veya Gemini gibi AI modellerine doğrudan yapıştırabilirsiniz.",
+          selector: ".right-sidebar"
+        }
+      ]
     }
   }
  },
@@ -284,39 +308,16 @@ export const i18n = {
  statModules: 'Modules',
  statLayers: 'Layers Deep',
  statComplexity: 'Complexity Score',
- domainSwitchLearn: 'Learn',
- domainSwitchCode: 'Code',
  tour: {
     btnSkip: 'Skip',
     btnNext: 'Next',
     btnBack: 'Back',
     btnFinish: 'Finish',
-    btnReplay: 'Quick Tour',
-    steps: [
-      {
-        title: "Welcome to PROMPTER!",
-        content: "You have entered the advanced parametric prompt engineer designed to get the most structured and deep responses from AI. Let's take a quick tour of the interface.",
-        selector: "body"
-      },
-      {
-        title: "1. Parameter Configuration",
-        content: "Here you can adjust the AI's knowledge level, learning mode (Feynman, Socratic, etc.), analysis depth, and output format. Toggle Internal Monologue (Reasoning) to activate the AI's background thinking steps.",
-        selector: ".sidebar"
-      },
-      {
-        title: "2. Presets & Learning Modules",
-        content: "Apply quick presets at the top or select individual learning modules (Analogy, Coding, Quiz, etc.) below to define exactly what learning categories your prompt will cover.",
-        selector: ".main-content"
-      },
-      {
-        title: "3. Topic Input & Generation",
-        content: "Type the topic you want to learn and your expertise, then click 'Generate Prompt'. Copy the generated prompt and paste it directly into AI models like ChatGPT, Claude, or Gemini.",
-        selector: ".right-sidebar"
-      }
-    ]
+    btnReplay: 'Quick Tour'
   },
   domains: {
     learning: {
+      switchLabel: 'Learn',
       title: 'Parametric Prompt Engineer',
       subtitle: 'Systematically deconstruct, analyze, and learn any topic.',
       topicLabel: 'Topic to Learn',
@@ -400,9 +401,32 @@ export const i18n = {
         context: 'Connections',
         boundaries: 'Limits & Risks',
         application: 'Practice & Growth'
-      }
+      },
+      tourSteps: [
+        {
+          title: "Welcome to PROMPTER!",
+          content: "You have entered the advanced parametric prompt engineer designed to get the most structured and deep responses from AI. Let's take a quick tour of the interface.",
+          selector: "body"
+        },
+        {
+          title: "1. Parameter Configuration",
+          content: "Here you can adjust the AI's knowledge level, learning mode (Feynman, Socratic, etc.), analysis depth, and output format. Toggle Internal Monologue (Reasoning) to activate the AI's background thinking steps.",
+          selector: ".sidebar"
+        },
+        {
+          title: "2. Presets & Learning Modules",
+          content: "Apply quick presets at the top or select individual learning modules (Analogy, Coding, Quiz, etc.) below to define exactly what learning categories your prompt will cover.",
+          selector: ".main-content"
+        },
+        {
+          title: "3. Topic Input & Generation",
+          content: "Type the topic you want to learn and your expertise, then click 'Generate Prompt'. Copy the generated prompt and paste it directly into AI models like ChatGPT, Claude, or Gemini.",
+          selector: ".right-sidebar"
+        }
+      ]
     },
     code: {
+      switchLabel: 'Code',
       title: 'Parametric Code Engineer',
       subtitle: 'Systematically design, build, review, and ship software.',
       topicLabel: 'Task / Feature to Build',
@@ -482,13 +506,40 @@ export const i18n = {
         comprehend: 'Comprehend',
         harden: 'Harden',
         ship: 'Ship'
-      }
+      },
+      tourSteps: [
+        {
+          title: "Welcome to PROMPTER! (Code Mode)",
+          content: "You have entered the parametric code engineer designed to get structured, production-ready engineering prompts from AI. Let's take a quick tour of the interface.",
+          selector: "body"
+        },
+        {
+          title: "1. Parameter Configuration",
+          content: "Here you can adjust the target maturity (Prototype, Production, Hardened), engineering persona (Senior, Reviewer, Architect, etc.), analysis depth, and code output format. Toggle Internal Monologue to activate the AI's background reasoning steps.",
+          selector: ".sidebar"
+        },
+        {
+          title: "2. Presets & Code Modules",
+          content: "Apply quick presets at the top (Ship Feature, Code Review, Debug, etc.) or select individual code modules (Requirements, Architecture, Tests, Security, etc.) below to define exactly what your prompt covers.",
+          selector: ".main-content"
+        },
+        {
+          title: "3. Task Input & Generation",
+          content: "Describe the task or feature you want to build and your tech stack, then click 'Generate Prompt'. Copy the generated prompt and paste it directly into AI models like ChatGPT, Claude, or Gemini.",
+          selector: ".right-sidebar"
+        }
+      ]
     }
   }
  }
 };
 
-export function getTranslation(lang, domain = 'learning') {
+export function getTranslation(lang, domain = DEFAULT_DOMAIN) {
  const base = i18n[lang] || i18n.en;
- return { ...base, ...(base.domains?.[domain] || {}) };
+ // Mirrors getDomain()'s fallback (src/domains/index.js) so an unrecognized
+ // domain — e.g. corrupted/stale localStorage — degrades to the same
+ // domain everywhere instead of leaving `t.levels`/`t.modes`/etc. undefined
+ // while getDomain() has already fallen back to Learning's option-set ids.
+ const domainStrings = base.domains?.[domain] || base.domains?.[DEFAULT_DOMAIN] || {};
+ return { ...base, ...domainStrings };
 }

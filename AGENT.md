@@ -1,10 +1,14 @@
 # 🤖 Agent System Instructions
 
-> **Note to AI Agents / Autonomous Coders:** If you are reading this file, you have been assigned to maintain, upgrade, or debug the `Learning OS` repository. Please adhere to the following rules and architectural constraints.
+> **Note to AI Agents / Autonomous Coders:** If you are reading this file, you have been assigned to maintain, upgrade, or debug the `PROMPTER` repository. Please adhere to the following rules and architectural constraints.
 
 ## 🎯 Project Identity
-This is not a generic "Prompt Builder." It is a **Parametric Learning OS**. 
-The goal is to deeply map concepts, deconstruct systems, and provide structured cognitive scaffolding using advanced LLMs. 
+This is not a generic "Prompt Builder." It's a parametric prompt engineer serving two domains today —
+**Learning** (deeply map concepts, deconstruct systems, provide structured cognitive scaffolding) and
+**Code** (software-engineering prompting: design, build, review, harden, ship) — with room to add more.
+Both domains compile through the same engine/compiler pipeline; only the content feeding it is
+domain-sourced. See `ARCHITECTURE.md`'s "Multi-Domain Architecture" section and `src/domains/` before
+touching anything domain-specific.
 
 ## 🧱 Architectural Directives
 
@@ -21,9 +25,21 @@ The goal is to deeply map concepts, deconstruct systems, and provide structured 
    - Do not introduce React Context or Redux. Zustand handles persistence (`localStorage`) out of the box. Use it.
 
 4. **Adding New Features / Modules**
-   - To add a new learning module, append a new object at the same index to both `src/data/modules_en.json` and `src/data/modules_tr.json` (same `id`, same order in both files). The UI will automatically render it, and the Engine will automatically compile it.
-   - If a new module depends on another module to make sense (e.g., "Scale Analysis" requires "Mechanism"), add the dependency to the `requires: ['mekanizma']` array.
-   - Run `npm run validate` after editing either file — it checks TR/EN parity, required fields, and `requires` references.
+   - Modules are per-domain. To add a Learning module, append a new object at the same index to both
+     `src/data/modules_en.json` and `src/data/modules_tr.json`. To add a Code module, do the same to
+     `src/data/modules_code_en.json` and `src/data/modules_code_tr.json`. Same `id`, same order, in
+     both files of the pair. The UI will automatically render it, and the Engine will automatically
+     compile it.
+   - `layer` must be one of the target domain's layer ids, defined in `src/domains/{learning,code}.js`
+     — not a fixed global enum.
+   - If a new module depends on another module in the *same* domain to make sense (e.g., "Scale
+     Analysis" requires "Mechanism"), add the dependency to the `requires: ['mekanizma']` array.
+   - Run `npm run validate` after editing any of these files — it checks TR/EN parity, required
+     fields, and `requires` references, independently per domain.
+   - Adding a whole new domain (a 3rd one beyond Learning/Code) means a new descriptor in
+     `src/domains/`, registered in `src/domains/index.js`, plus its own module data, i18n strings
+     (`src/locales/i18n.js`), compiler text (`src/locales/compilerTexts.js`), and presets
+     (`src/engine/presetEngine.js`) — no other engine or UI code should need to change.
 
 5. **Theme & CSS**
    - The project uses **Pure CSS** with custom properties mapped to HTML `data-theme="light|dark"`.
