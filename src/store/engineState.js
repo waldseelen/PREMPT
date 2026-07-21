@@ -4,6 +4,9 @@ import { resolveDependencies } from '../engine/dependencyResolver';
 import { applyPreset } from '../engine/presetEngine';
 import { getDomain, DEFAULT_DOMAIN } from '../domains';
 import { pushDomainRoute } from '../utils/domainRoute';
+import { serializeState, sanitizePayload } from '../utils/statePayload';
+
+const MAX_RECIPES = 20;
 
 export const useEngineState = create(
     persist(
@@ -33,6 +36,11 @@ export const useEngineState = create(
             // 3. Intelligence / Hints
             dependencyHints: [],
             showTour: false,
+
+            // 4. Saved Recipes — sibling of `config`, not inside it, so
+            // setDomain()/clearAll() never touch it. Persisted separately
+            // (see partialize below).
+            savedRecipes: [],
 
             // Actions
             setConfig: (key, value) => set((state) => {
@@ -136,6 +144,76 @@ export const useEngineState = create(
                 };
             }),
 
+            // --- Recipes & Sharing ---
+            // All three actions below are single atomic set() calls that
+            // restore domain/config/modules/preset directly. They deliberately
+            // do NOT call setDomain() — setDomain's whole job is to WIPE
+            // selection/config on a manual domain switch, which is the
+            // opposite of what "load a saved/shared setup" needs. Each calls
+            // pushDomainRoute itself so the URL still matches.
+            saveRecipe: (name) => set((state) => {
+                const payload = serializeState(state, { includeTopic: false });
+                const recipe = { id: crypto.randomUUID(), name, createdAt: Date.now(), payload };
+                const trimmed = [...state.savedRecipes, recipe].slice(-MAX_RECIPES);
+                return { savedRecipes: trimmed };
+            }),
+
+            deleteRecipe: (id) => set((state) => ({
+                savedRecipes: state.savedRecipes.filter((r) => r.id !== id)
+            })),
+
+            loadRecipe: (id) => set((state) => {
+                const recipe = state.savedRecipes.find((r) => r.id === id);
+                if (!recipe) return {};
+                const clean = sanitizePayload(recipe.payload, state.config.lang);
+                const targetDomain = getDomain(clean.domain);
+                pushDomainRoute(targetDomain.route);
+                return {
+                    config: {
+                        ...state.config,
+                        domain: clean.domain,
+                        seviye: clean.seviye,
+                        mod: clean.mod,
+                        derinlik: clean.derinlik,
+                        format: clean.format,
+                        monolog: clean.monolog,
+                        autoResolveDeps: clean.autoResolveDeps
+                    },
+                    selectedModules: clean.selectedModules,
+                    activePreset: clean.activePreset,
+                    generatedPrompt: '',
+                    dependencyHints: []
+                };
+            }),
+
+            // Used by both the share-link mount effect (App.jsx) and JSON
+            // import — the only two entry points for state that came from
+            // outside this browser session. `raw` must already be sanitized
+            // by the caller via sanitizePayload before reaching here in the
+            // share-link path; JSON import sanitizes right before calling too.
+            applySharedState: (clean) => set((state) => {
+                const targetDomain = getDomain(clean.domain);
+                pushDomainRoute(targetDomain.route);
+                return {
+                    config: {
+                        ...state.config,
+                        domain: clean.domain,
+                        konu: clean.konu ?? state.config.konu,
+                        alan: clean.alan ?? state.config.alan,
+                        seviye: clean.seviye,
+                        mod: clean.mod,
+                        derinlik: clean.derinlik,
+                        format: clean.format,
+                        monolog: clean.monolog,
+                        autoResolveDeps: clean.autoResolveDeps
+                    },
+                    selectedModules: clean.selectedModules,
+                    activePreset: clean.activePreset,
+                    generatedPrompt: '',
+                    dependencyHints: []
+                };
+            }),
+
             startTour: () => set({ showTour: true }),
             completeTour: () => set((state) => ({
                 showTour: false,
@@ -166,7 +244,7 @@ export const useEngineState = create(
                     ...persistedState?.config
                 }
             }),
-            partialize: (state) => ({ config: state.config })
+            partialize: (state) => ({ config: state.config, savedRecipes: state.savedRecipes })
         }
     )
 );

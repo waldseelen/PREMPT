@@ -35,6 +35,24 @@ export const i18n = {
  previewEmpty: 'Sol taraftan ayarları yapıp "Prompt Oluştur" butonuna tıklayın...',
  footer: 'Tüm veriler tarayıcınızda (Local Storage) kalır, hiçbir sunucuya gönderilmez.',
 
+ // Recipes & Sharing (domain'e özgü değil, paylaşılan chrome)
+ recipesTitle: 'Kayıtlı Tarifler',
+ recipeNamePlaceholder: 'Tarif adı...',
+ btnSaveRecipe: 'Kaydet',
+ btnLoadRecipe: 'Yükle',
+ btnDeleteRecipe: 'Sil',
+ recipesEmpty: 'Henüz kayıtlı tarif yok. Mevcut ayarları ve modülleri kaydetmek için "Kaydet"e tıklayın.',
+ toastRecipeSaved: 'Tarif kaydedildi!',
+ toastRecipeDeleted: 'Tarif silindi.',
+ toastRecipeNeedName: 'Lütfen bir isim girin.',
+ btnShare: 'Paylaş',
+ toastShareCopied: 'Paylaşım linki panoya kopyalandı!',
+ toastShareLong: 'Link kopyalandı, ancak konu/alan metni uzun olduğu için bazı platformlarda kırpılabilir.',
+ btnExport: 'Dışa Aktar',
+ btnImport: 'İçe Aktar',
+ toastImportSuccess: 'Ayarlar içe aktarıldı!',
+ toastImportFail: 'Geçersiz veya bozuk dosya.',
+
  // New Intelligence & UI Strings
  systemIntelligence: 'Sistem Zekası:',
  presetAppliedDesc: 'modu uygulandı. Derinlik ve mod konfigürasyonu en iyi pratiklere göre kilitlendi. Öğrenme kuralları motora enjekte edildi.',
@@ -297,6 +315,24 @@ export const i18n = {
  previewWarning: 'Warning: This prompt is too long to be passed via URL (>4000 chars). It will be copied to your clipboard and the AI page will open blank. You will need to paste it (Ctrl+V) there.',
  previewEmpty: 'Configure settings on the left and click "Generate Prompt"...',
  footer: 'All data stays in your browser (Local Storage), nothing is sent to any server.',
+
+ // Recipes & Sharing (not domain-specific, shared chrome)
+ recipesTitle: 'Saved Recipes',
+ recipeNamePlaceholder: 'Recipe name...',
+ btnSaveRecipe: 'Save',
+ btnLoadRecipe: 'Load',
+ btnDeleteRecipe: 'Delete',
+ recipesEmpty: 'No saved recipes yet. Click "Save" to store the current settings and modules.',
+ toastRecipeSaved: 'Recipe saved!',
+ toastRecipeDeleted: 'Recipe deleted.',
+ toastRecipeNeedName: 'Please enter a name.',
+ btnShare: 'Share',
+ toastShareCopied: 'Share link copied to clipboard!',
+ toastShareLong: 'Link copied, but it may get truncated on some platforms since the topic/domain text is long.',
+ btnExport: 'Export',
+ btnImport: 'Import',
+ toastImportSuccess: 'Settings imported!',
+ toastImportFail: 'Invalid or corrupted file.',
 
  // New Intelligence & UI Strings
  systemIntelligence: 'System Intelligence:',

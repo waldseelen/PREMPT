@@ -3,6 +3,7 @@ import { useShallow } from 'zustand/react/shallow';
 import Header from './ui/Header';
 import ConfigPanel from './ui/ConfigPanel';
 import PresetBar from './ui/PresetBar';
+import RecipesPanel from './ui/RecipesPanel';
 import ModuleGrid from './ui/ModuleGrid';
 import TopicInput from './ui/TopicInput';
 import ActionBar from './ui/ActionBar';
@@ -13,6 +14,7 @@ import { ErrorBoundary } from './ui/ErrorBoundary';
 import { useEngineState } from './store/engineState';
 import { getDomain } from './domains';
 import { pathToDomain } from './utils/domainRoute';
+import { decodePayloadFromParam, sanitizePayload } from './utils/statePayload';
 import './index.css';
 
 export default function App() {
@@ -24,12 +26,39 @@ export default function App() {
         startTour: state.startTour
     })));
 
-    // Sync the initial URL to the persisted/default domain on first mount. No
-    // module/preset state needs resetting here — selectedModules etc. aren't
-    // persisted (see engineState.js partialize), so they're already empty at
-    // this point; setDomain's reset is a no-op on top of that empty state.
+    // Mount-time URL handling — a `?share=` payload takes priority over the
+    // pathname→domain sync below. If both ran independently, the pathname
+    // sync's setDomain() would WIPE the share payload's selectedModules right
+    // after applySharedState() set them (setDomain resets on every domain
+    // switch by design) — so this is one effect with an explicit branch, not
+    // two competing ones.
     useEffect(() => {
-        const { config: currentConfig, setDomain } = useEngineState.getState();
+        const { config: currentConfig, setDomain, applySharedState } = useEngineState.getState();
+        const params = new URLSearchParams(window.location.search);
+        const shareParam = params.get('share');
+
+        if (shareParam) {
+            // Strip ?share= regardless of decode success so a reload doesn't
+            // re-apply (or re-fail on) the same param.
+            const url = new URL(window.location.href);
+            url.searchParams.delete('share');
+            window.history.replaceState(null, '', url.pathname + url.search);
+
+            const decoded = decodePayloadFromParam(shareParam);
+            if (decoded) {
+                const clean = sanitizePayload(decoded, currentConfig.lang);
+                applySharedState(clean); // also pushes the matching /learn or /code route
+                return;
+            }
+            // Corrupt param (bad base64/JSON): fall through to the ordinary
+            // pathname sync below instead of leaving the domain stuck on
+            // whatever was persisted while the URL still reads e.g. /code.
+        }
+
+        // No module/preset state needs resetting here — selectedModules etc.
+        // aren't persisted (see engineState.js partialize), so they're
+        // already empty at this point; setDomain's reset is a no-op on top
+        // of that empty state.
         const routeDomain = pathToDomain(window.location.pathname);
         if (routeDomain) {
             if (routeDomain !== (currentConfig.domain ?? 'learning')) {
@@ -104,6 +133,7 @@ export default function App() {
                         </div>
                         <div className="main-content">
                             <PresetBar />
+                            <RecipesPanel showToast={showToast} />
                             <ModuleGrid />
                         </div>
                         <div className="right-sidebar">

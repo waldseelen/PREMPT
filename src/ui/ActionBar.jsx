@@ -1,15 +1,20 @@
+import { useRef } from 'react';
 import { useEngineState } from '../store/engineState';
 import { useShallow } from 'zustand/react/shallow';
 import { assembleFinalPrompt } from '../compiler/finalPromptAssembler';
 import { copyToClipboard, openInAI } from '../utils/aiRouter';
+import { serializeState, sanitizePayload, encodePayloadToParam } from '../utils/statePayload';
+import { getDomain } from '../domains';
 import { SiGooglegemini, SiAnthropic, SiPerplexity, SiOpenaigym } from '@icons-pack/react-simple-icons';
 import { getTranslation } from '../locales/i18n';
-import { Sparkles, Copy, RotateCcw } from 'lucide-react';
+import { Sparkles, Copy, RotateCcw, Share2, Download, Upload } from 'lucide-react';
 
 export default function ActionBar({ showToast }) {
-    const { clearAll, setGeneratedPrompt } = useEngineState(useShallow(state => ({
+    const fileInputRef = useRef(null);
+    const { clearAll, setGeneratedPrompt, applySharedState } = useEngineState(useShallow(state => ({
         clearAll: state.clearAll,
-        setGeneratedPrompt: state.setGeneratedPrompt
+        setGeneratedPrompt: state.setGeneratedPrompt,
+        applySharedState: state.applySharedState
     })));
     
     // We only need lang/domain from config for translations
@@ -61,10 +66,59 @@ export default function ActionBar({ showToast }) {
             return;
         }
         
-        openInAI(aiName, prompt, 
+        openInAI(aiName, prompt,
             () => showToast(t.toastUrlLimit, 'warn'),
             () => showToast(t.toastOpening)
         );
+    };
+
+    const handleShare = () => {
+        const currentState = useEngineState.getState();
+        const payload = serializeState(currentState, { includeTopic: true });
+        const param = encodePayloadToParam(payload);
+        const route = getDomain(currentState.config.domain).route;
+        const url = `${window.location.origin}/${route}?share=${param}`;
+        const isLong = url.length > 2000; // matches the spirit of aiRouter's own length guard
+        copyToClipboard(url,
+            () => showToast(isLong ? t.toastShareLong : t.toastShareCopied, isLong ? 'warn' : 'success'),
+            () => showToast(t.toastCopyFail, 'warn')
+        );
+    };
+
+    const handleExport = () => {
+        const currentState = useEngineState.getState();
+        const payload = serializeState(currentState, { includeTopic: true });
+        const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `prompter-${currentState.config.domain}-${Date.now()}.json`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    };
+
+    const handleImportClick = () => fileInputRef.current?.click();
+
+    const handleImportFile = (e) => {
+        const file = e.target.files?.[0];
+        e.target.value = ''; // allow re-selecting the same file next time
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = () => {
+            try {
+                const raw = JSON.parse(reader.result);
+                const clean = sanitizePayload(raw, useEngineState.getState().config.lang);
+                applySharedState(clean);
+                showToast(t.toastImportSuccess);
+            } catch {
+                showToast(t.toastImportFail, 'warn');
+            }
+        };
+        reader.onerror = () => showToast(t.toastImportFail, 'warn');
+        reader.readAsText(file);
     };
 
     return (
@@ -96,6 +150,20 @@ export default function ActionBar({ showToast }) {
                 <button className="btn btn-secondary" style={{ background: '#22b8cd', color: '#1a1a1a', borderColor: '#22b8cd', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', fontSize: '0.8rem', padding: '8px 4px', fontWeight: 600 }} onClick={() => handleOpenAI('perplexity')}>
                     <SiPerplexity size={14} /> Perplexity
                 </button>
+            </div>
+
+            {/* Row 3: Share / Export / Import — config + selected modules, no backend */}
+            <div style={{ display: 'flex', gap: '8px', width: '100%' }}>
+                <button className="btn btn-secondary" style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', fontSize: '0.8rem' }} onClick={handleShare} title={t.btnShare}>
+                    <Share2 size={14} /> {t.btnShare}
+                </button>
+                <button className="btn btn-secondary" style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', fontSize: '0.8rem' }} onClick={handleExport} title={t.btnExport}>
+                    <Download size={14} /> {t.btnExport}
+                </button>
+                <button className="btn btn-secondary" style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', fontSize: '0.8rem' }} onClick={handleImportClick} title={t.btnImport}>
+                    <Upload size={14} /> {t.btnImport}
+                </button>
+                <input ref={fileInputRef} type="file" accept="application/json" onChange={handleImportFile} style={{ display: 'none' }} />
             </div>
         </div>
     );
