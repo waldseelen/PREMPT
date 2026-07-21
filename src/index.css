@@ -55,6 +55,32 @@
     --color-application-bg: rgba(244, 114, 182, 0.12);
     --color-application-border: rgba(244, 114, 182, 0.25);
     --color-application-light: rgba(244, 114, 182, 0.03);
+
+    /* Code domain layers - Dark Mode */
+    --color-design: #60a5fa;
+    --color-design-bg: rgba(96, 165, 250, 0.12);
+    --color-design-border: rgba(96, 165, 250, 0.25);
+    --color-design-light: rgba(96, 165, 250, 0.03);
+
+    --color-build: #fb923c;
+    --color-build-bg: rgba(251, 146, 60, 0.12);
+    --color-build-border: rgba(251, 146, 60, 0.25);
+    --color-build-light: rgba(251, 146, 60, 0.03);
+
+    --color-comprehend: #2dd4bf;
+    --color-comprehend-bg: rgba(45, 212, 191, 0.12);
+    --color-comprehend-border: rgba(45, 212, 191, 0.25);
+    --color-comprehend-light: rgba(45, 212, 191, 0.03);
+
+    --color-harden: #f87171;
+    --color-harden-bg: rgba(248, 113, 113, 0.12);
+    --color-harden-border: rgba(248, 113, 113, 0.25);
+    --color-harden-light: rgba(248, 113, 113, 0.03);
+
+    --color-ship: #4ade80;
+    --color-ship-bg: rgba(74, 222, 128, 0.12);
+    --color-ship-border: rgba(74, 222, 128, 0.25);
+    --color-ship-light: rgba(74, 222, 128, 0.03);
 }
 
 :root[data-theme="light"] {
@@ -112,6 +138,32 @@
     --color-application-bg: rgba(190, 18, 60, 0.05);
     --color-application-border: rgba(190, 18, 60, 0.15);
     --color-application-light: rgba(190, 18, 60, 0.02);
+
+    /* Code domain layers - Light Mode */
+    --color-design: #2563eb;
+    --color-design-bg: rgba(37, 99, 235, 0.05);
+    --color-design-border: rgba(37, 99, 235, 0.15);
+    --color-design-light: rgba(37, 99, 235, 0.02);
+
+    --color-build: #c2410c;
+    --color-build-bg: rgba(194, 65, 12, 0.05);
+    --color-build-border: rgba(194, 65, 12, 0.15);
+    --color-build-light: rgba(194, 65, 12, 0.02);
+
+    --color-comprehend: #0d9488;
+    --color-comprehend-bg: rgba(13, 148, 136, 0.05);
+    --color-comprehend-border: rgba(13, 148, 136, 0.15);
+    --color-comprehend-light: rgba(13, 148, 136, 0.02);
+
+    --color-harden: #b91c1c;
+    --color-harden-bg: rgba(185, 28, 28, 0.05);
+    --color-harden-border: rgba(185, 28, 28, 0.15);
+    --color-harden-light: rgba(185, 28, 28, 0.02);
+
+    --color-ship: #15803d;
+    --color-ship-bg: rgba(21, 128, 61, 0.05);
+    --color-ship-border: rgba(21, 128, 61, 0.15);
+    --color-ship-light: rgba(21, 128, 61, 0.02);
 }
 
         /* ══════════════════════ RESET & BASE ══════════════════════ */
@@ -181,6 +233,36 @@
             transition: all var(--transition);
             width: 32px;
             height: 32px;
+        }
+        .domain-switch {
+            display: flex;
+            gap: 2px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: 2px;
+        }
+        .domain-switch-pill {
+            background: transparent;
+            border: none;
+            border-radius: 999px;
+            cursor: pointer;
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            transition: all var(--transition);
+        }
+        .domain-switch-pill:hover {
+            color: var(--text-primary);
+        }
+        .domain-switch-pill.active {
+            background: linear-gradient(135deg, var(--accent-1) 0%, #8b5cf6 100%);
+            color: #ffffff;
+            box-shadow: 0 4px 14px rgba(94, 106, 210, 0.3);
+        }
+        [data-theme="light"] .domain-switch {
+            background: rgba(0, 0, 0, 0.02);
         }
         .header-icon-btn:hover {
             background: rgba(94, 106, 210, 0.1);
@@ -446,6 +528,38 @@
             --cat-bg: var(--color-application-bg);
             --cat-border: var(--color-application-border);
             --cat-light: var(--color-application-light);
+        }
+
+        /* Code domain layer colors */
+        .category-column.category-design {
+            --cat-text: var(--color-design);
+            --cat-bg: var(--color-design-bg);
+            --cat-border: var(--color-design-border);
+            --cat-light: var(--color-design-light);
+        }
+        .category-column.category-build {
+            --cat-text: var(--color-build);
+            --cat-bg: var(--color-build-bg);
+            --cat-border: var(--color-build-border);
+            --cat-light: var(--color-build-light);
+        }
+        .category-column.category-comprehend {
+            --cat-text: var(--color-comprehend);
+            --cat-bg: var(--color-comprehend-bg);
+            --cat-border: var(--color-comprehend-border);
+            --cat-light: var(--color-comprehend-light);
+        }
+        .category-column.category-harden {
+            --cat-text: var(--color-harden);
+            --cat-bg: var(--color-harden-bg);
+            --cat-border: var(--color-harden-border);
+            --cat-light: var(--color-harden-light);
+        }
+        .category-column.category-ship {
+            --cat-text: var(--color-ship);
+            --cat-bg: var(--color-ship-bg);
+            --cat-border: var(--color-ship-border);
+            --cat-light: var(--color-ship-light);
         }
 
         .category-column-header {

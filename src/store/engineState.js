@@ -1,14 +1,16 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { resolveDependencies } from '../engine/dependencyResolver';
-import { getSuggestions } from '../engine/intelligenceLayer';
 import { applyPreset } from '../engine/presetEngine';
+import { getDomain, DEFAULT_DOMAIN } from '../domains';
+import { pushDomainRoute } from '../utils/domainRoute';
 
 export const useEngineState = create(
     persist(
-        (set, get) => ({
+        (set) => ({
             // 1. Core Configuration (Input State)
             config: {
+                domain: DEFAULT_DOMAIN,
                 konu: '',
                 alan: '',
                 seviye: 'otomatik',
@@ -21,49 +23,75 @@ export const useEngineState = create(
                 lang: 'tr',
                 tourCompleted: false
             },
-            
+
             // 2. Active Behaviors (Modules & Presets)
             selectedModules: [],
             activePreset: null,
             injectedRules: [],
             generatedPrompt: '',
-            
+
             // 3. Intelligence / Hints
-            dependencyHints: [], 
+            dependencyHints: [],
             showTour: false,
-            
+
             // Actions
             setConfig: (key, value) => set((state) => {
                 const newConfig = { ...state.config, [key]: value };
                 return { config: newConfig };
             }),
-            
+
+            // Switches the active domain (Learning <-> Code). Keeps konu, alan, lang,
+            // theme, monolog, autoResolveDeps; resets domain-specific config fields to
+            // the target domain's defaults and clears module/preset/prompt state, since
+            // module ids and option-set vocabularies aren't shared across domains.
+            setDomain: (domainId) => set((state) => {
+                const currentDomain = state.config.domain ?? DEFAULT_DOMAIN;
+                if (domainId === currentDomain) return {};
+
+                const targetDomain = getDomain(domainId);
+                pushDomainRoute(targetDomain.route);
+
+                return {
+                    config: {
+                        ...state.config,
+                        domain: targetDomain.id,
+                        ...targetDomain.defaultConfig
+                    },
+                    selectedModules: [],
+                    activePreset: null,
+                    injectedRules: [],
+                    generatedPrompt: '',
+                    dependencyHints: []
+                };
+            }),
+
             setTheme: (themeVal) => set((state) => ({
                 config: { ...state.config, theme: themeVal }
             })),
-            
+
             setGeneratedPrompt: (prompt) => set({ generatedPrompt: prompt }),
 
             toggleModule: (id) => set((state) => {
+                const domain = state.config.domain ?? DEFAULT_DOMAIN;
                 const isSelected = state.selectedModules.includes(id);
-                let newModules = isSelected 
+                let newModules = isSelected
                     ? state.selectedModules.filter(m => m !== id)
                     : [...state.selectedModules, id];
-                
+
                 let dependencyHints = [];
-                
+
                 // DAG Resolution
                 if (state.config.autoResolveDeps && !isSelected) {
-                    const resolved = resolveDependencies(newModules, state.config.lang);
+                    const resolved = resolveDependencies(newModules, domain, state.config.lang);
                     if (resolved.length > newModules.length) {
                         const added = resolved.filter(x => !newModules.includes(x));
                         dependencyHints = [`${id} -> +[${added.join(', ')}] (Auto-resolved)`];
                     }
                     newModules = resolved;
                 }
-                
-                return { 
-                    selectedModules: newModules, 
+
+                return {
+                    selectedModules: newModules,
                     activePreset: null, // User override breaks the pure preset
                     injectedRules: [],
                     dependencyHints
@@ -71,13 +99,14 @@ export const useEngineState = create(
             }),
 
             setPreset: (presetId) => set((state) => {
-                const presetResult = applyPreset(presetId, state.config.lang);
-                
+                const domain = state.config.domain ?? DEFAULT_DOMAIN;
+                const presetResult = applyPreset(presetId, domain);
+
                 let newModules = presetResult.forceModules;
                 let dependencyHints = [];
-                
+
                 if (state.config.autoResolveDeps) {
-                    const resolved = resolveDependencies(newModules, state.config.lang);
+                    const resolved = resolveDependencies(newModules, domain, state.config.lang);
                     if (resolved.length > newModules.length) {
                         const added = resolved.filter(x => !newModules.includes(x));
                         dependencyHints = [`Preset '${presetId}' applied -> +[${added.join(', ')}]`];
@@ -97,11 +126,12 @@ export const useEngineState = create(
             }),
 
             setModules: (moduleIds) => set((state) => {
+                const domain = state.config.domain ?? DEFAULT_DOMAIN;
                 let newModules = moduleIds;
                 if (state.config.autoResolveDeps) {
-                    newModules = resolveDependencies(newModules, state.config.lang);
+                    newModules = resolveDependencies(newModules, domain, state.config.lang);
                 }
-                return { 
+                return {
                     selectedModules: newModules
                 };
             }),
@@ -124,6 +154,18 @@ export const useEngineState = create(
         }),
         {
             name: 'learning-os-engine-storage',
+            version: 1,
+            // Pre-v1 persisted blobs have no `config.domain` key. Zustand's default
+            // rehydrate merge replaces the whole `config` object (it's a top-level
+            // persisted key) rather than deep-merging it, so without this an old blob
+            // would land with config.domain === undefined instead of 'learning'.
+            migrate: (persistedState) => ({
+                ...persistedState,
+                config: {
+                    domain: DEFAULT_DOMAIN,
+                    ...persistedState?.config
+                }
+            }),
             partialize: (state) => ({ config: state.config })
         }
     )

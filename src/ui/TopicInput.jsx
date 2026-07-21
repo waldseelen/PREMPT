@@ -8,7 +8,7 @@ export default function TopicInput() {
         config: state.config,
         setConfig: state.setConfig
     })));
-    const t = getTranslation(config.lang);
+    const t = getTranslation(config.lang, config.domain);
 
     return (
         <section className="card" style={{ marginBottom: '16px' }}>

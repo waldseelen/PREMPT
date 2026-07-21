@@ -61,28 +61,22 @@ export class DependencyGraph {
     }
 }
 
-// Global cached graphs
-let graphTR = null;
-let graphEN = null;
+// Graphs are cached per "domain:lang" key instead of two fixed singletons,
+// so adding a domain needs no change here.
+const graphCache = new Map();
 
-export function resolveDependencies(selectedIds, lang = 'tr') {
-    const registry = getModuleRegistry(lang);
-    if (lang === 'tr') {
-        if (!graphTR) graphTR = new DependencyGraph(registry);
-        return graphTR.resolveDependencies(selectedIds);
-    } else {
-        if (!graphEN) graphEN = new DependencyGraph(registry);
-        return graphEN.resolveDependencies(selectedIds);
+function getGraph(domain, lang) {
+    const key = `${domain}:${lang}`;
+    if (!graphCache.has(key)) {
+        graphCache.set(key, new DependencyGraph(getModuleRegistry(domain, lang)));
     }
+    return graphCache.get(key);
 }
 
-export function sortDependencies(resolvedIds, lang = 'tr') {
-    const registry = getModuleRegistry(lang);
-    if (lang === 'tr') {
-        if (!graphTR) graphTR = new DependencyGraph(registry);
-        return graphTR.topologicalSort(resolvedIds);
-    } else {
-        if (!graphEN) graphEN = new DependencyGraph(registry);
-        return graphEN.topologicalSort(resolvedIds);
-    }
+export function resolveDependencies(selectedIds, domain = 'learning', lang = 'tr') {
+    return getGraph(domain, lang).resolveDependencies(selectedIds);
+}
+
+export function sortDependencies(resolvedIds, domain = 'learning', lang = 'tr') {
+    return getGraph(domain, lang).topologicalSort(resolvedIds);
 }
