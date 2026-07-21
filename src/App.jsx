@@ -11,18 +11,48 @@ import Toast from './ui/Toast';
 import OnboardingTour from './ui/OnboardingTour';
 import { ErrorBoundary } from './ui/ErrorBoundary';
 import { useEngineState } from './store/engineState';
-import { getTranslation } from './locales/i18n';
+import { getDomain } from './domains';
+import { pathToDomain } from './utils/domainRoute';
 import './index.css';
 
 export default function App() {
     const [toasts, setToasts] = useState([]);
     const toastTimers = useRef(new Map());
-    
+
     const { config, startTour } = useEngineState(useShallow(state => ({
         config: state.config,
         startTour: state.startTour
     })));
-    const t = getTranslation(config.lang);
+
+    // Sync the initial URL to the persisted/default domain on first mount. No
+    // module/preset state needs resetting here — selectedModules etc. aren't
+    // persisted (see engineState.js partialize), so they're already empty at
+    // this point; setDomain's reset is a no-op on top of that empty state.
+    useEffect(() => {
+        const { config: currentConfig, setDomain } = useEngineState.getState();
+        const routeDomain = pathToDomain(window.location.pathname);
+        if (routeDomain) {
+            if (routeDomain !== (currentConfig.domain ?? 'learning')) {
+                setDomain(routeDomain);
+            }
+        } else {
+            const activeDomain = getDomain(currentConfig.domain);
+            window.history.replaceState(null, '', `/${activeDomain.route}`);
+        }
+    }, []);
+
+    // Browser back/forward should also switch domains.
+    useEffect(() => {
+        const handlePopState = () => {
+            const { config: currentConfig, setDomain } = useEngineState.getState();
+            const routeDomain = pathToDomain(window.location.pathname);
+            if (routeDomain && routeDomain !== (currentConfig.domain ?? 'learning')) {
+                setDomain(routeDomain);
+            }
+        };
+        window.addEventListener('popstate', handlePopState);
+        return () => window.removeEventListener('popstate', handlePopState);
+    }, []);
 
     useEffect(() => {
         const isMobile = window.innerWidth < 768;

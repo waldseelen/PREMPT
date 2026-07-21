@@ -12,7 +12,7 @@ export default function PreviewPanel() {
         generatedPrompt: state.generatedPrompt
     })));
     
-    const t = getTranslation(config.lang);
+    const t = getTranslation(config.lang, config.domain);
 
     const stats = useMemo(() => {
         return analyzePromptComplexity({ config, selectedModules });

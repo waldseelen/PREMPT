@@ -3,23 +3,29 @@ import { useShallow } from 'zustand/react/shallow';
 import { getModuleRegistry } from '../engine/moduleRegistry';
 import { getSuggestions } from '../engine/intelligenceLayer';
 import { getTranslation } from '../locales/i18n';
+import { getDomain } from '../domains';
 import { useMemo } from 'react';
-import { 
-    Target, Waypoints, ArrowDown10, GitFork, Infinity, Settings, 
-    Hammer, RotateCcw, History, Swords, SplitSquareHorizontal, 
-    Link, Combine, Brain, Component, PlaySquare, FlaskConical, 
-    AlertTriangle, LightbulbOff, Lightbulb, XOctagon, Zap, Maximize, 
-    Shuffle, TextQuote, BadgeCheck, PieChart, BookMarked, 
+import {
+    Target, Waypoints, ArrowDown10, GitFork, Infinity as InfinityIcon, Settings,
+    Hammer, RotateCcw, History, Swords, SplitSquareHorizontal,
+    Link, Combine, Brain, Component, PlaySquare, FlaskConical,
+    AlertTriangle, LightbulbOff, Lightbulb, XOctagon, Zap, Maximize,
+    Shuffle, TextQuote, BadgeCheck, PieChart, BookMarked,
     CheckSquare, MoveRight, Telescope, Box, Flame, GraduationCap,
-    Baby, GitMerge, Code
+    Baby, GitMerge, Code,
+    ClipboardList, Plug, Database, Blocks, Package, Puzzle,
+    Calculator, Palette, MessageSquare, Footprints, Map, Scale,
+    Search, ShieldCheck, ListChecks, Bug, Shapes, Truck, FileText,
+    GitPullRequest
 } from 'lucide-react';
 
 const moduleIcons = {
+    // Learning domain
     kalibrasyon: Target,
     onkosul: Waypoints,
     sirasi: ArrowDown10,
     ontoloji: GitFork,
-    nedensellik: Infinity,
+    nedensellik: InfinityIcon,
     mekanizma: Settings,
     insa: Hammer,
     tersine: RotateCcw,
@@ -49,7 +55,32 @@ const moduleIcons = {
     senaryo: Flame,
     eli5: Baby,
     karar: GitMerge,
-    kodlama: Code
+    kodlama: Code,
+    // Code domain
+    'req-clarify': ClipboardList,
+    'api-design': Plug,
+    'data-model': Database,
+    architecture: Blocks,
+    'tech-select': Package,
+    implement: Hammer,
+    scaffold: Puzzle,
+    algorithm: Calculator,
+    idioms: Palette,
+    explain: MessageSquare,
+    trace: Footprints,
+    'codebase-map': Map,
+    'compare-approaches': Scale,
+    review: Search,
+    security: ShieldCheck,
+    performance: Zap,
+    tests: ListChecks,
+    'edge-cases': Target,
+    debug: Bug,
+    refactor: RotateCcw,
+    patterns: Shapes,
+    migration: Truck,
+    docs: FileText,
+    'commit-pr': GitPullRequest
 };
 
 export default function ModuleGrid() {
@@ -62,9 +93,10 @@ export default function ModuleGrid() {
         activePreset: state.activePreset
     })));
     
-    const modules = getModuleRegistry(config.lang);
-    const t = getTranslation(config.lang);
-    
+    const modules = getModuleRegistry(config.domain, config.lang);
+    const t = getTranslation(config.lang, config.domain);
+    const layers = getDomain(config.domain).layers;
+
     const suggestions = useMemo(() => {
         return getSuggestions(config, selectedModules, activePreset);
     }, [config, selectedModules, activePreset]);
@@ -120,7 +152,7 @@ export default function ModuleGrid() {
             </div>
             
             <div className="categories-container">
-                {['foundation', 'mechanism', 'context', 'boundaries', 'application'].map(catKey => {
+                {layers.map(catKey => {
                     const catModules = modules.filter(m => m.layer === catKey);
                     const catTitle = t.categories?.[catKey] || catKey;
                     const activeCount = catModules.filter(m => selectedModules.includes(m.id)).length;

@@ -12,9 +12,12 @@ export default function ActionBar({ showToast }) {
         setGeneratedPrompt: state.setGeneratedPrompt
     })));
     
-    // We only need lang from config for translations
-    const lang = useEngineState(state => state.config.lang);
-    const t = getTranslation(lang);
+    // We only need lang/domain from config for translations
+    const { lang, domain } = useEngineState(useShallow(state => ({
+        lang: state.config.lang,
+        domain: state.config.domain
+    })));
+    const t = getTranslation(lang, domain);
 
     const handleGenerate = () => {
         const currentState = useEngineState.getState();

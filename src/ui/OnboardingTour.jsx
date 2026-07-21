@@ -7,28 +7,20 @@ export default function OnboardingTour() {
     const { config, showTour, completeTour } = useEngineState();
     const [currentStep, setCurrentStep] = useState(0);
     const [coords, setCoords] = useState(null);
-    const [isMobile, setIsMobile] = useState(false);
+    const [prevShowTour, setPrevShowTour] = useState(showTour);
     const cardRef = useRef(null);
 
-    const t = getTranslation(config.lang);
+    const t = getTranslation(config.lang, config.domain);
     const steps = t.tour?.steps || [];
 
-    // Listen to resize to determine mobile state
-    useEffect(() => {
-        const checkMobile = () => {
-            setIsMobile(window.innerWidth < 768);
-        };
-        checkMobile();
-        window.addEventListener('resize', checkMobile);
-        return () => window.removeEventListener('resize', checkMobile);
-    }, []);
-
-    // Reset step when tour is launched
-    useEffect(() => {
+    // Reset step when the tour is (re)launched. Adjusting state directly
+    // during render (rather than in a useEffect) avoids an extra render pass.
+    if (showTour !== prevShowTour) {
+        setPrevShowTour(showTour);
         if (showTour) {
             setCurrentStep(0);
         }
-    }, [showTour]);
+    }
 
     // Handle spotlight classes and coordinates calculation
     useEffect(() => {
@@ -113,8 +105,10 @@ export default function OnboardingTour() {
                 element.classList.remove('tour-highlighted');
             };
         } else {
-            // Screen-centered fallback for welcome step
-            setCoords({
+            // Screen-centered fallback for welcome step. Wrapped the same way
+            // updatePosition() is above, rather than called directly, so this
+            // stays a DOM-measurement-triggered update, not a render-body one.
+            const applyFallbackCoords = () => setCoords({
                 position: 'fixed',
                 top: '50%',
                 left: '50%',
@@ -123,6 +117,7 @@ export default function OnboardingTour() {
                 maxWidth: 'calc(100% - 32px)',
                 zIndex: 10005
             });
+            applyFallbackCoords();
         }
     }, [currentStep, showTour, steps]);
 

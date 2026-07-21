@@ -1,6 +1,7 @@
 import { useEngineState } from '../store/engineState';
 import { useShallow } from 'zustand/react/shallow';
 import { getTranslation } from '../locales/i18n';
+import { getDomain } from '../domains';
 import { GraduationCap, Workflow, Layers, FileText, BrainCircuit, Link } from 'lucide-react';
 
 export default function ConfigPanel() {
@@ -8,7 +9,8 @@ export default function ConfigPanel() {
         config: state.config,
         setConfig: state.setConfig
     })));
-    const t = getTranslation(config.lang);
+    const t = getTranslation(config.lang, config.domain);
+    const domain = getDomain(config.domain);
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
@@ -33,11 +35,9 @@ export default function ConfigPanel() {
                             </div>
                         </label>
                         <select id="sel-seviye" value={config.seviye} onChange={(e) => setConfig('seviye', e.target.value)}>
-                            <option value="otomatik">{t.levels.otomatik}</option>
-                            <option value="acemi">{t.levels.acemi}</option>
-                            <option value="orta">{t.levels.orta}</option>
-                            <option value="ileri">{t.levels.ileri}</option>
-                            <option value="uzman">{t.levels.uzman}</option>
+                            {domain.levelIds.map((id) => (
+                                <option key={id} value={id}>{t.levels[id]}</option>
+                            ))}
                         </select>
                     </div>
                     <div className="input-group">
@@ -57,11 +57,9 @@ export default function ConfigPanel() {
                             </div>
                         </label>
                         <select id="sel-mod" value={config.mod} onChange={(e) => setConfig('mod', e.target.value)}>
-                            <option value="karma">{t.modes.karma}</option>
-                            <option value="feynman">{t.modes.feynman}</option>
-                            <option value="sistem">{t.modes.sistem}</option>
-                            <option value="sokratik">{t.modes.sokratik}</option>
-                            <option value="ilkeler">{t.modes.ilkeler}</option>
+                            {domain.modeIds.map((id) => (
+                                <option key={id} value={id}>{t.modes[id]}</option>
+                            ))}
                         </select>
                     </div>
                     <div className="input-group">
@@ -81,10 +79,9 @@ export default function ConfigPanel() {
                             </div>
                         </label>
                         <select id="sel-derinlik" value={config.derinlik} onChange={(e) => setConfig('derinlik', e.target.value)}>
-                            <option value="orta">{t.depths.orta}</option>
-                            <option value="temel">{t.depths.temel}</option>
-                            <option value="derin">{t.depths.derin}</option>
-                            <option value="kapsamli">{t.depths.kapsamli}</option>
+                            {domain.depthIds.map((id) => (
+                                <option key={id} value={id}>{t.depths[id]}</option>
+                            ))}
                         </select>
                     </div>
                     <div className="input-group">
@@ -104,10 +101,9 @@ export default function ConfigPanel() {
                             </div>
                         </label>
                         <select id="sel-format" value={config.format} onChange={(e) => setConfig('format', e.target.value)}>
-                            <option value="markdown">{t.formats.markdown}</option>
-                            <option value="tablo">{t.formats.tablo}</option>
-                            <option value="ders">{t.formats.ders}</option>
-                            <option value="quiz">{t.formats.quiz}</option>
+                            {domain.formatIds.map((id) => (
+                                <option key={id} value={id}>{t.formats[id]}</option>
+                            ))}
                         </select>
                     </div>
                 </div>
