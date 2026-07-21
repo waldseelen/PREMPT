@@ -1,17 +1,26 @@
 #!/usr/bin/env node
-// Validates the prompt module data files (src/data/modules_en.json / modules_tr.json).
-// Guards against silent drift: TR/EN parity, broken `requires`, missing fields,
-// invalid layers and duplicate ids. Exits non-zero on any error.
+// Validates the prompt module data files for every domain (currently
+// src/data/modules_{en,tr}.json for Learning and
+// src/data/modules_code_{en,tr}.json for Code). Guards against silent
+// drift: TR/EN parity, broken `requires`, missing fields, invalid layers,
+// and duplicate ids — checked independently within each domain's file pair
+// (id vocabularies are not shared across domains). Exits non-zero on any
+// error.
 
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { DOMAINS } from '../src/domains/index.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const dataDir = join(__dirname, '..', 'src', 'data');
 
 const REQUIRED_FIELDS = ['id', 'icon', 'name', 'desc', 'explain', 'requires', 'prompt', 'layer'];
-const VALID_LAYERS = ['foundation', 'mechanism', 'context', 'boundaries', 'application'];
+
+const DOMAIN_FILES = {
+    learning: { en: 'modules_en.json', tr: 'modules_tr.json' },
+    code: { en: 'modules_code_en.json', tr: 'modules_code_tr.json' }
+};
 
 const errors = [];
 const warnings = [];
@@ -38,7 +47,7 @@ function loadModules(file) {
     }
 }
 
-function validateFile(file, modules) {
+function validateFile(file, modules, validLayers) {
     const ids = new Set();
     modules.forEach((m, i) => {
         const where = `${file}[${i}]${m && m.id ? ` (id="${m.id}")` : ''}`;
@@ -53,9 +62,9 @@ function validateFile(file, modules) {
             }
         }
 
-        // Valid layer enum.
-        if (m && m.layer && !VALID_LAYERS.includes(m.layer)) {
-            errors.push(`${where}: invalid layer "${m.layer}" (expected one of ${VALID_LAYERS.join(', ')})`);
+        // Valid layer enum (domain-specific).
+        if (m && m.layer && !validLayers.includes(m.layer)) {
+            errors.push(`${where}: invalid layer "${m.layer}" (expected one of ${validLayers.join(', ')})`);
         }
 
         // Duplicate ids.
@@ -79,41 +88,52 @@ function validateFile(file, modules) {
     return modules.map((m) => (m ? m.id : undefined));
 }
 
-function validateParity(enIds, trIds) {
+function validateParity(domainId, enIds, trIds) {
     const max = Math.max(enIds.length, trIds.length);
     if (enIds.length !== trIds.length) {
-        errors.push(`Parity: module count differs (en=${enIds.length}, tr=${trIds.length})`);
+        errors.push(`Parity[${domainId}]: module count differs (en=${enIds.length}, tr=${trIds.length})`);
     }
     for (let i = 0; i < max; i++) {
         if (enIds[i] !== trIds[i]) {
-            errors.push(`Parity: id order mismatch at index ${i} (en="${enIds[i]}", tr="${trIds[i]}")`);
+            errors.push(`Parity[${domainId}]: id order mismatch at index ${i} (en="${enIds[i]}", tr="${trIds[i]}")`);
         }
     }
 }
 
-function reportLayers(label, modules) {
+function reportLayers(label, modules, validLayers) {
     const counts = {};
-    for (const layer of VALID_LAYERS) counts[layer] = 0;
+    for (const layer of validLayers) counts[layer] = 0;
     modules.forEach((m) => {
-        if (m && VALID_LAYERS.includes(m.layer)) counts[m.layer]++;
+        if (m && validLayers.includes(m.layer)) counts[m.layer]++;
     });
-    const summary = VALID_LAYERS.map((l) => `${l}=${counts[l]}`).join(', ');
+    const summary = validLayers.map((l) => `${l}=${counts[l]}`).join(', ');
     console.log(`  ${label}: ${modules.length} modules (${summary})`);
 }
 
 // --- Run ---
 console.log('Validating prompt module data...');
-const en = loadModules('modules_en.json');
-const tr = loadModules('modules_tr.json');
 
-if (en) reportLayers('en', en);
-if (tr) reportLayers('tr', tr);
+for (const [domainId, files] of Object.entries(DOMAIN_FILES)) {
+    const domain = DOMAINS[domainId];
+    if (!domain) {
+        errors.push(`Domain "${domainId}" is not registered in src/domains/index.js`);
+        continue;
+    }
+    const validLayers = domain.layers;
 
-let enIds = [];
-let trIds = [];
-if (en) enIds = validateFile('modules_en.json', en);
-if (tr) trIds = validateFile('modules_tr.json', tr);
-if (en && tr) validateParity(enIds, trIds);
+    console.log(`\n[${domainId}]`);
+    const en = loadModules(files.en);
+    const tr = loadModules(files.tr);
+
+    if (en) reportLayers(files.en, en, validLayers);
+    if (tr) reportLayers(files.tr, tr, validLayers);
+
+    let enIds = [];
+    let trIds = [];
+    if (en) enIds = validateFile(files.en, en, validLayers);
+    if (tr) trIds = validateFile(files.tr, tr, validLayers);
+    if (en && tr) validateParity(domainId, enIds, trIds);
+}
 
 if (warnings.length) {
     console.warn(`\n${warnings.length} warning(s):`);

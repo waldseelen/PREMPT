@@ -28,7 +28,7 @@ const RULES = [
         action: (suggestions) => suggestions.add('onkosul')
     },
     {
-        condition: (config, has) => config.seviye === DEPTH.EXPERT,
+        condition: (config) => config.seviye === DEPTH.EXPERT,
         action: (suggestions, has) => {
             if (!has('varsayimlar')) suggestions.add('varsayimlar');
             if (!has('basarisizlik')) suggestions.add('basarisizlik');
@@ -36,7 +36,7 @@ const RULES = [
     }
 ];
 
-export function getSuggestions(config, selectedModules, activePreset) {
+export function getSuggestions(config, selectedModules) {
     const suggestions = new Set();
     const has = (id) => selectedModules.includes(id);
 

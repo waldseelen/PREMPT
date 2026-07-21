@@ -1,5 +1,5 @@
-import { learningDomain } from './learning';
-import { codeDomain } from './code';
+import { learningDomain } from './learning.js';
+import { codeDomain } from './code.js';
 
 // Adding a 3rd domain: create its descriptor file, register it here, and add
 // its i18n/compilerTexts/presets/module-data entries. No engine or UI change
