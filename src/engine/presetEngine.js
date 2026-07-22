@@ -113,6 +113,12 @@ const CODE_PRESETS = {
         forceModules: ['docs', 'commit-pr', 'explain'],
         override: { derinlik: 'orta', format: 'explained', mod: 'senior' },
         injectRules: ["Write for a reader who can run the code but not read your mind.", "Prefer the documentation format that matches the artifact, not prose by default."]
+    },
+    'security-review': {
+        id: 'security-review',
+        forceModules: ['threat-model', 'auth-design', 'security', 'infra-security', 'supply-chain'],
+        override: { derinlik: 'derin', format: 'explained', mod: 'security', seviye: 'hardened' },
+        injectRules: ["Think like an attacker: enumerate the trust boundaries and what happens if each one is breached.", "Rank every finding by real-world exploitability, not theoretical severity."]
     }
 };
 

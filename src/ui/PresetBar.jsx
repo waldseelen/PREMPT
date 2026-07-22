@@ -4,7 +4,7 @@ import { getTranslation } from '../locales/i18n';
 import { getPresets } from '../engine/presetEngine';
 import {
     Zap, FlaskConical, FileCheck, Wrench, Layers, BookOpen, Box, Terminal, Bug, Sparkles,
-    Rocket, Search, Blocks, Compass, ShieldCheck, FileText
+    Rocket, Search, Blocks, Compass, ShieldCheck, FileText, ShieldAlert
 } from 'lucide-react';
 
 const presetIcons = {
@@ -27,7 +27,8 @@ const presetIcons = {
     'system-design': Blocks,
     onboard: Compass,
     harden: ShieldCheck,
-    document: FileText
+    document: FileText,
+    'security-review': ShieldAlert
 };
 
 export default function PresetBar() {

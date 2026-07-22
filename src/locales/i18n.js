@@ -259,7 +259,8 @@ export const i18n = {
         'system-design': 'Sistem Tasarımı',
         onboard: 'Oryantasyon',
         harden: 'Sertleştirme',
-        document: 'Dokümantasyon'
+        document: 'Dokümantasyon',
+        'security-review': 'Güvenlik İncelemesi'
       },
       modulesTitle: 'Kod Modülleri',
       categories: {
@@ -554,7 +555,8 @@ export const i18n = {
         'system-design': 'System Design',
         onboard: 'Onboard',
         harden: 'Harden',
-        document: 'Document'
+        document: 'Document',
+        'security-review': 'Security Review'
       },
       modulesTitle: 'Code Modules',
       categories: {
