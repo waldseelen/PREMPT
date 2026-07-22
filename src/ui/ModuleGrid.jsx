@@ -120,6 +120,12 @@ export default function ModuleGrid() {
                         {selectedModules.length} / {modules.length}
                     </span>
                     
+                    {selectedModules.length === 0 && (
+                        <div style={{ marginTop: '8px', fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+                            {t.emptyStateHint}
+                        </div>
+                    )}
+
                     {/* Intelligence Layer UI: Suggestions and Hints */}
                     <div style={{ marginTop: '8px', fontSize: '0.75rem', display: 'flex', flexDirection: 'column', gap: '4px', minHeight: '18px' }}>
                         {(dependencyHints.length > 0 || suggestions.length > 0) && (

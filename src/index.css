@@ -404,11 +404,32 @@
         }
 
         /* ══════════════════════ PRESETS ══════════════════════ */
+        .preset-group {
+            margin-top: 12px;
+        }
+        .preset-group + .preset-group {
+            margin-top: 16px;
+        }
+        .preset-group-title {
+            font-size: 0.68rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
         .presets-row {
             display: grid;
             grid-template-columns: repeat(5, minmax(0, 1fr));
             gap: 8px;
-            margin-top: 12px;
+        }
+        /* Reuses .module-tooltip/.tooltip-title/.tooltip-explain (defined
+           under CUSTOM TOOLTIP below) -- same visual component, triggered by
+           this wrapper's hover instead of .module-card's. */
+        .preset-btn-wrapper:hover .module-tooltip {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
         }
         .preset-btn {
             padding: 8px 12px;

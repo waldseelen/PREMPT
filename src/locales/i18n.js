@@ -63,6 +63,7 @@ export const i18n = {
  statModules: 'Modül',
  statLayers: 'Katman Derinliği',
  statComplexity: 'Karmaşıklık Skoru',
+ emptyStateHint: 'Henüz modül seçmedin. Yukarıdaki hazır şablonlardan biriyle hızlıca başlayabilir veya aşağıdan elle modül seçebilirsin.',
  tour: {
     btnSkip: 'Geç',
     btnNext: 'Sonraki',
@@ -147,7 +148,28 @@ export const i18n = {
         temeller: 'Temeller',
         pratik: 'Pratik Uygulama',
         hata: 'Hata Ayıklama',
-        yaratici: 'Yaratıcı Sentez'
+        yaratici: 'Yaratıcı Sentez',
+        karsilastir: 'Karşılaştır & Karar Ver',
+        mulakat: 'Mülakat Hazırlığı'
+      },
+      presetGroups: {
+        understand: 'Anla',
+        analyze: 'Analiz Et',
+        apply: 'Uygula'
+      },
+      presetDescriptions: {
+        hizli: 'Konunun özünü hızlıca, gereksiz detaya girmeden özetler.',
+        derin: 'Konuyu temel ilkelerine kadar söker, karşıt görüşleri ve varsayımları da işler.',
+        sinav: 'Hatırlama odaklı sorularla ve aralıklı tekrar mantığıyla sınava hazırlar.',
+        muhendis: 'Sıfırdan nasıl inşa edileceğini, mimari kararları ve mühendislik ödünleşimlerini anlatır.',
+        tam: 'Konuyu hiçbir taşı yerinde bırakmadan, en kapsamlı şekilde ele alır.',
+        arastirmaci: 'Akademik bir araştırmacı gibi tarihsel bağlam ve rakip teorilerle sunar.',
+        temeller: 'Hiçbir ileri konuya geçmeden önce, birinci ilkelerden sağlam bir temel kurar.',
+        pratik: "80/20 kuralıyla en pratik, gerçek dünya benzetmelerine odaklanır.",
+        hata: 'Tek nokta arızalarını ve bu kavramın ne zaman/neden çöktüğünü inceler.',
+        yaratici: 'Disiplinler arası zihinsel modelleri birleştirip yaratıcı senaryolar üretir.',
+        karsilastir: 'Alternatifleri yapılandırılmış şekilde karşılaştırır, net bir tavsiyeyle sonuçlandırır.',
+        mulakat: 'Konuyu sesli anlatabilme becerisini ve olası mülakat sorularına hazırlanmayı hedefler.'
       },
       modulesTitle: 'Öğrenme Modülleri',
       categories: {
@@ -260,7 +282,29 @@ export const i18n = {
         onboard: 'Oryantasyon',
         harden: 'Sertleştirme',
         document: 'Dokümantasyon',
-        'security-review': 'Güvenlik İncelemesi'
+        'security-review': 'Güvenlik İncelemesi',
+        'test-strategy': 'Test Stratejisi',
+        'perf-tune': 'Performans',
+        modernize: 'Legacy Modernizasyon'
+      },
+      presetGroups: {
+        build: 'Geliştir',
+        'review-harden': 'İncele & Sağlamlaştır',
+        understand: 'Anla'
+      },
+      presetDescriptions: {
+        'ship-feature': 'Netleştirilmiş gereksinimlerden çalışan, test edilmiş bir özellik teslim eder.',
+        'code-review': 'Kodu güvenlik ve performans açısından inceleyip net bir onay/red kararıyla biter.',
+        debug: 'Kök nedeni kanıtla doğrulamadan çözüm önermez, iz sürme ve regresyon testi ister.',
+        refactor: 'Davranışı bozmadan kodu iyileştirir, değişikliği diff olarak sunar.',
+        'system-design': 'Mimariyi, API sözleşmesini ve veri modelini birlikte, gerekçeli kararlarla tasarlar.',
+        onboard: 'Yeni bir katkıcının ilk saatini optimize eden bir kod tabanı haritası ve okuma sırası sunar.',
+        harden: 'Saldırgan gibi düşünerek güvenlik açıklarını ve uç durumları avlar.',
+        document: 'Kodu çalıştırabilen ama zihnini okuyamayan bir okuyucu için belgeler.',
+        'security-review': 'Tehdit modellemeden altyapı güvenliğine, uçtan uca bir güvenlik denetimi yapar.',
+        'test-strategy': 'Kapsam sayısını değil, gerçekten regresyon yakalayacak testleri tasarlar.',
+        'perf-tune': 'Önce darboğazı profille bulur, sonra somut bir performans iyileştirmesi önerir.',
+        modernize: 'Legacy kodu davranışını koruyarak, adım adım modern hale getirir.'
       },
       modulesTitle: 'Kod Modülleri',
       categories: {
@@ -359,6 +403,7 @@ export const i18n = {
  statModules: 'Modules',
  statLayers: 'Layers Deep',
  statComplexity: 'Complexity Score',
+ emptyStateHint: "You haven't selected any modules yet. Start quickly with one of the presets above, or pick modules manually below.",
  tour: {
     btnSkip: 'Skip',
     btnNext: 'Next',
@@ -443,7 +488,28 @@ export const i18n = {
         temeller: 'Foundations',
         pratik: 'Practical App',
         hata: 'Debugging',
-        yaratici: 'Creative Synth'
+        yaratici: 'Creative Synth',
+        karsilastir: 'Compare & Decide',
+        mulakat: 'Interview Prep'
+      },
+      presetGroups: {
+        understand: 'Understand',
+        analyze: 'Analyze',
+        apply: 'Apply'
+      },
+      presetDescriptions: {
+        hizli: 'Summarizes the essence of the topic quickly, without unnecessary detail.',
+        derin: 'Breaks the topic down to first principles, including opposing views and assumptions.',
+        sinav: 'Prepares for exams with recall-focused questions and spaced-repetition logic.',
+        muhendis: 'Explains how to build this from scratch, focusing on architecture and engineering tradeoffs.',
+        tam: 'Covers the topic as exhaustively as possible, leaving nothing out.',
+        arastirmaci: 'Presents the topic like an academic researcher, with historical context and competing theories.',
+        temeller: 'Builds a solid foundation from first principles before touching any advanced topic.',
+        pratik: 'Focuses on the most practical, real-world analogies using the 80/20 rule.',
+        hata: 'Examines single points of failure and exactly when/why this concept breaks down.',
+        yaratici: 'Combines cross-disciplinary mental models to produce creative scenarios.',
+        karsilastir: 'Structures a comparison of the alternatives and ends with a clear recommendation.',
+        mulakat: 'Prepares you to explain the topic out loud, anticipating likely interview questions.'
       },
       modulesTitle: 'Learning Modules',
       categories: {
@@ -556,7 +622,29 @@ export const i18n = {
         onboard: 'Onboard',
         harden: 'Harden',
         document: 'Document',
-        'security-review': 'Security Review'
+        'security-review': 'Security Review',
+        'test-strategy': 'Test Strategy',
+        'perf-tune': 'Performance',
+        modernize: 'Legacy Modernization'
+      },
+      presetGroups: {
+        build: 'Build',
+        'review-harden': 'Review & Harden',
+        understand: 'Understand'
+      },
+      presetDescriptions: {
+        'ship-feature': 'Delivers a working, tested feature from a clarified requirement.',
+        'code-review': 'Reviews code for security and performance, ending in an explicit approve/reject verdict.',
+        debug: "Won't propose a fix until the root cause is confirmed with evidence; includes a regression test.",
+        refactor: 'Improves the code without changing behavior, presented as a diff.',
+        'system-design': 'Designs architecture, API contract, and data model together, justifying every decision.',
+        onboard: "Maps the codebase and reading order to optimize a new contributor's first hour.",
+        harden: 'Thinks like an attacker to hunt down security holes and edge cases.',
+        document: 'Documents for a reader who can run the code but not read your mind.',
+        'security-review': 'Runs an end-to-end security pass, from threat modeling to infrastructure hardening.',
+        'test-strategy': 'Designs tests that would actually catch regressions, not just raise coverage numbers.',
+        'perf-tune': 'Profiles the actual bottleneck first, then proposes a concrete performance fix.',
+        modernize: "Modernizes legacy code incrementally while preserving its external behavior."
       },
       modulesTitle: 'Code Modules',
       categories: {
