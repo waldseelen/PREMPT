@@ -69,6 +69,11 @@ const CODE_RULES = [
         action: (suggestions, has, reasonKey) => suggestions.set('api-design', reasonKey)
     },
     {
+        reasonKey: 'architectureNeedsThreatModel',
+        condition: (config, has) => has('architecture') && !has('threat-model'),
+        action: (suggestions, has, reasonKey) => suggestions.set('threat-model', reasonKey)
+    },
+    {
         reasonKey: 'hardenedNeedsSecurity',
         condition: (config) => config.seviye === LEVEL.HARDENED,
         action: (suggestions, has, reasonKey) => {

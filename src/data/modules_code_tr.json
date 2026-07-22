@@ -60,6 +60,26 @@
     "layer": "design"
   },
   {
+    "id": "threat-model",
+    "icon": "🕵️",
+    "name": "Tehdit Modelleme (STRIDE)",
+    "desc": "Olmadan önce neyin yanlış gidebileceğini haritala",
+    "explain": "Bir olaydan sonra keşfetmek yerine, uygulamadan önce sistematik olarak STRIDE çerçevesini kullanarak sisteme yönelik potansiyel tehditleri haritalar.",
+    "requires": [],
+    "prompt": "TEHDİT MODELLEME (STRIDE)\nUygulamadan önce veya uygulamayla birlikte, STRIDE çerçevesini kullanarak bu sisteme yönelik tehditleri sistematik olarak haritala.\n- Spoofing / Kimlik Taklidi (Bir varlık bir başkasını taklit edebilir mi? Kimlik nerede doğrulanıyor ve bu doğrulama nasıl atlatılabilir?)\n- Tampering / Kurcalama (Veri veya kod, iletimde veya beklemede, yetkisiz bir taraf tarafından nerede değiştirilebilir?)\n- Repudiation / İnkar (Bir aktör bir eylemi gerçekleştirdiğini inkar edebilir mi? Hangi kanıt (log, imza) bunu yaptığını ispatlar?)\n- Information Disclosure / Bilgi İfşası (Hassas veri, kasıtlı veya kazara, yetkisiz bir tarafa nerede sızabilir?)\n- Denial of Service / Hizmet Engelleme (Bu sistemi veya kritik bir bağımlılığı ne kullanılamaz hale getirebilir, ve bir saldırgan bunu ne kadar ucuza tetikleyebilir?)\n- Elevation of Privilege / Yetki Yükseltme (Düşük yetkili bir aktör istenenden daha yüksek yetkiler kazanabilir mi, ve hangi spesifik yol üzerinden?)\nHer kategori için, bu spesifik sistem için gerçekten makul olan tehditleri listele — listeye genel, uygulanamaz maddeler ekleyerek şişirme.\nFormat: Bulguları | STRIDE Kategorisi | Tehdit | Muhtemel Giriş Noktası | Giderim | sütunlarıyla bir tablo olarak sun.",
+    "layer": "design"
+  },
+  {
+    "id": "auth-design",
+    "icon": "🔑",
+    "name": "Kimlik Doğrulama ve Yetkilendirme Tasarımı",
+    "desc": "İnşa etmeden önce kimin neyi yapabileceğini tasarla",
+    "explain": "Kimliğin nasıl kurulacağını, oturum/token'ların nasıl çalışacağını ve izinlerin nasıl uygulanacağını — uygulama öncesinde — tasarlar.",
+    "requires": [],
+    "prompt": "KİMLİK DOĞRULAMA VE YETKİLENDİRME TASARIMI\nBu görev için auth modelini uygulamadan önce tasarla.\n- Kimlik Doğrulama (Kimlik nasıl kuruluyor — şifre, OAuth/OIDC, API key, mTLS? Başarısız denemelerde ne oluyor — rate limiting, hesap kilitleme?)\n- Oturum / Token Modeli (Stateful oturumlar mı yoksa stateless token'lar mı (JWT vb.)? Yaşam süresi, yenileme stratejisi ve iptal — ele geçirilmiş bir oturumu/token'ı süresi dolmadan nasıl geçersiz kılıyorsun?)\n- Yetkilendirme Modeli (RBAC, ABAC veya kaynak seviyesinde sahiplik kontrolleri — bu sistemin gerçek izin karmaşıklığı için seçimi gerekçelendir, mevcut en sofistike seçeneği değil.)\n- Güven Sınırları (Sistem, çağıranın iddia ettiği kimliğe güvenmeyi nerede bırakıp yeniden doğruluyor? Sadece UI seviyesinde gizleme değil, sunucu tarafı uygulama noktaları.)\nFormat: Modeli bir tablo veya yapılandırılmış liste olarak sun, ve her mekanizma için hata modunu — yanlış kullanıldığında veya atlatıldığında ne olacağını — açıkça belirt.",
+    "layer": "design"
+  },
+  {
     "id": "implement",
     "icon": "⌨️",
     "name": "Spesifikasyondan Uygulama",
@@ -227,6 +247,16 @@
     "explain": "Arayüzü erişilebilirlik açısından — klavye navigasyonu, ekran okuyucu desteği, renk kontrastı ve kullanıcıları dışlayan diğer engeller — denetler.",
     "requires": [],
     "prompt": "ERİŞİLEBİLİRLİK DENETİMİ\nBu arayüzü erişilebilirlik engelleri için denetle.\n- Klavye Navigasyonu (Her etkileşimli öğeye fare olmadan ulaşılabiliyor ve kullanılabiliyor mu? Focus sırası mantıklı ve focus durumu görünür mü?)\n- Ekran Okuyucu Desteği (Etkileşimli öğelerin erişilebilir isimleri/rolleri var mı? Dinamik güncellemeler duyuruluyor mu? Önemli yerlerde generic div yerine semantik HTML kullanılıyor mu?)\n- Görsel Erişilebilirlik (Renk kontrast oranları, bilgiyi iletmek için yalnızca renge bağımlılık, metin ölçeklendirme/zoom davranışı.)\n- Standart Uyumluluğu (Bulguları ilgili WCAG başarı kriterlerine ve uyum seviyelerine (A/AA/AAA) eşle.)\nFormat: Bulguları | Sorun | WCAG Kriteri | Önem Derecesi | Düzeltme | sütunlarıyla bir tablo olarak sun, düzeltmenin kolaylığına göre değil, her sorunun belirli bir kullanıcıyı ne kadar tamamen engellediğine göre sırala.",
+    "layer": "harden"
+  },
+  {
+    "id": "infra-security",
+    "icon": "🐳",
+    "name": "Konteyner ve Altyapı Güvenliği",
+    "desc": "Sadece kodu değil, çalıştığı ortamı denetle",
+    "explain": "Bu kodun çalıştığı konteyner imajlarını, Dockerfile'ları ve infrastructure-as-code konfigürasyonunu yanlış yapılandırmalar ve sertleştirme eksiklikleri için denetler.",
+    "requires": [],
+    "prompt": "KONTEYNER VE ALTYAPI GÜVENLİĞİ\nBu kodun çalıştığı konteyner/altyapı konfigürasyonunu denetle — uygulama kodunun kendisini değil.\n- İmaj Sertleştirme (Base image seçimi, imajda kalan gereksiz paketler/araçlar, root olarak mı yoksa yetkisiz bir kullanıcı olarak mı çalıştığı.)\n- Config İçinde Secret (Kimlik bilgileri, çalışma zamanında enjekte edilmek yerine imaja, Dockerfile'a veya IaC dosyalarına gömülü mü?)\n- Ağ Maruziyeti (Gerekli olmadığı halde hangi port/servisler dışarı açık? Ağ topolojisi en az yetki prensibine uygun mu — servisler ulaşmalarına gerek olmayan yerlere ulaşabiliyor mu?)\n- IaC Yanlış Yapılandırmaları (Aşırı izinli IAM rolleri/politikaları, varsayılan olarak herkese açık depolama, eksik encryption-at-rest/in-transit ayarları.)\nFormat: Bulguları | Bulgu | Konum (dosya/kaynak) | Önem Derecesi | Düzeltme | sütunlarıyla bir tablo olarak sun, genel bir kontrol listesi tamamlama skoruna göre değil, güven sınırının dışından gerçekten erişilebilir olana göre önceliklendir.",
     "layer": "harden"
   },
   {

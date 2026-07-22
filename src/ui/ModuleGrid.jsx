@@ -17,7 +17,7 @@ import {
     Calculator, Palette, MessageSquare, Footprints, Map, Scale,
     Search, ShieldCheck, ListChecks, Bug, Shapes, Truck, FileText,
     GitPullRequest, GitBranch, Radio, PackageSearch,
-    Accessibility, Rocket
+    Accessibility, Rocket, ShieldAlert, KeyRound, Server
 } from 'lucide-react';
 
 const moduleIcons = {
@@ -86,7 +86,10 @@ const moduleIcons = {
     observability: Radio,
     'supply-chain': PackageSearch,
     a11y: Accessibility,
-    cicd: Rocket
+    cicd: Rocket,
+    'threat-model': ShieldAlert,
+    'auth-design': KeyRound,
+    'infra-security': Server
 };
 
 export default function ModuleGrid() {
@@ -157,7 +160,11 @@ export default function ModuleGrid() {
                 </div>
             </div>
             
-            <div className="categories-container">
+            {/* --module-columns drives .categories-container's grid-template-columns
+                (index.css) so the column count matches this domain's actual layer
+                count instead of a hardcoded 5 -- mobile/tablet breakpoints still
+                override it via source order, see the CSS comment. */}
+            <div className="categories-container" style={{ '--module-columns': layers.length }}>
                 {layers.map(catKey => {
                     const catModules = modules.filter(m => m.layer === catKey);
                     const catTitle = t.categories?.[catKey] || catKey;

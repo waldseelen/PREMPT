@@ -60,6 +60,26 @@
     "layer": "design"
   },
   {
+    "id": "threat-model",
+    "icon": "🕵️",
+    "name": "Threat Modeling (STRIDE)",
+    "desc": "Map what could go wrong, before it does",
+    "explain": "Systematically maps potential threats to the system using the STRIDE framework before implementation, instead of discovering them after an incident.",
+    "requires": [],
+    "prompt": "THREAT MODELING (STRIDE)\nSystematically map the threats to this system using the STRIDE framework, before or alongside implementation.\n- Spoofing (Can an entity impersonate another? Where is identity verified, and how could that verification be bypassed?)\n- Tampering (Where can data or code be modified by an unauthorized party, in transit or at rest?)\n- Repudiation (Can an actor deny having performed an action? What evidence (logs, signatures) would prove they did?)\n- Information Disclosure (Where could sensitive data leak to an unauthorized party, intentionally or by accident?)\n- Denial of Service (What could make this system or a critical dependency unavailable, and how cheaply could an attacker trigger it?)\n- Elevation of Privilege (Can a low-privilege actor gain higher privileges than intended, and through what specific path?)\nFor each category, list only the threats that are actually plausible for this specific system — do not pad the list with generic, inapplicable entries.\nFormat: Present findings as a table with | STRIDE Category | Threat | Likely Entry Point | Mitigation |.",
+    "layer": "design"
+  },
+  {
+    "id": "auth-design",
+    "icon": "🔑",
+    "name": "Authentication & Authorization Design",
+    "desc": "Design who can do what, before you build it",
+    "explain": "Designs the authentication and authorization model — how identity is established, how sessions/tokens work, and how permissions are enforced — before implementation.",
+    "requires": [],
+    "prompt": "AUTHENTICATION & AUTHORIZATION DESIGN\nDesign the auth model for this task before implementing it.\n- Authentication (How is identity established — password, OAuth/OIDC, API key, mTLS? What happens on failed attempts — rate limiting, lockout?)\n- Session / Token Model (Stateful sessions or stateless tokens (JWT etc.)? Lifetime, refresh strategy, and revocation — how do you invalidate a compromised session/token before it expires?)\n- Authorization Model (RBAC, ABAC, or resource-level ownership checks — justify the choice for this system's actual permission complexity, not the most sophisticated option available.)\n- Trust Boundaries (Where does the system stop trusting a caller's claimed identity and re-verify? Server-side enforcement points, not just UI-level hiding.)\nFormat: Present the model as a table or structured list, and explicitly state the failure mode for each mechanism (what happens when it's misused or bypassed).",
+    "layer": "design"
+  },
+  {
     "id": "implement",
     "icon": "⌨️",
     "name": "Implement from Spec",
@@ -227,6 +247,16 @@
     "explain": "Audits the interface for accessibility — keyboard navigation, screen reader support, color contrast, and other barriers that exclude users.",
     "requires": [],
     "prompt": "ACCESSIBILITY AUDIT\nAudit this interface for accessibility barriers.\n- Keyboard Navigation (Can every interactive element be reached and operated without a mouse? Is focus order logical and focus state visible?)\n- Screen Reader Support (Do interactive elements have accessible names/roles? Are dynamic updates announced? Is semantic HTML used instead of generic divs where it matters?)\n- Visual Accessibility (Color contrast ratios, reliance on color alone to convey information, text scaling/zoom behavior.)\n- Standards Compliance (Map findings to the relevant WCAG success criteria and their conformance level (A/AA/AAA).)\nFormat: Present findings as a table with | Issue | WCAG Criterion | Severity | Fix |, ordered by how completely each issue blocks a given user, not by how easy the fix is.",
+    "layer": "harden"
+  },
+  {
+    "id": "infra-security",
+    "icon": "🐳",
+    "name": "Container & Infrastructure Security",
+    "desc": "Audit the environment the code runs in, not just the code",
+    "explain": "Audits the container images, Dockerfiles, and infrastructure-as-code configuration this code runs on for misconfigurations and hardening gaps.",
+    "requires": [],
+    "prompt": "CONTAINER & INFRASTRUCTURE SECURITY\nAudit the container/infrastructure configuration this code runs on — not the application code itself.\n- Image Hardening (Base image choice, unnecessary packages/tools left in the image, running as root vs. a non-privileged user.)\n- Secrets in Config (Are credentials baked into the image, Dockerfile, or IaC files instead of injected at runtime?)\n- Network Exposure (What ports/services are exposed that don't need to be? Is the network topology least-privilege — can services reach things they have no reason to reach?)\n- IaC Misconfigurations (Overly permissive IAM roles/policies, public-by-default storage, missing encryption-at-rest/in-transit settings.)\nFormat: Present findings as a table with | Finding | Location (file/resource) | Severity | Fix |, prioritized by what's actually reachable from outside the trust boundary, not a generic checklist completion score.",
     "layer": "harden"
   },
   {

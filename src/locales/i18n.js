@@ -272,6 +272,7 @@ export const i18n = {
       suggestionReasons: {
         implementNeedsTests: 'Implementasyon/hata ayıklama seçili; testler olmadan doğruluğu kanıtlayamazsınız.',
         architectureNeedsApiDesign: 'Mimari seçili; arayüz sözleşmesini de netleştirmelisiniz.',
+        architectureNeedsThreatModel: 'Mimari seçili; olası saldırı yüzeylerini de haritalamalısınız.',
         hardenedNeedsSecurity: 'Sertleştirilmiş seviye seçili; güvenlik ve uç durum denetimi şart.',
         migrationNeedsTests: 'Göç/modernizasyon seçili; davranışın korunduğunu testlerle doğrulamalısınız.'
       },
@@ -566,6 +567,7 @@ export const i18n = {
       suggestionReasons: {
         implementNeedsTests: "Implementation/debugging selected; you can't prove correctness without tests.",
         architectureNeedsApiDesign: 'Architecture selected; you should also nail down the interface contract.',
+        architectureNeedsThreatModel: 'Architecture selected; you should also map the potential attack surface.',
         hardenedNeedsSecurity: 'Hardened level selected; a security and edge-case pass is essential.',
         migrationNeedsTests: 'Migration/modernization selected; you need tests to prove behavior is preserved.'
       },
