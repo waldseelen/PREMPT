@@ -47,7 +47,7 @@ touching anything domain-specific.
    - Respect the *Glassmorphism* design aesthetic.
 
 ## ⚠️ Hard Constraints
-- **URL Length Limits**: AI services (Gemini, ChatGPT) have URL character limits. Always use the `checkPromptLength` utility in `promptCompiler.js` before calling `window.open`. Fallback to clipboard `copyToClipboard` when necessary.
+- **URL Length Limits**: AI services (Gemini, ChatGPT) have URL character limits. The `openInAI` helper in `src/utils/aiRouter.js` enforces a 4000-char guard before calling `window.open`, falling back to `copyToClipboard` when the prompt is too long. Follow that path for any new provider.
 - **Monologue Mode**: The system supports internal reasoning (`<thinking>`). Ensure prompt templates do not explicitly contradict the monologue instructions injected by the engine.
 
 If you understand these constraints, proceed with your task. Focus on modularity, determinism, and UI performance.

@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PROMPTER — Tasarım Yönü</title>
+    <style>
+      :root {
+        --paper: #f4f1e8;
+        --surface: #fcfbf7;
+        --ink: #20211d;
+        --muted: #74756d;
+        --line: #d8d5cc;
+        --blue: #3457c9;
+        --blue-soft: #e8edff;
+        --amber: #b77820;
+        --green: #286448;
+        --shadow: 0 14px 35px rgb(39 38 32 / 9%);
+      }
+
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-width: 320px;
+        color: var(--ink);
+        background: var(--paper);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      button, input, select { font: inherit; }
+      button { cursor: pointer; }
+      .app { min-height: 100vh; padding: 20px 26px 40px; }
+      .topbar {
+        width: min(1320px, 100%);
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2px 0 20px;
+        border-bottom: 1px solid var(--line);
+      }
+      .brand { font-size: .82rem; font-weight: 800; letter-spacing: .14em; }
+      .brand span { color: var(--blue); }
+      .top-actions { display: flex; align-items: center; gap: 8px; }
+      .quiet-button, .icon-button {
+        border: 1px solid var(--line);
+        background: transparent;
+        color: var(--ink);
+        border-radius: 6px;
+      }
+      .quiet-button { padding: 8px 11px; font-size: .78rem; }
+      .icon-button { width: 33px; height: 33px; }
+      .mode { padding: 8px 11px; border: 0; background: transparent; font-size: .78rem; color: var(--muted); }
+      .mode.active { border-radius: 6px; background: var(--ink); color: white; }
+
+      .view { width: min(1120px, 100%); margin: 0 auto; }
+      .intro { padding: clamp(72px, 14vh, 150px) 0 68px; max-width: 830px; }
+      .eyebrow { color: var(--blue); font-size: .72rem; letter-spacing: .14em; font-weight: 800; text-transform: uppercase; }
+      h1 { max-width: 710px; margin: 16px 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.5rem, 6vw, 5.4rem); letter-spacing: -.055em; line-height: .94; font-weight: 500; }
+      .lede { max-width: 520px; margin: 0 0 34px; color: var(--muted); font-size: 1rem; line-height: 1.65; }
+      .topic-input {
+        width: min(800px, 100%);
+        border: 1px solid var(--ink);
+        background: var(--surface);
+        border-radius: 8px;
+        padding: 21px 23px;
+        color: var(--ink);
+        font-size: 1.08rem;
+        outline: none;
+        box-shadow: 5px 5px 0 var(--ink);
+      }
+      .topic-input:focus { outline: 3px solid var(--blue-soft); }
+      .prompt-label { display: block; margin: 42px 0 13px; font-size: .82rem; font-weight: 800; }
+      .intent-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+      .intent {
+        min-height: 96px;
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        text-align: left;
+        background: var(--surface);
+        color: var(--ink);
+        transition: transform .15s ease, border-color .15s ease, background .15s ease;
+      }
+      .intent:hover { transform: translateY(-2px); border-color: var(--ink); }
+      .intent.active { border-color: var(--blue); background: var(--blue-soft); box-shadow: inset 0 0 0 1px var(--blue); }
+      .intent strong { display: block; margin-bottom: 5px; font-size: .88rem; }
+      .intent span { color: var(--muted); font-size: .75rem; line-height: 1.35; }
+      .intent.active span { color: #405084; }
+      .recommendation { display: flex; align-items: center; gap: 11px; margin: 20px 0; color: var(--muted); font-size: .82rem; }
+      .recommendation b { color: var(--ink); }
+      .module-pills { display: flex; flex-wrap: wrap; gap: 7px; }
+      .pill { padding: 7px 10px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); font-size: .76rem; }
+      .pill i { display: inline-block; width: 6px; height: 6px; margin-right: 5px; border-radius: 50%; background: var(--blue); }
+      .continue-row { display: flex; align-items: center; gap: 16px; margin-top: 29px; }
+      .primary-button { border: 0; border-radius: 6px; padding: 13px 17px; color: white; background: var(--blue); font-size: .85rem; font-weight: 800; box-shadow: 3px 3px 0 #20211d; }
+      .primary-button:hover { background: #2646ad; }
+      .meta { color: var(--muted); font-size: .76rem; }
+
+      .workspace { display: none; padding-top: 28px; }
+      .workspace.show { display: block; }
+      .workspace-header { display: flex; justify-content: space-between; align-items: end; gap: 24px; padding: 0 0 24px; }
+      .workspace-header h2 { margin: 7px 0 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2rem, 4vw, 3.35rem); letter-spacing: -.045em; font-weight: 500; }
+      .workspace-header p { max-width: 310px; margin: 0; color: var(--muted); font-size: .82rem; line-height: 1.5; }
+      .workspace-grid { display: grid; grid-template-columns: 220px minmax(400px, 1fr) 285px; align-items: stretch; border: 1px solid var(--line); background: var(--surface); box-shadow: var(--shadow); }
+      .panel { min-width: 0; padding: 20px; }
+      .settings { border-right: 1px solid var(--line); }
+      .preview { border-left: 1px solid var(--line); background: #f7f5ee; }
+      .panel-kicker { margin: 0 0 19px; color: var(--muted); font-size: .68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+      .field { margin-bottom: 17px; }
+      .field label { display: block; margin-bottom: 7px; font-size: .73rem; font-weight: 800; }
+      select { width: 100%; padding: 9px 10px; color: var(--ink); border: 1px solid var(--line); border-radius: 5px; background: white; font-size: .8rem; }
+      .advanced { width: 100%; margin-top: 11px; padding: 10px 0 0; border: 0; border-top: 1px solid var(--line); background: none; color: var(--blue); text-align: left; font-size: .78rem; font-weight: 700; }
+      .settings-note { margin-top: 23px; color: var(--muted); font-size: .72rem; line-height: 1.55; }
+
+      .composition-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 16px; }
+      .composition-top h3 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 1.45rem; font-weight: 500; }
+      .count { color: var(--muted); font-size: .72rem; }
+      .module-list { display: grid; gap: 8px; }
+      .module {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 13px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: white;
+      }
+      .module::before { content: ""; width: 7px; height: 7px; border-radius: 50%; flex: 0 0 auto; background: var(--module-color, var(--blue)); }
+      .module-copy { min-width: 0; flex: 1; }
+      .module strong { display: block; font-size: .8rem; }
+      .module small { display: block; overflow: hidden; color: var(--muted); font-size: .69rem; text-overflow: ellipsis; white-space: nowrap; margin-top: 3px; }
+      .remove { width: 23px; height: 23px; border: 0; border-radius: 4px; background: transparent; color: var(--muted); font-size: 1rem; }
+      .remove:hover { background: #f0ede5; color: #9d3d32; }
+      .add-module { width: 100%; margin-top: 12px; padding: 11px; border: 1px dashed #aaa79e; border-radius: 6px; color: var(--blue); background: transparent; font-size: .78rem; font-weight: 800; text-align: left; }
+      .catalog { display: none; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; margin-top: 10px; }
+      .catalog.show { display: grid; }
+      .catalog button { padding: 9px; border: 1px solid var(--line); border-radius: 5px; background: #f7f6f2; color: var(--ink); font-size: .72rem; text-align: left; }
+      .catalog button:hover { border-color: var(--blue); color: var(--blue); }
+
+      .summary { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 15px; }
+      .metric { padding: 11px; border: 1px solid var(--line); border-radius: 5px; background: white; }
+      .metric b { display: block; font-size: 1.05rem; }
+      .metric span { color: var(--muted); font-size: .62rem; text-transform: uppercase; letter-spacing: .07em; }
+      .status { display: inline-flex; align-items: center; gap: 5px; margin: 0 0 12px; color: var(--green); font-size: .7rem; font-weight: 800; }
+      .status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--green); }
+      .prompt-sheet { min-height: 272px; padding: 15px; overflow: auto; border: 1px solid #2b2c28; border-radius: 5px; background: #242521; color: #e9e7df; font: .68rem/1.65 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; white-space: pre-wrap; }
+      .prompt-sheet em { color: #d5a054; font-style: normal; }
+      .preview-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 13px; }
+      .copy-button { padding: 10px; border: 1px solid var(--line); border-radius: 5px; background: white; color: var(--ink); font-size: .75rem; font-weight: 700; }
+      .send-button { padding: 10px; border: 0; border-radius: 5px; background: var(--ink); color: white; font-size: .75rem; font-weight: 700; }
+      .toast { position: fixed; right: 24px; bottom: 24px; display: none; padding: 12px 14px; border-radius: 6px; background: var(--ink); color: white; box-shadow: var(--shadow); font-size: .8rem; }
+      .toast.show { display: block; }
+
+      @media (max-width: 900px) {
+        .workspace-grid { grid-template-columns: 1fr 1fr; }
+        .settings { border-right: 0; border-bottom: 1px solid var(--line); }
+        .composition { border-left: 1px solid var(--line); }
+        .preview { grid-column: 1 / -1; border-left: 0; border-top: 1px solid var(--line); }
+        .prompt-sheet { min-height: 190px; }
+      }
+      @media (max-width: 640px) {
+        .app { padding: 16px; }
+        .topbar { align-items: flex-start; }
+        .top-actions { gap: 4px; }
+        .mode { padding: 8px; }
+        .quiet-button { display: none; }
+        .intro { padding-top: 70px; }
+        h1 { font-size: 2.75rem; }
+        .intent-grid { grid-template-columns: 1fr 1fr; }
+        .workspace-header { display: block; }
+        .workspace-header p { margin-top: 13px; }
+        .workspace-grid { display: block; }
+        .panel { border: 0; border-bottom: 1px solid var(--line); }
+        .preview { border-bottom: 0; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="app">
+      <header class="topbar">
+        <div class="brand">PROMPTER<span>_</span></div>
+        <div class="top-actions">
+          <button class="mode active">Öğren</button><button class="mode">Kod</button>
+          <button class="quiet-button">Tarifler</button><button class="icon-button" aria-label="Dili değiştir">TR</button>
+        </div>
+      </header>
+
+      <section class="view intro" id="intro-view">
+        <div class="eyebrow">Düşünme iskeleti</div>
+        <h1>Bir konuya doğru sorularla yaklaş.</h1>
+        <p class="lede">PROMPTER, bir konu için yalnızca cevap istemez. Konuyu parçalayan, ilişkilendiren ve sınayan bir düşünme çerçevesi kurar.</p>
+        <input class="topic-input" id="topic" value="Transformer Mimarisi" aria-label="Öğrenilecek konu" />
+        <label class="prompt-label">Bu konu için neye ihtiyacın var?</label>
+        <div class="intent-grid" id="intent-grid">
+          <button class="intent" data-intent="Hızlı kavrayış" data-modules="ELI5,Ön koşullar,80/20 analizi"><strong>Hızlı kavrayış</strong><span>Özü yakala, gereksiz ayrıntıyı sonra bırak.</span></button>
+          <button class="intent active" data-intent="Derin analiz" data-modules="Ontoloji,Mekanizma,Rakip görüşler,Sınırlar"><strong>Derin analiz</strong><span>Yapıyı, işleyişi ve kırılma noktalarını anla.</span></button>
+          <button class="intent" data-intent="Karşılaştır" data-modules="Kontrast analizi,Rakip görüşler,Karar ağacı"><strong>Karşılaştır</strong><span>Alternatifleri ortak bir çerçevede tart.</span></button>
+          <button class="intent" data-intent="Uygulama planı" data-modules="Mekanizma,Örnekler,Transfer soruları"><strong>Uygulama planı</strong><span>Bilgiyi pratik bir çalışma planına çevir.</span></button>
+          <button class="intent" data-intent="Sınava hazırlan" data-modules="Ön koşullar,Öğrenme sırası,Quiz"><strong>Sınava hazırlan</strong><span>Konuyu hatırlanabilir ve ölçülebilir yap.</span></button>
+          <button class="intent" data-intent="Kendi yolum" data-modules=""><strong>Kendi yolum</strong><span>Boş bir iskeletle başla, modülleri kendin kur.</span></button>
+        </div>
+        <div class="recommendation">Önerilen yol <b id="recommendation-copy">Derin analiz için 4 modül</b></div>
+        <div class="module-pills" id="intro-pills"></div>
+        <div class="continue-row">
+          <button class="primary-button" id="open-workspace">Çalışma alanını aç →</button>
+          <span class="meta" id="intro-meta">4 modül · 4 katman · yaklaşık 1.4K token</span>
+        </div>
+      </section>
+
+      <section class="view workspace" id="workspace-view">
+        <div class="workspace-header">
+          <div><div class="eyebrow">Çalışma alanı</div><h2 id="workspace-topic">Transformer Mimarisi</h2></div>
+          <p>İskeleti değiştir, modülleri seç ve üretilen promptun ne istediğini daima görünür tut.</p>
+        </div>
+        <div class="workspace-grid">
+          <aside class="panel settings">
+            <p class="panel-kicker">İnce ayar</p>
+            <div class="field"><label for="level">Bilgi seviyesi</label><select id="level"><option>Otomatik</option><option>Başlangıç</option><option>Orta</option><option>İleri</option></select></div>
+            <div class="field"><label for="depth">Analiz derinliği</label><select id="depth"><option>Derin</option><option>Temel</option><option>Kapsamlı</option></select></div>
+            <div class="field"><label for="format">Çıktı biçimi</label><select id="format"><option>Yapılandırılmış not</option><option>Markdown</option><option>Ders notu</option></select></div>
+            <button class="advanced">+ Gelişmiş ayarlar</button>
+            <p class="settings-note">Bu ayarlar iskeleti değiştirmez; yalnızca cevabın açıklama düzeyini ve biçimini belirler.</p>
+          </aside>
+
+          <section class="panel composition">
+            <div class="composition-top"><div><p class="panel-kicker">Düşünme iskeleti</p><h3 id="composition-title">Derin analiz</h3></div><span class="count" id="module-count">4 modül</span></div>
+            <div class="module-list" id="module-list"></div>
+            <button class="add-module" id="toggle-catalog">+ Modül ekle veya tam kataloğu aç</button>
+            <div class="catalog" id="catalog">
+              <button data-module="Tarihsel evrim">+ Tarihsel evrim</button><button data-module="Düşünce deneyi">+ Düşünce deneyi</button>
+              <button data-module="Gerçek dünya örnekleri">+ Gerçek dünya örnekleri</button><button data-module="Kaynak haritası">+ Kaynak haritası</button>
+            </div>
+          </section>
+
+          <aside class="panel preview">
+            <p class="panel-kicker">Prompt özeti</p>
+            <div class="summary"><div class="metric"><b id="metric-modules">4</b><span>modül</span></div><div class="metric"><b id="metric-layers">4</b><span>katman</span></div><div class="metric"><b>72</b><span>skor</span></div><div class="metric"><b id="metric-tokens">1.4K</b><span>token</span></div></div>
+            <p class="status" id="status">Güncel</p>
+            <div class="prompt-sheet" id="prompt-sheet"></div>
+            <div class="preview-actions"><button class="copy-button" id="copy-button">Kopyala</button><button class="send-button">Claude'a gönder →</button></div>
+          </aside>
+        </div>
+      </section>
+    </main>
+    <div class="toast" id="toast">Prompt panoya kopyalandı.</div>
+    <script>
+      const defaultDescriptions = {
+        "ELI5": "Kavramı mümkün olan en sade dilde açıkla.",
+        "Ön koşullar": "Önce bilinmesi gereken temel parçaları haritala.",
+        "80/20 analizi": "En yüksek anlayışı getirecek çekirdek parçaları ayır.",
+        "Ontoloji": "Kavramın yapı taşlarını ve sınırlarını tanımla.",
+        "Mekanizma": "Girdi, süreç ve çıktıyı adım adım çöz.",
+        "Rakip görüşler": "Alternatif açıklamaları güçlü ve zayıf yanlarıyla karşılaştır.",
+        "Sınırlar": "Varsayımları, kırılma noktalarını ve başarısızlık durumlarını göster.",
+        "Kontrast analizi": "Yakın kavramlarla benzerlik ve farkları ortaya koy.",
+        "Karar ağacı": "Hangi koşulda hangi yaklaşımın seçileceğini göster.",
+        "Örnekler": "Soyut yapıyı somut uygulamalara bağla.",
+        "Transfer soruları": "Anlayışı yeni bağlamlarda sınayan sorular üret.",
+        "Öğrenme sırası": "Konuyu doğru öğrenme sırasına koy.",
+        "Quiz": "Anlayışı ölçen kısa sorular üret.",
+        "Tarihsel evrim": "Kavramın neden ve nasıl ortaya çıktığını açıkla.",
+        "Düşünce deneyi": "Sistemi kontrollü bir senaryo içinde sınamayı iste.",
+        "Gerçek dünya örnekleri": "En az üç somut kullanım alanı ver.",
+        "Kaynak haritası": "Bir sonraki çalışma adımları için kaynak yönü çiz."
+      };
+      const colors = ["#3457c9", "#b77820", "#286448", "#874a77", "#6b5aa9", "#aa6330"];
+      let selectedIntent = "Derin analiz";
+      let modules = ["Ontoloji", "Mekanizma", "Rakip görüşler", "Sınırlar"];
+      const topic = document.getElementById("topic");
+      const introPills = document.getElementById("intro-pills");
+      const list = document.getElementById("module-list");
+      const sheet = document.getElementById("prompt-sheet");
+
+      function plural(n) { return n === 1 ? "modül" : "modül"; }
+      function renderPills() { introPills.innerHTML = modules.length ? modules.map((name, i) => `<span class="pill"><i style="background:${colors[i % colors.length]}"></i>${name}</span>`).join("") : '<span class="meta">Modülleri çalışma alanında kendin seçebilirsin.</span>'; }
+      function renderWorkspace() {
+        document.getElementById("workspace-topic").textContent = topic.value || "İsimsiz konu";
+        document.getElementById("composition-title").textContent = selectedIntent;
+        document.getElementById("module-count").textContent = `${modules.length} ${plural(modules.length)}`;
+        document.getElementById("metric-modules").textContent = modules.length;
+        document.getElementById("metric-layers").textContent = Math.min(5, Math.max(1, modules.length));
+        document.getElementById("metric-tokens").textContent = `${(0.7 + modules.length * .18).toFixed(1)}K`;
+        list.innerHTML = modules.map((name, i) => `<article class="module" style="--module-color:${colors[i % colors.length]}"><div class="module-copy"><strong>${name}</strong><small>${defaultDescriptions[name] || "Bu modül prompta ayrı bir düşünme adımı ekler."}</small></div><button class="remove" aria-label="${name} modülünü kaldır" data-remove="${name}">×</button></article>`).join("");
+        list.querySelectorAll("[data-remove]").forEach(button => button.addEventListener("click", () => { modules = modules.filter(item => item !== button.dataset.remove); updateAll(); document.getElementById("status").textContent = "Değişiklik var"; }));
+        const activeLines = modules.map((name, i) => `<em>## ${i + 1}. ${name.toUpperCase()}</em>\n${defaultDescriptions[name] || "Bu düşünme adımını konuya uygula."}`).join("\n\n");
+        sheet.innerHTML = `<em>[ROL]</em>\nSen, karmaşık konuları görünür düşünme adımlarıyla açıklayan bir öğrenme tasarımcısısın.\n\n<em>[KONU]</em>\n${topic.value || "İsimsiz konu"}\n\n<em>[AKTİF İSKELET]</em>\n${activeLines}\n\n<em>[ÇIKTI]</em>\nYapılandırılmış not; varsayımları açıkça belirt, gerekirse örnekle.`;
+      }
+      function updateAll() { renderPills(); renderWorkspace(); document.getElementById("recommendation-copy").textContent = `${selectedIntent} için ${modules.length} modül`; document.getElementById("intro-meta").textContent = `${modules.length} modül · ${Math.min(5, Math.max(1, modules.length))} katman · yaklaşık ${(0.7 + modules.length * .18).toFixed(1)}K token`; }
+      document.querySelectorAll(".intent").forEach(button => button.addEventListener("click", () => { document.querySelectorAll(".intent").forEach(item => item.classList.remove("active")); button.classList.add("active"); selectedIntent = button.dataset.intent; modules = button.dataset.modules ? button.dataset.modules.split(",") : []; updateAll(); }));
+      document.getElementById("open-workspace").addEventListener("click", () => { document.getElementById("intro-view").style.display = "none"; document.getElementById("workspace-view").classList.add("show"); renderWorkspace(); window.scrollTo({top: 0, behavior: "smooth"}); });
+      document.getElementById("toggle-catalog").addEventListener("click", () => document.getElementById("catalog").classList.toggle("show"));
+      document.querySelectorAll("#catalog button").forEach(button => button.addEventListener("click", () => { const name = button.dataset.module; if (!modules.includes(name)) modules.push(name); updateAll(); document.getElementById("status").textContent = "Değişiklik var"; }));
+      document.getElementById("copy-button").addEventListener("click", async () => { try { await navigator.clipboard.writeText(sheet.innerText); } catch { } const toast = document.getElementById("toast"); toast.classList.add("show"); setTimeout(() => toast.classList.remove("show"), 2200); });
+      topic.addEventListener("input", () => { if (document.getElementById("workspace-view").classList.contains("show")) renderWorkspace(); });
+      updateAll();
+    </script>
+  </body>
+</html>

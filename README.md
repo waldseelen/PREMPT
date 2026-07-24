@@ -1,41 +1,56 @@
-# 🧠 Learning OS - Parametric Prompt Engineer v2
+# 🧠 PROMPTER — The Learning OS
 
-Learning OS is a cutting-edge, React-based web application designed to systematically deconstruct, analyze, and learn any complex topic using advanced AI models. Rather than relying on simple prompts, this tool acts as an "Operating System" for learning, generating massive, highly-structured, parametric prompts tailored to your exact learning needs.
+PROMPTER is a client-side React application that acts as an "Operating System" for prompting. Instead of typing one-off prompts, you mix and match modular components which the engine compiles into a single, large, highly-structured prompt — then hands off to your AI chat tool of choice (ChatGPT, Claude, Gemini, or Perplexity).
+
+There is **no backend**. Everything runs in the browser: state lives in `localStorage`, and every hand-off to an external AI happens through a URL query parameter or a clipboard copy.
 
 ## ✨ Key Features
 
-- **28 Modular Learning Components**: Mix and match modules like *Ontology (First Principles)*, *Hidden Assumptions*, *Causal Necessity*, *Paradox Mode*, *Thought Experiments*, and *Simulation Mode*.
-- **Dynamic Dependency Resolution**: Modules intelligently suggest or automatically select their prerequisites (e.g., selecting "Quiz" automatically resolves to include "Ontology" and "Mechanism").
-- **Internal Monologue (O1/Reasoning) Mode**: Forces the AI to utilize internal `<thinking>` tags to evaluate boundary conditions from 3 different perspectives before outputting the final response.
-- **Smart AI Router with Safety Guards**: One-click export to Google Gemini, ChatGPT, Claude, or Perplexity. Includes a built-in URL character limit guard that falls back to clipboard copying to prevent browser crashes on massive prompts.
-- **Adaptive Glassmorphism UI**: Beautiful, fully responsive user interface with an adaptive Light / Dark / System theme engine.
-- **State Persistence**: Your learning configurations, selected modules, and preferences are automatically saved to your browser's local storage.
-- **One-Click Presets**: Quickly load predefined module combinations for specific use cases like *Rapid Grasping*, *Deep Analysis*, *Exam Prep*, or *Engineer Mode*.
+- **Two parallel domains, one engine**: PROMPTER ships two prompting domains that share the same compiler pipeline:
+  - **Learning** (35 modules) — deconstruct, analyze, and understand any concept, with modules like *Ontology (First Principles)*, *Hidden Assumptions*, *Causal Necessity*, *Paradox Mode*, and *Thought Experiments*.
+  - **Code** (32 modules) — software-engineering prompting across five phases: *design, build, comprehend, harden, ship* (threat modeling, auth design, concurrency, observability, CI/CD, and more).
+  You switch between them with a Learn | Code pill, and each domain resets to its own sensible defaults.
+- **Dynamic Dependency Resolution**: Modules declare prerequisites as a dependency graph (DAG). Selecting a module can auto-add the modules it depends on, and the compiler topologically sorts them so prerequisites always appear before dependents in the final prompt.
+- **One-Click Presets**: 12 curated presets per domain, grouped by intent, load a ready-made module bundle plus matching configuration in a single click — from *Rapid Grasping* and *Deep Analysis* on the Learning side to *Test Strategy*, *Security Review*, and *Legacy Modernization* on the Code side.
+- **Internal Monologue (Reasoning) Mode**: Optionally force the AI to use internal `<thinking>` tags to evaluate boundary conditions from multiple perspectives before producing its final answer.
+- **Smart AI Router with a URL-length guard**: One-click export to ChatGPT, Claude, Gemini, or Perplexity. A built-in 4000-character guard detects prompts too long to pass safely through a URL and falls back to opening the bare chat page and copying the prompt to your clipboard instead — avoiding browser URL-limit crashes and popup blockers.
+- **Recipes, Share Links & Export/Import**: Save reusable setups as local recipes, share a frozen setup as a `?share=` link, or export/import a setup as JSON. All three use one safe serialization format that gracefully repairs stale or hand-edited data.
+- **Bilingual data (TR / EN)**: Every domain ships parallel English and Turkish module sets and UI/prompt text. The display language is independent of the internal state model.
+- **Adaptive Glassmorphism UI**: A fully responsive, pure-CSS interface with a Light / Dark / System theme engine.
+- **State Persistence**: Your configuration, selected modules, and preferences are saved automatically to your browser's `localStorage` via Zustand's persist middleware.
 
 ## 🚀 Quick Start
 
-1. **Install Dependencies**:
-   \`\`\`bash
-   npm install
-   \`\`\`
+```bash
+# Install dependencies
+npm install
 
-2. **Run Development Server**:
-   \`\`\`bash
-   npm run dev
-   \`\`\`
+# Run the dev server
+npm run dev
 
-3. **Build for Production**:
-   \`\`\`bash
-   npm run build
-   \`\`\`
+# Production build
+npm run build
+
+# Preview the production build
+npm run preview
+
+# Validate module data (TR/EN parity, required fields, dependency refs)
+npm run validate
+```
 
 ## 🛠️ Technology Stack
 
-- **Framework**: React 18 + Vite
-- **State Management**: Zustand (with Persist Middleware)
-- **Styling**: Pure CSS (Custom Properties, CSS Grid, Glassmorphism, CSS Animations)
-- **Deployment**: Static HTML/JS/CSS bundle, zero backend required.
+- **Framework**: React 19 + Vite
+- **State Management**: Zustand v5 (with persist middleware, `localStorage`)
+- **Styling**: Pure CSS (custom properties, CSS Grid, glassmorphism, animations)
+- **Deployment**: Static HTML/JS/CSS bundle, zero backend required (SPA deploy on Vercel).
 
 ## 🤝 Philosophy
 
-This is not a simple "Prompt Generator". It is a **Learning Operating System**. The core engine is deterministic, the module system is highly data-driven, and the UI acts purely as a renderer for your cognitive scaffolding.
+This is not a simple "prompt generator." It is a **prompting operating system**. The engine is deterministic and data-driven: modules are pure configuration, all "thinking" (dependency resolution, suggestions, prompt assembly, presets) lives in the engine and compiler, and the UI is a thin renderer over a single Zustand store. Adding a new module — or even a whole new domain — is largely a matter of adding data.
+
+## 📚 Deeper Documentation
+
+- [`ARCHITECTURE.md`](./ARCHITECTURE.md) — full file tree, strict layering, the multi-domain design, state shape, and the compilation pipeline.
+- [`CLAUDE.md`](./CLAUDE.md) — guidance for working in this repository (commands, layering rules, how to add modules/domains/presets).
+- [`AGENT.md`](./AGENT.md) — hard constraints and directives for AI coding agents.
