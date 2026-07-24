@@ -4,7 +4,7 @@ import { getModuleRegistry } from '../engine/moduleRegistry';
 import { getSuggestions } from '../engine/intelligenceLayer';
 import { getTranslation } from '../locales/i18n';
 import { getDomain } from '../domains';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import {
     Target, Waypoints, ArrowDown10, GitFork, Infinity as InfinityIcon, Settings,
     Hammer, RotateCcw, History, Swords, SplitSquareHorizontal,
@@ -109,6 +109,31 @@ export default function ModuleGrid() {
         return getSuggestions(config, selectedModules);
     }, [config, selectedModules]);
 
+    // Dependency-status visualization: a selected module counts as a
+    // "resolved prerequisite" if it's also listed in another *currently
+    // selected* module's `requires` — regardless of whether autoResolveDeps
+    // added it or the user picked both by hand. Derived from data already on
+    // the client (module registry + selection), no engine change needed.
+    const prereqIds = useMemo(() => {
+        const set = new Set();
+        selectedModules.forEach((id) => {
+            const mod = modules.find((m) => m.id === id);
+            (mod?.requires || []).forEach((reqId) => {
+                if (selectedModules.includes(reqId)) set.add(reqId);
+            });
+        });
+        return set;
+    }, [selectedModules, modules]);
+
+    // Hover-link: highlight a card's prerequisite(s) elsewhere in the grid
+    // instead of drawing cross-column SVG connectors, which would be fragile
+    // against the categories-container's CSS grid reflow.
+    const [hoveredId, setHoveredId] = useState(null);
+    const hoveredRequires = useMemo(() => {
+        const hovered = hoveredId ? modules.find((m) => m.id === hoveredId) : null;
+        return new Set(hovered?.requires || []);
+    }, [hoveredId, modules]);
+
     return (
         <section className="card delay-4" style={{ position: 'relative', paddingTop: 0 }}>
             <div className="modules-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', position: 'sticky', top: 0, background: 'var(--bg-card)', zIndex: 10, padding: '16px 0 12px 0', margin: '0 -16px 16px -16px', paddingLeft: '16px', paddingRight: '16px', borderBottom: '1px solid var(--border)' }}>
@@ -188,13 +213,24 @@ export default function ModuleGrid() {
                                 {catModules.map(mod => {
                                     const isActive = selectedModules.includes(mod.id);
                                     const isSuggested = suggestions.some(s => s.id === mod.id);
+                                    const isPrereq = isActive && prereqIds.has(mod.id);
+                                    const isPrereqHighlight = hoveredId && hoveredId !== mod.id && hoveredRequires.has(mod.id);
                                     const Icon = moduleIcons[mod.id] || Box;
-                                    
+                                    const cardClasses = [
+                                        'module-card',
+                                        isActive ? 'active' : '',
+                                        isSuggested && !isActive ? 'suggested' : '',
+                                        isPrereq ? 'is-prereq' : '',
+                                        isPrereqHighlight ? 'is-prereq-highlight' : ''
+                                    ].filter(Boolean).join(' ');
+
                                     return (
-                                        <div 
-                                            key={mod.id} 
-                                            className={`module-card ${isActive ? 'active' : ''} ${isSuggested && !isActive ? 'suggested' : ''}`}
+                                        <div
+                                            key={mod.id}
+                                            className={cardClasses}
                                             onClick={() => toggleModule(mod.id)}
+                                            onMouseEnter={() => setHoveredId(mod.id)}
+                                            onMouseLeave={() => setHoveredId(null)}
                                             role="button"
                                             tabIndex={0}
                                             onKeyDown={(e) => {
@@ -209,9 +245,15 @@ export default function ModuleGrid() {
                                             <div className="module-info">
                                                 <div className="module-name" style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
                                                     {mod.name}
-                                                    {isSuggested && !isActive && <span style={{ fontSize: '0.6rem', background: 'var(--text-secondary)', color: 'var(--bg-card)', padding: '1px 4px', borderRadius: '4px' }}>AI</span>}
+                                                    {isPrereq && <span className="status-badge status-badge-emerald" title={t.autoResolved}>✓</span>}
+                                                    {isSuggested && !isActive && <span className="status-badge status-badge-amber">AI</span>}
                                                 </div>
                                                 <div className="module-desc">{mod.desc}</div>
+                                                {mod.requires && mod.requires.length > 0 && (
+                                                    <div className="module-inline-reqs">
+                                                        → {mod.requires.map(reqId => modules.find(m => m.id === reqId)?.name || reqId).join(', ')}
+                                                    </div>
+                                                )}
                                             </div>
 
                                             {/* Custom Theme-Aware Tooltip */}

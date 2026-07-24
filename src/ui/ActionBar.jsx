@@ -7,13 +7,12 @@ import { serializeState, sanitizePayload, encodePayloadToParam } from '../utils/
 import { getDomain } from '../domains';
 import { SiGooglegemini, SiAnthropic, SiPerplexity, SiOpenaigym } from '@icons-pack/react-simple-icons';
 import { getTranslation } from '../locales/i18n';
-import { Sparkles, Copy, RotateCcw, Share2, Download, Upload } from 'lucide-react';
+import { Copy, RotateCcw, Share2, Download, Upload } from 'lucide-react';
 
 export default function ActionBar({ showToast }) {
     const fileInputRef = useRef(null);
-    const { clearAll, setGeneratedPrompt, applySharedState } = useEngineState(useShallow(state => ({
+    const { clearAll, applySharedState } = useEngineState(useShallow(state => ({
         clearAll: state.clearAll,
-        setGeneratedPrompt: state.setGeneratedPrompt,
         applySharedState: state.applySharedState
     })));
     
@@ -23,27 +22,6 @@ export default function ActionBar({ showToast }) {
         domain: state.config.domain
     })));
     const t = getTranslation(lang, domain);
-
-    const handleGenerate = () => {
-        const currentState = useEngineState.getState();
-        if (!currentState.config.konu.trim()) {
-            showToast(t.toastNeedTopic, 'warn');
-            return;
-        }
-        if (currentState.selectedModules.length === 0) {
-            showToast(t.toastNeedModule, 'warn');
-            return;
-        }
-        const prompt = assembleFinalPrompt(currentState);
-        setGeneratedPrompt(prompt);
-        showToast(t.toastSuccess);
-        setTimeout(() => {
-            const previewCard = document.getElementById('preview-card');
-            const previewBox = document.getElementById('preview-box');
-            if (previewCard) previewCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            if (previewBox) previewBox.focus();
-        }, 100);
-    };
 
     const handleCopy = () => {
         const currentState = useEngineState.getState();
@@ -60,12 +38,19 @@ export default function ActionBar({ showToast }) {
 
     const handleOpenAI = (aiName) => {
         const currentState = useEngineState.getState();
-        const prompt = assembleFinalPrompt(currentState);
+        // OpenAI-JSON is copy/API-oriented, not a chat-paste artifact — fall
+        // back to Markdown for the AI deep-link buttons specifically (see
+        // formatters/openaiJson.js).
+        const isJsonTarget = currentState.config.hedef === 'openai-json';
+        const prompt = assembleFinalPrompt(currentState, isJsonTarget ? { forceTarget: 'markdown' } : undefined);
         if (!prompt) {
             showToast(t.toastNeedPrompt, 'warn');
             return;
         }
-        
+        if (isJsonTarget) {
+            showToast(t.toastTargetTextOnly, 'warn');
+        }
+
         openInAI(aiName, prompt,
             () => showToast(t.toastUrlLimit, 'warn'),
             () => showToast(t.toastOpening)
@@ -123,15 +108,12 @@ export default function ActionBar({ showToast }) {
 
     return (
         <div className="actions-bar" style={{ display: 'flex', flexDirection: 'column', gap: '8px', width: '100%', marginBottom: '16px' }}>
-            {/* Row 1: Reset, Generate, Copy */}
+            {/* Row 1: Reset, Copy — preview compiles live now, no separate Generate step */}
             <div style={{ display: 'flex', gap: '8px', width: '100%' }}>
-                <button className="btn btn-secondary" style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }} onClick={() => { clearAll(); setGeneratedPrompt(''); showToast(t.toastReset); }}>
+                <button className="btn btn-secondary" style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }} onClick={() => { clearAll(); showToast(t.toastReset); }}>
                     <RotateCcw size={16} /> {t.btnReset}
                 </button>
-                <button className="btn btn-primary" style={{ flex: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', background: '#e9c46a', color: '#1a1a1a', borderColor: '#e9c46a' }} onClick={handleGenerate}>
-                    <Sparkles size={16} /> {t.btnGenerate}
-                </button>
-                <button className="btn btn-secondary" style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }} onClick={handleCopy}>
+                <button className="btn btn-primary" style={{ flex: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }} onClick={handleCopy}>
                     <Copy size={16} /> {t.btnCopy}
                 </button>
             </div>

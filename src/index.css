@@ -81,6 +81,15 @@
     --color-ship-bg: rgba(74, 222, 128, 0.12);
     --color-ship-border: rgba(74, 222, 128, 0.25);
     --color-ship-light: rgba(74, 222, 128, 0.03);
+
+    /* Dependency-status semantics (module cards) — generic, not per-layer:
+       emerald = auto-resolved prerequisite, amber = optional AI suggestion. */
+    --status-emerald: #34d399;
+    --status-emerald-bg: rgba(52, 211, 153, 0.14);
+    --status-emerald-border: rgba(52, 211, 153, 0.35);
+    --status-amber: #fbbf24;
+    --status-amber-bg: rgba(251, 191, 36, 0.14);
+    --status-amber-border: rgba(251, 191, 36, 0.35);
 }
 
 :root[data-theme="light"] {
@@ -164,6 +173,15 @@
     --color-ship-bg: rgba(21, 128, 61, 0.05);
     --color-ship-border: rgba(21, 128, 61, 0.15);
     --color-ship-light: rgba(21, 128, 61, 0.02);
+
+    /* Dependency-status semantics (module cards) — generic, not per-layer:
+       emerald = auto-resolved prerequisite, amber = optional AI suggestion. */
+    --status-emerald: #059669;
+    --status-emerald-bg: rgba(5, 150, 105, 0.08);
+    --status-emerald-border: rgba(5, 150, 105, 0.25);
+    --status-amber: #b45309;
+    --status-amber-bg: rgba(180, 83, 9, 0.08);
+    --status-amber-border: rgba(180, 83, 9, 0.25);
 }
 
         /* ══════════════════════ RESET & BASE ══════════════════════ */
@@ -624,7 +642,7 @@
             align-items: flex-start;
             gap: 10px;
             padding: 10px;
-            height: 74px;
+            min-height: 74px;
             box-sizing: border-box;
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -648,7 +666,42 @@
             color: var(--cat-text, var(--text-primary));
         }
         .module-card.suggested {
-            border: 1px dashed var(--cat-text, var(--accent-2));
+            border: 1px dashed var(--status-amber);
+        }
+        /* Dependency-status visualization (A4): a selected module that's also
+           required by another selected module gets an emerald accent on top
+           of its normal category-color active state. */
+        .module-card.active.is-prereq {
+            box-shadow: inset 0 0 0 1px var(--status-emerald-border), 0 4px 12px var(--status-emerald-bg);
+        }
+        /* Hover-link: highlights a hovered card's prerequisite(s) elsewhere
+           in the grid, in place of a fragile cross-column SVG connector. */
+        .module-card.is-prereq-highlight {
+            border-color: var(--status-emerald);
+            box-shadow: 0 0 0 2px var(--status-emerald-border), 0 4px 16px var(--status-emerald-bg);
+        }
+        .status-badge {
+            font-size: 0.6rem;
+            font-weight: 700;
+            padding: 1px 5px;
+            border-radius: 4px;
+            line-height: 1.4;
+        }
+        .status-badge-emerald {
+            background: var(--status-emerald-bg);
+            color: var(--status-emerald);
+            border: 1px solid var(--status-emerald-border);
+        }
+        .status-badge-amber {
+            background: var(--status-amber-bg);
+            color: var(--status-amber);
+            border: 1px solid var(--status-amber-border);
+        }
+        .module-inline-reqs {
+            font-size: 0.68rem;
+            color: var(--status-emerald);
+            margin-top: 3px;
+            overflow-wrap: break-word;
         }
         .module-icon {
             color: var(--text-secondary);
@@ -950,6 +1003,98 @@
         .sidebar::-webkit-scrollbar-thumb, .main-content::-webkit-scrollbar-thumb, .right-sidebar::-webkit-scrollbar-thumb {
             background: var(--border-active);
             border-radius: 4px;
+        }
+
+        /* ══════════════════════ INTRO VIEW ══════════════════════ */
+        .intro-container {
+            max-width: 720px;
+            margin: 0 auto;
+            width: 100%;
+            overflow-y: auto;
+            padding-bottom: 24px;
+        }
+        .intro-view {
+            display: flex;
+            flex-direction: column;
+        }
+        .intro-preview .intro-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        .intro-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 10px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            background: var(--bg-input);
+            font-size: 0.76rem;
+            color: var(--text-secondary);
+        }
+        .intro-pill-dot {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .cat-dot-foundation { background: var(--color-foundation); }
+        .cat-dot-mechanism { background: var(--color-mechanism); }
+        .cat-dot-context { background: var(--color-context); }
+        .cat-dot-boundaries { background: var(--color-boundaries); }
+        .cat-dot-application { background: var(--color-application); }
+        .cat-dot-design { background: var(--color-design); }
+        .cat-dot-build { background: var(--color-build); }
+        .cat-dot-comprehend { background: var(--color-comprehend); }
+        .cat-dot-harden { background: var(--color-harden); }
+        .cat-dot-ship { background: var(--color-ship); }
+        .intro-meta {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .intro-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .intro-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 4px;
+            flex-wrap: wrap;
+        }
+        .intro-cta {
+            flex: 1;
+            min-width: 220px;
+        }
+
+        /* ══════════════════════ WORKSPACE TOPBAR ══════════════════════ */
+        .workspace-topbar {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 12px;
+            flex-shrink: 0;
+        }
+        .workspace-back-btn {
+            flex-shrink: 0;
+            padding: 6px 12px;
+            font-size: 0.78rem;
+        }
+        .workspace-topic-label {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
 
         /* ══════════════════════ RESPONSIVE ══════════════════════ */
@@ -1273,15 +1418,18 @@
         }
 
         /* ══════════════════════ ONBOARDING TOUR ══════════════════════ */
-        .tour-overlay {
+        /* One of up to 4 non-overlapping strips tiling the viewport around the
+           spotlighted element's rect (see OnboardingTour.jsx). Geometrically
+           excluding the spotlighted rect from these divs -- instead of relying
+           on z-index to keep a blurred full-screen overlay "under" it -- means
+           the highlighted area can never be sampled into the blur, regardless
+           of backdrop-filter/stacking-context quirks across browsers. */
+        .tour-overlay-frame {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
             background: rgba(0, 0, 0, 0.4);
             z-index: 10000;
-            backdrop-filter: blur(2px);
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
             pointer-events: auto;
             transition: opacity 0.3s ease;
         }
@@ -1437,13 +1585,13 @@
         .tour-highlighted {
             position: relative !important;
             z-index: 10001 !important;
-            box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5), 0 0 20px rgba(94, 106, 210, 0.4) !important;
+            box-shadow: 0 0 20px rgba(94, 106, 210, 0.4) !important;
             pointer-events: none !important;
             transition: box-shadow 0.3s ease !important;
         }
 
         :root[data-theme="light"] .tour-highlighted {
-            box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.35), 0 0 20px rgba(0, 0, 0, 0.15) !important;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15) !important;
         }
 
         @media (max-width: 767px) {

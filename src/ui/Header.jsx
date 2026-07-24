@@ -5,18 +5,27 @@ import { DOMAINS, DEFAULT_DOMAIN } from '../domains';
 import { Sun, Moon, HelpCircle } from 'lucide-react';
 
 export default function Header() {
-    const { config, setTheme, setConfig, setDomain, startTour } = useEngineState(useShallow(state => ({
+    const { config, view, setTheme, setConfig, setDomain, startTour, enterWorkspace } = useEngineState(useShallow(state => ({
         config: state.config,
+        view: state.view,
         setTheme: state.setTheme,
         setConfig: state.setConfig,
         setDomain: state.setDomain,
-        startTour: state.startTour
+        startTour: state.startTour,
+        enterWorkspace: state.enterWorkspace
     })));
     const t = getTranslation(config.lang, config.domain);
     const activeDomain = config.domain ?? DEFAULT_DOMAIN;
 
     const toggleTheme = () => {
         setTheme(config.theme === 'light' ? 'dark' : 'light');
+    };
+
+    // Tour steps are anchored to workspace-only DOM (see OnboardingTour.jsx),
+    // so replaying it from intro must switch views first.
+    const handleReplayTour = () => {
+        if (view !== 'workspace') enterWorkspace();
+        startTour();
     };
 
     const toggleLang = () => {
@@ -46,7 +55,7 @@ export default function Header() {
                     ))}
                 </div>
                 <button
-                    onClick={startTour}
+                    onClick={handleReplayTour}
                     className="header-icon-btn"
                     title={t.tour?.btnReplay || 'Quick Tour'}
                 >

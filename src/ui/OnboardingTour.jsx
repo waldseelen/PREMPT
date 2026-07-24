@@ -7,11 +7,32 @@ export default function OnboardingTour() {
     const { config, showTour, completeTour } = useEngineState();
     const [currentStep, setCurrentStep] = useState(0);
     const [coords, setCoords] = useState(null);
+    const [frameRects, setFrameRects] = useState(null);
     const [prevShowTour, setPrevShowTour] = useState(showTour);
     const cardRef = useRef(null);
 
     const t = getTranslation(config.lang, config.domain);
     const steps = t.tourSteps || [];
+
+    // 4 non-overlapping strips tiling the viewport around `rect` (padded),
+    // so the darkened/blurred overlay geometrically cannot cover the
+    // spotlighted element -- no z-index/stacking-context reliance needed.
+    const buildFrameRects = (rect, pad = 8) => {
+        const vw = window.innerWidth;
+        const vh = window.innerHeight;
+        const hole = {
+            top: Math.max(0, rect.top - pad),
+            left: Math.max(0, rect.left - pad),
+            bottom: Math.min(vh, rect.bottom + pad),
+            right: Math.min(vw, rect.right + pad)
+        };
+        return [
+            { top: 0, left: 0, width: vw, height: hole.top }, // above
+            { top: hole.bottom, left: 0, width: vw, height: Math.max(0, vh - hole.bottom) }, // below
+            { top: hole.top, left: 0, width: hole.left, height: hole.bottom - hole.top }, // left of hole
+            { top: hole.top, left: hole.right, width: Math.max(0, vw - hole.right), height: hole.bottom - hole.top } // right of hole
+        ];
+    };
 
     // Reset step when the tour is (re)launched. Adjusting state directly
     // during render (rather than in a useEffect) avoids an extra render pass.
@@ -44,6 +65,7 @@ export default function OnboardingTour() {
             const updatePosition = () => {
                 const rect = element.getBoundingClientRect();
                 const isMobile = window.innerWidth < 768;
+                setFrameRects(buildFrameRects(rect));
 
                 if (isMobile) {
                     setCoords({
@@ -82,6 +104,14 @@ export default function OnboardingTour() {
                             width: '320px',
                             zIndex: 10005
                         });
+                    } else if (selector === '.domain-switch') {
+                        setCoords({
+                            position: 'fixed',
+                            top: `${rect.bottom + 16}px`,
+                            left: `${rect.left}px`,
+                            width: '320px',
+                            zIndex: 10005
+                        });
                     } else {
                         setCoords({
                             position: 'fixed',
@@ -108,15 +138,19 @@ export default function OnboardingTour() {
             // Screen-centered fallback for welcome step. Wrapped the same way
             // updatePosition() is above, rather than called directly, so this
             // stays a DOM-measurement-triggered update, not a render-body one.
-            const applyFallbackCoords = () => setCoords({
-                position: 'fixed',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-                width: '380px',
-                maxWidth: 'calc(100% - 32px)',
-                zIndex: 10005
-            });
+            const applyFallbackCoords = () => {
+                setCoords({
+                    position: 'fixed',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    width: '380px',
+                    maxWidth: 'calc(100% - 32px)',
+                    zIndex: 10005
+                });
+                // No specific element to spotlight -- one full-viewport frame.
+                setFrameRects([{ top: 0, left: 0, width: window.innerWidth, height: window.innerHeight }]);
+            };
             applyFallbackCoords();
         }
     }, [currentStep, showTour, steps]);
@@ -149,8 +183,14 @@ export default function OnboardingTour() {
 
     return (
         <>
-            <div className="tour-overlay" />
-            <div 
+            {(frameRects || []).map((r, idx) => (
+                <div
+                    key={idx}
+                    className="tour-overlay-frame"
+                    style={{ top: `${r.top}px`, left: `${r.left}px`, width: `${r.width}px`, height: `${r.height}px` }}
+                />
+            ))}
+            <div
                 className="tour-card"
                 ref={cardRef}
                 style={coords || { display: 'none' }}

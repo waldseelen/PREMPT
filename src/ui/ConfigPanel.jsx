@@ -2,7 +2,14 @@ import { useEngineState } from '../store/engineState';
 import { useShallow } from 'zustand/react/shallow';
 import { getTranslation } from '../locales/i18n';
 import { getDomain } from '../domains';
-import { GraduationCap, Workflow, Layers, FileText, BrainCircuit, Link } from 'lucide-react';
+import { GraduationCap, Workflow, Layers, FileText, BrainCircuit, Link, Terminal } from 'lucide-react';
+
+// Global, domain-agnostic target-syntax ids (Tier B formatters). Kept as a
+// local literal rather than importing from src/compiler/ — ui/ must not
+// reach into compiler/ per the project's layering rules. Mirrors the
+// FORMATTERS keys in finalPromptAssembler.js and VALID_TARGETS in
+// statePayload.js; update all three together if a target is added/removed.
+const TARGET_IDS = ['markdown', 'claude-xml', 'openai-json'];
 
 export default function ConfigPanel() {
     const { config, setConfig } = useEngineState(useShallow(state => ({
@@ -103,6 +110,28 @@ export default function ConfigPanel() {
                         <select id="sel-format" value={config.format} onChange={(e) => setConfig('format', e.target.value)}>
                             {domain.formatIds.map((id) => (
                                 <option key={id} value={id}>{t.formats?.[id]}</option>
+                            ))}
+                        </select>
+                    </div>
+                    <div className="input-group">
+                        <label htmlFor="sel-hedef" style={{display: 'flex', alignItems: 'center', gap: '6px', position: 'relative'}}>
+                            <Terminal size={14} /> {t.targetLabel}
+                            <div className="config-tooltip">
+                                <ul className="tooltip-list">
+                                    {Object.entries(t.targetDescs || {}).map(([key, text]) => {
+                                        const [title, ...rest] = text.split(':');
+                                        return (
+                                            <li key={key}>
+                                                <strong>{title}:</strong>{rest.join(':')}
+                                            </li>
+                                        );
+                                    })}
+                                </ul>
+                            </div>
+                        </label>
+                        <select id="sel-hedef" value={config.hedef} onChange={(e) => setConfig('hedef', e.target.value)}>
+                            {TARGET_IDS.map((id) => (
+                                <option key={id} value={id}>{t.targets?.[id]}</option>
                             ))}
                         </select>
                     </div>

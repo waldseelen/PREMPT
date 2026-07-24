@@ -22,6 +22,13 @@ export const useEngineState = create(
                 format: 'markdown',
                 monolog: false,
                 autoResolveDeps: true,
+                // Output syntax target (Tier B formatters). Deliberately global,
+                // NOT part of any domain's defaultConfig — setDomain()'s
+                // `...targetDomain.defaultConfig` spread must not reset it on a
+                // Learn<->Code switch. finalPromptAssembler falls back to
+                // 'markdown' itself on an unknown/missing value, so no migrate
+                // backfill is needed for pre-existing persisted blobs.
+                hedef: 'markdown',
                 theme: 'system',
                 lang: 'tr',
                 tourCompleted: false
@@ -31,7 +38,6 @@ export const useEngineState = create(
             selectedModules: [],
             activePreset: null,
             injectedRules: [],
-            generatedPrompt: '',
 
             // 3. Intelligence / Hints
             dependencyHints: [],
@@ -41,6 +47,13 @@ export const useEngineState = create(
             // setDomain()/clearAll() never touch it. Persisted separately
             // (see partialize below).
             savedRecipes: [],
+
+            // 5. View routing (session-only, NOT persisted — see partialize).
+            // 'intro' = topic + preset-first entry, 'workspace' = fine-tune +
+            // live preview. Kept as a sibling of `config`, same reasoning as
+            // `savedRecipes`: setDomain() must not reset it (switching domain
+            // mid-workspace should not kick the user back to intro).
+            view: 'intro',
 
             // Actions
             setConfig: (key, value) => set((state) => {
@@ -68,7 +81,6 @@ export const useEngineState = create(
                     selectedModules: [],
                     activePreset: null,
                     injectedRules: [],
-                    generatedPrompt: '',
                     dependencyHints: []
                 };
             }),
@@ -77,7 +89,19 @@ export const useEngineState = create(
                 config: { ...state.config, theme: themeVal }
             })),
 
-            setGeneratedPrompt: (prompt) => set({ generatedPrompt: prompt }),
+            // --- View routing ---
+            enterWorkspace: () => set({ view: 'workspace' }),
+            backToIntro: () => set({ view: 'intro' }),
+            // "Modülleri kendim seçeceğim" — explicit empty/manual entry so
+            // preset-first never becomes preset-mandatory. Leaves konu/alan
+            // untouched (unlike clearAll, which also wipes topic text).
+            startManual: () => set({
+                view: 'workspace',
+                selectedModules: [],
+                activePreset: null,
+                injectedRules: [],
+                dependencyHints: []
+            }),
 
             toggleModule: (id) => set((state) => {
                 const domain = state.config.domain ?? DEFAULT_DOMAIN;
@@ -176,12 +200,13 @@ export const useEngineState = create(
                         mod: clean.mod,
                         derinlik: clean.derinlik,
                         format: clean.format,
+                        hedef: clean.hedef,
                         monolog: clean.monolog,
                         autoResolveDeps: clean.autoResolveDeps
                     },
                     selectedModules: clean.selectedModules,
                     activePreset: clean.activePreset,
-                    generatedPrompt: '',
+                    view: 'workspace',
                     dependencyHints: []
                 };
             }),
@@ -204,12 +229,13 @@ export const useEngineState = create(
                         mod: clean.mod,
                         derinlik: clean.derinlik,
                         format: clean.format,
+                        hedef: clean.hedef,
                         monolog: clean.monolog,
                         autoResolveDeps: clean.autoResolveDeps
                     },
                     selectedModules: clean.selectedModules,
                     activePreset: clean.activePreset,
-                    generatedPrompt: '',
+                    view: 'workspace',
                     dependencyHints: []
                 };
             }),
@@ -226,7 +252,6 @@ export const useEngineState = create(
                 activePreset: null,
                 injectedRules: [],
                 dependencyHints: [],
-                generatedPrompt: '',
                 config: { ...state.config, konu: '', alan: '' }
             }))
         }),

@@ -15,25 +15,42 @@ export const i18n = {
  selectAll: 'Tümünü Seç',
  clearAll: 'Temizle',
  reqsLabel: 'Gereksinimler',
- btnGenerate: 'Prompt Üret',
  btnCopy: 'Kopyala',
  btnReset: 'Sıfırla',
  toastSuccess: 'Prompt başarıyla oluşturuldu!',
  toastNeedTopic: 'Lütfen öğrenmek istediğiniz konuyu girin.',
  toastNeedModule: 'Lütfen en az bir modül seçin.',
- toastNeedPrompt: 'Önce prompt oluşturmalısınız.',
+ toastNeedPrompt: 'Önce bir konu girip en az bir modül seçmelisiniz.',
  toastCopied: 'Panoya kopyalandı!',
  toastCopyFail: 'Kopyalama başarısız oldu.',
  toastUrlLimit: 'Prompt çok uzun! URL sınırına takılmamak için panoya kopyalayıp yönlendiriyoruz...',
  toastOpening: 'Yapay Zeka açılıyor...',
  toastReset: 'Tüm ayarlar sıfırlandı.',
+ toastTargetTextOnly: 'OpenAI JSON hedefi yalnızca kopyalama içindir; AI butonları için Markdown metni gönderiliyor.',
  previewTitle: 'Prompt Önizleme',
  previewChars: 'Karakter',
  previewTokens: 'Token',
  previewModules: 'modül',
  previewWarning: 'Uyarı: Bu prompt URL üzerinden taşınamayacak kadar uzun (>4000 karakter). Doğrudan AI butonlarına tıkladığınızda önce panoya kopyalanacak, ardından AI sayfası boş açılacaktır. Oraya yapıştırmanız (Ctrl+V) gerekecektir.',
- previewEmpty: 'Sol taraftan ayarları yapıp "Prompt Oluştur" butonuna tıklayın...',
+ previewEmpty: 'Bir konu girip modül seçtiğinizde prompt burada canlı olarak görünecek.',
  footer: 'Tüm veriler tarayıcınızda (Local Storage) kalır, hiçbir sunucuya gönderilmez.',
+
+ // Two-view flow (intro <-> workspace) & Tier B target-format selector —
+ // shared chrome, not domain-specific.
+ btnOpenWorkspace: 'Çalışma alanını aç',
+ btnStartManual: 'Modülleri kendim seçeceğim',
+ btnBackToIntro: 'Konuyu değiştir',
+ targetLabel: 'Prompt Sözdizimi',
+ targets: {
+   markdown: 'Markdown',
+   'claude-xml': 'Claude XML',
+   'openai-json': 'OpenAI JSON'
+ },
+ targetDescs: {
+   markdown: 'Markdown: Başlıklı, düz metin. Her AI sohbetine doğrudan yapıştırılabilir.',
+   'claude-xml': "Claude XML: Blokları <role>/<instructions> gibi etiketlere sarar. Yine yapıştırılabilir düz metindir.",
+   'openai-json': 'OpenAI JSON: Sistem mesajı JSON nesnesi üretir. Sohbete yapıştırılamaz; yalnızca kopyalama/API kullanımı içindir.'
+ },
 
  // Recipes & Sharing (domain'e özgü değil, paylaşılan chrome)
  recipesTitle: 'Kayıtlı Tarifler',
@@ -193,18 +210,23 @@ export const i18n = {
           selector: "body"
         },
         {
+          title: "Öğren ↔ Kod Geçişi",
+          content: "Sol üstteki bu geçiş menüsüyle Öğren ve Kod modları arasında anında geçiş yapabilirsiniz — ikisi de aynı motoru kullanır ama modülleri, parametreleri ve üretilen promptlar tamamen farklıdır.",
+          selector: ".domain-switch"
+        },
+        {
           title: "1. Parametre Konfigürasyonu",
           content: "Buradan yapay zekanın bilgi seviyesini, öğrenme modunu (Feynman, Sokratik vb.), analiz derinliğini ve çıktı formatını ayarlayabilirsiniz. İç Ses (Reasoning) modunu açarak AI'ın arka plandaki düşünme adımlarını tetikleyebilirsiniz.",
           selector: ".sidebar"
         },
         {
-          title: "2. Şablonlar ve Öğrenme Modülleri",
-          content: "Üstteki hazır şablonlarla tek tıkla en iyi ayarları yükleyebilir, altındaki modülleri (Analoji, Kodlama, Quiz vb.) tek tek seçerek promptunuzun hangi öğrenme başlıklarını içereceğini belirleyebilirsiniz.",
+          title: "2. Öğrenme Modülleri",
+          content: "Modülleri (Analoji, Kodlama, Quiz vb.) tek tek ekleyip çıkarabilirsiniz. Yeşil onay işareti, bir modülün başka seçili bir modül tarafından ön koşul olarak otomatik eklendiğini; AI rozeti ise önerilen isteğe bağlı bir modülü gösterir.",
           selector: ".main-content"
         },
         {
-          title: "3. Konu Girişi ve Üretim",
-          content: "Öğrenmek istediğiniz konuyu ve bildiğiniz uzmanlık alanını yazıp 'Prompt Üret' butonuna tıklayın. Oluşan promptu kopyalayarak ChatGPT, Claude veya Gemini gibi AI modellerine doğrudan yapıştırabilirsiniz.",
+          title: "3. Canlı Prompt ve Gönderim",
+          content: "Sağda promptunuz seçtiğiniz her modülle birlikte anında derlenir. Kopyalayın veya doğrudan ChatGPT, Claude, Gemini ya da Perplexity'ye gönderin; mevcut kurulumu Paylaş/Dışa Aktar ile de saklayabilirsiniz.",
           selector: ".right-sidebar"
         }
       ]
@@ -328,18 +350,23 @@ export const i18n = {
           selector: "body"
         },
         {
+          title: "Öğren ↔ Kod Geçişi",
+          content: "Sol üstteki bu geçiş menüsüyle Öğren ve Kod modları arasında anında geçiş yapabilirsiniz — ikisi de aynı motoru kullanır ama modülleri, parametreleri ve üretilen promptlar tamamen farklıdır.",
+          selector: ".domain-switch"
+        },
+        {
           title: "1. Parametre Konfigürasyonu",
           content: "Buradan hedef olgunluğu (Prototip, Production, Sertleştirilmiş), mühendislik personasını (Kıdemli, İnceleyici, Mimar vb.), analiz derinliğini ve kod çıktı formatını ayarlayabilirsiniz. İç Ses modunu açarak AI'ın arka plandaki düşünme adımlarını tetikleyebilirsiniz.",
           selector: ".sidebar"
         },
         {
-          title: "2. Şablonlar ve Kod Modülleri",
-          content: "Üstteki hazır şablonlarla (Özellik Yayınla, Kod İncelemesi, Hata Ayıklama vb.) tek tıkla en iyi ayarları yükleyebilir, altındaki modülleri (Gereksinimler, Mimari, Testler, Güvenlik vb.) tek tek seçerek promptunuzun neleri kapsayacağını belirleyebilirsiniz.",
+          title: "2. Kod Modülleri",
+          content: "Modülleri (Gereksinimler, Mimari, Testler, Güvenlik vb.) tek tek ekleyip çıkarabilirsiniz. Yeşil onay işareti, bir modülün başka seçili bir modülün ön koşulu olarak otomatik eklendiğini; AI rozeti ise önerilen isteğe bağlı bir modülü gösterir.",
           selector: ".main-content"
         },
         {
-          title: "3. Görev Girişi ve Üretim",
-          content: "Yapmak istediğiniz görevi/özelliği ve teknoloji yığınınızı yazıp 'Prompt Üret' butonuna tıklayın. Oluşan promptu kopyalayarak ChatGPT, Claude veya Gemini gibi AI modellerine doğrudan yapıştırabilirsiniz.",
+          title: "3. Canlı Prompt ve Gönderim",
+          content: "Sağda promptunuz seçtiğiniz her modülle birlikte anında derlenir. Kopyalayın veya doğrudan ChatGPT, Claude, Gemini ya da Perplexity'ye gönderin; mevcut kurulumu Paylaş/Dışa Aktar ile de saklayabilirsiniz.",
           selector: ".right-sidebar"
         }
       ]
@@ -355,25 +382,42 @@ export const i18n = {
  selectAll: 'Select All',
  clearAll: 'Clear All',
  reqsLabel: 'Requires',
- btnGenerate: 'Generate Prompt',
  btnCopy: 'Copy',
  btnReset: 'Reset',
  toastSuccess: 'Prompt generated successfully!',
  toastNeedTopic: 'Please enter a topic to learn.',
  toastNeedModule: 'Please select at least one module.',
- toastNeedPrompt: 'You need to generate a prompt first.',
+ toastNeedPrompt: 'Enter a topic and select at least one module first.',
  toastCopied: 'Copied to clipboard!',
  toastCopyFail: 'Failed to copy.',
  toastUrlLimit: 'Prompt is too long! To avoid URL limits, we copied it to your clipboard...',
  toastOpening: 'Opening AI...',
  toastReset: 'All settings reset.',
+ toastTargetTextOnly: 'The OpenAI JSON target is copy-only; sending Markdown text to the AI button instead.',
  previewTitle: 'Prompt Preview',
  previewChars: 'Chars',
  previewTokens: 'Tokens',
  previewModules: 'modules',
  previewWarning: 'Warning: This prompt is too long to be passed via URL (>4000 chars). It will be copied to your clipboard and the AI page will open blank. You will need to paste it (Ctrl+V) there.',
- previewEmpty: 'Configure settings on the left and click "Generate Prompt"...',
+ previewEmpty: 'The prompt will appear live here once you enter a topic and select modules.',
  footer: 'All data stays in your browser (Local Storage), nothing is sent to any server.',
+
+ // Two-view flow (intro <-> workspace) & Tier B target-format selector —
+ // shared chrome, not domain-specific.
+ btnOpenWorkspace: 'Open workspace',
+ btnStartManual: "I'll pick modules myself",
+ btnBackToIntro: 'Change topic',
+ targetLabel: 'Prompt Syntax',
+ targets: {
+   markdown: 'Markdown',
+   'claude-xml': 'Claude XML',
+   'openai-json': 'OpenAI JSON'
+ },
+ targetDescs: {
+   markdown: 'Markdown: Headed plain text. Pastes directly into any AI chat.',
+   'claude-xml': 'Claude XML: Wraps blocks in tags like <role>/<instructions>. Still plain, pasteable text.',
+   'openai-json': "OpenAI JSON: Produces a system-message JSON object. Not pasteable into chat — copy/API use only."
+ },
 
  // Recipes & Sharing (not domain-specific, shared chrome)
  recipesTitle: 'Saved Recipes',
@@ -533,18 +577,23 @@ export const i18n = {
           selector: "body"
         },
         {
+          title: "Learn ↔ Code Switch",
+          content: "Use this switcher, top-left, to jump between Learning and Code mode at any time — both share the same engine, but each has its own modules, parameters, and generated prompts.",
+          selector: ".domain-switch"
+        },
+        {
           title: "1. Parameter Configuration",
           content: "Here you can adjust the AI's knowledge level, learning mode (Feynman, Socratic, etc.), analysis depth, and output format. Toggle Internal Monologue (Reasoning) to activate the AI's background thinking steps.",
           selector: ".sidebar"
         },
         {
-          title: "2. Presets & Learning Modules",
-          content: "Apply quick presets at the top or select individual learning modules (Analogy, Coding, Quiz, etc.) below to define exactly what learning categories your prompt will cover.",
+          title: "2. Learning Modules",
+          content: "Add or remove individual modules (Analogy, Coding, Quiz, etc.) here. A green checkmark means a module was auto-added as a prerequisite of another selected module; an AI badge marks an optional suggested module.",
           selector: ".main-content"
         },
         {
-          title: "3. Topic Input & Generation",
-          content: "Type the topic you want to learn and your expertise, then click 'Generate Prompt'. Copy the generated prompt and paste it directly into AI models like ChatGPT, Claude, or Gemini.",
+          title: "3. Live Prompt & Hand-off",
+          content: "Your prompt compiles instantly on the right as you select modules. Copy it or send it directly to ChatGPT, Claude, Gemini, or Perplexity — you can also save the current setup via Share/Export.",
           selector: ".right-sidebar"
         }
       ]
@@ -668,18 +717,23 @@ export const i18n = {
           selector: "body"
         },
         {
+          title: "Learn ↔ Code Switch",
+          content: "Use this switcher, top-left, to jump between Learning and Code mode at any time — both share the same engine, but each has its own modules, parameters, and generated prompts.",
+          selector: ".domain-switch"
+        },
+        {
           title: "1. Parameter Configuration",
           content: "Here you can adjust the target maturity (Prototype, Production, Hardened), engineering persona (Senior, Reviewer, Architect, etc.), analysis depth, and code output format. Toggle Internal Monologue to activate the AI's background reasoning steps.",
           selector: ".sidebar"
         },
         {
-          title: "2. Presets & Code Modules",
-          content: "Apply quick presets at the top (Ship Feature, Code Review, Debug, etc.) or select individual code modules (Requirements, Architecture, Tests, Security, etc.) below to define exactly what your prompt covers.",
+          title: "2. Code Modules",
+          content: "Add or remove individual modules (Requirements, Architecture, Tests, Security, etc.) here. A green checkmark means a module was auto-added as a prerequisite of another selected module; an AI badge marks an optional suggested module.",
           selector: ".main-content"
         },
         {
-          title: "3. Task Input & Generation",
-          content: "Describe the task or feature you want to build and your tech stack, then click 'Generate Prompt'. Copy the generated prompt and paste it directly into AI models like ChatGPT, Claude, or Gemini.",
+          title: "3. Live Prompt & Hand-off",
+          content: "Your prompt compiles instantly on the right as you select modules. Copy it or send it directly to ChatGPT, Claude, Gemini, or Perplexity — you can also save the current setup via Share/Export.",
           selector: ".right-sidebar"
         }
       ]

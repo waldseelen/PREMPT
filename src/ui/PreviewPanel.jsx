@@ -1,22 +1,29 @@
 import { useMemo } from 'react';
 import { useShallow } from 'zustand/react/shallow';
-import { analyzePromptComplexity } from '../compiler/finalPromptAssembler';
+import { analyzePromptComplexity, assembleFinalPrompt } from '../compiler/finalPromptAssembler';
 import { useEngineState } from '../store/engineState';
 import { getTranslation } from '../locales/i18n';
 import { Component, Brain, Zap, Hash } from 'lucide-react';
 
 export default function PreviewPanel() {
-    const { config, selectedModules, generatedPrompt } = useEngineState(useShallow(state => ({
+    const { config, selectedModules, injectedRules } = useEngineState(useShallow(state => ({
         config: state.config,
         selectedModules: state.selectedModules,
-        generatedPrompt: state.generatedPrompt
+        injectedRules: state.injectedRules
     })));
-    
+
     const t = getTranslation(config.lang, config.domain);
 
     const stats = useMemo(() => {
         return analyzePromptComplexity({ config, selectedModules });
     }, [config, selectedModules]);
+
+    // Compiled live — no separate "Generate" step. injectedRules is part of
+    // the compiled output (structureBuilder reads it) but isn't in `config`,
+    // so it's an explicit dependency here.
+    const generatedPrompt = useMemo(() => {
+        return assembleFinalPrompt({ config, selectedModules, injectedRules });
+    }, [config, selectedModules, injectedRules]);
 
     return (
         <section className="card" id="preview-card" style={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 0, marginBottom: 0 }}>

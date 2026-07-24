@@ -1,11 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import { useShallow } from 'zustand/react/shallow';
 import Header from './ui/Header';
+import IntroView from './ui/IntroView';
 import ConfigPanel from './ui/ConfigPanel';
-import PresetBar from './ui/PresetBar';
-import RecipesPanel from './ui/RecipesPanel';
 import ModuleGrid from './ui/ModuleGrid';
-import TopicInput from './ui/TopicInput';
 import ActionBar from './ui/ActionBar';
 import PreviewPanel from './ui/PreviewPanel';
 import Toast from './ui/Toast';
@@ -13,18 +11,23 @@ import OnboardingTour from './ui/OnboardingTour';
 import { ErrorBoundary } from './ui/ErrorBoundary';
 import { useEngineState } from './store/engineState';
 import { getDomain } from './domains';
+import { getTranslation } from './locales/i18n';
 import { pathToDomain } from './utils/domainRoute';
 import { decodePayloadFromParam, sanitizePayload } from './utils/statePayload';
+import { ArrowLeft } from 'lucide-react';
 import './index.css';
 
 export default function App() {
     const [toasts, setToasts] = useState([]);
     const toastTimers = useRef(new Map());
 
-    const { config, startTour } = useEngineState(useShallow(state => ({
+    const { config, view, startTour, backToIntro } = useEngineState(useShallow(state => ({
         config: state.config,
-        startTour: state.startTour
+        view: state.view,
+        startTour: state.startTour,
+        backToIntro: state.backToIntro
     })));
+    const t = getTranslation(config.lang, config.domain);
 
     // Mount-time URL handling — a `?share=` payload takes priority over the
     // pathname→domain sync below. If both ran independently, the pathname
@@ -83,12 +86,18 @@ export default function App() {
         return () => window.removeEventListener('popstate', handlePopState);
     }, []);
 
+    // Tour steps are anchored to workspace-only DOM (.sidebar/.main-content/
+    // .right-sidebar — see OnboardingTour.jsx), so it must only auto-start
+    // once the user actually reaches the workspace, not on intro. This also
+    // naturally covers every workspace entry point (manual "Çalışma alanını
+    // aç", "Modülleri kendim seçeceğim", a loaded recipe, a restored share
+    // link) since they all flip `view` to 'workspace'.
     useEffect(() => {
         const isMobile = window.innerWidth < 768;
-        if (!config.tourCompleted && !isMobile) {
+        if (view === 'workspace' && !config.tourCompleted && !isMobile) {
             startTour();
         }
-    }, [config.tourCompleted, startTour]);
+    }, [view, config.tourCompleted, startTour]);
 
     useEffect(() => {
         const root = document.documentElement;
@@ -126,25 +135,36 @@ export default function App() {
             <div className="bg-glow-orb orb-2"></div>
             <Header />
             <ErrorBoundary>
-                <main className="container">
-                    <div className="layout-grid-3">
-                        <div className="sidebar">
-                            <ConfigPanel />
+                {view === 'intro' ? (
+                    <main className="container intro-container">
+                        <IntroView showToast={showToast} />
+                    </main>
+                ) : (
+                    <main className="container">
+                        <div className="workspace-topbar">
+                            <button className="btn btn-secondary workspace-back-btn" onClick={backToIntro}>
+                                <ArrowLeft size={14} /> {t.btnBackToIntro}
+                            </button>
+                            <div className="workspace-topic-label">
+                                {config.konu || t.topicPlaceholder}
+                            </div>
                         </div>
-                        <div className="main-content">
-                            <PresetBar />
-                            <RecipesPanel showToast={showToast} />
-                            <ModuleGrid />
+                        <div className="layout-grid-3">
+                            <div className="sidebar">
+                                <ConfigPanel />
+                            </div>
+                            <div className="main-content">
+                                <ModuleGrid />
+                            </div>
+                            <div className="right-sidebar">
+                                <ActionBar showToast={showToast} />
+                                <PreviewPanel />
+                            </div>
                         </div>
-                        <div className="right-sidebar">
-                            <TopicInput />
-                            <ActionBar showToast={showToast} />
-                            <PreviewPanel />
-                        </div>
-                    </div>
-                </main>
+                    </main>
+                )}
             </ErrorBoundary>
-            
+
             <div className="toast-container">
                 {toasts.map(toast => (
                     <Toast key={toast.id} msg={toast.msg} type={toast.type} />
