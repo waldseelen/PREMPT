@@ -1,6 +1,12 @@
 export const agentarchSpec = {
   "id": "agentarch",
   "route": "agentarch",
+  "defaultConfig": {
+    "seviye": "system",
+    "mod": "persona",
+    "derinlik": "orta",
+    "format": "system-prompt"
+  },
   "icon": "bot",
   "category": "tech",
   "layers": [
@@ -41,8 +47,8 @@ export const agentarchSpec = {
       "formatLabel": "Prompt Structure",
       "presetGroups": {
         "system": "System Prompts",
-        "guardrails": "Güvenlik & Sınırlar",
-        "orchestration": "Orkestrasyon & Bellek"
+        "guardrails": "Safety & Boundaries",
+        "orchestration": "Orchestration & Memory"
       }
     }
   },

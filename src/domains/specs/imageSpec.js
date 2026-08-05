@@ -1,6 +1,12 @@
 export const imageSpec = {
   "id": "image",
   "route": "image",
+  "defaultConfig": {
+    "seviye": "midjourney",
+    "mod": "fotografik",
+    "derinlik": "orta",
+    "format": "midjourney-v6"
+  },
   "icon": "palette",
   "category": "creation",
   "layers": [
@@ -40,9 +46,9 @@ export const imageSpec = {
       "depthLabel": "Detail Level",
       "formatLabel": "Aspect Ratio",
       "presetGroups": {
-        "style": "Sanat Tarzı & Estetik",
-        "tech": "Kamera & Işık",
-        "model": "Parametre & Detay"
+        "style": "Art Style & Aesthetic",
+        "tech": "Camera & Lighting",
+        "model": "Parameters & Detail"
       }
     }
   },

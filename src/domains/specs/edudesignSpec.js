@@ -1,6 +1,12 @@
 export const edudesignSpec = {
   "id": "edudesign",
   "route": "edudesign",
+  "defaultConfig": {
+    "seviye": "mufredat",
+    "mod": "bloom",
+    "derinlik": "modul",
+    "format": "hafta"
+  },
   "icon": "backpack",
   "category": "academia",
   "layers": [
@@ -40,9 +46,9 @@ export const edudesignSpec = {
       "depthLabel": "Scope",
       "formatLabel": "Curriculum Syntax",
       "presetGroups": {
-        "taxonomy": "Taksonomi",
-        "curriculum": "Müfredat",
-        "assessment": "Değerlendirme"
+        "taxonomy": "Taxonomy",
+        "curriculum": "Curriculum",
+        "assessment": "Assessment"
       }
     }
   },
@@ -138,7 +144,8 @@ export const edudesignSpec = {
         "en": "Generates active recall questions across Bloom taxonomy levels."
       },
       "forceModules": [
-        "blooms-taxonomy-spec"
+        "tax-blooms-question-matrix",
+        "tax-higher-order-prompting"
       ],
       "override": {
         "derinlik": "modul",
@@ -159,11 +166,243 @@ export const edudesignSpec = {
         "en": "Structures weekly outcomes and curriculum milestones."
       },
       "forceModules": [
-        "curriculum-outline-spec"
+        "cur-competency-based-map",
+        "cur-scaffolding-chunking"
       ],
       "override": {
         "derinlik": "bootcamp",
-        "mod": "flipped"
+        "mod": "flipped",
+        "format": "hafta"
+      }
+    },
+    "ubd-backward-design": {
+      "id": "ubd-backward-design",
+      "group": "curriculum",
+      "icon": "🎯",
+      "name": {
+        "tr": "🎯 UbD Geriye Dönük Müfredat Tasarımı",
+        "en": "🎯 UbD Backward Curriculum Design"
+      },
+      "desc": {
+        "tr": "Önce nihai hedef ve değerlendirmeyi, ardından öğrenme etkinliklerini kurgular.",
+        "en": "Designs learning goals backwards from desired final outcomes and evidence."
+      },
+      "forceModules": [
+        "cur-backward-design-ubd",
+        "cur-competency-based-map",
+        "ass-authentic-task-assessment"
+      ],
+      "override": {
+        "derinlik": "modul",
+        "mod": "bloom",
+        "format": "hafta"
+      }
+    },
+    "dok-rigor-matrix": {
+      "id": "dok-rigor-matrix",
+      "group": "taxonomy",
+      "icon": "🧠",
+      "name": {
+        "tr": "🧠 Webb DOK Bilişsel Derinlik Matrisi",
+        "en": "🧠 Webb's DOK Rigor Matrix"
+      },
+      "desc": {
+        "tr": "Soruları ve görevleri 4 farklı bilişsel derinlik seviyesinde hizalar.",
+        "en": "Aligns tasks and questions across 4 Depth of Knowledge levels."
+      },
+      "forceModules": [
+        "tax-depth-of-knowledge-dok",
+        "tax-higher-order-prompting",
+        "ass-summative-capstone-spec"
+      ],
+      "override": {
+        "derinlik": "modul",
+        "mod": "bloom",
+        "format": "bloomsoru"
+      }
+    },
+    "flipped-classroom-suite": {
+      "id": "flipped-classroom-suite",
+      "group": "curriculum",
+      "icon": "🔄",
+      "name": {
+        "tr": "🔄 Ters-Yüz Sınıf (Flipped) Paketi",
+        "en": "🔄 Flipped Classroom Instruction Suite"
+      },
+      "desc": {
+        "tr": "Ders öncesi bireysel hazırlık ve sınıf içi akran etkileşimini yapılandırır.",
+        "en": "Structures pre-class preparation and in-class peer collaboration."
+      },
+      "forceModules": [
+        "eng-flipper-classroom-prep",
+        "eng-peer-instruction-think-pair",
+        "ass-formative-exit-ticket"
+      ],
+      "override": {
+        "derinlik": "atolye",
+        "mod": "flipped",
+        "format": "hafta"
+      }
+    },
+    "gamified-engagement-loop": {
+      "id": "gamified-engagement-loop",
+      "group": "engagement",
+      "icon": "🎮",
+      "name": {
+        "tr": "🎮 Oyunlaştırılmış Öğrenme Döngüsü",
+        "en": "🎮 Gamified Learning & Reward Loop"
+      },
+      "desc": {
+        "tr": "Öğrenci motivasyonunu artırmak için puan, rozet ve senaryo dilemmaları kurar.",
+        "en": "Boosts motivation via points, badges, and scenario-based dilemmas."
+      },
+      "forceModules": [
+        "eng-gamification-loop",
+        "eng-active-recall-drill",
+        "eng-case-study-dilemma-builder"
+      ],
+      "override": {
+        "derinlik": "modul",
+        "mod": "gamified",
+        "format": "bloomsoru"
+      }
+    },
+    "analytical-rubric-builder": {
+      "id": "analytical-rubric-builder",
+      "group": "rubrics",
+      "icon": "📏",
+      "name": {
+        "tr": "📏 Dereceli Değerlendirme Rubric'i",
+        "en": "📏 Analytical Scoring Rubric"
+      },
+      "desc": {
+        "tr": "Ödev ve projeler için şeffaf performans kriterleri ve puan matrisi üretir.",
+        "en": "Generates clear performance criteria and scoring rubrics for assignments."
+      },
+      "forceModules": [
+        "rub-holistic-analytical-rubric",
+        "rub-objective-performance-criteria",
+        "rub-mastery-threshold-matrix"
+      ],
+      "override": {
+        "derinlik": "modul",
+        "mod": "bloom",
+        "format": "rubricmatris"
+      }
+    },
+    "socratic-seminar-kit": {
+      "id": "socratic-seminar-kit",
+      "group": "engagement",
+      "icon": "🏛️",
+      "name": {
+        "tr": "🏛️ Sokratik Seminer & Tartışma Kiti",
+        "en": "🏛️ Socratic Seminar Discussion Kit"
+      },
+      "desc": {
+        "tr": "Kritik düşünmeyi tetikleyen derin soru dizileri ve tartışma kuralları hazırlar.",
+        "en": "Drafts deep questioning sequences and protocols for critical seminars."
+      },
+      "forceModules": [
+        "eng-socratic-seminar-guide",
+        "tax-higher-order-prompting",
+        "ass-peer-self-eval-protocol"
+      ],
+      "override": {
+        "derinlik": "atolye",
+        "mod": "bloom",
+        "format": "bloomsoru"
+      }
+    },
+    "spaced-interleaving-plan": {
+      "id": "spaced-interleaving-plan",
+      "group": "curriculum",
+      "icon": "⏳",
+      "name": {
+        "tr": "⏳ Aralıklı Tekrar & Serpiştirilmiş Müfredat",
+        "en": "⏳ Spaced Retrieval & Interleaving Plan"
+      },
+      "desc": {
+        "tr": "Kalıcı hafıza için konuları zaman içine yayar ve çapraz tekrar eder.",
+        "en": "Schedules topic review across intervals to build long-term retention."
+      },
+      "forceModules": [
+        "cur-interleaving-spaced-curriculum",
+        "cur-scaffolding-chunking",
+        "eng-active-recall-drill"
+      ],
+      "override": {
+        "derinlik": "bootcamp",
+        "mod": "bloom",
+        "format": "hafta"
+      }
+    },
+    "authentic-capstone-eval": {
+      "id": "authentic-capstone-eval",
+      "group": "assessment",
+      "icon": "🏆",
+      "name": {
+        "tr": "🏆 Otantik Değerlendirme & Capstone Projesi",
+        "en": "🏆 Authentic Assessment & Capstone Project"
+      },
+      "desc": {
+        "tr": "Gerçek dünya problemleri üzerinden final projesi ve değerlendirme ölçütleri kurar.",
+        "en": "Constructs real-world capstone projects and authentic evaluation criteria."
+      },
+      "forceModules": [
+        "ass-authentic-task-assessment",
+        "ass-summative-capstone-spec",
+        "rub-exemplar-anchor-papers"
+      ],
+      "override": {
+        "derinlik": "bootcamp",
+        "mod": "bloom",
+        "format": "rubricmatris"
+      }
+    },
+    "diagnostic-exit-ticket": {
+      "id": "diagnostic-exit-ticket",
+      "group": "assessment",
+      "icon": "🎫",
+      "name": {
+        "tr": "🎫 Ön Bilgi Teşhisi & Formatif Çıkış Kartı",
+        "en": "🎫 Diagnostic Prior Knowledge & Exit Ticket"
+      },
+      "desc": {
+        "tr": "Ders başında hazırbulunuşluğu, ders sonunda ise kazanımı hızlıca ölçer.",
+        "en": "Assesses readiness before lessons and checks learning outcomes at exit."
+      },
+      "forceModules": [
+        "ass-diagnostic-prior-knowledge",
+        "ass-formative-exit-ticket",
+        "rub-constructive-feedback-bank"
+      ],
+      "override": {
+        "derinlik": "atolye",
+        "mod": "bloom",
+        "format": "bloomsoru"
+      }
+    },
+    "universal-udl-scaffolding": {
+      "id": "universal-udl-scaffolding",
+      "group": "curriculum",
+      "icon": "🌐",
+      "name": {
+        "tr": "🌐 Evrensel Öğrenme Tasarımı (UDL) & İskeletleşme",
+        "en": "🌐 Universal Design for Learning (UDL) & Scaffolding"
+      },
+      "desc": {
+        "tr": "Farklı öğrenme stillerine uyarlamalı erişilebilir müfredat yapısı kurar.",
+        "en": "Creates accessible, adaptive learning structures for diverse learner needs."
+      },
+      "forceModules": [
+        "cur-universal-learning-design",
+        "tax-psychomotor-skill-scaffolding",
+        "cur-cross-disciplinary-bridge"
+      ],
+      "override": {
+        "derinlik": "modul",
+        "mod": "bloom",
+        "format": "hafta"
       }
     }
   }

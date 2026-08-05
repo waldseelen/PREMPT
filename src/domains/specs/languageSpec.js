@@ -1,6 +1,12 @@
 export const languageSpec = {
   "id": "language",
   "route": "language",
+  "defaultConfig": {
+    "seviye": "lokalizasyon",
+    "mod": "native",
+    "derinlik": "orta",
+    "format": "metin"
+  },
   "icon": "globe",
   "category": "creation",
   "layers": [
@@ -40,9 +46,9 @@ export const languageSpec = {
       "depthLabel": "Nuance Depth",
       "formatLabel": "Output Format",
       "presetGroups": {
-        "fluency": "Akıcılık & Ton",
-        "localization": "Lokalizasyon & Kültür",
-        "pedagogy": "Eğitim & Düzeltme"
+        "fluency": "Fluency & Tone",
+        "localization": "Localization & Culture",
+        "pedagogy": "Pedagogy & Correction"
       }
     }
   },

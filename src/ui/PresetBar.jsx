@@ -30,7 +30,7 @@ export default function PresetBar() {
     const presetGroupsMap = domainDef?.ui?.[lang]?.presetGroups || domainDef?.ui?.tr?.presetGroups || t.presetGroups || {};
 
     return (
-        <section className="card delay-3" style={{ overflow: 'hidden' }}>
+        <section className="card delay-3">
             <div className="card-title"><span className="dot"></span> {domainDef?.ui?.[lang]?.presetsTitle || t.presetsTitle || "Uzman Hazır Şablonları (System Presets)"}</div>
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>

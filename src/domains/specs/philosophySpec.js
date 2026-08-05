@@ -1,6 +1,12 @@
 export const philosophySpec = {
   "id": "philosophy",
   "route": "philosophy",
+  "defaultConfig": {
+    "seviye": "iklem",
+    "mod": "dusunce-deneyi",
+    "derinlik": "orta",
+    "format": "diyalektik"
+  },
   "icon": "building2",
   "category": "academia",
   "layers": [
@@ -40,9 +46,9 @@ export const philosophySpec = {
       "depthLabel": "Depth Level",
       "formatLabel": "Philosophical Syntax",
       "presetGroups": {
-        "logic": "Mantık & Sorgulama",
-        "ethics": "Etik & İklem",
-        "epistemology": "Epistemoloji & Varlık"
+        "logic": "Logic & Inquiry",
+        "ethics": "Ethics & Dilemma",
+        "epistemology": "Epistemology & Being"
       }
     }
   },

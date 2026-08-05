@@ -1,6 +1,12 @@
 export const decisionSpec = {
   "id": "decision",
   "route": "decision",
+  "defaultConfig": {
+    "seviye": "tip2",
+    "mod": "premortem",
+    "derinlik": "orta",
+    "format": "matris"
+  },
   "icon": "brain",
   "category": "mind",
   "layers": [
@@ -40,9 +46,9 @@ export const decisionSpec = {
       "depthLabel": "Analysis Depth",
       "formatLabel": "Decision Format",
       "presetGroups": {
-        "framework": "Zihinsel Çerçeve",
-        "risk": "Risk & Analiz",
-        "execution": "Uygulama & Öncelik"
+        "framework": "Mental Frameworks",
+        "risk": "Risk & Tradeoffs",
+        "execution": "Execution & Priority"
       }
     }
   },

@@ -5,7 +5,16 @@ export function buildPromptStructure(state, sortedModules) {
     const lang = config.lang || 'tr';
     const domain = config.domain || 'learning';
     const texts = getCompilerTexts(lang, domain);
-    const labels = texts.labels;
+    const labels = texts.labels || {
+        role: '[ROLE]',
+        goal: '[GOAL]',
+        context: '[CONTEXT]',
+        modules: '[ACTIVE MODULES]',
+        instructions: '[INSTRUCTIONS]',
+        format: '[OUTPUT FORMAT]',
+        constraints: '[CONSTRAINTS / SAFETY]'
+    };
+    const mods = texts.mod || {};
     const alanText = config.alan || (lang === 'en' ? 'Not specified' : 'Belirtilmedi');
     const seviyeLabel = config.seviye === 'otomatik'
         ? (lang === 'en' ? 'AI will determine' : 'AI tarafından belirlenecek')
@@ -14,14 +23,16 @@ export function buildPromptStructure(state, sortedModules) {
     const structure = {};
 
     // 1. [ROLE]
-    structure[labels.role] = texts.mod[config.mod] || Object.values(texts.mod)[0];
+    structure[labels.role] = mods[config.mod] || Object.values(mods)[0] || (lang === 'en' ? 'You are an AI assistant.' : 'Sen bir AI asistanısın.');
 
     // 2. [GOAL] — goalTemplate carries a {{KONU}} placeholder for the topic/task text.
-    structure[labels.goal] = texts.goalTemplate.replace('{{KONU}}', config.konu);
+    const goalTmpl = texts.goalTemplate || (lang === 'en' ? 'Complete the task "{{KONU}}".' : '"{{KONU}}" görevini tamamla.');
+    structure[labels.goal] = goalTmpl.replace('{{KONU}}', config.konu);
 
     // 3. [CONTEXT] — labels come from the active domain's compiler text bundle
     // so this respects `lang` instead of always printing English.
-    const { domain: domainLabel, level: levelLabel, depthRequirement: depthRequirementLabel } = texts.contextLabels;
+    const contextLabels = texts.contextLabels || { domain: 'Domain:', level: 'Level:', depthRequirement: 'Depth:' };
+    const { domain: domainLabel = 'Domain:', level: levelLabel = 'Level:', depthRequirement: depthRequirementLabel = 'Depth:' } = contextLabels;
     structure[labels.context] = `${domainLabel} ${alanText}\n${levelLabel} ${seviyeLabel}`;
 
     // 4. [ACTIVE MODULES]
@@ -37,14 +48,18 @@ export function buildPromptStructure(state, sortedModules) {
     structure[labels.instructions] = taskPrompts.join('\n\n');
 
     // 6. [OUTPUT FORMAT]
-    structure[labels.format] = `${texts.format[config.format] || Object.values(texts.format)[0]}\n${depthRequirementLabel} ${texts.derinlik[config.derinlik] || Object.values(texts.derinlik)[0]}`;
+    const formats = texts.format || {};
+    const derinlikler = texts.derinlik || {};
+    const fmtText = formats[config.format] || Object.values(formats)[0] || (lang === 'en' ? 'Markdown format' : 'Markdown formatı');
+    const drnText = derinlikler[config.derinlik] || Object.values(derinlikler)[0] || (lang === 'en' ? 'Moderate detail' : 'Orta düzey detay');
+    structure[labels.format] = `${fmtText}\n${depthRequirementLabel} ${drnText}`;
 
     // 7. [CONSTRAINTS / SAFETY] — base constraints come from the active domain's
     // compiler text bundle (e.g. Learning softens jargon, Code demands complete code).
-    const constraints = [...texts.constraintsBase];
+    const constraints = [...(texts.constraintsBase || [])];
 
     if (config.monolog) {
-        constraints.push(texts.monologueText);
+        constraints.push(texts.monologueText || 'INTERNAL MONOLOGUE: Evaluate boundary conditions before answering.');
     }
 
     if (injectedRules && injectedRules.length > 0) {

@@ -1,6 +1,12 @@
 export const travelSpec = {
   "id": "travel",
   "route": "travel",
+  "defaultConfig": {
+    "seviye": "yerel",
+    "mod": "rehber",
+    "derinlik": "orta",
+    "format": "gunluk"
+  },
   "icon": "plane",
   "category": "life",
   "layers": [
@@ -40,9 +46,9 @@ export const travelSpec = {
       "depthLabel": "Pacing",
       "formatLabel": "Itinerary Format",
       "presetGroups": {
-        "curation": "Rota & Keşif",
-        "logistics": "Ulaşım & Lojistik",
-        "culture": "Kültür & Bütçe"
+        "curation": "Itinerary & Discovery",
+        "logistics": "Transport & Logistics",
+        "culture": "Culture & Budget"
       }
     }
   },

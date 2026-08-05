@@ -23,59 +23,112 @@ export default function App() {
     const [toasts, setToasts] = useState([]);
     const toastTimers = useRef(new Map());
 
-    const { config, view, startTour, backToIntro } = useEngineState(useShallow(state => ({
+    const { config, view, activePreset, selectedModules, startTour, backToIntro } = useEngineState(useShallow(state => ({
         config: state.config,
         view: state.view,
+        activePreset: state.activePreset,
+        selectedModules: state.selectedModules,
         startTour: state.startTour,
         backToIntro: state.backToIntro
     })));
     const t = getTranslation(config.lang, config.domain);
 
-    // Mount-time URL handling — a `?share=` payload takes priority over the
-    // pathname→domain sync below. If both ran independently, the pathname
-    // sync's setDomain() would WIPE the share payload's selectedModules right
-    // after applySharedState() set them (setDomain resets on every domain
-    // switch by design) — so this is one effect with an explicit branch, not
-    // two competing ones.
+    // Mount-time URL Query & Path handling
     useEffect(() => {
-        const { config: currentConfig, setDomain, applySharedState } = useEngineState.getState();
+        const { config: currentConfig, setDomain, setPreset, setModules, applySharedState } = useEngineState.getState();
         const params = new URLSearchParams(window.location.search);
         const shareParam = params.get('share');
 
         if (shareParam) {
-            // Strip ?share= regardless of decode success so a reload doesn't
-            // re-apply (or re-fail on) the same param.
-            const url = new URL(window.location.href);
-            url.searchParams.delete('share');
-            window.history.replaceState(null, '', url.pathname + url.search);
-
             const decoded = decodePayloadFromParam(shareParam);
             if (decoded) {
                 const clean = sanitizePayload(decoded, currentConfig.lang);
-                applySharedState(clean); // also pushes the matching /learn or /code route
+                applySharedState(clean);
                 return;
             }
-            // Corrupt param (bad base64/JSON): fall through to the ordinary
-            // pathname sync below instead of leaving the domain stuck on
-            // whatever was persisted while the URL still reads e.g. /code.
         }
 
-        // No module/preset state needs resetting here — selectedModules etc.
-        // aren't persisted (see engineState.js partialize), so they're
-        // already empty at this point; setDomain's reset is a no-op on top
-        // of that empty state.
-        const routeDomain = pathToDomain(window.location.pathname);
-        if (routeDomain) {
-            if (routeDomain !== (currentConfig.domain ?? 'learning')) {
-                setDomain(routeDomain);
-            }
+        // 1. Determine target domain from ?domain= OR URL pathname (/academic, /code, etc.)
+        const queryDomain = params.get('domain');
+        const pathDomain = pathToDomain(window.location.pathname);
+        const targetDomain = queryDomain || pathDomain;
+
+        if (targetDomain && targetDomain !== (currentConfig.domain ?? 'learning')) {
+            setDomain(targetDomain);
+        }
+
+        // 2. Preset or custom modules parameters (?preset=... or ?modules=...)
+        const presetParam = params.get('preset');
+        if (presetParam) {
+            setPreset(presetParam);
         } else {
-            const activeDomain = getDomain(currentConfig.domain);
-            window.history.replaceState(null, '', `/${activeDomain.route}`);
+            const modulesParam = params.get('modules') || params.get('mods');
+            if (modulesParam) {
+                const moduleList = modulesParam.split(',').map(m => m.trim()).filter(Boolean);
+                setModules(moduleList);
+            }
+        }
+
+        // 3. Explicit URL parameter overrides (?konu=..., ?mod=..., ?seviye=..., ?derinlik=..., etc.)
+        // Applied AFTER setPreset so explicit URL parameters take priority over preset defaults!
+        const overrides = {};
+        const konu = params.get('konu') || params.get('topic') || params.get('q');
+        if (konu !== null) overrides.konu = konu;
+
+        const alan = params.get('alan');
+        if (alan !== null) overrides.alan = alan;
+
+        const mod = params.get('mod') || params.get('mode');
+        if (mod !== null) overrides.mod = mod;
+
+        const seviye = params.get('seviye') || params.get('level');
+        if (seviye !== null) overrides.seviye = seviye;
+
+        const derinlik = params.get('derinlik') || params.get('depth');
+        if (derinlik !== null) overrides.derinlik = derinlik;
+
+        const format = params.get('format');
+        if (format !== null) overrides.format = format;
+
+        const lang = params.get('lang');
+        if (lang !== null && (lang === 'tr' || lang === 'en')) overrides.lang = lang;
+
+        if (Object.keys(overrides).length > 0) {
+            useEngineState.setState(state => ({
+                config: { ...state.config, ...overrides }
+            }));
         }
     }, []);
 
-    // Browser back/forward should also switch domains.
+    // Sync active state back to URL query parameters dynamically
+    useEffect(() => {
+        const activeDomain = getDomain(config.domain);
+        const route = activeDomain ? activeDomain.route : 'learn';
+        const params = new URLSearchParams();
+
+        if (config.konu) params.set('konu', config.konu);
+        if (config.alan) params.set('alan', config.alan);
+        if (config.mod) params.set('mod', config.mod);
+        if (config.seviye && config.seviye !== 'otomatik') params.set('seviye', config.seviye);
+        if (config.derinlik && config.derinlik !== 'orta') params.set('derinlik', config.derinlik);
+        if (config.format && config.format !== 'markdown') params.set('format', config.format);
+        
+        if (activePreset) {
+            params.set('preset', activePreset);
+        } else if (selectedModules && selectedModules.length > 0) {
+            params.set('modules', selectedModules.join(','));
+        }
+
+        const queryString = params.toString();
+        const targetPath = `/${route}`;
+        const newUrl = `${targetPath}${queryString ? '?' + queryString : ''}`;
+
+        if (window.location.pathname + window.location.search !== newUrl) {
+            window.history.replaceState(null, '', newUrl);
+        }
+    }, [config.domain, config.konu, config.alan, config.mod, config.seviye, config.derinlik, config.format, activePreset, selectedModules]);
+
+    // Browser back/forward navigation
     useEffect(() => {
         const handlePopState = () => {
             const { config: currentConfig, setDomain } = useEngineState.getState();

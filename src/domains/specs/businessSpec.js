@@ -1,6 +1,12 @@
 export const businessSpec = {
   "id": "business",
   "route": "business",
+  "defaultConfig": {
+    "seviye": "validation",
+    "mod": "vc",
+    "derinlik": "orta",
+    "format": "pitch-deck"
+  },
   "icon": "briefcase",
   "category": "life",
   "layers": [
@@ -40,9 +46,9 @@ export const businessSpec = {
       "depthLabel": "Analysis Depth",
       "formatLabel": "Strategy Output",
       "presetGroups": {
-        "strategy": "Strateji & Büyüme",
-        "finance": "Finans & Birim Maliyet",
-        "pitch": "Yatırım & Sunum"
+        "strategy": "Strategy & Growth",
+        "finance": "Finance & Unit Economics",
+        "pitch": "Pitch & Investment"
       }
     }
   },

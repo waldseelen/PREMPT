@@ -1,6 +1,12 @@
 export const codeSpec = {
   "id": "code",
   "route": "code",
+  "defaultConfig": {
+    "seviye": "prototype",
+    "mod": "senior",
+    "derinlik": "orta",
+    "format": "explained"
+  },
   "icon": "code",
   "category": "tech",
   "layers": [
@@ -40,9 +46,9 @@ export const codeSpec = {
       "depthLabel": "Analysis Depth",
       "formatLabel": "Code Output Format",
       "presetGroups": {
-        "build": "Geliştir & Kur",
-        "review": "İncele & Sertleştir",
-        "understand": "Anla & Öğren"
+        "build": "Build & Construct",
+        "review": "Review & Harden",
+        "understand": "Understand & Learn"
       }
     }
   },

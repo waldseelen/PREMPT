@@ -164,7 +164,19 @@ export default function ModuleGrid() {
                                     const modName = modules.find(m => m.id === sug.id)?.name;
                                     const reasonText = t.suggestionReasons?.[sug.reasonKey] || t.suggestAdd;
                                     return (
-                                        <span key={`sug-${sug.id}`} style={{ color: 'var(--accent-2)', cursor: 'pointer' }} onClick={() => toggleModule(sug.id)}>
+                                        <span
+                                            key={`sug-${sug.id}`}
+                                            role="button"
+                                            tabIndex={0}
+                                            style={{ color: 'var(--accent-2)', cursor: 'pointer' }}
+                                            onClick={() => toggleModule(sug.id)}
+                                            onKeyDown={(e) => {
+                                                if (e.key === 'Enter' || e.key === ' ') {
+                                                    e.preventDefault();
+                                                    toggleModule(sug.id);
+                                                }
+                                            }}
+                                        >
                                             {t.aiSuggestion}: "{modName}" — {reasonText} ({t.clickToAdd})
                                         </span>
                                     );
@@ -233,6 +245,7 @@ export default function ModuleGrid() {
                                             onMouseLeave={() => setHoveredId(null)}
                                             role="button"
                                             tabIndex={0}
+                                            aria-pressed={isActive}
                                             onKeyDown={(e) => {
                                                 if (e.key === 'Enter' || e.key === ' ') {
                                                     e.preventDefault();

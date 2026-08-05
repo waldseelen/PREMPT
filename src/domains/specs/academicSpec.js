@@ -1,6 +1,12 @@
 export const academicSpec = {
   "id": "academic",
   "route": "academic",
+  "defaultConfig": {
+    "seviye": "tez",
+    "mod": "reviewer2",
+    "derinlik": "lisans",
+    "format": "apa"
+  },
   "icon": "beaker",
   "category": "academia",
   "layers": [
@@ -40,9 +46,9 @@ export const academicSpec = {
       "depthLabel": "Academic Rigor",
       "formatLabel": "Format Syntax",
       "presetGroups": {
-        "research": "Araştırma & Literatür",
-        "writing": "Yazım & Metodoloji",
-        "review": "Hakem & Denetim"
+        "research": "Research & Literature",
+        "writing": "Writing & Methodology",
+        "review": "Review & Audit"
       }
     }
   },

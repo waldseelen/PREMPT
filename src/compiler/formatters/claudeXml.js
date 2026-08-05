@@ -10,7 +10,8 @@ function indent(text) {
 export function formatClaudeXml(structure) {
     let out = '<prompt>\n';
     for (const [blockLabel, content] of Object.entries(structure)) {
-        const tag = LABEL_TO_TAG[blockLabel] || 'block';
+        const fallbackTag = blockLabel.replace(/\[|\]/g, '').toLowerCase().trim().replace(/[^a-z0-9_]+/g, '_');
+        const tag = LABEL_TO_TAG[blockLabel] || fallbackTag || 'section';
         out += `  <${tag}>\n${indent(content)}\n  </${tag}>\n`;
     }
     out += '</prompt>';

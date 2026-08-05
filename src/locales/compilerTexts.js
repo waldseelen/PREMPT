@@ -184,5 +184,13 @@ COMPILER_TEXTS['travel'] = COMPILER_TEXTS.learning;
 
 export function getCompilerTexts(lang, domain = 'learning') {
     const domainDef = getDomain(domain);
-    return domainDef?.compilerTexts?.[lang] || (COMPILER_TEXTS[domain] || COMPILER_TEXTS.learning)[lang];
+    const baseBundle = (COMPILER_TEXTS[domain] || COMPILER_TEXTS.learning)[lang] || COMPILER_TEXTS.learning[lang];
+    const specBundle = domainDef?.compilerTexts?.[lang];
+
+    if (!specBundle) return baseBundle;
+
+    return {
+        ...baseBundle,
+        ...specBundle
+    };
 }

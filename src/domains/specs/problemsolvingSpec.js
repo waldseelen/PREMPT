@@ -1,6 +1,12 @@
 export const problemsolvingSpec = {
   "id": "problemsolving",
   "route": "problemsolving",
+  "defaultConfig": {
+    "seviye": "triz",
+    "mod": "innovator",
+    "derinlik": "orta",
+    "format": "triz-matris"
+  },
   "icon": "zap",
   "category": "mind",
   "layers": [
@@ -40,9 +46,9 @@ export const problemsolvingSpec = {
       "depthLabel": "Solution Depth",
       "formatLabel": "Innovation Format",
       "presetGroups": {
-        "triz": "TRIZ Metodolojisi",
-        "scamper": "İnovasyon Operatörü",
-        "rootcause": "Kök Neden & Analiz"
+        "triz": "TRIZ Methodology",
+        "scamper": "Innovation Operators",
+        "rootcause": "Root Cause & Analysis"
       }
     }
   },

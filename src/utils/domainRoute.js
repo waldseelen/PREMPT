@@ -12,6 +12,7 @@ export function pathToDomain(pathname) {
 // pushing a duplicate history entry that would break back/forward.
 export function pushDomainRoute(route) {
     const target = `/${route}`;
-    if (window.location.pathname === target) return;
-    window.history.pushState(null, '', target);
+    const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
+    if (currentPath === target) return;
+    window.history.pushState(null, '', target + window.location.search);
 }

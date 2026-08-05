@@ -3,6 +3,7 @@ import { useShallow } from 'zustand/react/shallow';
 import { getTranslation } from '../locales/i18n';
 import { Sun, Moon, HelpCircle } from 'lucide-react';
 import DomainSwitcher from './DomainSwitcher';
+import PremptLogo from './PremptLogo';
 
 export default function Header() {
     const { config, view, setTheme, setConfig, startTour, enterWorkspace } = useEngineState(useShallow(state => ({
@@ -33,25 +34,13 @@ export default function Header() {
     return (
         <header className="header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '16px', flexWrap: 'wrap', padding: '12px 20px' }}>
             <div style={{ flexShrink: 0, display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <img
-                    src="/prempt_logo.jpg"
-                    alt="PREMPT Logo"
-                    style={{
-                        width: '38px',
-                        height: '38px',
-                        borderRadius: '10px',
-                        objectFit: 'cover',
-                        boxShadow: '0 0 14px rgba(99,102,241,0.5)',
-                        border: '1.5px solid rgba(99,102,241,0.35)',
-                        flexShrink: 0
-                    }}
-                />
+                <PremptLogo size={34} />
                 <div>
-                    <h1 style={{ fontSize: '1.25rem', margin: 0, fontWeight: 800, letterSpacing: '-0.02em', background: 'linear-gradient(135deg, #6366f1, #ec4899)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                    <h1 style={{ fontSize: '1.15rem', margin: 0, fontWeight: 700, letterSpacing: '-0.03em', color: 'var(--text-primary)' }}>
                         PREMPT
                     </h1>
-                    <p style={{ fontSize: '0.65rem', margin: 0, color: 'var(--text-secondary)', whiteSpace: 'nowrap', letterSpacing: '0.01em' }}>
-                        Pre-empt bad AI answers
+                    <p style={{ fontSize: '0.65rem', margin: 0, color: 'var(--text-muted)', whiteSpace: 'nowrap', letterSpacing: '0.01em', fontWeight: 400 }}>
+                        Parametric AI Engine
                     </p>
                 </div>
             </div>

@@ -1,6 +1,12 @@
 export const cyberSpec = {
   "id": "cyber",
   "route": "cyber",
+  "defaultConfig": {
+    "seviye": "stride",
+    "mod": "redteam",
+    "derinlik": "orta",
+    "format": "threat-model"
+  },
   "icon": "shield",
   "category": "tech",
   "layers": [
@@ -40,9 +46,9 @@ export const cyberSpec = {
       "depthLabel": "Audit Depth",
       "formatLabel": "Security Syntax",
       "presetGroups": {
-        "threat": "Tehdit & Mimari",
-        "appsec": "Uygulama Güvenliği",
-        "pentest": "Saldırı & Uyum"
+        "threat": "Threat & Architecture",
+        "appsec": "Application Security",
+        "pentest": "Offensive & Compliance"
       }
     }
   },

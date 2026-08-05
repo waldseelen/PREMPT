@@ -8,7 +8,9 @@ import { LABEL_TO_TAG } from './labelTags';
 export function formatOpenAiJson(structure) {
     const sections = {};
     for (const [blockLabel, content] of Object.entries(structure)) {
-        sections[LABEL_TO_TAG[blockLabel] || blockLabel] = content;
+        const fallbackTag = blockLabel.replace(/\[|\]/g, '').toLowerCase().trim().replace(/[^a-z0-9_]+/g, '_');
+        const tag = LABEL_TO_TAG[blockLabel] || fallbackTag || 'section';
+        sections[tag] = content;
     }
 
     const systemContent = Object.entries(structure)

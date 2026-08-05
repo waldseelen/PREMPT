@@ -1,6 +1,12 @@
 export const wellnessSpec = {
   "id": "wellness",
   "route": "wellness",
+  "defaultConfig": {
+    "seviye": "antrenman",
+    "mod": "koc",
+    "derinlik": "orta",
+    "format": "program"
+  },
   "icon": "heart",
   "category": "life",
   "layers": [
@@ -40,9 +46,9 @@ export const wellnessSpec = {
       "depthLabel": "Routine Depth",
       "formatLabel": "Wellness Syntax",
       "presetGroups": {
-        "workout": "Spor & Performans",
-        "sleep": "Uyku & Sirkadiyen",
-        "habits": "Alışkanlık & Beslenme"
+        "workout": "Fitness & Performance",
+        "sleep": "Sleep & Circadian",
+        "habits": "Habits & Nutrition"
       }
     }
   },

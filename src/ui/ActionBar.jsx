@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { useEngineState } from '../store/engineState';
 import { useShallow } from 'zustand/react/shallow';
 import { assembleFinalPrompt } from '../compiler/finalPromptAssembler';
@@ -7,10 +7,12 @@ import { serializeState, sanitizePayload, encodePayloadToParam } from '../utils/
 import { getDomain } from '../domains';
 import { SiGooglegemini, SiAnthropic, SiPerplexity, SiOpenaigym } from '@icons-pack/react-simple-icons';
 import { getTranslation } from '../locales/i18n';
-import { Copy, RotateCcw, Share2, Download, Upload } from 'lucide-react';
+import { Copy, RotateCcw, Share2, Download, Upload, X, ExternalLink } from 'lucide-react';
 
 export default function ActionBar({ showToast }) {
     const fileInputRef = useRef(null);
+    const [showGeminiModal, setShowGeminiModal] = useState(false);
+
     const { clearAll, applySharedState } = useEngineState(useShallow(state => ({
         clearAll: state.clearAll,
         applySharedState: state.applySharedState
@@ -22,6 +24,24 @@ export default function ActionBar({ showToast }) {
         domain: state.config.domain
     })));
     const t = getTranslation(lang, domain);
+
+    const executeGeminiLaunch = () => {
+        const currentState = useEngineState.getState();
+        const isJsonTarget = currentState.config.hedef === 'openai-json';
+        const prompt = assembleFinalPrompt(currentState, isJsonTarget ? { forceTarget: 'markdown' } : undefined);
+        if (!prompt) return;
+
+        openInAI('gemini', prompt,
+            () => showToast(`📋 Gemini açıldı! Prompt panoya kopyalandı (Ctrl+V ile yapıştırın).`, 'success'),
+            (queryAttached) => {
+                if (queryAttached) {
+                    showToast(`🚀 Gemini açılıyor (Prompt eklenti ile dolduruluyor)`, 'success');
+                } else {
+                    showToast(`📋 Gemini açıldı! Prompt PANOYA KOPYALANDI — Kutuda Ctrl+V yapın.`, 'success');
+                }
+            }
+        );
+    };
 
     const handleCopy = () => {
         const currentState = useEngineState.getState();
@@ -38,9 +58,6 @@ export default function ActionBar({ showToast }) {
 
     const handleOpenAI = (aiName) => {
         const currentState = useEngineState.getState();
-        // OpenAI-JSON is copy/API-oriented, not a chat-paste artifact — fall
-        // back to Markdown for the AI deep-link buttons specifically (see
-        // formatters/openaiJson.js).
         const isJsonTarget = currentState.config.hedef === 'openai-json';
         const prompt = assembleFinalPrompt(currentState, isJsonTarget ? { forceTarget: 'markdown' } : undefined);
         if (!prompt) {
@@ -51,9 +68,27 @@ export default function ActionBar({ showToast }) {
             showToast(t.toastTargetTextOnly, 'warn');
         }
 
+        if (aiName === 'gemini') {
+            const hasSeenNotice = localStorage.getItem('prempt_seen_gemini_notice');
+            if (!hasSeenNotice) {
+                localStorage.setItem('prempt_seen_gemini_notice', 'true');
+                setShowGeminiModal(true);
+                return;
+            }
+        }
+
+        const aiNames = { chatgpt: 'ChatGPT', claude: 'Claude', gemini: 'Gemini', perplexity: 'Perplexity' };
+        const name = aiNames[aiName] || aiName;
+
         openInAI(aiName, prompt,
-            () => showToast(t.toastUrlLimit, 'warn'),
-            () => showToast(t.toastOpening)
+            () => showToast(`📋 ${name} açıldı! Prompt panoya kopyalandı (Ctrl+V ile yapıştırın).`, 'success'),
+            (queryAttached) => {
+                if (queryAttached) {
+                    showToast(`🚀 ${name} açılıyor (Prompt doğrudan aktarıldı)`, 'success');
+                } else {
+                    showToast(`📋 ${name} açıldı! Prompt PANOYA KOPYALANDI — Kutuda Ctrl+V (Yapıştır) yapın.`, 'success');
+                }
+            }
         );
     };
 
@@ -120,9 +155,37 @@ export default function ActionBar({ showToast }) {
             
             {/* Row 2: AI Export Buttons */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '8px', width: '100%' }}>
-                <button className="btn btn-gemini" style={{ background: '#1e326c', color: '#fff', borderColor: '#1e326c', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', fontSize: '0.8rem', padding: '8px 4px' }} onClick={() => handleOpenAI('gemini')}>
-                    <SiGooglegemini size={14} /> Gemini
-                </button>
+                <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
+                    <button className="btn btn-gemini" style={{ flex: 1, background: '#1e326c', color: '#fff', borderColor: '#1e326c', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px', fontSize: '0.78rem', padding: '8px 4px' }} onClick={() => handleOpenAI('gemini')}>
+                        <SiGooglegemini size={14} /> Gemini
+                    </button>
+                    <a
+                        href="https://chromewebstore.google.com/detail/gemini-url-prompt/kdbgjkfdooaiompgeckjbegnnccchmma"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                            position: 'absolute',
+                            top: '-6px',
+                            right: '-4px',
+                            background: '#3b82f6',
+                            color: '#ffffff',
+                            borderRadius: '50%',
+                            width: '16px',
+                            height: '16px',
+                            fontSize: '10px',
+                            fontWeight: 'bold',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            textDecoration: 'none',
+                            boxShadow: '0 2px 6px rgba(0,0,0,0.3)',
+                            zIndex: 10
+                        }}
+                        title="Gemini URL doldurma eklentisini yüklemek için tıklayın (Chrome Web Store)"
+                    >
+                        🧩
+                    </a>
+                </div>
                 <button className="btn btn-secondary" style={{ background: '#10a37f', color: '#fff', borderColor: '#10a37f', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', fontSize: '0.8rem', padding: '8px 4px' }} onClick={() => handleOpenAI('chatgpt')}>
                     <SiOpenaigym size={14} /> ChatGPT
                 </button>
@@ -147,6 +210,115 @@ export default function ActionBar({ showToast }) {
                 </button>
                 <input ref={fileInputRef} type="file" accept="application/json" onChange={handleImportFile} style={{ display: 'none' }} />
             </div>
+
+            {/* Gemini Extension Modal */}
+            {showGeminiModal && (
+                <div className="modal-overlay" style={{
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    background: 'rgba(15, 23, 42, 0.75)',
+                    backdropFilter: 'blur(8px)',
+                    WebkitBackdropFilter: 'blur(8px)',
+                    zIndex: 999999,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    padding: '20px'
+                }}>
+                    <div
+                        className="modal-card"
+                        role="dialog"
+                        aria-modal="true"
+                        aria-labelledby="gemini-modal-title"
+                        style={{
+                            background: 'var(--bg-card, #0f172a)',
+                            border: '1px solid var(--border-strong, rgba(255,255,255,0.18))',
+                            borderRadius: '16px',
+                            padding: '24px',
+                            maxWidth: '520px',
+                            width: '100%',
+                            boxShadow: '0 20px 50px rgba(0,0,0,0.5)',
+                            color: 'var(--text-primary)',
+                            position: 'relative'
+                        }}
+                    >
+                        <button
+                            onClick={() => setShowGeminiModal(false)}
+                            aria-label={lang === 'en' ? 'Close dialog' : 'Pencereyi kapat'}
+                            style={{
+                                position: 'absolute',
+                                top: '16px',
+                                right: '16px',
+                                background: 'transparent',
+                                border: 'none',
+                                color: 'var(--text-muted)',
+                                cursor: 'pointer'
+                            }}
+                        >
+                            <X size={20} />
+                        </button>
+
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
+                            <div style={{ background: '#1e326c', padding: '10px', borderRadius: '12px', color: '#fff', display: 'flex' }}>
+                                <SiGooglegemini size={24} />
+                            </div>
+                            <div>
+                                <h3 style={{ margin: 0, fontSize: '1.1rem', fontWeight: 700 }}>
+                                    {lang === 'en' ? 'Google Gemini URL Integration' : 'Google Gemini URL Entegrasyonu'}
+                                </h3>
+                                <p style={{ margin: 0, fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+                                    {lang === 'en' ? 'Chrome Web Store Extension Guide' : 'Chrome Web Store Eklenti Rehberi'}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', fontSize: '0.82rem', lineHeight: '1.5', color: 'var(--text-secondary)' }}>
+                            {lang === 'en' ? (
+                                <div style={{ background: 'rgba(6,182,212,0.08)', borderLeft: '3px solid #06b6d4', padding: '12px', borderRadius: '6px' }}>
+                                    To <strong>automatically pre-fill prompts</strong> in Google Gemini via URL, you can install the free <em>Gemini URL Prompt</em> Chrome extension.
+                                    <br />
+                                    <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: '6px', display: 'block' }}>
+                                        (Without the extension, no worries! Your prompt is automatically copied to your clipboard — simply press <strong>Ctrl+V</strong> in Gemini.)
+                                    </span>
+                                </div>
+                            ) : (
+                                <div style={{ background: 'rgba(99,102,241,0.08)', borderLeft: '3px solid #6366f1', padding: '12px', borderRadius: '6px' }}>
+                                    Gemini web uygulamasında prompt'un <strong>otomatik dolması için</strong> ücretsiz <em>Gemini URL Prompt</em> Chrome eklentisini kurabilirsiniz.
+                                    <br />
+                                    <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: '6px', display: 'block' }}>
+                                        (Eklentiniz olmasa bile sorun yok! Prompt'unuz panoya kopyalanır, açılan Gemini kutusuna <strong>Ctrl+V</strong> ile yapıştırabilirsiniz.)
+                                    </span>
+                                </div>
+                            )}
+                        </div>
+
+                        <div style={{ display: 'flex', gap: '10px', marginTop: '20px', flexWrap: 'wrap' }}>
+                            <a
+                                href="https://chromewebstore.google.com/detail/gemini-url-prompt/kdbgjkfdooaiompgeckjbegnnccchmma"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="btn btn-primary"
+                                style={{ flex: 1, textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', fontSize: '0.82rem', padding: '10px 14px' }}
+                            >
+                                <ExternalLink size={16} /> {lang === 'en' ? 'Install Extension' : 'Eklentiyi Yükle'}
+                            </a>
+                            <button
+                                onClick={() => {
+                                    setShowGeminiModal(false);
+                                    executeGeminiLaunch();
+                                }}
+                                className="btn btn-secondary"
+                                style={{ flex: 1, fontSize: '0.82rem', padding: '10px 14px' }}
+                            >
+                                {lang === 'en' ? 'Continue to Gemini' : 'Devam Et & Aç'}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

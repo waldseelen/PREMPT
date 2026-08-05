@@ -1,6 +1,12 @@
 export const blogSpec = {
   "id": "blog",
   "route": "blog",
+  "defaultConfig": {
+    "seviye": "kisa",
+    "mod": "yazar",
+    "derinlik": "orta",
+    "format": "taslak"
+  },
   "icon": "file-text",
   "category": "creation",
   "layers": [
@@ -40,9 +46,9 @@ export const blogSpec = {
       "depthLabel": "Evidence Mode",
       "formatLabel": "Outline Syntax",
       "presetGroups": {
-        "structure": "Yazı Yapısı & Taslak",
-        "dialectic": "Diyalektik & Tezler",
-        "style": "Üslup, SEO & Otorite"
+        "structure": "Structure & Outline",
+        "dialectic": "Dialectic & Argumentation",
+        "style": "Tone, SEO & Authority"
       }
     }
   },

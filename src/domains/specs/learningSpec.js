@@ -1,6 +1,12 @@
 export const learningSpec = {
   "id": "learning",
   "route": "learning",
+  "defaultConfig": {
+    "seviye": "otomatik",
+    "mod": "karma",
+    "derinlik": "orta",
+    "format": "markdown"
+  },
   "icon": "graduation-cap",
   "category": "mind",
   "layers": [
@@ -40,9 +46,9 @@ export const learningSpec = {
       "depthLabel": "Analysis Depth",
       "formatLabel": "Output Format",
       "presetGroups": {
-        "understand": "Anla",
-        "analyze": "Analiz Et",
-        "apply": "Uygula"
+        "understand": "Understand",
+        "analyze": "Analyze",
+        "apply": "Apply"
       }
     }
   },

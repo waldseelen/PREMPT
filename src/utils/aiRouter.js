@@ -6,8 +6,8 @@ const AI_STRATEGIES = {
     },
     claude: {
         getBaseUrl: () => 'https://claude.ai/new',
-        getPromptUrl: () => 'https://claude.ai/new',
-        supportsQuery: false
+        getPromptUrl: (prompt) => 'https://claude.ai/new?q=' + encodeURIComponent(prompt),
+        supportsQuery: true
     },
     perplexity: {
         getBaseUrl: () => 'https://www.perplexity.ai/search',
@@ -16,8 +16,8 @@ const AI_STRATEGIES = {
     },
     gemini: {
         getBaseUrl: () => 'https://gemini.google.com/app',
-        getPromptUrl: () => 'https://gemini.google.com/app',
-        supportsQuery: false
+        getPromptUrl: (prompt) => 'https://gemini.google.com/app?q=' + encodeURIComponent(prompt),
+        supportsQuery: true
     }
 };
 
@@ -51,13 +51,15 @@ export function openInAI(aiName, prompt, onLengthWarning, onSuccessCopy) {
 
     let urlToOpen = strategy.getBaseUrl();
     let isTooLongForUrl = false;
+    let queryAttached = false;
 
     if (strategy.supportsQuery) {
         const promptUrl = strategy.getPromptUrl(prompt);
-        if (promptUrl.length > 2000) {
+        if (promptUrl.length > 4000) {
             isTooLongForUrl = true;
         } else {
             urlToOpen = promptUrl;
+            queryAttached = true;
         }
     }
 
@@ -69,7 +71,7 @@ export function openInAI(aiName, prompt, onLengthWarning, onSuccessCopy) {
         if (isTooLongForUrl && onLengthWarning) {
             onLengthWarning();
         } else if (onSuccessCopy) {
-            onSuccessCopy();
+            onSuccessCopy(queryAttached);
         }
     });
 }
