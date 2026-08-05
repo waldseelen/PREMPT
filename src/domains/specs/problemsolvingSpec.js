@@ -1,7 +1,7 @@
 export const problemsolvingSpec = {
   "id": "problemsolving",
   "route": "problemsolving",
-  "icon": "⚡",
+  "icon": "zap",
   "category": "mind",
   "layers": [
     "deconstruction",

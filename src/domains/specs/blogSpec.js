@@ -1,7 +1,7 @@
 export const blogSpec = {
   "id": "blog",
   "route": "blog",
-  "icon": "📝",
+  "icon": "file-text",
   "category": "creation",
   "layers": [
     "triage",

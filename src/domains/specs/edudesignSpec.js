@@ -1,7 +1,7 @@
 export const edudesignSpec = {
   "id": "edudesign",
   "route": "edudesign",
-  "icon": "🎒",
+  "icon": "backpack",
   "category": "academia",
   "layers": [
     "taxonomy",

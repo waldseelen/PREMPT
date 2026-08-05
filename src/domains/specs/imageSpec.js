@@ -1,7 +1,7 @@
 export const imageSpec = {
   "id": "image",
   "route": "image",
-  "icon": "🎨",
+  "icon": "palette",
   "category": "creation",
   "layers": [
     "medium",

@@ -1,6 +1,28 @@
-import React from 'react';
 import { useEngineState } from '../store/engineState';
 import { useShallow } from 'zustand/react/shallow';
+import {
+    GraduationCap, Brain, Zap, Beaker, Building2, Backpack,
+    Code, Bot, Shield, FileText, Palette, Globe,
+    Briefcase, Heart, Plane
+} from 'lucide-react';
+
+const ICON_MAP = {
+    learning: GraduationCap,
+    decision: Brain,
+    problemsolving: Zap,
+    academic: Beaker,
+    philosophy: Building2,
+    edudesign: Backpack,
+    code: Code,
+    agentarch: Bot,
+    cyber: Shield,
+    blog: FileText,
+    image: Palette,
+    language: Globe,
+    business: Briefcase,
+    wellness: Heart,
+    travel: Plane
+};
 
 const GROUPS = [
     {
@@ -10,9 +32,9 @@ const GROUPS = [
         bg: 'rgba(99, 102, 241, 0.12)',
         border: 'rgba(99, 102, 241, 0.28)',
         domains: [
-            { id: 'learning', icon: '🎓', label: { tr: 'Öğrenme', en: 'Learn' } },
-            { id: 'decision', icon: '🧠', label: { tr: 'Karar', en: 'Decision' } },
-            { id: 'problemsolving', icon: '⚡', label: { tr: 'Problem Çözme', en: 'Problem' } }
+            { id: 'learning', label: { tr: 'Öğrenme', en: 'Learn' } },
+            { id: 'decision', label: { tr: 'Karar', en: 'Decision' } },
+            { id: 'problemsolving', label: { tr: 'Problem Çözme', en: 'Problem' } }
         ]
     },
     {
@@ -22,9 +44,9 @@ const GROUPS = [
         bg: 'rgba(16, 185, 129, 0.12)',
         border: 'rgba(16, 185, 129, 0.28)',
         domains: [
-            { id: 'academic', icon: '🔬', label: { tr: 'Akademik', en: 'Academic' } },
-            { id: 'philosophy', icon: '🏛️', label: { tr: 'Felsefe', en: 'Philosophy' } },
-            { id: 'edudesign', icon: '🎒', label: { tr: 'Eğitim Tasarımı', en: 'Edu Design' } }
+            { id: 'academic', label: { tr: 'Akademik', en: 'Academic' } },
+            { id: 'philosophy', label: { tr: 'Felsefe', en: 'Philosophy' } },
+            { id: 'edudesign', label: { tr: 'Eğitim Tasarımı', en: 'Edu Design' } }
         ]
     },
     {
@@ -34,9 +56,9 @@ const GROUPS = [
         bg: 'rgba(245, 158, 11, 0.12)',
         border: 'rgba(245, 158, 11, 0.28)',
         domains: [
-            { id: 'code', icon: '💻', label: { tr: 'Kod', en: 'Code' } },
-            { id: 'agentarch', icon: '🤖', label: { tr: 'Agent Mimari', en: 'Agent Arch' } },
-            { id: 'cyber', icon: '🛡️', label: { tr: 'Siber', en: 'Cyber' } }
+            { id: 'code', label: { tr: 'Kod', en: 'Code' } },
+            { id: 'agentarch', label: { tr: 'Agent Mimari', en: 'Agent Arch' } },
+            { id: 'cyber', label: { tr: 'Siber', en: 'Cyber' } }
         ]
     },
     {
@@ -46,9 +68,9 @@ const GROUPS = [
         bg: 'rgba(236, 72, 153, 0.12)',
         border: 'rgba(236, 72, 153, 0.28)',
         domains: [
-            { id: 'blog', icon: '📝', label: { tr: 'Blog', en: 'Blog' } },
-            { id: 'image', icon: '🎨', label: { tr: 'Görsel', en: 'Image' } },
-            { id: 'language', icon: '🌐', label: { tr: 'Dil', en: 'Language' } }
+            { id: 'blog', label: { tr: 'Blog', en: 'Blog' } },
+            { id: 'image', label: { tr: 'Görsel', en: 'Image' } },
+            { id: 'language', label: { tr: 'Dil', en: 'Language' } }
         ]
     },
     {
@@ -58,9 +80,9 @@ const GROUPS = [
         bg: 'rgba(6, 182, 212, 0.12)',
         border: 'rgba(6, 182, 212, 0.28)',
         domains: [
-            { id: 'business', icon: '💼', label: { tr: 'İş', en: 'Business' } },
-            { id: 'wellness', icon: '🩺', label: { tr: 'Sağlık', en: 'Wellness' } },
-            { id: 'travel', icon: '✈️', label: { tr: 'Seyahat', en: 'Travel' } }
+            { id: 'business', label: { tr: 'İş', en: 'Business' } },
+            { id: 'wellness', label: { tr: 'Sağlık', en: 'Wellness' } },
+            { id: 'travel', label: { tr: 'Seyahat', en: 'Travel' } }
         ]
     }
 ];
@@ -105,6 +127,7 @@ export default function DomainSwitcher() {
                 >
                     {grp.domains.map(d => {
                         const isActive = activeDomain === d.id;
+                        const IconComponent = ICON_MAP[d.id];
                         return (
                             <button
                                 key={d.id}
@@ -127,7 +150,7 @@ export default function DomainSwitcher() {
                                     whiteSpace: 'nowrap'
                                 }}
                             >
-                                <span style={{ fontSize: '0.8rem' }}>{d.icon}</span>
+                                {IconComponent && <IconComponent size={14} strokeWidth={2} />}
                                 <span>{d.label[lang] || d.label.tr}</span>
                             </button>
                         );

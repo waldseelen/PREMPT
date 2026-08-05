@@ -319,6 +319,8 @@ is the join key, so renaming one breaks the lookup silently.
 12. **Verify a new preset by hand.** Nothing validates preset contents — see the
     validation gap in §2.
     (`src/engine/presetEngine.js`)
+13. **No emoji in UI or AI slop in frontend.** Use lucide-react icons instead of emoji everywhere — labels, presets, specs, domain data. Never auto-generate or use LLM-produced copy for user-facing text; all strings must be curated by a human hand. The frontend is for learning and craft, not AI filler.
+    (`src/ui/DomainSwitcher.jsx` uses lucide icons; domain `specs/*.js` use icon IDs not emoji; `src/locales/` contains hand-written copy)
 
 ---
 

@@ -1,7 +1,7 @@
 export const learningSpec = {
   "id": "learning",
   "route": "learning",
-  "icon": "🎓",
+  "icon": "graduation-cap",
   "category": "mind",
   "layers": [
     "foundation",

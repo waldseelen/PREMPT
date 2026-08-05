@@ -1,7 +1,7 @@
 export const wellnessSpec = {
   "id": "wellness",
   "route": "wellness",
-  "icon": "🩺",
+  "icon": "heart",
   "category": "life",
   "layers": [
     "workout",

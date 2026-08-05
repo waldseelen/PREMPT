@@ -1,7 +1,7 @@
 export const cyberSpec = {
   "id": "cyber",
   "route": "cyber",
-  "icon": "🛡️",
+  "icon": "shield",
   "category": "tech",
   "layers": [
     "threat",

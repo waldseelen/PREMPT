@@ -1,7 +1,7 @@
 export const decisionSpec = {
   "id": "decision",
   "route": "decision",
-  "icon": "🧠",
+  "icon": "brain",
   "category": "mind",
   "layers": [
     "foundation",

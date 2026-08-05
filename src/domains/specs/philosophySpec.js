@@ -1,7 +1,7 @@
 export const philosophySpec = {
   "id": "philosophy",
   "route": "philosophy",
-  "icon": "🏛️",
+  "icon": "building2",
   "category": "academia",
   "layers": [
     "logic",

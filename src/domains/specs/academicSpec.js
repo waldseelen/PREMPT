@@ -1,7 +1,7 @@
 export const academicSpec = {
   "id": "academic",
   "route": "academic",
-  "icon": "🔬",
+  "icon": "beaker",
   "category": "academia",
   "layers": [
     "methodology",

@@ -1,7 +1,7 @@
 export const codeSpec = {
   "id": "code",
   "route": "code",
-  "icon": "💻",
+  "icon": "code",
   "category": "tech",
   "layers": [
     "design",

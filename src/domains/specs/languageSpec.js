@@ -1,7 +1,7 @@
 export const languageSpec = {
   "id": "language",
   "route": "language",
-  "icon": "🌐",
+  "icon": "globe",
   "category": "creation",
   "layers": [
     "localization",

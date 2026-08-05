@@ -1,7 +1,7 @@
 export const agentarchSpec = {
   "id": "agentarch",
   "route": "agentarch",
-  "icon": "🤖",
+  "icon": "bot",
   "category": "tech",
   "layers": [
     "persona",
@@ -125,8 +125,8 @@ export const agentarchSpec = {
       "id": "zero-hallucination",
       "group": "guardrails",
       "name": {
-        "tr": "🔒 Zero-Hallucination Guardrail",
-        "en": "🔒 Zero-Hallucination Guardrail"
+        "tr": "Zero-Hallucination Guardrail",
+        "en": "Zero-Hallucination Guardrail"
       },
       "desc": {
         "tr": "Sıkı kısıtlayıcılar ile halüsinasyonu %0 seviyesine kilitler.",
@@ -149,8 +149,8 @@ export const agentarchSpec = {
       "id": "agent-cot",
       "group": "orchestration",
       "name": {
-        "tr": "🤖 CoT Agent Pipeline",
-        "en": "🤖 CoT Agent Pipeline"
+        "tr": "CoT Agent Pipeline",
+        "en": "CoT Agent Pipeline"
       },
       "desc": {
         "tr": "Karmaşık görevleri adım adım düşünen agent zinciri.",
@@ -173,8 +173,8 @@ export const agentarchSpec = {
       "id": "custom-gpt-spec",
       "group": "system",
       "name": {
-        "tr": "🧩 Custom GPT Instruction Spec",
-        "en": "🧩 Custom GPT Instruction Spec"
+        "tr": "Custom GPT Instruction Spec",
+        "en": "Custom GPT Instruction Spec"
       },
       "desc": {
         "tr": "OpenAI/Claude için tam sistem talimatı.",
@@ -197,8 +197,8 @@ export const agentarchSpec = {
       "id": "fewshot-exemplar",
       "group": "system",
       "name": {
-        "tr": "💡 Few-Shot Örnekli Prompt",
-        "en": "💡 Few-Shot Exemplar Spec"
+        "tr": "Few-Shot Örnekli Prompt",
+        "en": "Few-Shot Exemplar Spec"
       },
       "desc": {
         "tr": "AI'ı doğru çıktıya zorlayan girdi/çıktı örnekleri.",
@@ -221,8 +221,8 @@ export const agentarchSpec = {
       "id": "json-schema-enforcer",
       "group": "guardrails",
       "name": {
-        "tr": "📐 Strict JSON Schema Enforcer",
-        "en": "📐 Strict JSON Schema Enforcer"
+        "tr": "Strict JSON Schema Enforcer",
+        "en": "Strict JSON Schema Enforcer"
       },
       "desc": {
         "tr": "Çıktıyı tamamen geçerli JSON şemasına zorlar.",
@@ -245,8 +245,8 @@ export const agentarchSpec = {
       "id": "role-persona-anchor",
       "group": "system",
       "name": {
-        "tr": "🎭 Persona & Ton Çapası",
-        "en": "🎭 Persona & Tone Anchor"
+        "tr": "Persona & Ton Çapası",
+        "en": "Persona & Tone Anchor"
       },
       "desc": {
         "tr": "AI'ın karakterini ve uzmanlık rolünü kilitler.",
@@ -269,8 +269,8 @@ export const agentarchSpec = {
       "id": "tool-calling-agent",
       "group": "orchestration",
       "name": {
-        "tr": "🛠️ Tool & Function Calling Agent",
-        "en": "🛠️ Tool Calling Agent Spec"
+        "tr": "Tool & Function Calling Agent",
+        "en": "Tool Calling Agent Spec"
       },
       "desc": {
         "tr": "Dış API ve araçları çağıran agent mantığı.",
@@ -293,8 +293,8 @@ export const agentarchSpec = {
       "id": "prompt-routing",
       "group": "orchestration",
       "name": {
-        "tr": "🔀 Multi-Agent Router Spec",
-        "en": "🔀 Multi-Agent Router Spec"
+        "tr": "Multi-Agent Router Spec",
+        "en": "Multi-Agent Router Spec"
       },
       "desc": {
         "tr": "Girdiyi uzman sub-agent'lara yönlendirir.",
@@ -317,8 +317,8 @@ export const agentarchSpec = {
       "id": "memory-context",
       "group": "orchestration",
       "name": {
-        "tr": "🧠 Uzun Süreli Hafıza Kapsamı",
-        "en": "🧠 Long-Context Memory Spec"
+        "tr": "Uzun Süreli Hafıza Kapsamı",
+        "en": "Long-Context Memory Spec"
       },
       "desc": {
         "tr": "Geçmiş konuşma özetleme ve hafıza protokolü.",
@@ -341,8 +341,8 @@ export const agentarchSpec = {
       "id": "error-recovery",
       "group": "guardrails",
       "name": {
-        "tr": "🚨 Agent Hata Toleransı & Fallback",
-        "en": "🚨 Error Recovery Fallback"
+        "tr": "Agent Hata Toleransı & Fallback",
+        "en": "Error Recovery Fallback"
       },
       "desc": {
         "tr": "Hatalı çıktıda otomatik düzeltme döngüsü.",
@@ -365,8 +365,8 @@ export const agentarchSpec = {
       "id": "token-optimizer",
       "group": "system",
       "name": {
-        "tr": "⚡ Token & Bağlam Bütçeleme",
-        "en": "⚡ Token Budget Optimizer"
+        "tr": "Token & Bağlam Bütçeleme",
+        "en": "Token Budget Optimizer"
       },
       "desc": {
         "tr": "Gereksiz kelimeleri budayarak maliyeti düşürür.",
@@ -389,8 +389,8 @@ export const agentarchSpec = {
       "id": "jailbreak-guard",
       "group": "guardrails",
       "name": {
-        "tr": "🛡️ Prompt Injection Kalkanı",
-        "en": "🛡️ Prompt Injection Shield"
+        "tr": "Prompt Injection Kalkanı",
+        "en": "Prompt Injection Shield"
       },
       "desc": {
         "tr": "Zararlı kullanıcı girdilerini nötralize eder.",

@@ -1,7 +1,7 @@
 export const businessSpec = {
   "id": "business",
   "route": "business",
-  "icon": "💼",
+  "icon": "briefcase",
   "category": "life",
   "layers": [
     "validation",

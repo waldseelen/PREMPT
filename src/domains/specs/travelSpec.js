@@ -1,7 +1,7 @@
 export const travelSpec = {
   "id": "travel",
   "route": "travel",
-  "icon": "✈️",
+  "icon": "plane",
   "category": "life",
   "layers": [
     "curation",
