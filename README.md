@@ -1,6 +1,6 @@
-# 🧠 PROMPTER — The Learning OS
+# 🧠 PREMPT— 
 
-PROMPTER is a client-side React application that acts as an "Operating System" for prompting. Instead of typing one-off prompts, you mix and match modular components which the engine compiles into a single, large, highly-structured prompt — then hands off to your AI chat tool of choice (ChatGPT, Claude, Gemini, or Perplexity).
+PREMPT is a client-side React application that acts as an "Operating System" for prompting. Instead of typing one-off prompts, you mix and match modular components which the engine compiles into a single, large, highly-structured prompt — then hands off to your AI chat tool of choice (ChatGPT, Claude, Gemini, or Perplexity).
 
 There is **no backend**. Everything runs in the browser: state lives in `localStorage`, and every hand-off to an external AI happens through a URL query parameter or a clipboard copy.
 
