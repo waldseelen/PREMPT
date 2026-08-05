@@ -1,23 +1,45 @@
-# 🧠 PREMPT— 
+# ⚡ PREMPT — Parametric Prompting Operating System
 
-PREMPT is a client-side React application that acts as an "Operating System" for prompting. Instead of typing one-off prompts, you mix and match modular components which the engine compiles into a single, large, highly-structured prompt — then hands off to your AI chat tool of choice (ChatGPT, Claude, Gemini, or Perplexity).
+> **"Pre-empt bad AI answers before they happen."**
 
-There is **no backend**. Everything runs in the browser: state lives in `localStorage`, and every hand-off to an external AI happens through a URL query parameter or a clipboard copy.
+PREMPT is a zero-API, 100% client-side React 19 application that acts as a parametric operating system for prompting. Instead of typing one-off ambiguous prompts, you assemble modular prompt blocks which the engine compiles into a single, highly structured, production-grade prompt — then hands off to your AI chat tool of choice (ChatGPT, Claude, Gemini, or Perplexity).
 
-## ✨ Key Features
+There is **no backend**. Everything runs locally in the browser: state lives in `localStorage`, and every hand-off to an external AI tool happens via URL query parameters or clipboard copy.
 
-- **Two parallel domains, one engine**: PROMPTER ships two prompting domains that share the same compiler pipeline:
-  - **Learning** (35 modules) — deconstruct, analyze, and understand any concept, with modules like *Ontology (First Principles)*, *Hidden Assumptions*, *Causal Necessity*, *Paradox Mode*, and *Thought Experiments*.
-  - **Code** (32 modules) — software-engineering prompting across five phases: *design, build, comprehend, harden, ship* (threat modeling, auth design, concurrency, observability, CI/CD, and more).
-  You switch between them with a Learn | Code pill, and each domain resets to its own sensible defaults.
-- **Dynamic Dependency Resolution**: Modules declare prerequisites as a dependency graph (DAG). Selecting a module can auto-add the modules it depends on, and the compiler topologically sorts them so prerequisites always appear before dependents in the final prompt.
-- **One-Click Presets**: 12 curated presets per domain, grouped by intent, load a ready-made module bundle plus matching configuration in a single click — from *Rapid Grasping* and *Deep Analysis* on the Learning side to *Test Strategy*, *Security Review*, and *Legacy Modernization* on the Code side.
-- **Internal Monologue (Reasoning) Mode**: Optionally force the AI to use internal `<thinking>` tags to evaluate boundary conditions from multiple perspectives before producing its final answer.
-- **Smart AI Router with a URL-length guard**: One-click export to ChatGPT, Claude, Gemini, or Perplexity. A built-in 4000-character guard detects prompts too long to pass safely through a URL and falls back to opening the bare chat page and copying the prompt to your clipboard instead — avoiding browser URL-limit crashes and popup blockers.
-- **Recipes, Share Links & Export/Import**: Save reusable setups as local recipes, share a frozen setup as a `?share=` link, or export/import a setup as JSON. All three use one safe serialization format that gracefully repairs stale or hand-edited data.
-- **Bilingual data (TR / EN)**: Every domain ships parallel English and Turkish module sets and UI/prompt text. The display language is independent of the internal state model.
-- **Adaptive Glassmorphism UI**: A fully responsive, pure-CSS interface with a Light / Dark / System theme engine.
-- **State Persistence**: Your configuration, selected modules, and preferences are saved automatically to your browser's `localStorage` via Zustand's persist middleware.
+---
+
+## ✨ Key Features & Architecture Highlights
+
+- **15 Parametric Domains & 450+ Modules**:
+  PREMPT ships 15 dedicated parametric domains organized into 5 major categories:
+  - 🧠 **Düşünce & Mantık**: `learning` (Öğrenme), `decision` (Karar Alma), `problemsolving` (TRIZ & Problem Çözme)
+  - 🔬 **Akademi & Felsefe**: `academic` (Akademik Araştırma), `philosophy` (Felsefe & Etik), `edudesign` (Eğitim Tasarımı)
+  - 💻 **Mühendislik & AI**: `code` (Kod Mühendisliği), `agentarch` (AI Agent & System Prompt), `cyber` (Siber Güvenlik)
+  - 🎨 **İçerik, Sanat & Dil**: `blog` (Blog & Editoryal), `image` (Görsel & Sanat), `language` (Dil & Çeviri)
+  - 💼 **İş & Yaşam Ops**: `business` (İş & Strateji), `wellness` (Sağlık & Form), `travel` (Seyahat & Rota)
+
+- **180 Handcrafted Domain Presets (15 Domains x 12 Presets Each)**:
+  Every domain contains 12 handcrafted, domain-specific presets grouped into 3 structural categories. In a single click, load ready-made module bundles and parameter locks (from *Reviewer #2 Stress Test* in Academic to *Zero-Hallucination Guardrail* in Agent Arch and *Cinematic 35mm Realism* in Image).
+
+- **Unified Single Viewport Layout**:
+  No multi-stage landing screen. All controls (`TopicInput`, `PresetBar`, `ModuleGrid`, `ConfigPanel`, `ActionBar`, `PreviewPanel`) render in a single unified viewport.
+
+- **Sleek Horizontal Header Domain Bar**:
+  Switch instantly between all 15 domains via a 5-group x 3-domain horizontal navigation bar right in the header, with distinct accent color themes (Indigo, Emerald, Amber, Rose, Cyan), active glow badges, and overflow protection.
+
+- **Dynamic Dependency Graph Resolution (DAG)**:
+  Modules declare prerequisites as a directed acyclic graph. Selecting a module automatically resolves transitively required modules and topologically sorts them so prerequisites appear before dependents.
+
+- **⚡ Prompt Injection Preview Tooltips**:
+  Hovering over module cards shows live prompt injection code snippets and dependency requirements (`🔗 Requires`).
+
+- **Smart AI Router with URL-length Guard**:
+  One-click export to ChatGPT, Claude, Gemini, or Perplexity. A built-in 4000-character guard opens the chat URL and copies the prompt to your clipboard if the prompt exceeds URL safety limits.
+
+- **Bilingual TR / EN Support**:
+  Full parallel Turkish and English support across all UI labels, module cards, option sets, compiler headers, and preset descriptions.
+
+---
 
 ## 🚀 Quick Start
 
@@ -25,32 +47,30 @@ There is **no backend**. Everything runs in the browser: state lives in `localSt
 # Install dependencies
 npm install
 
-# Run the dev server
+# Run the dev server (http://localhost:3000)
 npm run dev
 
-# Production build
+# Validate module datasets across all 15 domains
+node scripts/validate-modules.mjs
+
+# Build production bundle (dist/)
 npm run build
-
-# Preview the production build
-npm run preview
-
-# Validate module data (TR/EN parity, required fields, dependency refs)
-npm run validate
 ```
+
+---
 
 ## 🛠️ Technology Stack
 
 - **Framework**: React 19 + Vite
-- **State Management**: Zustand v5 (with persist middleware, `localStorage`)
-- **Styling**: Pure CSS (custom properties, CSS Grid, glassmorphism, animations)
-- **Deployment**: Static HTML/JS/CSS bundle, zero backend required (SPA deploy on Vercel).
+- **State Management**: Zustand v5 (`localStorage` persist middleware)
+- **Icons**: Lucide React
+- **Styling**: Pure Vanilla CSS (CSS custom properties, Glassmorphism, Zero Tailwind)
+- **Deployment**: Static SPA bundle on Vercel (`vercel.json`)
 
-## 🤝 Philosophy
-
-This is not a simple "prompt generator." It is a **prompting operating system**. The engine is deterministic and data-driven: modules are pure configuration, all "thinking" (dependency resolution, suggestions, prompt assembly, presets) lives in the engine and compiler, and the UI is a thin renderer over a single Zustand store. Adding a new module — or even a whole new domain — is largely a matter of adding data.
+---
 
 ## 📚 Deeper Documentation
 
-- [`ARCHITECTURE.md`](./ARCHITECTURE.md) — full file tree, strict layering, the multi-domain design, state shape, and the compilation pipeline.
-- [`CLAUDE.md`](./CLAUDE.md) — guidance for working in this repository (commands, layering rules, how to add modules/domains/presets).
-- [`AGENT.md`](./AGENT.md) — hard constraints and directives for AI coding agents.
+- [`ARCHITECTURE.md`](./ARCHITECTURE.md) — Unified 15-domain spec architecture, single viewport layout, compiler pipeline, and file tree.
+- [`PROGRESS.md`](./PROGRESS.md) — Active gate status, verification logs, and session history.
+- [`CLAUDE.md`](./CLAUDE.md) — Development guidelines and rules.

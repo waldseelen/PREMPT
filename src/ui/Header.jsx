@@ -1,28 +1,24 @@
 import { useEngineState } from '../store/engineState';
 import { useShallow } from 'zustand/react/shallow';
 import { getTranslation } from '../locales/i18n';
-import { DOMAINS, DEFAULT_DOMAIN } from '../domains';
 import { Sun, Moon, HelpCircle } from 'lucide-react';
+import DomainSwitcher from './DomainSwitcher';
 
 export default function Header() {
-    const { config, view, setTheme, setConfig, setDomain, startTour, enterWorkspace } = useEngineState(useShallow(state => ({
+    const { config, view, setTheme, setConfig, startTour, enterWorkspace } = useEngineState(useShallow(state => ({
         config: state.config,
         view: state.view,
         setTheme: state.setTheme,
         setConfig: state.setConfig,
-        setDomain: state.setDomain,
         startTour: state.startTour,
         enterWorkspace: state.enterWorkspace
     })));
     const t = getTranslation(config.lang, config.domain);
-    const activeDomain = config.domain ?? DEFAULT_DOMAIN;
 
     const toggleTheme = () => {
         setTheme(config.theme === 'light' ? 'dark' : 'light');
     };
 
-    // Tour steps are anchored to workspace-only DOM (see OnboardingTour.jsx),
-    // so replaying it from intro must switch views first.
     const handleReplayTour = () => {
         if (view !== 'workspace') enterWorkspace();
         startTour();
@@ -35,25 +31,36 @@ export default function Header() {
     const ThemeIcon = config.theme === 'light' ? Moon : Sun;
 
     return (
-        <header className="header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '16px' }}>
-            <div>
-                <h1>{t.title}</h1>
-                <p>{t.subtitle}</p>
-            </div>
-            <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexShrink: 0 }}>
-                <div className="domain-switch" role="tablist" aria-label="Domain">
-                    {Object.values(DOMAINS).map((d) => (
-                        <button
-                            key={d.id}
-                            role="tab"
-                            aria-selected={activeDomain === d.id}
-                            className={`domain-switch-pill ${activeDomain === d.id ? 'active' : ''}`}
-                            onClick={() => setDomain(d.id)}
-                        >
-                            {getTranslation(config.lang, d.id).switchLabel}
-                        </button>
-                    ))}
+        <header className="header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '16px', flexWrap: 'wrap', padding: '12px 20px' }}>
+            <div style={{ flexShrink: 0, display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <img
+                    src="/prempt_logo.jpg"
+                    alt="PREMPT Logo"
+                    style={{
+                        width: '38px',
+                        height: '38px',
+                        borderRadius: '10px',
+                        objectFit: 'cover',
+                        boxShadow: '0 0 14px rgba(99,102,241,0.5)',
+                        border: '1.5px solid rgba(99,102,241,0.35)',
+                        flexShrink: 0
+                    }}
+                />
+                <div>
+                    <h1 style={{ fontSize: '1.25rem', margin: 0, fontWeight: 800, letterSpacing: '-0.02em', background: 'linear-gradient(135deg, #6366f1, #ec4899)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                        PREMPT
+                    </h1>
+                    <p style={{ fontSize: '0.65rem', margin: 0, color: 'var(--text-secondary)', whiteSpace: 'nowrap', letterSpacing: '0.01em' }}>
+                        Pre-empt bad AI answers
+                    </p>
                 </div>
+            </div>
+            
+            <div style={{ flex: 1, minWidth: 0, display: 'flex', justifyContent: 'center' }}>
+                <DomainSwitcher />
+            </div>
+
+            <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexShrink: 0 }}>
                 <button
                     onClick={handleReplayTour}
                     className="header-icon-btn"
@@ -74,7 +81,7 @@ export default function Header() {
                     className="header-icon-btn"
                     title={`Theme: ${config.theme}`}
                 >
-                    <ThemeIcon />
+                    <ThemeIcon size={18} />
                 </button>
             </div>
         </header>

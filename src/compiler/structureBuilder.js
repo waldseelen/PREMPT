@@ -1,10 +1,10 @@
-import { COMPILER_TEXTS } from '../locales/compilerTexts';
+import { getCompilerTexts } from '../locales/compilerTexts.js';
 
 export function buildPromptStructure(state, sortedModules) {
     const { config, injectedRules } = state;
     const lang = config.lang || 'tr';
     const domain = config.domain || 'learning';
-    const texts = (COMPILER_TEXTS[domain] || COMPILER_TEXTS.learning)[lang];
+    const texts = getCompilerTexts(lang, domain);
     const labels = texts.labels;
     const alanText = config.alan || (lang === 'en' ? 'Not specified' : 'Belirtilmedi');
     const seviyeLabel = config.seviye === 'otomatik'

@@ -241,27 +241,30 @@ export default function ModuleGrid() {
                                             }}
                                             style={{ position: 'relative' }}
                                         >
-                                            <div className="module-icon"><Icon size={20} strokeWidth={1.5} /></div>
+                                            <div className="module-icon"><Icon size={18} strokeWidth={1.5} /></div>
                                             <div className="module-info">
-                                                <div className="module-name" style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                                                <div className="module-name" style={{ display: 'flex', alignItems: 'center', gap: '4px', fontWeight: 600, fontSize: '0.82rem' }}>
                                                     {mod.name}
                                                     {isPrereq && <span className="status-badge status-badge-emerald" title={t.autoResolved}>✓</span>}
                                                     {isSuggested && !isActive && <span className="status-badge status-badge-amber">AI</span>}
                                                 </div>
-                                                <div className="module-desc">{mod.desc}</div>
-                                                {mod.requires && mod.requires.length > 0 && (
-                                                    <div className="module-inline-reqs">
-                                                        → {mod.requires.map(reqId => modules.find(m => m.id === reqId)?.name || reqId).join(', ')}
-                                                    </div>
-                                                )}
                                             </div>
 
-                                            {/* Custom Theme-Aware Tooltip */}
+                                            {/* Custom High-Contrast Tooltip with Full Details */}
                                             <div className="module-tooltip">
-                                                <div className="tooltip-title">{mod.name}</div>
-                                                <div className="tooltip-explain">{mod.explain}</div>
+                                                <div className="tooltip-title" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                                                    <span>{mod.icon}</span> {mod.name}
+                                                </div>
+                                                {(mod.desc || mod.explain) && (
+                                                    <div className="tooltip-explain">{mod.desc || mod.explain}</div>
+                                                )}
+                                                {mod.prompt && (
+                                                    <div className="tooltip-prompt-preview" style={{ fontSize: '11px', color: 'var(--text-muted)', marginTop: '6px', fontStyle: 'italic', borderLeft: '2px solid var(--accent, #6366f1)', paddingLeft: '8px', lineHeight: '1.4' }}>
+                                                        ⚡ "{mod.prompt.length > 130 ? mod.prompt.slice(0, 130) + '...' : mod.prompt}"
+                                                    </div>
+                                                )}
                                                 {mod.requires && mod.requires.length > 0 && (
-                                                    <div className="tooltip-reqs">
+                                                    <div className="tooltip-reqs" style={{ marginTop: '6px' }}>
                                                         <span className="tooltip-reqs-icon">🔗</span> {t.reqsLabel}: {mod.requires.map(reqId => {
                                                             const reqName = modules.find(m => m.id === reqId)?.name || reqId;
                                                             return `"${reqName}"`;

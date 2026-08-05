@@ -1,0 +1,412 @@
+[
+  {
+    "id": "cur-anti-tourist-trap-filter",
+    "icon": "🚫",
+    "name": "Anti-Tourist Trap Filter",
+    "category": "curation",
+    "description": "Filters out overpriced, low-quality tourist traps and gimmicky venues.",
+    "layer": "curation",
+    "requires": [],
+    "prompt": "Apply Anti-Tourist Trap Filter: Strip out overpriced, inauthentic, tourist-bus-clogged venues and replace them with authentic local spots.",
+    "desc": "Filters out overpriced, low-quality tourist traps and gimmicky venues.",
+    "explain": "Filters out overpriced, low-quality tourist traps and gimmicky venues."
+  },
+  {
+    "id": "cur-local-hidden-gem-route",
+    "icon": "💎",
+    "name": "Local Hidden Gem Curation",
+    "category": "curation",
+    "description": "Curates authentic neighborhood spots known primarily to local residents.",
+    "layer": "curation",
+    "requires": [
+      "cur-anti-tourist-trap-filter"
+    ],
+    "prompt": "Curate Local Hidden Gems: Uncover off-the-beaten-path neighborhood eateries, secret courtyards, and artisan shops known primarily to residents.",
+    "desc": "Curates authentic neighborhood spots known primarily to local residents.",
+    "explain": "Curates authentic neighborhood spots known primarily to local residents."
+  },
+  {
+    "id": "cur-culinary-foodie-itinerary",
+    "icon": "🍜",
+    "name": "Culinary & Street Food Quest Mapping",
+    "category": "curation",
+    "description": "Maps iconic local dishes, street food stalls, and historic markets.",
+    "layer": "curation",
+    "requires": [
+      "cur-anti-tourist-trap-filter"
+    ],
+    "prompt": "Architect a Foodie Culinary Itinerary: Map signature local dishes, historic food markets, and authentic street food vendors into a tasting sequence.",
+    "desc": "Maps iconic local dishes, street food stalls, and historic markets.",
+    "explain": "Maps iconic local dishes, street food stalls, and historic markets."
+  },
+  {
+    "id": "cur-niche-interest-customizer",
+    "icon": "🎨",
+    "name": "Niche Interest Customizer (Art/Architecture)",
+    "category": "curation",
+    "description": "Customizes itineraries around specific passions like brutalism, record stores, or coffee.",
+    "layer": "curation",
+    "requires": [
+      "cur-anti-tourist-trap-filter"
+    ],
+    "prompt": "Customize for Niche Passions: Re-orient the itinerary around specific themes like [Brutalist Architecture / Rare Vinyl & Bookstores / Specialty Coffee / Contemporary Art].",
+    "desc": "Customizes itineraries around specific passions like brutalism, record stores, or coffee.",
+    "explain": "Customizes itineraries around specific passions like brutalism, record stores, or coffee."
+  },
+  {
+    "id": "cur-slow-travel-immersion",
+    "icon": "🚲",
+    "name": "Slow Travel & Cultural Immersion",
+    "category": "curation",
+    "description": "Prioritizes deep neighborhood immersion over frantic sight-checking lists.",
+    "layer": "curation",
+    "requires": [
+      "cur-anti-tourist-trap-filter"
+    ],
+    "prompt": "Apply Slow Travel philosophy: Replace 10-sight-a-day frantic itineraries with deep, unhurried neighborhood immersion.",
+    "desc": "Prioritizes deep neighborhood immersion over frantic sight-checking lists.",
+    "explain": "Prioritizes deep neighborhood immersion over frantic sight-checking lists."
+  },
+  {
+    "id": "cur-family-accessible-curation",
+    "icon": "👨‍👩‍👧",
+    "name": "Family & Accessibility Curation",
+    "category": "curation",
+    "description": "Customizes routes for stroller/wheelchair access and kid-friendly rest breaks.",
+    "layer": "curation",
+    "requires": [
+      "cur-local-hidden-gem-route"
+    ],
+    "prompt": "Adapt for Family & Accessibility: Ensure smooth stroller/wheelchair accessibility, incorporate kid-friendly green spaces, and pace stops to prevent fatigue.",
+    "desc": "Customizes routes for stroller/wheelchair access and kid-friendly rest breaks.",
+    "explain": "Customizes routes for stroller/wheelchair access and kid-friendly rest breaks."
+  },
+  {
+    "id": "rte-walking-distance-transit-opt",
+    "icon": "🚶",
+    "name": "Walking Radius & Transit Optimization",
+    "category": "route",
+    "description": "Sequences daily stops within walkable radii or direct transit lines.",
+    "layer": "route",
+    "requires": [],
+    "prompt": "Optimize Walking & Transit Routes: Sequence daily stops within logical 15-minute walking radii or along single subway lines to minimize transit time.",
+    "desc": "Sequences daily stops within walkable radii or direct transit lines.",
+    "explain": "Sequences daily stops within walkable radii or direct transit lines."
+  },
+  {
+    "id": "rte-day-by-day-geographical-clustering",
+    "icon": "📍",
+    "name": "Day-by-Day Geographic Clustering",
+    "category": "route",
+    "description": "Clusters daily itineraries geographically to avoid crisscrossing cities.",
+    "layer": "route",
+    "requires": [
+      "rte-walking-distance-transit-opt"
+    ],
+    "prompt": "Enforce Geographic Clustering: Dedicate each day to a distinct neighborhood cluster to prevent inefficient city crisscrossing.",
+    "desc": "Clusters daily itineraries geographically to avoid crisscrossing cities.",
+    "explain": "Clusters daily itineraries geographically to avoid crisscrossing cities."
+  },
+  {
+    "id": "rte-scenic-roadtrip-pitstops",
+    "icon": "🚗",
+    "name": "Scenic Road Trip & Pitstop Planner",
+    "category": "route",
+    "description": "Replaces highway routes with scenic side roads, vistas, and roadside diners.",
+    "layer": "route",
+    "requires": [
+      "rte-walking-distance-transit-opt"
+    ],
+    "prompt": "Plan a Scenic Road Trip: Bypass monotonous highways in favor of scenic backroads, photo lookout points, and authentic roadside diners.",
+    "desc": "Replaces highway routes with scenic side roads, vistas, and roadside diners.",
+    "explain": "Replaces highway routes with scenic side roads, vistas, and roadside diners."
+  },
+  {
+    "id": "rte-day-trip-hub-spoke-model",
+    "icon": "🚲",
+    "name": "Hub-and-Spoke Excursion Strategy",
+    "category": "route",
+    "description": "Bases travel in one hub city while planning day trips to outlying towns.",
+    "layer": "route",
+    "requires": [
+      "rte-day-by-day-geographical-clustering"
+    ],
+    "prompt": "Build a Hub-and-Spoke Travel Model: Base accommodation in a single vibrant city (Hub) and plan 1-hour train day trips (Spokes) to eliminate daily packing.",
+    "desc": "Bases travel in one hub city while planning day trips to outlying towns.",
+    "explain": "Bases travel in one hub city while planning day trips to outlying towns."
+  },
+  {
+    "id": "rte-pace-fatigue-management",
+    "icon": "☕",
+    "name": "Travel Fatigue & Rest Break Pacing",
+    "category": "route",
+    "description": "Schedules afternoon rest breaks and coffee pauses to prevent burnout.",
+    "layer": "route",
+    "requires": [
+      "rte-day-by-day-geographical-clustering"
+    ],
+    "prompt": "Incorporate Travel Pacing & Rest Breaks: Balance heavy morning museum tours with unhurried 2-hour afternoon park or café downtime.",
+    "desc": "Schedules afternoon rest breaks and coffee pauses to prevent burnout.",
+    "explain": "Schedules afternoon rest breaks and coffee pauses to prevent burnout."
+  },
+  {
+    "id": "rte-weather-contingency-indoor-plan",
+    "icon": "🌧️",
+    "name": "Rainy Day & Weather Contingency Plan",
+    "category": "route",
+    "description": "Pre-plans indoor museum and market alternatives for bad weather days.",
+    "layer": "route",
+    "requires": [
+      "rte-day-by-day-geographical-clustering"
+    ],
+    "prompt": "Create Weather Contingency Plan: Prepare an immediate indoor alternative itinerary (covered arcades, art galleries, food halls) for sudden rain or heat waves.",
+    "desc": "Pre-plans indoor museum and market alternatives for bad weather days.",
+    "explain": "Pre-plans indoor museum and market alternatives for bad weather days."
+  },
+  {
+    "id": "cul-local-etiquette-taboos",
+    "icon": "🤝",
+    "name": "Cultural Etiquette & Taboo Protocol",
+    "category": "culture",
+    "description": "Outlines body language, dress codes, and social etiquette guidelines.",
+    "layer": "culture",
+    "requires": [],
+    "prompt": "Formulate Cultural Etiquette & Taboo Protocol: Detail key social gaffes to avoid, sacred site dress codes, and proper greeting customs.",
+    "desc": "Outlines body language, dress codes, and social etiquette guidelines.",
+    "explain": "Outlines body language, dress codes, and social etiquette guidelines."
+  },
+  {
+    "id": "cul-basic-language-survival-phrases",
+    "icon": "🗣️",
+    "name": "Essential Local Phrasebook & Slang",
+    "category": "culture",
+    "description": "Provides 10 crucial survival phrases with phonetic pronunciations.",
+    "layer": "culture",
+    "requires": [
+      "cul-local-etiquette-taboos"
+    ],
+    "prompt": "Provide Essential Local Survival Phrasebook: List the top 10 politeness and dining phrases with phonetic pronunciation guides.",
+    "desc": "Provides 10 crucial survival phrases with phonetic pronunciations.",
+    "explain": "Provides 10 crucial survival phrases with phonetic pronunciations."
+  },
+  {
+    "id": "cul-tipping-bargaining-customs",
+    "icon": "💵",
+    "name": "Tipping & Haggling Customs Guide",
+    "category": "culture",
+    "description": "Explains expected tipping percentages and local market bargaining etiquette.",
+    "layer": "culture",
+    "requires": [
+      "cul-local-etiquette-taboos"
+    ],
+    "prompt": "Detail Tipping & Haggling Customs: Clarify restaurant tipping norms, taxi rounding customs, and polite market bargaining etiquette.",
+    "desc": "Explains expected tipping percentages and local market bargaining etiquette.",
+    "explain": "Explains expected tipping percentages and local market bargaining etiquette."
+  },
+  {
+    "id": "cul-festival-seasonal-event-align",
+    "icon": "Ö",
+    "name": "Seasonal Festival & Event Alignment",
+    "category": "culture",
+    "description": "Aligns travel dates with local holiday celebrations and seasonal events.",
+    "layer": "culture",
+    "requires": [
+      "cul-local-etiquette-taboos"
+    ],
+    "prompt": "Align with Seasonal Festivals: Incorporate local cultural celebrations, seasonal markets, and holiday closures directly into the travel schedule.",
+    "desc": "Aligns travel dates with local holiday celebrations and seasonal events.",
+    "explain": "Aligns travel dates with local holiday celebrations and seasonal events."
+  },
+  {
+    "id": "cul-respectful-photography-ethics",
+    "icon": "📸",
+    "name": "Respectful Photography & Site Ethics",
+    "category": "culture",
+    "description": "Establishes ethical guidelines for photographing locals and heritage sites.",
+    "layer": "culture",
+    "requires": [
+      "cul-local-etiquette-taboos"
+    ],
+    "prompt": "Enforce Ethical Photography Standards: Outline consent etiquette for photographing locals, children, and religious rituals.",
+    "desc": "Establishes ethical guidelines for photographing locals and heritage sites.",
+    "explain": "Establishes ethical guidelines for photographing locals and heritage sites."
+  },
+  {
+    "id": "cul-historical-context-primer",
+    "icon": "📜",
+    "name": "Concise Historical & Cultural Primer",
+    "category": "culture",
+    "description": "Provides a brief 3-paragraph historical context primer to enrich sightseeing.",
+    "layer": "culture",
+    "requires": [
+      "cul-local-etiquette-taboos"
+    ],
+    "prompt": "Draft Historical & Cultural Primer: Summarize the 3 key historical epochs that shaped the city's modern architecture and social identity.",
+    "desc": "Provides a brief 3-paragraph historical context primer to enrich sightseeing.",
+    "explain": "Provides a brief 3-paragraph historical context primer to enrich sightseeing."
+  },
+  {
+    "id": "log-packing-capsule-wardrobe",
+    "icon": "🧳",
+    "name": "Minimalist Capsule Wardrobe & Packing",
+    "category": "logistics",
+    "description": "Designs a carry-on-only capsule wardrobe packing checklist.",
+    "layer": "logistics",
+    "requires": [],
+    "prompt": "Design Minimalist Carry-On Capsule Wardrobe: Create a versatile, color-coordinated, layerable clothing checklist enabling carry-on-only travel.",
+    "desc": "Designs a carry-on-only capsule wardrobe packing checklist.",
+    "explain": "Designs a carry-on-only capsule wardrobe packing checklist."
+  },
+  {
+    "id": "log-visa-entry-passport-checklist",
+    "icon": "🛂",
+    "name": "Visa, Entry & Passport Checklist",
+    "category": "logistics",
+    "description": "Verifies passport validity, eVisa procedures, and entry forms.",
+    "layer": "logistics",
+    "requires": [
+      "log-packing-capsule-wardrobe"
+    ],
+    "prompt": "Verify Visa & Entry Requirements: Audit 6-month passport validity rules, eVisa / visa-on-arrival protocols, and mandatory health declarations.",
+    "desc": "Verifies passport validity, eVisa procedures, and entry forms.",
+    "explain": "Verifies passport validity, eVisa procedures, and entry forms."
+  },
+  {
+    "id": "log-sim-eSim-connectivity-plan",
+    "icon": "📱",
+    "name": "eSIM & Mobile Connectivity Plan",
+    "category": "logistics",
+    "description": "Outlines cost-effective local eSIM and offline map downloads to avoid roaming fees.",
+    "layer": "logistics",
+    "requires": [
+      "log-packing-capsule-wardrobe"
+    ],
+    "prompt": "Formulate Mobile Connectivity & eSIM Strategy: Detail cost-effective eSIM options (e.g., Airalo) and offline map setup to avoid expensive roaming fees.",
+    "desc": "Outlines cost-effective local eSIM and offline map downloads to avoid roaming fees.",
+    "explain": "Outlines cost-effective local eSIM and offline map downloads to avoid roaming fees."
+  },
+  {
+    "id": "log-travel-insurance-health-prep",
+    "icon": "🏥",
+    "name": "Travel Insurance & Medical Prep",
+    "category": "logistics",
+    "description": "Ensures comprehensive emergency health coverage and prescription compliance.",
+    "layer": "logistics",
+    "requires": [
+      "log-visa-entry-passport-checklist"
+    ],
+    "prompt": "Audit Travel Insurance & Medical Readiness: Verify coverage for emergency evacuation and lost baggage, and outline prescription medicine compliance.",
+    "desc": "Ensures comprehensive emergency health coverage and prescription compliance.",
+    "explain": "Ensures comprehensive emergency health coverage and prescription compliance."
+  },
+  {
+    "id": "log-flight-layover-optimization",
+    "icon": "✈️",
+    "name": "Flight Layover & Transit Lounge Optimization",
+    "category": "logistics",
+    "description": "Leverages airport lounges or transit mini-tours for long layovers.",
+    "layer": "logistics",
+    "requires": [
+      "log-visa-entry-passport-checklist"
+    ],
+    "prompt": "Optimize Long Airport Layovers: Formulate lounge access hacks or quick transit city tour plans for layovers exceeding 6 hours.",
+    "desc": "Leverages airport lounges or transit mini-tours for long layovers.",
+    "explain": "Leverages airport lounges or transit mini-tours for long layovers."
+  },
+  {
+    "id": "log-luggage-storage-mobility",
+    "icon": "🧳",
+    "name": "Luggage Storage & Mobility Management",
+    "category": "logistics",
+    "description": "Identifies day-use luggage storage apps for early arrival/late departure days.",
+    "layer": "logistics",
+    "requires": [
+      "log-packing-capsule-wardrobe"
+    ],
+    "prompt": "Plan Luggage Storage Mobility: Identify luggage locker stations or apps (Bounce / Nannybag) to store bags safely during pre-check-in and post-check-out hours.",
+    "desc": "Identifies day-use luggage storage apps for early arrival/late departure days.",
+    "explain": "Identifies day-use luggage storage apps for early arrival/late departure days."
+  },
+  {
+    "id": "bdg-daily-expense-categorizer",
+    "icon": "💰",
+    "name": "Daily Budget Allocation & Expense Planner",
+    "category": "budget",
+    "description": "Allocates daily budgets across lodging, food, transit, and sight admissions.",
+    "layer": "budget",
+    "requires": [],
+    "prompt": "Create Daily Budget Allocation Model: Segment daily expenditure across Dining (40%), Transit (20%), Sightseeing (30%), and Contingency (10%).",
+    "desc": "Allocates daily budgets across lodging, food, transit, and sight admissions.",
+    "explain": "Allocates daily budgets across lodging, food, transit, and sight admissions."
+  },
+  {
+    "id": "bdg-multi-currency-fx-strategy",
+    "icon": "💳",
+    "name": "FX Banking & Fee-Free Payment Strategy",
+    "category": "budget",
+    "description": "Avoids Dynamic Currency Conversion (DCC) traps using fee-free cards.",
+    "layer": "budget",
+    "requires": [
+      "bdg-daily-expense-categorizer"
+    ],
+    "prompt": "Establish No-FX-Fee Banking Strategy: Enforce rules to decline Dynamic Currency Conversion (DCC) at point-of-sale terminals and deploy zero-markup FX cards.",
+    "desc": "Avoids Dynamic Currency Conversion (DCC) traps using fee-free cards.",
+    "explain": "Avoids Dynamic Currency Conversion (DCC) traps using fee-free cards."
+  },
+  {
+    "id": "bdg-accommodation-value-finder",
+    "icon": "🏨",
+    "name": "Boutique vs. Value Lodging Audit",
+    "category": "budget",
+    "description": "Balances central location accessibility against value-for-money accommodation.",
+    "layer": "budget",
+    "requires": [
+      "bdg-daily-expense-categorizer"
+    ],
+    "prompt": "Audit Value Accommodation Options: Filter for highly rated (8.5+) boutique stays or apartments located 15 minutes by transit from major hubs.",
+    "desc": "Balances central location accessibility against value-for-money accommodation.",
+    "explain": "Balances central location accessibility against value-for-money accommodation."
+  },
+  {
+    "id": "bdg-city-pass-attraction-roi",
+    "icon": "🎟️",
+    "name": "City Tourist Pass ROI Calculator",
+    "category": "budget",
+    "description": "Calculates cost-benefit ratio of purchasing official tourist city passes.",
+    "layer": "budget",
+    "requires": [
+      "bdg-daily-expense-categorizer"
+    ],
+    "prompt": "Calculate City Tourist Pass ROI: Compare total city pass costs against cumulative single-ticket admissions to determine net financial savings.",
+    "desc": "Calculates cost-benefit ratio of purchasing official tourist city passes.",
+    "explain": "Calculates cost-benefit ratio of purchasing official tourist city passes."
+  },
+  {
+    "id": "bdg-transportation-card-hack",
+    "icon": "🎫",
+    "name": "Local Transit Pass & Card Savings",
+    "category": "budget",
+    "description": "Leverages multi-day unlimited transit passes or contactless daily fare capping.",
+    "layer": "budget",
+    "requires": [
+      "bdg-daily-expense-categorizer"
+    ],
+    "prompt": "Optimize Transit Fare Savings: Recommend 24/72-hour unlimited tourist transit passes or contactless card fare-capping options.",
+    "desc": "Leverages multi-day unlimited transit passes or contactless daily fare capping.",
+    "explain": "Leverages multi-day unlimited transit passes or contactless daily fare capping."
+  },
+  {
+    "id": "bdg-emergency-contingency-fund",
+    "icon": "🛡️",
+    "name": "Travel Emergency Contingency Buffer",
+    "category": "budget",
+    "description": "Locks a 15% emergency cash buffer for missed transport or unforeseen events.",
+    "layer": "budget",
+    "requires": [
+      "bdg-daily-expense-categorizer"
+    ],
+    "prompt": "Lock Travel Emergency Contingency Buffer: Reserve a non-negotiable 15% budget buffer for missed connections, medical needs, or urgent itinerary changes.",
+    "desc": "Locks a 15% emergency cash buffer for missed transport or unforeseen events.",
+    "explain": "Locks a 15% emergency cash buffer for missed transport or unforeseen events."
+  }
+]

@@ -1,3 +1,5 @@
+import { getDomain } from '../domains/index.js';
+
 // Domain-scoped presets: PRESETS_BY_DOMAIN[domain][presetId].
 // Module ids referenced by `forceModules` are language-agnostic (same id in
 // modules_{en,tr}.json / modules_code_{en,tr}.json), so presets don't need a
@@ -187,6 +189,10 @@ export const PRESETS_BY_DOMAIN = {
 };
 
 export function getPresets(domain = 'learning') {
+    const domainDef = getDomain(domain);
+    if (domainDef && domainDef.presets && Object.keys(domainDef.presets).length > 0) {
+        return domainDef.presets;
+    }
     return PRESETS_BY_DOMAIN[domain] || LEARNING_PRESETS;
 }
 

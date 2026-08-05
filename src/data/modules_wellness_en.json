@@ -1,0 +1,412 @@
+[
+  {
+    "id": "wrk-progressive-overload-plan",
+    "icon": "🏋️",
+    "name": "Progressive Overload Blueprint",
+    "category": "workout",
+    "description": "Establishes systematic weight, rep, and volume progression protocols for hypertrophy.",
+    "layer": "workout",
+    "requires": [],
+    "prompt": "Design a Progressive Overload Strength Blueprint: Incorporate weekly micro-progressions (increments in load, reps, or sets) driving continuous adaptation.",
+    "desc": "Establishes systematic weight, rep, and volume progression protocols for hypertrophy.",
+    "explain": "Establishes systematic weight, rep, and volume progression protocols for hypertrophy."
+  },
+  {
+    "id": "wrk-rpe-rir-intensity-guide",
+    "icon": "📊",
+    "name": "RPE & RIR Intensity Calibration",
+    "category": "workout",
+    "description": "Calibrates set intensity using Rate of Perceived Exertion and Reps in Reserve.",
+    "layer": "workout",
+    "requires": [
+      "wrk-progressive-overload-plan"
+    ],
+    "prompt": "Calibrate workout intensity using RPE (Rate of Perceived Exertion) and RIR (Reps in Reserve): Cap primary compound movements at RIR 1-2 (RPE 8-9) to manage fatigue.",
+    "desc": "Calibrates set intensity using Rate of Perceived Exertion and Reps in Reserve.",
+    "explain": "Calibrates set intensity using Rate of Perceived Exertion and Reps in Reserve."
+  },
+  {
+    "id": "wrk-hypertrophy-split-design",
+    "icon": "💪",
+    "name": "Muscle Hypertrophy Split Design",
+    "category": "workout",
+    "description": "Architects Push-Pull-Legs or Upper-Lower training split programs.",
+    "layer": "workout",
+    "requires": [
+      "wrk-progressive-overload-plan"
+    ],
+    "prompt": "Architect a Hypertrophy Training Split (PPL - Push/Pull/Legs or Upper/Lower): Ensure each target muscle group is stimulated twice per week with optimal volume.",
+    "desc": "Architects Push-Pull-Legs or Upper-Lower training split programs.",
+    "explain": "Architects Push-Pull-Legs or Upper-Lower training split programs."
+  },
+  {
+    "id": "wrk-zone2-cardio-protocol",
+    "icon": "🫀",
+    "name": "Zone 2 Cardio & Mitochondrial Protocol",
+    "category": "workout",
+    "description": "Targets 60-70% HRmax for mitochondrial health, fat oxidation, and aerobic base.",
+    "layer": "workout",
+    "requires": [
+      "wrk-progressive-overload-plan"
+    ],
+    "prompt": "Design a Zone 2 Endurance & Mitochondrial Protocol: Schedule 150-180 minutes weekly in the nasal-breathing (talk test) zone to build metabolic efficiency.",
+    "desc": "Targets 60-70% HRmax for mitochondrial health, fat oxidation, and aerobic base.",
+    "explain": "Targets 60-70% HRmax for mitochondrial health, fat oxidation, and aerobic base."
+  },
+  {
+    "id": "wrk-mobility-joint-prep",
+    "icon": "🧘",
+    "name": "Pre-Workout Mobility & Dynamic Prep",
+    "category": "workout",
+    "description": "Prepares joints and reduces injury risk via dynamic mobility flows.",
+    "layer": "workout",
+    "requires": [
+      "wrk-progressive-overload-plan"
+    ],
+    "prompt": "Draft a Dynamic Mobility & Joint Warm-Up (RAMP Protocol): Build an 8-minute routine mobilizing hips, shoulders, and ankles prior to heavy loading.",
+    "desc": "Prepares joints and reduces injury risk via dynamic mobility flows.",
+    "explain": "Prepares joints and reduces injury risk via dynamic mobility flows."
+  },
+  {
+    "id": "wrk-hiit-tabata-structure",
+    "icon": "⏱️",
+    "name": "High-Intensity Interval (HIIT) Tabata",
+    "category": "workout",
+    "description": "Constructs 20/10 second work-rest intervals targeting maximum VO2 peak.",
+    "layer": "workout",
+    "requires": [
+      "wrk-zone2-cardio-protocol"
+    ],
+    "prompt": "Construct a VO2 Peak HIIT / Tabata Circuit: Design 8 rounds of 20 seconds maximal explosive effort paired with 10 seconds active rest.",
+    "desc": "Constructs 20/10 second work-rest intervals targeting maximum VO2 peak.",
+    "explain": "Constructs 20/10 second work-rest intervals targeting maximum VO2 peak."
+  },
+  {
+    "id": "cir-morning-sunlight-anchor",
+    "icon": "☀️",
+    "name": "Morning Sunlight Circadian Anchor",
+    "category": "circadian",
+    "description": "Anchors circadian rhythms using early morning sunlight exposure (Huberman).",
+    "layer": "circadian",
+    "requires": [],
+    "prompt": "Execute Andrew Huberman Circadian Anchor protocol: View 10-15 minutes of direct morning sunlight within 30 minutes of waking to trigger cortisol and set nighttime melatonin timing.",
+    "desc": "Anchors circadian rhythms using early morning sunlight exposure (Huberman).",
+    "explain": "Anchors circadian rhythms using early morning sunlight exposure (Huberman)."
+  },
+  {
+    "id": "cir-blue-light-melatonin-prep",
+    "icon": "🌙",
+    "name": "Evening Blue Light & Melatonin Hygiene",
+    "category": "circadian",
+    "description": "Restricts blue spectrum light after sunset to safeguard natural melatonin synthesis.",
+    "layer": "circadian",
+    "requires": [
+      "cir-morning-sunlight-anchor"
+    ],
+    "prompt": "Structure Evening Light Hygiene: Eliminate blue screen light 2 hours before bed, dim ambient lights below eye level, and protect natural melatonin release.",
+    "desc": "Restricts blue spectrum light after sunset to safeguard natural melatonin synthesis.",
+    "explain": "Restricts blue spectrum light after sunset to safeguard natural melatonin synthesis."
+  },
+  {
+    "id": "cir-temperature-sleep-cooling",
+    "icon": "❄️",
+    "name": "Sleep Architecture & Core Cooling",
+    "category": "circadian",
+    "description": "Optimizes deep sleep by dropping ambient bedroom temp (18-19°C) and core body temp.",
+    "layer": "circadian",
+    "requires": [
+      "cir-blue-light-melatonin-prep"
+    ],
+    "prompt": "Design Deep Sleep Thermoregulation Protocol: Set ambient bedroom temperature to 18-19°C (65°F) and leverage post-warm-bath vasodilation to drop core body temperature.",
+    "desc": "Optimizes deep sleep by dropping ambient bedroom temp (18-19°C) and core body temp.",
+    "explain": "Optimizes deep sleep by dropping ambient bedroom temp (18-19°C) and core body temp."
+  },
+  {
+    "id": "cir-caffeine-half-life-cutoff",
+    "icon": "☕",
+    "name": "Caffeine Half-Life Cutoff Strategy",
+    "category": "circadian",
+    "description": "Establishes caffeine delay and cutoff rules to prevent adenosine receptor disruption.",
+    "layer": "circadian",
+    "requires": [
+      "cir-morning-sunlight-anchor"
+    ],
+    "prompt": "Establish Caffeine Cutoff Strategy: Delay first caffeine consumption 90-120 minutes post-waking and enforce a strict caffeine cutoff 10 hours prior to sleep.",
+    "desc": "Establishes caffeine delay and cutoff rules to prevent adenosine receptor disruption.",
+    "explain": "Establishes caffeine delay and cutoff rules to prevent adenosine receptor disruption."
+  },
+  {
+    "id": "cir-circadian-meal-timing",
+    "icon": "🍽️",
+    "name": "Chrono-Nutrition & Fasting Window",
+    "category": "circadian",
+    "description": "Aligns meal timing with metabolic circadian rhythms and insulin sensitivity.",
+    "layer": "circadian",
+    "requires": [
+      "cir-morning-sunlight-anchor"
+    ],
+    "prompt": "Architect Chrono-Nutrition Protocol: Restrict feeding to daylight hours (e.g., 10:00 AM - 6:00 PM) and cease calorie intake at least 3 hours before sleep.",
+    "desc": "Aligns meal timing with metabolic circadian rhythms and insulin sensitivity.",
+    "explain": "Aligns meal timing with metabolic circadian rhythms and insulin sensitivity."
+  },
+  {
+    "id": "cir-jet-lag-shift-resync",
+    "icon": "✈️",
+    "name": "Jet-Lag & Shift-Work Circadian Re-sync",
+    "category": "circadian",
+    "description": "Re-synchronizes internal clocks during time zone shifts using light and temperature.",
+    "layer": "circadian",
+    "requires": [
+      "cir-temperature-sleep-cooling"
+    ],
+    "prompt": "Formulate Jet-Lag & Shift-Work Resynchronization Plan: Schedule light viewing and dark phase shifts based on the destination time zone's core body temperature minimum.",
+    "desc": "Re-synchronizes internal clocks during time zone shifts using light and temperature.",
+    "explain": "Re-synchronizes internal clocks during time zone shifts using light and temperature."
+  },
+  {
+    "id": "nut-macro-distribution-calculator",
+    "icon": "🥗",
+    "name": "Personalized Macro Distribution",
+    "category": "nutrition",
+    "description": "Calculates protein, carbohydrate, and fat targets tailored to goals.",
+    "layer": "nutrition",
+    "requires": [],
+    "prompt": "Calculate Personalized Macro Distribution Strategy: Assign daily protein (1.6-2.2g/kg), carbohydrates, and essential fats tailored to [Fat Loss / Muscle Growth / Endurance].",
+    "desc": "Calculates protein, carbohydrate, and fat targets tailored to goals.",
+    "explain": "Calculates protein, carbohydrate, and fat targets tailored to goals."
+  },
+  {
+    "id": "nut-protein-leucine-threshold",
+    "icon": "🥩",
+    "name": "Protein Timing & Leucine Threshold",
+    "category": "nutrition",
+    "description": "Triggers Muscle Protein Synthesis (MPS) via 3g leucine per meal dosing.",
+    "layer": "nutrition",
+    "requires": [
+      "nut-macro-distribution-calculator"
+    ],
+    "prompt": "Establish Muscle Protein Synthesis (MPS) Trigger Protocol: Distribute total daily protein across 3-4 meals providing at least 3g of Leucine per serving.",
+    "desc": "Triggers Muscle Protein Synthesis (MPS) via 3g leucine per meal dosing.",
+    "explain": "Triggers Muscle Protein Synthesis (MPS) via 3g leucine per meal dosing."
+  },
+  {
+    "id": "nut-micronutrient-density-audit",
+    "icon": "🥑",
+    "name": "Micronutrient Density Audit",
+    "category": "nutrition",
+    "description": "Audits intake of key minerals and vitamins (Magnesium, Zinc, D3, B12).",
+    "layer": "nutrition",
+    "requires": [
+      "nut-macro-distribution-calculator"
+    ],
+    "prompt": "Audit Micronutrient Density: Replace ultra-processed foods with whole nutrient-dense sources (leafy greens, organ meats, nuts, seafood) to eliminate Magnesium, Zinc, and D3 gaps.",
+    "desc": "Audits intake of key minerals and vitamins (Magnesium, Zinc, D3, B12).",
+    "explain": "Audits intake of key minerals and vitamins (Magnesium, Zinc, D3, B12)."
+  },
+  {
+    "id": "nut-gut-microbiome-fiber-mix",
+    "icon": "🦠",
+    "name": "Gut Microbiome & Fiber Diversity",
+    "category": "nutrition",
+    "description": "Optimizes gut microbiome health targeting 30 plant-based fiber sources weekly.",
+    "layer": "nutrition",
+    "requires": [
+      "nut-macro-distribution-calculator"
+    ],
+    "prompt": "Optimize Gut Microbiome Diversity: Incorporate 30 distinct plant-based fiber sources weekly alongside fermented foods (kefir, sauerkraut) and prebiotic fibers.",
+    "desc": "Optimizes gut microbiome health targeting 30 plant-based fiber sources weekly.",
+    "explain": "Optimizes gut microbiome health targeting 30 plant-based fiber sources weekly."
+  },
+  {
+    "id": "nut-hydration-electrolyte-balance",
+    "icon": "💧",
+    "name": "Hydration & Electrolyte Protocol",
+    "category": "nutrition",
+    "description": "Balances Sodium, Potassium, and Magnesium for cellular hydration.",
+    "layer": "nutrition",
+    "requires": [
+      "nut-macro-distribution-calculator"
+    ],
+    "prompt": "Formulate Cellular Hydration & Electrolyte Balance Guide: Supplement plain water with targeted Sodium, Potassium, and Magnesium doses morning and intra-workout.",
+    "desc": "Balances Sodium, Potassium, and Magnesium for cellular hydration.",
+    "explain": "Balances Sodium, Potassium, and Magnesium for cellular hydration."
+  },
+  {
+    "id": "nut-glycemic-index-energy-stabilizer",
+    "icon": "📉",
+    "name": "Glycemic Load & Energy Stabilizer",
+    "category": "nutrition",
+    "description": "Stabilizes blood glucose to eliminate post-prandial afternoon energy crashes.",
+    "layer": "nutrition",
+    "requires": [
+      "nut-micronutrient-density-audit"
+    ],
+    "prompt": "Design Glycemic Load & Energy Crash Prevention Plan: Sequence meal intake (fiber/protein first, carbs last) and incorporate vinegar to flatten post-prandial glucose spikes.",
+    "desc": "Stabilizes blood glucose to eliminate post-prandial afternoon energy crashes.",
+    "explain": "Stabilizes blood glucose to eliminate post-prandial afternoon energy crashes."
+  },
+  {
+    "id": "adp-injury-deload-protocol",
+    "icon": "🩹",
+    "name": "Scheduled Deload & Recovery Protocol",
+    "category": "adaptation",
+    "description": "Reduces volume by 50% every 4-6 weeks to allow joint and connective tissue recovery.",
+    "layer": "adaptation",
+    "requires": [],
+    "prompt": "Design a Scheduled Deload Protocol: Reduce total training volume (sets x reps) by 50% every 5th week to allow connective tissue, tendon, and CNS recovery.",
+    "desc": "Reduces volume by 50% every 4-6 weeks to allow joint and connective tissue recovery.",
+    "explain": "Reduces volume by 50% every 4-6 weeks to allow joint and connective tissue recovery."
+  },
+  {
+    "id": "adp-hrv-stress-recovery-readiness",
+    "icon": "🫀",
+    "name": "HRV & CNS Readiness Tracking",
+    "category": "adaptation",
+    "description": "Modulates workout intensity dynamically based on Heart Rate Variability data.",
+    "layer": "adaptation",
+    "requires": [
+      "adp-injury-deload-protocol"
+    ],
+    "prompt": "Build an HRV-Guided Recovery Protocol: Automatically shift heavy sessions to light active recovery whenever Heart Rate Variability drops below baseline.",
+    "desc": "Modulates workout intensity dynamically based on Heart Rate Variability data.",
+    "explain": "Modulates workout intensity dynamically based on Heart Rate Variability data."
+  },
+  {
+    "id": "adp-sauna-cold-plunge-protocol",
+    "icon": "🧊",
+    "name": "Thermal Therapy: Sauna & Cold Exposure",
+    "category": "adaptation",
+    "description": "Schedules hormetic hot sauna (80°C) and cold plunge (10-15°C) sessions.",
+    "layer": "adaptation",
+    "requires": [
+      "adp-injury-deload-protocol"
+    ],
+    "prompt": "Structure Hormetic Thermal Therapy: Avoid cold immersion within 6 hours post-hypertrophy workouts to preserve adaptation; schedule 20-minute sauna sessions (80°C) 4x weekly.",
+    "desc": "Schedules hormetic hot sauna (80°C) and cold plunge (10-15°C) sessions.",
+    "explain": "Schedules hormetic hot sauna (80°C) and cold plunge (10-15°C) sessions."
+  },
+  {
+    "id": "adp-active-recovery-session",
+    "icon": "🚶",
+    "name": "Active Recovery & Blood Flow Session",
+    "category": "adaptation",
+    "description": "Designs low-intensity movement sessions to promote recovery blood flow.",
+    "layer": "adaptation",
+    "requires": [
+      "adp-injury-deload-protocol"
+    ],
+    "prompt": "Design Active Recovery Session: Schedule 45 minutes of low-intensity zone 1 walking or light swimming on rest days to flush metabolic waste and drive blood flow.",
+    "desc": "Designs low-intensity movement sessions to promote recovery blood flow.",
+    "explain": "Designs low-intensity movement sessions to promote recovery blood flow."
+  },
+  {
+    "id": "adp-cortisol-breathwork-downshift",
+    "icon": "🫁",
+    "name": "Post-Workout Parasympathetic Breathwork",
+    "category": "adaptation",
+    "description": "Uses physiological sighs to down-regulate nervous system post-exercise.",
+    "layer": "adaptation",
+    "requires": [
+      "adp-hrv-stress-recovery-readiness"
+    ],
+    "prompt": "Guide Post-Workout Parasympathetic Breathwork: Conduct 5 minutes of Physiological Sighing (double inhales, prolonged exhales) immediately post-workout to drop cortisol.",
+    "desc": "Uses physiological sighs to down-regulate nervous system post-exercise.",
+    "explain": "Uses physiological sighs to down-regulate nervous system post-exercise."
+  },
+  {
+    "id": "adp-travel-fitness-bodyweight",
+    "icon": "🧳",
+    "name": "Hotel Room Bodyweight Modification",
+    "category": "adaptation",
+    "description": "Adapts workouts for zero-equipment hotel room settings using tempo and isometric holds.",
+    "layer": "adaptation",
+    "requires": [
+      "adp-active-recovery-session"
+    ],
+    "prompt": "Design Hotel Room Bodyweight Workout: Utilize tempo manipulation, unilateral movements, and isometric holds to preserve strength with zero equipment while traveling.",
+    "desc": "Adapts workouts for zero-equipment hotel room settings using tempo and isometric holds.",
+    "explain": "Adapts workouts for zero-equipment hotel room settings using tempo and isometric holds."
+  },
+  {
+    "id": "hab-habit-stacking-atomic",
+    "icon": "🔗",
+    "name": "Atomic Habit Stacking Protocol",
+    "category": "habits",
+    "description": "Anchors new healthy behaviors directly to existing routines (James Clear).",
+    "layer": "habits",
+    "requires": [],
+    "prompt": "Apply James Clear Habit Stacking Formula: Structure new habits as 'After [CURRENT HABIT], I will immediately [NEW HEALTHY HABIT]' to minimize activation energy.",
+    "desc": "Anchors new healthy behaviors directly to existing routines (James Clear).",
+    "explain": "Anchors new healthy behaviors directly to existing routines (James Clear)."
+  },
+  {
+    "id": "hab-dopamine-reward-decoupling",
+    "icon": "🧠",
+    "name": "Dopamine Fasting & Reward Decoupling",
+    "category": "habits",
+    "description": "Decouples external artificial dopamine rewards from fitness routines.",
+    "layer": "habits",
+    "requires": [
+      "hab-habit-stacking-atomic"
+    ],
+    "prompt": "Execute Dopamine Decoupling: Eliminate artificial sugar or screen rewards post-workout, training internal motivation to derive satisfaction from the effort itself.",
+    "desc": "Decouples external artificial dopamine rewards from fitness routines.",
+    "explain": "Decouples external artificial dopamine rewards from fitness routines."
+  },
+  {
+    "id": "hab-identity-based-behavior",
+    "icon": "🎭",
+    "name": "Identity-Based Behavior Shift",
+    "category": "habits",
+    "description": "Shifts focus from outcome goals to identity shifts ('I am an athlete').",
+    "layer": "habits",
+    "requires": [
+      "hab-habit-stacking-atomic"
+    ],
+    "prompt": "Foster Identity-Based Habit Change: Shift focus from outcome goals ('lose 5kg') to identity statements ('I am someone who prioritizes daily movement').",
+    "desc": "Shifts focus from outcome goals to identity shifts ('I am an athlete').",
+    "explain": "Shifts focus from outcome goals to identity shifts ('I am an athlete')."
+  },
+  {
+    "id": "hab-relapse-prevention-plan",
+    "icon": "🛡️",
+    "name": "Habit Relapse Prevention (If-Then)",
+    "category": "habits",
+    "description": "Establishes Implementation Intentions (If-Then plans) for high-stress days.",
+    "layer": "habits",
+    "requires": [
+      "hab-habit-stacking-atomic"
+    ],
+    "prompt": "Build Habit Relapse Prevention (If-Then Plan): Define explicit fallback rules: 'IF [I am forced to work late], THEN [I will complete a 10-minute home bodyweight circuit]'.",
+    "desc": "Establishes Implementation Intentions (If-Then plans) for high-stress days.",
+    "explain": "Establishes Implementation Intentions (If-Then plans) for high-stress days."
+  },
+  {
+    "id": "hab-accountability-tracking-system",
+    "icon": "📅",
+    "name": "Streak Tracking & Never Miss Twice",
+    "category": "habits",
+    "description": "Visually tracks habit streaks enforcing the non-negotiable 'Never Miss Twice' rule.",
+    "layer": "habits",
+    "requires": [
+      "hab-relapse-prevention-plan"
+    ],
+    "prompt": "Implement Visual Streak Tracking: Enforce the non-negotiable 'Never Miss Twice' rule, ensuring a missed habit day is immediately followed by compliance.",
+    "desc": "Visually tracks habit streaks enforcing the non-negotiable 'Never Miss Twice' rule.",
+    "explain": "Visually tracks habit streaks enforcing the non-negotiable 'Never Miss Twice' rule."
+  },
+  {
+    "id": "hab-environment-design-audit",
+    "icon": "🏡",
+    "name": "Environment Design & Cue Elimination",
+    "category": "habits",
+    "description": "Redesign physical environment to increase friction for bad habits and automate good ones.",
+    "layer": "habits",
+    "requires": [
+      "hab-habit-stacking-atomic"
+    ],
+    "prompt": "Audit Physical Environment Design: Increase friction for bad habits (remove junk food from sight) while reducing friction for target behaviors (lay out workout gear overnight).",
+    "desc": "Redesign physical environment to increase friction for bad habits and automate good ones.",
+    "explain": "Redesign physical environment to increase friction for bad habits and automate good ones."
+  }
+]

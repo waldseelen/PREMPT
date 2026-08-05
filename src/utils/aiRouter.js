@@ -1,19 +1,23 @@
 const AI_STRATEGIES = {
     chatgpt: {
         getBaseUrl: () => 'https://chatgpt.com/',
-        getPromptUrl: (prompt) => 'https://chatgpt.com/?q=' + encodeURIComponent(prompt)
+        getPromptUrl: (prompt) => 'https://chatgpt.com/?q=' + encodeURIComponent(prompt),
+        supportsQuery: true
     },
     claude: {
         getBaseUrl: () => 'https://claude.ai/new',
-        getPromptUrl: (prompt) => 'https://claude.ai/new?q=' + encodeURIComponent(prompt)
+        getPromptUrl: () => 'https://claude.ai/new',
+        supportsQuery: false
     },
     perplexity: {
         getBaseUrl: () => 'https://www.perplexity.ai/search',
-        getPromptUrl: (prompt) => 'https://www.perplexity.ai/search?q=' + encodeURIComponent(prompt)
+        getPromptUrl: (prompt) => 'https://www.perplexity.ai/search?q=' + encodeURIComponent(prompt),
+        supportsQuery: true
     },
     gemini: {
         getBaseUrl: () => 'https://gemini.google.com/app',
-        getPromptUrl: (prompt) => 'https://gemini.google.com/app?prompt=' + encodeURIComponent(prompt)
+        getPromptUrl: () => 'https://gemini.google.com/app',
+        supportsQuery: false
     }
 };
 
@@ -45,17 +49,27 @@ export function openInAI(aiName, prompt, onLengthWarning, onSuccessCopy) {
     const strategy = AI_STRATEGIES[aiName];
     if (!strategy) return;
 
-    const isTooLongForUrl = prompt.length > 4000;
-    
-    if (isTooLongForUrl) {
-        if (onLengthWarning) onLengthWarning();
-        // Synchronous window.open to bypass popup blocker
-        window.open(strategy.getBaseUrl(), '_blank');
-        copyToClipboard(prompt, () => {
-            if(onSuccessCopy) onSuccessCopy();
-        });
-        return;
+    let urlToOpen = strategy.getBaseUrl();
+    let isTooLongForUrl = false;
+
+    if (strategy.supportsQuery) {
+        const promptUrl = strategy.getPromptUrl(prompt);
+        if (promptUrl.length > 2000) {
+            isTooLongForUrl = true;
+        } else {
+            urlToOpen = promptUrl;
+        }
     }
 
-    window.open(strategy.getPromptUrl(prompt), '_blank');
+    // 1. Synchronous window.open to bypass popup blocker
+    window.open(urlToOpen, '_blank');
+
+    // 2. Universal clipboard fallback
+    copyToClipboard(prompt, () => {
+        if (isTooLongForUrl && onLengthWarning) {
+            onLengthWarning();
+        } else if (onSuccessCopy) {
+            onSuccessCopy();
+        }
+    });
 }

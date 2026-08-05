@@ -17,10 +17,14 @@ const dataDir = join(__dirname, '..', 'src', 'data');
 
 const REQUIRED_FIELDS = ['id', 'icon', 'name', 'desc', 'explain', 'requires', 'prompt', 'layer'];
 
-const DOMAIN_FILES = {
-    learning: { en: 'modules_en.json', tr: 'modules_tr.json' },
-    code: { en: 'modules_code_en.json', tr: 'modules_code_tr.json' }
-};
+const DOMAIN_FILES = Object.fromEntries(
+    Object.keys(DOMAINS).map((id) => [
+        id,
+        id === 'learning'
+            ? { en: 'modules_en.json', tr: 'modules_tr.json' }
+            : { en: `modules_${id}_en.json`, tr: `modules_${id}_tr.json` }
+    ])
+);
 
 const errors = [];
 const warnings = [];

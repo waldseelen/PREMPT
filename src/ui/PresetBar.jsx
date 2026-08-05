@@ -2,40 +2,8 @@ import { useEngineState } from '../store/engineState';
 import { useShallow } from 'zustand/react/shallow';
 import { getTranslation } from '../locales/i18n';
 import { getPresets } from '../engine/presetEngine';
-import {
-    Zap, FlaskConical, FileCheck, Wrench, Layers, BookOpen, Box, Terminal, Bug, Sparkles,
-    Rocket, Search, Blocks, Compass, ShieldCheck, FileText, ShieldAlert,
-    Scale, Mic, TestTube, Gauge, RefreshCw
-} from 'lucide-react';
-
-const presetIcons = {
-    // Learning domain
-    hizli: Zap,
-    derin: FlaskConical,
-    sinav: FileCheck,
-    muhendis: Wrench,
-    tam: Layers,
-    arastirmaci: BookOpen,
-    temeller: Box,
-    pratik: Terminal,
-    hata: Bug,
-    yaratici: Sparkles,
-    karsilastir: Scale,
-    mulakat: Mic,
-    // Code domain
-    'ship-feature': Rocket,
-    'code-review': Search,
-    debug: Bug,
-    refactor: Wrench,
-    'system-design': Blocks,
-    onboard: Compass,
-    harden: ShieldCheck,
-    document: FileText,
-    'security-review': ShieldAlert,
-    'test-strategy': TestTube,
-    'perf-tune': Gauge,
-    modernize: RefreshCw
-};
+import { getDomain } from '../domains';
+import { Zap } from 'lucide-react';
 
 export default function PresetBar() {
     const { config, setPreset, activePreset } = useEngineState(useShallow(state => ({
@@ -44,11 +12,10 @@ export default function PresetBar() {
         activePreset: state.activePreset
     })));
     const t = getTranslation(config.lang, config.domain);
+    const domainDef = getDomain(config.domain);
     const presets = getPresets(config.domain);
+    const lang = config.lang || 'tr';
 
-    // Cluster presets by their structural `group` field so the row doesn't
-    // degrade into a flat wall of buttons as more presets are added. Order
-    // of first appearance in `presets` determines group display order.
     const groupOrder = [];
     const grouped = {};
     Object.entries(presets).forEach(([key, preset]) => {
@@ -60,42 +27,69 @@ export default function PresetBar() {
         grouped[groupKey].push(key);
     });
 
-    return (
-        <section className="card delay-3">
-            <div className="card-title"><span className="dot"></span> {t.presetsTitle || "Uzman Modları (System Presets)"}</div>
-            {groupOrder.map(groupKey => (
-                <div key={groupKey} className="preset-group">
-                    <div className="preset-group-title">{t.presetGroups?.[groupKey] || groupKey}</div>
-                    <div className="presets-row">
-                        {grouped[groupKey].map(key => {
-                            const Icon = presetIcons[key] || Box;
-                            const description = t.presetDescriptions?.[key];
-                            return (
-                                <div key={key} className="preset-btn-wrapper" style={{ position: 'relative' }}>
-                                    <button
-                                        className={`preset-btn ${activePreset === key ? 'active' : ''}`}
-                                        onClick={() => setPreset(key)}
-                                        style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', width: '100%' }}
-                                    >
-                                        <Icon size={14} />
-                                        {t.presets?.[key] || key}
-                                    </button>
-                                    {description && (
-                                        <div className="module-tooltip">
-                                            <div className="tooltip-title">{t.presets?.[key] || key}</div>
-                                            <div className="tooltip-explain">{description}</div>
-                                        </div>
-                                    )}
-                                </div>
-                            );
-                        })}
-                    </div>
-                </div>
-            ))}
+    const presetGroupsMap = domainDef?.ui?.[lang]?.presetGroups || domainDef?.ui?.tr?.presetGroups || t.presetGroups || {};
 
-            {activePreset && (
+    return (
+        <section className="card delay-3" style={{ overflow: 'hidden' }}>
+            <div className="card-title"><span className="dot"></span> {domainDef?.ui?.[lang]?.presetsTitle || t.presetsTitle || "Uzman Hazır Şablonları (System Presets)"}</div>
+            
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                {groupOrder.map(groupKey => {
+                    const groupTitle = presetGroupsMap[groupKey] || t.presetGroups?.[groupKey] || groupKey.toUpperCase();
+                    return (
+                        <div key={groupKey} className="preset-group">
+                            <div className="preset-group-title" style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--text-secondary)', marginBottom: '8px' }}>
+                                {groupTitle}
+                            </div>
+                            <div className="presets-row" style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', alignItems: 'center' }}>
+                                {grouped[groupKey].map(key => {
+                                    const preset = presets[key];
+                                    const presetName = preset?.name?.[lang] || preset?.name?.tr || (typeof preset?.name === 'string' ? preset.name : null) || t.presets?.[key] || key;
+                                    const description = preset?.desc?.[lang] || preset?.desc?.tr || (typeof preset?.desc === 'string' ? preset.desc : null) || t.presetDescriptions?.[key];
+
+                                    return (
+                                        <div key={key} className="preset-btn-wrapper" style={{ position: 'relative', flexShrink: 0 }}>
+                                            <button
+                                                className={`preset-btn ${activePreset === key ? 'active' : ''}`}
+                                                onClick={() => setPreset(key)}
+                                                title={presetName}
+                                                style={{
+                                                    display: 'inline-flex',
+                                                    alignItems: 'center',
+                                                    gap: '6px',
+                                                    maxWidth: '240px',
+                                                    padding: '6px 12px',
+                                                    borderRadius: '6px',
+                                                    fontSize: '0.88rem',
+                                                    whiteSpace: 'nowrap',
+                                                    overflow: 'hidden',
+                                                    textOverflow: 'ellipsis',
+                                                    cursor: 'pointer'
+                                                }}
+                                            >
+                                                <Zap size={13} style={{ flexShrink: 0 }} />
+                                                <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                                                    {presetName}
+                                                </span>
+                                            </button>
+                                            {description && (
+                                                <div className="module-tooltip" style={{ zIndex: 100 }}>
+                                                    <div className="tooltip-title">{presetName}</div>
+                                                    <div className="tooltip-explain">{description}</div>
+                                                </div>
+                                            )}
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        </div>
+                    );
+                })}
+            </div>
+
+            {activePreset && presets[activePreset] && (
                 <div style={{ marginTop: '12px', fontSize: '0.8rem', color: 'var(--accent-1)', fontStyle: 'italic' }}>
-                    {t.systemIntelligence} "{t.presets?.[activePreset]}" {t.presetAppliedDesc}
+                    ⚡ "{presets[activePreset]?.name?.[lang] || presets[activePreset]?.name?.tr}" {t.presetAppliedDesc || 'şablonu uygulandı.'}
                 </div>
             )}
         </section>

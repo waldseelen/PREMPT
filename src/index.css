@@ -1168,55 +1168,97 @@
         }
 
         /* ══════════════════════ CUSTOM TOOLTIP ══════════════════════ */
-        .module-tooltip {
+        .module-card:hover,
+        .preset-btn-wrapper:hover {
+            z-index: 9999 !important;
+        }
+
+        .module-tooltip,
+        .config-tooltip {
             position: absolute;
             bottom: calc(100% + 8px);
             left: 50%;
             transform: translateX(-50%) translateY(4px);
             width: 280px;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
+            background: #0f172a !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
             border-radius: var(--radius-sm);
             padding: 12px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-            z-index: 100;
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6) !important;
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            z-index: 99999 !important;
             pointer-events: none;
             opacity: 0;
             visibility: hidden;
             transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
             text-align: left;
         }
+
+        /* Dark Mode Tooltip Text Colors */
+        .module-tooltip .tooltip-title,
+        .config-tooltip .tooltip-title {
+            color: #ffffff !important;
+            font-weight: 700;
+            font-size: 0.82rem;
+            margin-bottom: 6px;
+        }
+
+        .module-tooltip .tooltip-explain,
+        .config-tooltip .tooltip-explain {
+            color: #e2e8f0 !important;
+            font-size: 0.75rem;
+            line-height: 1.45;
+            font-weight: 400;
+        }
+
+        .module-tooltip .tooltip-prompt-preview {
+            color: #c7d2fe !important;
+        }
+
+        .module-tooltip .tooltip-reqs {
+            margin-top: 8px;
+            padding-top: 6px;
+            border-top: 1px dashed rgba(255, 255, 255, 0.2) !important;
+            font-size: 0.7rem;
+            color: #34d399 !important;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Light Mode Tooltip Colors */
+        [data-theme="light"] .module-tooltip,
+        [data-theme="light"] .config-tooltip {
+            background: #ffffff !important;
+            border: 1px solid rgba(0, 0, 0, 0.18) !important;
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.22) !important;
+        }
+
+        [data-theme="light"] .module-tooltip .tooltip-title,
+        [data-theme="light"] .config-tooltip .tooltip-title {
+            color: #0f172a !important;
+        }
+
+        [data-theme="light"] .module-tooltip .tooltip-explain,
+        [data-theme="light"] .config-tooltip .tooltip-explain {
+            color: #334155 !important;
+        }
+
+        [data-theme="light"] .module-tooltip .tooltip-prompt-preview {
+            color: #4338ca !important;
+        }
+
+        [data-theme="light"] .module-tooltip .tooltip-reqs {
+            color: #059669 !important;
+            border-top-color: rgba(0, 0, 0, 0.15) !important;
+        }
         
         .module-card:hover .module-tooltip {
             opacity: 1;
             visibility: visible;
             transform: translateX(-50%) translateY(0);
-        }
-        
-        .tooltip-title {
-            font-weight: 600;
-            font-size: 0.8rem;
-            color: var(--text-primary);
-            margin-bottom: 4px;
-        }
-        
-        .tooltip-explain {
-            font-size: 0.72rem;
-            line-height: 1.4;
-            color: var(--text-secondary);
-            font-weight: 400;
-        }
-        
-        .tooltip-reqs {
-            margin-top: 8px;
-            padding-top: 6px;
-            border-top: 1px dashed var(--border);
-            font-size: 0.68rem;
-            color: var(--border-active);
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 4px;
         }
 
         .tooltip-reqs-icon {
@@ -1606,3 +1648,100 @@
                 zoom: 0.8;
             }
         }
+
+        /* --- Domain Switcher --- */
+        .domain-switcher-container {
+            position: relative;
+        }
+
+        .domain-switch-trigger {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            cursor: pointer;
+            color: var(--text-primary);
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .domain-switch-trigger:hover {
+            background: var(--bg-card-hover);
+        }
+
+        .domain-switcher-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            margin-top: 8px;
+            width: 320px;
+            background: var(--bg-card);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            z-index: 100;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .domain-category-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            opacity: 0.6;
+            margin-bottom: 6px;
+            padding-left: 4px;
+            color: var(--text-primary);
+        }
+
+        .domain-category-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .domain-item-btn {
+            padding: 6px 12px;
+            border-radius: 6px;
+            background: rgba(150, 150, 150, 0.05);
+            border: 1px solid transparent;
+            color: var(--text-primary);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+            flex: 1 0 calc(33% - 6px);
+            text-align: center;
+        }
+        
+        .domain-item-btn:hover {
+            background: rgba(150, 150, 150, 0.1);
+        }
+
+        .domain-item-btn.active {
+            background: var(--accent-1);
+            border-color: var(--accent-1);
+            color: #fff;
+        }
+
+        /* Suppress horizontal scrollbar in Header domain bar */
+        .header-domain-bar::-webkit-scrollbar {
+            display: none !important;
+            width: 0 !important;
+            height: 0 !important;
+        }
+        .header-domain-bar {
+            -ms-overflow-style: none !important;
+            scrollbar-width: none !important;
+        }
+

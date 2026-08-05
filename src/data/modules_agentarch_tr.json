@@ -1,0 +1,412 @@
+[
+  {
+    "id": "persona-role-definition",
+    "icon": "🎭",
+    "name": "Persona & Rol Mimarisi",
+    "category": "persona",
+    "description": "AI ajanının uzmanlık alanını, sınırlarını ve temel karakterini tanımlar.",
+    "layer": "persona",
+    "requires": [],
+    "prompt": "Ajan personasını inşa et: 'Sen [Disiplin] alanında [Yıl] deneyime sahip Kıdemli bir [Rol]sün.' Ajanın uzmanlık sınırlarını, çalışma felsefesini ve kabul etmediği rolleri belirle.",
+    "desc": "AI ajanının uzmanlık alanını, sınırlarını ve temel karakterini tanımlar.",
+    "explain": "AI ajanının uzmanlık alanını, sınırlarını ve temel karakterini tanımlar."
+  },
+  {
+    "id": "epistemic-stance-setting",
+    "icon": "🧠",
+    "name": "Epistemik Duruş Ayarı",
+    "category": "persona",
+    "description": "Ajanın bilgiye yaklaşımını (şüpheci, otoriter, sokratik) belirler.",
+    "layer": "persona",
+    "requires": [
+      "persona-role-definition"
+    ],
+    "prompt": "Ajanın epistemik duruşunu ayarla: Emin olmadığı konularda spekülasyon yapmak yerine 'Bilmiyorum' deme veya ek veri isteme oranını %100'e kilitle. Halüsinasyon toleransını sıfırla.",
+    "desc": "Ajanın bilgiye yaklaşımını (şüpheci, otoriter, sokratik) belirler.",
+    "explain": "Ajanın bilgiye yaklaşımını (şüpheci, otoriter, sokratik) belirler."
+  },
+  {
+    "id": "tone-register-locking",
+    "icon": "🎙️",
+    "name": "Ton ve Sicil Kilitleme",
+    "category": "persona",
+    "description": "Üslubu (resmi, samimi, teknik, özlü) ve yasaklı kelimeleri sabitler.",
+    "layer": "persona",
+    "requires": [
+      "persona-role-definition"
+    ],
+    "prompt": "İletişim tonunu sabitle: [Teknik / Kurumsal / Sokratik]. Nezaket dolgu maddelerini ('Harika bir soru!', 'Elbette yardım edebilirim') kesin olarak yasakla. Doğrudan sonuca odaklan.",
+    "desc": "Üslubu (resmi, samimi, teknik, özlü) ve yasaklı kelimeleri sabitler.",
+    "explain": "Üslubu (resmi, samimi, teknik, özlü) ve yasaklı kelimeleri sabitler."
+  },
+  {
+    "id": "domain-expert-profile",
+    "icon": "🎓",
+    "name": "Alan Uzmanı Profili",
+    "category": "persona",
+    "description": "Ajana ilgili sektörün terminoloji ve düşünme jargonu kütüphanesini yükler.",
+    "layer": "persona",
+    "requires": [
+      "persona-role-definition"
+    ],
+    "prompt": "Ajana sektörel mental modeller ve terminoloji yükle: [Sektör/Disiplin] alanının C2 düzey jargonu ve standart kabul görmüş referans çerçeveleri üzerinden düşünmesini sağla.",
+    "desc": "Ajana ilgili sektörün terminoloji ve düşünme jargonu kütüphanesini yükler.",
+    "explain": "Ajana ilgili sektörün terminoloji ve düşünme jargonu kütüphanesini yükler."
+  },
+  {
+    "id": "cognitive-bias-override",
+    "icon": "🛠️",
+    "name": "Bilişsel Sapma Aşma",
+    "category": "persona",
+    "description": "LLM'lerin varsayılan kullanıcıyı onaylama (sycophancy) eğilimini kırar.",
+    "layer": "persona",
+    "requires": [
+      "epistemic-stance-setting"
+    ],
+    "prompt": "Yalakalık (Sycophancy) engelleyici ekle: Kullanıcı yanlış veya hatalı bir önerme sunduğunda, kullanıcıyı onaylamak yerine hatayı kibarca ama acımasızca düzeltme talimatı ver.",
+    "desc": "LLM'lerin varsayılan kullanıcıyı onaylama (sycophancy) eğilimini kırar.",
+    "explain": "LLM'lerin varsayılan kullanıcıyı onaylama (sycophancy) eğilimini kırar."
+  },
+  {
+    "id": "adaptive-persona-shift",
+    "icon": "🔄",
+    "name": "Dinamik Persona Geçişi",
+    "category": "persona",
+    "description": "Görevin aşamasına göre ajanın mod değiştirmesini sağlar.",
+    "layer": "persona",
+    "requires": [
+      "domain-expert-profile"
+    ],
+    "prompt": "Ajan için dinamik mod anahtarı kurgula: Analiz aşamasında 'Analitik Eleştirmen', çözüm aşamasında 'Yaratıcı Mimar' moduna otomatik geçiş protokolü yaz.",
+    "desc": "Görevin aşamasına göre ajanın mod değiştirmesini sağlar.",
+    "explain": "Görevin aşamasına göre ajanın mod değiştirmesini sağlar."
+  },
+  {
+    "id": "cot-step-by-step",
+    "icon": "🔗",
+    "name": "Chain-of-Thought (CoT) Enjeksiyonu",
+    "category": "cot",
+    "description": "Ajanın yanıt vermeden önce adım adım düşünmesini zorunlu kılar.",
+    "layer": "cot",
+    "requires": [],
+    "prompt": "CoT (Chain-of-Thought) Zorunluluğu: Nihai cevabı vermeden önce, düşünce sürecini `<thinking>` blokları içinde adım adım (Step 1, Step 2, Step 3) yürüt. Doğrudan cevaba geçme.",
+    "desc": "Ajanın yanıt vermeden önce adım adım düşünmesini zorunlu kılar.",
+    "explain": "Ajanın yanıt vermeden önce adım adım düşünmesini zorunlu kılar."
+  },
+  {
+    "id": "tree-of-thought-prompt",
+    "icon": "🌳",
+    "name": "Tree-of-Thoughts (ToT) Mimarisi",
+    "category": "cot",
+    "description": "Ajanın aynı anda 3 farklı düşünce patikası geliştirip kıyaslamasını sağlar.",
+    "layer": "cot",
+    "requires": [
+      "cot-step-by-step"
+    ],
+    "prompt": "Tree-of-Thoughts (ToT) protokolünü çalıştır: Problem için 3 farklı çözüm patikası ($T_1, T_2, T_3$) oluştur. Her patikanın fizibilitesini değerlendir ve en yüksek skoru alan patikayı seç.",
+    "desc": "Ajanın aynı anda 3 farklı düşünce patikası geliştirip kıyaslamasını sağlar.",
+    "explain": "Ajanın aynı anda 3 farklı düşünce patikası geliştirip kıyaslamasını sağlar."
+  },
+  {
+    "id": "self-reflection-loop",
+    "icon": "🪞",
+    "name": "Öz-Yansıtma (Self-Correction) Döngüsü",
+    "category": "cot",
+    "description": "Ajanın kendi ürettiği çıktıyı sunmadan önce denetlemesini sağlar.",
+    "layer": "cot",
+    "requires": [
+      "cot-step-by-step"
+    ],
+    "prompt": "Kendi Kendini Denetleme (Self-Reflection) döngüsü ekle: Çıktıyı kullanıcıya sunmadan önce `<criticism>` bloğunda mantıksal hatalara karşı tarafsızca incele ve gerekiyorsa düzelt.",
+    "desc": "Ajanın kendi ürettiği çıktıyı sunmadan önce denetlemesini sağlar.",
+    "explain": "Ajanın kendi ürettiği çıktıyı sunmadan önce denetlemesini sağlar."
+  },
+  {
+    "id": "verification-step-injection",
+    "icon": "✅",
+    "name": "Ara Doğrulama Adımı",
+    "category": "cot",
+    "description": "Matematiksel ve mantıksal hesaplamalarda ara adımları teyit ettirir.",
+    "layer": "cot",
+    "requires": [
+      "cot-step-by-step"
+    ],
+    "prompt": "Her mantıksal veya matematiksel adımla birlikte bir 'Ara Teyit' (Sanity Check) yap: Yapılan varsayım bir sonraki adımı destekliyor mu?",
+    "desc": "Matematiksel ve mantıksal hesaplamalarda ara adımları teyit ettirir.",
+    "explain": "Matematiksel ve mantıksal hesaplamalarda ara adımları teyit ettirir."
+  },
+  {
+    "id": "path-divergence-evaluation",
+    "icon": "🔀",
+    "name": "Patika Sapma Değerlendirmesi",
+    "category": "cot",
+    "description": "ToT sürecinde elenen alternatiflerin elenme gerekçelerini raporlar.",
+    "layer": "cot",
+    "requires": [
+      "tree-of-thought-prompt"
+    ],
+    "prompt": "Düşünce ağacında (ToT) seçilmeyen alternatif patikaların neden elendiğini kısa ve net gerekçelerle raporla. Mantıksal kör noktaları görünür kıl.",
+    "desc": "ToT sürecinde elenen alternatiflerin elenme gerekçelerini raporlar.",
+    "explain": "ToT sürecinde elenen alternatiflerin elenme gerekçelerini raporlar."
+  },
+  {
+    "id": "reasoning-depth-governor",
+    "icon": "🎛️",
+    "name": "Düşünme Derinliği Valfi",
+    "category": "cot",
+    "description": "Karmaşıklığa göre CoT derinliğini dinamik olarak ayarlar.",
+    "layer": "cot",
+    "requires": [
+      "self-reflection-loop"
+    ],
+    "prompt": "Görevin zorluk derecesine göre akıl yürütme derinliğini dinamik ayarla: Basit soruda doğrudan yanıt, karmaşık soruda 5 katmanlı CoT analizi çalıştır.",
+    "desc": "Karmaşıklığa göre CoT derinliğini dinamik olarak ayarlar.",
+    "explain": "Karmaşıklığa göre CoT derinliğini dinamik olarak ayarlar."
+  },
+  {
+    "id": "hallucination-guardrail",
+    "icon": "🛡️",
+    "name": "Halüsinasyon Korkuluğu",
+    "category": "guardrails",
+    "description": "Uydurma veri ve kaynak üretimini kesin kısıtlarla engeller.",
+    "layer": "guardrails",
+    "requires": [],
+    "prompt": "Sıkı Gerçeklik Kuralı: Sadece verilen bağlamdaki veya %100 emin olunan doğrulanmış olguları kullan. Emin olunmayan isim, tarih, URL veya istatistikleri ASLA üretme.",
+    "desc": "Uydurma veri ve kaynak üretimini kesin kısıtlarla engeller.",
+    "explain": "Uydurma veri ve kaynak üretimini kesin kısıtlarla engeller."
+  },
+  {
+    "id": "output-format-locking",
+    "icon": "🔒",
+    "name": "Çıktı Formatı Kilitleme",
+    "category": "guardrails",
+    "description": "Çıktıyı strictly JSON, XML veya Markdown şablonuna zorlar.",
+    "layer": "guardrails",
+    "requires": [
+      "hallucination-guardrail"
+    ],
+    "prompt": "Çıktı formatını strict JSON olarak kilitle. Yanıtın başlangıcında veya sonunda hiçbir açıklama metni, 'İşte JSON çıktınız:' gibi giriş cümlesi OLMADAN doğrudan `{` ile başlat.",
+    "desc": "Çıktıyı strictly JSON, XML veya Markdown şablonuna zorlar.",
+    "explain": "Çıktıyı strictly JSON, XML veya Markdown şablonuna zorlar."
+  },
+  {
+    "id": "forbidden-phrase-filter",
+    "icon": "🚫",
+    "name": "Yasaklı Kelime / Kalıp Filtresi",
+    "category": "guardrails",
+    "description": "AI klşelerini ve istenmeyen ifadeleri kara listeye alır.",
+    "layer": "guardrails",
+    "requires": [
+      "output-format-locking"
+    ],
+    "prompt": "Yasaklı Kalıplar Kara Listesi: 'Bir yapay zeka modeli olarak...', 'Delve into', 'Tapestry', 'In conclusion' kalıplarını kullanmayı BİRADAN İTİBAREN YASAKLA.",
+    "desc": "AI klşelerini ve istenmeyen ifadeleri kara listeye alır.",
+    "explain": "AI klşelerini ve istenmeyen ifadeleri kara listeye alır."
+  },
+  {
+    "id": "claim-source-attribution",
+    "icon": "📌",
+    "name": "Kaynak Dayandırma Zorunluluğu",
+    "category": "guardrails",
+    "description": "Her iddianın bağlamdaki spesifik bir paragrafa/veriye dayanmasını sağlar.",
+    "layer": "guardrails",
+    "requires": [
+      "hallucination-guardrail"
+    ],
+    "prompt": "Her bilgi iddiasının yanına bağlam referansı ekle `[Metin ID / Sayfa]`. Bağlamda karşılığı olmayan hiçbir iddiayı yanıta dahil etme.",
+    "desc": "Her iddianın bağlamdaki spesifik bir paragrafa/veriye dayanmasını sağlar.",
+    "explain": "Her iddianın bağlamdaki spesifik bir paragrafa/veriye dayanmasını sağlar."
+  },
+  {
+    "id": "safety-policy-aligner",
+    "icon": "⚖️",
+    "name": "Güvenlik ve Hizmet Politikası Hizalaması",
+    "category": "guardrails",
+    "description": "Güvenlik ihlali durumlarında ajanın güvenli reddetme protokolü.",
+    "layer": "guardrails",
+    "requires": [
+      "forbidden-phrase-filter"
+    ],
+    "prompt": "Güvenlik veya etik sınır ihlallerinde ajanın önceden tanımlanmış nötr ve profesyonel reddetme şablonunu çalıştırmasını sağla.",
+    "desc": "Güvenlik ihlali durumlarında ajanın güvenli reddetme protokolü.",
+    "explain": "Güvenlik ihlali durumlarında ajanın güvenli reddetme protokolü."
+  },
+  {
+    "id": "boundary-breach-fallback",
+    "icon": "🚨",
+    "name": "Sınır İhlali Yedek Protokolü",
+    "category": "guardrails",
+    "description": "Format veya içerik bozulduğunda ajanın kendini güvenli moda alması.",
+    "layer": "guardrails",
+    "requires": [
+      "safety-policy-aligner"
+    ],
+    "prompt": "Format kilidi kırıldığında veya beklenmeyen girdi alındığında ajanın otomatik olarak `ERROR_CODE_FALLBACK` çıktısı verip temiz duruma geçmesini sağla.",
+    "desc": "Format veya içerik bozulduğunda ajanın kendini güvenli moda alması.",
+    "explain": "Format veya içerik bozulduğunda ajanın kendini güvenli moda alması."
+  },
+  {
+    "id": "few-shot-exemplar-design",
+    "icon": "💡",
+    "name": "Few-Shot Örnek Tasarımı",
+    "category": "fewshot",
+    "description": "Ajanın doğru girdi-çıktı kalıbını anlaması için ideal örnekler sunar.",
+    "layer": "fewshot",
+    "requires": [],
+    "prompt": "Sisteme 2 adet kusursuz Few-Shot örneği ekle:\nInput: [Örnek Girdi]\nOutput: [İdeal Çıktı]. Ajanın bu kalıbı %100 oranında taklit etmesini sağla.",
+    "desc": "Ajanın doğru girdi-çıktı kalıbını anlaması için ideal örnekler sunar.",
+    "explain": "Ajanın doğru girdi-çıktı kalıbını anlaması için ideal örnekler sunar."
+  },
+  {
+    "id": "edge-case-few-shot",
+    "icon": "🧩",
+    "name": "Sınır Durum (Edge Case) Örneği",
+    "category": "fewshot",
+    "description": "Ajanın hatalı veya eksik girdilerde nasıl davranacağını gösterir.",
+    "layer": "fewshot",
+    "requires": [
+      "few-shot-exemplar-design"
+    ],
+    "prompt": "Hatalı/eksik girdi senaryolarını içeren Edge-Case Few-Shot örneği ekle. Ajanın bu durumda nasıl eksik bilgi talep edeceğini göster.",
+    "desc": "Ajanın hatalı veya eksik girdilerde nasıl davranacağını gösterir.",
+    "explain": "Ajanın hatalı veya eksik girdilerde nasıl davranacağını gösterir."
+  },
+  {
+    "id": "negative-example-contrast",
+    "icon": "❌",
+    "name": "Negatif Örnek Zıtlığı",
+    "category": "fewshot",
+    "description": "Ajanın 'yapmaması gereken' çıktı örneğini göstererek sınır çizer.",
+    "layer": "fewshot",
+    "requires": [
+      "few-shot-exemplar-design"
+    ],
+    "prompt": "Zıtlık oluşturmak için 1 adet 'YANLIŞ ÇIKTI' (Negative Example) örneği koy ve altındaki gerekçede nelerin hatalı olduğunu açıkla.",
+    "desc": "Ajanın 'yapmaması gereken' çıktı örneğini göstererek sınır çizer.",
+    "explain": "Ajanın 'yapmaması gereken' çıktı örneğini göstererek sınır çizer."
+  },
+  {
+    "id": "dynamic-context-exemplar",
+    "icon": "🔄",
+    "name": "Dinamik Bağlam Örneği",
+    "category": "fewshot",
+    "description": "Değişen parametrelere göre adapte olan örnek yapısı sunar.",
+    "layer": "fewshot",
+    "requires": [
+      "few-shot-exemplar-design"
+    ],
+    "prompt": "Girdi değişkenlerine göre adapte olan parametrik Few-Shot şablonu kurgula.",
+    "desc": "Değişen parametrelere göre adapte olan örnek yapısı sunar.",
+    "explain": "Değişen parametrelere göre adapte olan örnek yapısı sunar."
+  },
+  {
+    "id": "format-strictness-examples",
+    "icon": "📐",
+    "name": "Format Katılığı Örnekleri",
+    "category": "fewshot",
+    "description": "Şema uyumluluğunu gösteren ayrıntılı kod/JSON örnekleri.",
+    "layer": "fewshot",
+    "requires": [
+      "few-shot-exemplar-design"
+    ],
+    "prompt": "Karmaşık JSON veri yapılarını eksiksiz dolduran şema odaklı Few-Shot örneği yaz.",
+    "desc": "Şema uyumluluğunu gösteren ayrıntılı kod/JSON örnekleri.",
+    "explain": "Şema uyumluluğunu gösteren ayrıntılı kod/JSON örnekleri."
+  },
+  {
+    "id": "multi-turn-few-shot-chain",
+    "icon": "💬",
+    "name": "Çok Tur Düzeyli Örnek Diyalog",
+    "category": "fewshot",
+    "description": "Ajanın çoklu konuşma turlarında bağlamı nasıl koruyacağını gösterir.",
+    "layer": "fewshot",
+    "requires": [
+      "edge-case-few-shot"
+    ],
+    "prompt": "3 turlu diyalog geçmişi içeren Çok Tur Düzeyli (Multi-Turn) Few-Shot örneği tasarla. Ajanın hafıza takibini göster.",
+    "desc": "Ajanın çoklu konuşma turlarında bağlamı nasıl koruyacağını gösterir.",
+    "explain": "Ajanın çoklu konuşma turlarında bağlamı nasıl koruyacağını gösterir."
+  },
+  {
+    "id": "variable-ingestion-schema",
+    "icon": "📥",
+    "name": "Değişken Alım Şeması",
+    "category": "orchestration",
+    "description": "Sistem promptuna parametrik degiskenlerin (`{{variable}}`) nasil besleneceğini belirler.",
+    "layer": "orchestration",
+    "requires": [],
+    "prompt": "Prompt değişkenlerini tanımla: `{{USER_INPUT}}`, `{{DOMAIN_CONTEXT}}`, `{{MAX_TOKENS}}`. Değişkenlerin boş gelmesi durumunda varsayılan değer atama mantığını kur.",
+    "desc": "Sistem promptuna parametrik degiskenlerin (`{{variable}}`) nasil besleneceğini belirler.",
+    "explain": "Sistem promptuna parametrik degiskenlerin (`{{variable}}`) nasil besleneceğini belirler."
+  },
+  {
+    "id": "multi-agent-handoff",
+    "icon": "🤝",
+    "name": "Çoklu Ajan Devir (Handoff) Protokolü",
+    "category": "orchestration",
+    "description": "Ajanın görevi tamamlayıp diğer ajana hangi verilerle devredeceğini tanımlar.",
+    "layer": "orchestration",
+    "requires": [
+      "variable-ingestion-schema"
+    ],
+    "prompt": "Devir Protokolü (Handoff Protocol): İşlem bittiğinde çıktıyı bir sonraki ajana devretmek için `NEXT_AGENT: [Agent_Name]` ve `PAYLOAD: [JSON Data]` formatında devir bloğu üret.",
+    "desc": "Ajanın görevi tamamlayıp diğer ajana hangi verilerle devredeceğini tanımlar.",
+    "explain": "Ajanın görevi tamamlayıp diğer ajana hangi verilerle devredeceğini tanımlar."
+  },
+  {
+    "id": "task-decomposition-router",
+    "icon": "🔀",
+    "name": "Görev Bölümleme Yönlendiricisi",
+    "category": "orchestration",
+    "description": "Büyük problemleri alt görevlere bölüp paralel ajanlara dağıtır.",
+    "layer": "orchestration",
+    "requires": [
+      "multi-agent-handoff"
+    ],
+    "prompt": "Görev Bölümleyici (Task Router): Ana talebi 3 bağımsız alt göreve böl ve her birini ilgili uzman ajana yönlendirecek orkestrasyon planı çıkar.",
+    "desc": "Büyük problemleri alt görevlere bölüp paralel ajanlara dağıtır.",
+    "explain": "Büyük problemleri alt görevlere bölüp paralel ajanlara dağıtır."
+  },
+  {
+    "id": "state-persistence-prompt",
+    "icon": "💾",
+    "name": "Durum Koruma (State Persistence) Protokolü",
+    "category": "orchestration",
+    "description": "Turlar arası durum bilgisini JSON state nesnesinde günceller.",
+    "layer": "orchestration",
+    "requires": [
+      "multi-agent-handoff"
+    ],
+    "prompt": "Diyalog durumunu (State Object) her tur sonunda güncelle: `<state>{\"completed_steps\": [], \"pending_steps\": [], \"variables\": {}}</state>`.",
+    "desc": "Turlar arası durum bilgisini JSON state nesnesinde günceller.",
+    "explain": "Turlar arası durum bilgisini JSON state nesnesinde günceller."
+  },
+  {
+    "id": "response-aggregation-spec",
+    "icon": "📑",
+    "name": "Yanıt Toplama ve Sentez Özelliği",
+    "category": "orchestration",
+    "description": "Farklı ajanlardan gelen çıktıları çelişkisiz tek bir çıktıda birleştirir.",
+    "layer": "orchestration",
+    "requires": [
+      "task-decomposition-router"
+    ],
+    "prompt": "Farklı ajanlardan gelen ham yanıtları al, çelişkili noktaları çöz ve kullanıcıya tek bir tutarlı rapor halinde sentezle.",
+    "desc": "Farklı ajanlardan gelen çıktıları çelişkisiz tek bir çıktıda birleştirir.",
+    "explain": "Farklı ajanlardan gelen çıktıları çelişkisiz tek bir çıktıda birleştirir."
+  },
+  {
+    "id": "zero-api-prompt-compiler",
+    "icon": "⚡",
+    "name": "PREMPT Sıfır-API Derleyici Şablonu",
+    "category": "orchestration",
+    "description": "Tüm aktif modülleri deterministik tek bir mega-prompta derler.",
+    "layer": "orchestration",
+    "requires": [
+      "response-aggregation-spec"
+    ],
+    "prompt": "Seçilen tüm aktif modül talimatlarını öncelik sırasına göre sırala, çakışan talimatları bastır ve harici AI modellerine verilecek nihai mega-promptu inşa et.",
+    "desc": "Tüm aktif modülleri deterministik tek bir mega-prompta derler.",
+    "explain": "Tüm aktif modülleri deterministik tek bir mega-prompta derler."
+  }
+]

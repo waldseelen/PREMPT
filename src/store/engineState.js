@@ -53,7 +53,7 @@ export const useEngineState = create(
             // live preview. Kept as a sibling of `config`, same reasoning as
             // `savedRecipes`: setDomain() must not reset it (switching domain
             // mid-workspace should not kick the user back to intro).
-            view: 'intro',
+            view: 'workspace',
 
             // Actions
             setConfig: (key, value) => set((state) => {

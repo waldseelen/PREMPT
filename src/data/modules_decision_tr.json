@@ -1,0 +1,421 @@
+[
+  {
+    "id": "decision-framing",
+    "icon": "🎯",
+    "name": "Karar Çerçeveleme",
+    "category": "foundation",
+    "description": "Karar probleminin sınırlarını, varsayımlarını ve temel sorusunu net bir şekilde tanımlar.",
+    "layer": "foundation",
+    "requires": [],
+    "prompt": "Karar problemini netleştir ve çerçevele: Çözülmeye çalışılan asıl sorun nedir? Bu kararın kapsamı, zaman ufku ve değiştirilemez sınır parametreleri (constraints) nelerdir? Soruyu yeniden ifade ederek yanlış bir problemi çözme riskini ortadan kaldır.",
+    "desc": "Karar probleminin sınırlarını, varsayımlarını ve temel sorusunu net bir şekilde tanımlar.",
+    "explain": "Karar probleminin sınırlarını, varsayımlarını ve temel sorusunu net bir şekilde tanımlar."
+  },
+  {
+    "id": "core-objectives",
+    "icon": "📌",
+    "name": "Temel Hedefler",
+    "category": "foundation",
+    "description": "Başarı ölçütlerini ve vazgeçilemez hedefleri hiyerarşik olarak belirler.",
+    "layer": "foundation",
+    "requires": [
+      "decision-framing"
+    ],
+    "prompt": "Bu karardan beklenen temel hedefleri (must-haves) ve ikincil arzuları (nice-to-haves) hiyerarşik olarak listele. Her hedef için somut ve ölçülebilir bir başarı metriği tanımla.",
+    "desc": "Başarı ölçütlerini ve vazgeçilemez hedefleri hiyerarşik olarak belirler.",
+    "explain": "Başarı ölçütlerini ve vazgeçilemez hedefleri hiyerarşik olarak belirler."
+  },
+  {
+    "id": "boundary-conditions",
+    "icon": "🚧",
+    "name": "Sınır Koşulları",
+    "category": "foundation",
+    "description": "Kararın ihlal edemeyeceği bütçe, etik, yasal ve zaman limitlerini koyar.",
+    "layer": "foundation",
+    "requires": [
+      "decision-framing"
+    ],
+    "prompt": "Kararın mutlak sınır koşullarını belirle: Bütçe, zaman, yasal/etik sınırlar ve teknolojik imkansızlıklar nelerdir? Bu sınırları aşan çözümleri elenecek alternatifler olarak işaretle.",
+    "desc": "Kararın ihlal edemeyeceği bütçe, etik, yasal ve zaman limitlerini koyar.",
+    "explain": "Kararın ihlal edemeyeceği bütçe, etik, yasal ve zaman limitlerini koyar."
+  },
+  {
+    "id": "stakeholder-mapping",
+    "icon": "👥",
+    "name": "Paydaş Haritalama",
+    "category": "foundation",
+    "description": "Karardan etkilenen ve kararı etkileyen aktörleri analiz eder.",
+    "layer": "foundation",
+    "requires": [
+      "core-objectives"
+    ],
+    "prompt": "Karardan etkilenen ana paydaşları, yetki düzeylerini ve kazanç/kayıp beklentilerini haritalandır. Karar sürecine kimlerin dahil edilmesi gerektiğini ve direnç odaklarını belirle.",
+    "desc": "Karardan etkilenen ve kararı etkileyen aktörleri analiz eder.",
+    "explain": "Karardan etkilenen ve kararı etkileyen aktörleri analiz eder."
+  },
+  {
+    "id": "information-audit",
+    "icon": "🔍",
+    "name": "Bilgi Denetimi",
+    "category": "foundation",
+    "description": "Mevcut verileri, eksik bilgileri ve bilinmeyenleri sınıflandırır.",
+    "layer": "foundation",
+    "requires": [
+      "decision-framing"
+    ],
+    "prompt": "Bilgi envanterini çıkart: (a) Ne biliyoruz (doğrulanmış veri)? (b) Ne bilmiyoruz (bilinen eksikler)? (c) Neyi bilemeyiz (belirsizlikler)? Eksik bilgileri tamamlamanın maliyet/fayda oranını değerlendir.",
+    "desc": "Mevcut verileri, eksik bilgileri ve bilinmeyenleri sınıflandırır.",
+    "explain": "Mevcut verileri, eksik bilgileri ve bilinmeyenleri sınıflandırır."
+  },
+  {
+    "id": "reversibility-check",
+    "icon": "🔄",
+    "name": "Geri Döndürülebilirlik",
+    "category": "foundation",
+    "description": "Kararın Tip 1 (tek yönlü kapı) mi yoksa Tip 2 (çift yönlü kapı) mi olduğunu belirler.",
+    "layer": "foundation",
+    "requires": [
+      "boundary-conditions"
+    ],
+    "prompt": "Kararın geri döndürülebilirliğini analiz et (Jeff Bezos Tek/Çift Yönlü Kapı testi): Bu karar yanlış çıkarsa geri dönmenin maliyeti nedir? Hızlı karar verilmesi gereken esnek bir karar mı, yoksa yavaş ve derin analiz gerektiren stratejik bir karar mı?",
+    "desc": "Kararın Tip 1 (tek yönlü kapı) mi yoksa Tip 2 (çift yönlü kapı) mi olduğunu belirler.",
+    "explain": "Kararın Tip 1 (tek yönlü kapı) mi yoksa Tip 2 (çift yönlü kapı) mi olduğunu belirler."
+  },
+  {
+    "id": "second-order-thinking",
+    "icon": "🔮",
+    "name": "İkinci Derece Etkiler",
+    "category": "analysis",
+    "description": "Kararın dolaylı sonuçlarını ve domino etkilerini haritalandırır.",
+    "layer": "analysis",
+    "requires": [
+      "decision-framing"
+    ],
+    "prompt": "İkinci ve üçüncü derece etkileri analiz et: Doğrudan sonucun ötesinde, 6 ay ve 2 yıl sonra ne gibi kelebek etkileri ortaya çıkacak? Sistemdeki diğer aktörler bu karara nasıl tepki verecek (perverse incentives)?",
+    "desc": "Kararın dolaylı sonuçlarını ve domino etkilerini haritalandırır.",
+    "explain": "Kararın dolaylı sonuçlarını ve domino etkilerini haritalandırır."
+  },
+  {
+    "id": "inversion-method",
+    "icon": "🙃",
+    "name": "Tersine Çevirme (Inversion)",
+    "category": "analysis",
+    "description": "Başarıya odaklanmak yerine felaketi engelleme perspektifi getirir.",
+    "layer": "analysis",
+    "requires": [
+      "decision-framing"
+    ],
+    "prompt": "Sorunu tersine çevir (Inversion): Başarılı olmaya çalışmak yerine, bu kararın TAM BİR FELAKETLE sonuçlanması için ne yapılması gerekirdi? Bu felaket senaryolarını tek tek listele ve her birinden kaçınma yollarını tasarla.",
+    "desc": "Başarıya odaklanmak yerine felaketi engelleme perspektifi getirir.",
+    "explain": "Başarıya odaklanmak yerine felaketi engelleme perspektifi getirir."
+  },
+  {
+    "id": "matrix-2x2",
+    "icon": "📐",
+    "name": "2x2 Karar Matrisi",
+    "category": "analysis",
+    "description": "Alternatifleri iki kritik eksende görselleştirip önceliklendirir.",
+    "layer": "analysis",
+    "requires": [
+      "core-objectives"
+    ],
+    "prompt": "Alternatifleri 2x2 matriste konumlandır (Örn: Etki vs. Çaba veya Risk vs. Getiri). Her kadrandaki opsiyonları açıkça tanımla ve sol üst / sağ üst öncelik dengesini kur.",
+    "desc": "Alternatifleri iki kritik eksende görselleştirip önceliklendirir.",
+    "explain": "Alternatifleri iki kritik eksende görselleştirip önceliklendirir."
+  },
+  {
+    "id": "causal-loop-mapping",
+    "icon": "♾️",
+    "name": "Neden-Sonuç Döngüsü",
+    "category": "analysis",
+    "description": "Sistemik geri besleme (feedback loop) dinamiklerini inceler.",
+    "layer": "analysis",
+    "requires": [
+      "second-order-thinking"
+    ],
+    "prompt": "Karar alanındaki güçlendirici (reinforcing) ve dengeleyici (balancing) geri besleme döngülerini çıkar. Hangi eylemin kartopu etkisi yaratacağını, hangisinin sistemi doygunluğa ulaştıracağını göster.",
+    "desc": "Sistemik geri besleme (feedback loop) dinamiklerini inceler.",
+    "explain": "Sistemik geri besleme (feedback loop) dinamiklerini inceler."
+  },
+  {
+    "id": "scenario-planning",
+    "icon": "🗺️",
+    "name": "Senaryo Planlaması",
+    "category": "analysis",
+    "description": "En iyi, en kötü ve en olası geleceklere göre kararı test eder.",
+    "layer": "analysis",
+    "requires": [
+      "decision-framing"
+    ],
+    "prompt": "Üç farklı gelecek senaryosu oluştur: (a) İyimser (Bull), (b) Baz Senaryo (Base), (c) Kötümser (Bear). Seçilen kararın her üç senaryodaki performansını ve dayanıklılığını kıyasla.",
+    "desc": "En iyi, en kötü ve en olası geleceklere göre kararı test eder.",
+    "explain": "En iyi, en kötü ve en olası geleceklere göre kararı test eder."
+  },
+  {
+    "id": "expected-value-calc",
+    "icon": "📊",
+    "name": "Beklenen Değer Analizi",
+    "category": "analysis",
+    "description": "Olasılıklar ve finansal/operasyonel çıktılarla olasılıksal hesaplama yapar.",
+    "layer": "analysis",
+    "requires": [
+      "information-audit"
+    ],
+    "prompt": "Olasılıksal beklenen değeri hesapla: Her bir alternatif için olası çıktıları (%) olasılık ağırlıkları ile çarp ($EV = \\sum (p_i \\times v_i)$). Kararın negatif kuyruk riskini (tail risk) görünür kıl.",
+    "desc": "Olasılıklar ve finansal/operasyonel çıktılarla olasılıksal hesaplama yapar.",
+    "explain": "Olasılıklar ve finansal/operasyonel çıktılarla olasılıksal hesaplama yapar."
+  },
+  {
+    "id": "opportunity-cost-audit",
+    "icon": "⚖️",
+    "name": "Fırsat Maliyeti",
+    "category": "tradeoff",
+    "description": "Vazgeçilen en iyi alternatifin getirisini ölçer.",
+    "layer": "tradeoff",
+    "requires": [
+      "matrix-2x2"
+    ],
+    "prompt": "Bu kararı alarak VAZGEÇTİĞİMİZ en iyi alternatif nedir? Sermaye, zaman ve insan kaynağının bu seçeneğe bağlanmasıyla feda edilen fırsat maliyetini nicel olarak hesapla.",
+    "desc": "Vazgeçilen en iyi alternatifin getirisini ölçer.",
+    "explain": "Vazgeçilen en iyi alternatifin getirisini ölçer."
+  },
+  {
+    "id": "trade-off-dilemma",
+    "icon": "🔀",
+    "name": "Ödünleşme (Trade-Off) Analizi",
+    "category": "tradeoff",
+    "description": "Çatışan iki iyi veya iki kötü seçenek arasında açık seçim yaptırır.",
+    "layer": "tradeoff",
+    "requires": [
+      "matrix-2x2"
+    ],
+    "prompt": "Karardaki temel ödünleşmeyi (trade-off) açıkça yaz: Hızdan mı, kaliteden mi, bütçeden mi yoksa esneklikten mi ödün veriyoruz? Bedelsiz bir kazanım olmadığını varsayarak, kabul edilen negatif yan etkiyi tanımla.",
+    "desc": "Çatışan iki iyi veya iki kötü seçenek arasında açık seçim yaptırır.",
+    "explain": "Çatışan iki iyi veya iki kötü seçenek arasında açık seçim yaptırır."
+  },
+  {
+    "id": "regret-minimization",
+    "icon": "⏳",
+    "name": "Pişmanlık Minimizasyonu",
+    "category": "tradeoff",
+    "description": "Uzun vadeli perspektifle pişmanlığı en aza indiren seçeneği bulur.",
+    "layer": "tradeoff",
+    "requires": [
+      "reversibility-check"
+    ],
+    "prompt": "80 yaşına geldiğinde geriye dönüp baktığını hayal et (Jeff Bezos Regret Minimization Framework): Bu kararı almamak mı seni daha çok pişman eder, yoksa deneyip başarısız olmak mı?",
+    "desc": "Uzun vadeli perspektifle pişmanlığı en aza indiren seçeneği bulur.",
+    "explain": "Uzun vadeli perspektifle pişmanlığı en aza indiren seçeneği bulur."
+  },
+  {
+    "id": "skin-in-the-game",
+    "icon": "🛡️",
+    "name": "Sorumluluk Payı (Skin in the Game)",
+    "category": "tradeoff",
+    "description": "Kararı alanların riskten doğrudan etkilenme derecesini ölçer.",
+    "layer": "tradeoff",
+    "requires": [
+      "stakeholder-mapping"
+    ],
+    "prompt": "Karar alıcıların ve tavsiye verenlerin riskteki payını (Nassim Taleb - Skin in the Game) sorgula: Karar başarısız olursa bedelini kim ödeyecek? Çıkar çatışmalarını ve asimetrik riskleri ortaya çıkar.",
+    "desc": "Kararı alanların riskten doğrudan etkilenme derecesini ölçer.",
+    "explain": "Kararı alanların riskten doğrudan etkilenme derecesini ölçer."
+  },
+  {
+    "id": "resource-cap-analysis",
+    "icon": "🔋",
+    "name": "Kaynak Limiti Analizi",
+    "category": "tradeoff",
+    "description": "Enerji, bütçe ve odak kapasitesinin sınırlarını değerlendirir.",
+    "layer": "tradeoff",
+    "requires": [
+      "opportunity-cost-audit"
+    ],
+    "prompt": "Mevcut bant genişliği ve kaynak sınırlarını incele: Kararın uygulanması organizasyonun veya bireyin ana odağını dağıtacak mı? Sürdürülebilir sınırların aşılıp aşılmadığını kontrol et.",
+    "desc": "Enerji, bütçe ve odak kapasitesinin sınırlarını değerlendirir.",
+    "explain": "Enerji, bütçe ve odak kapasitesinin sınırlarını değerlendirir."
+  },
+  {
+    "id": "option-value-pricing",
+    "icon": "🏷️",
+    "name": "Opsiyon Değeri",
+    "category": "tradeoff",
+    "description": "Gelecekte yeni seçenekler yaratma yeteneğini fiyatlandırır.",
+    "layer": "tradeoff",
+    "requires": [
+      "expected-value-calc"
+    ],
+    "prompt": "Bu kararın gelecekte yeni opsiyonlar kapısını açıp açmadığını değerlendir: Karar bizi tek bir patikaya mı mahkum ediyor, yoksa gelecekte pivot etme esnekliği kazandırıyor mu?",
+    "desc": "Gelecekte yeni seçenekler yaratma yeteneğini fiyatlandırır.",
+    "explain": "Gelecekte yeni seçenekler yaratma yeteneğini fiyatlandırır."
+  },
+  {
+    "id": "confirmation-bias-strip",
+    "icon": "🧹",
+    "name": "Doğrulama Yanlılığı Temizliği",
+    "category": "biases",
+    "description": "Sadece mevcut inancı destekleyen verileri seçme eğilimini kırar.",
+    "layer": "biases",
+    "requires": [
+      "inversion-method"
+    ],
+    "prompt": "Doğrulama yanlılığını (Confirmation Bias) filtrele: Kararın YANLIŞ olduğunu kanıtlayan en güçlü 3 veriyi veya argümanı bul. Bu karşıt deliller neden göz ardı edilmiş olabilir?",
+    "desc": "Sadece mevcut inancı destekleyen verileri seçme eğilimini kırar.",
+    "explain": "Sadece mevcut inancı destekleyen verileri seçme eğilimini kırar."
+  },
+  {
+    "id": "sunk-cost-filter",
+    "icon": "🗑️",
+    "name": "Batık Maliyet Temizliği",
+    "category": "biases",
+    "description": "Geçmiş harcamaları karardan tamamen izole eder.",
+    "layer": "biases",
+    "requires": [
+      "reversibility-check"
+    ],
+    "prompt": "Geçmişte harcanan zaman, para ve emeği (Sunk Cost) analizden tamamen çıkar. Eğer bu projeye/karara BUGÜN SIFIRDAN başlasaydın, aynı yatırımı yapar mıydın?",
+    "desc": "Geçmiş harcamaları karardan tamamen izole eder.",
+    "explain": "Geçmiş harcamaları karardan tamamen izole eder."
+  },
+  {
+    "id": "availability-heuristic-check",
+    "icon": "🧠",
+    "name": "Erişilebilirlik Yanlılığı Testi",
+    "category": "biases",
+    "description": "Son yaşanan veya akılda kalıcı olayların kararı çarpıtmasını engeller.",
+    "layer": "biases",
+    "requires": [
+      "information-audit"
+    ],
+    "prompt": "Kararın yakın zamanda yaşanmış, duygusal veya akılda kalıcı tek bir olaydan etkilenip etkilenmediğini saptar. Veri setinin istatistiksel temsil gücünü kontrol et.",
+    "desc": "Son yaşanan veya akılda kalıcı olayların kararı çarpıtmasını engeller.",
+    "explain": "Son yaşanan veya akılda kalıcı olayların kararı çarpıtmasını engeller."
+  },
+  {
+    "id": "survivorship-bias-shield",
+    "icon": "🛟",
+    "name": "Mümessillik (Survivorship) Kalkanı",
+    "category": "biases",
+    "description": "Görünmeyen başarısızlık verilerini görünür kılar.",
+    "layer": "biases",
+    "requires": [
+      "scenario-planning"
+    ],
+    "prompt": "Başarı hikayelerine odaklanarak elenen/başarısız olan çoğunluğu (Survivorship Bias) unutmadığından emin ol. Görünmez olan başarısızlık örneklerini incele.",
+    "desc": "Görünmeyen başarısızlık verilerini görünür kılar.",
+    "explain": "Görünmeyen başarısızlık verilerini görünür kılar."
+  },
+  {
+    "id": "framing-effect-neutralizer",
+    "icon": "🖼️",
+    "name": "Çerçeveleme Nötrleme",
+    "category": "biases",
+    "description": "Soru veya seçeneğin sunuluş biçiminden kaynaklanan sapmaları siler.",
+    "layer": "biases",
+    "requires": [
+      "decision-framing"
+    ],
+    "prompt": "Karar metnini tamamen nötr bir dille, hem %90 başarı hem de %10 başarısızlık oranı üzerinden iki farklı şekilde yazarak sunum yanılsamasını ortadan kaldır.",
+    "desc": "Soru veya seçeneğin sunuluş biçiminden kaynaklanan sapmaları siler.",
+    "explain": "Soru veya seçeneğin sunuluş biçiminden kaynaklanan sapmaları siler."
+  },
+  {
+    "id": "groupthink-deconstruct",
+    "icon": "🗣️",
+    "name": "Grup Düşüncesi Yıkımı",
+    "category": "biases",
+    "description": "Konsensüs baskısını kırarak Şeytanın Avukatlığı rolünü işletir.",
+    "layer": "biases",
+    "requires": [
+      "stakeholder-mapping"
+    ],
+    "prompt": "Grup düşüncesine (Groupthink) karşı 'Şeytanın Avukatı' rolünü üstlen. Ekibin veya çoğunluğun sorgulamadan kabul ettiği temel varsayımı bul ve acımasızca çürüt.",
+    "desc": "Konsensüs baskısını kırarak Şeytanın Avukatlığı rolünü işletir.",
+    "explain": "Konsensüs baskısını kırarak Şeytanın Avukatlığı rolünü işletir."
+  },
+  {
+    "id": "pre-mortem-analysis",
+    "icon": "💀",
+    "name": "Pre-Mortem Analizi",
+    "category": "execution",
+    "description": "Geleceğe gidip projenin patladığını varsayarak nedenleri önceden çözer.",
+    "layer": "execution",
+    "requires": [
+      "second-order-thinking",
+      "confirmation-bias-strip"
+    ],
+    "prompt": "Pre-Mortem Çalışması yap: Şimdi 2 yıl sonrasındayız ve bu karar KORKUNÇ BİR BAŞARISIZLIKLA sonuçlandı. Otopsi raporunu yaz: Bizi bu felakete götüren ana nedenler sırasıyla neydi ve bunları bugünden nasıl engelleriz?",
+    "desc": "Geleceğe gidip projenin patladığını varsayarak nedenleri önceden çözer.",
+    "explain": "Geleceğe gidip projenin patladığını varsayarak nedenleri önceden çözer."
+  },
+  {
+    "id": "trigger-metrics",
+    "icon": "🚨",
+    "name": "Tetikleyici Metrikler",
+    "category": "execution",
+    "description": "Kararın gidişatını izleyen otomatik erken uyarı sinyalleri kurar.",
+    "layer": "execution",
+    "requires": [
+      "boundary-conditions"
+    ],
+    "prompt": "Kararın uygulanma sürecinde takip edilecek 3 erken uyarı sinyali (Trigger Metrics) tanımla. Hangi sayısal değer aşıldığında B Planı devreye girecek?",
+    "desc": "Kararın gidişatını izleyen otomatik erken uyarı sinyalleri kurar.",
+    "explain": "Kararın gidişatını izleyen otomatik erken uyarı sinyalleri kurar."
+  },
+  {
+    "id": "kill-switch-criteria",
+    "icon": "🛑",
+    "name": "İptal Protokolü (Kill Switch)",
+    "category": "execution",
+    "description": "Kararı ne zaman ve nasıl zararsızca durduracağının koşullarını koyar.",
+    "layer": "execution",
+    "requires": [
+      "reversibility-check"
+    ],
+    "prompt": "Kararı tamamen iptal etmek için koşulsuz 'Kill Switch' şartlarını belirle: Hangi bütçe aşımında, zaman kaybında veya performans düşüşünde projeyi durduracağız?",
+    "desc": "Kararı ne zaman ve nasıl zararsızca durduracağının koşullarını koyar.",
+    "explain": "Kararı ne zaman ve nasıl zararsızca durduracağının koşullarını koyar."
+  },
+  {
+    "id": "feedback-loop-design",
+    "icon": "🔁",
+    "name": "Geri Bildirim Mekanizması",
+    "category": "execution",
+    "description": "Kararın sonuçlarını ölçen düzenli gözden geçirme döngüsü kurar.",
+    "layer": "execution",
+    "requires": [
+      "pre-mortem-analysis"
+    ],
+    "prompt": "Karar sonrası izleme döngüsü (Feedback Loop) tasarla: 30, 90 ve 180. günlerde hangi metrikler denetlenecek ve öğrenilen dersler sisteme nasıl aktarılacak?",
+    "desc": "Kararın sonuçlarını ölçen düzenli gözden geçirme döngüsü kurar.",
+    "explain": "Kararın sonuçlarını ölçen düzenli gözden geçirme döngüsü kurar."
+  },
+  {
+    "id": "decision-journaling",
+    "icon": "📓",
+    "name": "Karar Günlüğü Protokolü",
+    "category": "execution",
+    "description": "Karar anındaki zihinsel durumu ve gerekçeleri gelecekteki analiz için kaydeder.",
+    "layer": "execution",
+    "requires": [
+      "decision-framing"
+    ],
+    "prompt": "Karar anındaki varsayımları, ruh halini ve beklenen olasılıkları içeren Karar Günlüğü (Decision Log) şablonunu doldur. Gelecekte sonucun şans mı yoksa doğru analiz mi olduğunu tespit et.",
+    "desc": "Karar anındaki zihinsel durumu ve gerekçeleri gelecekteki analiz için kaydeder.",
+    "explain": "Karar anındaki zihinsel durumu ve gerekçeleri gelecekteki analiz için kaydeder."
+  },
+  {
+    "id": "post-mortem-review",
+    "icon": "🔬",
+    "name": "Post-Mortem İnceleme",
+    "category": "execution",
+    "description": "Uygulama tamamlandıktan sonra beklenti ile gerçekleşeni karşılaştırır.",
+    "layer": "execution",
+    "requires": [
+      "feedback-loop-design"
+    ],
+    "prompt": "Post-Mortem değerlendirmesi yap: Tahmin edilen çıktılar ile gerçekleşen çıktılar arasındaki sapmayı ölç. Karar verme algoritmasındaki sistematik hatayı bul.",
+    "desc": "Uygulama tamamlandıktan sonra beklenti ile gerçekleşeni karşılaştırır.",
+    "explain": "Uygulama tamamlandıktan sonra beklenti ile gerçekleşeni karşılaştırır."
+  }
+]

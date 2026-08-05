@@ -19,15 +19,27 @@ export default function ConfigPanel() {
     const t = getTranslation(config.lang, config.domain);
     const domain = getDomain(config.domain);
 
+    const levelIds = domain.levelIds || Object.keys(domain.optionSets?.levels || {}) || [];
+    const modeIds = domain.modeIds || Object.keys(domain.optionSets?.modes || {}) || [];
+    const depthIds = domain.depthIds || Object.keys(domain.optionSets?.depths || {}) || [];
+    const formatIds = domain.formatIds || Object.keys(domain.optionSets?.formats || {}) || [];
+
+    const getOptionLabel = (optionsMap, id) => {
+        const val = optionsMap?.[id];
+        if (!val) return id;
+        if (typeof val === 'string') return val;
+        return val[config.lang] || val.tr || val.en || id;
+    };
+
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-            <section className="card" style={{ marginBottom: 0, height: '100%', display: 'flex', flexDirection: 'column', gap: '20px' }}>
-                <div className="card-title" style={{ marginBottom: 0 }}><span className="dot"></span> {t.paramsTitle || 'Parametreler'}</div>
+        <aside className="sidebar">
+            <div className="card delay-1">
+                <div className="card-title"><span className="dot"></span> {domain.ui?.paramsTitle || t.paramsTitle || 'Parametreler'}</div>
                 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', flex: 1 }}>
+                <div className="config-form">
                     <div className="input-group">
                         <label htmlFor="sel-seviye" style={{display: 'flex', alignItems: 'center', gap: '6px', position: 'relative'}}>
-                            <GraduationCap size={14} /> {t.levelLabel}
+                            <GraduationCap size={14} /> {domain.ui?.levelLabel || t.levelLabel}
                             <div className="config-tooltip tooltip-down">
                                 <ul className="tooltip-list">
                                     {Object.entries(t.levelDescs || {}).map(([key, text]) => {
@@ -42,14 +54,16 @@ export default function ConfigPanel() {
                             </div>
                         </label>
                         <select id="sel-seviye" value={config.seviye} onChange={(e) => setConfig('seviye', e.target.value)}>
-                            {domain.levelIds.map((id) => (
-                                <option key={id} value={id}>{t.levels?.[id]}</option>
+                            {levelIds.map((id) => (
+                                <option key={id} value={id}>
+                                    {getOptionLabel(domain.optionSets?.levels || t.levels, id)}
+                                </option>
                             ))}
                         </select>
                     </div>
                     <div className="input-group">
                         <label htmlFor="sel-mod" style={{display: 'flex', alignItems: 'center', gap: '6px', position: 'relative'}}>
-                            <Workflow size={14} /> {t.modeLabel}
+                            <Workflow size={14} /> {domain.ui?.modeLabel || t.modeLabel}
                             <div className="config-tooltip tooltip-down">
                                 <ul className="tooltip-list">
                                     {Object.entries(t.modeDescs || {}).map(([key, text]) => {
@@ -64,14 +78,16 @@ export default function ConfigPanel() {
                             </div>
                         </label>
                         <select id="sel-mod" value={config.mod} onChange={(e) => setConfig('mod', e.target.value)}>
-                            {domain.modeIds.map((id) => (
-                                <option key={id} value={id}>{t.modes?.[id]}</option>
+                            {modeIds.map((id) => (
+                                <option key={id} value={id}>
+                                    {getOptionLabel(domain.optionSets?.modes || t.modes, id)}
+                                </option>
                             ))}
                         </select>
                     </div>
                     <div className="input-group">
                         <label htmlFor="sel-derinlik" style={{display: 'flex', alignItems: 'center', gap: '6px', position: 'relative'}}>
-                            <Layers size={14} /> {t.depthLabel}
+                            <Layers size={14} /> {domain.ui?.depthLabel || t.depthLabel}
                             <div className="config-tooltip">
                                 <ul className="tooltip-list">
                                     {Object.entries(t.depthDescs || {}).map(([key, text]) => {
@@ -86,14 +102,16 @@ export default function ConfigPanel() {
                             </div>
                         </label>
                         <select id="sel-derinlik" value={config.derinlik} onChange={(e) => setConfig('derinlik', e.target.value)}>
-                            {domain.depthIds.map((id) => (
-                                <option key={id} value={id}>{t.depths?.[id]}</option>
+                            {depthIds.map((id) => (
+                                <option key={id} value={id}>
+                                    {getOptionLabel(domain.optionSets?.depths || t.depths, id)}
+                                </option>
                             ))}
                         </select>
                     </div>
                     <div className="input-group">
                         <label htmlFor="sel-format" style={{display: 'flex', alignItems: 'center', gap: '6px', position: 'relative'}}>
-                            <FileText size={14} /> {t.formatLabel}
+                            <FileText size={14} /> {domain.ui?.formatLabel || t.formatLabel}
                             <div className="config-tooltip">
                                 <ul className="tooltip-list">
                                     {Object.entries(t.formatDescs || {}).map(([key, text]) => {
@@ -108,8 +126,10 @@ export default function ConfigPanel() {
                             </div>
                         </label>
                         <select id="sel-format" value={config.format} onChange={(e) => setConfig('format', e.target.value)}>
-                            {domain.formatIds.map((id) => (
-                                <option key={id} value={id}>{t.formats?.[id]}</option>
+                            {formatIds.map((id) => (
+                                <option key={id} value={id}>
+                                    {getOptionLabel(domain.optionSets?.formats || t.formats, id)}
+                                </option>
                             ))}
                         </select>
                     </div>
@@ -167,7 +187,7 @@ export default function ConfigPanel() {
                         </div>
                     </div>
                 </div>
-            </section>
-        </div>
+            </div>
+        </aside>
     );
 }

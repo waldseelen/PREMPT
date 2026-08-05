@@ -1,0 +1,412 @@
+[
+  {
+    "id": "val-problem-solution-fit",
+    "icon": "🧩",
+    "name": "Problem-Solution Fit Stress Test",
+    "category": "validation",
+    "description": "Verifies that proposed solutions match severe, monetizable market pain points.",
+    "layer": "validation",
+    "requires": [],
+    "prompt": "Execute Problem-Solution Fit stress test: Verify that the customer pain point is sufficiently severe, frequent, and backed by existing budget allocations.",
+    "desc": "Verifies that proposed solutions match severe, monetizable market pain points.",
+    "explain": "Verifies that proposed solutions match severe, monetizable market pain points."
+  },
+  {
+    "id": "val-customer-interview-script",
+    "icon": "🎙️",
+    "name": "Mom Test Customer Interview Guide",
+    "category": "validation",
+    "description": "Authors Rob Fitzpatrick Mom Test interview questions to extract unbiased historical facts.",
+    "layer": "validation",
+    "requires": [
+      "val-problem-solution-fit"
+    ],
+    "prompt": "Draft Customer Interview Guide following 'The Mom Test' principles: Eliminate leading or compliment-seeking questions; query past actual behaviors and spending history.",
+    "desc": "Authors Rob Fitzpatrick Mom Test interview questions to extract unbiased historical facts.",
+    "explain": "Authors Rob Fitzpatrick Mom Test interview questions to extract unbiased historical facts."
+  },
+  {
+    "id": "val-smoke-test-landing-page",
+    "icon": "🧪",
+    "name": "MVP Smoke Test Specification",
+    "category": "validation",
+    "description": "Designs pre-code landing page experiments to measure actual market demand.",
+    "layer": "validation",
+    "requires": [
+      "val-problem-solution-fit"
+    ],
+    "prompt": "Design MVP Smoke Test experiment: Specify value proposition headline, landing page architecture, and pre-order / waitlist conversion funnel prior to writing code.",
+    "desc": "Designs pre-code landing page experiments to measure actual market demand.",
+    "explain": "Designs pre-code landing page experiments to measure actual market demand."
+  },
+  {
+    "id": "val-value-prop-canvas",
+    "icon": "💎",
+    "name": "Osterwalder Value Proposition Canvas",
+    "category": "validation",
+    "description": "Maps customer jobs, pains, and gains against product features and pain relievers.",
+    "layer": "validation",
+    "requires": [
+      "val-problem-solution-fit"
+    ],
+    "prompt": "Populate Osterwalder's Value Proposition Canvas: Map (a) Customer Jobs, Pains, and Gains against (b) Pain Relievers, Gain Creators, and Product Features.",
+    "desc": "Maps customer jobs, pains, and gains against product features and pain relievers.",
+    "explain": "Maps customer jobs, pains, and gains against product features and pain relievers."
+  },
+  {
+    "id": "val-jobs-to-be-done-jtbd",
+    "icon": "🎯",
+    "name": "Jobs-to-be-Done (JTBD) Framework",
+    "category": "validation",
+    "description": "Uncovers functional, social, and emotional jobs customers 'hire' the product to fulfill.",
+    "layer": "validation",
+    "requires": [
+      "val-problem-solution-fit"
+    ],
+    "prompt": "Apply Jobs-to-be-Done (JTBD) framework: Identify the core functional, social, and emotional job the customer is hiring the product to execute.",
+    "desc": "Uncovers functional, social, and emotional jobs customers 'hire' the product to fulfill.",
+    "explain": "Uncovers functional, social, and emotional jobs customers 'hire' the product to fulfill."
+  },
+  {
+    "id": "val-pivot-or-persevere-audit",
+    "icon": "🔄",
+    "name": "Pivot vs. Persevere Audit",
+    "category": "validation",
+    "description": "Evaluates validated learning data to decide between strategic pivot or optimization.",
+    "layer": "validation",
+    "requires": [
+      "val-smoke-test-landing-page"
+    ],
+    "prompt": "Conduct Pivot vs. Persevere Audit: Evaluate empirical customer learning data to determine whether to pivot core hypotheses or persevere with execution.",
+    "desc": "Evaluates validated learning data to decide between strategic pivot or optimization.",
+    "explain": "Evaluates validated learning data to decide between strategic pivot or optimization."
+  },
+  {
+    "id": "mkt-tam-sam-som-calc",
+    "icon": "📊",
+    "name": "TAM-SAM-SOM Market Sizing Engine",
+    "category": "market",
+    "description": "Calculates TAM, SAM, and SOM market sizing using bottom-up methodologies.",
+    "layer": "market",
+    "requires": [],
+    "prompt": "Calculate TAM, SAM, and SOM market sizes: Validate Total Addressable Market, Serviceable Addressable Market, and Serviceable Obtainable Market using bottom-up data.",
+    "desc": "Calculates TAM, SAM, and SOM market sizing using bottom-up methodologies.",
+    "explain": "Calculates TAM, SAM, and SOM market sizing using bottom-up methodologies."
+  },
+  {
+    "id": "mkt-porters-five-forces",
+    "icon": "🏛️",
+    "name": "Porter's Five Forces Industry Audit",
+    "category": "market",
+    "description": "Evaluates industry competitive intensity and profit margin pressures.",
+    "layer": "market",
+    "requires": [
+      "mkt-tam-sam-som-calc"
+    ],
+    "prompt": "Perform Porter's Five Forces Audit: Score threat of new entrants, substitute products, bargaining power of buyers, supplier power, and competitive rivalry.",
+    "desc": "Evaluates industry competitive intensity and profit margin pressures.",
+    "explain": "Evaluates industry competitive intensity and profit margin pressures."
+  },
+  {
+    "id": "mkt-pestel-macro-analysis",
+    "icon": "🌐",
+    "name": "PESTEL Macro Environment Scanner",
+    "category": "market",
+    "description": "Scans Political, Economic, Social, Technological, Environmental, and Legal forces.",
+    "layer": "market",
+    "requires": [
+      "mkt-tam-sam-som-calc"
+    ],
+    "prompt": "Execute PESTEL Analysis: Map macroeconomic threats and opportunities across Political, Economic, Social, Technological, Environmental, and Legal dimensions.",
+    "desc": "Scans Political, Economic, Social, Technological, Environmental, and Legal forces.",
+    "explain": "Scans Political, Economic, Social, Technological, Environmental, and Legal forces."
+  },
+  {
+    "id": "mkt-competitor-matrix-positioning",
+    "icon": "🗺️",
+    "name": "Competitor Perceptual Mapping",
+    "category": "market",
+    "description": "Plots competitors across key strategic axes to locate market white space.",
+    "layer": "market",
+    "requires": [
+      "mkt-porters-five-forces"
+    ],
+    "prompt": "Construct Competitor Perceptual Positioning Map: Plot rivals along 2 key strategic axes to expose unaddressed market white space.",
+    "desc": "Plots competitors across key strategic axes to locate market white space.",
+    "explain": "Plots competitors across key strategic axes to locate market white space."
+  },
+  {
+    "id": "mkt-blue-ocean-strategy",
+    "icon": "🌊",
+    "name": "Blue Ocean Strategy & ERRC Grid",
+    "category": "market",
+    "description": "Applies Eliminate-Reduce-Raise-Create grid to render competition irrelevant.",
+    "layer": "market",
+    "requires": [
+      "mkt-competitor-matrix-positioning"
+    ],
+    "prompt": "Apply Blue Ocean Strategy (ERRC Grid): Explicitly define industry factors to (a) Eliminate, (b) Reduce, (c) Raise, and (d) Create to unlock uncontested market space.",
+    "desc": "Applies Eliminate-Reduce-Raise-Create grid to render competition irrelevant.",
+    "explain": "Applies Eliminate-Reduce-Raise-Create grid to render competition irrelevant."
+  },
+  {
+    "id": "mkt-icp-persona-definition",
+    "icon": "👤",
+    "name": "Ideal Customer Profile (ICP) Builder",
+    "category": "market",
+    "description": "Profiles high-LTV target accounts across firmographic and behavioral attributes.",
+    "layer": "market",
+    "requires": [
+      "mkt-tam-sam-som-calc"
+    ],
+    "prompt": "Define Ideal Customer Profile (ICP): Detail target account firmographics, budget thresholds, decision-maker titles, tech stack requirements, and buying triggers.",
+    "desc": "Profiles high-LTV target accounts across firmographic and behavioral attributes.",
+    "explain": "Profiles high-LTV target accounts across firmographic and behavioral attributes."
+  },
+  {
+    "id": "eco-cac-ltv-ratio-check",
+    "icon": "⚖️",
+    "name": "CAC:LTV Ratio & Payback Audit",
+    "category": "unit-economics",
+    "description": "Audits unit economics health ensuring $LTV \\ge 3 \\times CAC$ and healthy payback periods.",
+    "layer": "unit-economics",
+    "requires": [],
+    "prompt": "Audit Unit Economics: Evaluate Customer Acquisition Cost (CAC), Lifetime Value (LTV), and Payback Period to ensure $LTV/CAC \\ge 3$ compliance.",
+    "desc": "Audits unit economics health ensuring $LTV \\ge 3 \\times CAC$ and healthy payback periods.",
+    "explain": "Audits unit economics health ensuring $LTV \\ge 3 \\times CAC$ and healthy payback periods."
+  },
+  {
+    "id": "eco-cohort-retention-curve",
+    "icon": "📈",
+    "name": "Cohort Retention & Churn Engine",
+    "category": "unit-economics",
+    "description": "Analyzes retention curves to fix leaky bucket subscription churn.",
+    "layer": "unit-economics",
+    "requires": [
+      "eco-cac-ltv-ratio-check"
+    ],
+    "prompt": "Audit Cohort Retention Curves & Net Churn: Identify the flattening point on user retention curves and establish measures to remediate leaky bucket dynamics.",
+    "desc": "Analyzes retention curves to fix leaky bucket subscription churn.",
+    "explain": "Analyzes retention curves to fix leaky bucket subscription churn."
+  },
+  {
+    "id": "eco-pricing-tier-strategy",
+    "icon": "🏷️",
+    "name": "Value-Based Pricing Tier Strategy",
+    "category": "unit-economics",
+    "description": "Architects Good-Better-Best tier structures anchored in perceived customer value.",
+    "layer": "unit-economics",
+    "requires": [
+      "eco-cac-ltv-ratio-check"
+    ],
+    "prompt": "Architect Value-Based Pricing Tiers: Structure a 3-tier [Good / Better / Best] packaging model with clear value metrics and price anchors.",
+    "desc": "Architects Good-Better-Best tier structures anchored in perceived customer value.",
+    "explain": "Architects Good-Better-Best tier structures anchored in perceived customer value."
+  },
+  {
+    "id": "eco-gross-margin-breakdown",
+    "icon": "📊",
+    "name": "Gross Margin & Contribution Margin",
+    "category": "unit-economics",
+    "description": "Audits COGS and delivery costs to target 70%+ gross margins.",
+    "layer": "unit-economics",
+    "requires": [
+      "eco-cac-ltv-ratio-check"
+    ],
+    "prompt": "Audit Gross Margins & COGS: Detail direct delivery costs and formulate economies-of-scale initiatives to achieve target 70%+ software/service gross margins.",
+    "desc": "Audits COGS and delivery costs to target 70%+ gross margins.",
+    "explain": "Audits COGS and delivery costs to target 70%+ gross margins."
+  },
+  {
+    "id": "eco-burn-rate-runway-calc",
+    "icon": "🔥",
+    "name": "Burn Rate & Runway Buffer Planning",
+    "category": "unit-economics",
+    "description": "Calculates net burn rate and months of runway remaining.",
+    "layer": "unit-economics",
+    "requires": [
+      "eco-cac-ltv-ratio-check"
+    ],
+    "prompt": "Calculate Net Burn Rate & Runway: Compute cash runway months and evaluate Default Alive vs. Default Dead operational trajectories.",
+    "desc": "Calculates net burn rate and months of runway remaining.",
+    "explain": "Calculates net burn rate and months of runway remaining."
+  },
+  {
+    "id": "eco-freemium-conversion-funnel",
+    "icon": "🧲",
+    "name": "Freemium to Paid Conversion Funnel",
+    "category": "unit-economics",
+    "description": "Establishes paywall friction gates to convert free users to paid subscriptions.",
+    "layer": "unit-economics",
+    "requires": [
+      "eco-pricing-tier-strategy"
+    ],
+    "prompt": "Design Freemium Conversion Funnel: Establish paywall feature gates and usage limits targeting a 3-5% free-to-paid conversion rate.",
+    "desc": "Establishes paywall friction gates to convert free users to paid subscriptions.",
+    "explain": "Establishes paywall friction gates to convert free users to paid subscriptions."
+  },
+  {
+    "id": "pit-10-slide-pitch-deck",
+    "icon": "📊",
+    "name": "10-Slide Pitch Deck Architecture",
+    "category": "pitch",
+    "description": "Builds a standard YC/Sequoia 10-slide investor pitch deck framework.",
+    "layer": "pitch",
+    "requires": [],
+    "prompt": "Structure 10-Slide Investor Pitch Deck (Sequoia Standard): (1. Problem, 2. Solution, 3. Market, 4. Product, 5. Traction, 6. Business Model, 7. Competition, 8. Team, 9. Financials, 10. Ask).",
+    "desc": "Builds a standard YC/Sequoia 10-slide investor pitch deck framework.",
+    "explain": "Builds a standard YC/Sequoia 10-slide investor pitch deck framework."
+  },
+  {
+    "id": "pit-hook-elevator-pitch",
+    "icon": "⏱️",
+    "name": "30-Second Elevator Pitch Hook",
+    "category": "pitch",
+    "description": "Refines core value proposition into a memorable 30-second summary.",
+    "layer": "pitch",
+    "requires": [
+      "pit-10-slide-pitch-deck"
+    ],
+    "prompt": "Draft 30-Second Elevator Pitch: Sharpen the core hook: 'We help [Target Audience] solve [Problem] through [Differentiator] to achieve [Big Benefit]'.",
+    "desc": "Refines core value proposition into a memorable 30-second summary.",
+    "explain": "Refines core value proposition into a memorable 30-second summary."
+  },
+  {
+    "id": "pit-investor-qa-defense",
+    "icon": "🛡️",
+    "name": "Investor Q&A Defense Matrix",
+    "category": "pitch",
+    "description": "Prepares data-backed responses for top investor objections.",
+    "layer": "pitch",
+    "requires": [
+      "pit-10-slide-pitch-deck"
+    ],
+    "prompt": "Formulate Investor Q&A Defense Matrix: Prepare data-backed responses for hard investor objections ('What if Google enters?', 'Why is CAC high?').",
+    "desc": "Prepares data-backed responses for top investor objections.",
+    "explain": "Prepares data-backed responses for top investor objections."
+  },
+  {
+    "id": "pit-traction-milestone-roadmap",
+    "icon": "🚀",
+    "name": "Traction & Key Milestone Roadmap",
+    "category": "pitch",
+    "description": "Showcases historical growth momentum and 18-month forward milestones.",
+    "layer": "pitch",
+    "requires": [
+      "pit-10-slide-pitch-deck"
+    ],
+    "prompt": "Structure Traction & Milestones Slide: Highlight MoM growth, MRR metrics, and key operational goals to be unlocked with target investment.",
+    "desc": "Showcases historical growth momentum and 18-month forward milestones.",
+    "explain": "Showcases historical growth momentum and 18-month forward milestones."
+  },
+  {
+    "id": "pit-narrative-arc-storytelling",
+    "icon": "📖",
+    "name": "Founder Narrative Arc & Storytelling",
+    "category": "pitch",
+    "description": "Transforms pitch decks from dry metrics into compelling story arcs.",
+    "layer": "pitch",
+    "requires": [
+      "pit-hook-elevator-pitch"
+    ],
+    "prompt": "Build Founder Pitch Story Arc: Hook investors emotionally, present acute market pain, and position product as the inevitable category winner.",
+    "desc": "Transforms pitch decks from dry metrics into compelling story arcs.",
+    "explain": "Transforms pitch decks from dry metrics into compelling story arcs."
+  },
+  {
+    "id": "pit-data-room-checklist",
+    "icon": "📁",
+    "name": "Investor Data Room Readiness",
+    "category": "pitch",
+    "description": "Organizes legal, financial, and technical assets for due diligence.",
+    "layer": "pitch",
+    "requires": [
+      "pit-10-slide-pitch-deck"
+    ],
+    "prompt": "Compile Investor Data Room Checklist: Organize cap tables, financial models, customer contracts, IP filings, and corporate legal governance files.",
+    "desc": "Organizes legal, financial, and technical assets for due diligence.",
+    "explain": "Organizes legal, financial, and technical assets for due diligence."
+  },
+  {
+    "id": "rsk-business-pre-mortem",
+    "icon": "💀",
+    "name": "Business Pre-Mortem Analysis",
+    "category": "risk",
+    "description": "Assumes company failure 3 years out to proactively fix root causes.",
+    "layer": "risk",
+    "requires": [],
+    "prompt": "Conduct Business Pre-Mortem: Assume it is 3 years in the future and the venture has FAILED. Write the autopsy detailing primary root causes of failure.",
+    "desc": "Assumes company failure 3 years out to proactively fix root causes.",
+    "explain": "Assumes company failure 3 years out to proactively fix root causes."
+  },
+  {
+    "id": "rsk-swot-matrix-action",
+    "icon": "🧩",
+    "name": "Actionable TOWS / SWOT Strategy",
+    "category": "risk",
+    "description": "Cross-analyzes strengths/weaknesses against external opportunities/threats.",
+    "layer": "risk",
+    "requires": [
+      "rsk-business-pre-mortem"
+    ],
+    "prompt": "Execute Actionable TOWS Matrix: Pair internal Strengths with external Opportunities (SO) and Weaknesses with Threats (WT) to derive strategic action items.",
+    "desc": "Cross-analyzes strengths/weaknesses against external opportunities/threats.",
+    "explain": "Cross-analyzes strengths/weaknesses against external opportunities/threats."
+  },
+  {
+    "id": "rsk-regulatory-moat-check",
+    "icon": "🏰",
+    "name": "Economic Moat & Defensibility Audit",
+    "category": "risk",
+    "description": "Evaluates network effects, IP patents, and switching costs protecting the business.",
+    "layer": "risk",
+    "requires": [
+      "rsk-business-pre-mortem"
+    ],
+    "prompt": "Audit Economic Moat & Defensibility: Identify structural barriers (Network Effects, IP/Patents, High Switching Costs) preventing competitor cloning.",
+    "desc": "Evaluates network effects, IP patents, and switching costs protecting the business.",
+    "explain": "Evaluates network effects, IP patents, and switching costs protecting the business."
+  },
+  {
+    "id": "rsk-single-point-failure",
+    "icon": "⚠️",
+    "name": "Single Point of Failure (SPOF) Audit",
+    "category": "risk",
+    "description": "Scans operations for dangerous dependencies on single vendors or individuals.",
+    "layer": "risk",
+    "requires": [
+      "rsk-business-pre-mortem"
+    ],
+    "prompt": "Scan for Single Points of Failure (SPOF): Identify vulnerabilities where operations depend dangerously on a single vendor, channel, or individual.",
+    "desc": "Scans operations for dangerous dependencies on single vendors or individuals.",
+    "explain": "Scans operations for dangerous dependencies on single vendors or individuals."
+  },
+  {
+    "id": "rsk-scenario-financial-stress",
+    "icon": "📉",
+    "name": "Financial Stress Scenario (Bear Case)",
+    "category": "risk",
+    "description": "Tests business survival under severe revenue drops and cost increases.",
+    "layer": "risk",
+    "requires": [
+      "rsk-business-pre-mortem"
+    ],
+    "prompt": "Execute Financial Stress Test (Bear Case): Model cash preservation and survival steps under a 50% revenue drop paired with a 20% cost surge.",
+    "desc": "Tests business survival under severe revenue drops and cost increases.",
+    "explain": "Tests business survival under severe revenue drops and cost increases."
+  },
+  {
+    "id": "rsk-key-person-dependence",
+    "icon": "👥",
+    "name": "Key-Person & Vendor Dependence",
+    "category": "risk",
+    "description": "Establishes institutional knowledge redundancy for key team members.",
+    "layer": "risk",
+    "requires": [
+      "rsk-single-point-failure"
+    ],
+    "prompt": "Formulate Key-Person Continuity Plan: Establish cross-training protocols and institutional knowledge transfer to mitigate key team departure risks.",
+    "desc": "Establishes institutional knowledge redundancy for key team members.",
+    "explain": "Establishes institutional knowledge redundancy for key team members."
+  }
+]

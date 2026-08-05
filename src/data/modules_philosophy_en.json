@@ -1,0 +1,414 @@
+[
+  {
+    "id": "fallacy-detector",
+    "icon": "🔍",
+    "name": "Logical Fallacy Detector",
+    "category": "logic",
+    "description": "Identifies formal and informal logic fallacies within arguments.",
+    "layer": "logic",
+    "requires": [],
+    "prompt": "Detect logical fallacies in the text (Ad Hominem, Straw Man, False Dilemma, Begging the Question). Show precisely how each breaks the deductive chain.",
+    "desc": "Identifies formal and informal logic fallacies within arguments.",
+    "explain": "Identifies formal and informal logic fallacies within arguments."
+  },
+  {
+    "id": "syllogism-validator",
+    "icon": "⚖️",
+    "name": "Syllogism Validator",
+    "category": "logic",
+    "description": "Audits formal validity and soundness of deductive syllogisms.",
+    "layer": "logic",
+    "requires": [
+      "fallacy-detector"
+    ],
+    "prompt": "Reconstruct the argument into standard syllogistic form: Major Premise, Minor Premise, and Conclusion. Test whether inference is formally valid and sound.",
+    "desc": "Audits formal validity and soundness of deductive syllogisms.",
+    "explain": "Audits formal validity and soundness of deductive syllogisms."
+  },
+  {
+    "id": "premise-deconstruction",
+    "icon": "🧩",
+    "name": "Premise Deconstruction",
+    "category": "logic",
+    "description": "Exposes unstated hidden premises and implicit enthymemes.",
+    "layer": "logic",
+    "requires": [
+      "syllogism-validator"
+    ],
+    "prompt": "Expose hidden/implicit premises (enthymemes) underpinning the argument. Rigorously test the falsifiability of these unstated assumptions.",
+    "desc": "Exposes unstated hidden premises and implicit enthymemes.",
+    "explain": "Exposes unstated hidden premises and implicit enthymemes."
+  },
+  {
+    "id": "formal-validity-test",
+    "icon": "📐",
+    "name": "Symbolic Logic Test",
+    "category": "logic",
+    "description": "Performs formal propositional logic checks ($P \\rightarrow Q$).",
+    "layer": "logic",
+    "requires": [
+      "syllogism-validator"
+    ],
+    "prompt": "Translate argument into symbolic propositional logic ($P \\rightarrow Q, \\neg Q \\vdash \\neg P$). Verify valid application of inference rules like Modus Ponens or Modus Tollens.",
+    "desc": "Performs formal propositional logic checks ($P \\rightarrow Q$).",
+    "explain": "Performs formal propositional logic checks ($P \\rightarrow Q$)."
+  },
+  {
+    "id": "informal-fallacy-purge",
+    "icon": "🧹",
+    "name": "Informal Fallacy Purge",
+    "category": "logic",
+    "description": "Strips semantic distortions, false equivalences, and rhetorical ploys.",
+    "layer": "logic",
+    "requires": [
+      "fallacy-detector"
+    ],
+    "prompt": "Purge informal fallacies: Strip misleading analogies, appeals to false authority (Ad Verecundiam), and emotional manipulation markers from prose.",
+    "desc": "Strips semantic distortions, false equivalences, and rhetorical ploys.",
+    "explain": "Strips semantic distortions, false equivalences, and rhetorical ploys."
+  },
+  {
+    "id": "modal-logic-check",
+    "icon": "🌌",
+    "name": "Modal Logic Audit",
+    "category": "logic",
+    "description": "Evaluates propositions across dimensions of necessity and possibility.",
+    "layer": "logic",
+    "requires": [
+      "formal-validity-test"
+    ],
+    "prompt": "Evaluate through Modal Logic: Distinguish whether propositions hold as necessary truths ($\\Box P$) or merely contingent truths across possible worlds ($\\Diamond P$).",
+    "desc": "Evaluates propositions across dimensions of necessity and possibility.",
+    "explain": "Evaluates propositions across dimensions of necessity and possibility."
+  },
+  {
+    "id": "utilitarian-calculus",
+    "icon": "🧮",
+    "name": "Utilitarian Hedonic Calculus",
+    "category": "ethics",
+    "description": "Measures net aggregate pleasure versus pain across affected populations.",
+    "layer": "ethics",
+    "requires": [],
+    "prompt": "Analyze via Utilitarian Ethics (Bentham/Mill): Quantify total pleasure and pain generated across all affected actors (hedonic calculus). Compute net social utility.",
+    "desc": "Measures net aggregate pleasure versus pain across affected populations.",
+    "explain": "Measures net aggregate pleasure versus pain across affected populations."
+  },
+  {
+    "id": "deontological-screen",
+    "icon": "Ö",
+    "name": "Kantian Deontological Screen",
+    "category": "ethics",
+    "description": "Tests actions against the Categorical Imperative and universalizability.",
+    "layer": "ethics",
+    "requires": [],
+    "prompt": "Apply Kantian Deontology and Categorical Imperative tests: (a) Can the underlying maxim be willed as a universal law? (b) Are humans treated as ends or merely as means?",
+    "desc": "Tests actions against the Categorical Imperative and universalizability.",
+    "explain": "Tests actions against the Categorical Imperative and universalizability."
+  },
+  {
+    "id": "virtue-ethics-audit",
+    "icon": "🏛️",
+    "name": "Virtue Ethics Audit",
+    "category": "ethics",
+    "description": "Evaluates moral character traits and Aristotelian Golden Mean alignment.",
+    "layer": "ethics",
+    "requires": [
+      "utilitarian-calculus",
+      "deontological-screen"
+    ],
+    "prompt": "Evaluate via Aristotelian Virtue Ethics: What character virtues (courage, temperance, justice) are expressed? Identify the 'Golden Mean' between deficiency and excess.",
+    "desc": "Evaluates moral character traits and Aristotelian Golden Mean alignment.",
+    "explain": "Evaluates moral character traits and Aristotelian Golden Mean alignment."
+  },
+  {
+    "id": "care-ethics-perspective",
+    "icon": "🤝",
+    "name": "Ethics of Care Analysis",
+    "category": "ethics",
+    "description": "Focuses on relational duties, interdependence, and vulnerability.",
+    "layer": "ethics",
+    "requires": [
+      "virtue-ethics-audit"
+    ],
+    "prompt": "Apply an Ethics of Care framework: Foreground relational interdependencies, vulnerable groups, and empathetic responsibilities over abstract rules.",
+    "desc": "Focuses on relational duties, interdependence, and vulnerability.",
+    "explain": "Focuses on relational duties, interdependence, and vulnerability."
+  },
+  {
+    "id": "rawlsian-veil-ignorance",
+    "icon": "🙈",
+    "name": "Rawlsian Veil of Ignorance",
+    "category": "ethics",
+    "description": "Evaluates justice by stripping knowledge of personal societal status.",
+    "layer": "ethics",
+    "requires": [
+      "deontological-screen"
+    ],
+    "prompt": "Apply John Rawls's 'Veil of Ignorance' test: Would you accept this decision or rule as fair if you had no knowledge of your personal status or place in society?",
+    "desc": "Evaluates justice by stripping knowledge of personal societal status.",
+    "explain": "Evaluates justice by stripping knowledge of personal societal status."
+  },
+  {
+    "id": "ethical-dilemma-resolver",
+    "icon": "🔀",
+    "name": "Ethical Dilemma Resolution",
+    "category": "ethics",
+    "description": "Resolves irreconcilable trade-offs between competing normative frameworks.",
+    "layer": "ethics",
+    "requires": [
+      "utilitarian-calculus",
+      "deontological-screen"
+    ],
+    "prompt": "Resolve the ethical dilemma: Where Utilitarian outcomes conflict with Deontological duties, articulate the tragic trade-off and provide a principled resolution.",
+    "desc": "Resolves irreconcilable trade-offs between competing normative frameworks.",
+    "explain": "Resolves irreconcilable trade-offs between competing normative frameworks."
+  },
+  {
+    "id": "socratic-aporia",
+    "icon": "🏛️",
+    "name": "Socratic Aporia Engine",
+    "category": "epistemology",
+    "description": "Drives interlocutors into productive epistemic perplexity via dialectic questioning.",
+    "layer": "epistemology",
+    "requires": [],
+    "prompt": "Deploy the Socratic Method: Ask 3 consecutive probing questions exposing internal contradictions in definitions to guide the user into productive 'Aporia'.",
+    "desc": "Drives interlocutors into productive epistemic perplexity via dialectic questioning.",
+    "explain": "Drives interlocutors into productive epistemic perplexity via dialectic questioning."
+  },
+  {
+    "id": "justification-trilemma",
+    "icon": "🔺",
+    "name": "Münchhausen Trilemma",
+    "category": "epistemology",
+    "description": "Exposes ultimate justification limits: infinite regress, circularity, or dogmatism.",
+    "layer": "epistemology",
+    "requires": [
+      "socratic-aporia"
+    ],
+    "prompt": "Audit via Münchhausen Trilemma: Where does the chain of justification stop? (a) Infinite regress? (b) Circular reasoning? (c) Dogmatic axiomatic assumption?",
+    "desc": "Exposes ultimate justification limits: infinite regress, circularity, or dogmatism.",
+    "explain": "Exposes ultimate justification limits: infinite regress, circularity, or dogmatism."
+  },
+  {
+    "id": "radical-skepticism-filter",
+    "icon": "🤔",
+    "name": "Cartesian Radical Skepticism",
+    "category": "epistemology",
+    "description": "Subjects all sensory data and assumptions to methodical doubt.",
+    "layer": "epistemology",
+    "requires": [
+      "socratic-aporia"
+    ],
+    "prompt": "Apply Cartesian Radical Skepticism: Could this claim be an artifact of sensory deception or systemic illusion? Identify the indubitable core remaining.",
+    "desc": "Subjects all sensory data and assumptions to methodical doubt.",
+    "explain": "Subjects all sensory data and assumptions to methodical doubt."
+  },
+  {
+    "id": "empiricism-vs-rationalism",
+    "icon": "⚖️",
+    "name": "Empiricism vs. Rationalism",
+    "category": "epistemology",
+    "description": "Separates claims grounded in sensory experience versus pure a priori reasoning.",
+    "layer": "epistemology",
+    "requires": [
+      "justification-trilemma"
+    ],
+    "prompt": "Dissect knowledge sources: Is the conclusion derived a posteriori (sensory observation) or a priori (pure reason)? Uncover epistemic friction between the two.",
+    "desc": "Separates claims grounded in sensory experience versus pure a priori reasoning.",
+    "explain": "Separates claims grounded in sensory experience versus pure a priori reasoning."
+  },
+  {
+    "id": "coherentism-check",
+    "icon": "🕸️",
+    "name": "Epistemic Coherentism Test",
+    "category": "epistemology",
+    "description": "Verifies how seamlessly claims integrate into web of belief networks.",
+    "layer": "epistemology",
+    "requires": [
+      "justification-trilemma"
+    ],
+    "prompt": "Conduct an Epistemic Coherentism check: Does the proposition mesh consistently into the existing web of justified beliefs without generating logical friction?",
+    "desc": "Verifies how seamlessly claims integrate into web of belief networks.",
+    "explain": "Verifies how seamlessly claims integrate into web of belief networks."
+  },
+  {
+    "id": "epistemic-humility-test",
+    "icon": "🌾",
+    "name": "Epistemic Humility Audit",
+    "category": "epistemology",
+    "description": "Maps the absolute limits of human knowability and model bounds.",
+    "layer": "epistemology",
+    "requires": [
+      "socratic-aporia"
+    ],
+    "prompt": "Enforce epistemic humility: Define domain areas that are fundamentally UNKNOWABLE due to cognitive or model limits. Explicitly bound the margin of ignorance.",
+    "desc": "Maps the absolute limits of human knowability and model bounds.",
+    "explain": "Maps the absolute limits of human knowability and model bounds."
+  },
+  {
+    "id": "ship-of-theseus-paradox",
+    "icon": "⛵",
+    "name": "Ship of Theseus Paradox",
+    "category": "thought-experiments",
+    "description": "Examines identity, persistence, and essence through continuous replacement.",
+    "layer": "thought-experiments",
+    "requires": [],
+    "prompt": "Apply the Ship of Theseus paradox: If all component parts of a system are replaced over time, does numerical identity persist? Define its true essence.",
+    "desc": "Examines identity, persistence, and essence through continuous replacement.",
+    "explain": "Examines identity, persistence, and essence through continuous replacement."
+  },
+  {
+    "id": "trolley-problem-variation",
+    "icon": "🚃",
+    "name": "Trolley Problem Dynamics",
+    "category": "thought-experiments",
+    "description": "Explores active intervention versus passive omission moral responsibility.",
+    "layer": "thought-experiments",
+    "requires": [
+      "ship-of-theseus-paradox"
+    ],
+    "prompt": "Adapt the Trolley Problem: Analyze moral culpability in allowing disaster through passive omission versus actively intervening and creating collateral harm.",
+    "desc": "Explores active intervention versus passive omission moral responsibility.",
+    "explain": "Explores active intervention versus passive omission moral responsibility."
+  },
+  {
+    "id": "newcomb-paradox-audit",
+    "icon": "📦",
+    "name": "Newcomb's Paradox Audit",
+    "category": "thought-experiments",
+    "description": "Explores decision theory tension between dominant choice and expected utility.",
+    "layer": "thought-experiments",
+    "requires": [
+      "ship-of-theseus-paradox"
+    ],
+    "prompt": "Analyze via Newcomb's Paradox: When individual choice conflicts with a predictive algorithm, should one optimize for dominance strategy or expected utility?",
+    "desc": "Explores decision theory tension between dominant choice and expected utility.",
+    "explain": "Explores decision theory tension between dominant choice and expected utility."
+  },
+  {
+    "id": "prisoner-dilemma-matrix",
+    "icon": "🚔",
+    "name": "Prisoner's Dilemma Matrix",
+    "category": "thought-experiments",
+    "description": "Models conflict between individual rationality and collective welfare.",
+    "layer": "thought-experiments",
+    "requires": [
+      "trolley-problem-variation"
+    ],
+    "prompt": "Construct a Prisoner's Dilemma matrix: Show how rational individual self-interest leads to collective sub-optimal outcomes (Nash Equilibrium).",
+    "desc": "Models conflict between individual rationality and collective welfare.",
+    "explain": "Models conflict between individual rationality and collective welfare."
+  },
+  {
+    "id": "experience-machine-test",
+    "icon": "🔌",
+    "name": "Nozick's Experience Machine",
+    "category": "thought-experiments",
+    "description": "Tests preference for genuine reality over simulated hedonism.",
+    "layer": "thought-experiments",
+    "requires": [
+      "trolley-problem-variation"
+    ],
+    "prompt": "Apply Nozick's Experience Machine thought experiment: Contrast perfect simulated pleasure against authentic but flawed reality. Evaluate the intrinsic value of truth.",
+    "desc": "Tests preference for genuine reality over simulated hedonism.",
+    "explain": "Tests preference for genuine reality over simulated hedonism."
+  },
+  {
+    "id": "mary-color-scientist",
+    "icon": "🎨",
+    "name": "Mary the Color Scientist (Qualia)",
+    "category": "thought-experiments",
+    "description": "Explores the gap between physical information and subjective qualia.",
+    "layer": "thought-experiments",
+    "requires": [
+      "ship-of-theseus-paradox"
+    ],
+    "prompt": "Apply Jackson's 'Mary's Room' thought experiment: Determine if complete physical knowledge accounts for subjective first-person experience (Qualia).",
+    "desc": "Explores the gap between physical information and subjective qualia.",
+    "explain": "Explores the gap between physical information and subjective qualia."
+  },
+  {
+    "id": "dialectic-synthesis",
+    "icon": "☯️",
+    "name": "Hegelian Dialectic Synthesis",
+    "category": "critique",
+    "description": "Reconciles thesis and antithesis into a higher-order synthesis (Aufhebung).",
+    "layer": "critique",
+    "requires": [
+      "premise-deconstruction"
+    ],
+    "prompt": "Execute Hegelian Dialectic: (a) Formulate the Thesis. (b) Derive the opposing Antithesis. (c) Construct the higher-level Synthesis (Aufhebung) preserving truths of both.",
+    "desc": "Reconciles thesis and antithesis into a higher-order synthesis (Aufhebung).",
+    "explain": "Reconciles thesis and antithesis into a higher-order synthesis (Aufhebung)."
+  },
+  {
+    "id": "steelman-construction",
+    "icon": "🛡️",
+    "name": "Steelman Construction",
+    "category": "critique",
+    "description": "Rebuilds opposition arguments into their most formidable form.",
+    "layer": "critique",
+    "requires": [
+      "dialectic-synthesis"
+    ],
+    "prompt": "Construct a 'Steelman' of the opposing view: Rebuild the counter-argument in its most logical, unassailable form before offering critique.",
+    "desc": "Rebuilds opposition arguments into their most formidable form.",
+    "explain": "Rebuilds opposition arguments into their most formidable form."
+  },
+  {
+    "id": "immanent-critique",
+    "icon": "🔬",
+    "name": "Immanent Critique",
+    "category": "critique",
+    "description": "Critiques a system internally using its own premises and values.",
+    "layer": "critique",
+    "requires": [
+      "steelman-construction"
+    ],
+    "prompt": "Perform Immanent Critique: Evaluate the text strictly through its own stated axioms and internal logic, exposing self-contradictions from within.",
+    "desc": "Critiques a system internally using its own premises and values.",
+    "explain": "Critiques a system internally using its own premises and values."
+  },
+  {
+    "id": "genealogy-deconstruction",
+    "icon": "📜",
+    "name": "Genealogical Deconstruction",
+    "category": "critique",
+    "description": "Uncovers historical power dynamics shaping foundational concepts.",
+    "layer": "critique",
+    "requires": [
+      "immanent-critique"
+    ],
+    "prompt": "Execute a Foucault/Nietzsche Genealogical Deconstruction: Uncover what power struggles and historical contingencies generated concepts assumed to be 'natural'.",
+    "desc": "Uncovers historical power dynamics shaping foundational concepts.",
+    "explain": "Uncovers historical power dynamics shaping foundational concepts."
+  },
+  {
+    "id": "paradigm-shift-detector",
+    "icon": "💥",
+    "name": "Kuhnian Paradigm Shift",
+    "category": "critique",
+    "description": "Identifies accumulated anomalies signaling an impending paradigm shift.",
+    "layer": "critique",
+    "requires": [
+      "dialectic-synthesis"
+    ],
+    "prompt": "Apply Thomas Kuhn's Paradigm Shift framework: Aggregate anomalies ignored by the dominant paradigm and characterize the emerging revolutionary shift.",
+    "desc": "Identifies accumulated anomalies signaling an impending paradigm shift.",
+    "explain": "Identifies accumulated anomalies signaling an impending paradigm shift."
+  },
+  {
+    "id": "metaphysical-presupposition",
+    "icon": "🌌",
+    "name": "Metaphysical Presupposition Audit",
+    "category": "critique",
+    "description": "Interrogates underlying assumptions regarding existence, causality, and time.",
+    "layer": "critique",
+    "requires": [
+      "premise-deconstruction"
+    ],
+    "prompt": "Interrogate foundational Metaphysical Presuppositions (ontology, causality model, nature of time). Demonstrate how altering these axioms changes the conclusion.",
+    "desc": "Interrogates underlying assumptions regarding existence, causality, and time.",
+    "explain": "Interrogates underlying assumptions regarding existence, causality, and time."
+  }
+]

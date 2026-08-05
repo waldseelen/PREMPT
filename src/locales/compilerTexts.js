@@ -6,6 +6,8 @@
 // goalTemplate uses a {{KONU}} placeholder (same convention as the {{ALAN}}
 // token used in module prompts) — structureBuilder replaces it with the
 // user's topic/task text.
+import { getDomain } from '../domains/index.js';
+
 export const COMPILER_TEXTS = {
     learning: {
         tr: {
@@ -164,3 +166,23 @@ export const COMPILER_TEXTS = {
         }
     }
 };
+
+// --- Auto-injected compiler texts ---
+COMPILER_TEXTS['decision'] = COMPILER_TEXTS.learning;
+COMPILER_TEXTS['academic'] = COMPILER_TEXTS.learning;
+COMPILER_TEXTS['philosophy'] = COMPILER_TEXTS.learning;
+COMPILER_TEXTS['problemsolving'] = COMPILER_TEXTS.learning;
+COMPILER_TEXTS['agentarch'] = COMPILER_TEXTS.learning;
+COMPILER_TEXTS['cyber'] = COMPILER_TEXTS.learning;
+COMPILER_TEXTS['blog'] = COMPILER_TEXTS.learning;
+COMPILER_TEXTS['image'] = COMPILER_TEXTS.learning;
+COMPILER_TEXTS['language'] = COMPILER_TEXTS.learning;
+COMPILER_TEXTS['edudesign'] = COMPILER_TEXTS.learning;
+COMPILER_TEXTS['business'] = COMPILER_TEXTS.learning;
+COMPILER_TEXTS['wellness'] = COMPILER_TEXTS.learning;
+COMPILER_TEXTS['travel'] = COMPILER_TEXTS.learning;
+
+export function getCompilerTexts(lang, domain = 'learning') {
+    const domainDef = getDomain(domain);
+    return domainDef?.compilerTexts?.[lang] || (COMPILER_TEXTS[domain] || COMPILER_TEXTS.learning)[lang];
+}

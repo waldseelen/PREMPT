@@ -1,4 +1,4 @@
-import { DEFAULT_DOMAIN } from '../domains/index.js';
+import { DEFAULT_DOMAIN, getDomain } from '../domains/index.js';
 
 // UI strings. Chrome shared across domains (buttons, toasts, tour, footer,
 // badge, etc.) lives at the top level. Everything that varies by domain
@@ -742,12 +742,10 @@ export const i18n = {
  }
 };
 
+
 export function getTranslation(lang, domain = DEFAULT_DOMAIN) {
- const base = i18n[lang] || i18n.en;
- // Mirrors getDomain()'s fallback (src/domains/index.js) so an unrecognized
- // domain — e.g. corrupted/stale localStorage — degrades to the same
- // domain everywhere instead of leaving `t.levels`/`t.modes`/etc. undefined
- // while getDomain() has already fallen back to Learning's option-set ids.
- const domainStrings = base.domains?.[domain] || base.domains?.[DEFAULT_DOMAIN] || {};
- return { ...base, ...domainStrings };
+  const base = i18n[lang] || i18n.en;
+  const domainDef = getDomain(domain);
+  const domainStrings = domainDef?.ui?.[lang] || domainDef?.uiStrings?.[lang] || base.domains?.[domain] || base.domains?.[DEFAULT_DOMAIN] || {};
+  return { ...base, ...domainStrings };
 }

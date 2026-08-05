@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from 'react';
 import { useShallow } from 'zustand/react/shallow';
 import Header from './ui/Header';
 import IntroView from './ui/IntroView';
+import TopicInput from './ui/TopicInput';
+import PresetBar from './ui/PresetBar';
 import ConfigPanel from './ui/ConfigPanel';
 import ModuleGrid from './ui/ModuleGrid';
 import ActionBar from './ui/ActionBar';
@@ -135,34 +137,22 @@ export default function App() {
             <div className="bg-glow-orb orb-2"></div>
             <Header />
             <ErrorBoundary>
-                {view === 'intro' ? (
-                    <main className="container intro-container">
-                        <IntroView showToast={showToast} />
-                    </main>
-                ) : (
-                    <main className="container">
-                        <div className="workspace-topbar">
-                            <button className="btn btn-secondary workspace-back-btn" onClick={backToIntro}>
-                                <ArrowLeft size={14} /> {t.btnBackToIntro}
-                            </button>
-                            <div className="workspace-topic-label">
-                                {config.konu || t.topicPlaceholder}
-                            </div>
+                <main className="container" style={{ paddingTop: '16px' }}>
+                    <div className="layout-grid-3">
+                        <div className="sidebar">
+                            <ConfigPanel />
                         </div>
-                        <div className="layout-grid-3">
-                            <div className="sidebar">
-                                <ConfigPanel />
-                            </div>
-                            <div className="main-content">
-                                <ModuleGrid />
-                            </div>
-                            <div className="right-sidebar">
-                                <ActionBar showToast={showToast} />
-                                <PreviewPanel />
-                            </div>
+                        <div className="main-content">
+                            <TopicInput />
+                            <PresetBar />
+                            <ModuleGrid />
                         </div>
-                    </main>
-                )}
+                        <div className="right-sidebar">
+                            <ActionBar showToast={showToast} />
+                            <PreviewPanel />
+                        </div>
+                    </div>
+                </main>
             </ErrorBoundary>
 
             <div className="toast-container">
