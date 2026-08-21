@@ -11,18 +11,21 @@ export const DOMAIN_GROUPS = [
         domains: [
             {
                 id: 'learning',
+                featured: true,
                 label: { tr: 'Öğrenme', en: 'Learn' },
                 description: { tr: 'Bir konuyu anlaşılır, sistematik ve kalıcı biçimde öğren.', en: 'Learn any topic clearly, systematically, and deeply.' },
                 example: { tr: 'Bir kavramı parçala, açıkla ve pekiştir.', en: 'Break down, explain, and reinforce a concept.' }
             },
             {
                 id: 'decision',
+                featured: true,
                 label: { tr: 'Karar', en: 'Decision' },
                 description: { tr: 'Belirsiz seçenekleri ölçütlere ayır ve daha sağlam karar ver.', en: 'Turn uncertain choices into structured, defensible decisions.' },
                 example: { tr: 'Seçenekleri karşılaştır, riskleri tart ve seçimini gerekçelendir.', en: 'Compare options, weigh risks, and justify a choice.' }
             },
             {
                 id: 'problemsolving',
+                featured: true,
                 label: { tr: 'Problem Çözme', en: 'Problem' },
                 description: { tr: 'Karmaşık bir sorunu kök nedenlerine indir ve çözüm üret.', en: 'Reduce complex problems to root causes and actionable solutions.' },
                 example: { tr: 'Tıkanıklığı bul, alternatifler üret ve test planı kur.', en: 'Find the bottleneck, generate alternatives, and build a test plan.' }

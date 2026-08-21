@@ -130,3 +130,92 @@ The centralized `parameterDescriptions.js` table already contained TR/EN copy fo
 
 #### Commit Status
 These hover fixes are currently uncommitted. The previous commit `5b09dd9` remains intact; no new commit or push was made without explicit approval.
+
+
+### 2026-08-21 — UI/Layout Stabilization Pass
+
+#### What Changed
+1. Reordered Advanced mobile layout so the primary task flow appears first: topic/context, presets, and modules; parameter controls follow; actions and preview come last.
+2. Removed the nested `.sidebar` ownership from `ConfigPanel` and added a dedicated `advanced-parameter-panel` wrapper to reduce competing scroll containers.
+3. Compacted the empty Preview state and reduced its mobile footprint so it no longer dominates the first Advanced viewport.
+4. Added a clearer Advanced action hierarchy with primary copy/reset, AI provider row, and utility share/export/import row; replaced the Gemini extension emoji badge with a Lucide icon.
+5. Added ModuleGrid search, Recommended/Selected/All views, layer filtering, collapsible category headers, balanced per-layer recommendations, and an accessible empty state.
+6. Added centralized bilingual ModuleGrid copy in `src/locales/i18n.js`.
+7. Marked three central quick-start domains in `src/domains/presentation.js`; Default now shows those three first and keeps all 15 domains behind an explicit full-list toggle. The Default flow’s duplicate PREMPT title was reduced to a mode label.
+8. Added responsive CSS for the new Advanced discovery controls, mobile task order, compact preview, Default featured grid, and readable stepper states.
+
+#### What Was Verified
+- `npm run validate`: passed, including all 15-domain module/preset/parameter/presentation/output-target checks and AI route regression.
+- `npm run build`: passed; Vite emitted only the existing large-chunk warning.
+- Targeted ESLint over changed UI files: 0 errors and one pre-existing `App.jsx` hook warning.
+- Full lint: remains blocked only by the pre-existing unused `React` import in `src/ui/PremptLogo.jsx`; the existing `App.jsx` and `OnboardingTour.jsx` hook warnings remain.
+- `git diff --check`: passed after normalizing the new i18n indentation.
+- Browser: 480 px and 1280 px Default/Advanced screenshots verified; Advanced mobile order, compact empty Preview, Default featured domains, full 15-domain toggle, ModuleGrid search, and ModuleGrid view tabs were tested.
+
+#### Remaining Polish
+- Default’s mobile chrome and five-step progress strip still consume substantial first-viewport height.
+- Advanced provider buttons and some preset content still inherit legacy compact/emoji-heavy copy and can receive a separate visual-language cleanup.
+- Changes are uncommitted and unpushed pending user review and approval.
+
+
+### 2026-08-21 — ModuleGrid Layout Regression Fix
+
+#### Root Cause
+The previous discovery pass kept a five-column `categories-container` while filtered views rendered only a subset of category content. It also initialized only the first two layers as expanded. The result was visually empty columns, uneven category headers, and a broken-looking grid in the Recommended view.
+
+#### Fix
+1. Removed the per-domain five-column inline layout contract from `ModuleGrid.jsx`.
+2. Switched the category container to a stable two-column content grid on desktop, two columns on tablet, and one column on mobile.
+3. Initialized all live layers as expanded so categories are not mistaken for missing content.
+4. Kept the existing search, Recommended/Selected/All tabs, layer filters, keyboard activation, dependency highlighting, and hover tooltips intact.
+
+#### Verification
+- `npm run validate`: passed.
+- `npm run build`: passed in 391ms; existing >500 kB chunk warning remains.
+- Targeted ESLint: 0 errors; one pre-existing `App.jsx` hook warning.
+- `git diff --check`: passed.
+- Browser: 1280 × 1100 and 480 × 900 screenshots checked; Recommended and All views were opened in the browser. Category headers and module cards now flow in aligned two-column/one-column layouts without empty five-column placeholders.
+
+#### Commit Status
+The fix is uncommitted and unpushed pending user approval.
+
+
+### 2026-08-21 — Advanced Parameter Rail Horizontal Overflow Fix
+
+#### Root Cause
+The Advanced parameter rail inherited a hidden 340 px `ParameterHoverMenu` tooltip width inside an 18 px inline trigger. Even while hidden, that absolute tooltip increased the label and panel `scrollWidth`, producing a horizontal scrollbar in the desktop Parametreler panel.
+
+#### Fix and Verification
+- Limited `.advanced-parameter-panel` and its outer `.sidebar` to the available width with `min-width: 0` and `overflow-x: hidden`.
+- Constrained parameter tooltip width to the panel’s usable area without removing hover/focus behavior.
+- Confirmed live DOM panel `clientWidth === scrollWidth` after the fix.
+- Checked 1280 px, 1024 px, and 768 px screenshots; no Parametreler horizontal scrollbar or panel overflow remains.
+- `npm run validate`: passed.
+- `npm run build`: passed in 1.20s; existing large-chunk warning remains.
+- Targeted ESLint: 0 errors; one pre-existing `App.jsx` hook warning.
+- `git diff --check`: passed.
+
+#### Commit Status
+The fix remains uncommitted and unpushed pending user approval.
+
+
+### 2026-08-21 — Stable Parameter Hover Layer and System Presets Layout
+
+#### What Changed
+1. Replaced inline absolute parameter label tooltips with `src/ui/ParameterHoverMenu.jsx` portal rendering into `document.body`.
+2. Added one stable tooltip contract: fixed positioning, viewport clamping, opaque surface, `z-index: 20000`, bounded height, and a readable two-column option-description layout. Resize and nested scroll reposition the portal.
+3. Rebuilt `src/ui/PresetBar.jsx` without per-button inline layout styles. Presets now use a shared category list, divider headings, equal-width buttons, and consistent active-state icons.
+4. Added responsive preset grids: four columns on desktop, three at medium widths, two on tablet, and one on mobile. Preset descriptions retain hover tooltips with a separate higher layer.
+5. Removed the active-preset emoji status line in favor of a Lucide confirmation icon.
+
+#### What Was Verified
+- Agent Architecture and Code domains were checked in the browser. Focused parameter hovers render as opaque fixed portals with `opacity: 1`, `visibility: visible`, `z-index: 20000`, and no tooltip overflow.
+- Agent Architecture, Code, and Edu Design desktop/mobile screenshot runs completed. System Presets category headings and buttons remain aligned across domain-specific group names and option lengths.
+- The initial missing `useEngineState` import introduced during the PresetBar rewrite was caught by the browser runtime check and fixed immediately.
+- `npm run validate`: passed.
+- `npm run build`: passed in 934ms; existing large-chunk warning remains.
+- Targeted ESLint: 0 errors; one pre-existing `App.jsx` hook warning.
+- `git diff --check`: passed.
+
+#### Commit Status
+Changes are uncommitted and unpushed pending user approval.

@@ -134,3 +134,17 @@ Per `CLAUDE.md` §9.4 the code wins; the document gets corrected.
       Acceptance: `scripts/audit-parameter-hover.mjs` reports all 15 domains, all four parameter fields, matching live option counts, non-empty TR/EN descriptions, and no generic fallback usage; `npm run validate` runs this audit.
 - [x] 6.3 Verify Advanced hover and focus behavior.
       Acceptance: `Prompt Tipi` and `Mimarlık Tarzı` expose all three Agent Architecture option explanations; all 15 domains render four non-empty label menus in the browser; option listboxes still reveal descriptions on hover/focus; keyboard focus opens the label menu.
+
+
+## Phase 7 — UI/Layout Stabilization Pass
+
+- [x] 7.1 Correct Advanced mobile task order and reduce competing scroll ownership.
+      Acceptance: mobile order is main task surface → parameter panel → actions/preview; ConfigPanel does not introduce a nested `.sidebar` owner; empty Preview is compact.
+- [x] 7.2 Reduce Advanced module discovery density.
+      Acceptance: ModuleGrid provides bilingual search, Recommended/Selected/All views, layer tabs, collapsible category headers, balanced per-layer recommendations, keyboard-reachable controls, and preserves select/toggle/dependency behavior.
+- [x] 7.3 Improve Default first-decision hierarchy.
+      Acceptance: three centrally marked featured domains appear first, all 15 domains remain available through a labeled toggle, and the duplicate Default PREMPT brand title is reduced to a mode label.
+- [x] 7.4 Verify responsive visual regression.
+      Acceptance: 480 px and 1280 px Default/Advanced screenshots are captured; mobile Advanced task order, compact Preview, Default featured domains, full-domain toggle, ModuleGrid search, and view tabs are checked in the browser.
+- [ ] 7.5 Polish remaining chrome and legacy copy.
+      Acceptance: mobile stepper/header height is reduced further, provider/preset emoji-heavy content is replaced or normalized, and the next screenshot pass shows no avoidable first-viewport crowding.

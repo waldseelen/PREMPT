@@ -208,7 +208,7 @@ export default function App() {
                             <div className="main-content">
                                 <TopicInput />
                                 <PresetBar />
-                                <ModuleGrid />
+                                <ModuleGrid key={config.domain} />
                             </div>
                             <div className="right-sidebar">
                                 <ActionBar showToast={showToast} />

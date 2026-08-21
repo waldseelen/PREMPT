@@ -3,7 +3,7 @@ import { useShallow } from 'zustand/react/shallow';
 import { getTranslation } from '../locales/i18n';
 import { getPresets } from '../engine/presetEngine';
 import { getDomain } from '../domains';
-import { Zap } from 'lucide-react';
+import { Check, Zap } from 'lucide-react';
 
 export default function PresetBar() {
     const { config, setPreset, activePreset } = useEngineState(useShallow(state => ({
@@ -28,52 +28,42 @@ export default function PresetBar() {
     });
 
     const presetGroupsMap = domainDef?.ui?.[lang]?.presetGroups || domainDef?.ui?.tr?.presetGroups || t.presetGroups || {};
+    const activePresetName = activePreset ? presets[activePreset]?.name?.[lang] || presets[activePreset]?.name?.tr : null;
 
     return (
-        <section className="card delay-3">
-            <div className="card-title"><span className="dot"></span> {domainDef?.ui?.[lang]?.presetsTitle || t.presetsTitle || "Uzman Hazır Şablonları (System Presets)"}</div>
-            
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                {groupOrder.map(groupKey => {
+        <section className="card delay-3 preset-discovery">
+            <div className="card-title">
+                <span className="dot"></span>
+                {domainDef?.ui?.[lang]?.presetsTitle || t.presetsTitle || 'Uzman Hazır Şablonları (System Presets)'}
+            </div>
+
+            <div className="preset-group-list">
+                {groupOrder.map((groupKey) => {
                     const groupTitle = presetGroupsMap[groupKey] || t.presetGroups?.[groupKey] || groupKey.toUpperCase();
                     return (
-                        <div key={groupKey} className="preset-group">
-                            <div className="preset-group-title" style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--text-secondary)', marginBottom: '8px' }}>
-                                {groupTitle}
-                            </div>
-                            <div className="presets-row" style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', alignItems: 'center' }}>
-                                {grouped[groupKey].map(key => {
+                        <section key={groupKey} className="preset-group">
+                            <h3 className="preset-group-title">{groupTitle}</h3>
+                            <div className="presets-row">
+                                {grouped[groupKey].map((key) => {
                                     const preset = presets[key];
                                     const presetName = preset?.name?.[lang] || preset?.name?.tr || (typeof preset?.name === 'string' ? preset.name : null) || t.presets?.[key] || key;
                                     const description = preset?.desc?.[lang] || preset?.desc?.tr || (typeof preset?.desc === 'string' ? preset.desc : null) || t.presetDescriptions?.[key];
+                                    const isActive = activePreset === key;
 
                                     return (
-                                        <div key={key} className="preset-btn-wrapper" style={{ position: 'relative', flexShrink: 0 }}>
+                                        <div key={key} className="preset-btn-wrapper">
                                             <button
-                                                className={`preset-btn ${activePreset === key ? 'active' : ''}`}
+                                                className={`preset-btn ${isActive ? 'active' : ''}`}
+                                                type="button"
                                                 onClick={() => setPreset(key)}
                                                 title={presetName}
-                                                style={{
-                                                    display: 'inline-flex',
-                                                    alignItems: 'center',
-                                                    gap: '6px',
-                                                    maxWidth: '240px',
-                                                    padding: '6px 12px',
-                                                    borderRadius: '6px',
-                                                    fontSize: '0.88rem',
-                                                    whiteSpace: 'nowrap',
-                                                    overflow: 'hidden',
-                                                    textOverflow: 'ellipsis',
-                                                    cursor: 'pointer'
-                                                }}
+                                                aria-pressed={isActive}
                                             >
-                                                <Zap size={13} style={{ flexShrink: 0 }} />
-                                                <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                                                    {presetName}
-                                                </span>
+                                                {isActive ? <Check size={13} aria-hidden="true" /> : <Zap size={13} aria-hidden="true" />}
+                                                <span>{presetName}</span>
                                             </button>
                                             {description && (
-                                                <div className="module-tooltip" style={{ zIndex: 100 }}>
+                                                <div className="module-tooltip preset-tooltip" role="tooltip">
                                                     <div className="tooltip-title">{presetName}</div>
                                                     <div className="tooltip-explain">{description}</div>
                                                 </div>
@@ -82,14 +72,15 @@ export default function PresetBar() {
                                     );
                                 })}
                             </div>
-                        </div>
+                        </section>
                     );
                 })}
             </div>
 
-            {activePreset && presets[activePreset] && (
-                <div style={{ marginTop: '12px', fontSize: '0.8rem', color: 'var(--accent-1)', fontStyle: 'italic' }}>
-                    ⚡ "{presets[activePreset]?.name?.[lang] || presets[activePreset]?.name?.tr}" {t.presetAppliedDesc || 'şablonu uygulandı.'}
+            {activePresetName && (
+                <div className="preset-active-note" role="status">
+                    <Check size={14} aria-hidden="true" />
+                    <span>“{activePresetName}” {t.presetAppliedDesc || 'şablonu uygulandı.'}</span>
                 </div>
             )}
         </section>

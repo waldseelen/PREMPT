@@ -26,7 +26,7 @@ export default function PreviewPanel() {
     }, [config, selectedModules, injectedRules]);
 
     return (
-        <section className="card" id="preview-card" style={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 0, marginBottom: 0 }}>
+        <section className={`card preview-panel ${generatedPrompt ? 'has-prompt' : 'is-empty'}`} id="preview-card" style={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 0, marginBottom: 0 }}>
             <div className="preview-header">
                 <div className="card-title" style={{ marginBottom: 0 }}>
                     <span className="dot" style={{ background: 'var(--accent-2)' }}></span> {t.previewTitle}
@@ -60,7 +60,7 @@ export default function PreviewPanel() {
                     {generatedPrompt}
                 </div>
             ) : (
-                <div className="preview-empty" style={{ gap: '16px', padding: '2rem 1rem' }}>
+                <div className="preview-empty" style={{ gap: '12px', padding: '1.25rem 1rem' }}>
                     <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                         <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--accent-1)' }}>
                             <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" style={{ opacity: 0.3 }} />

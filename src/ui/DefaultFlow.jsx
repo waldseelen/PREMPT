@@ -38,6 +38,7 @@ export default function DefaultFlow({ onAdvanced, showToast }) {
     const [showAllPresets, setShowAllPresets] = useState(false);
     const [previewOpen, setPreviewOpen] = useState(false);
     const [focusedDomain, setFocusedDomain] = useState(null);
+    const [showAllDomains, setShowAllDomains] = useState(false);
     const [topicError, setTopicError] = useState('');
 
     const {
@@ -63,6 +64,12 @@ export default function DefaultFlow({ onAdvanced, showToast }) {
     const recommendedPresets = presetEntries.slice(0, 4);
     const visiblePresets = showAllPresets ? presetEntries : recommendedPresets;
     const currentDomainPresentation = getDomainPresentation(config.domain);
+    const domainGroups = useMemo(() => {
+        if (showAllDomains) return DOMAIN_GROUPS;
+        return DOMAIN_GROUPS
+            .map((group) => ({ ...group, domains: group.domains.filter((domainEntry) => domainEntry.featured) }))
+            .filter((group) => group.domains.length > 0);
+    }, [showAllDomains]);
 
     const parameterOptions = PARAMETER_FIELDS.map(({ key, idsKey }) => {
         const ids = domain[idsKey] || Object.keys(domain.optionSets?.[key] || {});
@@ -117,8 +124,15 @@ export default function DefaultFlow({ onAdvanced, showToast }) {
             <div className="default-flow-kicker"><Sparkles size={14} /> {flow.modeDefault}</div>
             <h2 id="default-domain-title">{flow.chooseDomainTitle}</h2>
             <p className="default-flow-lead">{flow.chooseDomainDesc}</p>
-            <div className="default-domain-grid">
-                {DOMAIN_GROUPS.map((group) => (
+            <div className="default-domain-mode-row">
+                <span className="default-domain-mode-label">{showAllDomains ? flow.showAllDomains : flow.recommendedDomains}</span>
+                <button type="button" className="default-inline-action" onClick={() => setShowAllDomains((value) => !value)}>
+                    {showAllDomains ? <ChevronUp size={15} /> : <ChevronDown size={15} />}
+                    {showAllDomains ? flow.showFeaturedDomains : flow.showAllDomains}
+                </button>
+            </div>
+            <div className={`default-domain-grid ${showAllDomains ? 'is-expanded' : 'is-featured'}`}>
+                {domainGroups.map((group) => (
                     <section key={group.id} className="default-domain-group" style={{ '--group-color': group.color, '--group-bg': group.bg, '--group-border': group.border }}>
                         <div className="default-domain-group-heading">
                             <span className="default-domain-group-line" />
@@ -270,7 +284,7 @@ export default function DefaultFlow({ onAdvanced, showToast }) {
                 <div className="default-flow-brand">
                     <div className="default-flow-brand-mark"><Sparkles size={22} /></div>
                     <div>
-                        <p className="default-flow-brand-title">{flow.brandTitle}</p>
+                        <p className="default-flow-brand-title">{flow.modeDefault}</p>
                         <p className="default-flow-brand-tagline">{flow.brandTagline}</p>
                     </div>
                 </div>

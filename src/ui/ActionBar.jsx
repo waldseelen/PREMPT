@@ -142,9 +142,9 @@ export default function ActionBar({ showToast }) {
     };
 
     return (
-        <div className="actions-bar" style={{ display: 'flex', flexDirection: 'column', gap: '8px', width: '100%', marginBottom: '16px' }}>
+        <div className="actions-bar advanced-actions" style={{ display: 'flex', flexDirection: 'column', gap: '8px', width: '100%', marginBottom: '16px' }}>
             {/* Row 1: Reset, Copy — preview compiles live now, no separate Generate step */}
-            <div style={{ display: 'flex', gap: '8px', width: '100%' }}>
+            <div className="advanced-action-row advanced-primary-actions" style={{ display: 'flex', gap: '8px', width: '100%' }}>
                 <button className="btn btn-secondary" style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }} onClick={() => { clearAll(); showToast(t.toastReset); }}>
                     <RotateCcw size={16} /> {t.btnReset}
                 </button>
@@ -154,7 +154,7 @@ export default function ActionBar({ showToast }) {
             </div>
             
             {/* Row 2: AI Export Buttons */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '8px', width: '100%' }}>
+            <div className="advanced-action-row advanced-ai-actions" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '8px', width: '100%' }}>
                 <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
                     <button className="btn btn-gemini" style={{ flex: 1, background: '#1e326c', color: '#fff', borderColor: '#1e326c', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px', fontSize: '0.78rem', padding: '8px 4px' }} onClick={() => handleOpenAI('gemini')}>
                         <SiGooglegemini size={14} /> Gemini
@@ -183,7 +183,8 @@ export default function ActionBar({ showToast }) {
                         }}
                         title="Gemini URL doldurma eklentisini yüklemek için tıklayın (Chrome Web Store)"
                     >
-                        🧩
+                                                    <ExternalLink size={10} aria-hidden="true" />
+
                     </a>
                 </div>
                 <button className="btn btn-secondary" style={{ background: '#10a37f', color: '#fff', borderColor: '#10a37f', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', fontSize: '0.8rem', padding: '8px 4px' }} onClick={() => handleOpenAI('chatgpt')}>
@@ -198,7 +199,7 @@ export default function ActionBar({ showToast }) {
             </div>
 
             {/* Row 3: Share / Export / Import — config + selected modules, no backend */}
-            <div style={{ display: 'flex', gap: '8px', width: '100%' }}>
+            <div className="advanced-action-row advanced-utility-actions" style={{ display: 'flex', gap: '8px', width: '100%' }}>
                 <button className="btn btn-secondary" style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', fontSize: '0.8rem' }} onClick={handleShare} title={t.btnShare}>
                     <Share2 size={14} /> {t.btnShare}
                 </button>

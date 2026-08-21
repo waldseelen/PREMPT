@@ -42,7 +42,7 @@ export default function ConfigPanel() {
     };
 
     return (
-        <aside className="sidebar">
+        <aside className="advanced-parameter-panel">
             <div className="card delay-1">
                 <div className="card-title"><span className="dot"></span> {domain.ui?.paramsTitle || t.paramsTitle || 'Parametreler'}</div>
                 
