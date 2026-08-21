@@ -4,7 +4,7 @@ export const travelSpec = {
   "defaultConfig": {
     "seviye": "yerel",
     "mod": "rehber",
-    "derinlik": "orta",
+    "derinlik": "dengeli",
     "format": "gunluk"
   },
   "icon": "plane",
@@ -147,7 +147,7 @@ export const travelSpec = {
         "cur-anti-tourist-trap-filter"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "dengeli",
         "format": "saatlik",
         "mod": "gurme"
       },
@@ -171,7 +171,7 @@ export const travelSpec = {
         "cur-niche-interest-customizer"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "dengeli",
         "format": "saatlik",
         "mod": "gurme"
       },
@@ -195,7 +195,7 @@ export const travelSpec = {
         "rte-walking-distance-transit-opt"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "dengeli",
         "format": "saatlik",
         "mod": "gurme"
       },
@@ -219,7 +219,7 @@ export const travelSpec = {
         "rte-day-trip-hub-spoke-model"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "dengeli",
         "format": "saatlik",
         "mod": "gurme"
       },
@@ -243,7 +243,7 @@ export const travelSpec = {
         "cul-local-etiquette-taboos"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "dengeli",
         "format": "saatlik",
         "mod": "gurme"
       },
@@ -267,7 +267,7 @@ export const travelSpec = {
         "cul-festival-seasonal-event-align"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "dengeli",
         "format": "saatlik",
         "mod": "gurme"
       },
@@ -291,7 +291,7 @@ export const travelSpec = {
         "log-packing-capsule-wardrobe"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "dengeli",
         "format": "saatlik",
         "mod": "gurme"
       },
@@ -315,7 +315,7 @@ export const travelSpec = {
         "log-travel-insurance-health-prep"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "dengeli",
         "format": "saatlik",
         "mod": "gurme"
       },
@@ -339,7 +339,7 @@ export const travelSpec = {
         "bdg-daily-expense-categorizer"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "dengeli",
         "format": "saatlik",
         "mod": "gurme"
       },
@@ -363,7 +363,7 @@ export const travelSpec = {
         "bdg-city-pass-attraction-roi"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "dengeli",
         "format": "saatlik",
         "mod": "gurme"
       },
@@ -387,7 +387,7 @@ export const travelSpec = {
         "cur-anti-tourist-trap-filter"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "dengeli",
         "format": "saatlik",
         "mod": "gurme"
       },
@@ -411,7 +411,7 @@ export const travelSpec = {
         "cur-niche-interest-customizer"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "dengeli",
         "format": "saatlik",
         "mod": "gurme"
       },

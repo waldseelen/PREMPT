@@ -10,7 +10,7 @@ The application compiles a set of user-selected **modules** into one large, stru
 ## 📌 Unified 15-Domain Spec Architecture & Governance
 
 1. **Domain-Specific Encapsulation (`src/domains/specs/<domainId>Spec.js`):**
-   Every domain's UI labels, 4-parameter selector buttons, prompt compilation headers, and 12 custom presets are encapsulated into a single spec file (`src/domains/specs/<domainId>Spec.js`).
+   Every domain's UI labels, option sets, prompt compilation headers, and 12 custom presets are encapsulated in one spec file (`src/domains/specs/<domainId>Spec.js`). Parameter option explanations are maintained in the centralized `src/domains/parameterDescriptions.js` contract and validated against each spec's option ids.
 2. **Centralized Governance (`src/domains/index.js`):**
    Registration, route mapping (`DOMAIN_ROUTES`), and global fallback of all 15 domains is handled from a single entry point (`src/domains/index.js`).
 3. **15 Domains x 12 Presets (180 Total Presets):**
@@ -27,6 +27,19 @@ ui/  →  store/  →  engine/  →  compiler/  →  data/
 ```
 
 `src/ui/` never computes prompt text, resolves dependencies, or mutates state directly — it only reads Zustand state and calls store actions. All "thinking" (dependency resolution, suggestions, prompt assembly, presets) lives in `src/engine/` and `src/compiler/`.
+
+### Central content ownership
+
+| Concern | Canonical owner | Consumers |
+| --- | --- | --- |
+| Domain registration, routes, option ids, labels, compiler headers, presets | `src/domains/index.js` and `src/domains/specs/*Spec.js` | Store, engine, compiler, UI |
+| Parameter option explanations | `src/domains/parameterDescriptions.js` | `ConfigPanel` → `ParameterSelect` |
+| Domain navigation groups, theme tokens, icon ids | `src/domains/presentation.js`, `src/config/theme.js`, and `src/ui/iconRegistry.js` | `DomainSwitcher`, `Header` |
+| Module names, TR/EN descriptions, explanations, prompts, dependencies | `src/data/modules_<domain>_{tr,en}.json` | `moduleRegistry`, `ModuleGrid`, compiler |
+| Module hover view-model assembly | `src/ui/moduleHover.js` | `ModuleGrid` |
+| Preset lookup and application | `src/engine/presetEngine.js` → domain spec presets | `PresetBar`, store, serialization |
+| Suggestion rules | `src/engine/suggestionRules.js` | `intelligenceLayer`, `ModuleGrid` |
+| Output target vocabulary and formatter dispatch | `src/config/outputTargets.js`, `src/compiler/formatterRegistry.js` | `ConfigPanel`, persistence, compiler |
 
 ---
 
@@ -46,7 +59,7 @@ PREMPT/
 ├── index.html                        # Root HTML mount point
 │
 ├── scripts/
-│   └── validate-modules.mjs          # `npm run validate` — validates module JSON schemas across all 15 domains
+│   └── validate-modules.mjs          # `npm run validate` — validates module, preset, and output-target contracts across all 15 domains
 │
 └── src/
     ├── main.jsx                      # React root mount
@@ -55,8 +68,10 @@ PREMPT/
     │
     ├── domains/                      # Declarative domain specifications & central registry
     │   ├── index.js                    # DOMAINS registry map, DEFAULT_DOMAIN ('learning'), getDomain(id)
-    │   └── specs/                      # Unified domain spec files (15 domains)
-    │       ├── types.js                # JSDoc type definitions for DomainSpec
+│   ├── presentation.js             # Central domain navigation groups, theme tokens, and icon ids
+│   ├── parameterDescriptions.js    # Bilingual hover explanations for every domain parameter option
+│   └── specs/                      # Unified domain spec files (15 domains)
+│       ├── types.js                # JSDoc type definitions for DomainSpec
     │       ├── learningSpec.js         # Learning spec (UI, optionSets, compilerTexts, 12 presets)
     │       ├── codeSpec.js             # Code spec (UI, optionSets, compilerTexts, 12 presets)
     │       ├── decisionSpec.js         # Decision spec (UI, optionSets, compilerTexts, 12 presets)
@@ -74,17 +89,21 @@ PREMPT/
     │       └── travelSpec.js           # Travel spec (UI, optionSets, compilerTexts, 12 presets)
     │
     ├── data/                         # Pure module definitions (15 domain pairs: modules_<domain>_{tr,en}.json)
-    ├── engine/                       # Business logic (moduleRegistry, dependencyResolver, intelligenceLayer, presetEngine)
-    ├── compiler/                     # Prompt compilation pipeline (structureBuilder, finalPromptAssembler)
+    ├── config/                       # Shared vocabularies used across UI, compiler, and persistence
+    │   ├── outputTargets.js          # Single output-target id registry
+    │   └── theme.js                  # Theme ids, labels, and transition helper
+    ├── engine/                       # Business logic (moduleRegistry, dependencyResolver, suggestionRules, presetEngine)
+    ├── compiler/                     # Prompt compilation pipeline and formatter registry
     ├── store/                        # Zustand store (engineState.js)
-    ├── locales/                      # UI strings (i18n.js) & compiler text definitions (compilerTexts.js)
+    ├── locales/                      # Shared UI strings (i18n.js) & compiler text adapter (compilerTexts.js)
     ├── utils/                        # aiRouter.js, domainRoute.js, statePayload.js
     └── ui/                           # Single viewport UI components
         ├── Header.jsx                # Header title + DomainSwitcher bar + lang/theme controls
-        ├── DomainSwitcher.jsx        # 5-group x 3-domain horizontal navigation bar
+        ├── DomainSwitcher.jsx        # Horizontal navigation driven by domains/presentation.js
+        ├── ParameterSelect.jsx       # Accessible option dropdown with hover/focus explanations
         ├── PresetBar.jsx             # 12-preset per domain rendering with overflow protection
-        ├── ModuleGrid.jsx            # Module card grid with prompt injection preview tooltips
-        ├── ConfigPanel.jsx           # Dynamic parameter selectors driven by domain specs
+        ├── ModuleGrid.jsx            # Module card grid with centralized module hover model
+        ├── ConfigPanel.jsx           # Dynamic parameter selectors driven by domain specs and descriptions
         ├── TopicInput.jsx            # Topic and domain expertise inputs
         ├── ActionBar.jsx             # Reset, Copy, AI router buttons, Share/Export/Import
         ├── PreviewPanel.jsx          # Live prompt preview & token complexity stats
@@ -135,5 +154,5 @@ Single Zustand store with `persist` middleware (`learning-os-engine-storage`):
 npm run dev        # Starts Vite dev server (port 3000)
 npm run build      # Compiles production bundle to dist/
 npm run lint       # Runs ESLint code check
-node scripts/validate-modules.mjs # Validates 15-domain module datasets
+npm run validate       # Validates 15-domain modules, presets, parameter hover coverage, presentation, and output-target ids
 ```

@@ -4,7 +4,7 @@ export const agentarchSpec = {
   "defaultConfig": {
     "seviye": "system",
     "mod": "persona",
-    "derinlik": "orta",
+    "derinlik": "standart",
     "format": "system-prompt"
   },
   "icon": "bot",
@@ -143,7 +143,7 @@ export const agentarchSpec = {
         "persona-role-definition"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "standart",
         "format": "xml",
         "mod": "guardrail"
       },
@@ -167,7 +167,7 @@ export const agentarchSpec = {
         "domain-expert-profile"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "standart",
         "format": "xml",
         "mod": "guardrail"
       },
@@ -191,7 +191,7 @@ export const agentarchSpec = {
         "cot-step-by-step"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "standart",
         "format": "xml",
         "mod": "guardrail"
       },
@@ -215,7 +215,7 @@ export const agentarchSpec = {
         "verification-step-injection"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "standart",
         "format": "xml",
         "mod": "guardrail"
       },
@@ -239,7 +239,7 @@ export const agentarchSpec = {
         "hallucination-guardrail"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "standart",
         "format": "xml",
         "mod": "guardrail"
       },
@@ -263,7 +263,7 @@ export const agentarchSpec = {
         "claim-source-attribution"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "standart",
         "format": "xml",
         "mod": "guardrail"
       },
@@ -287,7 +287,7 @@ export const agentarchSpec = {
         "few-shot-exemplar-design"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "standart",
         "format": "xml",
         "mod": "guardrail"
       },
@@ -311,7 +311,7 @@ export const agentarchSpec = {
         "dynamic-context-exemplar"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "standart",
         "format": "xml",
         "mod": "guardrail"
       },
@@ -335,7 +335,7 @@ export const agentarchSpec = {
         "variable-ingestion-schema"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "standart",
         "format": "xml",
         "mod": "guardrail"
       },
@@ -359,7 +359,7 @@ export const agentarchSpec = {
         "state-persistence-prompt"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "standart",
         "format": "xml",
         "mod": "guardrail"
       },
@@ -383,7 +383,7 @@ export const agentarchSpec = {
         "persona-role-definition"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "standart",
         "format": "xml",
         "mod": "guardrail"
       },
@@ -407,7 +407,7 @@ export const agentarchSpec = {
         "domain-expert-profile"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "standart",
         "format": "xml",
         "mod": "guardrail"
       },

@@ -4,7 +4,7 @@ export const businessSpec = {
   "defaultConfig": {
     "seviye": "validation",
     "mod": "vc",
-    "derinlik": "orta",
+    "derinlik": "standart",
     "format": "pitch-deck"
   },
   "icon": "briefcase",
@@ -147,7 +147,7 @@ export const businessSpec = {
         "val-problem-solution-fit"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "standart",
         "format": "pitchdeck",
         "mod": "vc"
       },
@@ -171,7 +171,7 @@ export const businessSpec = {
         "val-value-prop-canvas"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "standart",
         "format": "pitchdeck",
         "mod": "vc"
       },
@@ -195,7 +195,7 @@ export const businessSpec = {
         "mkt-tam-sam-som-calc"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "standart",
         "format": "pitchdeck",
         "mod": "vc"
       },
@@ -219,7 +219,7 @@ export const businessSpec = {
         "mkt-competitor-matrix-positioning"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "standart",
         "format": "pitchdeck",
         "mod": "vc"
       },
@@ -243,7 +243,7 @@ export const businessSpec = {
         "eco-cac-ltv-ratio-check"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "standart",
         "format": "pitchdeck",
         "mod": "vc"
       },
@@ -267,7 +267,7 @@ export const businessSpec = {
         "eco-gross-margin-breakdown"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "standart",
         "format": "pitchdeck",
         "mod": "vc"
       },
@@ -291,7 +291,7 @@ export const businessSpec = {
         "pit-10-slide-pitch-deck"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "standart",
         "format": "pitchdeck",
         "mod": "vc"
       },
@@ -315,7 +315,7 @@ export const businessSpec = {
         "pit-traction-milestone-roadmap"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "standart",
         "format": "pitchdeck",
         "mod": "vc"
       },
@@ -339,7 +339,7 @@ export const businessSpec = {
         "rsk-business-pre-mortem"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "standart",
         "format": "pitchdeck",
         "mod": "vc"
       },
@@ -363,7 +363,7 @@ export const businessSpec = {
         "rsk-single-point-failure"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "standart",
         "format": "pitchdeck",
         "mod": "vc"
       },
@@ -387,7 +387,7 @@ export const businessSpec = {
         "val-problem-solution-fit"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "standart",
         "format": "pitchdeck",
         "mod": "vc"
       },
@@ -411,7 +411,7 @@ export const businessSpec = {
         "val-value-prop-canvas"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "standart",
         "format": "pitchdeck",
         "mod": "vc"
       },

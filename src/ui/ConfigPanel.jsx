@@ -2,14 +2,10 @@ import { useEngineState } from '../store/engineState';
 import { useShallow } from 'zustand/react/shallow';
 import { getTranslation } from '../locales/i18n';
 import { getDomain } from '../domains';
+import { OUTPUT_TARGETS } from '../config/outputTargets';
 import { GraduationCap, Workflow, Layers, FileText, BrainCircuit, Link, Terminal } from 'lucide-react';
-
-// Global, domain-agnostic target-syntax ids (Tier B formatters). Kept as a
-// local literal rather than importing from src/compiler/ — ui/ must not
-// reach into compiler/ per the project's layering rules. Mirrors the
-// FORMATTERS keys in finalPromptAssembler.js and VALID_TARGETS in
-// statePayload.js; update all three together if a target is added/removed.
-const TARGET_IDS = ['markdown', 'claude-xml', 'openai-json'];
+import { getParameterDescription } from '../domains/parameterDescriptions';
+import ParameterSelect from './ParameterSelect';
 
 export default function ConfigPanel() {
     const { config, setConfig } = useEngineState(useShallow(state => ({
@@ -30,6 +26,12 @@ export default function ConfigPanel() {
         if (typeof val === 'string') return val;
         return val[config.lang] || val.tr || val.en || id;
     };
+
+    const getParameterOptions = (field, ids, optionsMap) => ids.map((id) => ({
+        id,
+        label: getOptionLabel(optionsMap, id),
+        description: getParameterDescription(config.domain, config.lang, field, id)
+    }));
 
     return (
         <aside className="sidebar">
@@ -53,13 +55,13 @@ export default function ConfigPanel() {
                                 </ul>
                             </div>
                         </label>
-                        <select id="sel-seviye" value={config.seviye} onChange={(e) => setConfig('seviye', e.target.value)}>
-                            {levelIds.map((id) => (
-                                <option key={id} value={id}>
-                                    {getOptionLabel(domain.optionSets?.levels || t.levels, id)}
-                                </option>
-                            ))}
-                        </select>
+                        <ParameterSelect
+                            id="sel-seviye"
+                            label={domain.ui?.levelLabel || t.levelLabel}
+                            value={config.seviye}
+                            options={getParameterOptions('levels', levelIds, domain.optionSets?.levels || t.levels)}
+                            onChange={(value) => setConfig('seviye', value)}
+                        />
                     </div>
                     <div className="input-group">
                         <label htmlFor="sel-mod" style={{display: 'flex', alignItems: 'center', gap: '6px', position: 'relative'}}>
@@ -77,13 +79,13 @@ export default function ConfigPanel() {
                                 </ul>
                             </div>
                         </label>
-                        <select id="sel-mod" value={config.mod} onChange={(e) => setConfig('mod', e.target.value)}>
-                            {modeIds.map((id) => (
-                                <option key={id} value={id}>
-                                    {getOptionLabel(domain.optionSets?.modes || t.modes, id)}
-                                </option>
-                            ))}
-                        </select>
+                        <ParameterSelect
+                            id="sel-mod"
+                            label={domain.ui?.modeLabel || t.modeLabel}
+                            value={config.mod}
+                            options={getParameterOptions('modes', modeIds, domain.optionSets?.modes || t.modes)}
+                            onChange={(value) => setConfig('mod', value)}
+                        />
                     </div>
                     <div className="input-group">
                         <label htmlFor="sel-derinlik" style={{display: 'flex', alignItems: 'center', gap: '6px', position: 'relative'}}>
@@ -101,13 +103,13 @@ export default function ConfigPanel() {
                                 </ul>
                             </div>
                         </label>
-                        <select id="sel-derinlik" value={config.derinlik} onChange={(e) => setConfig('derinlik', e.target.value)}>
-                            {depthIds.map((id) => (
-                                <option key={id} value={id}>
-                                    {getOptionLabel(domain.optionSets?.depths || t.depths, id)}
-                                </option>
-                            ))}
-                        </select>
+                        <ParameterSelect
+                            id="sel-derinlik"
+                            label={domain.ui?.depthLabel || t.depthLabel}
+                            value={config.derinlik}
+                            options={getParameterOptions('depths', depthIds, domain.optionSets?.depths || t.depths)}
+                            onChange={(value) => setConfig('derinlik', value)}
+                        />
                     </div>
                     <div className="input-group">
                         <label htmlFor="sel-format" style={{display: 'flex', alignItems: 'center', gap: '6px', position: 'relative'}}>
@@ -125,13 +127,13 @@ export default function ConfigPanel() {
                                 </ul>
                             </div>
                         </label>
-                        <select id="sel-format" value={config.format} onChange={(e) => setConfig('format', e.target.value)}>
-                            {formatIds.map((id) => (
-                                <option key={id} value={id}>
-                                    {getOptionLabel(domain.optionSets?.formats || t.formats, id)}
-                                </option>
-                            ))}
-                        </select>
+                        <ParameterSelect
+                            id="sel-format"
+                            label={domain.ui?.formatLabel || t.formatLabel}
+                            value={config.format}
+                            options={getParameterOptions('formats', formatIds, domain.optionSets?.formats || t.formats)}
+                            onChange={(value) => setConfig('format', value)}
+                        />
                     </div>
                     <div className="input-group">
                         <label htmlFor="sel-hedef" style={{display: 'flex', alignItems: 'center', gap: '6px', position: 'relative'}}>
@@ -150,7 +152,7 @@ export default function ConfigPanel() {
                             </div>
                         </label>
                         <select id="sel-hedef" value={config.hedef} onChange={(e) => setConfig('hedef', e.target.value)}>
-                            {TARGET_IDS.map((id) => (
+                            {OUTPUT_TARGETS.map((id) => (
                                 <option key={id} value={id}>{t.targets?.[id]}</option>
                             ))}
                         </select>

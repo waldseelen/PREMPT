@@ -4,7 +4,7 @@ export const wellnessSpec = {
   "defaultConfig": {
     "seviye": "antrenman",
     "mod": "koc",
-    "derinlik": "orta",
+    "derinlik": "haftalik",
     "format": "program"
   },
   "icon": "heart",
@@ -147,7 +147,7 @@ export const wellnessSpec = {
         "wrk-progressive-overload-plan"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "haftalik",
         "format": "haftaliktablo",
         "mod": "biohacker"
       },
@@ -171,7 +171,7 @@ export const wellnessSpec = {
         "wrk-zone2-cardio-protocol"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "haftalik",
         "format": "haftaliktablo",
         "mod": "biohacker"
       },
@@ -195,7 +195,7 @@ export const wellnessSpec = {
         "cir-morning-sunlight-anchor"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "haftalik",
         "format": "haftaliktablo",
         "mod": "biohacker"
       },
@@ -219,7 +219,7 @@ export const wellnessSpec = {
         "cir-caffeine-half-life-cutoff"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "haftalik",
         "format": "haftaliktablo",
         "mod": "biohacker"
       },
@@ -243,7 +243,7 @@ export const wellnessSpec = {
         "nut-macro-distribution-calculator"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "haftalik",
         "format": "haftaliktablo",
         "mod": "biohacker"
       },
@@ -267,7 +267,7 @@ export const wellnessSpec = {
         "nut-gut-microbiome-fiber-mix"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "haftalik",
         "format": "haftaliktablo",
         "mod": "biohacker"
       },
@@ -291,7 +291,7 @@ export const wellnessSpec = {
         "adp-injury-deload-protocol"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "haftalik",
         "format": "haftaliktablo",
         "mod": "biohacker"
       },
@@ -315,7 +315,7 @@ export const wellnessSpec = {
         "adp-active-recovery-session"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "haftalik",
         "format": "haftaliktablo",
         "mod": "biohacker"
       },
@@ -339,7 +339,7 @@ export const wellnessSpec = {
         "hab-habit-stacking-atomic"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "haftalik",
         "format": "haftaliktablo",
         "mod": "biohacker"
       },
@@ -363,7 +363,7 @@ export const wellnessSpec = {
         "hab-relapse-prevention-plan"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "haftalik",
         "format": "haftaliktablo",
         "mod": "biohacker"
       },
@@ -387,7 +387,7 @@ export const wellnessSpec = {
         "wrk-progressive-overload-plan"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "haftalik",
         "format": "haftaliktablo",
         "mod": "biohacker"
       },
@@ -411,7 +411,7 @@ export const wellnessSpec = {
         "wrk-zone2-cardio-protocol"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "haftalik",
         "format": "haftaliktablo",
         "mod": "biohacker"
       },

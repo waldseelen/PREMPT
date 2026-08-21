@@ -37,10 +37,7 @@ auth, no database, no API route, and no server-side rendering.** All state lives
 in the browser's `localStorage` through Zustand's `persist` middleware, and every
 hand-off leaves via a URL query parameter or a clipboard copy.
 
-The app serves two parallel **domains** through one shared engine/compiler
-pipeline: **Learning** (deconstruct/understand any concept, 35 modules) and
-**Code** (software-engineering prompting, 32 modules). Domains are declarative
-descriptors, not branches in the engine — see §5.
+The app serves **15 domains** through one shared engine/compiler pipeline. Learning and Code are the original domains; the remaining domains use the same declarative contracts and bilingual module data. Domains are declarative descriptors, not branches in the engine — see §5.
 
 **Stack** (verified against `package.json`): React 19 + React DOM 19,
 Vite 8 (`@vitejs/plugin-react` 6), Zustand 5 (`persist` middleware),
@@ -73,18 +70,11 @@ These five are the complete script list in `package.json`; there are no others.
 
 **There is no test runner in this repo** — no test script, no test framework in
 `devDependencies`, no test files. `npm run validate` is the closest thing to a
-correctness gate, and it is narrow: it validates *only* the four module data
-files (TR/EN parity, required fields present and non-empty, `layer` within the
-domain's enum, duplicate ids, and every `requires` id resolving inside the same
-domain). Run it after touching any `src/data/modules_*.json`.
+correctness gate. It validates every domain's bilingual module data (TR/EN parity, required fields present and non-empty, `layer` within the domain's enum, duplicate ids, and every `requires` id resolving inside the same domain), every domain preset (`forceModules`, `override` keys and values, and translated group labels), all bilingual parameter hover descriptions, presentation registration, and the central output-target vocabulary. Run it after touching module data, domain presets, option sets, descriptions, presentation catalogs, or output-target configuration.
 
-**Documented validation gap:** `scripts/validate-modules.mjs` never opens
-`src/engine/presetEngine.js`. A preset whose `forceModules` names a module id
-that does not exist in that domain's registry, or whose `override` sets a value
-outside that domain's `modeIds`/`levelIds`/`depthIds`/`formatIds`, passes both
-`npm run validate` and `npm run lint` and then silently produces a broken or
-wrong prompt at runtime. Verify new presets by hand against
-`getModuleRegistry(domain, lang)` and the domain descriptor before shipping.
+The validator intentionally checks preset structure and vocabulary, not the
+semantic quality of `injectRules` prose or whether a preset is pedagogically
+well-designed. Review those aspects by hand before shipping a new preset.
 
 ## 3. Document hierarchy — one fact, one home
 
@@ -316,9 +306,10 @@ is the join key, so renaming one breaks the lookup silently.
     injection, and the conflict is invisible until you read a generated prompt.
     (`src/compiler/structureBuilder.js`, `monologueText` in
     `src/locales/compilerTexts.js`)
-12. **Verify a new preset by hand.** Nothing validates preset contents — see the
-    validation gap in §2.
-    (`src/engine/presetEngine.js`)
+12. **Verify a new preset by hand.** `npm run validate` checks preset structure,
+module references, override vocabulary, and bilingual group labels; human review
+is still required for the preset's semantic quality and `injectRules` prose.
+   (`src/engine/presetEngine.js`)
 13. **No emoji in UI or AI slop in frontend.** Use lucide-react icons instead of emoji everywhere — labels, presets, specs, domain data. Never auto-generate or use LLM-produced copy for user-facing text; all strings must be curated by a human hand. The frontend is for learning and craft, not AI filler.
     (`src/ui/DomainSwitcher.jsx` uses lucide icons; domain `specs/*.js` use icon IDs not emoji; `src/locales/` contains hand-written copy)
 

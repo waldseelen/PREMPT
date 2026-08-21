@@ -2,6 +2,7 @@ import { useEngineState } from '../store/engineState';
 import { useShallow } from 'zustand/react/shallow';
 import { getTranslation } from '../locales/i18n';
 import { Sun, Moon, HelpCircle } from 'lucide-react';
+import { getNextTheme, getThemeLabel } from '../config/theme';
 import DomainSwitcher from './DomainSwitcher';
 import PremptLogo from './PremptLogo';
 
@@ -17,7 +18,7 @@ export default function Header() {
     const t = getTranslation(config.lang, config.domain);
 
     const toggleTheme = () => {
-        setTheme(config.theme === 'light' ? 'dark' : 'light');
+        setTheme(getNextTheme(config.theme));
     };
 
     const handleReplayTour = () => {
@@ -68,7 +69,7 @@ export default function Header() {
                 <button
                     onClick={toggleTheme}
                     className="header-icon-btn"
-                    title={`Theme: ${config.theme}`}
+                    title={getThemeLabel(config.lang, config.theme)}
                 >
                     <ThemeIcon size={18} />
                 </button>

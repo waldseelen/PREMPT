@@ -5,92 +5,9 @@ import { getSuggestions } from '../engine/intelligenceLayer';
 import { getTranslation } from '../locales/i18n';
 import { getDomain } from '../domains';
 import { useMemo, useState } from 'react';
-import {
-    Target, Waypoints, ArrowDown10, GitFork, Infinity as InfinityIcon, Settings,
-    Hammer, RotateCcw, History, Swords, SplitSquareHorizontal,
-    Link, Combine, Brain, Component, PlaySquare, FlaskConical,
-    AlertTriangle, LightbulbOff, Lightbulb, XOctagon, Zap, Maximize,
-    Shuffle, TextQuote, BadgeCheck, PieChart, BookMarked,
-    CheckSquare, MoveRight, Telescope, Box, Flame, GraduationCap,
-    Baby, GitMerge, Code,
-    ClipboardList, Plug, Database, Blocks, Package, Puzzle,
-    Calculator, Palette, MessageSquare, Footprints, Map, Scale,
-    Search, ShieldCheck, ListChecks, Bug, Shapes, Truck, FileText,
-    GitPullRequest, GitBranch, Radio, PackageSearch,
-    Accessibility, Rocket, ShieldAlert, KeyRound, Server
-} from 'lucide-react';
-
-const moduleIcons = {
-    // Learning domain
-    kalibrasyon: Target,
-    onkosul: Waypoints,
-    sirasi: ArrowDown10,
-    ontoloji: GitFork,
-    nedensellik: InfinityIcon,
-    mekanizma: Settings,
-    insa: Hammer,
-    tersine: RotateCcw,
-    evrim: History,
-    rakip: Swords,
-    kontrast: SplitSquareHorizontal,
-    esleme: Link,
-    disiplinler: Combine,
-    mental: Brain,
-    diagram: Component,
-    simulasyon: PlaySquare,
-    deney: FlaskConical,
-    yanilgilar: AlertTriangle,
-    varsayimlar: LightbulbOff,
-    basarisizlik: XOctagon,
-    kirilma: Zap,
-    olcek: Maximize,
-    celiski: Shuffle,
-    ornekler: TextQuote,
-    uzman: BadgeCheck,
-    pareto: PieChart,
-    kaynak: BookMarked,
-    quiz: CheckSquare,
-    transfer: MoveRight,
-    gelecek: Telescope,
-    meta: GraduationCap,
-    senaryo: Flame,
-    eli5: Baby,
-    karar: GitMerge,
-    kodlama: Code,
-    // Code domain
-    'req-clarify': ClipboardList,
-    'api-design': Plug,
-    'data-model': Database,
-    architecture: Blocks,
-    'tech-select': Package,
-    implement: Hammer,
-    scaffold: Puzzle,
-    algorithm: Calculator,
-    idioms: Palette,
-    explain: MessageSquare,
-    trace: Footprints,
-    'codebase-map': Map,
-    'compare-approaches': Scale,
-    review: Search,
-    security: ShieldCheck,
-    performance: Zap,
-    tests: ListChecks,
-    'edge-cases': Target,
-    debug: Bug,
-    refactor: RotateCcw,
-    patterns: Shapes,
-    migration: Truck,
-    docs: FileText,
-    'commit-pr': GitPullRequest,
-    concurrency: GitBranch,
-    observability: Radio,
-    'supply-chain': PackageSearch,
-    a11y: Accessibility,
-    cicd: Rocket,
-    'threat-model': ShieldAlert,
-    'auth-design': KeyRound,
-    'infra-security': Server
-};
+import { Lightbulb } from 'lucide-react';
+import { getModuleIcon } from './moduleIconRegistry';
+import { getModuleHoverModel } from './moduleHover';
 
 export default function ModuleGrid() {
     const { config, selectedModules, setModules, toggleModule, dependencyHints } = useEngineState(useShallow(state => ({
@@ -227,7 +144,8 @@ export default function ModuleGrid() {
                                     const isSuggested = suggestions.some(s => s.id === mod.id);
                                     const isPrereq = isActive && prereqIds.has(mod.id);
                                     const isPrereqHighlight = hoveredId && hoveredId !== mod.id && hoveredRequires.has(mod.id);
-                                    const Icon = moduleIcons[mod.id] || Box;
+                                    const Icon = getModuleIcon(mod.id);
+                                    const hover = getModuleHoverModel(mod, modules, t);
                                     const cardClasses = [
                                         'module-card',
                                         isActive ? 'active' : '',
@@ -263,25 +181,23 @@ export default function ModuleGrid() {
                                                 </div>
                                             </div>
 
-                                            {/* Custom High-Contrast Tooltip with Full Details */}
+                                            {/* Central module hover model: content remains in bilingual module data. */}
                                             <div className="module-tooltip">
                                                 <div className="tooltip-title" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                                                    <span>{mod.icon}</span> {mod.name}
+                                                    <span>{hover.icon}</span> {hover.title}
                                                 </div>
-                                                {(mod.desc || mod.explain) && (
-                                                    <div className="tooltip-explain">{mod.desc || mod.explain}</div>
+                                                {hover.description && (
+                                                    <div className="tooltip-explain">{hover.description}</div>
                                                 )}
-                                                {mod.prompt && (
-                                                    <div className="tooltip-prompt-preview" style={{ fontSize: '11px', color: 'var(--text-muted)', marginTop: '6px', fontStyle: 'italic', borderLeft: '2px solid var(--accent, #6366f1)', paddingLeft: '8px', lineHeight: '1.4' }}>
-                                                        ⚡ "{mod.prompt.length > 130 ? mod.prompt.slice(0, 130) + '...' : mod.prompt}"
+                                                {hover.promptPreview && (
+                                                    <div className="tooltip-prompt-preview">
+                                                        "{hover.promptPreview}"
                                                     </div>
                                                 )}
-                                                {mod.requires && mod.requires.length > 0 && (
-                                                    <div className="tooltip-reqs" style={{ marginTop: '6px' }}>
-                                                        <span className="tooltip-reqs-icon">🔗</span> {t.reqsLabel}: {mod.requires.map(reqId => {
-                                                            const reqName = modules.find(m => m.id === reqId)?.name || reqId;
-                                                            return `"${reqName}"`;
-                                                        }).join(', ')}
+                                                {hover.requirements.length > 0 && (
+                                                    <div className="tooltip-reqs">
+                                                        <span className="tooltip-reqs-icon">{t.reqsLabel}</span>{' '}
+                                                        {hover.requirements.map((requirement) => `"${requirement.name}"`).join(', ')}
                                                     </div>
                                                 )}
                                             </div>

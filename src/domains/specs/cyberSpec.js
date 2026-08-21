@@ -4,7 +4,7 @@ export const cyberSpec = {
   "defaultConfig": {
     "seviye": "stride",
     "mod": "redteam",
-    "derinlik": "orta",
+    "derinlik": "standart",
     "format": "threat-model"
   },
   "icon": "shield",
@@ -147,7 +147,7 @@ export const cyberSpec = {
         "stride-threat-model"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "standart",
         "format": "stridematris",
         "mod": "red"
       },
@@ -171,7 +171,7 @@ export const cyberSpec = {
         "data-flow-diagram-audit"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "standart",
         "format": "stridematris",
         "mod": "red"
       },
@@ -195,7 +195,7 @@ export const cyberSpec = {
         "owasp-top10-scanner"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "standart",
         "format": "stridematris",
         "mod": "red"
       },
@@ -219,7 +219,7 @@ export const cyberSpec = {
         "api-security-checklist"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "standart",
         "format": "stridematris",
         "mod": "red"
       },
@@ -243,7 +243,7 @@ export const cyberSpec = {
         "zero-trust-architecture"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "standart",
         "format": "stridematris",
         "mod": "red"
       },
@@ -267,7 +267,7 @@ export const cyberSpec = {
         "network-segmentation-audit"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "standart",
         "format": "stridematris",
         "mod": "red"
       },
@@ -291,7 +291,7 @@ export const cyberSpec = {
         "pentest-scenario-builder"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "standart",
         "format": "stridematris",
         "mod": "red"
       },
@@ -315,7 +315,7 @@ export const cyberSpec = {
         "privilege-escalation-check"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "standart",
         "format": "stridematris",
         "mod": "red"
       },
@@ -339,7 +339,7 @@ export const cyberSpec = {
         "iso27001-gap-analysis"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "standart",
         "format": "stridematris",
         "mod": "red"
       },
@@ -363,7 +363,7 @@ export const cyberSpec = {
         "supply-chain-risk-audit"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "standart",
         "format": "stridematris",
         "mod": "red"
       },
@@ -387,7 +387,7 @@ export const cyberSpec = {
         "stride-threat-model"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "standart",
         "format": "stridematris",
         "mod": "red"
       },
@@ -411,7 +411,7 @@ export const cyberSpec = {
         "data-flow-diagram-audit"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "standart",
         "format": "stridematris",
         "mod": "red"
       },

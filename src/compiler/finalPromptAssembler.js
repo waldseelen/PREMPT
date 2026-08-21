@@ -1,22 +1,7 @@
 import { buildPromptStructure } from './structureBuilder';
 import { sortDependencies } from '../engine/dependencyResolver';
-import { formatMarkdown } from './formatters/markdown';
-import { formatClaudeXml } from './formatters/claudeXml';
-import { formatOpenAiJson } from './formatters/openaiJson';
+import { getFormatter } from './formatterRegistry';
 
-// Target-format dispatch table (Tier B). Keyed by config.hedef (global,
-// domain-agnostic — see engineState.js). Falls back to markdown for a
-// missing/unknown value so pre-`hedef` persisted blobs (which only run
-// through `migrate`, not a hedef backfill) still render correctly.
-const FORMATTERS = {
-    markdown: formatMarkdown,
-    'claude-xml': formatClaudeXml,
-    'openai-json': formatOpenAiJson
-};
-
-function getFormatter(hedef) {
-    return FORMATTERS[hedef] || formatMarkdown;
-}
 
 // `forceTarget` lets a caller render markdown regardless of the user's
 // selected config.hedef — used by ActionBar's AI deep-link buttons, which

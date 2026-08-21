@@ -147,7 +147,7 @@ export const academicSpec = {
         "research-question-def"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "lisans",
         "format": "apa",
         "mod": "reviewer2"
       },
@@ -171,7 +171,7 @@ export const academicSpec = {
         "variable-operationalization"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "lisans",
         "format": "apa",
         "mod": "reviewer2"
       },
@@ -195,7 +195,7 @@ export const academicSpec = {
         "lit-search-strategy"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "lisans",
         "format": "apa",
         "mod": "reviewer2"
       },
@@ -219,7 +219,7 @@ export const academicSpec = {
         "theoretical-framework"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "lisans",
         "format": "apa",
         "mod": "reviewer2"
       },
@@ -243,7 +243,7 @@ export const academicSpec = {
         "academic-tone-c2"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "lisans",
         "format": "apa",
         "mod": "reviewer2"
       },
@@ -267,7 +267,7 @@ export const academicSpec = {
         "hedging-claim-calibration"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "lisans",
         "format": "apa",
         "mod": "reviewer2"
       },
@@ -291,7 +291,7 @@ export const academicSpec = {
         "peer-review-response"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "lisans",
         "format": "apa",
         "mod": "reviewer2"
       },
@@ -315,7 +315,7 @@ export const academicSpec = {
         "major-revision-roadmap"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "lisans",
         "format": "apa",
         "mod": "reviewer2"
       },
@@ -339,7 +339,7 @@ export const academicSpec = {
         "statistical-validity-audit"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "lisans",
         "format": "apa",
         "mod": "reviewer2"
       },
@@ -363,7 +363,7 @@ export const academicSpec = {
         "external-validity-bounds"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "lisans",
         "format": "apa",
         "mod": "reviewer2"
       },
@@ -387,7 +387,7 @@ export const academicSpec = {
         "research-question-def"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "lisans",
         "format": "apa",
         "mod": "reviewer2"
       },
@@ -411,7 +411,7 @@ export const academicSpec = {
         "variable-operationalization"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "lisans",
         "format": "apa",
         "mod": "reviewer2"
       },

@@ -246,7 +246,7 @@ export const edudesignSpec = {
     },
     "gamified-engagement-loop": {
       "id": "gamified-engagement-loop",
-      "group": "engagement",
+      "group": "curriculum",
       "icon": "🎮",
       "name": {
         "tr": "🎮 Oyunlaştırılmış Öğrenme Döngüsü",
@@ -269,7 +269,7 @@ export const edudesignSpec = {
     },
     "analytical-rubric-builder": {
       "id": "analytical-rubric-builder",
-      "group": "rubrics",
+      "group": "assessment",
       "icon": "📏",
       "name": {
         "tr": "📏 Dereceli Değerlendirme Rubric'i",
@@ -292,7 +292,7 @@ export const edudesignSpec = {
     },
     "socratic-seminar-kit": {
       "id": "socratic-seminar-kit",
-      "group": "engagement",
+      "group": "curriculum",
       "icon": "🏛️",
       "name": {
         "tr": "🏛️ Sokratik Seminer & Tartışma Kiti",

@@ -4,7 +4,7 @@ export const blogSpec = {
   "defaultConfig": {
     "seviye": "kisa",
     "mod": "yazar",
-    "derinlik": "orta",
+    "derinlik": "ampirik",
     "format": "taslak"
   },
   "icon": "file-text",
@@ -143,7 +143,7 @@ export const blogSpec = {
         "audience-intent-triage"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "ampirik",
         "format": "writingnotes",
         "mod": "polemik"
       },
@@ -167,7 +167,7 @@ export const blogSpec = {
         "tone-authority-setter"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "ampirik",
         "format": "writingnotes",
         "mod": "polemik"
       },
@@ -191,7 +191,7 @@ export const blogSpec = {
         "evidence-hierarchy-audit"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "ampirik",
         "format": "writingnotes",
         "mod": "polemik"
       },
@@ -215,7 +215,7 @@ export const blogSpec = {
         "anecdotal-evidence-test"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "ampirik",
         "format": "writingnotes",
         "mod": "polemik"
       },
@@ -239,7 +239,7 @@ export const blogSpec = {
         "steelman-counter-arg"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "ampirik",
         "format": "writingnotes",
         "mod": "polemik"
       },
@@ -263,7 +263,7 @@ export const blogSpec = {
         "cognitive-dissonance-hook"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "ampirik",
         "format": "writingnotes",
         "mod": "polemik"
       },
@@ -287,7 +287,7 @@ export const blogSpec = {
         "outline-builder-notes"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "ampirik",
         "format": "writingnotes",
         "mod": "polemik"
       },
@@ -311,7 +311,7 @@ export const blogSpec = {
         "skimmability-formatter"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "ampirik",
         "format": "writingnotes",
         "mod": "polemik"
       },
@@ -335,7 +335,7 @@ export const blogSpec = {
         "pop-culture-cliche-filter"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "ampirik",
         "format": "writingnotes",
         "mod": "polemik"
       },
@@ -359,7 +359,7 @@ export const blogSpec = {
         "passive-voice-trimmer"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "ampirik",
         "format": "writingnotes",
         "mod": "polemik"
       },
@@ -383,7 +383,7 @@ export const blogSpec = {
         "audience-intent-triage"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "ampirik",
         "format": "writingnotes",
         "mod": "polemik"
       },
@@ -407,7 +407,7 @@ export const blogSpec = {
         "tone-authority-setter"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "ampirik",
         "format": "writingnotes",
         "mod": "polemik"
       },

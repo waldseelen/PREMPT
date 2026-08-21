@@ -4,7 +4,7 @@ export const languageSpec = {
   "defaultConfig": {
     "seviye": "lokalizasyon",
     "mod": "native",
-    "derinlik": "orta",
+    "derinlik": "parlatma",
     "format": "metin"
   },
   "icon": "globe",
@@ -143,7 +143,7 @@ export const languageSpec = {
         "loc-cultural-adaptation"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "parlatma",
         "format": "yanyana",
         "mod": "kurumsal"
       },
@@ -167,7 +167,7 @@ export const languageSpec = {
         "loc-brand-voice-translation"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "parlatma",
         "format": "yanyana",
         "mod": "kurumsal"
       },
@@ -191,7 +191,7 @@ export const languageSpec = {
         "reg-academic-c2-elevation"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "parlatma",
         "format": "yanyana",
         "mod": "kurumsal"
       },
@@ -215,7 +215,7 @@ export const languageSpec = {
         "reg-executive-brevity-style"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "parlatma",
         "format": "yanyana",
         "mod": "kurumsal"
       },
@@ -239,7 +239,7 @@ export const languageSpec = {
         "flu-rhythm-cadence-refiner"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "parlatma",
         "format": "yanyana",
         "mod": "kurumsal"
       },
@@ -263,7 +263,7 @@ export const languageSpec = {
         "flu-transitional-cohesion"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "parlatma",
         "format": "yanyana",
         "mod": "kurumsal"
       },
@@ -287,7 +287,7 @@ export const languageSpec = {
         "idm-phrasal-verb-harmonizer"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "parlatma",
         "format": "yanyana",
         "mod": "kurumsal"
       },
@@ -311,7 +311,7 @@ export const languageSpec = {
         "idm-proverbial-equivalents"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "parlatma",
         "format": "yanyana",
         "mod": "kurumsal"
       },
@@ -335,7 +335,7 @@ export const languageSpec = {
         "ped-socratic-tutor-mode"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "parlatma",
         "format": "yanyana",
         "mod": "kurumsal"
       },
@@ -359,7 +359,7 @@ export const languageSpec = {
         "ped-contextual-cloze-creator"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "parlatma",
         "format": "yanyana",
         "mod": "kurumsal"
       },
@@ -383,7 +383,7 @@ export const languageSpec = {
         "loc-cultural-adaptation"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "parlatma",
         "format": "yanyana",
         "mod": "kurumsal"
       },
@@ -407,7 +407,7 @@ export const languageSpec = {
         "loc-brand-voice-translation"
       ],
       "override": {
-        "derinlik": "orta",
+        "derinlik": "parlatma",
         "format": "yanyana",
         "mod": "kurumsal"
       },

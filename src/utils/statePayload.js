@@ -1,17 +1,13 @@
 import { getDomain, DEFAULT_DOMAIN } from '../domains';
 import { getModuleRegistry } from '../engine/moduleRegistry';
 import { getPresets } from '../engine/presetEngine';
+import { OUTPUT_TARGETS } from '../config/outputTargets';
 
 // Shared serialization shape for saved recipes, share links, and JSON
 // export/import. `theme`/`lang`/`tourCompleted` are the recipient's
 // environment, never part of a shared setup, so they're deliberately
 // excluded here — never add them to this payload.
 const PAYLOAD_VERSION = 1;
-
-// Global (domain-agnostic) target-format ids — see engineState.js's `hedef`
-// comment. Kept here rather than imported from the compiler so this module
-// stays free of a compiler dependency for a 3-item allowlist.
-const VALID_TARGETS = ['markdown', 'claude-xml', 'openai-json'];
 
 export function serializeState(state, { includeTopic = false } = {}) {
     const { config, selectedModules, activePreset } = state;
@@ -63,7 +59,7 @@ export function sanitizePayload(raw, lang = 'tr') {
         mod: fallbackOrValid(raw?.mod, domainDescriptor.modeIds, domainDescriptor.defaultConfig.mod),
         derinlik: fallbackOrValid(raw?.derinlik, domainDescriptor.depthIds, domainDescriptor.defaultConfig.derinlik),
         format: fallbackOrValid(raw?.format, domainDescriptor.formatIds, domainDescriptor.defaultConfig.format),
-        hedef: fallbackOrValid(raw?.hedef, VALID_TARGETS, 'markdown'),
+        hedef: fallbackOrValid(raw?.hedef, OUTPUT_TARGETS, OUTPUT_TARGETS[0]),
         monolog: typeof raw?.monolog === 'boolean' ? raw.monolog : false,
         autoResolveDeps: typeof raw?.autoResolveDeps === 'boolean' ? raw.autoResolveDeps : true,
         selectedModules,

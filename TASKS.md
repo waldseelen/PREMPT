@@ -11,30 +11,29 @@ Nothing here is speculative feature work.
 
 ## Phase 1 — Close the preset validation gap
 
-- [ ] 1.1 Extend `scripts/validate-modules.mjs` to validate preset contents.
+- [x] 1.1 Extend `scripts/validate-modules.mjs` to validate preset contents.
       Acceptance: a preset with a bogus `forceModules` id, an out-of-vocabulary
       `override` value, or an unknown `group` makes `npm run validate` exit
       non-zero with a message naming the domain and preset id. This gap is
       documented in `CLAUDE.md` §2 and in `ARCHITECTURE.md`'s "Multi-Domain
       Architecture" section as producing a silently broken prompt at runtime.
-  - [ ] 1.1.1 Import `PRESETS_BY_DOMAIN` (or `getPresets`) and
-        `getModuleRegistry` into the validator, per domain.
+    - [x] 1.1.1 Import `getPresets` into the validator and resolve module ids from each domain's loaded registry, without hardcoding `learning`/`code`.
         Acceptance: the script reads presets for every domain in `DOMAINS`
         without hardcoding `learning`/`code`.
-  - [ ] 1.1.2 Check every `forceModules` id exists in that domain's registry.
+  - [x] 1.1.2 Check every `forceModules` id exists in that domain's registry.
         Acceptance: an unknown id is reported as an error with its preset id.
-  - [ ] 1.1.3 Check every `override` key's value against the domain descriptor's
-        `modeIds`/`levelIds`/`depthIds`/`formatIds`.
+    - [x] 1.1.3 Check every `override` key's value against the domain descriptor's `modeIds`/`levelIds`/`depthIds`/`formatIds`.
         Acceptance: an out-of-vocabulary value is reported as an error.
-  - [ ] 1.1.4 Check every preset's `group` is defined in
-        `i18n[lang].domains[domain].presetGroups` for both languages.
+  - [x] 1.1.4 Check every preset's `group` is defined in
+        `domain.ui[lang].presetGroups` for both languages, which is the live
+        source used by `PresetBar` after the unified domain-spec refactor.
         Acceptance: a preset whose group has no translated label fails the gate,
         in both `tr` and `en`.
-  - [ ] 1.1.5 Update the "does not check presets" wording in `CLAUDE.md` §2 and
+  - [x] 1.1.5 Update the "does not check presets" wording in `CLAUDE.md` §2 and
         `ARCHITECTURE.md` once the check exists.
         Acceptance: no document still claims presets are unvalidated.
 
-- [ ] 1.2 Add a consistency check for the output-target id list.
+- [x] 1.2 Add a consistency check for the output-target id list.
       Acceptance: the ids in `VALID_TARGETS` (`src/utils/statePayload.js`), the
       `FORMATTERS` dispatch table (`src/compiler/finalPromptAssembler.js`), and
       the `<select id="sel-hedef">` options (`src/ui/ConfigPanel.jsx`) are
@@ -103,6 +102,17 @@ Per `CLAUDE.md` §9.4 the code wins; the document gets corrected.
       Acceptance: an explicit decision recorded here; both are unreferenced by
       the build. Do not delete either without asking.
 
-## Phase 4 — Not currently populated
+## Phase 4 — Centralize content ownership and presentation behavior
+
+- [x] 4.1 Move domain navigation groups, theme tokens, and icon ids into `src/domains/presentation.js` with a shared `src/ui/iconRegistry.js`.
+      Acceptance: `DomainSwitcher.jsx` owns no `GROUPS` or domain `ICON_MAP` literals and `npm run validate` verifies all 15 domains have presentation and icon registration.
+- [x] 4.2 Add bilingual parameter hover descriptions and an accessible `ParameterSelect` listbox.
+      Acceptance: all 15 domains and all four option sets have TR/EN descriptions; hover and keyboard focus reveal the active option explanation; `npm run validate` rejects missing coverage.
+- [x] 4.3 Remove duplicate preset/rule/formatter ownership and centralize module hover assembly.
+      Acceptance: presets resolve from domain specs, suggestion rules live in `src/engine/suggestionRules.js`, formatters use `src/compiler/formatterRegistry.js`, output targets use `src/config/outputTargets.js`, and module hover content is assembled by `src/ui/moduleHover.js`.
+- [x] 4.4 Update architecture/agent docs and verify the migration.
+      Acceptance: `npm run validate`, `npm run build`, `git diff --check`, targeted ESLint, and browser checks for TR/EN parameter hover plus module hover all pass.
+
+## Phase 5 — Not currently populated
 
 _No further open tasks recorded yet._
