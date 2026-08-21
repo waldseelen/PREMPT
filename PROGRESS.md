@@ -219,3 +219,23 @@ The fix remains uncommitted and unpushed pending user approval.
 
 #### Commit Status
 Changes are uncommitted and unpushed pending user approval.
+
+
+### 2026-08-21 — ModuleGrid Vertical Scroll Regression Fix
+
+#### Root Cause
+The Advanced main content was the only vertical scroll container, while the five-column ModuleGrid grew beyond the visible task surface. The module card area itself had no scroll viewport, so the visible surface clipped the grid after the first rows.
+
+#### Fix
+- Added a dedicated vertical scroll viewport to `.advanced-container .module-discovery .categories-container`.
+- Kept the requested five-column desktop category layout intact.
+- Limited only horizontal overflow inside the category surface.
+- Removed the dedicated max-height and overflow behavior on mobile so the page retains natural document scrolling.
+
+#### Verification
+In Code `All` view, 32 module cards render across five categories. The category viewport reports `overflow-y: auto`, `clientHeight: 506`, `scrollHeight: 780`, and the final `CI/CD Pipeline Design` card is reachable at the scroll end. Screenshots were checked at 1280, 1024, 768, and 480 px.
+
+`npm run validate`, `npm run build`, and `git diff --check` passed. Targeted ESLint reports 0 errors and the existing `App.jsx` hook warning. The first lint attempt used an incorrect path (`src/ModuleGrid.jsx`); the corrected run used `src/ui/ModuleGrid.jsx` and passed with the known warning.
+
+#### Commit Status
+The fix is uncommitted and unpushed pending user approval.
