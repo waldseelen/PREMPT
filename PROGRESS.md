@@ -10,7 +10,7 @@ current checkout (`CLAUDE.md` §7.1).
 
 | Gate | Command | Result | Last actually run |
 | --- | --- | --- | --- |
-| Lint | `npm run lint` | FAILED — 5 errors, 2 warnings in pre-existing `src/App.jsx`, `src/ui/OnboardingTour.jsx`, and `src/ui/PremptLogo.jsx` findings | 2026-08-21 |
+| Lint | `npm run lint` | FAILED — 1 pre-existing `src/ui/PremptLogo.jsx` unused-import error and 2 pre-existing hook warnings in `src/App.jsx` / `src/ui/OnboardingTour.jsx`; changed UX files have 0 errors | 2026-08-21 |
 | Build | `npm run build` | ✅ PASSED — 282ms; Vite emitted an existing >500 kB chunk warning | 2026-08-21 |
 | Module, preset, parameter, presentation, and target validation | `npm run validate` | ✅ PASSED — all 15 domains, bilingual modules, 180 presets, TR/EN option descriptions, 15 presentation registrations, and central output targets | 2026-08-21 |
 
@@ -84,3 +84,24 @@ Notes on the gates themselves (not results):
 
 #### What Was Left Open
 - None. System is fully operational and zero-error.
+
+
+### 2026-08-21 — Default / Advanced UX Flow and AI Route Stabilization
+
+#### What Changed
+1. Added `src/ui/DefaultFlow.jsx` with a five-step progressive-disclosure journey: domain selection, recommended preset, user need, parameters, and output.
+2. Added bilingual flow copy to `src/locales/i18n.js`, with simpler Default parameter language and 15 domain purpose/example descriptions in `src/domains/presentation.js`.
+3. Added browser-persisted `config.gorunum` (`default` | `advanced`) as a UI preference only. Share, recipe, and import payloads force the full workspace where appropriate and do not serialize the view preference.
+4. Added responsive Default cards, sticky progress/actions, focus-equivalent descriptions, and `prefers-reduced-motion` CSS behavior.
+5. Updated `src/utils/aiRouter.js`: ChatGPT, Perplexity, and Gemini use encoded provider-specific query routes; Claude intentionally opens the composer with clipboard fallback because a reliable public query-prefill contract was not verified.
+6. Added `scripts/validate-ai-routes.mjs` and connected it to `npm run validate`.
+
+#### Verification
+- `npm run validate` passed: all 15 domain/preset/parameter/presentation/output-target checks and AI route regression checks passed.
+- `npm run build` passed in approximately 297 ms.
+- Targeted ESLint passed with 0 errors and one existing `App.jsx` hook warning.
+- Browser smoke checks passed for the 15-domain Default screen, domain hover detail, Travel recommended presets, topic entry, simplified parameter labels, option explanation listbox, Default → Advanced transition, and the full Advanced workspace.
+- ChatGPT `?q=` and Perplexity canonical `/search/new?q=` behavior were checked in the public browser. Claude remained login-gated/blank in the public session, so it uses explicit clipboard fallback.
+
+#### Remaining Note
+- Full `npm run lint` still fails only on the repository’s pre-existing unused `React` import in `src/ui/PremptLogo.jsx`; it also reports the existing `App.jsx` and `src/ui/OnboardingTour.jsx` hook warnings. No unrelated cleanup was added in this UX change.

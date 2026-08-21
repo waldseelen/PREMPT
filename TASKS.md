@@ -113,6 +113,15 @@ Per `CLAUDE.md` §9.4 the code wins; the document gets corrected.
 - [x] 4.4 Update architecture/agent docs and verify the migration.
       Acceptance: `npm run validate`, `npm run build`, `git diff --check`, targeted ESLint, and browser checks for TR/EN parameter hover plus module hover all pass.
 
-## Phase 5 — Not currently populated
+## Phase 5 — Default / Advanced user flow and AI routing
 
-_No further open tasks recorded yet._
+- [x] 5.1 Add the Default five-step journey.
+      Acceptance: the first-run surface guides the user through domain → recommended preset → user need → parameters → output; all 15 domains have localized purpose and example copy; only 3–5 recommended presets are shown before progressive disclosure.
+- [x] 5.2 Add the Advanced mode boundary and local preference.
+      Acceptance: Advanced restores the complete existing workspace, Default remains the initial fallback, the mode switch is reversible, and `config.gorunum` is excluded from share/recipe payloads.
+- [x] 5.3 Add responsive and accessible flow behavior.
+      Acceptance: mobile layout uses stacked cards and sticky navigation/actions, hover content has keyboard-focus equivalents, and `prefers-reduced-motion` disables the new flow animation.
+- [x] 5.4 Stabilize provider-specific AI routes.
+      Acceptance: ChatGPT, Perplexity, and Gemini use encoded provider routes where verified; Claude uses an explicit clipboard fallback; the route regression script validates special-character encoding and provider paths through `npm run validate`.
+- [x] 5.5 Verify and document the migration.
+      Acceptance: `npm run validate`, `npm run build`, targeted ESLint, and browser checks for Default → Advanced, domain → preset → need → parameters, option explanations, and AI route strategy all pass. Full lint’s pre-existing App hook warning remains documented.

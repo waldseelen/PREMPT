@@ -15,8 +15,8 @@ The application compiles a set of user-selected **modules** into one large, stru
    Registration, route mapping (`DOMAIN_ROUTES`), and global fallback of all 15 domains is handled from a single entry point (`src/domains/index.js`).
 3. **15 Domains x 12 Presets (180 Total Presets):**
    Every domain contains 12 handcrafted, domain-specific presets with real titles, bilingual descriptions, category icons, `forceModules`, and parameter locks.
-4. **Single Viewport & Horizontal Navigation:**
-   All controls (`TopicInput`, `PresetBar`, `ModuleGrid`, `ConfigPanel`, `ActionBar`, `PreviewPanel`) render in a single unified viewport with a 5-group x 3-domain horizontal navigation bar in the header bar.
+4. **Two UI Modes with Progressive Disclosure:**
+   The default entry is a mobile-oriented, five-step `DefaultFlow` (domain → recommended preset → user need → parameters → output). It keeps the 15 domains, parameter explanations, and AI actions discoverable without exposing the full module surface at once. The `Advanced` mode preserves the complete workspace: `TopicInput`, `PresetBar`, `ModuleGrid`, `ConfigPanel`, `ActionBar`, and `PreviewPanel`, with the 5-group x 3-domain horizontal navigation bar in the header.
 
 The system enforces a **strict one-way dependency flow**:
 
@@ -97,8 +97,9 @@ PREMPT/
     ├── store/                        # Zustand store (engineState.js)
     ├── locales/                      # Shared UI strings (i18n.js) & compiler text adapter (compilerTexts.js)
     ├── utils/                        # aiRouter.js, domainRoute.js, statePayload.js
-    └── ui/                           # Single viewport UI components
-        ├── Header.jsx                # Header title + DomainSwitcher bar + lang/theme controls
+    └── ui/                           # Default wizard and Advanced workspace components
+        ├── DefaultFlow.jsx            # Five-step default journey with progressive disclosure
+        ├── Header.jsx                # Header title + optional DomainSwitcher + lang/theme controls
         ├── DomainSwitcher.jsx        # Horizontal navigation driven by domains/presentation.js
         ├── ParameterSelect.jsx       # Accessible option dropdown with hover/focus explanations
         ├── PresetBar.jsx             # 12-preset per domain rendering with overflow protection
@@ -121,6 +122,7 @@ Single Zustand store with `persist` middleware (`learning-os-engine-storage`):
 {
   config: {
     domain,                          // 'learning' | 'code' | 'decision' | ... (15 domains)
+    gorunum,                         // 'default' | 'advanced'; UI preference persisted locally only
     konu, alan,                      // topic text, domain expertise text
     seviye, mod, derinlik, format,   // option-set values derived from domain spec
     monolog, autoResolveDeps,        // booleans

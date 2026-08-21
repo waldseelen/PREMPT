@@ -6,7 +6,7 @@ import { getNextTheme, getThemeLabel } from '../config/theme';
 import DomainSwitcher from './DomainSwitcher';
 import PremptLogo from './PremptLogo';
 
-export default function Header() {
+export default function Header({ showDomainSwitcher = true }) {
     const { config, view, setTheme, setConfig, startTour, enterWorkspace } = useEngineState(useShallow(state => ({
         config: state.config,
         view: state.view,
@@ -46,9 +46,9 @@ export default function Header() {
                 </div>
             </div>
             
-            <div style={{ flex: 1, minWidth: 0, display: 'flex', justifyContent: 'center' }}>
-                <DomainSwitcher />
-            </div>
+                <div style={{ flex: 1, minWidth: 0, display: 'flex', justifyContent: 'center' }}>
+                    {showDomainSwitcher ? <DomainSwitcher /> : <span className="header-context-label">PREMPT</span>}
+                </div>
 
             <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexShrink: 0 }}>
                 <button

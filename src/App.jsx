@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useShallow } from 'zustand/react/shallow';
 import Header from './ui/Header';
-import IntroView from './ui/IntroView';
+import DefaultFlow from './ui/DefaultFlow';
 import TopicInput from './ui/TopicInput';
 import PresetBar from './ui/PresetBar';
 import ConfigPanel from './ui/ConfigPanel';
@@ -23,19 +23,17 @@ export default function App() {
     const [toasts, setToasts] = useState([]);
     const toastTimers = useRef(new Map());
 
-    const { config, view, activePreset, selectedModules, startTour, backToIntro } = useEngineState(useShallow(state => ({
+    const { config, view, activePreset, selectedModules, startTour, setGorunum } = useEngineState(useShallow(state => ({
         config: state.config,
         view: state.view,
         activePreset: state.activePreset,
         selectedModules: state.selectedModules,
         startTour: state.startTour,
-        backToIntro: state.backToIntro
+        setGorunum: state.setGorunum
     })));
-    const t = getTranslation(config.lang, config.domain);
-
     // Mount-time URL Query & Path handling
     useEffect(() => {
-        const { config: currentConfig, setDomain, setPreset, setModules, applySharedState } = useEngineState.getState();
+        const { config: currentConfig, setDomain, setPreset, setModules, setGorunum, applySharedState } = useEngineState.getState();
         const params = new URLSearchParams(window.location.search);
         const shareParam = params.get('share');
 
@@ -61,11 +59,13 @@ export default function App() {
         const presetParam = params.get('preset');
         if (presetParam) {
             setPreset(presetParam);
+            setGorunum('advanced');
         } else {
             const modulesParam = params.get('modules') || params.get('mods');
             if (modulesParam) {
                 const moduleList = modulesParam.split(',').map(m => m.trim()).filter(Boolean);
                 setModules(moduleList);
+                setGorunum('advanced');
             }
         }
 
@@ -184,28 +184,41 @@ export default function App() {
         toastTimers.current.set(id, timerId);
     };
 
+    const isAdvanced = config.gorunum === 'advanced';
+    const t = getTranslation(config.lang, config.domain);
+
     return (
         <div className="app">
             <div className="bg-glow-orb orb-1"></div>
             <div className="bg-glow-orb orb-2"></div>
-            <Header />
+            <Header showDomainSwitcher={isAdvanced} />
             <ErrorBoundary>
-                <main className="container" style={{ paddingTop: '16px' }}>
-                    <div className="layout-grid-3">
-                        <div className="sidebar">
-                            <ConfigPanel />
+                {isAdvanced ? (
+                    <main className="container advanced-container" style={{ paddingTop: '16px' }}>
+                        <div className="workspace-topbar">
+                            <button type="button" className="btn btn-secondary workspace-back-btn" onClick={() => setGorunum('default')}>
+                                <ArrowLeft size={15} /> {t.flow?.modeDefault || 'Default'}
+                            </button>
+                            <span className="workspace-topic-label">{t.flow?.modeAdvanced || 'Advanced'}</span>
                         </div>
-                        <div className="main-content">
-                            <TopicInput />
-                            <PresetBar />
-                            <ModuleGrid />
+                        <div className="layout-grid-3">
+                            <div className="sidebar">
+                                <ConfigPanel />
+                            </div>
+                            <div className="main-content">
+                                <TopicInput />
+                                <PresetBar />
+                                <ModuleGrid />
+                            </div>
+                            <div className="right-sidebar">
+                                <ActionBar showToast={showToast} />
+                                <PreviewPanel />
+                            </div>
                         </div>
-                        <div className="right-sidebar">
-                            <ActionBar showToast={showToast} />
-                            <PreviewPanel />
-                        </div>
-                    </div>
-                </main>
+                    </main>
+                ) : (
+                    <DefaultFlow onAdvanced={() => setGorunum('advanced')} showToast={showToast} />
+                )}
             </ErrorBoundary>
 
             <div className="toast-container">
@@ -213,7 +226,7 @@ export default function App() {
                     <Toast key={toast.id} msg={toast.msg} type={toast.type} />
                 ))}
             </div>
-            <OnboardingTour />
+            {isAdvanced && <OnboardingTour />}
         </div>
     );
 }

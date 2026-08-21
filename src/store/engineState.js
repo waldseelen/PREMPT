@@ -31,7 +31,9 @@ export const useEngineState = create(
                 hedef: 'markdown',
                 theme: 'system',
                 lang: 'tr',
-                tourCompleted: false
+                tourCompleted: false,
+                // UI preference only; intentionally excluded from share/recipe payloads.
+                gorunum: 'default'
             },
 
             // 2. Active Behaviors (Modules & Presets)
@@ -87,6 +89,10 @@ export const useEngineState = create(
 
             setTheme: (themeVal) => set((state) => ({
                 config: { ...state.config, theme: themeVal }
+            })),
+
+            setGorunum: (mode) => set((state) => ({
+                config: { ...state.config, gorunum: mode === 'advanced' ? 'advanced' : 'default' }
             })),
 
             // --- View routing ---
@@ -202,7 +208,8 @@ export const useEngineState = create(
                         format: clean.format,
                         hedef: clean.hedef,
                         monolog: clean.monolog,
-                        autoResolveDeps: clean.autoResolveDeps
+                        autoResolveDeps: clean.autoResolveDeps,
+                        gorunum: 'advanced'
                     },
                     selectedModules: clean.selectedModules,
                     activePreset: clean.activePreset,
@@ -231,7 +238,8 @@ export const useEngineState = create(
                         format: clean.format,
                         hedef: clean.hedef,
                         monolog: clean.monolog,
-                        autoResolveDeps: clean.autoResolveDeps
+                        autoResolveDeps: clean.autoResolveDeps,
+                        gorunum: 'advanced'
                     },
                     selectedModules: clean.selectedModules,
                     activePreset: clean.activePreset,
@@ -266,6 +274,7 @@ export const useEngineState = create(
                 ...persistedState,
                 config: {
                     domain: DEFAULT_DOMAIN,
+                    gorunum: 'default',
                     ...persistedState?.config
                 }
             }),
