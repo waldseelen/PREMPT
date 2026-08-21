@@ -11,8 +11,8 @@ current checkout (`CLAUDE.md` §7.1).
 | Gate | Command | Result | Last actually run |
 | --- | --- | --- | --- |
 | Lint | `npm run lint` | FAILED — 1 pre-existing `src/ui/PremptLogo.jsx` unused-import error and 2 pre-existing hook warnings in `src/App.jsx` / `src/ui/OnboardingTour.jsx`; changed UX files have 0 errors | 2026-08-21 |
-| Build | `npm run build` | ✅ PASSED — 282ms; Vite emitted an existing >500 kB chunk warning | 2026-08-21 |
-| Module, preset, parameter, presentation, and target validation | `npm run validate` | ✅ PASSED — all 15 domains, bilingual modules, 180 presets, TR/EN option descriptions, 15 presentation registrations, and central output targets | 2026-08-21 |
+| Build | `npm run build` | ✅ PASSED — 273ms; Vite emitted an existing >500 kB chunk warning | 2026-08-21 |
+| Module, preset, parameter, presentation, hover, and target validation | `npm run validate` | ✅ PASSED — all 15 domains, bilingual modules, 180 presets, TR/EN option descriptions, 15 presentation registrations, all 15 × 4 advanced hover menus, and central output targets | 2026-08-21 |
 
 Notes on the gates themselves (not results):
 
@@ -105,3 +105,28 @@ Notes on the gates themselves (not results):
 
 #### Remaining Note
 - Full `npm run lint` still fails only on the repository’s pre-existing unused `React` import in `src/ui/PremptLogo.jsx`; it also reports the existing `App.jsx` and `src/ui/OnboardingTour.jsx` hook warnings. No unrelated cleanup was added in this UX change.
+
+
+### 2026-08-21 — Complete Advanced Parameter Hover Coverage
+
+#### Root Cause
+The centralized `parameterDescriptions.js` table already contained TR/EN copy for every live option id, but Advanced `ConfigPanel` label tooltips still read legacy `i18n` `levelDescs`, `modeDescs`, `depthDescs`, and `formatDescs` maps. Those maps were not present for all 15 domains, so domains such as Agent Architecture rendered empty label hover menus even though option-level descriptions existed.
+
+#### What Changed
+1. Added `src/ui/ParameterHoverMenu.jsx`, a shared Advanced label hover/focus menu that consumes the live option labels and centralized `getParameterDescription()` results.
+2. Rewired all four Advanced ConfigPanel parameter labels to the centralized menu, removing the partial legacy `i18n` description dependency.
+3. Added responsive width, upward/downward placement, readable option grids, and `:focus` support so the menu is usable by mouse and keyboard.
+4. Added `scripts/audit-parameter-hover.mjs` to compare all 15 domain specs against centralized descriptions, reject missing TR/EN copy, detect stale ids, and detect generic fallback usage. `npm run validate` now runs this audit.
+5. Updated `ARCHITECTURE.md` and `TASKS.md` with the new ownership and acceptance contract.
+
+#### Verification
+- The audit covered all 15 domains and all four parameter fields. It reported no missing descriptions, no missing language text, no stale ids, no fallback use, and no empty descriptions.
+- Browser DOM scan opened all 15 domains and found four non-empty label menus per domain. Option counts matched the live specs: 60 label menus total with no empty descriptions.
+- Agent Architecture was specifically checked: `Prompt Tipi` exposes `System Prompt`, `Custom GPT Talimatı`, and `Agent CoT Pipeline`; `Mimarlık Tarzı` exposes `Sıkı Kısıtlayıcı (Guardrail)`, `Chain-of-Thought (CoT)`, and `Few-Shot Eğitimci`, each with domain-specific explanations.
+- Keyboard focus made the label tooltip visible (`opacity: 1`, `visibility: visible`), and a real click opened the `Prompt Tipi` listbox with all three option descriptions.
+- Targeted ESLint passed with 0 errors.
+- `npm run validate` passed, including module/preset/parameter/presentation/output-target checks, the new hover audit, and AI route regression.
+- `npm run build` passed in 273 ms; the existing large-chunk warning remains.
+
+#### Commit Status
+These hover fixes are currently uncommitted. The previous commit `5b09dd9` remains intact; no new commit or push was made without explicit approval.

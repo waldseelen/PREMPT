@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "validate": "node scripts/validate-modules.mjs && node scripts/validate-ai-routes.mjs"
+    "validate": "node scripts/validate-modules.mjs && node scripts/audit-parameter-hover.mjs && node scripts/validate-ai-routes.mjs"
   },
   "dependencies": {
     "@icons-pack/react-simple-icons": "^13.13.0",

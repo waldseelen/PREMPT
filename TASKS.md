@@ -125,3 +125,12 @@ Per `CLAUDE.md` §9.4 the code wins; the document gets corrected.
       Acceptance: ChatGPT, Perplexity, and Gemini use encoded provider routes where verified; Claude uses an explicit clipboard fallback; the route regression script validates special-character encoding and provider paths through `npm run validate`.
 - [x] 5.5 Verify and document the migration.
       Acceptance: `npm run validate`, `npm run build`, targeted ESLint, and browser checks for Default → Advanced, domain → preset → need → parameters, option explanations, and AI route strategy all pass. Full lint’s pre-existing App hook warning remains documented.
+
+## Phase 6 — Complete advanced parameter hover coverage
+
+- [x] 6.1 Replace partial legacy label-tooltip ownership.
+      Acceptance: Advanced `ConfigPanel` no longer depends on domain-specific `i18n` `levelDescs`/`modeDescs`/`depthDescs`/`formatDescs` maps; all four label menus consume `src/domains/parameterDescriptions.js` through `ParameterHoverMenu`.
+- [x] 6.2 Validate every domain and option in both languages.
+      Acceptance: `scripts/audit-parameter-hover.mjs` reports all 15 domains, all four parameter fields, matching live option counts, non-empty TR/EN descriptions, and no generic fallback usage; `npm run validate` runs this audit.
+- [x] 6.3 Verify Advanced hover and focus behavior.
+      Acceptance: `Prompt Tipi` and `Mimarlık Tarzı` expose all three Agent Architecture option explanations; all 15 domains render four non-empty label menus in the browser; option listboxes still reveal descriptions on hover/focus; keyboard focus opens the label menu.

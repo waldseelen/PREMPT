@@ -1399,6 +1399,66 @@
             position: relative;
         }
 
+        .parameter-hover-trigger {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 18px;
+            height: 18px;
+            margin-left: 1px;
+            color: var(--text-muted);
+            cursor: help;
+            border-radius: 50%;
+            outline: none;
+        }
+
+        .parameter-hover-trigger:hover,
+        .parameter-hover-trigger:focus,
+        .parameter-hover-trigger:focus-visible {
+            color: var(--accent-1);
+        }
+
+        .parameter-hover-trigger .config-tooltip {
+            left: 0;
+            width: min(340px, calc(100vw - 40px));
+        }
+
+        .parameter-hover-trigger:hover .config-tooltip,
+        .parameter-hover-trigger:focus .config-tooltip,
+        .parameter-hover-trigger:focus-visible .config-tooltip {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .parameter-hover-trigger .config-tooltip.tooltip-down {
+            bottom: auto;
+            top: calc(100% + 8px);
+            transform: translateY(-4px);
+        }
+
+        .parameter-hover-title {
+            display: block;
+            margin-bottom: 7px;
+            color: var(--text-primary);
+            font-size: 0.72rem;
+            font-weight: 700;
+            line-height: 1.25;
+        }
+
+        .parameter-hover-trigger .tooltip-list li {
+            display: grid;
+            grid-template-columns: minmax(78px, auto) 1fr;
+            gap: 4px;
+            align-items: start;
+        }
+
+        .parameter-hover-trigger .tooltip-list li strong {
+            margin-right: 0;
+            color: var(--accent-1);
+        }
+
         .config-tooltip {
             position: absolute;
             bottom: calc(100% + 8px);

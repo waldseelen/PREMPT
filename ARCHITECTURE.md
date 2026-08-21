@@ -33,7 +33,7 @@ ui/  →  store/  →  engine/  →  compiler/  →  data/
 | Concern | Canonical owner | Consumers |
 | --- | --- | --- |
 | Domain registration, routes, option ids, labels, compiler headers, presets | `src/domains/index.js` and `src/domains/specs/*Spec.js` | Store, engine, compiler, UI |
-| Parameter option explanations | `src/domains/parameterDescriptions.js` | `ConfigPanel` → `ParameterSelect` |
+| Parameter option explanations | `src/domains/parameterDescriptions.js` | `ConfigPanel` → `ParameterSelect`, `ParameterHoverMenu` |
 | Domain navigation groups, theme tokens, icon ids | `src/domains/presentation.js`, `src/config/theme.js`, and `src/ui/iconRegistry.js` | `DomainSwitcher`, `Header` |
 | Module names, TR/EN descriptions, explanations, prompts, dependencies | `src/data/modules_<domain>_{tr,en}.json` | `moduleRegistry`, `ModuleGrid`, compiler |
 | Module hover view-model assembly | `src/ui/moduleHover.js` | `ModuleGrid` |
@@ -59,7 +59,8 @@ PREMPT/
 ├── index.html                        # Root HTML mount point
 │
 ├── scripts/
-│   └── validate-modules.mjs          # `npm run validate` — validates module, preset, and output-target contracts across all 15 domains
+│   ├── validate-modules.mjs          # `npm run validate` — validates module, preset, and output-target contracts across all 15 domains
+│   └── audit-parameter-hover.mjs    # Validates every advanced parameter label/option has TR/EN hover copy
 │
 └── src/
     ├── main.jsx                      # React root mount
@@ -102,6 +103,7 @@ PREMPT/
         ├── Header.jsx                # Header title + optional DomainSwitcher + lang/theme controls
         ├── DomainSwitcher.jsx        # Horizontal navigation driven by domains/presentation.js
         ├── ParameterSelect.jsx       # Accessible option dropdown with hover/focus explanations
+        ├── ParameterHoverMenu.jsx    # Advanced label hover/focus menu from centralized descriptions
         ├── PresetBar.jsx             # 12-preset per domain rendering with overflow protection
         ├── ModuleGrid.jsx            # Module card grid with centralized module hover model
         ├── ConfigPanel.jsx           # Dynamic parameter selectors driven by domain specs and descriptions

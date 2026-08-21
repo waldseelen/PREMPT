@@ -6,6 +6,7 @@ import { OUTPUT_TARGETS } from '../config/outputTargets';
 import { GraduationCap, Workflow, Layers, FileText, BrainCircuit, Link, Terminal } from 'lucide-react';
 import { getParameterDescription } from '../domains/parameterDescriptions';
 import ParameterSelect from './ParameterSelect';
+import ParameterHoverMenu from './ParameterHoverMenu';
 
 export default function ConfigPanel() {
     const { config, setConfig } = useEngineState(useShallow(state => ({
@@ -33,6 +34,13 @@ export default function ConfigPanel() {
         description: getParameterDescription(config.domain, config.lang, field, id)
     }));
 
+    const parameterOptions = {
+        levels: getParameterOptions('levels', levelIds, domain.optionSets?.levels || t.levels),
+        modes: getParameterOptions('modes', modeIds, domain.optionSets?.modes || t.modes),
+        depths: getParameterOptions('depths', depthIds, domain.optionSets?.depths || t.depths),
+        formats: getParameterOptions('formats', formatIds, domain.optionSets?.formats || t.formats)
+    };
+
     return (
         <aside className="sidebar">
             <div className="card delay-1">
@@ -42,96 +50,66 @@ export default function ConfigPanel() {
                     <div className="input-group">
                         <label htmlFor="sel-seviye" style={{display: 'flex', alignItems: 'center', gap: '6px', position: 'relative'}}>
                             <GraduationCap size={14} /> {domain.ui?.levelLabel || t.levelLabel}
-                            <div className="config-tooltip tooltip-down">
-                                <ul className="tooltip-list">
-                                    {Object.entries(t.levelDescs || {}).map(([key, text]) => {
-                                        const [title, ...rest] = text.split(':');
-                                        return (
-                                            <li key={key}>
-                                                <strong>{title}:</strong>{rest.join(':')}
-                                            </li>
-                                        );
-                                    })}
-                                </ul>
-                            </div>
+                            <ParameterHoverMenu
+                                label={domain.ui?.levelLabel || t.levelLabel}
+                                options={parameterOptions.levels}
+                            />
                         </label>
                         <ParameterSelect
                             id="sel-seviye"
                             label={domain.ui?.levelLabel || t.levelLabel}
                             value={config.seviye}
-                            options={getParameterOptions('levels', levelIds, domain.optionSets?.levels || t.levels)}
+                            options={parameterOptions.levels}
                             onChange={(value) => setConfig('seviye', value)}
                         />
                     </div>
                     <div className="input-group">
                         <label htmlFor="sel-mod" style={{display: 'flex', alignItems: 'center', gap: '6px', position: 'relative'}}>
                             <Workflow size={14} /> {domain.ui?.modeLabel || t.modeLabel}
-                            <div className="config-tooltip tooltip-down">
-                                <ul className="tooltip-list">
-                                    {Object.entries(t.modeDescs || {}).map(([key, text]) => {
-                                        const [title, ...rest] = text.split(':');
-                                        return (
-                                            <li key={key}>
-                                                <strong>{title}:</strong>{rest.join(':')}
-                                            </li>
-                                        );
-                                    })}
-                                </ul>
-                            </div>
+                            <ParameterHoverMenu
+                                label={domain.ui?.modeLabel || t.modeLabel}
+                                options={parameterOptions.modes}
+                            />
                         </label>
                         <ParameterSelect
                             id="sel-mod"
                             label={domain.ui?.modeLabel || t.modeLabel}
                             value={config.mod}
-                            options={getParameterOptions('modes', modeIds, domain.optionSets?.modes || t.modes)}
+                            options={parameterOptions.modes}
                             onChange={(value) => setConfig('mod', value)}
                         />
                     </div>
                     <div className="input-group">
                         <label htmlFor="sel-derinlik" style={{display: 'flex', alignItems: 'center', gap: '6px', position: 'relative'}}>
                             <Layers size={14} /> {domain.ui?.depthLabel || t.depthLabel}
-                            <div className="config-tooltip">
-                                <ul className="tooltip-list">
-                                    {Object.entries(t.depthDescs || {}).map(([key, text]) => {
-                                        const [title, ...rest] = text.split(':');
-                                        return (
-                                            <li key={key}>
-                                                <strong>{title}:</strong>{rest.join(':')}
-                                            </li>
-                                        );
-                                    })}
-                                </ul>
-                            </div>
+                            <ParameterHoverMenu
+                                label={domain.ui?.depthLabel || t.depthLabel}
+                                options={parameterOptions.depths}
+                                placement=""
+                            />
                         </label>
                         <ParameterSelect
                             id="sel-derinlik"
                             label={domain.ui?.depthLabel || t.depthLabel}
                             value={config.derinlik}
-                            options={getParameterOptions('depths', depthIds, domain.optionSets?.depths || t.depths)}
+                            options={parameterOptions.depths}
                             onChange={(value) => setConfig('derinlik', value)}
                         />
                     </div>
                     <div className="input-group">
                         <label htmlFor="sel-format" style={{display: 'flex', alignItems: 'center', gap: '6px', position: 'relative'}}>
                             <FileText size={14} /> {domain.ui?.formatLabel || t.formatLabel}
-                            <div className="config-tooltip">
-                                <ul className="tooltip-list">
-                                    {Object.entries(t.formatDescs || {}).map(([key, text]) => {
-                                        const [title, ...rest] = text.split(':');
-                                        return (
-                                            <li key={key}>
-                                                <strong>{title}:</strong>{rest.join(':')}
-                                            </li>
-                                        );
-                                    })}
-                                </ul>
-                            </div>
+                            <ParameterHoverMenu
+                                label={domain.ui?.formatLabel || t.formatLabel}
+                                options={parameterOptions.formats}
+                                placement=""
+                            />
                         </label>
                         <ParameterSelect
                             id="sel-format"
                             label={domain.ui?.formatLabel || t.formatLabel}
                             value={config.format}
-                            options={getParameterOptions('formats', formatIds, domain.optionSets?.formats || t.formats)}
+                            options={parameterOptions.formats}
                             onChange={(value) => setConfig('format', value)}
                         />
                     </div>
