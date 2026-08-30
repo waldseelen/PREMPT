@@ -1,13 +1,14 @@
 import { useEngineState } from '../store/engineState';
+import { useShallow } from 'zustand/react/shallow';
 import { DOMAIN_GROUPS, DOMAIN_ICON_IDS } from '../domains/presentation';
 import { getIcon } from './iconRegistry';
 
 export default function DomainSwitcher() {
-    const { activeDomain, setDomain, lang } = useEngineState(state => ({
+    const { activeDomain, setDomain, lang } = useEngineState(useShallow(state => ({
         activeDomain: state.config.domain,
         setDomain: state.setDomain,
         lang: state.config.lang || 'tr'
-    }));
+    })));
 
     return (
         <nav className="header-domain-bar domain-switcher-container" aria-label={lang === 'en' ? 'Domain selection' : 'Alan seçimi'} style={{

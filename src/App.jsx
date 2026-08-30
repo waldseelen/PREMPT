@@ -23,17 +23,16 @@ export default function App() {
     const [toasts, setToasts] = useState([]);
     const toastTimers = useRef(new Map());
 
-    const { config, view, activePreset, selectedModules, startTour, setGorunum } = useEngineState(useShallow(state => ({
+    const { config, activePreset, selectedModules, setGorunum } = useEngineState(useShallow((state) => ({
         config: state.config,
-        view: state.view,
         activePreset: state.activePreset,
         selectedModules: state.selectedModules,
-        startTour: state.startTour,
         setGorunum: state.setGorunum
     })));
+
     // Mount-time URL Query & Path handling
     useEffect(() => {
-        const { config: currentConfig, setDomain, setPreset, setModules, setGorunum, applySharedState } = useEngineState.getState();
+        const { config: currentConfig, setDomain, setPreset, setModules, setGorunum: applyGorunum, applySharedState } = useEngineState.getState();
         const params = new URLSearchParams(window.location.search);
         const shareParam = params.get('share');
 
@@ -59,18 +58,17 @@ export default function App() {
         const presetParam = params.get('preset');
         if (presetParam) {
             setPreset(presetParam);
-            setGorunum('advanced');
+            applyGorunum('advanced');
         } else {
             const modulesParam = params.get('modules') || params.get('mods');
             if (modulesParam) {
-                const moduleList = modulesParam.split(',').map(m => m.trim()).filter(Boolean);
+                const moduleList = modulesParam.split(',').map((m) => m.trim()).filter(Boolean);
                 setModules(moduleList);
-                setGorunum('advanced');
+                applyGorunum('advanced');
             }
         }
 
         // 3. Explicit URL parameter overrides (?konu=..., ?mod=..., ?seviye=..., ?derinlik=..., etc.)
-        // Applied AFTER setPreset so explicit URL parameters take priority over preset defaults!
         const overrides = {};
         const konu = params.get('konu') || params.get('topic') || params.get('q');
         if (konu !== null) overrides.konu = konu;
@@ -94,7 +92,7 @@ export default function App() {
         if (lang !== null && (lang === 'tr' || lang === 'en')) overrides.lang = lang;
 
         if (Object.keys(overrides).length > 0) {
-            useEngineState.setState(state => ({
+            useEngineState.setState((state) => ({
                 config: { ...state.config, ...overrides }
             }));
         }
@@ -141,19 +139,6 @@ export default function App() {
         return () => window.removeEventListener('popstate', handlePopState);
     }, []);
 
-    // Tour steps are anchored to workspace-only DOM (.sidebar/.main-content/
-    // .right-sidebar — see OnboardingTour.jsx), so it must only auto-start
-    // once the user actually reaches the workspace, not on intro. This also
-    // naturally covers every workspace entry point (manual "Çalışma alanını
-    // aç", "Modülleri kendim seçeceğim", a loaded recipe, a restored share
-    // link) since they all flip `view` to 'workspace'.
-    useEffect(() => {
-        const isMobile = window.innerWidth < 768;
-        if (view === 'workspace' && !config.tourCompleted && !isMobile) {
-            startTour();
-        }
-    }, [view, config.tourCompleted, startTour]);
-
     useEffect(() => {
         const root = document.documentElement;
         if (config.theme === 'system') {
@@ -177,9 +162,9 @@ export default function App() {
 
     const showToast = (msg, type = 'success') => {
         const id = Date.now();
-        setToasts(prev => [{ id, msg, type }, ...prev]);
+        setToasts((prev) => [{ id, msg, type }, ...prev]);
         const timerId = setTimeout(() => {
-            setToasts(prev => prev.filter(t => t.id !== id));
+            setToasts((prev) => prev.filter((t) => t.id !== id));
             toastTimers.current.delete(id);
         }, 3000);
         toastTimers.current.set(id, timerId);
@@ -189,11 +174,12 @@ export default function App() {
     const t = getTranslation(config.lang, config.domain);
 
     return (
-        <div className="app">
-            <div className="bg-glow-orb orb-1"></div>
-            <div className="bg-glow-orb orb-2"></div>
-            <Header showDomainSwitcher={isAdvanced} />
-            <ErrorBoundary>
+        <ErrorBoundary>
+            <div className="app">
+                <div className="bg-glow-orb orb-1"></div>
+                <div className="bg-glow-orb orb-2"></div>
+                <Header showDomainSwitcher={isAdvanced} />
+                
                 {isAdvanced ? (
                     <main className="container advanced-container" style={{ paddingTop: '16px' }}>
                         <div className="workspace-topbar">
@@ -220,14 +206,14 @@ export default function App() {
                 ) : (
                     <DefaultFlow onAdvanced={() => setGorunum('advanced')} showToast={showToast} />
                 )}
-            </ErrorBoundary>
 
-            <div className="toast-container">
-                {toasts.map(toast => (
-                    <Toast key={toast.id} msg={toast.msg} type={toast.type} />
-                ))}
+                <div className="toast-container">
+                    {toasts.map((toast) => (
+                        <Toast key={toast.id} msg={toast.msg} type={toast.type} />
+                    ))}
+                </div>
+                {isAdvanced && <OnboardingTour />}
             </div>
-            {isAdvanced && <OnboardingTour />}
-        </div>
+        </ErrorBoundary>
     );
 }
