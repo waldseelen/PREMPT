@@ -1,7 +1,7 @@
 [
   {
     "id": "stride-threat-model",
-    "icon": "🛡️",
+    "icon": "box",
     "name": "STRIDE Threat Modeling",
     "desc": "Audits systems against the full STRIDE threat categories.",
     "explain": "Audits systems against the full STRIDE threat categories.",
@@ -11,7 +11,7 @@
   },
   {
     "id": "attack-surface-mapping",
-    "icon": "🗺️",
+    "icon": "box",
     "name": "Attack Surface Mapping",
     "desc": "Identifies and maps all exposed endpoints, open ports, and API vectors.",
     "explain": "Identifies and maps all exposed endpoints, open ports, and API vectors.",
@@ -23,7 +23,7 @@
   },
   {
     "id": "threat-actor-profiling",
-    "icon": "🥷",
+    "icon": "box",
     "name": "Threat Actor Profiling",
     "desc": "Models capabilities, resources, and motivations of adversary profiles.",
     "explain": "Models capabilities, resources, and motivations of adversary profiles.",
@@ -35,7 +35,7 @@
   },
   {
     "id": "data-flow-diagram-audit",
-    "icon": "🔄",
+    "icon": "box",
     "name": "Data Flow Diagram (DFD) Audit",
     "desc": "Audits data transitions across system trust boundaries.",
     "explain": "Audits data transitions across system trust boundaries.",
@@ -47,7 +47,7 @@
   },
   {
     "id": "dread-risk-scoring",
-    "icon": "📊",
+    "icon": "box",
     "name": "DREAD Risk Scoring",
     "desc": "Prioritizes threats using the DREAD scoring model.",
     "explain": "Prioritizes threats using the DREAD scoring model.",
@@ -59,7 +59,7 @@
   },
   {
     "id": "attack-tree-construction",
-    "icon": "🌲",
+    "icon": "box",
     "name": "Attack Tree Construction",
     "desc": "Models multi-stage dependent and alternate attack pathways to root goals.",
     "explain": "Models multi-stage dependent and alternate attack pathways to root goals.",
@@ -71,7 +71,7 @@
   },
   {
     "id": "owasp-top10-scanner",
-    "icon": "🐛",
+    "icon": "box",
     "name": "OWASP Top 10 Security Audit",
     "desc": "Audits applications against the top 10 web application vulnerabilities.",
     "explain": "Audits applications against the top 10 web application vulnerabilities.",
@@ -81,7 +81,7 @@
   },
   {
     "id": "input-validation-spec",
-    "icon": "🧼",
+    "icon": "box",
     "name": "Input Validation & Sanitization",
     "desc": "Defines strict input filtering to neutralize SQLi, XSS, and Injection risks.",
     "explain": "Defines strict input filtering to neutralize SQLi, XSS, and Injection risks.",
@@ -93,7 +93,7 @@
   },
   {
     "id": "auth-authz-hardener",
-    "icon": "🔑",
+    "icon": "box",
     "name": "AuthN & AuthZ Hardening",
     "desc": "Hardens authentication, authorization, JWT handling, and access controls.",
     "explain": "Hardens authentication, authorization, JWT handling, and access controls.",
@@ -105,7 +105,7 @@
   },
   {
     "id": "api-security-checklist",
-    "icon": "🔌",
+    "icon": "box",
     "name": "API Security Audit",
     "desc": "Audits endpoints against OWASP API Security Top 10 standards.",
     "explain": "Audits endpoints against OWASP API Security Top 10 standards.",
@@ -117,7 +117,7 @@
   },
   {
     "id": "secrets-management-audit",
-    "icon": "🔐",
+    "icon": "box",
     "name": "Secrets Management Audit",
     "desc": "Detects hardcoded secrets and enforces secure vault management.",
     "explain": "Detects hardcoded secrets and enforces secure vault management.",
@@ -129,7 +129,7 @@
   },
   {
     "id": "memory-safety-checker",
-    "icon": "🧠",
+    "icon": "box",
     "name": "Memory Safety & Buffer Overflow",
     "desc": "Identifies low-level memory leaks, pointer flaws, and buffer overflows.",
     "explain": "Identifies low-level memory leaks, pointer flaws, and buffer overflows.",
@@ -141,7 +141,7 @@
   },
   {
     "id": "zero-trust-architecture",
-    "icon": "🏰",
+    "icon": "box",
     "name": "Zero-Trust Architecture Spec",
     "desc": "Applies 'Never Trust, Always Verify' across networks and identities.",
     "explain": "Applies 'Never Trust, Always Verify' across networks and identities.",
@@ -151,7 +151,7 @@
   },
   {
     "id": "log-audit-trail-spec",
-    "icon": "📜",
+    "icon": "box",
     "name": "SIEM & Audit Trail Spec",
     "desc": "Designs tamper-evident logging infrastructure for forensics and incident response.",
     "explain": "Designs tamper-evident logging infrastructure for forensics and incident response.",
@@ -163,7 +163,7 @@
   },
   {
     "id": "identity-access-review",
-    "icon": "👤",
+    "icon": "box",
     "name": "Privileged Access Management (PAM)",
     "desc": "Audits account permissions and enforces Principle of Least Privilege.",
     "explain": "Audits account permissions and enforces Principle of Least Privilege.",
@@ -175,7 +175,7 @@
   },
   {
     "id": "network-segmentation-audit",
-    "icon": "🧱",
+    "icon": "box",
     "name": "Network Micro-Segmentation",
     "desc": "Segments network zones to block lateral adversary movement.",
     "explain": "Segments network zones to block lateral adversary movement.",
@@ -187,7 +187,7 @@
   },
   {
     "id": "crypto-cipher-suite-check",
-    "icon": "🔒",
+    "icon": "box",
     "name": "Cryptographic Standards Audit",
     "desc": "Phases out weak ciphers and enforces modern TLS/AES standards.",
     "explain": "Phases out weak ciphers and enforces modern TLS/AES standards.",
@@ -199,7 +199,7 @@
   },
   {
     "id": "incident-response-readiness",
-    "icon": "🚨",
+    "icon": "box",
     "name": "Incident Response Readiness",
     "desc": "Develops incident response plans following NIST SP 800-61.",
     "explain": "Develops incident response plans following NIST SP 800-61.",
@@ -211,7 +211,7 @@
   },
   {
     "id": "pentest-scenario-builder",
-    "icon": "🎯",
+    "icon": "box",
     "name": "Penetration Testing Scenario Builder",
     "desc": "Designs ethical hacking exploitation scenarios customized to target systems.",
     "explain": "Designs ethical hacking exploitation scenarios customized to target systems.",
@@ -223,7 +223,7 @@
   },
   {
     "id": "social-engineering-vectors",
-    "icon": "🎣",
+    "icon": "box",
     "name": "Social Engineering Vectors",
     "desc": "Simulates phishing and human-centric security breach scenarios.",
     "explain": "Simulates phishing and human-centric security breach scenarios.",
@@ -235,7 +235,7 @@
   },
   {
     "id": "exploit-payload-analysis",
-    "icon": "💣",
+    "icon": "box",
     "name": "Exploit & Payload Analysis",
     "desc": "Analyzes executable payload mechanics to author detection signatures.",
     "explain": "Analyzes executable payload mechanics to author detection signatures.",
@@ -247,7 +247,7 @@
   },
   {
     "id": "privilege-escalation-check",
-    "icon": "📈",
+    "icon": "box",
     "name": "Privilege Escalation Audit",
     "desc": "Identifies pathways from low-privilege access to root/SYSTEM authority.",
     "explain": "Identifies pathways from low-privilege access to root/SYSTEM authority.",
@@ -259,7 +259,7 @@
   },
   {
     "id": "lateral-movement-pathway",
-    "icon": "↔️",
+    "icon": "box",
     "name": "Lateral Movement Pathway Analysis",
     "desc": "Maps and blocks internal lateral pivoting across networked hosts.",
     "explain": "Maps and blocks internal lateral pivoting across networked hosts.",
@@ -271,7 +271,7 @@
   },
   {
     "id": "egress-filtering-test",
-    "icon": "📤",
+    "icon": "box",
     "name": "Egress Filtering & Data Exfiltration",
     "desc": "Tests egress controls against C2 tunneling and covert data leaks.",
     "explain": "Tests egress controls against C2 tunneling and covert data leaks.",
@@ -283,7 +283,7 @@
   },
   {
     "id": "iso27001-gap-analysis",
-    "icon": "📋",
+    "icon": "box",
     "name": "ISO 27001 / NIST CSF Gap Analysis",
     "desc": "Evaluates information security management against international frameworks.",
     "explain": "Evaluates information security management against international frameworks.",
@@ -305,7 +305,7 @@
   },
   {
     "id": "soc2-type2-controls",
-    "icon": "📜",
+    "icon": "box",
     "name": "SOC 2 Type II Trust Criteria Audit",
     "desc": "Audits operational effectiveness across Security, Availability, and Confidentiality.",
     "explain": "Audits operational effectiveness across Security, Availability, and Confidentiality.",
@@ -317,7 +317,7 @@
   },
   {
     "id": "supply-chain-risk-audit",
-    "icon": "🔗",
+    "icon": "box",
     "name": "Software Supply Chain Audit",
     "desc": "Audits third-party open-source dependencies and SBOM risks.",
     "explain": "Audits third-party open-source dependencies and SBOM risks.",
@@ -329,7 +329,7 @@
   },
   {
     "id": "vulnerability-remediation",
-    "icon": "🩹",
+    "icon": "box",
     "name": "Vulnerability Remediation Plan",
     "desc": "Prioritizes vulnerability patching based on CVSS metrics and operational risk.",
     "explain": "Prioritizes vulnerability patching based on CVSS metrics and operational risk.",
@@ -341,7 +341,7 @@
   },
   {
     "id": "ransomware-resilience-check",
-    "icon": "☣️",
+    "icon": "box",
     "name": "Ransomware Resilience Audit",
     "desc": "Evaluates backup immutability, disaster recovery, and RTO/RPO targets.",
     "explain": "Evaluates backup immutability, disaster recovery, and RTO/RPO targets.",

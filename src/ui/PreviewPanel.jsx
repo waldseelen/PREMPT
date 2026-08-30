@@ -15,8 +15,8 @@ export default function PreviewPanel() {
     const t = getTranslation(config.lang, config.domain);
 
     const stats = useMemo(() => {
-        return analyzePromptComplexity({ config, selectedModules });
-    }, [config, selectedModules]);
+        return analyzePromptComplexity({ config, selectedModules, injectedRules });
+    }, [config, selectedModules, injectedRules]);
 
     // Compiled live — no separate "Generate" step. injectedRules is part of
     // the compiled output (structureBuilder reads it) but isn't in `config`,
@@ -43,7 +43,7 @@ export default function PreviewPanel() {
                             <Zap size={12} /> {stats.complexityScore} {t.statComplexity}
                         </span>
                         <span className="stat-chip" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
-                            <Hash size={12} /> ~{stats.tokens} {t.previewTokens}
+                            <Hash size={12} /> {stats.charCount} ({stats.tokenEstimate} tok)
                         </span>
                     </div>
                 )}
@@ -56,7 +56,7 @@ export default function PreviewPanel() {
             )}
 
             {generatedPrompt ? (
-                <div className="preview-box" id="preview-box" tabIndex={-1}>
+                <div className="preview-box" id="preview-box" tabIndex={0} role="region" aria-label={t.previewTitle || 'Compiled prompt'}>
                     {generatedPrompt}
                 </div>
             ) : (

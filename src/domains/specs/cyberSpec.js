@@ -3,9 +3,9 @@ export const cyberSpec = {
   "route": "cyber",
   "defaultConfig": {
     "seviye": "stride",
-    "mod": "redteam",
+    "mod": "red",
     "derinlik": "standart",
-    "format": "threat-model"
+    "format": "stridematris"
   },
   "icon": "shield",
   "category": "tech",

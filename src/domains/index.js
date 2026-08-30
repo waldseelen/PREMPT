@@ -39,5 +39,9 @@ export const DOMAIN_ROUTES = Object.fromEntries(
 );
 
 export function getDomain(id) {
-    return DOMAINS[id] || DOMAINS[DEFAULT_DOMAIN];
+    if (id && Object.hasOwn(DOMAINS, id)) {
+        return DOMAINS[id];
+    }
+    return DOMAINS[DEFAULT_DOMAIN];
 }
+

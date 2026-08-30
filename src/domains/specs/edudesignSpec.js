@@ -398,7 +398,7 @@ export const edudesignSpec = {
     "spaced-interleaving-plan": {
       "id": "spaced-interleaving-plan",
       "group": "curriculum",
-      "icon": "⏳",
+      "icon": "clock",
       "name": {
         "tr": "Aralıklı Tekrar & Serpiştirilmiş Müfredat",
         "en": "Spaced Retrieval & Interleaving Plan"

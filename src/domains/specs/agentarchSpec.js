@@ -3,9 +3,9 @@ export const agentarchSpec = {
   "route": "agentarch",
   "defaultConfig": {
     "seviye": "system",
-    "mod": "persona",
+    "mod": "guardrail",
     "derinlik": "standart",
-    "format": "system-prompt"
+    "format": "xml"
   },
   "icon": "bot",
   "category": "tech",

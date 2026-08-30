@@ -1,7 +1,7 @@
 [
   {
     "id": "wrk-progressive-overload-plan",
-    "icon": "🏋️",
+    "icon": "box",
     "name": "Progressive Overload Blueprint",
     "desc": "Establishes systematic weight, rep, and volume progression protocols for hypertrophy.",
     "explain": "Establishes systematic weight, rep, and volume progression protocols for hypertrophy.",
@@ -11,7 +11,7 @@
   },
   {
     "id": "wrk-rpe-rir-intensity-guide",
-    "icon": "📊",
+    "icon": "box",
     "name": "RPE & RIR Intensity Calibration",
     "desc": "Calibrates set intensity using Rate of Perceived Exertion and Reps in Reserve.",
     "explain": "Calibrates set intensity using Rate of Perceived Exertion and Reps in Reserve.",
@@ -23,7 +23,7 @@
   },
   {
     "id": "wrk-hypertrophy-split-design",
-    "icon": "💪",
+    "icon": "box",
     "name": "Muscle Hypertrophy Split Design",
     "desc": "Architects Push-Pull-Legs or Upper-Lower training split programs.",
     "explain": "Architects Push-Pull-Legs or Upper-Lower training split programs.",
@@ -35,7 +35,7 @@
   },
   {
     "id": "wrk-zone2-cardio-protocol",
-    "icon": "🫀",
+    "icon": "box",
     "name": "Zone 2 Cardio & Mitochondrial Protocol",
     "desc": "Targets 60-70% HRmax for mitochondrial health, fat oxidation, and aerobic base.",
     "explain": "Targets 60-70% HRmax for mitochondrial health, fat oxidation, and aerobic base.",
@@ -47,7 +47,7 @@
   },
   {
     "id": "wrk-mobility-joint-prep",
-    "icon": "🧘",
+    "icon": "box",
     "name": "Pre-Workout Mobility & Dynamic Prep",
     "desc": "Prepares joints and reduces injury risk via dynamic mobility flows.",
     "explain": "Prepares joints and reduces injury risk via dynamic mobility flows.",
@@ -59,7 +59,7 @@
   },
   {
     "id": "wrk-hiit-tabata-structure",
-    "icon": "⏱️",
+    "icon": "box",
     "name": "High-Intensity Interval (HIIT) Tabata",
     "desc": "Constructs 20/10 second work-rest intervals targeting maximum VO2 peak.",
     "explain": "Constructs 20/10 second work-rest intervals targeting maximum VO2 peak.",
@@ -71,7 +71,7 @@
   },
   {
     "id": "cir-morning-sunlight-anchor",
-    "icon": "☀️",
+    "icon": "box",
     "name": "Morning Sunlight Circadian Anchor",
     "desc": "Anchors circadian rhythms using early morning sunlight exposure (Huberman).",
     "explain": "Anchors circadian rhythms using early morning sunlight exposure (Huberman).",
@@ -81,7 +81,7 @@
   },
   {
     "id": "cir-blue-light-melatonin-prep",
-    "icon": "🌙",
+    "icon": "box",
     "name": "Evening Blue Light & Melatonin Hygiene",
     "desc": "Restricts blue spectrum light after sunset to safeguard natural melatonin synthesis.",
     "explain": "Restricts blue spectrum light after sunset to safeguard natural melatonin synthesis.",
@@ -93,7 +93,7 @@
   },
   {
     "id": "cir-temperature-sleep-cooling",
-    "icon": "❄️",
+    "icon": "box",
     "name": "Sleep Architecture & Core Cooling",
     "desc": "Optimizes deep sleep by dropping ambient bedroom temp (18-19°C) and core body temp.",
     "explain": "Optimizes deep sleep by dropping ambient bedroom temp (18-19°C) and core body temp.",
@@ -105,7 +105,7 @@
   },
   {
     "id": "cir-caffeine-half-life-cutoff",
-    "icon": "☕",
+    "icon": "box",
     "name": "Caffeine Half-Life Cutoff Strategy",
     "desc": "Establishes caffeine delay and cutoff rules to prevent adenosine receptor disruption.",
     "explain": "Establishes caffeine delay and cutoff rules to prevent adenosine receptor disruption.",
@@ -117,7 +117,7 @@
   },
   {
     "id": "cir-circadian-meal-timing",
-    "icon": "🍽️",
+    "icon": "box",
     "name": "Chrono-Nutrition & Fasting Window",
     "desc": "Aligns meal timing with metabolic circadian rhythms and insulin sensitivity.",
     "explain": "Aligns meal timing with metabolic circadian rhythms and insulin sensitivity.",
@@ -129,7 +129,7 @@
   },
   {
     "id": "cir-jet-lag-shift-resync",
-    "icon": "✈️",
+    "icon": "box",
     "name": "Jet-Lag & Shift-Work Circadian Re-sync",
     "desc": "Re-synchronizes internal clocks during time zone shifts using light and temperature.",
     "explain": "Re-synchronizes internal clocks during time zone shifts using light and temperature.",
@@ -141,7 +141,7 @@
   },
   {
     "id": "nut-macro-distribution-calculator",
-    "icon": "🥗",
+    "icon": "box",
     "name": "Personalized Macro Distribution",
     "desc": "Calculates protein, carbohydrate, and fat targets tailored to goals.",
     "explain": "Calculates protein, carbohydrate, and fat targets tailored to goals.",
@@ -151,7 +151,7 @@
   },
   {
     "id": "nut-protein-leucine-threshold",
-    "icon": "🥩",
+    "icon": "box",
     "name": "Protein Timing & Leucine Threshold",
     "desc": "Triggers Muscle Protein Synthesis (MPS) via 3g leucine per meal dosing.",
     "explain": "Triggers Muscle Protein Synthesis (MPS) via 3g leucine per meal dosing.",
@@ -163,7 +163,7 @@
   },
   {
     "id": "nut-micronutrient-density-audit",
-    "icon": "🥑",
+    "icon": "box",
     "name": "Micronutrient Density Audit",
     "desc": "Audits intake of key minerals and vitamins (Magnesium, Zinc, D3, B12).",
     "explain": "Audits intake of key minerals and vitamins (Magnesium, Zinc, D3, B12).",
@@ -175,7 +175,7 @@
   },
   {
     "id": "nut-gut-microbiome-fiber-mix",
-    "icon": "🦠",
+    "icon": "box",
     "name": "Gut Microbiome & Fiber Diversity",
     "desc": "Optimizes gut microbiome health targeting 30 plant-based fiber sources weekly.",
     "explain": "Optimizes gut microbiome health targeting 30 plant-based fiber sources weekly.",
@@ -187,7 +187,7 @@
   },
   {
     "id": "nut-hydration-electrolyte-balance",
-    "icon": "💧",
+    "icon": "box",
     "name": "Hydration & Electrolyte Protocol",
     "desc": "Balances Sodium, Potassium, and Magnesium for cellular hydration.",
     "explain": "Balances Sodium, Potassium, and Magnesium for cellular hydration.",
@@ -199,7 +199,7 @@
   },
   {
     "id": "nut-glycemic-index-energy-stabilizer",
-    "icon": "📉",
+    "icon": "box",
     "name": "Glycemic Load & Energy Stabilizer",
     "desc": "Stabilizes blood glucose to eliminate post-prandial afternoon energy crashes.",
     "explain": "Stabilizes blood glucose to eliminate post-prandial afternoon energy crashes.",
@@ -211,7 +211,7 @@
   },
   {
     "id": "adp-injury-deload-protocol",
-    "icon": "🩹",
+    "icon": "box",
     "name": "Scheduled Deload & Recovery Protocol",
     "desc": "Reduces volume by 50% every 4-6 weeks to allow joint and connective tissue recovery.",
     "explain": "Reduces volume by 50% every 4-6 weeks to allow joint and connective tissue recovery.",
@@ -221,7 +221,7 @@
   },
   {
     "id": "adp-hrv-stress-recovery-readiness",
-    "icon": "🫀",
+    "icon": "box",
     "name": "HRV & CNS Readiness Tracking",
     "desc": "Modulates workout intensity dynamically based on Heart Rate Variability data.",
     "explain": "Modulates workout intensity dynamically based on Heart Rate Variability data.",
@@ -233,7 +233,7 @@
   },
   {
     "id": "adp-sauna-cold-plunge-protocol",
-    "icon": "🧊",
+    "icon": "box",
     "name": "Thermal Therapy: Sauna & Cold Exposure",
     "desc": "Schedules hormetic hot sauna (80°C) and cold plunge (10-15°C) sessions.",
     "explain": "Schedules hormetic hot sauna (80°C) and cold plunge (10-15°C) sessions.",
@@ -245,7 +245,7 @@
   },
   {
     "id": "adp-active-recovery-session",
-    "icon": "🚶",
+    "icon": "box",
     "name": "Active Recovery & Blood Flow Session",
     "desc": "Designs low-intensity movement sessions to promote recovery blood flow.",
     "explain": "Designs low-intensity movement sessions to promote recovery blood flow.",
@@ -257,7 +257,7 @@
   },
   {
     "id": "adp-cortisol-breathwork-downshift",
-    "icon": "🫁",
+    "icon": "box",
     "name": "Post-Workout Parasympathetic Breathwork",
     "desc": "Uses physiological sighs to down-regulate nervous system post-exercise.",
     "explain": "Uses physiological sighs to down-regulate nervous system post-exercise.",
@@ -269,7 +269,7 @@
   },
   {
     "id": "adp-travel-fitness-bodyweight",
-    "icon": "🧳",
+    "icon": "box",
     "name": "Hotel Room Bodyweight Modification",
     "desc": "Adapts workouts for zero-equipment hotel room settings using tempo and isometric holds.",
     "explain": "Adapts workouts for zero-equipment hotel room settings using tempo and isometric holds.",
@@ -281,7 +281,7 @@
   },
   {
     "id": "hab-habit-stacking-atomic",
-    "icon": "🔗",
+    "icon": "box",
     "name": "Atomic Habit Stacking Protocol",
     "desc": "Anchors new healthy behaviors directly to existing routines (James Clear).",
     "explain": "Anchors new healthy behaviors directly to existing routines (James Clear).",
@@ -291,7 +291,7 @@
   },
   {
     "id": "hab-dopamine-reward-decoupling",
-    "icon": "🧠",
+    "icon": "box",
     "name": "Dopamine Fasting & Reward Decoupling",
     "desc": "Decouples external artificial dopamine rewards from fitness routines.",
     "explain": "Decouples external artificial dopamine rewards from fitness routines.",
@@ -303,7 +303,7 @@
   },
   {
     "id": "hab-identity-based-behavior",
-    "icon": "🎭",
+    "icon": "box",
     "name": "Identity-Based Behavior Shift",
     "desc": "Shifts focus from outcome goals to identity shifts ('I am an athlete').",
     "explain": "Shifts focus from outcome goals to identity shifts ('I am an athlete').",
@@ -315,7 +315,7 @@
   },
   {
     "id": "hab-relapse-prevention-plan",
-    "icon": "🛡️",
+    "icon": "box",
     "name": "Habit Relapse Prevention (If-Then)",
     "desc": "Establishes Implementation Intentions (If-Then plans) for high-stress days.",
     "explain": "Establishes Implementation Intentions (If-Then plans) for high-stress days.",
@@ -327,7 +327,7 @@
   },
   {
     "id": "hab-accountability-tracking-system",
-    "icon": "📅",
+    "icon": "box",
     "name": "Streak Tracking & Never Miss Twice",
     "desc": "Visually tracks habit streaks enforcing the non-negotiable 'Never Miss Twice' rule.",
     "explain": "Visually tracks habit streaks enforcing the non-negotiable 'Never Miss Twice' rule.",
@@ -339,7 +339,7 @@
   },
   {
     "id": "hab-environment-design-audit",
-    "icon": "🏡",
+    "icon": "box",
     "name": "Environment Design & Cue Elimination",
     "desc": "Redesign physical environment to increase friction for bad habits and automate good ones.",
     "explain": "Redesign physical environment to increase friction for bad habits and automate good ones.",

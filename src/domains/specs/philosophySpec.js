@@ -3,9 +3,9 @@ export const philosophySpec = {
   "route": "philosophy",
   "defaultConfig": {
     "seviye": "iklem",
-    "mod": "dusunce-deneyi",
+    "mod": "sokratik",
     "derinlik": "orta",
-    "format": "diyalektik"
+    "format": "diyalog"
   },
   "icon": "building-2",
   "category": "academia",

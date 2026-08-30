@@ -38,6 +38,7 @@ export const i18n = {
     modulesTitle: 'Modüller (Module Blocks)',
     presetsTitle: 'Uzman Hazır Şablonları (System Presets)',
     paramsTitle: 'Parametreler',
+    moduleFilterEmpty: 'Arama kriterine uygun modül bulunamadı.',
 
     // Two-view flow (intro <-> workspace) & Tier B target-format selector
     btnOpenWorkspace: 'Çalışma alanını aç',
@@ -192,6 +193,7 @@ export const i18n = {
     modulesTitle: 'Module Blocks',
     presetsTitle: 'System Presets',
     paramsTitle: 'Parameters',
+    moduleFilterEmpty: 'No modules found matching your search.',
 
     // Two-view flow (intro <-> workspace) & Tier B target-format selector
     btnOpenWorkspace: 'Open workspace',

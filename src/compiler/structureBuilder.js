@@ -23,11 +23,14 @@ export function buildPromptStructure(state, sortedModules) {
     const structure = {};
 
     // 1. [ROLE]
-    structure[labels.role] = mods[config.mod] || Object.values(mods)[0] || (lang === 'en' ? 'You are an AI assistant.' : 'Sen bir AI asistanısın.');
+    const roleText = (config.mod && Object.hasOwn(mods, config.mod))
+        ? mods[config.mod]
+        : (Object.values(mods)[0] || (lang === 'en' ? 'You are an AI assistant.' : 'Sen bir AI asistanısın.'));
+    structure[labels.role] = roleText;
 
     // 2. [GOAL] — goalTemplate carries a {{KONU}} placeholder for the topic/task text.
     const goalTmpl = texts.goalTemplate || (lang === 'en' ? 'Complete the task "{{KONU}}".' : '"{{KONU}}" görevini tamamla.');
-    structure[labels.goal] = goalTmpl.replace('{{KONU}}', config.konu);
+    structure[labels.goal] = goalTmpl.replaceAll('{{KONU}}', config.konu || '');
 
     // 3. [CONTEXT] — labels come from the active domain's compiler text bundle
     // so this respects `lang` instead of always printing English.
@@ -41,17 +44,21 @@ export function buildPromptStructure(state, sortedModules) {
 
     // 5. [INSTRUCTIONS] (Tasks grouped by layers or topologically)
     const taskPrompts = sortedModules.map((m, index) => {
-        // {{ALAN}} is a domain-injection token used intentionally only by the "esleme"
-        // (Structural Mapping) module; for every other module this replace is a no-op.
-        return `Step ${index + 1} (${m.layer.toUpperCase()}): ${m.prompt.replace('{{ALAN}}', alanText)}`;
+        // {{ALAN}} is a domain-injection token used intentionally by structural mapping modules.
+        const parsedPrompt = m.prompt ? m.prompt.replaceAll('{{ALAN}}', alanText) : '';
+        return `Step ${index + 1} (${m.layer.toUpperCase()}): ${parsedPrompt}`;
     });
     structure[labels.instructions] = taskPrompts.join('\n\n');
 
     // 6. [OUTPUT FORMAT]
     const formats = texts.format || {};
     const derinlikler = texts.derinlik || {};
-    const fmtText = formats[config.format] || Object.values(formats)[0] || (lang === 'en' ? 'Markdown format' : 'Markdown formatı');
-    const drnText = derinlikler[config.derinlik] || Object.values(derinlikler)[0] || (lang === 'en' ? 'Moderate detail' : 'Orta düzey detay');
+    const fmtText = (config.format && Object.hasOwn(formats, config.format))
+        ? formats[config.format]
+        : (Object.values(formats)[0] || (lang === 'en' ? 'Markdown format' : 'Markdown formatı'));
+    const drnText = (config.derinlik && Object.hasOwn(derinlikler, config.derinlik))
+        ? derinlikler[config.derinlik]
+        : (Object.values(derinlikler)[0] || (lang === 'en' ? 'Moderate detail' : 'Orta düzey detay'));
     structure[labels.format] = `${fmtText}\n${depthRequirementLabel} ${drnText}`;
 
     // 7. [CONSTRAINTS / SAFETY] — base constraints come from the active domain's

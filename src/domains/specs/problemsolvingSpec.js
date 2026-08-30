@@ -3,9 +3,9 @@ export const problemsolvingSpec = {
   "route": "problemsolving",
   "defaultConfig": {
     "seviye": "triz",
-    "mod": "innovator",
+    "mod": "radikal",
     "derinlik": "orta",
-    "format": "triz-matris"
+    "format": "trizmatris"
   },
   "icon": "zap",
   "category": "mind",

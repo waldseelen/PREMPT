@@ -1,7 +1,7 @@
 [
   {
     "id": "fallacy-detector",
-    "icon": "🔍",
+    "icon": "box",
     "name": "Safsata Tespit Motoru",
     "desc": "Argümanlardaki kayıtlı mantıksal safsataları (fallacies) tespit eder.",
     "explain": "Argümanlardaki kayıtlı mantıksal safsataları (fallacies) tespit eder.",
@@ -11,7 +11,7 @@
   },
   {
     "id": "syllogism-validator",
-    "icon": "⚖️",
+    "icon": "box",
     "name": "Kıyas (Syllogism) Doğrulayıcı",
     "desc": "Tümdenelimsel kıyasların biçimsel geçerliliğini denetler.",
     "explain": "Tümdenelimsel kıyasların biçimsel geçerliliğini denetler.",
@@ -23,7 +23,7 @@
   },
   {
     "id": "premise-deconstruction",
-    "icon": "🧩",
+    "icon": "boxes",
     "name": "Öncül Ayrıştırma",
     "desc": "Gizli ve söylenmemiş (enthymeme) öncülleri açığa çıkarır.",
     "explain": "Gizli ve söylenmemiş (enthymeme) öncülleri açığa çıkarır.",
@@ -35,7 +35,7 @@
   },
   {
     "id": "formal-validity-test",
-    "icon": "📐",
+    "icon": "checkcheck",
     "name": "Sembolik Mantık Testi",
     "desc": "Önermeler mantığı ile ($P \\rightarrow Q$) tutarlılık analizi yapar.",
     "explain": "Önermeler mantığı ile ($P \\rightarrow Q$) tutarlılık analizi yapar.",
@@ -47,7 +47,7 @@
   },
   {
     "id": "informal-fallacy-purge",
-    "icon": "🧹",
+    "icon": "alerttriangle",
     "name": "Kayıt Dışı Safsata Temizliği",
     "desc": "İçeriksel ve retoriksel saptırmaları temizler.",
     "explain": "İçeriksel ve retoriksel saptırmaları temizler.",
@@ -59,7 +59,7 @@
   },
   {
     "id": "modal-logic-check",
-    "icon": "🌌",
+    "icon": "sparkle",
     "name": "Kipsel (Modal) Mantık Analizi",
     "desc": "Zorunluluk, olasılık ve imkan kavramlarının kurgusunu denetler.",
     "explain": "Zorunluluk, olasılık ve imkan kavramlarının kurgusunu denetler.",
@@ -71,7 +71,7 @@
   },
   {
     "id": "utilitarian-calculus",
-    "icon": "🧮",
+    "icon": "box",
     "name": "Faydacı (Utilitarian) Hesaplama",
     "desc": "Eylemin net mutluluk ve acı bilançosunu ölçer (Jeremy Bentham / J.S. Mill).",
     "explain": "Eylemin net mutluluk ve acı bilançosunu ölçer (Jeremy Bentham / J.S. Mill).",
@@ -91,7 +91,7 @@
   },
   {
     "id": "virtue-ethics-audit",
-    "icon": "🏛️",
+    "icon": "award",
     "name": "Erdem Etiği Denetimi",
     "desc": "Eylemin karakter, erdem ve altın orta (Aristoteles) ilkelerine uygunluğunu inceler.",
     "explain": "Eylemin karakter, erdem ve altın orta (Aristoteles) ilkelerine uygunluğunu inceler.",
@@ -104,7 +104,7 @@
   },
   {
     "id": "care-ethics-perspective",
-    "icon": "🤝",
+    "icon": "heartpulse",
     "name": "Bakım Etiği (Ethics of Care)",
     "desc": "İlişkiler, bağımlılıklar ve empati odaklı etik yaklaşım getirir.",
     "explain": "İlişkiler, bağımlılıklar ve empati odaklı etik yaklaşım getirir.",
@@ -116,7 +116,7 @@
   },
   {
     "id": "rawlsian-veil-ignorance",
-    "icon": "🙈",
+    "icon": "glasses",
     "name": "Rawlsian Bilgisizlik Peçesi",
     "desc": "Toplumsal konumunu bilmeden adil düzen tasarlama (John Rawls).",
     "explain": "Toplumsal konumunu bilmeden adil düzen tasarlama (John Rawls).",
@@ -128,7 +128,7 @@
   },
   {
     "id": "ethical-dilemma-resolver",
-    "icon": "🔀",
+    "icon": "gitmerge",
     "name": "Etik İkilem Çözücü",
     "desc": "Çatışan etik teoriler arasında karar matrisi kurar.",
     "explain": "Çatışan etik teoriler arasında karar matrisi kurar.",
@@ -141,7 +141,7 @@
   },
   {
     "id": "socratic-aporia",
-    "icon": "🏛️",
+    "icon": "helpcircle",
     "name": "Sokratik Aporia Çıkmazı",
     "desc": "Sorgulama ile muhatabı bilgiçlik yanılsamasından çıkarıp aporyaya sokar.",
     "explain": "Sorgulama ile muhatabı bilgiçlik yanılsamasından çıkarıp aporyaya sokar.",
@@ -151,7 +151,7 @@
   },
   {
     "id": "justification-trilemma",
-    "icon": "🔺",
+    "icon": "triangle",
     "name": "Münchhausen Trilemması",
     "desc": "Bilginin temellendirilmesindeki 3 imkansızlığı (dogmatizm, döngüsellik, sonsuz gerileme) denetler.",
     "explain": "Bilginin temellendirilmesindeki 3 imkansızlığı (dogmatizm, döngüsellik, sonsuz gerileme) denetler.",
@@ -163,7 +163,7 @@
   },
   {
     "id": "radical-skepticism-filter",
-    "icon": "🤔",
+    "icon": "search",
     "name": "Radikal Şüphecilik (Cartesian)",
     "desc": "Tüm duyu verilerini ve kabulleri Kartezyen şüpheye tabi tutar.",
     "explain": "Tüm duyu verilerini ve kabulleri Kartezyen şüpheye tabi tutar.",
@@ -175,7 +175,7 @@
   },
   {
     "id": "empiricism-vs-rationalism",
-    "icon": "⚖️",
+    "icon": "splitsquarehorizontal",
     "name": "Ampirizm vs. Rasyonalizm",
     "desc": "Bilginin kaynağını (deneyim mi, doğuştan akıl mı) ayrıştırır.",
     "explain": "Bilginin kaynağını (deneyim mi, doğuştan akıl mı) ayrıştırır.",
@@ -187,7 +187,7 @@
   },
   {
     "id": "coherentism-check",
-    "icon": "🕸️",
+    "icon": "component",
     "name": "Bağdaşımcılık (Coherentism) Testi",
     "desc": "İddianın mevcut inanç ağıyla mantıksal ağ uyumunu doğrula.",
     "explain": "İddianın mevcut inanç ağıyla mantıksal ağ uyumunu doğrula.",
@@ -199,7 +199,7 @@
   },
   {
     "id": "epistemic-humility-test",
-    "icon": "🌾",
+    "icon": "feather",
     "name": "Epistemik Mütevazılık",
     "desc": "Cahillik sınırlarını ve bilinemezcilik (agnostisizm) alanlarını haritalandırır.",
     "explain": "Cahillik sınırlarını ve bilinemezcilik (agnostisizm) alanlarını haritalandırır.",
@@ -211,7 +211,7 @@
   },
   {
     "id": "ship-of-theseus-paradox",
-    "icon": "⛵",
+    "icon": "anchor",
     "name": "Theseus'un Gemisi Paradoksu",
     "desc": "Kimlik, süreklilik ve öz kavramlarını sorgulatan düşünce deneyi.",
     "explain": "Kimlik, süreklilik ve öz kavramlarını sorgulatan düşünce deneyi.",
@@ -221,7 +221,7 @@
   },
   {
     "id": "trolley-problem-variation",
-    "icon": "🚃",
+    "icon": "split",
     "name": "Tramvay Problemi Varyasyonları",
     "desc": "Müdahale etme ile seyirci kalma arasındaki sorumluluk etiği deneyi.",
     "explain": "Müdahale etme ile seyirci kalma arasındaki sorumluluk etiği deneyi.",
@@ -233,7 +233,7 @@
   },
   {
     "id": "newcomb-paradox-audit",
-    "icon": "📦",
+    "icon": "boxes",
     "name": "Newcomb Paradoksu",
     "desc": "Özgür irade ile kusursuz öngörü arasındaki karar teorisi paradoksu.",
     "explain": "Özgür irade ile kusursuz öngörü arasındaki karar teorisi paradoksu.",
@@ -245,7 +245,7 @@
   },
   {
     "id": "prisoner-dilemma-matrix",
-    "icon": "🚔",
+    "icon": "grid",
     "name": "Mahkum İkilemi ve Oyun Teorisi",
     "desc": "Bireysel rasyonellik ile kolektif çıkar çatışması deneyi.",
     "explain": "Bireysel rasyonellik ile kolektif çıkar çatışması deneyi.",
@@ -257,7 +257,7 @@
   },
   {
     "id": "experience-machine-test",
-    "icon": "🔌",
+    "icon": "monitor",
     "name": "Deneyim Makinesi (Nozick)",
     "desc": "Simüle edilmiş mutluluk ile gerçeklik arasındaki değer tercihi.",
     "explain": "Simüle edilmiş mutluluk ile gerçeklik arasındaki değer tercihi.",
@@ -269,7 +269,7 @@
   },
   {
     "id": "mary-color-scientist",
-    "icon": "🎨",
+    "icon": "palette",
     "name": "Meryem'in Odası (Qualia)",
     "desc": "Fiziksel bilgi ile öznel deneyim (Qualia) arasındaki fark.",
     "explain": "Fiziksel bilgi ile öznel deneyim (Qualia) arasındaki fark.",
@@ -281,7 +281,7 @@
   },
   {
     "id": "dialectic-synthesis",
-    "icon": "☯️",
+    "icon": "gitmerge",
     "name": "Hegelci Diyalektik Sentez",
     "desc": "Tez ve antitezi daha üst bir sentezde (Aufhebung) birleştirir.",
     "explain": "Tez ve antitezi daha üst bir sentezde (Aufhebung) birleştirir.",
@@ -293,7 +293,7 @@
   },
   {
     "id": "steelman-construction",
-    "icon": "🛡️",
+    "icon": "shieldcheck",
     "name": "Steelman (En Güçlü Karşıtlık)",
     "desc": "Karşı tarafın argümanını zayıflatmak yerine olabilecek en güçlü haliyle kurar.",
     "explain": "Karşı tarafın argümanını zayıflatmak yerine olabilecek en güçlü haliyle kurar.",
@@ -305,7 +305,7 @@
   },
   {
     "id": "immanent-critique",
-    "icon": "🔬",
+    "icon": "crosshair",
     "name": "İçsel Eleştiri (Immanent Critique)",
     "desc": "Sistemi dışarıdan değil, kendi kendi koyduğu kurallarla içeriden vurur.",
     "explain": "Sistemi dışarıdan değil, kendi kendi koyduğu kurallarla içeriden vurur.",
@@ -317,7 +317,7 @@
   },
   {
     "id": "genealogy-deconstruction",
-    "icon": "📜",
+    "icon": "history",
     "name": "Soybilimsel (Foucault/Nietzsche) Dekonstrüksiyon",
     "desc": "Kavramların tarihsel ve iktidar odaklı kökenlerini açığa çıkarır.",
     "explain": "Kavramların tarihsel ve iktidar odaklı kökenlerini açığa çıkarır.",
@@ -329,7 +329,7 @@
   },
   {
     "id": "paradigm-shift-detector",
-    "icon": "💥",
+    "icon": "zap",
     "name": "Paradigma Değişimi (Kuhn)",
     "desc": "Mevcut modelin çözemediği anomalileri tespit ederek paradigma değişimini öngörür.",
     "explain": "Mevcut modelin çözemediği anomalileri tespit ederek paradigma değişimini öngörür.",
@@ -341,7 +341,7 @@
   },
   {
     "id": "metaphysical-presupposition",
-    "icon": "🌌",
+    "icon": "atom",
     "name": "Metafizik Önkabuller Denetimi",
     "desc": "Varoluş, zaman ve nedensellik hakkındaki temel metafiziksel kabulleri sorgular.",
     "explain": "Varoluş, zaman ve nedensellik hakkındaki temel metafiziksel kabulleri sorgular.",

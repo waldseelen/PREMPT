@@ -1,7 +1,7 @@
 [
   {
     "id": "persona-role-definition",
-    "icon": "🎭",
+    "icon": "box",
     "name": "Persona & Rol Mimarisi",
     "desc": "AI ajanının uzmanlık alanını, sınırlarını ve temel karakterini tanımlar.",
     "explain": "AI ajanının uzmanlık alanını, sınırlarını ve temel karakterini tanımlar.",
@@ -11,7 +11,7 @@
   },
   {
     "id": "epistemic-stance-setting",
-    "icon": "🧠",
+    "icon": "compass",
     "name": "Epistemik Duruş Ayarı",
     "desc": "Ajanın bilgiye yaklaşımını (şüpheci, otoriter, sokratik) belirler.",
     "explain": "Ajanın bilgiye yaklaşımını (şüpheci, otoriter, sokratik) belirler.",
@@ -23,7 +23,7 @@
   },
   {
     "id": "tone-register-locking",
-    "icon": "🎙️",
+    "icon": "lock",
     "name": "Ton ve Sicil Kilitleme",
     "desc": "Üslubu (resmi, samimi, teknik, özlü) ve yasaklı kelimeleri sabitler.",
     "explain": "Üslubu (resmi, samimi, teknik, özlü) ve yasaklı kelimeleri sabitler.",
@@ -35,7 +35,7 @@
   },
   {
     "id": "domain-expert-profile",
-    "icon": "🎓",
+    "icon": "usercheck",
     "name": "Alan Uzmanı Profili",
     "desc": "Ajana ilgili sektörün terminoloji ve düşünme jargonu kütüphanesini yükler.",
     "explain": "Ajana ilgili sektörün terminoloji ve düşünme jargonu kütüphanesini yükler.",
@@ -47,7 +47,7 @@
   },
   {
     "id": "cognitive-bias-override",
-    "icon": "🛠️",
+    "icon": "brain",
     "name": "Bilişsel Sapma Aşma",
     "desc": "LLM'lerin varsayılan kullanıcıyı onaylama (sycophancy) eğilimini kırar.",
     "explain": "LLM'lerin varsayılan kullanıcıyı onaylama (sycophancy) eğilimini kırar.",
@@ -59,7 +59,7 @@
   },
   {
     "id": "adaptive-persona-shift",
-    "icon": "🔄",
+    "icon": "shuffle",
     "name": "Dinamik Persona Geçişi",
     "desc": "Görevin aşamasına göre ajanın mod değiştirmesini sağlar.",
     "explain": "Görevin aşamasına göre ajanın mod değiştirmesini sağlar.",
@@ -71,7 +71,7 @@
   },
   {
     "id": "cot-step-by-step",
-    "icon": "🔗",
+    "icon": "listordered",
     "name": "Chain-of-Thought (CoT) Enjeksiyonu",
     "desc": "Ajanın yanıt vermeden önce adım adım düşünmesini zorunlu kılar.",
     "explain": "Ajanın yanıt vermeden önce adım adım düşünmesini zorunlu kılar.",
@@ -81,7 +81,7 @@
   },
   {
     "id": "tree-of-thought-prompt",
-    "icon": "🌳",
+    "icon": "gitfork",
     "name": "Tree-of-Thoughts (ToT) Mimarisi",
     "desc": "Ajanın aynı anda 3 farklı düşünce patikası geliştirip kıyaslamasını sağlar.",
     "explain": "Ajanın aynı anda 3 farklı düşünce patikası geliştirip kıyaslamasını sağlar.",
@@ -93,7 +93,7 @@
   },
   {
     "id": "self-reflection-loop",
-    "icon": "🪞",
+    "icon": "rotateccw",
     "name": "Öz-Yansıtma (Self-Correction) Döngüsü",
     "desc": "Ajanın kendi ürettiği çıktıyı sunmadan önce denetlemesini sağlar.",
     "explain": "Ajanın kendi ürettiği çıktıyı sunmadan önce denetlemesini sağlar.",
@@ -105,7 +105,7 @@
   },
   {
     "id": "verification-step-injection",
-    "icon": "✅",
+    "icon": "checksquare",
     "name": "Ara Doğrulama Adımı",
     "desc": "Matematiksel ve mantıksal hesaplamalarda ara adımları teyit ettirir.",
     "explain": "Matematiksel ve mantıksal hesaplamalarda ara adımları teyit ettirir.",
@@ -117,7 +117,7 @@
   },
   {
     "id": "path-divergence-evaluation",
-    "icon": "🔀",
+    "icon": "split",
     "name": "Patika Sapma Değerlendirmesi",
     "desc": "ToT sürecinde elenen alternatiflerin elenme gerekçelerini raporlar.",
     "explain": "ToT sürecinde elenen alternatiflerin elenme gerekçelerini raporlar.",
@@ -129,7 +129,7 @@
   },
   {
     "id": "reasoning-depth-governor",
-    "icon": "🎛️",
+    "icon": "gauge",
     "name": "Düşünme Derinliği Valfi",
     "desc": "Karmaşıklığa göre CoT derinliğini dinamik olarak ayarlar.",
     "explain": "Karmaşıklığa göre CoT derinliğini dinamik olarak ayarlar.",
@@ -141,7 +141,7 @@
   },
   {
     "id": "hallucination-guardrail",
-    "icon": "🛡️",
+    "icon": "shieldalert",
     "name": "Halüsinasyon Korkuluğu",
     "desc": "Uydurma veri ve kaynak üretimini kesin kısıtlarla engeller.",
     "explain": "Uydurma veri ve kaynak üretimini kesin kısıtlarla engeller.",
@@ -151,7 +151,7 @@
   },
   {
     "id": "output-format-locking",
-    "icon": "🔒",
+    "icon": "folderlock",
     "name": "Çıktı Formatı Kilitleme",
     "desc": "Çıktıyı strictly JSON, XML veya Markdown şablonuna zorlar.",
     "explain": "Çıktıyı strictly JSON, XML veya Markdown şablonuna zorlar.",
@@ -163,7 +163,7 @@
   },
   {
     "id": "forbidden-phrase-filter",
-    "icon": "🚫",
+    "icon": "slash",
     "name": "Yasaklı Kelime / Kalıp Filtresi",
     "desc": "AI klşelerini ve istenmeyen ifadeleri kara listeye alır.",
     "explain": "AI klşelerini ve istenmeyen ifadeleri kara listeye alır.",
@@ -175,7 +175,7 @@
   },
   {
     "id": "claim-source-attribution",
-    "icon": "📌",
+    "icon": "link2",
     "name": "Kaynak Dayandırma Zorunluluğu",
     "desc": "Her iddianın bağlamdaki spesifik bir paragrafa/veriye dayanmasını sağlar.",
     "explain": "Her iddianın bağlamdaki spesifik bir paragrafa/veriye dayanmasını sağlar.",
@@ -187,7 +187,7 @@
   },
   {
     "id": "safety-policy-aligner",
-    "icon": "⚖️",
+    "icon": "shieldcheck",
     "name": "Güvenlik ve Hizmet Politikası Hizalaması",
     "desc": "Güvenlik ihlali durumlarında ajanın güvenli reddetme protokolü.",
     "explain": "Güvenlik ihlali durumlarında ajanın güvenli reddetme protokolü.",
@@ -199,7 +199,7 @@
   },
   {
     "id": "boundary-breach-fallback",
-    "icon": "🚨",
+    "icon": "alertoctagon",
     "name": "Sınır İhlali Yedek Protokolü",
     "desc": "Format veya içerik bozulduğunda ajanın kendini güvenli moda alması.",
     "explain": "Format veya içerik bozulduğunda ajanın kendini güvenli moda alması.",
@@ -211,7 +211,7 @@
   },
   {
     "id": "few-shot-exemplar-design",
-    "icon": "💡",
+    "icon": "copy",
     "name": "Few-Shot Örnek Tasarımı",
     "desc": "Ajanın doğru girdi-çıktı kalıbını anlaması için ideal örnekler sunar.",
     "explain": "Ajanın doğru girdi-çıktı kalıbını anlaması için ideal örnekler sunar.",
@@ -221,7 +221,7 @@
   },
   {
     "id": "edge-case-few-shot",
-    "icon": "🧩",
+    "icon": "target",
     "name": "Sınır Durum (Edge Case) Örneği",
     "desc": "Ajanın hatalı veya eksik girdilerde nasıl davranacağını gösterir.",
     "explain": "Ajanın hatalı veya eksik girdilerde nasıl davranacağını gösterir.",
@@ -233,7 +233,7 @@
   },
   {
     "id": "negative-example-contrast",
-    "icon": "❌",
+    "icon": "box",
     "name": "Negatif Örnek Zıtlığı",
     "desc": "Ajanın 'yapmaması gereken' çıktı örneğini göstererek sınır çizer.",
     "explain": "Ajanın 'yapmaması gereken' çıktı örneğini göstererek sınır çizer.",
@@ -245,7 +245,7 @@
   },
   {
     "id": "dynamic-context-exemplar",
-    "icon": "🔄",
+    "icon": "sparkles",
     "name": "Dinamik Bağlam Örneği",
     "desc": "Değişen parametrelere göre adapte olan örnek yapısı sunar.",
     "explain": "Değişen parametrelere göre adapte olan örnek yapısı sunar.",
@@ -257,7 +257,7 @@
   },
   {
     "id": "format-strictness-examples",
-    "icon": "📐",
+    "icon": "table",
     "name": "Format Katılığı Örnekleri",
     "desc": "Şema uyumluluğunu gösteren ayrıntılı kod/JSON örnekleri.",
     "explain": "Şema uyumluluğunu gösteren ayrıntılı kod/JSON örnekleri.",
@@ -269,7 +269,7 @@
   },
   {
     "id": "multi-turn-few-shot-chain",
-    "icon": "💬",
+    "icon": "link",
     "name": "Çok Tur Düzeyli Örnek Diyalog",
     "desc": "Ajanın çoklu konuşma turlarında bağlamı nasıl koruyacağını gösterir.",
     "explain": "Ajanın çoklu konuşma turlarında bağlamı nasıl koruyacağını gösterir.",
@@ -281,7 +281,7 @@
   },
   {
     "id": "variable-ingestion-schema",
-    "icon": "📥",
+    "icon": "database",
     "name": "Değişken Alım Şeması",
     "desc": "Sistem promptuna parametrik degiskenlerin (`{{variable}}`) nasil besleneceğini belirler.",
     "explain": "Sistem promptuna parametrik degiskenlerin (`{{variable}}`) nasil besleneceğini belirler.",
@@ -291,7 +291,7 @@
   },
   {
     "id": "multi-agent-handoff",
-    "icon": "🤝",
+    "icon": "users",
     "name": "Çoklu Ajan Devir (Handoff) Protokolü",
     "desc": "Ajanın görevi tamamlayıp diğer ajana hangi verilerle devredeceğini tanımlar.",
     "explain": "Ajanın görevi tamamlayıp diğer ajana hangi verilerle devredeceğini tanımlar.",
@@ -303,7 +303,7 @@
   },
   {
     "id": "task-decomposition-router",
-    "icon": "🔀",
+    "icon": "network",
     "name": "Görev Bölümleme Yönlendiricisi",
     "desc": "Büyük problemleri alt görevlere bölüp paralel ajanlara dağıtır.",
     "explain": "Büyük problemleri alt görevlere bölüp paralel ajanlara dağıtır.",
@@ -315,7 +315,7 @@
   },
   {
     "id": "state-persistence-prompt",
-    "icon": "💾",
+    "icon": "harddrive",
     "name": "Durum Koruma (State Persistence) Protokolü",
     "desc": "Turlar arası durum bilgisini JSON state nesnesinde günceller.",
     "explain": "Turlar arası durum bilgisini JSON state nesnesinde günceller.",
@@ -327,7 +327,7 @@
   },
   {
     "id": "response-aggregation-spec",
-    "icon": "📑",
+    "icon": "combine",
     "name": "Yanıt Toplama ve Sentez Özelliği",
     "desc": "Farklı ajanlardan gelen çıktıları çelişkisiz tek bir çıktıda birleştirir.",
     "explain": "Farklı ajanlardan gelen çıktıları çelişkisiz tek bir çıktıda birleştirir.",
@@ -339,7 +339,7 @@
   },
   {
     "id": "zero-api-prompt-compiler",
-    "icon": "⚡",
+    "icon": "cpu",
     "name": "PREMPT Sıfır-API Derleyici Şablonu",
     "desc": "Tüm aktif modülleri deterministik tek bir mega-prompta derler.",
     "explain": "Tüm aktif modülleri deterministik tek bir mega-prompta derler.",

@@ -3,9 +3,9 @@ export const languageSpec = {
   "route": "language",
   "defaultConfig": {
     "seviye": "lokalizasyon",
-    "mod": "native",
+    "mod": "kurumsal",
     "derinlik": "parlatma",
-    "format": "metin"
+    "format": "yanyana"
   },
   "icon": "globe",
   "category": "creation",

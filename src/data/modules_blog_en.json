@@ -1,358 +1,358 @@
 [
   {
     "id": "audience-intent-triage",
-    "icon": "🎯",
+    "icon": "target",
     "name": "Audience & Intent Triage",
-    "desc": "Determines the reader's search intent and domain expertise level.",
-    "explain": "Identifies whether the audience needs foundational concepts, practical implementation, or strategic comparison.",
+    "desc": "Determines reader search intent and domain expertise level.",
+    "explain": "Determines reader search intent and domain expertise level.",
     "layer": "triage",
     "requires": [],
     "prompt": "Triage target audience and search intent: Who is the reader? (Beginner, practitioner, executive). Is their intent informational, transactional, or comparative?"
   },
   {
     "id": "thesis-sharpener",
-    "icon": "🗡️",
+    "icon": "sword",
     "name": "Thesis & Core Idea Sharpener",
-    "desc": "Defines a single defensible, non-obvious, and compelling thesis statement.",
-    "explain": "Avoids generic platitudes by honing a distinct and provocative angle.",
+    "desc": "Defines a single defensible, rigorous, and non-trivial thesis statement.",
+    "explain": "Defines a single defensible, rigorous, and non-trivial thesis statement.",
     "layer": "triage",
     "requires": [
       "audience-intent-triage"
     ],
-    "prompt": "Sharpen the core thesis statement in one clear sentence. Focus on a non-consensus, defensible angle rather than commonplace truths."
+    "prompt": "Sharpen the core thesis: What is the single defensible claim this article makes? Emphasize a distinct or contrarian angle rather than generic industry platitudes."
   },
   {
     "id": "core-hook-extractor",
-    "icon": "🪝",
-    "name": "Critical Hook Architect",
-    "desc": "Hooks reader attention within the first 3 seconds with compelling tension.",
-    "explain": "Uses paradoxical questions, surprising data, or high-stakes micro-stories.",
+    "icon": "anchor",
+    "name": "Critical Hook Extractor",
+    "desc": "Designs compelling hooks that capture reader attention in the first 3 seconds.",
+    "explain": "Designs compelling hooks that capture reader attention in the first 3 seconds.",
     "layer": "triage",
     "requires": [
       "thesis-sharpener"
     ],
-    "prompt": "Craft 3 distinct opening hooks: (a) A counter-intuitive statistic, (b) A thought-provoking paradox, (c) A high-tension micro-narrative."
+    "prompt": "Formulate 3 alternative introductory hooks: (a) A counter-intuitive statistic, (b) A conceptual paradox or provocative question, (c) A high-tension micro-case study."
   },
   {
     "id": "tone-authority-setter",
-    "icon": "🎙️",
+    "icon": "mic",
     "name": "Tone & Authority Calibrator",
-    "desc": "Calibrates editorial register to pragmatic, seasoned, and authoritative.",
-    "explain": "Eliminates salesy marketing jargon in favor of direct editorial substance.",
+    "desc": "Establishes the editorial voice (pragmatic, authoritative, analytical).",
+    "explain": "Establishes the editorial voice (pragmatic, authoritative, analytical).",
     "layer": "triage",
     "requires": [
       "audience-intent-triage"
     ],
-    "prompt": "Set editorial tone: Establish a senior editor voice that is authoritative yet accessible, direct, and free from promotional fluff."
+    "prompt": "Calibrate editorial voice: Establish a senior editor tone that is deeply knowledgeable, grounded, and concise. Reject all marketing hype and superficial fluff."
   },
   {
     "id": "value-prop-alignment",
-    "icon": "💎",
+    "icon": "gem",
     "name": "Value Proposition Alignment",
-    "desc": "Aligns the post's takeaways with immediate reader utility.",
-    "explain": "Ensures the reader gains concrete, actionable value from every section.",
+    "desc": "Clarifies the concrete, actionable takeaways the reader walks away with.",
+    "explain": "Clarifies the concrete, actionable takeaways the reader walks away with.",
     "layer": "triage",
     "requires": [
       "thesis-sharpener"
     ],
-    "prompt": "Align the value proposition: Explicitly define what tangible skill, mental model, or insight the reader will master after reading."
+    "prompt": "Answer the reader's question: 'What do I gain from reading this?': Define 3 concrete, high-leverage actionable takeaways delivered upon completion."
   },
   {
     "id": "content-angle-pivot",
-    "icon": "🔄",
-    "name": "İçerik Açısı (Angle) Pivotu",
-    "desc": "Sıradan bir konuyu radikal ve özgün bir perspektife kaydırır.",
-    "explain": "Sıradan bir konuyu radikal ve özgün bir perspektife kaydırır.",
+    "icon": "rotate-ccw",
+    "name": "Content Angle Pivot",
+    "desc": "Shifts a common subject into a distinct, defensible, and high-signal perspective.",
+    "explain": "Shifts a common subject into a distinct, defensible, and high-signal perspective.",
     "layer": "triage",
     "requires": [
       "core-hook-extractor"
     ],
-    "prompt": "İçerik açısını kaydır: Sektördeki 100 benzer blog yazısından farklı olarak, bu konuyu hangi radikal veya unutulmuş lens arkasından inceleyeceğiz?"
+    "prompt": "Pivot the editorial angle: Out of 100 typical articles on this topic, what overlooked or contrarian lens will this piece dissect to provide unique value?"
   },
   {
     "id": "evidence-hierarchy-audit",
-    "icon": "📊",
-    "name": "Kanıt Hiyerarşisi Denetimi (BLOG.md)",
-    "desc": "İddiaları SAĞLAM, KÜÇÜLDÜ, TARTIŞMALI, BİLİNMİYOR veya ÇÖKTÜ olarak etiketler.",
-    "explain": "İddiaları SAĞLAM, KÜÇÜLDÜ, TARTIŞMALI, BİLİNMİYOR veya ÇÖKTÜ olarak etiketler.",
+    "icon": "bar-chart-2",
+    "name": "Evidence Hierarchy Audit (BLOG.md)",
+    "desc": "Tags all claims as SOLID, DIMINISHED, CONTESTED, UNKNOWN, or DEBUNKED.",
+    "explain": "Tags all claims as SOLID, DIMINISHED, CONTESTED, UNKNOWN, or DEBUNKED.",
     "layer": "evidence",
     "requires": [
       "thesis-sharpener"
     ],
-    "prompt": "BLOG.md Kanıt Hiyerarşisi denetimi yap: Yazıdaki tüm iddiaları incele ve her birini etiketle: [SAĞLAM] (doğrulanmış ampirik veri), [KÜÇÜLDÜ] (sınırlı geçerlilik), [TARTIŞMALI] (akademik anlaşmazlık), [BİLİNMİYOR] (yeterli veri yok), [ÇÖKTÜ] (yanlışlanmış iddia)."
+    "prompt": "Perform Evidence Hierarchy Audit (BLOG.md): Audit every factual claim and assign: [SOLID] (empirically proven), [DIMINISHED] (context-limited), [CONTESTED] (academic debate), [UNKNOWN] (insufficient data), or [DEBUNKED] (falsified)."
   },
   {
     "id": "claim-verification-grid",
-    "icon": "🔍",
-    "name": "İddia Doğrulama Matrisi",
-    "desc": "Soyut iddiaları somut vaka çalışmaları ve istatistiklerle destekler.",
-    "explain": "Soyut iddiaları somut vaka çalışmaları ve istatistiklerle destekler.",
+    "icon": "search",
+    "name": "Claim Verification Grid",
+    "desc": "Backs abstract claims with concrete case studies, metrics, and benchmarks.",
+    "explain": "Backs abstract claims with concrete case studies, metrics, and benchmarks.",
     "layer": "evidence",
     "requires": [
       "evidence-hierarchy-audit"
     ],
-    "prompt": "İddia Doğrulama Matrisi kur: Metindeki her soyut tez için en az 1 adet ampirik veri, vaka çalışması veya sektör örneği eşleştir."
+    "prompt": "Build a Claim Verification Grid: Match every conceptual premise with at least one verifiable empirical benchmark, production case study, or industry dataset."
   },
   {
     "id": "data-citation-scrubber",
-    "icon": "🧹",
-    "name": "Veri ve Atıf Ayıklayıcı",
-    "desc": "Tarihi geçmiş, kaynağı belirsiz veya uydurma istatistikleri temizler.",
-    "explain": "Tarihi geçmiş, kaynağı belirsiz veya uydurma istatistikleri temizler.",
+    "icon": "file-search",
+    "name": "Data & Citation Scrubber",
+    "desc": "Purges outdated, unverified, or fabricated statistics with verified citations.",
+    "explain": "Purges outdated, unverified, or fabricated statistics with verified citations.",
     "layer": "evidence",
     "requires": [
       "claim-verification-grid"
     ],
-    "prompt": "İstatistik ve veri temizliği yap: Kaynağı gösterilmeyen tüm 'araştırmalara göre' veya 'uzmanlar diyor ki' gibi yuvarlak lafları sil. Yerine spesifik rapor ve yıl ismi koy."
+    "prompt": "Scrub citations and statistics: Eliminate vague phrases like 'studies show' or 'experts agree'. Replace them with exact source names, publication years, and methodological context."
   },
   {
     "id": "anecdotal-evidence-test",
-    "icon": "📖",
-    "name": "Anekdotsal Kanıt Testi",
-    "desc": "Tekil hikayelerin genelleme gibi sunulmasını engeller.",
-    "explain": "Tekil hikayelerin genelleme gibi sunulmasını engeller.",
+    "icon": "book-open",
+    "name": "Anecdotal Evidence Filter",
+    "desc": "Prevents isolated stories from being misrepresented as systemic rules.",
+    "explain": "Prevents isolated stories from being misrepresented as systemic rules.",
     "layer": "evidence",
     "requires": [
       "evidence-hierarchy-audit"
     ],
-    "prompt": "Anekdotsal kanıt kontrolü yap: Kişisel deneyim veya tekil başarı hikayelerinin sistematik bir kural gibi sunulup sunulmadığını denetle."
+    "prompt": "Filter anecdotal claims: Verify whether personal anecdotes or isolated success stories are improperly framed as universal principles, and add appropriate boundary conditions."
   },
   {
     "id": "expert-quote-integration",
-    "icon": "💬",
-    "name": "Uzman Görüşü ve Alıntı Entegrasyonu",
-    "desc": "Alanında otorite isimlerin nitelikli görüşlerini metne yedirir.",
-    "explain": "Alanında otorite isimlerin nitelikli görüşlerini metne yedirir.",
+    "icon": "quote",
+    "name": "Expert Quote Integration",
+    "desc": "Seamlessly integrates high-signal citations from domain authorities.",
+    "explain": "Seamlessly integrates high-signal citations from domain authorities.",
     "layer": "evidence",
     "requires": [
       "data-citation-scrubber"
     ],
-    "prompt": "Metne tanınmış sektör uzmanlarının veya akademisyenlerin 2 adet doğrudan, yüksek etki gücüne sahip alıntısını entegre et."
+    "prompt": "Integrate expert commentary: Embed 2 direct, high-impact quotes or viewpoints from recognized domain authorities or primary researchers."
   },
   {
     "id": "counter-evidence-check",
-    "icon": "⚖️",
-    "name": "Karşıt Kanıt Taraması",
-    "desc": "Savunulan teze zıt ampirik verileri açıkça kabul eder ve tartışır.",
-    "explain": "Savunulan teze zıt ampirik verileri açıkça kabul eder ve tartışır.",
+    "icon": "scale",
+    "name": "Counter-Evidence Inspection",
+    "desc": "Transparently acknowledges and addresses data contradicting the thesis.",
+    "explain": "Transparently acknowledges and addresses data contradicting the thesis.",
     "layer": "evidence",
     "requires": [
       "claim-verification-grid"
     ],
-    "prompt": "Savunulan teze zıt düşen en güçlü ampirik veriyi tespit et ve metin içinde bu karşıt kanıtı adil bir şekilde tartışarak tezini güçlendir."
+    "prompt": "Inspect counter-evidence: Identify the strongest empirical finding that challenges the central thesis and transparently evaluate its implications to fortify the argument."
   },
   {
     "id": "steelman-counter-arg",
-    "icon": "🛡️",
-    "name": "Steelman Counter-Argument",
-    "desc": "Presents the strongest possible opposing argument before refuting it.",
-    "explain": "Enhances credibility by defeating the best version of rival viewpoints.",
+    "icon": "shield-check",
+    "name": "Steelman Counter-Arguments",
+    "desc": "Engages with reader skepticism in its most rigorous and persuasive form.",
+    "explain": "Engages with reader skepticism in its most rigorous and persuasive form.",
     "layer": "dialectic",
     "requires": [
       "thesis-sharpener"
     ],
-    "prompt": "Steelman the primary counter-argument: Articulate the opposing perspective in its most formidable form before dismantling it."
+    "prompt": "Steelman counter-arguments: Present the top 2 opposing objections at their strongest, acknowledge valid concerns, and demonstrate why the primary thesis remains sound."
   },
   {
     "id": "dialectic-synthesis-flow",
-    "icon": "☯️",
-    "name": "Diyalektik Akış (Tez-Antitez-Sentez)",
-    "desc": "Yazıyı yüzeysel bir listeden derin bir diyalektik anlatıya dönüştürür.",
-    "explain": "Yazıyı yüzeysel bir listeden derin bir diyalektik anlatıya dönüştürür.",
+    "icon": "git-merge",
+    "name": "Dialectic Synthesis Flow",
+    "desc": "Structures the narrative through Thesis, Antithesis, and Synthesis.",
+    "explain": "Structures the narrative through Thesis, Antithesis, and Synthesis.",
     "layer": "dialectic",
     "requires": [
       "steelman-counter-arg"
     ],
-    "prompt": "Yazının ana gövdesini diyalektik akışla kurgula: (a) Yaygın Kabul (Tez), (b) Kırılma Noktası ve İtiraz (Antitez), (c) Yeni Bütüncül Yaklaşım (Sentez)."
+    "prompt": "Construct a dialectical body flow: (a) Dominant Convention (Thesis), (b) Friction Point & Critique (Antithesis), (c) Integrated Resolution (Synthesis)."
   },
   {
     "id": "nuance-injector",
-    "icon": "🎨",
-    "name": "Nüans Enjektörü",
-    "desc": "Siyah-beyaz anlatıları gri alanlar ve koşullu geçerlilikle zenginleştirir.",
-    "explain": "Siyah-beyaz anlatıları gri alanlar ve koşullu geçerlilikle zenginleştirir.",
+    "icon": "palette",
+    "name": "Nuance Injector",
+    "desc": "Enriches binary claims with contextual boundaries and trade-offs.",
+    "explain": "Enriches binary claims with contextual boundaries and trade-offs.",
     "layer": "dialectic",
     "requires": [
       "dialectic-synthesis-flow"
     ],
-    "prompt": "Metne nüans kat: 'Bu yaklaşım her zaman çalışır' demek yerine, hangi koşullarda (bağlam, ölçek, bütçe) İŞLEMEDİĞİNİ gösteren gri alanları ekle."
+    "prompt": "Inject intellectual nuance: Instead of claiming absolute efficacy, explicitly articulate the edge cases, resource trade-offs, and conditions where this approach fails."
   },
   {
     "id": "cognitive-dissonance-hook",
-    "icon": "⚡",
-    "name": "Bilişsel Çelişki Kurgusu",
-    "desc": "Okuyucunun mevcut kabullerini sarsarak merak uyandırır.",
-    "explain": "Okuyucunun mevcut kabullerini sarsarak merak uyandırır.",
+    "icon": "zap",
+    "name": "Cognitive Dissonance Arc",
+    "desc": "Challenges existing reader assumptions to spark critical engagement.",
+    "explain": "Challenges existing reader assumptions to spark critical engagement.",
     "layer": "dialectic",
     "requires": [
       "steelman-counter-arg"
     ],
-    "prompt": "Bilişsel Çelişki (Cognitive Dissonance) yarat: Okuyucunun doğru bildiği bir uygulamanın aslında ona nasıl zarar verdiğini göstererek zihinsel bir kıvılcım çak."
+    "prompt": "Engineer a cognitive dissonance arc: Reveal how an intuitive, well-regarded practice may inadvertently cause negative downstream side-effects."
   },
   {
     "id": "paradox-resolution-narrative",
-    "icon": "🧩",
-    "name": "Paradox Çözüm Anlatısı",
-    "desc": "Sektörel bir çelişkiyi veya paradoksu çözüme kavuşturan hikaye dizilimi.",
-    "explain": "Sektörel bir çelişkiyi veya paradoksu çözüme kavuşturan hikaye dizilimi.",
+    "icon": "puzzle",
+    "name": "Paradox Resolution Narrative",
+    "desc": "Resolves core industry contradictions through a coherent mental model.",
+    "explain": "Resolves core industry contradictions through a coherent mental model.",
     "layer": "dialectic",
     "requires": [
       "dialectic-synthesis-flow"
     ],
-    "prompt": "Konunun göbeğindeki sektörel paradoksu tanımla ve yazının sonunda bu paradoksu çözen zihinsel modeli sun."
+    "prompt": "Identify and resolve the central industry paradox: Clarify competing tensions and present a structured mental model that reconciles both sides."
   },
   {
     "id": "multiple-perspectives-grid",
-    "icon": "🌐",
-    "name": "Çoklu Perspektif Matrisi",
-    "desc": "Konuyu geliştirici, yönetici ve müşteri gözünden eşzamanlı değerlendirir.",
-    "explain": "Konuyu geliştirici, yönetici ve müşteri gözünden eşzamanlı değerlendirir.",
+    "icon": "globe",
+    "name": "Multi-Perspective Matrix",
+    "desc": "Evaluates the subject across developer, executive, and user viewpoints.",
+    "explain": "Evaluates the subject across developer, executive, and user viewpoints.",
     "layer": "dialectic",
     "requires": [
       "nuance-injector"
     ],
-    "prompt": "Konuyu 3 farklı aktörün (Örn: Geliştirici, CEO, Müşteri) penceresinden aynı anda değerlendiren çok katmanlı bir analiz paragrafı ekle."
+    "prompt": "Assemble a multi-perspective matrix: Evaluate the topic through 3 distinct vantage points (e.g. Engineering, Executive Leadership, End User) in parallel."
   },
   {
     "id": "outline-builder-notes",
-    "icon": "📝",
-    "name": "Taslak Mimarı ve YAZIM NOTU (BLOG.md)",
-    "desc": "Her alt başlığa [YAZIM NOTU: Ton/Amaç] direktifleri ekleyerek taslağı kurar.",
-    "explain": "Her alt başlığa [YAZIM NOTU: Ton/Amaç] direktifleri ekleyerek taslağı kurar.",
+    "icon": "file-text",
+    "name": "Outline Architect & WRITING NOTES (BLOG.md)",
+    "desc": "Builds an outline with [WRITING NOTE: Tone/Goal] directives under every heading.",
+    "explain": "Builds an outline with [WRITING NOTE: Tone/Goal] directives under every heading.",
     "layer": "structure",
     "requires": [],
-    "prompt": "BLOG.md standartlarında Taslak (Outline) oluştur: Her H2 ve H3 alt başlığının altına dikli parantez içinde `[YAZIM NOTU: Bu bölümde X verisi verilecek, ton sert olacak ve Y klisesinden kaçınılacak]` talimatı ekle."
+    "prompt": "Generate a BLOG.md standard outline: Under every H2/H3 section header, insert bracketed directives: `[WRITING NOTE: Data to cite, target tone, and specific clichés to avoid]`."
   },
   {
     "id": "section-transition-pacing",
-    "icon": "⏱️",
-    "name": "Bölüm Geçişleri ve Tempo (Pacing)",
-    "desc": "Uzun metinlerde okuyucunun kopmasını engelleyen ritmik geçişler kurar.",
-    "explain": "Uzun metinlerde okuyucunun kopmasını engelleyen ritmik geçişler kurar.",
+    "icon": "clock",
+    "name": "Section Transition & Pacing",
+    "desc": "Maintains reader momentum with balanced analytical and rhythmic transitions.",
+    "explain": "Maintains reader momentum with balanced analytical and rhythmic transitions.",
     "layer": "structure",
     "requires": [
       "outline-builder-notes"
     ],
-    "prompt": "Bölüm geçişlerini ve okuma temposunu düzenle: Uzun ve derin analiz paragraflarının ardından kısa, vurucu ve özetleyici tek cümlelik geçişler yerleştir."
+    "prompt": "Tune section pacing: Bridge lengthy analytical paragraphs with crisp, high-impact transitional sentences that maintain narrative momentum."
   },
   {
     "id": "pyramid-principle",
-    "icon": "🔺",
-    "name": "Piramit İlkesi (Minto Pyramid)",
-    "desc": "Önce ana sonucu/çözümü söyler, ardından destekleyici nedenlere inip detayı verir.",
-    "explain": "Önce ana sonucu/çözümü söyler, ardından destekleyici nedenlere inip detayı verir.",
+    "icon": "triangle",
+    "name": "Minto Pyramid Principle",
+    "desc": "Delivers core conclusions upfront before unpacking supporting arguments.",
+    "explain": "Delivers core conclusions upfront before unpacking supporting arguments.",
     "layer": "structure",
     "requires": [
       "outline-builder-notes"
     ],
-    "prompt": "McKinsey Piramit İlkesini (Minto Pyramid Principle) uygula: Her paragrafın ve bölümün İLK cümlesinde ana mesajı/sonucu ver, ardından gelen cümlelerde kanıt ve detaylandır."
+    "prompt": "Apply the Minto Pyramid Principle: State the core takeaway or answer in the opening sentence of each section, followed by structured supporting evidence."
   },
   {
     "id": "skimmability-formatter",
-    "icon": "👀",
-    "name": "Gözle Taranabilirlik (Skimmability) Formatı",
-    "desc": "Kalın vurgular, maddeler ve çağrı kutuları (callout) ile taranabilirlik sağlar.",
-    "explain": "Kalın vurgular, maddeler ve çağrı kutuları (callout) ile taranabilirlik sağlar.",
+    "icon": "eye",
+    "name": "Skimmability & Visual Formatting",
+    "desc": "Enhances readability using selective bolding, bullet points, and callouts.",
+    "explain": "Enhances readability using selective bolding, bullet points, and callouts.",
     "layer": "structure",
     "requires": [
       "section-transition-pacing"
     ],
-    "prompt": "Metni gözle taranabilir yap: Yalnızca anahtar kavramları **koyu** yaz, uzun listeleri maddelere böl ve en kritik mesajı `> Callout Kutusu` içine al."
+    "prompt": "Format for skimmability: Bold key conceptual terms sparingly, convert dense lists to bullets, and enclose central takeaways inside markdown `> Callout Blocks`."
   },
   {
     "id": "key-takeaway-distiller",
-    "icon": "💡",
-    "name": "Özet Notlar (TL;DR) Kutusu",
-    "desc": "Yazının başında veya sonunda 3 maddelik yönetici özeti çıkarır.",
-    "explain": "Yazının başında veya sonunda 3 maddelik yönetici özeti çıkarır.",
+    "icon": "lightbulb",
+    "name": "Executive Summary (TL;DR) Box",
+    "desc": "Summarizes the entire article into a 3-bullet high-signal executive overview.",
+    "explain": "Summarizes the entire article into a 3-bullet high-signal executive overview.",
     "layer": "structure",
     "requires": [
       "pyramid-principle"
     ],
-    "prompt": "Yazının hemen girişine '3 Cümlede Özet (TL;DR)' kutusu ekle. Acelesi olan okuyucunun ana fikri 5 saniyede almasını sağla."
+    "prompt": "Create an upfront '3-Sentence Executive Summary (TL;DR)' box enabling busy readers to grasp the entire argument in under 10 seconds."
   },
   {
     "id": "article-closure-callout",
-    "icon": "🚀",
-    "name": "Kapanış ve Eylem Çağrısı (CTA)",
-    "desc": "Satış odaklı olmayan, entelektüel bir tartışma veya eylem çağrısı tasarlar.",
-    "explain": "Satış odaklı olmayan, entelektüel bir tartışma veya eylem çağrısı tasarlar.",
+    "icon": "rocket",
+    "name": "Analytical Conclusion & Call-to-Action",
+    "desc": "Concludes with an intellectual discussion prompt or structured next step.",
+    "explain": "Concludes with an intellectual discussion prompt or structured next step.",
     "layer": "structure",
     "requires": [
       "key-takeaway-distiller"
     ],
-    "prompt": "Kapanış bölümünü kurgula: Pazarlamacı CTA'ları yerine, okuyucuyu kendi sistemini sorgulamaya davet eden entelektüel bir kapanış sorusu veya uygulama adımı yaz."
+    "prompt": "Craft a high-signal conclusion: Replace generic sales calls-to-action with a thoughtful discussion prompt or actionable implementation checklist."
   },
   {
     "id": "pop-culture-cliche-filter",
-    "icon": "🚫",
-    "name": "Pop-Kültür ve AI Klişe Filtresi",
-    "desc": "'Game-changer', 'Revolutionary', 'Delve', 'Unpack' gibi klişeleri bıçak gibi keser.",
-    "explain": "'Game-changer', 'Revolutionary', 'Delve', 'Unpack' gibi klişeleri bıçak gibi keser.",
+    "icon": "x-octagon",
+    "name": "Pop-Culture & AI Cliché Filter",
+    "desc": "Eliminates empty marketing buzzwords like 'game-changer', 'delve', and 'unpack'.",
+    "explain": "Eliminates empty marketing buzzwords like 'game-changer', 'delve', and 'unpack'.",
     "layer": "anti-patterns",
     "requires": [
       "tone-authority-setter"
     ],
-    "prompt": "Metinden tüm pazarlama klişelerini ve AI jargonu lafları temizle: 'Oyunun kurallarını değiştiren', 'Devrim niteliğinde', 'Derinlemesine incelemek', 'Gelecek burada' gibi lafları tamamen sil."
+    "prompt": "Purge all marketing clichés and AI buzzwords: Ban phrases like 'game-changer', 'revolutionary', 'delve into', 'unpack', and 'the future is here'."
   },
   {
     "id": "ai-jargon-slasher",
-    "icon": "⚔️",
-    "name": "Yapay Zeka Metin İzleri Temizliği",
-    "desc": "LLM metinlerinin karakteristik bağlaçlarını ve simetrik yapısını kırar.",
-    "explain": "LLM metinlerinin karakteristik bağlaçlarını ve simetrik yapısını kırar.",
+    "icon": "swords",
+    "name": "Synthetic AI Pattern Scrubber",
+    "desc": "Breaks robotic transition formulas and overly symmetrical paragraph structures.",
+    "explain": "Breaks robotic transition formulas and overly symmetrical paragraph structures.",
     "layer": "anti-patterns",
     "requires": [
       "pop-culture-cliche-filter"
     ],
-    "prompt": "AI yapaylığını sil: 'Öte yandan', 'Sonuç olarak', 'Bununla birlikte' gibi aşırı kullanılan bağlaçları azalt. Paragraf uzunluklarını insan ritmine uygun şekilde rasgeleleştir."
+    "prompt": "Strip AI writing artifacts: Reduce robotic boilerplate transitions ('Furthermore', 'In conclusion', 'Moreover') and vary paragraph lengths naturally."
   },
   {
     "id": "fluff-sentence-remover",
-    "icon": "✂️",
-    "name": "Laf Kalabalığı (Fluff) Budayıcı",
-    "desc": "Anlama katkısı sağlamayan tüm dolgu cümlelerini çıkarır.",
-    "explain": "Anlama katkısı sağlamayan tüm dolgu cümlelerini çıkarır.",
+    "icon": "scissors",
+    "name": "Fluff & Filler Sentence Pruner",
+    "desc": "Cuts hollow filler sentences that do not contribute substantive information.",
+    "explain": "Cuts hollow filler sentences that do not contribute substantive information.",
     "layer": "anti-patterns",
     "requires": [
       "ai-jargon-slasher"
     ],
-    "prompt": "Sıkı Metin Budaması: Sıfır bilgi değeri taşıyan, sadece yer kaplayan tüm dolgu cümlelerini sil. Metni en az %20 oranında kısaltarak yoğunlaştır."
+    "prompt": "Prune filler: Strip zero-information fluff sentences, tightening and concentrating the overall prose density by at least 20%."
   },
   {
     "id": "passive-voice-trimmer",
-    "icon": "🧹",
-    "name": "Edilgen Dili Etken Dile Çevirme",
-    "desc": "Yazının enerjisini düşüren edilgen cümleleri doğrudan etken eylemlere dönüştürür.",
-    "explain": "Yazının enerjisini düşüren edilgen cümleleri doğrudan etken eylemlere dönüştürür.",
+    "icon": "eraser",
+    "name": "Passive to Active Voice Converter",
+    "desc": "Converts sluggish passive sentence constructions into dynamic active verbs.",
+    "explain": "Converts sluggish passive sentence constructions into dynamic active verbs.",
     "layer": "anti-patterns",
     "requires": [
       "fluff-sentence-remover"
     ],
-    "prompt": "Cümlelerdeki edilgen (passive) çatıları aktif ve canlı etken eylemlere dönüştür. (Örn: 'Sistem tarafından hata yapıldı' -> 'Sistem hata yaptı')."
+    "prompt": "Convert passive phrasing into crisp active verbs to maximize energy and directness (e.g. 'Mistakes were made by the team' -> 'The team made mistakes')."
   },
   {
     "id": "clickbait-de-escalator",
-    "icon": "🧯",
-    "name": "Tık Tuzağı (Clickbait) Nötrleme",
-    "desc": "Aşırı abartılı başlık ve iddiaları editoryal dürüstlük seviyesine çeker.",
-    "explain": "Aşırı abartılı başlık ve iddiaları editoryal dürüstlük seviyesine çeker.",
+    "icon": "shield-alert",
+    "name": "Clickbait Neutralizer",
+    "desc": "Aligns exaggerated headlines and claims with complete editorial integrity.",
+    "explain": "Aligns exaggerated headlines and claims with complete editorial integrity.",
     "layer": "anti-patterns",
     "requires": [
       "pop-culture-cliche-filter"
     ],
-    "prompt": "Başlık ve alt başlıklardaki tık tuzağı (clickbait) abartılarını temizle. Başlığı yazının GERÇEKTEN sunduğu içerikle %100 dürüst seviyeye hizala."
+    "prompt": "Neutralize clickbait: Align all titles, subtitles, and introductory promises with what the text genuinely proves and delivers."
   },
   {
     "id": "repetition-purger",
-    "icon": "🔄",
-    "name": "Tekrar ve Tautology Temizliği",
-    "desc": "Farklı kelimelerle aynı şeyi söyleyen yinelenen paragrafları siler.",
-    "explain": "Farklı kelimelerle aynı şeyi söyleyen yinelenen paragrafları siler.",
+    "icon": "refresh-cw",
+    "name": "Tautology & Redundancy Purger",
+    "desc": "Condenses repetitive paragraphs expressing the same thought into a single point.",
+    "explain": "Condenses repetitive paragraphs expressing the same thought into a single point.",
     "layer": "anti-patterns",
     "requires": [
       "fluff-sentence-remover"
     ],
-    "prompt": "Metindeki fikir tekrarlarını (Tautology) ve farklı kelimelerle aynı düşünceyi geveleyen tüm paragrafları tespit edip tek bir güçlü cümleye indirge."
+    "prompt": "Purge tautology and redundancy: Identify paragraphs restating the same idea with different vocabulary and condense them into a single focused sentence."
   }
 ]

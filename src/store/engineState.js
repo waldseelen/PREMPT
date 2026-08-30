@@ -170,7 +170,10 @@ export const useEngineState = create(
                     newModules = resolveDependencies(newModules, domain, state.config.lang);
                 }
                 return {
-                    selectedModules: newModules
+                    selectedModules: newModules,
+                    activePreset: null,
+                    injectedRules: [],
+                    dependencyHints: []
                 };
             }),
 

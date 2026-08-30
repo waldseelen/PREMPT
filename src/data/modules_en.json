@@ -1,7 +1,7 @@
 [
   {
     "id": "eli5",
-    "icon": "👶",
+    "icon": "box",
     "name": "Explain Like I'm 5 (ELI5)",
     "desc": "Simplify concepts for a child",
     "explain": "Explains complex concepts using simple analogies and everyday language, as if explaining to a 5-year-old.",
@@ -11,7 +11,7 @@
   },
   {
     "id": "kalibrasyon",
-    "icon": "🎯",
+    "icon": "box",
     "name": "Level Calibration",
     "desc": "Test your level with 3 questions",
     "explain": "Calibrates your level with 3 targeted questions before explaining, scaling all subsequent content.",
@@ -21,7 +21,7 @@
   },
   {
     "id": "onkosul",
-    "icon": "🗺️",
+    "icon": "box",
     "name": "Prerequisite Map",
     "desc": "What should be known?",
     "explain": "Lists foundational concepts required before learning this topic.",
@@ -31,7 +31,7 @@
   },
   {
     "id": "sirasi",
-    "icon": "🧭",
+    "icon": "box",
     "name": "Learning Path",
     "desc": "In what sequence?",
     "explain": "Breaks down the topic into the most efficient logical learning sequence.",
@@ -43,7 +43,7 @@
   },
   {
     "id": "pareto",
-    "icon": "📐",
+    "icon": "box",
     "name": "80/20 Analysis",
     "desc": "20% effort, 80% understanding",
     "explain": "Instead of getting lost in details, filter the critical 20% core that provides 80% of the comprehension or utility of this topic.",
@@ -53,7 +53,7 @@
   },
   {
     "id": "ontoloji",
-    "icon": "🧬",
+    "icon": "box",
     "name": "Ontology (Principles)",
     "desc": "Define core building blocks",
     "explain": "Deconstructs the topic to its most basic, indivisible building blocks and explains why they exist.",
@@ -63,7 +63,7 @@
   },
   {
     "id": "nedensellik",
-    "icon": "⚡",
+    "icon": "box",
     "name": "Causal Necessity",
     "desc": "Explain why it exists",
     "explain": "Proves the purpose of each component, analyzing why the system fails without it.",
@@ -75,7 +75,7 @@
   },
   {
     "id": "mental",
-    "icon": "🧠",
+    "icon": "box",
     "name": "Mental Model",
     "desc": "Mental visual scene",
     "explain": "Turns the concept into an intuitive visual scenario for easy recall.",
@@ -85,7 +85,7 @@
   },
   {
     "id": "mekanizma",
-    "icon": "⚙️",
+    "icon": "box",
     "name": "Mechanism",
     "desc": "Input → Process → Output",
     "explain": "Deconstructs the mechanics of the system step-by-step like a machine.",
@@ -97,7 +97,7 @@
   },
   {
     "id": "diagram",
-    "icon": "📊",
+    "icon": "box",
     "name": "Concept Graph (DAG)",
     "desc": "Textual structure map",
     "explain": "Draws directed relationships between sub-concepts using ASCII or text diagrams.",
@@ -109,7 +109,7 @@
   },
   {
     "id": "insa",
-    "icon": "🧱",
+    "icon": "box",
     "name": "Knowledge Construction",
     "desc": "Build from scratch",
     "explain": "Rebuilds the concept step-by-step as if you are inventing it for the first time.",
@@ -121,7 +121,7 @@
   },
   {
     "id": "tersine",
-    "icon": "🔄",
+    "icon": "box",
     "name": "Reverse Engineering",
     "desc": "Result to cause",
     "explain": "Analyzes the final output and traces backward to reconstruct the preceding steps.",
@@ -133,7 +133,7 @@
   },
   {
     "id": "simulasyon",
-    "icon": "🎮",
+    "icon": "box",
     "name": "Simulation Mode",
     "desc": "Narrate from within",
     "explain": "Simulates the process from the perspective of an internal component.",
@@ -145,7 +145,7 @@
   },
   {
     "id": "deney",
-    "icon": "🧪",
+    "icon": "box",
     "name": "Thought Experiment",
     "desc": "Run in your mind",
     "explain": "Sets up thought experiments to test principles in boundary conditions.",
@@ -157,7 +157,7 @@
   },
   {
     "id": "evrim",
-    "icon": "📜",
+    "icon": "box",
     "name": "Historical Evolution",
     "desc": "How and why it emerged",
     "explain": "Explains what problems the concept was developed to solve historically.",
@@ -167,7 +167,7 @@
   },
   {
     "id": "kontrast",
-    "icon": "⚖️",
+    "icon": "box",
     "name": "Contrast Analysis",
     "desc": "Compare with similar concepts",
     "explain": "Clarifies boundaries between this concept and easily confused alternatives.",
@@ -177,7 +177,7 @@
   },
   {
     "id": "rakip",
-    "icon": "⚔️",
+    "icon": "box",
     "name": "Competing Theories",
     "desc": "See the alternatives",
     "explain": "Evaluates alternative approaches along with their pros and cons.",
@@ -187,7 +187,7 @@
   },
   {
     "id": "karar",
-    "icon": "🌳",
+    "icon": "box",
     "name": "Decision Tree",
     "desc": "When to choose this concept?",
     "explain": "Provides a logical decision algorithm or choice matrix indicating when to select this method or technology.",
@@ -197,7 +197,7 @@
   },
   {
     "id": "esleme",
-    "icon": "🔗",
+    "icon": "box",
     "name": "Structural Mapping",
     "desc": "Map to your domain",
     "explain": "Maps the learning concept technically to a domain you already know.",
@@ -207,7 +207,7 @@
   },
   {
     "id": "disiplinler",
-    "icon": "🔗",
+    "icon": "box",
     "name": "Interdisciplinary",
     "desc": "Link to other fields",
     "explain": "Finds parallels in mathematics, physics, biology, or economics.",
@@ -217,7 +217,7 @@
   },
   {
     "id": "gelecek",
-    "icon": "🔮",
+    "icon": "box",
     "name": "Future Projections",
     "desc": "Where is it heading?",
     "explain": "Predicts how this topic or technology will take shape over the next 5, 10, or 50 years.",
@@ -229,7 +229,7 @@
   },
   {
     "id": "yanilgilar",
-    "icon": "❌",
+    "icon": "box",
     "name": "Misconceptions",
     "desc": "Top 5 misconceptions",
     "explain": "Lists common conceptual traps and why they are incorrect.",
@@ -239,7 +239,7 @@
   },
   {
     "id": "varsayimlar",
-    "icon": "🔍",
+    "icon": "box",
     "name": "Hidden Assumptions",
     "desc": "What is hidden below?",
     "explain": "Reveals critical underlying assumptions necessary for stability.",
@@ -249,7 +249,7 @@
   },
   {
     "id": "basarisizlik",
-    "icon": "💥",
+    "icon": "box",
     "name": "Failure Modes",
     "desc": "When the system crashes",
     "explain": "Explains boundary conditions under which the system or theory breaks down.",
@@ -259,7 +259,7 @@
   },
   {
     "id": "kirilma",
-    "icon": "🚨",
+    "icon": "box",
     "name": "Critical Weaknesses",
     "desc": "Where things go wrong",
     "explain": "Finds single points of failure and vital dependencies.",
@@ -271,7 +271,7 @@
   },
   {
     "id": "senaryo",
-    "icon": "🔥",
+    "icon": "box",
     "name": "Crisis Scenarios",
     "desc": "Failure or disaster moments",
     "explain": "Examines what can go wrong when the system or structure collapses, and how to recover it.",
@@ -283,7 +283,7 @@
   },
   {
     "id": "olcek",
-    "icon": "📈",
+    "icon": "box",
     "name": "Scale Analysis",
     "desc": "What happens when scaled?",
     "explain": "Analyzes how the rules change when the system shrinks 10x or grows 100x.",
@@ -295,7 +295,7 @@
   },
   {
     "id": "celiski",
-    "icon": "🔥",
+    "icon": "box",
     "name": "Contradiction Mode",
     "desc": "Find the paradoxes",
     "explain": "Finds the internal inconsistencies of the theory to elevate you to a research-level inquiry.",
@@ -307,17 +307,17 @@
   },
   {
     "id": "ornekler",
-    "icon": "🌍",
+    "icon": "box",
     "name": "Real-World App",
     "desc": "3 concrete applications",
-    "explain": "Soyut konseptlerin gerçek hayatta veya endüstride nasıl vücut bulduğunu gösterir.",
+    "explain": "Demonstrates how abstract concepts materialize in industrial and real-world implementations.",
     "layer": "application",
     "requires": [],
     "prompt": "REAL-WORLD APPLICATIONS\nProvide 3 concrete, technical real-world applications where this concept is implemented in industry or nature.\nFor each example, detail:\n- Context (Which company, lab, or system uses it?)\n- Technical Integration (How exactly does the practical mechanism of the concept run there?)\n- Impact & Efficiency (What performance, cost, or functional gain was achieved through this? Use data.)"
   },
   {
     "id": "kodlama",
-    "icon": "💻",
+    "icon": "box",
     "name": "Coding & Formula",
     "desc": "Algorithm or mathematical model",
     "explain": "Provides the mathematical equations or a simplified code/algorithmic prototype behind the concept.",
@@ -327,17 +327,17 @@
   },
   {
     "id": "uzman",
-    "icon": "🧠",
+    "icon": "box",
     "name": "Think Like an Expert",
     "desc": "Expert mindset",
-    "explain": "Acemilerin gözden kaçırdığı detayları uzmanların anında nasıl fark ettiğini açıklar.",
+    "explain": "Reveals the mental heuristics and subtle cues senior experts spot immediately that novices miss.",
     "layer": "application",
     "requires": [],
     "prompt": "THINK LIKE AN EXPERT\nAnalyze the mental filters and approaches of a senior expert who has practiced this topic for years:\n- What are 3 hidden errors that novices make but experts instantly spot and avoid?\n- When an expert looks at the system, what are the first metrics or behaviors they check?\n- What heuristics do experts use when debugging or problem-solving in this field?"
   },
   {
     "id": "quiz",
-    "icon": "📝",
+    "icon": "box",
     "name": "Comprehension Quiz",
     "desc": "Test knowledge & application",
     "explain": "Asks questions that both test knowledge and force application to confirm you truly understand.",
@@ -350,7 +350,7 @@
   },
   {
     "id": "transfer",
-    "icon": "🔄",
+    "icon": "box",
     "name": "Transfer Questions",
     "desc": "Apply to other fields",
     "explain": "Asks you to map the structure you learned onto a completely unrelated discipline.",
@@ -362,7 +362,7 @@
   },
   {
     "id": "meta",
-    "icon": "🧠",
+    "icon": "box",
     "name": "Meta-Learning",
     "desc": "How to study better",
     "explain": "Lists how to study and develop this topic or skill most efficiently on your own.",
@@ -372,7 +372,7 @@
   },
   {
     "id": "kaynak",
-    "icon": "📚",
+    "icon": "box",
     "name": "Resource Map",
     "desc": "Next steps",
     "explain": "Recommends calibrated resources (books, videos, etc.) to keep learning independently.",

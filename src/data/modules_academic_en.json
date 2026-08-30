@@ -1,7 +1,7 @@
 [
   {
     "id": "research-question-def",
-    "icon": "🎯",
+    "icon": "box",
     "name": "Research Question Definition",
     "desc": "Formulates a clear, focused, and empirically answerable academic research question.",
     "explain": "Formulates a clear, focused, and empirically answerable academic research question.",
@@ -11,7 +11,7 @@
   },
   {
     "id": "methodology-triangulation",
-    "icon": "📐",
+    "icon": "triangle",
     "name": "Methodological Triangulation",
     "desc": "Combines multiple research methods to increase empirical validity.",
     "explain": "Combines multiple research methods to increase empirical validity.",
@@ -23,7 +23,7 @@
   },
   {
     "id": "sample-power-analysis",
-    "icon": "📊",
+    "icon": "barchart3",
     "name": "Sample Power Analysis",
     "desc": "Calculates minimum sample size required for statistical significance.",
     "explain": "Calculates minimum sample size required for statistical significance.",
@@ -35,7 +35,7 @@
   },
   {
     "id": "variable-operationalization",
-    "icon": "🔬",
+    "icon": "sliders",
     "name": "Variable Operationalization",
     "desc": "Translates abstract constructs into measurable independent, dependent, and control variables.",
     "explain": "Translates abstract constructs into measurable independent, dependent, and control variables.",
@@ -47,7 +47,7 @@
   },
   {
     "id": "quantitative-audit",
-    "icon": "🔢",
+    "icon": "calculator",
     "name": "Quantitative Method Audit",
     "desc": "Audits econometric and statistical models for underlying assumption compliance.",
     "explain": "Audits econometric and statistical models for underlying assumption compliance.",
@@ -59,7 +59,7 @@
   },
   {
     "id": "qualitative-rigor-check",
-    "icon": "🗣️",
+    "icon": "filecheck",
     "name": "Qualitative Rigor Check",
     "desc": "Ensures trustworthiness and auditability in grounded theory or qualitative analysis.",
     "explain": "Ensures trustworthiness and auditability in grounded theory or qualitative analysis.",
@@ -71,7 +71,7 @@
   },
   {
     "id": "lit-search-strategy",
-    "icon": "🔎",
+    "icon": "search",
     "name": "Literature Search Strategy",
     "desc": "Creates systematic Boolean search strings for Web of Science, Scopus, and PubMed.",
     "explain": "Creates systematic Boolean search strings for Web of Science, Scopus, and PubMed.",
@@ -83,7 +83,7 @@
   },
   {
     "id": "lit-gap-identification",
-    "icon": "🕳️",
+    "icon": "crosshair",
     "name": "Literature Gap Identification",
     "desc": "Uncovers contradictions, deficiencies, and unexamined areas in current scholarship.",
     "explain": "Uncovers contradictions, deficiencies, and unexamined areas in current scholarship.",
@@ -95,7 +95,7 @@
   },
   {
     "id": "seminal-vs-recent-audit",
-    "icon": "📚",
+    "icon": "history",
     "name": "Seminal vs. Recent Audit",
     "desc": "Balances foundational theoretical papers with recent high-impact publications.",
     "explain": "Balances foundational theoretical papers with recent high-impact publications.",
@@ -107,7 +107,7 @@
   },
   {
     "id": "theoretical-framework",
-    "icon": "🏛️",
+    "icon": "box",
     "name": "Theoretical Framework Design",
     "desc": "Anchors the study within core disciplinary theoretical paradigms.",
     "explain": "Anchors the study within core disciplinary theoretical paradigms.",
@@ -119,7 +119,7 @@
   },
   {
     "id": "citation-context-check",
-    "icon": "🔗",
+    "icon": "quote",
     "name": "Citation Context Verification",
     "desc": "Verifies cited sources are accurately represented without context distortion.",
     "explain": "Verifies cited sources are accurately represented without context distortion.",
@@ -131,7 +131,7 @@
   },
   {
     "id": "systematic-review-protocol",
-    "icon": "📋",
+    "icon": "listchecks",
     "name": "Systematic Review Protocol",
     "desc": "Establishes a PRISMA/Cochrane-compliant systematic review architecture.",
     "explain": "Establishes a PRISMA/Cochrane-compliant systematic review architecture.",
@@ -143,7 +143,7 @@
   },
   {
     "id": "academic-tone-c2",
-    "icon": "✍️",
+    "icon": "graduationcap",
     "name": "Academic Tone Elevation (CEFR C2)",
     "desc": "Elevates prose to formal, precise, objective, C2-level academic prose.",
     "explain": "Elevates prose to formal, precise, objective, C2-level academic prose.",
@@ -153,7 +153,7 @@
   },
   {
     "id": "passive-active-balancer",
-    "icon": "⚖️",
+    "icon": "refreshcw",
     "name": "Voice & Stance Balancer",
     "desc": "Optimizes active vs. passive voice across paper sections.",
     "explain": "Optimizes active vs. passive voice across paper sections.",
@@ -165,7 +165,7 @@
   },
   {
     "id": "cohesion-transitional-flow",
-    "icon": "🌊",
+    "icon": "waypoints",
     "name": "Cohesion & Flow Refiner",
     "desc": "Enhances paragraph transitions and logical discourse markers.",
     "explain": "Enhances paragraph transitions and logical discourse markers.",
@@ -177,7 +177,7 @@
   },
   {
     "id": "hedging-claim-calibration",
-    "icon": "🛡️",
+    "icon": "scale",
     "name": "Claim Calibration (Hedging)",
     "desc": "Converts overstatements into epistemically cautious academic claims.",
     "explain": "Converts overstatements into epistemically cautious academic claims.",
@@ -189,7 +189,7 @@
   },
   {
     "id": "abstract-distillation",
-    "icon": "🧪",
+    "icon": "filetext",
     "name": "Abstract Distillation",
     "desc": "Compresses paper essence into a strict 250-word IMRaD abstract.",
     "explain": "Compresses paper essence into a strict 250-word IMRaD abstract.",
@@ -201,7 +201,7 @@
   },
   {
     "id": "discussion-implication-craft",
-    "icon": "💡",
+    "icon": "messagesquare",
     "name": "Discussion & Implications",
     "desc": "Synthesizes empirical findings with broader theoretical and practical implications.",
     "explain": "Synthesizes empirical findings with broader theoretical and practical implications.",
@@ -213,7 +213,7 @@
   },
   {
     "id": "peer-review-response",
-    "icon": "📨",
+    "icon": "messagecircle",
     "name": "Peer Review Response Matrix",
     "desc": "Constructs a rigorous point-by-point author response matrix.",
     "explain": "Constructs a rigorous point-by-point author response matrix.",
@@ -225,7 +225,7 @@
   },
   {
     "id": "reviewer-critique-deconstruct",
-    "icon": "🔍",
+    "icon": "scissors",
     "name": "Reviewer Critique Deconstruction",
     "desc": "Deconstructs harsh or ambiguous reviewer comments into actionable edits.",
     "explain": "Deconstructs harsh or ambiguous reviewer comments into actionable edits.",
@@ -237,7 +237,7 @@
   },
   {
     "id": "counter-argument-fortification",
-    "icon": "🏰",
+    "icon": "shield",
     "name": "Counter-Argument Fortification",
     "desc": "Pre-empts potential referee objections within the text body.",
     "explain": "Pre-empts potential referee objections within the text body.",
@@ -249,7 +249,7 @@
   },
   {
     "id": "major-revision-roadmap",
-    "icon": "🗺️",
+    "icon": "milestone",
     "name": "Major Revision Roadmap",
     "desc": "Establishes a structured execution roadmap for major manuscript overhauls.",
     "explain": "Establishes a structured execution roadmap for major manuscript overhauls.",
@@ -261,7 +261,7 @@
   },
   {
     "id": "editor-letter-drafting",
-    "icon": "✉️",
+    "icon": "filecode",
     "name": "Editor Cover Letter Crafting",
     "desc": "Drafts a compelling submission cover letter to journal editors.",
     "explain": "Drafts a compelling submission cover letter to journal editors.",
@@ -273,7 +273,7 @@
   },
   {
     "id": "double-blind-anonymizer",
-    "icon": "🎭",
+    "icon": "eyeoff",
     "name": "Double-Blind Anonymization",
     "desc": "Strips all self-citations and identifying metadata for peer review.",
     "explain": "Strips all self-citations and identifying metadata for peer review.",
@@ -283,7 +283,7 @@
   },
   {
     "id": "statistical-validity-audit",
-    "icon": "📉",
+    "icon": "barchart",
     "name": "Statistical Validity Audit",
     "desc": "Audits data analysis for methodological flaws and assumption breaches.",
     "explain": "Audits data analysis for methodological flaws and assumption breaches.",
@@ -295,7 +295,7 @@
   },
   {
     "id": "p-hacking-duster",
-    "icon": "🧹",
+    "icon": "filter",
     "name": "p-Hacking & HARKing Audit",
     "desc": "Screens analysis for post-hoc hypothesis fitting and data dredging.",
     "explain": "Screens analysis for post-hoc hypothesis fitting and data dredging.",
@@ -307,7 +307,7 @@
   },
   {
     "id": "construct-validity-check",
-    "icon": "🧩",
+    "icon": "checkcircle2",
     "name": "Construct Validity Test",
     "desc": "Verifies that measurement scales accurately reflect intended theoretical concepts.",
     "explain": "Verifies that measurement scales accurately reflect intended theoretical concepts.",
@@ -319,7 +319,7 @@
   },
   {
     "id": "external-validity-bounds",
-    "icon": "🌐",
+    "icon": "maximize2",
     "name": "External Validity & Generalizability",
     "desc": "Defines population and contextual boundaries for findings.",
     "explain": "Defines population and contextual boundaries for findings.",
@@ -331,7 +331,7 @@
   },
   {
     "id": "ethical-board-compliance",
-    "icon": "⚖️",
+    "icon": "shieldcheck",
     "name": "Ethical Board Compliance",
     "desc": "Audits protocol compliance with IRB, human subjects, and data privacy norms.",
     "explain": "Audits protocol compliance with IRB, human subjects, and data privacy norms.",
@@ -343,7 +343,7 @@
   },
   {
     "id": "reproducibility-checklist",
-    "icon": "🔄",
+    "icon": "box",
     "name": "Reproducibility Protocol",
     "desc": "Ensures open science compliance with complete code, data, and protocol specs.",
     "explain": "Ensures open science compliance with complete code, data, and protocol specs.",

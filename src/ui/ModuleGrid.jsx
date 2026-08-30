@@ -225,6 +225,14 @@ export default function ModuleGrid() {
                                                     setHoveredId(null);
                                                     setHoveredTarget(null);
                                                 }}
+                                                onFocus={(event) => {
+                                                    setHoveredId(mod.id);
+                                                    setHoveredTarget({ id: mod.id, rect: event.currentTarget.getBoundingClientRect(), mod });
+                                                }}
+                                                onBlur={() => {
+                                                    setHoveredId(null);
+                                                    setHoveredTarget(null);
+                                                }}
                                                 role="button"
                                                 tabIndex={0}
                                                 aria-pressed={isActive}

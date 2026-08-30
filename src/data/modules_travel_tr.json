@@ -1,7 +1,7 @@
 [
   {
     "id": "cur-anti-tourist-trap-filter",
-    "icon": "🚫",
+    "icon": "box",
     "name": "Turist Tuzağı Ayıklama Filtresi",
     "desc": "Şişirilmiş fiyatlı, kalitesiz turist mekanlarını listeden tamamen temizler.",
     "explain": "Şişirilmiş fiyatlı, kalitesiz turist mekanlarını listeden tamamen temizler.",
@@ -11,7 +11,7 @@
   },
   {
     "id": "cur-local-hidden-gem-route",
-    "icon": "💎",
+    "icon": "box",
     "name": "Yerel Gizli Cevherler (Hidden Gems) Rotası",
     "desc": "Sadece yerel halkın bildiği özgün lezzet ve mahalle noktalarını keşfeder.",
     "explain": "Sadece yerel halkın bildiği özgün lezzet ve mahalle noktalarını keşfeder.",
@@ -23,7 +23,7 @@
   },
   {
     "id": "cur-culinary-foodie-itinerary",
-    "icon": "🍜",
+    "icon": "box",
     "name": "Mutfak & Sokak Lezzetleri Keşif Haritası",
     "desc": "Şehrin en iyi sokak lezzetlerini ve ikonik yerel yemeklerini haritalandırır.",
     "explain": "Şehrin en iyi sokak lezzetlerini ve ikonik yerel yemeklerini haritalandırır.",
@@ -35,7 +35,7 @@
   },
   {
     "id": "cur-niche-interest-customizer",
-    "icon": "🎨",
+    "icon": "box",
     "name": "Niş İlgi Alanı Uyumlaması (Sanat/Mimari)",
     "desc": "Rotayı mimari, vintage mağazalar veya tarih gibi özel ilgiye göre özelleştirir.",
     "explain": "Rotayı mimari, vintage mağazalar veya tarih gibi özel ilgiye göre özelleştirir.",
@@ -47,7 +47,7 @@
   },
   {
     "id": "cur-slow-travel-immersion",
-    "icon": "🚲",
+    "icon": "box",
     "name": "Yavaş Seyahat (Slow Travel) & Kültürel Derinlik",
     "desc": "Şehir şehir koşmak yerine tek bir mahallede derinlemesine yaşama deneyimi.",
     "explain": "Şehir şehir koşmak yerine tek bir mahallede derinlemesine yaşama deneyimi.",
@@ -59,7 +59,7 @@
   },
   {
     "id": "cur-family-accessible-curation",
-    "icon": "👨‍👩‍👧",
+    "icon": "box",
     "name": "Aile & Erişilebilirlik Odaklı Kürasyon",
     "desc": "Çocuklu aileler ve engelsiz erişim ihtiyaçlarına uygun mekan seçimi.",
     "explain": "Çocuklu aileler ve engelsiz erişim ihtiyaçlarına uygun mekan seçimi.",
@@ -71,7 +71,7 @@
   },
   {
     "id": "rte-walking-distance-transit-opt",
-    "icon": "🚶",
+    "icon": "box",
     "name": "Yürüme Mesafesi ve Toplu Taşıma Optimizasyonu",
     "desc": "Noktaları mantıklı yürüme yarıçapı ve metro hatlarına göre dizeler.",
     "explain": "Noktaları mantıklı yürüme yarıçapı ve metro hatlarına göre dizeler.",
@@ -81,7 +81,7 @@
   },
   {
     "id": "rte-day-by-day-geographical-clustering",
-    "icon": "📍",
+    "icon": "box",
     "name": "Coğrafi Kümeleme (Geographic Clustering)",
     "desc": "Her günü şehrin farklı bir yakasına ayırarak zikzak çizmeyi engeller.",
     "explain": "Her günü şehrin farklı bir yakasına ayırarak zikzak çizmeyi engeller.",
@@ -93,7 +93,7 @@
   },
   {
     "id": "rte-scenic-roadtrip-pitstops",
-    "icon": "🚗",
+    "icon": "box",
     "name": "Manzaralı Road Trip ve Mola Noktaları",
     "desc": "Otoyol yerine manzaralı rotaları ve otantik mola yerlerini seçer.",
     "explain": "Otoyol yerine manzaralı rotaları ve otantik mola yerlerini seçer.",
@@ -105,7 +105,7 @@
   },
   {
     "id": "rte-day-trip-hub-spoke-model",
-    "icon": "🚲",
+    "icon": "box",
     "name": "Hub-and-Spoke Günübirlik Kaçış Modeli",
     "desc": "Tek bir merkez otelde konaklayıp çevre kasabalara günübirlik geziler düzenler.",
     "explain": "Tek bir merkez otelde konaklayıp çevre kasabalara günübirlik geziler düzenler.",
@@ -117,7 +117,7 @@
   },
   {
     "id": "rte-pace-fatigue-management",
-    "icon": "☕",
+    "icon": "box",
     "name": "Seyahat Yorgunluğu ve Tempo Yönetimi",
     "desc": "Öğleden sonralara dinlenme ve kahve molaları koyarak tükenmeyi engeller.",
     "explain": "Öğleden sonralara dinlenme ve kahve molaları koyarak tükenmeyi engeller.",
@@ -129,7 +129,7 @@
   },
   {
     "id": "rte-weather-contingency-indoor-plan",
-    "icon": "🌧️",
+    "icon": "box",
     "name": "Yağmurlu Gün & Hava Durumu B Planı",
     "desc": "Kötü hava koşullarında otomatik devreye girecek kapalı mekan alternatifleri.",
     "explain": "Kötü hava koşullarında otomatik devreye girecek kapalı mekan alternatifleri.",
@@ -141,7 +141,7 @@
   },
   {
     "id": "cul-local-etiquette-taboos",
-    "icon": "🤝",
+    "icon": "box",
     "name": "Yerel Etiket Kılavuzu ve Kültürel Tabular",
     "desc": "Gidilen ülkedeki beden dili, bahşiş ve sosyal saygı kuralları.",
     "explain": "Gidilen ülkedeki beden dili, bahşiş ve sosyal saygı kuralları.",
@@ -151,7 +151,7 @@
   },
   {
     "id": "cul-basic-language-survival-phrases",
-    "icon": "🗣️",
+    "icon": "box",
     "name": "Temel Hayatta Kalma Kelimeleri (Survival Phrases)",
     "desc": "Lokal dilde 'Teşekkürler', 'Hesap lütfen' gibi 10 kritik cümle rehberi.",
     "explain": "Lokal dilde 'Teşekkürler', 'Hesap lütfen' gibi 10 kritik cümle rehberi.",
@@ -163,7 +163,7 @@
   },
   {
     "id": "cul-tipping-bargaining-customs",
-    "icon": "💵",
+    "icon": "box",
     "name": "Bahşiş ve Pazarlık Kültürü Rehberi",
     "desc": "Ülkeye özgü bahşiş oranları ve pazarlık yapma kurallarını açıklar.",
     "explain": "Ülkeye özgü bahşiş oranları ve pazarlık yapma kurallarını açıklar.",
@@ -187,7 +187,7 @@
   },
   {
     "id": "cul-respectful-photography-ethics",
-    "icon": "📸",
+    "icon": "box",
     "name": "Etik Fotoğrafçılık ve Mahremiyet",
     "desc": "Yerel halkı ve çocukları fotoğraflarken dikkat edilecek etik ilkeler.",
     "explain": "Yerel halkı ve çocukları fotoğraflarken dikkat edilecek etik ilkeler.",
@@ -199,7 +199,7 @@
   },
   {
     "id": "cul-historical-context-primer",
-    "icon": "📜",
+    "icon": "box",
     "name": "Özet Tarihsel ve Sosyo-Kültürel Arka Plan",
     "desc": "Şehrin günümüzdeki dokusunu anlamak için 3 paragraflık özet tarih rehberi.",
     "explain": "Şehrin günümüzdeki dokusunu anlamak için 3 paragraflık özet tarih rehberi.",
@@ -211,7 +211,7 @@
   },
   {
     "id": "log-packing-capsule-wardrobe",
-    "icon": "🧳",
+    "icon": "box",
     "name": "Minimalist Kapsül Gardırop & Bagaj Listesi",
     "desc": "Sadece kabin bagajıyla seyahat etmeyi sağlayan kombin hazırlığı.",
     "explain": "Sadece kabin bagajıyla seyahat etmeyi sağlayan kombin hazırlığı.",
@@ -221,7 +221,7 @@
   },
   {
     "id": "log-visa-entry-passport-checklist",
-    "icon": "🛂",
+    "icon": "box",
     "name": "Vize, Giriş Koşulları ve Pasaport Denetimi",
     "desc": "Pasaport geçerlilik süresi, vize ve harç zorunluluklarını kontrol eder.",
     "explain": "Pasaport geçerlilik süresi, vize ve harç zorunluluklarını kontrol eder.",
@@ -233,7 +233,7 @@
   },
   {
     "id": "log-sim-eSim-connectivity-plan",
-    "icon": "📱",
+    "icon": "box",
     "name": "eSIM ve Mobil İnternet Bağlantı Stratejisi",
     "desc": "Yüksek roaming ücretlerinden kaçınmak için yerel eSIM/SIM seçimi.",
     "explain": "Yüksek roaming ücretlerinden kaçınmak için yerel eSIM/SIM seçimi.",
@@ -245,7 +245,7 @@
   },
   {
     "id": "log-travel-insurance-health-prep",
-    "icon": "🏥",
+    "icon": "box",
     "name": "Seyahat Sağlık Sigortası ve İlaç Hazırlığı",
     "desc": "Acil sağlık durumları ve kişisel reçeteli ilaçların taşınma kuralları.",
     "explain": "Acil sağlık durumları ve kişisel reçeteli ilaçların taşınma kuralları.",
@@ -257,7 +257,7 @@
   },
   {
     "id": "log-flight-layover-optimization",
-    "icon": "✈️",
+    "icon": "box",
     "name": "Aktarma (Layover) ve Havalimanı Dinlenme",
     "desc": "Uzun aktarmalarda lounge kullanımı veya hızlı şehir turu optimizasyonu.",
     "explain": "Uzun aktarmalarda lounge kullanımı veya hızlı şehir turu optimizasyonu.",
@@ -269,7 +269,7 @@
   },
   {
     "id": "log-luggage-storage-mobility",
-    "icon": "🧳",
+    "icon": "box",
     "name": "Bagaj Depolama ve Mobilite Yönetimi",
     "desc": "Erken giriş / geç çıkış günlerinde bagaj bırakma noktaları (Radical Storage).",
     "explain": "Erken giriş / geç çıkış günlerinde bagaj bırakma noktaları (Radical Storage).",
@@ -281,7 +281,7 @@
   },
   {
     "id": "bdg-daily-expense-categorizer",
-    "icon": "💰",
+    "icon": "box",
     "name": "Günlük Bütçe Tahsisi ve Harcama Planı",
     "desc": "Bütçeyi Konaklama, Yeme-İçme, Ulaşım ve Müze kategorilerine böler.",
     "explain": "Bütçeyi Konaklama, Yeme-İçme, Ulaşım ve Müze kategorilerine böler.",
@@ -291,7 +291,7 @@
   },
   {
     "id": "bdg-multi-currency-fx-strategy",
-    "icon": "💳",
+    "icon": "box",
     "name": "Döviz Kuru ve Komisyonsuz Bankacılık",
     "desc": "Dinamik kur çevrim (DCC) komisyon tuzaklarından kaçınma taktikleri.",
     "explain": "Dinamik kur çevrim (DCC) komisyon tuzaklarından kaçınma taktikleri.",
@@ -303,7 +303,7 @@
   },
   {
     "id": "bdg-accommodation-value-finder",
-    "icon": "🏨",
+    "icon": "box",
     "name": "Butik vs. Fiyat/Performans Konaklama",
     "desc": "Merkeze yakınlık ve F/P dengesini optimize eden konaklama seçimi.",
     "explain": "Merkeze yakınlık ve F/P dengesini optimize eden konaklama seçimi.",
@@ -315,7 +315,7 @@
   },
   {
     "id": "bdg-city-pass-attraction-roi",
-    "icon": "🎟️",
+    "icon": "box",
     "name": "Şehir Turist Kartı (City Pass) ROI Hesabı",
     "desc": "City Pass kartlarının verdiğin paraya değip değmeyeceğini hesaplar.",
     "explain": "City Pass kartlarının verdiğin paraya değip değmeyeceğini hesaplar.",
@@ -327,7 +327,7 @@
   },
   {
     "id": "bdg-transportation-card-hack",
-    "icon": "🎫",
+    "icon": "box",
     "name": "Toplu Taşıma Kartı ve İndirimli Bilet",
     "desc": "Tekil bilet yerine 3 günlük sınırsız turist ulaşım kartı optimizasyonu.",
     "explain": "Tekil bilet yerine 3 günlük sınırsız turist ulaşım kartı optimizasyonu.",
@@ -339,7 +339,7 @@
   },
   {
     "id": "bdg-emergency-contingency-fund",
-    "icon": "🛡️",
+    "icon": "box",
     "name": "Acil Durum Yedek Bütçe Akçesi",
     "desc": "Kaçırılan uçak veya acil durumlar için %15 yedek nakit akçesi.",
     "explain": "Kaçırılan uçak veya acil durumlar için %15 yedek nakit akçesi.",

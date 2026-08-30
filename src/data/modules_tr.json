@@ -1,7 +1,7 @@
 [
   {
     "id": "eli5",
-    "icon": "👶",
+    "icon": "box",
     "name": "5 Yaşındakine Anlat (ELI5)",
     "desc": "En sade dille özetle",
     "explain": "Karmaşık kavramları hiç bilmeyen birine anlatır gibi en basit benzetmelerle açıklar.",
@@ -11,7 +11,7 @@
   },
   {
     "id": "kalibrasyon",
-    "icon": "🎯",
+    "icon": "box",
     "name": "Seviye Kalibrasyonu",
     "desc": "Seviyeni 3 soruyla ölç",
     "explain": "Konuya başlamadan önce mevcut bilgi seviyenizi ölçerek anlatımın derinliğini size göre uyarlar.",
@@ -21,7 +21,7 @@
   },
   {
     "id": "onkosul",
-    "icon": "🗺️",
+    "icon": "box",
     "name": "Ön Koşul Haritası",
     "desc": "Ne bilinmeli?",
     "explain": "Bu konuyu öğrenmeden önce mutlaka anlaşılması gereken alt kavramları listeler.",
@@ -31,7 +31,7 @@
   },
   {
     "id": "sirasi",
-    "icon": "🧭",
+    "icon": "box",
     "name": "Öğrenme Sırası",
     "desc": "Hangi sırayla öğrenmeliyim?",
     "explain": "Karmaşık bir konuyu en verimli ve mantıksal sırayla parçalara bölerek adım adım rota çıkarır.",
@@ -43,7 +43,7 @@
   },
   {
     "id": "pareto",
-    "icon": "📐",
+    "icon": "box",
     "name": "80/20 Analizi",
     "desc": "%20 efor, %80 anlayış",
     "explain": "Tüm detaya boğulmak yerine, işin özünü oluşturan kritik %20'lik dilimi filtreler.",
@@ -53,7 +53,7 @@
   },
   {
     "id": "ontoloji",
-    "icon": "🧬",
+    "icon": "box",
     "name": "Ontoloji (İlkeler)",
     "desc": "Temel yapı taşlarını belirle",
     "explain": "Sistemi oluşturan en küçük parçaları bulur ve \"neden\" var olduklarını sorgular.",
@@ -63,7 +63,7 @@
   },
   {
     "id": "nedensellik",
-    "icon": "⚡",
+    "icon": "box",
     "name": "Nedensel Zorunluluk",
     "desc": "Neden var olduğunu açıkla",
     "explain": "Her bir parçanın varlık amacını, yokluğunda sistemin neden çökeceğini kanıtlar.",
@@ -75,7 +75,7 @@
   },
   {
     "id": "mental",
-    "icon": "🧠",
+    "icon": "box",
     "name": "Mental Model",
     "desc": "Zihinsel görsel sahne",
     "explain": "Konuyu zihninizde anında canlandırabileceğiniz bir senaryo haline getirir.",
@@ -85,7 +85,7 @@
   },
   {
     "id": "mekanizma",
-    "icon": "⚙️",
+    "icon": "box",
     "name": "Mekanizma",
     "desc": "Girdi → Süreç → Çıktı",
     "explain": "Sistemin nasıl çalıştığını adım adım bir makine gibi haritalandırarak açıklar.",
@@ -97,7 +97,7 @@
   },
   {
     "id": "diagram",
-    "icon": "📊",
+    "icon": "box",
     "name": "Konu Grafiği (DAG)",
     "desc": "Metinsel yapı haritası",
     "explain": "Kavramlar arası yönlü ve ağsal ilişkileri ASCII veya metinsel diyagramlarla çizer.",
@@ -109,7 +109,7 @@
   },
   {
     "id": "insa",
-    "icon": "🧱",
+    "icon": "box",
     "name": "Bilgi İnşası",
     "desc": "Sıfırdan kurmak",
     "explain": "Sanki konuyu ilk defa siz icat ediyormuşsunuz gibi konuyu baştan inşa eder.",
@@ -121,7 +121,7 @@
   },
   {
     "id": "tersine",
-    "icon": "🔄",
+    "icon": "box",
     "name": "Tersine Mühendislik",
     "desc": "Sonuçtan sebebe gitmek",
     "explain": "Nihai sonuca bakarak, geriye doğru hangi aşamalardan geçildiğini analiz eder.",
@@ -133,7 +133,7 @@
   },
   {
     "id": "simulasyon",
-    "icon": "🎮",
+    "icon": "box",
     "name": "Simülasyon Modu",
     "desc": "Sistemin içinden anlatım",
     "explain": "Sizi sistemin bir parçası gibi varsayarak süreci içten yaşatır.",
@@ -145,7 +145,7 @@
   },
   {
     "id": "deney",
-    "icon": "🧪",
+    "icon": "box",
     "name": "Düşünce Deneyi",
     "desc": "Zihinde çalıştırmak",
     "explain": "Konunun prensiplerini uç durumlarda test eden zihinsel deneyler kurgular.",
@@ -157,7 +157,7 @@
   },
   {
     "id": "evrim",
-    "icon": "📜",
+    "icon": "box",
     "name": "Tarihsel Evrim",
     "desc": "Nasıl ve neden ortaya çıktı",
     "explain": "Konunun tarih boyunca hangi problemlere çözüm olarak geliştirildiğini açıklar.",
@@ -167,7 +167,7 @@
   },
   {
     "id": "kontrast",
-    "icon": "⚖️",
+    "icon": "box",
     "name": "Kontrast Analizi",
     "desc": "Benzer kavramlarla karşılaştır",
     "explain": "En çok karıştırılan kavramlarla arasındaki ince çizgileri belirginleştirir.",
@@ -177,7 +177,7 @@
   },
   {
     "id": "rakip",
-    "icon": "⚔️",
+    "icon": "box",
     "name": "Rakip Teoriler",
     "desc": "Alternatifleri görmek",
     "explain": "Konuya alternatif olan diğer yaklaşımları artıları ve eksileriyle değerlendirir.",
@@ -187,7 +187,7 @@
   },
   {
     "id": "karar",
-    "icon": "🌳",
+    "icon": "box",
     "name": "Karar Ağacı",
     "desc": "Ne zaman, hangisi seçilmeli?",
     "explain": "Hangi durumlarda bu yöntemin veya teknolojinin seçilmesi gerektiğini gösteren bir akış algoritması sunar.",
@@ -197,7 +197,7 @@
   },
   {
     "id": "esleme",
-    "icon": "🔗",
+    "icon": "box",
     "name": "Yapısal Eşleme",
     "desc": "Kendi alanınla eşleştir",
     "explain": "Öğrenilecek kavramı zaten hakim olduğunuz bir alanla teknik olarak eşleştirir.",
@@ -207,7 +207,7 @@
   },
   {
     "id": "disiplinler",
-    "icon": "🔗",
+    "icon": "box",
     "name": "Disiplinlerarası",
     "desc": "Başka alanlarla ilişkilendir",
     "explain": "Fizik, matematik, biyoloji veya ekonomi gibi farklı bilim dallarındaki karşılığını arar.",
@@ -217,7 +217,7 @@
   },
   {
     "id": "gelecek",
-    "icon": "🔮",
+    "icon": "box",
     "name": "Gelecek Projeksiyonu",
     "desc": "Nereye evriliyor?",
     "explain": "Bu konunun veya teknolojinin 5, 10 veya 50 yıl içinde nasıl şekilleneceğini tahmin eder.",
@@ -229,7 +229,7 @@
   },
   {
     "id": "yanilgilar",
-    "icon": "❌",
+    "icon": "box",
     "name": "Yanılgılar",
     "desc": "En yaygın 5 yanlış düşünce",
     "explain": "İnsanların bu konuda düştüğü kavramsal tuzakları ve neden yanlış olduklarını açıklar.",
@@ -239,7 +239,7 @@
   },
   {
     "id": "varsayimlar",
-    "icon": "🔍",
+    "icon": "box",
     "name": "Gizli Varsayımlar",
     "desc": "Teorinin altında ne saklı?",
     "explain": "Sistemin çalışması için sık sık unutulan varsayımları açığa çıkarır.",
@@ -249,7 +249,7 @@
   },
   {
     "id": "basarisizlik",
-    "icon": "💥",
+    "icon": "box",
     "name": "Başarısızlık Durumu",
     "desc": "Sistemin çöktüğü anlar",
     "explain": "Hangi koşullar sağlandığında teorinin veya sistemin çöktüğünü teknik olarak izah eder.",
@@ -259,7 +259,7 @@
   },
   {
     "id": "kirilma",
-    "icon": "🚨",
+    "icon": "box",
     "name": "Kırılma Noktaları",
     "desc": "Nerede işler bozuluyor?",
     "explain": "Sistemdeki kritik zayıflıkları (Single Point of Failure) bulur.",
@@ -271,7 +271,7 @@
   },
   {
     "id": "senaryo",
-    "icon": "🔥",
+    "icon": "box",
     "name": "Kriz Senaryoları",
     "desc": "Hata veya felaket anları",
     "explain": "Sistem veya yapı çöktüğünde/bozulduğunda nelerin ters gidebileceğini ve nasıl kurtarılacağını inceler.",
@@ -283,7 +283,7 @@
   },
   {
     "id": "olcek",
-    "icon": "📈",
+    "icon": "box",
     "name": "Ölçek Analizi",
     "desc": "Sistem büyüyünce ne olur?",
     "explain": "Sistem 10x küçüldüğünde veya 100x büyüdüğünde kuralların nasıl değiştiğini analiz eder.",
@@ -295,7 +295,7 @@
   },
   {
     "id": "celiski",
-    "icon": "🔥",
+    "icon": "box",
     "name": "Çelişki Modu",
     "desc": "Paradoksları bul",
     "explain": "Teorinin kendi içindeki tutarsızlıkları bularak araştırma seviyesine çıkmanızı sağlar.",
@@ -307,7 +307,7 @@
   },
   {
     "id": "ornekler",
-    "icon": "🌍",
+    "icon": "box",
     "name": "Gerçek Dünya Örnek.",
     "desc": "3 somut uygulama",
     "explain": "Soyut konseptlerin gerçek hayatta veya endüstride nasıl vücut bulduğunu gösterir.",
@@ -317,7 +317,7 @@
   },
   {
     "id": "kodlama",
-    "icon": "💻",
+    "icon": "box",
     "name": "Kodlama & Formül",
     "desc": "Algoritma veya matematiksel model",
     "explain": "Kavramın arkasındaki matematiksel formülleri veya en sade kod/algoritma prototipini sunar.",
@@ -327,7 +327,7 @@
   },
   {
     "id": "uzman",
-    "icon": "🧠",
+    "icon": "box",
     "name": "Uzman Gibi Düşün",
     "desc": "Uzman zihniyeti",
     "explain": "Acemilerin gözden kaçırdığı detayları uzmanların anında nasıl fark ettiğini açıklar.",
@@ -337,7 +337,7 @@
   },
   {
     "id": "quiz",
-    "icon": "📝",
+    "icon": "box",
     "name": "İdrak Testi / Quiz",
     "desc": "Bilgi ve uygulama soruları",
     "explain": "Gerçekten anladığınızı teyit etmek için hem bilgi ölçen hem de uygulatan sorular sorar.",
@@ -350,7 +350,7 @@
   },
   {
     "id": "transfer",
-    "icon": "🔄",
+    "icon": "box",
     "name": "Transfer Soruları",
     "desc": "Farklı alanlara uygula",
     "explain": "Öğrenitiğiniz yapıyı, birbirinden alakasız görünen bambaşka bir disipline uyarlamanızı ister.",
@@ -362,7 +362,7 @@
   },
   {
     "id": "meta",
-    "icon": "🧠",
+    "icon": "box",
     "name": "Meta-Öğrenme",
     "desc": "Nasıl daha iyi öğrenilir?",
     "explain": "Bu konuyu veya yeteneği kendi başınıza en verimli şekilde nasıl geliştireceğinizi ve çalışacağınızı listeler.",
@@ -372,7 +372,7 @@
   },
   {
     "id": "kaynak",
-    "icon": "📚",
+    "icon": "box",
     "name": "Kaynak Haritası",
     "desc": "Sonraki adımlar",
     "explain": "Öğrenmeye devam etmek için kalibre edilmiş kaynaklar (kitap, video vb.) önerir.",

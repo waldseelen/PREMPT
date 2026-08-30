@@ -61,9 +61,8 @@ export function copyToClipboard(text, onSuccess, onError) {
 }
 
 export function openInAI(aiName, prompt, onLengthWarning, onSuccessCopy) {
-    if (!prompt) return;
+    if (!prompt || !aiName || !Object.hasOwn(AI_STRATEGIES, aiName)) return;
     const strategy = AI_STRATEGIES[aiName];
-    if (!strategy) return;
 
     let urlToOpen = strategy.getBaseUrl();
     let isTooLongForUrl = false;
@@ -80,13 +79,19 @@ export function openInAI(aiName, prompt, onLengthWarning, onSuccessCopy) {
     }
 
     // Keep window.open synchronous so popup blockers do not reject the launch.
-    window.open(urlToOpen, '_blank');
+    window.open(urlToOpen, '_blank', 'noopener,noreferrer');
 
-    copyToClipboard(prompt, () => {
-        if (isTooLongForUrl && onLengthWarning) {
-            onLengthWarning();
-        } else if (onSuccessCopy) {
-            onSuccessCopy(queryAttached);
+    copyToClipboard(
+        prompt,
+        () => {
+            if (isTooLongForUrl && onLengthWarning) {
+                onLengthWarning();
+            } else if (onSuccessCopy) {
+                onSuccessCopy(queryAttached);
+            }
+        },
+        (err) => {
+            console.warn('Clipboard copy failed:', err);
         }
-    });
+    );
 }

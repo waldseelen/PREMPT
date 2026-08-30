@@ -13,6 +13,7 @@ import { getPresets } from '../src/engine/presetEngine.js';
 import { PARAMETER_DESCRIPTIONS } from '../src/domains/parameterDescriptions.js';
 import { DOMAIN_GROUPS, DOMAIN_ICON_IDS } from '../src/domains/presentation.js';
 import { OUTPUT_TARGETS } from '../src/config/outputTargets.js';
+import { MODULE_ICONS } from '../src/ui/moduleIconRegistry.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const dataDir = join(__dirname, '..', 'src', 'data');
@@ -27,6 +28,7 @@ const OVERRIDE_FIELDS = {
     derinlik: 'depths',
     format: 'formats'
 };
+const EMOJI_REGEX = /\p{Extended_Pictographic}/u;
 
 const DOMAIN_FILES = Object.fromEntries(
     Object.keys(DOMAINS).map((id) => [
@@ -82,6 +84,11 @@ function validateFile(file, modules, validLayers) {
             errors.push(`${where}: invalid layer "${m.layer}" (expected one of ${validLayers.join(', ')})`);
         }
 
+        // Emoji assertion (Rule 13).
+        if (m && m.icon && EMOJI_REGEX.test(m.icon)) {
+            errors.push(`${where}: raw Unicode emoji "${m.icon}" forbidden in data catalog (Rule 13)`);
+        }
+
         // Duplicate ids.
         if (m && typeof m.id === 'string') {
             if (ids.has(m.id)) errors.push(`${where}: duplicate id "${m.id}"`);
@@ -97,9 +104,11 @@ function validateFile(file, modules, validLayers) {
         }
     });
 
-    // Broken `requires` references.
+    // Broken `requires` references & DAG cycle detection.
+    const adjList = new Map();
     modules.forEach((m, i) => {
         if (m && Array.isArray(m.requires)) {
+            adjList.set(m.id, m.requires);
             m.requires.forEach((dep) => {
                 if (!ids.has(dep)) {
                     errors.push(`${file}[${i}] (id="${m.id}"): "requires" points to unknown id "${dep}"`);
@@ -107,6 +116,30 @@ function validateFile(file, modules, validLayers) {
             });
         }
     });
+
+    // Detect DAG cycles via DFS
+    const visited = new Map(); // 0 = unvisited, 1 = visiting, 2 = visited
+    function checkCycle(node, pathStack) {
+        visited.set(node, 1);
+        const deps = adjList.get(node) || [];
+        for (const dep of deps) {
+            if (!ids.has(dep)) continue;
+            if (visited.get(dep) === 1) {
+                errors.push(`Cycle in ${file}: circular dependency detected: ${pathStack.join(' -> ')} -> ${dep}`);
+                return;
+            }
+            if (!visited.get(dep)) {
+                checkCycle(dep, [...pathStack, dep]);
+            }
+        }
+        visited.set(node, 2);
+    }
+
+    for (const id of ids) {
+        if (!visited.get(id)) {
+            checkCycle(id, [id]);
+        }
+    }
 
     return modules.map((m) => (m ? m.id : undefined));
 }
@@ -340,10 +373,50 @@ function validateOutputTargets() {
     }
 }
 
+function validateDefaultConfig(domainId, domain) {
+    const dc = domain.defaultConfig;
+    if (!dc || typeof dc !== 'object') {
+        errors.push(`DefaultConfig[${domainId}]: missing or invalid defaultConfig`);
+        return;
+    }
+
+    const sets = domain.optionSets || {};
+    const checks = [
+        ['seviye', 'levels'],
+        ['mod', 'modes'],
+        ['derinlik', 'depths'],
+        ['format', 'formats']
+    ];
+
+    for (const [configKey, optionSetName] of checks) {
+        const val = dc[configKey];
+        const validKeys = Object.keys(sets[optionSetName] || {});
+        if (!val || !validKeys.includes(val)) {
+            errors.push(`DefaultConfig[${domainId}]: ${configKey}="${val}" is not in optionSets.${optionSetName} (expected one of: ${validKeys.join(', ')})`);
+        }
+    }
+}
+
+function validateModuleIconRegistry(allFoundModuleIds) {
+    console.log('\n[moduleIconRegistry]');
+    let missingCount = 0;
+    for (const id of allFoundModuleIds) {
+        if (!MODULE_ICONS[id]) {
+            errors.push(`moduleIconRegistry: module "${id}" has no mapped icon in MODULE_ICONS`);
+            missingCount++;
+        }
+    }
+    if (missingCount === 0) {
+        console.log(`  ✓ All ${allFoundModuleIds.size} unique modules are registered in moduleIconRegistry.js with semantic Lucide icons.`);
+    }
+}
+
 // --- Run ---
 console.log('Validating prompt module data, preset contracts, parameter descriptions, compiler texts, presentation, and output targets...');
 validatePresentation();
 validateOutputTargets();
+
+const allFoundModuleIds = new Set();
 
 for (const [domainId, files] of Object.entries(DOMAIN_FILES)) {
     const domain = DOMAINS[domainId];
@@ -357,8 +430,14 @@ for (const [domainId, files] of Object.entries(DOMAIN_FILES)) {
     const en = loadModules(files.en);
     const tr = loadModules(files.tr);
 
-    if (en) reportLayers(files.en, en, validLayers);
-    if (tr) reportLayers(files.tr, tr, validLayers);
+    if (en) {
+        reportLayers(files.en, en, validLayers);
+        en.forEach((m) => m && m.id && allFoundModuleIds.add(m.id));
+    }
+    if (tr) {
+        reportLayers(files.tr, tr, validLayers);
+        tr.forEach((m) => m && m.id && allFoundModuleIds.add(m.id));
+    }
 
     let enIds = [];
     let trIds = [];
@@ -367,11 +446,14 @@ for (const [domainId, files] of Object.entries(DOMAIN_FILES)) {
     if (en && tr) validateParity(domainId, enIds, trIds);
 
     const registryModules = en || tr;
+    validateDefaultConfig(domainId, domain);
     validateParameterDescriptions(domainId, domain);
     validateCompilerTexts(domainId, domain);
     validateCategories(domainId, domain);
     if (registryModules) validatePresets(domainId, domain, registryModules);
 }
+
+validateModuleIconRegistry(allFoundModuleIds);
 
 if (warnings.length) {
     console.warn(`\n${warnings.length} warning(s):`);

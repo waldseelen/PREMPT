@@ -1,7 +1,7 @@
 [
   {
     "id": "medium-oil-painting",
-    "icon": "🎨",
+    "icon": "box",
     "name": "Yağlı Boya & Tuval Estetiği",
     "desc": "Görsele klasik impasto yağlı boya dokusu ve fırça darbeleri kazandırır.",
     "explain": "Görsele klasik impasto yağlı boya dokusu ve fırça darbeleri kazandırır.",
@@ -11,7 +11,7 @@
   },
   {
     "id": "medium-3d-octane",
-    "icon": "💎",
+    "icon": "box",
     "name": "3D Octane Render Motoru",
     "desc": "Fotogerçekçi 3D cam, metal ve ray-traced ışık kırılmaları kurgular.",
     "explain": "Fotogerçekçi 3D cam, metal ve ray-traced ışık kırılmaları kurgular.",
@@ -23,7 +23,7 @@
   },
   {
     "id": "medium-cinematic-film",
-    "icon": "📷",
+    "icon": "box",
     "name": "35mm Analog Film Fotoğrafçılığı",
     "desc": "Nostaljik Kodak 35mm film greni ve otantik lens karakteri ekler.",
     "explain": "Nostaljik Kodak 35mm film greni ve otantik lens karakteri ekler.",
@@ -33,7 +33,7 @@
   },
   {
     "id": "medium-cyberpunk-vector",
-    "icon": "👾",
+    "icon": "box",
     "name": "Vektörel Siberpunk Estetiği",
     "desc": "Keskin hatlı, siberpunk neon vurgulu vektörel illüstrasyon üretir.",
     "explain": "Keskin hatlı, siberpunk neon vurgulu vektörel illüstrasyon üretir.",
@@ -45,7 +45,7 @@
   },
   {
     "id": "medium-watercolor-wash",
-    "icon": "🖌️",
+    "icon": "box",
     "name": "Suluboya ve Botanik Dokusu",
     "desc": "Şeffaf suluboya katmanları ve pamuklu kağıt emiciliği sağlar.",
     "explain": "Şeffaf suluboya katmanları ve pamuklu kağıt emiciliği sağlar.",
@@ -57,7 +57,7 @@
   },
   {
     "id": "medium-hyperreal-macro",
-    "icon": "🔬",
+    "icon": "box",
     "name": "Hiper-Gerçekçi Makro Çekim",
     "desc": "Gözle görülmeyen mikroskobik yüzey detaylarını odaklayarak büyütür.",
     "explain": "Gözle görülmeyen mikroskobik yüzey detaylarını odaklayarak büyütür.",
@@ -69,7 +69,7 @@
   },
   {
     "id": "composition-rule-of-thirds",
-    "icon": "📐",
+    "icon": "box",
     "name": "Üçte Bir Kuralı & Çerçeveleme",
     "desc": "Ana nesneyi ızgara kesişim noktalarına yerleştirerek dinamizm sağlar.",
     "explain": "Ana nesneyi ızgara kesişim noktalarına yerleştirerek dinamizm sağlar.",
@@ -79,7 +79,7 @@
   },
   {
     "id": "composition-golden-ratio",
-    "icon": "🐚",
+    "icon": "box",
     "name": "Altın Oran ve Fibonacci Sarmalı",
     "desc": "Görsel elemanları Fibonacci sarmalı boyunca doğal bir akışa dizer.",
     "explain": "Görsel elemanları Fibonacci sarmalı boyunca doğal bir akışa dizer.",
@@ -91,7 +91,7 @@
   },
   {
     "id": "composition-low-angle",
-    "icon": "🦅",
+    "icon": "box",
     "name": "Dramatik Alt Açı (Worm's-Eye)",
     "desc": "Kamerayı aşağıya koyarak objeye anıtsal ve heybetli bir boyut katar.",
     "explain": "Kamerayı aşağıya koyarak objeye anıtsal ve heybetli bir boyut katar.",
@@ -103,7 +103,7 @@
   },
   {
     "id": "composition-isometric-grid",
-    "icon": "📦",
+    "icon": "box",
     "name": "İzometrik Mimari Izgara",
     "desc": "Sahneyi 45 derece izometrik perspektiften diorama gibi kurgular.",
     "explain": "Sahneyi 45 derece izometrik perspektiften diorama gibi kurgular.",
@@ -115,7 +115,7 @@
   },
   {
     "id": "composition-leading-lines",
-    "icon": "🛣️",
+    "icon": "box",
     "name": "Yönlendirici Çizgiler & Derinlik",
     "desc": "Yol, ray veya mimari hatlarla odağı merkeze doğru çeker.",
     "explain": "Yol, ray veya mimari hatlarla odağı merkeze doğru çeker.",
@@ -127,7 +127,7 @@
   },
   {
     "id": "composition-symmetry-balance",
-    "icon": "🪞",
+    "icon": "box",
     "name": "Bilateral Simetri ve Denge",
     "desc": "Mükemmel dikey simetri ile hipnotik ve huzurlu bir düzen yaratır.",
     "explain": "Mükemmel dikey simetri ile hipnotik ve huzurlu bir düzen yaratır.",
@@ -139,7 +139,7 @@
   },
   {
     "id": "lighting-volumetric-rays",
-    "icon": "☀️",
+    "icon": "box",
     "name": "Hacimsel Işık Hüzmeleri (God Rays)",
     "desc": "Tozlu veya sisli havadan süzülen dramatik güneş ışığı huzmeleri ekler.",
     "explain": "Tozlu veya sisli havadan süzülen dramatik güneş ışığı huzmeleri ekler.",
@@ -149,7 +149,7 @@
   },
   {
     "id": "lighting-cinematic-rim",
-    "icon": "🌟",
+    "icon": "box",
     "name": "Dramatik Kenar Işığı (Rim Light)",
     "desc": "Objeyi arka plandan ayırmak için arkasından parlak kontür ışığı verir.",
     "explain": "Objeyi arka plandan ayırmak için arkasından parlak kontür ışığı verir.",
@@ -161,7 +161,7 @@
   },
   {
     "id": "lighting-golden-hour",
-    "icon": "🌅",
+    "icon": "box",
     "name": "Altın Saat Sıcak Işığı",
     "desc": "Gün batımı öncesinin yumuşak, uzun gölgeli altın rengi ışımasını verir.",
     "explain": "Gün batımı öncesinin yumuşak, uzun gölgeli altın rengi ışımasını verir.",
@@ -173,7 +173,7 @@
   },
   {
     "id": "lighting-neon-cyber-glow",
-    "icon": "🔴",
+    "icon": "box",
     "name": "İkili Neon Siber Parıltı",
     "desc": "Zıt mavi ve pembe neon ışıklarla sahneye siberpunk ışıması katar.",
     "explain": "Zıt mavi ve pembe neon ışıklarla sahneye siberpunk ışıması katar.",
@@ -185,7 +185,7 @@
   },
   {
     "id": "lighting-chiaroscuro-contrast",
-    "icon": "🌗",
+    "icon": "box",
     "name": "Chiaroscuro Yüksek Karşıtlık",
     "desc": "Caravaggio tarzı karanlık ve aydınlık arasında sert kontrast yaratır.",
     "explain": "Caravaggio tarzı karanlık ve aydınlık arasında sert kontrast yaratır.",
@@ -197,7 +197,7 @@
   },
   {
     "id": "lighting-bioluminescent",
-    "icon": "🍄",
+    "icon": "box",
     "name": "Biyolüminesans Doğal Parıltı",
     "desc": "Mavi-yeşil ışık saçan organik organizma ve mantar parıltıları ekler.",
     "explain": "Mavi-yeşil ışık saçan organik organizma ve mantar parıltıları ekler.",
@@ -209,7 +209,7 @@
   },
   {
     "id": "atmosphere-fog-mist",
-    "icon": "🌫️",
+    "icon": "box",
     "name": "Yoğun Sis ve Atmosferik Derinlik",
     "desc": "Derinlik hissi veren katmanlı sis ve gizemli atmosfer kurgular.",
     "explain": "Derinlik hissi veren katmanlı sis ve gizemli atmosfer kurgular.",
@@ -219,7 +219,7 @@
   },
   {
     "id": "atmosphere-surreal-dream",
-    "icon": "☁️",
+    "icon": "box",
     "name": "Sürreal Düşsel Dinamikler",
     "desc": "Magritte veya Dali tarzı yerçekimine aykırı sürrealist öğeler katar.",
     "explain": "Magritte veya Dali tarzı yerçekimine aykırı sürrealist öğeler katar.",
@@ -231,7 +231,7 @@
   },
   {
     "id": "atmosphere-dystopian-decay",
-    "icon": "🏭",
+    "icon": "box",
     "name": "Ütopik/Distopik Endüstriyel Çürüme",
     "desc": "Terk edilmiş, paslı ve doğa tarafından geri alınan kıyamet sonrası hava.",
     "explain": "Terk edilmiş, paslı ve doğa tarafından geri alınan kıyamet sonrası hava.",
@@ -243,7 +243,7 @@
   },
   {
     "id": "atmosphere-ethereal-fantasy",
-    "icon": "✨",
+    "icon": "box",
     "name": "Ruhani Fantastik Parıltı",
     "desc": "Büyülü toz tanecikleri ve masalsı ışık haleleri oluşturur.",
     "explain": "Büyülü toz tanecikleri ve masalsı ışık haleleri oluşturur.",
@@ -255,7 +255,7 @@
   },
   {
     "id": "atmosphere-retro-synthwave",
-    "icon": "🌇",
+    "icon": "box",
     "name": "80'ler Retro Synthwave Havası",
     "desc": "Mor gökyüzü, tel kafes ızgara ve 80'ler nostaljisi kurgular.",
     "explain": "Mor gökyüzü, tel kafes ızgara ve 80'ler nostaljisi kurgular.",
@@ -267,7 +267,7 @@
   },
   {
     "id": "atmosphere-film-noir",
-    "icon": "🕵️",
+    "icon": "box",
     "name": "Kasvetli Film Noir Gizemi",
     "desc": "Siyah-beyaz, jaluzi gölgeleri ve yağmurlu gece caddeleri atmosferi.",
     "explain": "Siyah-beyaz, jaluzi gölgeleri ve yağmurlu gece caddeleri atmosferi.",
@@ -279,7 +279,7 @@
   },
   {
     "id": "parameters-midjourney-v6",
-    "icon": "⚙️",
+    "icon": "box",
     "name": "Midjourney v6 Parametre Bayrakları",
     "desc": "Midjourney v6 için fotogerçekçilik ve metin işleme parametrelerini ekler.",
     "explain": "Midjourney v6 için fotogerçekçilik ve metin işleme parametrelerini ekler.",
@@ -289,7 +289,7 @@
   },
   {
     "id": "parameters-aspect-ratio",
-    "icon": "📐",
+    "icon": "box",
     "name": "En-Boy Oranı Ayarı (--ar 16:9)",
     "desc": "Sinematik veya dikey ekranlar için kadraj oranını sabitler.",
     "explain": "Sinematik veya dikey ekranlar için kadraj oranını sabitler.",
@@ -301,7 +301,7 @@
   },
   {
     "id": "parameters-negative-prompt",
-    "icon": "🚫",
+    "icon": "box",
     "name": "Negatif Prompt Filtreleme",
     "desc": "İstenmeyen bozulmaları, fazla parmakları ve bulanıklığı engeller.",
     "explain": "İstenmeyen bozulmaları, fazla parmakları ve bulanıklığı engeller.",
@@ -313,7 +313,7 @@
   },
   {
     "id": "parameters-chaos-stylize",
-    "icon": "🎛️",
+    "icon": "box",
     "name": "Chaos & Stylize Kontrolü",
     "desc": "Görselin sürpriz varyasyonunu ve sanatsal özgürlük dozajını ayarlar.",
     "explain": "Görselin sürpriz varyasyonunu ve sanatsal özgürlük dozajını ayarlar.",
@@ -325,7 +325,7 @@
   },
   {
     "id": "parameters-flux-guidance",
-    "icon": "⚡",
+    "icon": "box",
     "name": "Flux.1 Guidance & Steps Tuning",
     "desc": "Flux.1 modelleri için adımları ve metin takip katılığı ayarlar.",
     "explain": "Flux.1 modelleri için adımları ve metin takip katılığı ayarlar.",
@@ -337,7 +337,7 @@
   },
   {
     "id": "parameters-sdxl-refiner",
-    "icon": "🔧",
+    "icon": "box",
     "name": "SDXL Refiner & LoRA Ağırlıkları",
     "desc": "Stable Diffusion XL için refiner ve özel stil LoRA ağırlığı tanımlar.",
     "explain": "Stable Diffusion XL için refiner ve özel stil LoRA ağırlığı tanımlar.",

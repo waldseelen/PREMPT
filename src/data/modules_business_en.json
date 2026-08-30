@@ -1,7 +1,7 @@
 [
   {
     "id": "val-problem-solution-fit",
-    "icon": "🧩",
+    "icon": "box",
     "name": "Problem-Solution Fit Stress Test",
     "desc": "Verifies that proposed solutions match severe, monetizable market pain points.",
     "explain": "Verifies that proposed solutions match severe, monetizable market pain points.",
@@ -11,7 +11,7 @@
   },
   {
     "id": "val-customer-interview-script",
-    "icon": "🎙️",
+    "icon": "box",
     "name": "Mom Test Customer Interview Guide",
     "desc": "Authors Rob Fitzpatrick Mom Test interview questions to extract unbiased historical facts.",
     "explain": "Authors Rob Fitzpatrick Mom Test interview questions to extract unbiased historical facts.",
@@ -23,7 +23,7 @@
   },
   {
     "id": "val-smoke-test-landing-page",
-    "icon": "🧪",
+    "icon": "box",
     "name": "MVP Smoke Test Specification",
     "desc": "Designs pre-code landing page experiments to measure actual market demand.",
     "explain": "Designs pre-code landing page experiments to measure actual market demand.",
@@ -35,7 +35,7 @@
   },
   {
     "id": "val-value-prop-canvas",
-    "icon": "💎",
+    "icon": "box",
     "name": "Osterwalder Value Proposition Canvas",
     "desc": "Maps customer jobs, pains, and gains against product features and pain relievers.",
     "explain": "Maps customer jobs, pains, and gains against product features and pain relievers.",
@@ -47,7 +47,7 @@
   },
   {
     "id": "val-jobs-to-be-done-jtbd",
-    "icon": "🎯",
+    "icon": "box",
     "name": "Jobs-to-be-Done (JTBD) Framework",
     "desc": "Uncovers functional, social, and emotional jobs customers 'hire' the product to fulfill.",
     "explain": "Uncovers functional, social, and emotional jobs customers 'hire' the product to fulfill.",
@@ -59,7 +59,7 @@
   },
   {
     "id": "val-pivot-or-persevere-audit",
-    "icon": "🔄",
+    "icon": "box",
     "name": "Pivot vs. Persevere Audit",
     "desc": "Evaluates validated learning data to decide between strategic pivot or optimization.",
     "explain": "Evaluates validated learning data to decide between strategic pivot or optimization.",
@@ -71,7 +71,7 @@
   },
   {
     "id": "mkt-tam-sam-som-calc",
-    "icon": "📊",
+    "icon": "box",
     "name": "TAM-SAM-SOM Market Sizing Engine",
     "desc": "Calculates TAM, SAM, and SOM market sizing using bottom-up methodologies.",
     "explain": "Calculates TAM, SAM, and SOM market sizing using bottom-up methodologies.",
@@ -81,7 +81,7 @@
   },
   {
     "id": "mkt-porters-five-forces",
-    "icon": "🏛️",
+    "icon": "box",
     "name": "Porter's Five Forces Industry Audit",
     "desc": "Evaluates industry competitive intensity and profit margin pressures.",
     "explain": "Evaluates industry competitive intensity and profit margin pressures.",
@@ -93,7 +93,7 @@
   },
   {
     "id": "mkt-pestel-macro-analysis",
-    "icon": "🌐",
+    "icon": "box",
     "name": "PESTEL Macro Environment Scanner",
     "desc": "Scans Political, Economic, Social, Technological, Environmental, and Legal forces.",
     "explain": "Scans Political, Economic, Social, Technological, Environmental, and Legal forces.",
@@ -105,7 +105,7 @@
   },
   {
     "id": "mkt-competitor-matrix-positioning",
-    "icon": "🗺️",
+    "icon": "box",
     "name": "Competitor Perceptual Mapping",
     "desc": "Plots competitors across key strategic axes to locate market white space.",
     "explain": "Plots competitors across key strategic axes to locate market white space.",
@@ -117,7 +117,7 @@
   },
   {
     "id": "mkt-blue-ocean-strategy",
-    "icon": "🌊",
+    "icon": "box",
     "name": "Blue Ocean Strategy & ERRC Grid",
     "desc": "Applies Eliminate-Reduce-Raise-Create grid to render competition irrelevant.",
     "explain": "Applies Eliminate-Reduce-Raise-Create grid to render competition irrelevant.",
@@ -129,7 +129,7 @@
   },
   {
     "id": "mkt-icp-persona-definition",
-    "icon": "👤",
+    "icon": "box",
     "name": "Ideal Customer Profile (ICP) Builder",
     "desc": "Profiles high-LTV target accounts across firmographic and behavioral attributes.",
     "explain": "Profiles high-LTV target accounts across firmographic and behavioral attributes.",
@@ -141,7 +141,7 @@
   },
   {
     "id": "eco-cac-ltv-ratio-check",
-    "icon": "⚖️",
+    "icon": "box",
     "name": "CAC:LTV Ratio & Payback Audit",
     "desc": "Audits unit economics health ensuring $LTV \\ge 3 \\times CAC$ and healthy payback periods.",
     "explain": "Audits unit economics health ensuring $LTV \\ge 3 \\times CAC$ and healthy payback periods.",
@@ -151,7 +151,7 @@
   },
   {
     "id": "eco-cohort-retention-curve",
-    "icon": "📈",
+    "icon": "box",
     "name": "Cohort Retention & Churn Engine",
     "desc": "Analyzes retention curves to fix leaky bucket subscription churn.",
     "explain": "Analyzes retention curves to fix leaky bucket subscription churn.",
@@ -163,7 +163,7 @@
   },
   {
     "id": "eco-pricing-tier-strategy",
-    "icon": "🏷️",
+    "icon": "box",
     "name": "Value-Based Pricing Tier Strategy",
     "desc": "Architects Good-Better-Best tier structures anchored in perceived customer value.",
     "explain": "Architects Good-Better-Best tier structures anchored in perceived customer value.",
@@ -175,7 +175,7 @@
   },
   {
     "id": "eco-gross-margin-breakdown",
-    "icon": "📊",
+    "icon": "box",
     "name": "Gross Margin & Contribution Margin",
     "desc": "Audits COGS and delivery costs to target 70%+ gross margins.",
     "explain": "Audits COGS and delivery costs to target 70%+ gross margins.",
@@ -187,7 +187,7 @@
   },
   {
     "id": "eco-burn-rate-runway-calc",
-    "icon": "🔥",
+    "icon": "box",
     "name": "Burn Rate & Runway Buffer Planning",
     "desc": "Calculates net burn rate and months of runway remaining.",
     "explain": "Calculates net burn rate and months of runway remaining.",
@@ -199,7 +199,7 @@
   },
   {
     "id": "eco-freemium-conversion-funnel",
-    "icon": "🧲",
+    "icon": "box",
     "name": "Freemium to Paid Conversion Funnel",
     "desc": "Establishes paywall friction gates to convert free users to paid subscriptions.",
     "explain": "Establishes paywall friction gates to convert free users to paid subscriptions.",
@@ -211,7 +211,7 @@
   },
   {
     "id": "pit-10-slide-pitch-deck",
-    "icon": "📊",
+    "icon": "box",
     "name": "10-Slide Pitch Deck Architecture",
     "desc": "Builds a standard YC/Sequoia 10-slide investor pitch deck framework.",
     "explain": "Builds a standard YC/Sequoia 10-slide investor pitch deck framework.",
@@ -221,7 +221,7 @@
   },
   {
     "id": "pit-hook-elevator-pitch",
-    "icon": "⏱️",
+    "icon": "box",
     "name": "30-Second Elevator Pitch Hook",
     "desc": "Refines core value proposition into a memorable 30-second summary.",
     "explain": "Refines core value proposition into a memorable 30-second summary.",
@@ -233,7 +233,7 @@
   },
   {
     "id": "pit-investor-qa-defense",
-    "icon": "🛡️",
+    "icon": "box",
     "name": "Investor Q&A Defense Matrix",
     "desc": "Prepares data-backed responses for top investor objections.",
     "explain": "Prepares data-backed responses for top investor objections.",
@@ -245,7 +245,7 @@
   },
   {
     "id": "pit-traction-milestone-roadmap",
-    "icon": "🚀",
+    "icon": "box",
     "name": "Traction & Key Milestone Roadmap",
     "desc": "Showcases historical growth momentum and 18-month forward milestones.",
     "explain": "Showcases historical growth momentum and 18-month forward milestones.",
@@ -257,7 +257,7 @@
   },
   {
     "id": "pit-narrative-arc-storytelling",
-    "icon": "📖",
+    "icon": "box",
     "name": "Founder Narrative Arc & Storytelling",
     "desc": "Transforms pitch decks from dry metrics into compelling story arcs.",
     "explain": "Transforms pitch decks from dry metrics into compelling story arcs.",
@@ -269,7 +269,7 @@
   },
   {
     "id": "pit-data-room-checklist",
-    "icon": "📁",
+    "icon": "box",
     "name": "Investor Data Room Readiness",
     "desc": "Organizes legal, financial, and technical assets for due diligence.",
     "explain": "Organizes legal, financial, and technical assets for due diligence.",
@@ -281,7 +281,7 @@
   },
   {
     "id": "rsk-business-pre-mortem",
-    "icon": "💀",
+    "icon": "box",
     "name": "Business Pre-Mortem Analysis",
     "desc": "Assumes company failure 3 years out to proactively fix root causes.",
     "explain": "Assumes company failure 3 years out to proactively fix root causes.",
@@ -291,7 +291,7 @@
   },
   {
     "id": "rsk-swot-matrix-action",
-    "icon": "🧩",
+    "icon": "box",
     "name": "Actionable TOWS / SWOT Strategy",
     "desc": "Cross-analyzes strengths/weaknesses against external opportunities/threats.",
     "explain": "Cross-analyzes strengths/weaknesses against external opportunities/threats.",
@@ -303,7 +303,7 @@
   },
   {
     "id": "rsk-regulatory-moat-check",
-    "icon": "🏰",
+    "icon": "box",
     "name": "Economic Moat & Defensibility Audit",
     "desc": "Evaluates network effects, IP patents, and switching costs protecting the business.",
     "explain": "Evaluates network effects, IP patents, and switching costs protecting the business.",
@@ -315,7 +315,7 @@
   },
   {
     "id": "rsk-single-point-failure",
-    "icon": "⚠️",
+    "icon": "box",
     "name": "Single Point of Failure (SPOF) Audit",
     "desc": "Scans operations for dangerous dependencies on single vendors or individuals.",
     "explain": "Scans operations for dangerous dependencies on single vendors or individuals.",
@@ -327,7 +327,7 @@
   },
   {
     "id": "rsk-scenario-financial-stress",
-    "icon": "📉",
+    "icon": "box",
     "name": "Financial Stress Scenario (Bear Case)",
     "desc": "Tests business survival under severe revenue drops and cost increases.",
     "explain": "Tests business survival under severe revenue drops and cost increases.",
@@ -339,7 +339,7 @@
   },
   {
     "id": "rsk-key-person-dependence",
-    "icon": "👥",
+    "icon": "box",
     "name": "Key-Person & Vendor Dependence",
     "desc": "Establishes institutional knowledge redundancy for key team members.",
     "explain": "Establishes institutional knowledge redundancy for key team members.",

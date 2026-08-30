@@ -3,9 +3,9 @@ export const imageSpec = {
   "route": "image",
   "defaultConfig": {
     "seviye": "midjourney",
-    "mod": "fotografik",
+    "mod": "fotogercekci",
     "derinlik": "orta",
-    "format": "midjourney-v6"
+    "format": "16-9"
   },
   "icon": "palette",
   "category": "creation",

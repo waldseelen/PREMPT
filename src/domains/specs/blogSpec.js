@@ -3,9 +3,9 @@ export const blogSpec = {
   "route": "blog",
   "defaultConfig": {
     "seviye": "kisa",
-    "mod": "yazar",
+    "mod": "aciklayici",
     "derinlik": "ampirik",
-    "format": "taslak"
+    "format": "writingnotes"
   },
   "icon": "file-text",
   "category": "creation",

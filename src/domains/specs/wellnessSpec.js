@@ -3,9 +3,9 @@ export const wellnessSpec = {
   "route": "wellness",
   "defaultConfig": {
     "seviye": "antrenman",
-    "mod": "koc",
+    "mod": "biohacker",
     "derinlik": "haftalik",
-    "format": "program"
+    "format": "haftaliktablo"
   },
   "icon": "heart",
   "category": "life",

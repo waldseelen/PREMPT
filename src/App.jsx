@@ -98,32 +98,40 @@ export default function App() {
         }
     }, []);
 
-    // Sync active state back to URL query parameters dynamically
+    // Sync active state back to URL query parameters dynamically (debounced 250ms)
     useEffect(() => {
-        const activeDomain = getDomain(config.domain);
-        const route = activeDomain ? activeDomain.route : 'learn';
-        const params = new URLSearchParams();
+        const timer = setTimeout(() => {
+            try {
+                const activeDomain = getDomain(config.domain);
+                const route = activeDomain ? activeDomain.route : 'learn';
+                const params = new URLSearchParams();
 
-        if (config.konu) params.set('konu', config.konu);
-        if (config.alan) params.set('alan', config.alan);
-        if (config.mod) params.set('mod', config.mod);
-        if (config.seviye && config.seviye !== 'otomatik') params.set('seviye', config.seviye);
-        if (config.derinlik && config.derinlik !== 'orta') params.set('derinlik', config.derinlik);
-        if (config.format && config.format !== 'markdown') params.set('format', config.format);
-        
-        if (activePreset) {
-            params.set('preset', activePreset);
-        } else if (selectedModules && selectedModules.length > 0) {
-            params.set('modules', selectedModules.join(','));
-        }
+                if (config.konu) params.set('konu', config.konu);
+                if (config.alan) params.set('alan', config.alan);
+                if (config.mod) params.set('mod', config.mod);
+                if (config.seviye && config.seviye !== 'otomatik') params.set('seviye', config.seviye);
+                if (config.derinlik && config.derinlik !== 'orta') params.set('derinlik', config.derinlik);
+                if (config.format && config.format !== 'markdown') params.set('format', config.format);
+                
+                if (activePreset) {
+                    params.set('preset', activePreset);
+                } else if (selectedModules && selectedModules.length > 0) {
+                    params.set('modules', selectedModules.join(','));
+                }
 
-        const queryString = params.toString();
-        const targetPath = `/${route}`;
-        const newUrl = `${targetPath}${queryString ? '?' + queryString : ''}`;
+                const queryString = params.toString();
+                const targetPath = `/${route}`;
+                const newUrl = `${targetPath}${queryString ? '?' + queryString : ''}`;
 
-        if (window.location.pathname + window.location.search !== newUrl) {
-            window.history.replaceState(null, '', newUrl);
-        }
+                if (window.location.pathname + window.location.search !== newUrl) {
+                    window.history.replaceState(null, '', newUrl);
+                }
+            } catch (err) {
+                console.warn('URL state sync failed:', err);
+            }
+        }, 250);
+
+        return () => clearTimeout(timer);
     }, [config.domain, config.konu, config.alan, config.mod, config.seviye, config.derinlik, config.format, activePreset, selectedModules]);
 
     // Browser back/forward navigation

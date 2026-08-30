@@ -1,7 +1,7 @@
 [
   {
     "id": "req-clarify",
-    "icon": "📋",
+    "icon": "box",
     "name": "Requirements Clarification",
     "desc": "Turn a vague ask into a spec",
     "explain": "Extracts precise functional and non-functional requirements from an ambiguous task description before any code is written.",
@@ -11,7 +11,7 @@
   },
   {
     "id": "api-design",
-    "icon": "🔌",
+    "icon": "box",
     "name": "API / Interface Design",
     "desc": "Design the contract before the body",
     "explain": "Designs the public interface (functions, endpoints, or types) as a stable contract before the implementation exists.",
@@ -23,7 +23,7 @@
   },
   {
     "id": "data-model",
-    "icon": "🗄️",
+    "icon": "box",
     "name": "Data Model & Schema Design",
     "desc": "Shape the data before the logic",
     "explain": "Designs the entities, relationships, and constraints of the data model that the feature will operate on.",
@@ -35,7 +35,7 @@
   },
   {
     "id": "architecture",
-    "icon": "🏗️",
+    "icon": "box",
     "name": "Architecture / System Design",
     "desc": "Components, boundaries, data flow",
     "explain": "Maps the system into components, their responsibilities, and how data and control flow between them.",
@@ -47,7 +47,7 @@
   },
   {
     "id": "tech-select",
-    "icon": "🧰",
+    "icon": "box",
     "name": "Tech & Library Selection",
     "desc": "Choose the right tool for the job",
     "explain": "Evaluates candidate languages, frameworks, or libraries against the task's actual constraints instead of defaulting to the most popular option.",
@@ -57,7 +57,7 @@
   },
   {
     "id": "concurrency",
-    "icon": "🔀",
+    "icon": "box",
     "name": "Concurrency & Thread-Safety Design",
     "desc": "Design for safe parallel execution",
     "explain": "Designs the concurrency model — what runs in parallel, what must be synchronized, and how shared state is protected — before implementation begins.",
@@ -67,7 +67,7 @@
   },
   {
     "id": "threat-model",
-    "icon": "🕵️",
+    "icon": "box",
     "name": "Threat Modeling (STRIDE)",
     "desc": "Map what could go wrong, before it does",
     "explain": "Systematically maps potential threats to the system using the STRIDE framework before implementation, instead of discovering them after an incident.",
@@ -77,7 +77,7 @@
   },
   {
     "id": "auth-design",
-    "icon": "🔑",
+    "icon": "box",
     "name": "Authentication & Authorization Design",
     "desc": "Design who can do what, before you build it",
     "explain": "Designs the authentication and authorization model — how identity is established, how sessions/tokens work, and how permissions are enforced — before implementation.",
@@ -87,7 +87,7 @@
   },
   {
     "id": "implement",
-    "icon": "⌨️",
+    "icon": "box",
     "name": "Implement from Spec",
     "desc": "Write the working implementation",
     "explain": "Writes the actual working implementation, applying the constraints and interfaces defined earlier.",
@@ -97,7 +97,7 @@
   },
   {
     "id": "scaffold",
-    "icon": "🧩",
+    "icon": "box",
     "name": "Scaffold / Boilerplate",
     "desc": "Generate the starting structure",
     "explain": "Generates the initial project or module structure — files, folders, config — so implementation can start immediately.",
@@ -107,7 +107,7 @@
   },
   {
     "id": "algorithm",
-    "icon": "🧮",
+    "icon": "box",
     "name": "Algorithm Design (+ Big-O)",
     "desc": "Design and analyze the algorithm",
     "explain": "Designs the core algorithm for the problem and formally analyzes its time and space complexity.",
@@ -117,7 +117,7 @@
   },
   {
     "id": "idioms",
-    "icon": "🎨",
+    "icon": "box",
     "name": "Idiomatic Patterns",
     "desc": "Write it the way this language expects",
     "explain": "Rewrites or reviews code so it follows the idioms, naming conventions, and standard library usage native to its language/framework.",
@@ -127,7 +127,7 @@
   },
   {
     "id": "observability",
-    "icon": "📡",
+    "icon": "box",
     "name": "Observability & Logging",
     "desc": "Instrument it so failures are diagnosable",
     "explain": "Designs what to log, measure, and trace as the code is built, so production issues are diagnosable instead of invisible.",
@@ -137,7 +137,7 @@
   },
   {
     "id": "explain",
-    "icon": "💬",
+    "icon": "box",
     "name": "Explain This Code",
     "desc": "What does this code actually do?",
     "explain": "Explains what a piece of code does and why it's written that way, section by section.",
@@ -147,7 +147,7 @@
   },
   {
     "id": "trace",
-    "icon": "🐾",
+    "icon": "box",
     "name": "Execution Trace",
     "desc": "Follow the run, step by step",
     "explain": "Traces a concrete input through the code's actual execution path, line by line, showing state at each step.",
@@ -159,7 +159,7 @@
   },
   {
     "id": "codebase-map",
-    "icon": "🗺️",
+    "icon": "box",
     "name": "Codebase Map",
     "desc": "Orient in an unfamiliar codebase",
     "explain": "Builds a structural map of an unfamiliar codebase or module set — what exists, how pieces relate, and where to start reading.",
@@ -169,7 +169,7 @@
   },
   {
     "id": "compare-approaches",
-    "icon": "⚖️",
+    "icon": "box",
     "name": "Approach Comparison",
     "desc": "Weigh implementation strategies",
     "explain": "Compares multiple valid ways to implement the same thing, with an explicit tradeoff analysis and recommendation.",
@@ -179,7 +179,7 @@
   },
   {
     "id": "review",
-    "icon": "🔍",
+    "icon": "box",
     "name": "Code Review",
     "desc": "Senior-level review pass",
     "explain": "Reviews the code the way a senior engineer would in a pull request — correctness, design, and maintainability.",
@@ -189,7 +189,7 @@
   },
   {
     "id": "security",
-    "icon": "🛡️",
+    "icon": "box",
     "name": "Security Audit (OWASP)",
     "desc": "Find exploitable weaknesses",
     "explain": "Audits the code for security vulnerabilities using the OWASP Top 10 and related concerns as a checklist.",
@@ -199,7 +199,7 @@
   },
   {
     "id": "performance",
-    "icon": "⚡",
+    "icon": "box",
     "name": "Performance & Complexity",
     "desc": "Find the bottleneck",
     "explain": "Analyzes the code for performance bottlenecks and complexity issues, and prioritizes fixes by actual impact.",
@@ -209,7 +209,7 @@
   },
   {
     "id": "tests",
-    "icon": "✅",
+    "icon": "box",
     "name": "Test Generation",
     "desc": "Cover it before it breaks",
     "explain": "Generates a thorough test suite for the code, organized by test category, not just a handful of happy-path checks.",
@@ -219,7 +219,7 @@
   },
   {
     "id": "edge-cases",
-    "icon": "🎯",
+    "icon": "box",
     "name": "Edge-Case & Failure Hunt",
     "desc": "Where does this actually break?",
     "explain": "Systematically hunts for inputs and conditions where the code silently produces wrong results or crashes.",
@@ -229,7 +229,7 @@
   },
   {
     "id": "debug",
-    "icon": "🐛",
+    "icon": "box",
     "name": "Root-Cause Debugging",
     "desc": "From symptom to root cause",
     "explain": "Works backward from an observed bug or error to its root cause using a systematic hypothesis-and-elimination process.",
@@ -241,7 +241,7 @@
   },
   {
     "id": "supply-chain",
-    "icon": "📦",
+    "icon": "box",
     "name": "Dependency & Supply-Chain Audit",
     "desc": "Audit what you're trusting when you import it",
     "explain": "Audits the third-party dependencies this code relies on for known vulnerabilities, maintenance health, and blast radius if one is compromised.",
@@ -251,7 +251,7 @@
   },
   {
     "id": "a11y",
-    "icon": "♿",
+    "icon": "box",
     "name": "Accessibility Audit",
     "desc": "Audit for users who don't use it like you do",
     "explain": "Audits the interface for accessibility — keyboard navigation, screen reader support, color contrast, and other barriers that exclude users.",
@@ -261,7 +261,7 @@
   },
   {
     "id": "infra-security",
-    "icon": "🐳",
+    "icon": "box",
     "name": "Container & Infrastructure Security",
     "desc": "Audit the environment the code runs in, not just the code",
     "explain": "Audits the container images, Dockerfiles, and infrastructure-as-code configuration this code runs on for misconfigurations and hardening gaps.",
@@ -271,7 +271,7 @@
   },
   {
     "id": "refactor",
-    "icon": "🔧",
+    "icon": "box",
     "name": "Refactor (Behavior-Preserving)",
     "desc": "Improve structure, keep behavior",
     "explain": "Restructures the code for readability and maintainability while formally preserving its external behavior.",
@@ -281,7 +281,7 @@
   },
   {
     "id": "patterns",
-    "icon": "🧱",
+    "icon": "box",
     "name": "Design-Pattern Application",
     "desc": "Apply the right pattern, not a trend",
     "explain": "Identifies whether a known design pattern genuinely fits the problem, and applies it only if it earns its complexity.",
@@ -291,7 +291,7 @@
   },
   {
     "id": "migration",
-    "icon": "🚚",
+    "icon": "box",
     "name": "Migration / Modernization",
     "desc": "Move to the new thing, safely",
     "explain": "Plans a safe, incremental migration from an old library/version/pattern to a new one without a risky big-bang rewrite.",
@@ -303,7 +303,7 @@
   },
   {
     "id": "docs",
-    "icon": "📄",
+    "icon": "box",
     "name": "Documentation (Docstrings/README/ADR)",
     "desc": "Write it down properly",
     "explain": "Produces documentation appropriate to the artifact — inline docstrings, a README section, or an architecture decision record.",
@@ -313,7 +313,7 @@
   },
   {
     "id": "commit-pr",
-    "icon": "📮",
+    "icon": "box",
     "name": "Commit & PR Message",
     "desc": "Explain the change, not just the diff",
     "explain": "Writes a clear commit message and pull-request description that explains why the change was made, not just what changed.",
@@ -323,7 +323,7 @@
   },
   {
     "id": "cicd",
-    "icon": "🚀",
+    "icon": "box",
     "name": "CI/CD Pipeline Design",
     "desc": "Design the path from commit to production",
     "explain": "Designs the automated pipeline stages — build, test, security scan, deploy — that take this code from commit to running in production safely.",

@@ -1,7 +1,7 @@
 [
   {
     "id": "stride-threat-model",
-    "icon": "🛡️",
+    "icon": "box",
     "name": "STRIDE Tehdit Modellemesi",
     "desc": "Sistemi STRIDE (Spoofing, Tampering, Repudiation, Info Disclosure, DoS, EoP) kalkanından geçirir.",
     "explain": "Sistemi STRIDE (Spoofing, Tampering, Repudiation, Info Disclosure, DoS, EoP) kalkanından geçirir.",
@@ -11,7 +11,7 @@
   },
   {
     "id": "attack-surface-mapping",
-    "icon": "🗺️",
+    "icon": "box",
     "name": "Saldırı Yüzeyi Haritalama",
     "desc": "Dışa açık tüm uç noktaları, portları ve API girişlerini tespit eder.",
     "explain": "Dışa açık tüm uç noktaları, portları ve API girişlerini tespit eder.",
@@ -23,7 +23,7 @@
   },
   {
     "id": "threat-actor-profiling",
-    "icon": "🥷",
+    "icon": "box",
     "name": "Tehdit Aktörü Profilleme",
     "desc": "Betimlenen sistemi hedef alabilecek aktörlerin yetenek ve motivasyonunu modeller.",
     "explain": "Betimlenen sistemi hedef alabilecek aktörlerin yetenek ve motivasyonunu modeller.",
@@ -35,7 +35,7 @@
   },
   {
     "id": "data-flow-diagram-audit",
-    "icon": "🔄",
+    "icon": "box",
     "name": "Veri Akış Diyagramı (DFD) Denetimi",
     "desc": "Güvenlik sınırları (trust boundaries) arasındaki veri geçişlerini inceler.",
     "explain": "Güvenlik sınırları (trust boundaries) arasındaki veri geçişlerini inceler.",
@@ -47,7 +47,7 @@
   },
   {
     "id": "dread-risk-scoring",
-    "icon": "📊",
+    "icon": "box",
     "name": "DREAD Risk Puanlama",
     "desc": "Tehditleri DREAD (Damage, Reproducibility, Exploitability, Affected Users, Discoverability) skoruyla önceliklendirir.",
     "explain": "Tehditleri DREAD (Damage, Reproducibility, Exploitability, Affected Users, Discoverability) skoruyla önceliklendirir.",
@@ -59,7 +59,7 @@
   },
   {
     "id": "attack-tree-construction",
-    "icon": "🌲",
+    "icon": "box",
     "name": "Saldırı Ağacı (Attack Tree) İnşası",
     "desc": "Kök hedefe ulaşmak için gereken bağımlı ve alternatif saldırı adımlarını ağaç yapısında modeller.",
     "explain": "Kök hedefe ulaşmak için gereken bağımlı ve alternatif saldırı adımlarını ağaç yapısında modeller.",
@@ -71,7 +71,7 @@
   },
   {
     "id": "owasp-top10-scanner",
-    "icon": "🐛",
+    "icon": "box",
     "name": "OWASP Top 10 Taraması",
     "desc": "Uygulamayı en kritik 10 web güvenliği zafiyetine karşı denetler.",
     "explain": "Uygulamayı en kritik 10 web güvenliği zafiyetine karşı denetler.",
@@ -81,7 +81,7 @@
   },
   {
     "id": "input-validation-spec",
-    "icon": "🧼",
+    "icon": "box",
     "name": "Girdi Doğrulama ve Sanitizasyon",
     "desc": "SQLi, XSS ve Command Injection risklerini sıfırlayan girdi filtreleme kuralı.",
     "explain": "SQLi, XSS ve Command Injection risklerini sıfırlayan girdi filtreleme kuralı.",
@@ -93,7 +93,7 @@
   },
   {
     "id": "auth-authz-hardener",
-    "icon": "🔑",
+    "icon": "box",
     "name": "Kimlik Doğrulama ve Yetkilendirme Sıkılaştırma",
     "desc": "OAuth2, JWT, RBAC/ABAC ve MFA güvenlik mimarisini sertleştirir.",
     "explain": "OAuth2, JWT, RBAC/ABAC ve MFA güvenlik mimarisini sertleştirir.",
@@ -105,7 +105,7 @@
   },
   {
     "id": "api-security-checklist",
-    "icon": "🔌",
+    "icon": "box",
     "name": "API Güvenlik Kontrol Listesi",
     "desc": "OWASP API Security Top 10 standartlarına uyumu denetler.",
     "explain": "OWASP API Security Top 10 standartlarına uyumu denetler.",
@@ -117,7 +117,7 @@
   },
   {
     "id": "secrets-management-audit",
-    "icon": "🔐",
+    "icon": "box",
     "name": "Hassas Veri ve Gizli Anahtar Yönetimi",
     "desc": "Kod tabanında ve CI/CD süreçlerinde sızdırılan API key ve şifre Taraması.",
     "explain": "Kod tabanında ve CI/CD süreçlerinde sızdırılan API key ve şifre Taraması.",
@@ -129,7 +129,7 @@
   },
   {
     "id": "memory-safety-checker",
-    "icon": "🧠",
+    "icon": "box",
     "name": "Bellek Güvenliği ve Buffer Overflow Taraması",
     "desc": "C/C++ ve düşük seviyeli dillerde bellek sızıntısı ve overflow Taraması.",
     "explain": "C/C++ ve düşük seviyeli dillerde bellek sızıntısı ve overflow Taraması.",
@@ -141,7 +141,7 @@
   },
   {
     "id": "zero-trust-architecture",
-    "icon": "🏰",
+    "icon": "box",
     "name": "Zero-Trust (Sıfır Güven) Mimarisi",
     "desc": "'Asla güvenme, her zaman doğrula' prensibini ağ ve kimlik katmanına uygular.",
     "explain": "'Asla güvenme, her zaman doğrula' prensibini ağ ve kimlik katmanına uygular.",
@@ -151,7 +151,7 @@
   },
   {
     "id": "log-audit-trail-spec",
-    "icon": "📜",
+    "icon": "box",
     "name": "SIEM ve İz Kaydı (Audit Trail) Şartnamesi",
     "desc": "Adli bilişim ve olay müdahalesi için değiştirilemez log altyapısı kurar.",
     "explain": "Adli bilişim ve olay müdahalesi için değiştirilemez log altyapısı kurar.",
@@ -163,7 +163,7 @@
   },
   {
     "id": "identity-access-review",
-    "icon": "👤",
+    "icon": "box",
     "name": "Erişim Yetkileri ve Privileged Access (PAM)",
     "desc": "Aşırı yetkili hesapları ve atıl kullanıcı erişimlerini temizler.",
     "explain": "Aşırı yetkili hesapları ve atıl kullanıcı erişimlerini temizler.",
@@ -175,7 +175,7 @@
   },
   {
     "id": "network-segmentation-audit",
-    "icon": "🧱",
+    "icon": "box",
     "name": "Ağ Segmentasyonu ve Mikro-Bölümleme",
     "desc": "Yanal ilerlemeyi (lateral movement) engellemek için ağ güvenliğini böler.",
     "explain": "Yanal ilerlemeyi (lateral movement) engellemek için ağ güvenliğini böler.",
@@ -187,7 +187,7 @@
   },
   {
     "id": "crypto-cipher-suite-check",
-    "icon": "🔒",
+    "icon": "box",
     "name": "Kriptografi ve Kripto Standartları Denetimi",
     "desc": "Zayıf algoritmaları (MD5, SHA1, DES) ayıklayıp güncel TLS/AES standartlarını zorlar.",
     "explain": "Zayıf algoritmaları (MD5, SHA1, DES) ayıklayıp güncel TLS/AES standartlarını zorlar.",
@@ -199,7 +199,7 @@
   },
   {
     "id": "incident-response-readiness",
-    "icon": "🚨",
+    "icon": "box",
     "name": "Olay Müdahale (Incident Response) Hazırlığı",
     "desc": "NIST SP 800-61 standartlarında siber olay müdahale planı oluşturur.",
     "explain": "NIST SP 800-61 standartlarında siber olay müdahale planı oluşturur.",
@@ -211,7 +211,7 @@
   },
   {
     "id": "pentest-scenario-builder",
-    "icon": "🎯",
+    "icon": "box",
     "name": "Sızma Testi Senaryo Kurucu",
     "desc": "Etik hacker gözüyle hedef sisteme özel sızma testi adımları yazar.",
     "explain": "Etik hacker gözüyle hedef sisteme özel sızma testi adımları yazar.",
@@ -223,7 +223,7 @@
   },
   {
     "id": "social-engineering-vectors",
-    "icon": "🎣",
+    "icon": "box",
     "name": "Sosyal Mühendislik Vektörleri",
     "desc": "Oltalama (Phishing) ve insan odaklı siber tehditleri simüle eder.",
     "explain": "Oltalama (Phishing) ve insan odaklı siber tehditleri simüle eder.",
@@ -235,7 +235,7 @@
   },
   {
     "id": "exploit-payload-analysis",
-    "icon": "💣",
+    "icon": "box",
     "name": "İstismar (Exploit) ve Payload Analizi",
     "desc": "Zafiyetin çalıştırılabilir kodla istismar edilme potansiyelini inceler.",
     "explain": "Zafiyetin çalıştırılabilir kodla istismar edilme potansiyelini inceler.",
@@ -247,7 +247,7 @@
   },
   {
     "id": "privilege-escalation-check",
-    "icon": "📈",
+    "icon": "box",
     "name": "Yetki Yükseltme (PrivEsc) Yolları",
     "desc": "Düşük yetkili hesaptan root/SYSTEM yetkisine geçiş yollarını tespit eder.",
     "explain": "Düşük yetkili hesaptan root/SYSTEM yetkisine geçiş yollarını tespit eder.",
@@ -259,7 +259,7 @@
   },
   {
     "id": "lateral-movement-pathway",
-    "icon": "↔️",
+    "icon": "box",
     "name": "Yanal İlerleme (Lateral Movement) Analizi",
     "desc": "Ağ içinde makineden makineye sıçrama yollarını engeller.",
     "explain": "Ağ içinde makineden makineye sıçrama yollarını engeller.",
@@ -271,7 +271,7 @@
   },
   {
     "id": "egress-filtering-test",
-    "icon": "📤",
+    "icon": "box",
     "name": "Ağ Dışa Akış (Egress) ve Veri Sızıntısı Testi",
     "desc": "Zararlı yazılımın komuta kontrol (C2) sunucusuyla iletişimini keser.",
     "explain": "Zararlı yazılımın komuta kontrol (C2) sunucusuyla iletişimini keser.",
@@ -283,7 +283,7 @@
   },
   {
     "id": "iso27001-gap-analysis",
-    "icon": "📋",
+    "icon": "box",
     "name": "ISO 27001 / NIST CSF Boşluk Analizi",
     "desc": "Siber güvenlik yönetim sistemini uluslararası standartlara göre kıyaslar.",
     "explain": "Siber güvenlik yönetim sistemini uluslararası standartlara göre kıyaslar.",
@@ -305,7 +305,7 @@
   },
   {
     "id": "soc2-type2-controls",
-    "icon": "📜",
+    "icon": "box",
     "name": "SOC 2 Type II Güvenilirlik İlkeleri",
     "desc": "Güvenlik, Kullanılabilirlik ve Gizlilik ilkelerine operasyonel uyum denetimi.",
     "explain": "Güvenlik, Kullanılabilirlik ve Gizlilik ilkelerine operasyonel uyum denetimi.",
@@ -317,7 +317,7 @@
   },
   {
     "id": "supply-chain-risk-audit",
-    "icon": "🔗",
+    "icon": "box",
     "name": "Tedarik Zinciri Güvenlik Denetimi",
     "desc": "Üçüncü taraf kütüphanelerin ve tedarikçilerin güvenlik riskini ölçer.",
     "explain": "Üçüncü taraf kütüphanelerin ve tedarikçilerin güvenlik riskini ölçer.",
@@ -329,7 +329,7 @@
   },
   {
     "id": "vulnerability-remediation",
-    "icon": "🩹",
+    "icon": "box",
     "name": "Zafiyet Yamalama ve Düzeltme (Remediation)",
     "desc": "Tespit edilen zafiyetlerin kapatılması için öncelikli yama planı sunar.",
     "explain": "Tespit edilen zafiyetlerin kapatılması için öncelikli yama planı sunar.",
@@ -341,7 +341,7 @@
   },
   {
     "id": "ransomware-resilience-check",
-    "icon": "☣️",
+    "icon": "box",
     "name": "Fidye Yazılımı (Ransomware) Dayanıklılığı",
     "desc": "Sistemin Ransomware saldırılarına karşı yedekleme ve kurtarma direncini test eder.",
     "explain": "Sistemin Ransomware saldırılarına karşı yedekleme ve kurtarma direncini test eder.",

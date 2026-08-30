@@ -3,9 +3,9 @@ export const travelSpec = {
   "route": "travel",
   "defaultConfig": {
     "seviye": "yerel",
-    "mod": "rehber",
+    "mod": "gurme",
     "derinlik": "dengeli",
-    "format": "gunluk"
+    "format": "saatlik"
   },
   "icon": "plane",
   "category": "life",

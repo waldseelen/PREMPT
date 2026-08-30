@@ -1,7 +1,7 @@
 [
   {
     "id": "loc-cultural-adaptation",
-    "icon": "🌍",
+    "icon": "box",
     "name": "Cultural Context Localization",
     "desc": "Adapts prose to target culture social norms, humor, and values.",
     "explain": "Adapts prose to target culture social norms, humor, and values.",
@@ -11,7 +11,7 @@
   },
   {
     "id": "loc-idiomatic-transcreation",
-    "icon": "🎭",
+    "icon": "box",
     "name": "Idiomatic Transcreation",
     "desc": "Re-creates idioms and creative phrasing with equivalent target culture emotional resonance.",
     "explain": "Re-creates idioms and creative phrasing with equivalent target culture emotional resonance.",
@@ -23,7 +23,7 @@
   },
   {
     "id": "loc-dialect-regional-register",
-    "icon": "🗺️",
+    "icon": "box",
     "name": "Regional Dialect Calibration",
     "desc": "Locks text to specific geographical dialects (e.g., US vs. UK English).",
     "explain": "Locks text to specific geographical dialects (e.g., US vs. UK English).",
@@ -35,7 +35,7 @@
   },
   {
     "id": "loc-brand-voice-translation",
-    "icon": "🏷️",
+    "icon": "box",
     "name": "Brand Voice Alignment",
     "desc": "Preserves corporate brand identity and personality archetypes across languages.",
     "explain": "Preserves corporate brand identity and personality archetypes across languages.",
@@ -47,7 +47,7 @@
   },
   {
     "id": "loc-taboo-etiquette-check",
-    "icon": "🛡️",
+    "icon": "box",
     "name": "Cultural Taboo & Etiquette Audit",
     "desc": "Screens text for potential cultural gaffes, offensive idioms, or taboo references.",
     "explain": "Screens text for potential cultural gaffes, offensive idioms, or taboo references.",
@@ -59,7 +59,7 @@
   },
   {
     "id": "loc-slang-colloquial-fit",
-    "icon": "🗣️",
+    "icon": "box",
     "name": "Modern Colloquial & Slang Adaptor",
     "desc": "Injects authentic, contemporary slang and informal expressions.",
     "explain": "Injects authentic, contemporary slang and informal expressions.",
@@ -71,7 +71,7 @@
   },
   {
     "id": "reg-academic-c2-elevation",
-    "icon": "🎓",
+    "icon": "box",
     "name": "CEFR C2 Academic Elevation",
     "desc": "Elevates prose to formal, precise C2-level academic standard.",
     "explain": "Elevates prose to formal, precise C2-level academic standard.",
@@ -81,7 +81,7 @@
   },
   {
     "id": "reg-diplomatic-courtesy-tone",
-    "icon": "🕊️",
+    "icon": "box",
     "name": "Diplomatic & Formal Tact",
     "desc": "Refreshes prose into tactful, courteous, and diplomatically polished tone.",
     "explain": "Refreshes prose into tactful, courteous, and diplomatically polished tone.",
@@ -93,7 +93,7 @@
   },
   {
     "id": "reg-casual-conversational-flow",
-    "icon": "☕",
+    "icon": "box",
     "name": "Natural Conversational Register",
     "desc": "Strips stiffness to establish a warm, natural conversational cadence.",
     "explain": "Strips stiffness to establish a warm, natural conversational cadence.",
@@ -105,7 +105,7 @@
   },
   {
     "id": "reg-executive-brevity-style",
-    "icon": "💼",
+    "icon": "box",
     "name": "Executive Brevity & Directness",
     "desc": "Strips fluff to deliver concise, action-oriented executive prose.",
     "explain": "Strips fluff to deliver concise, action-oriented executive prose.",
@@ -117,7 +117,7 @@
   },
   {
     "id": "reg-archaic-literary-voice",
-    "icon": "📜",
+    "icon": "box",
     "name": "Literary & Period Narrative Style",
     "desc": "Infuses prose with rich 19th-century literary descriptions and epic voice.",
     "explain": "Infuses prose with rich 19th-century literary descriptions and epic voice.",
@@ -129,7 +129,7 @@
   },
   {
     "id": "reg-jargon-simplifier",
-    "icon": "💡",
+    "icon": "box",
     "name": "Technical Jargon De-escalator",
     "desc": "Simplifies dense technical terms into accessible plain language (Feynman).",
     "explain": "Simplifies dense technical terms into accessible plain language (Feynman).",
@@ -141,7 +141,7 @@
   },
   {
     "id": "flu-rhythm-cadence-refiner",
-    "icon": "🎶",
+    "icon": "box",
     "name": "Sentence Cadence & Rhythm Polish",
     "desc": "Varies sentence length to create musical, engaging prose rhythm.",
     "explain": "Varies sentence length to create musical, engaging prose rhythm.",
@@ -151,7 +151,7 @@
   },
   {
     "id": "flu-active-voice-conversion",
-    "icon": "⚡",
+    "icon": "box",
     "name": "Active Voice Dynamic Injector",
     "desc": "Converts passive sentence constructions into dynamic active verbs.",
     "explain": "Converts passive sentence constructions into dynamic active verbs.",
@@ -163,7 +163,7 @@
   },
   {
     "id": "flu-redundancy-slasher",
-    "icon": "✂️",
+    "icon": "box",
     "name": "Conciseness & Redundancy Purge",
     "desc": "Prunes weak adverbs, filler phrases, and pleonastic word pairs.",
     "explain": "Prunes weak adverbs, filler phrases, and pleonastic word pairs.",
@@ -175,7 +175,7 @@
   },
   {
     "id": "flu-transitional-cohesion",
-    "icon": "🔗",
+    "icon": "box",
     "name": "Discourse Markers & Flow Refiner",
     "desc": "Smooths paragraph transitions with natural academic discourse markers.",
     "explain": "Smooths paragraph transitions with natural academic discourse markers.",
@@ -187,7 +187,7 @@
   },
   {
     "id": "flu-vocabulary-precision",
-    "icon": "🎯",
+    "icon": "box",
     "name": "Lexical Precision Calibration",
     "desc": "Replaces generic terms with precise, contextually nuanced vocabulary.",
     "explain": "Replaces generic terms with precise, contextually nuanced vocabulary.",
@@ -199,7 +199,7 @@
   },
   {
     "id": "flu-readability-score-optimizer",
-    "icon": "📊",
+    "icon": "box",
     "name": "Flesch-Kincaid Readability Tuner",
     "desc": "Tunes readability metrics to match intended target audience grade levels.",
     "explain": "Tunes readability metrics to match intended target audience grade levels.",
@@ -211,7 +211,7 @@
   },
   {
     "id": "idm-phrasal-verb-harmonizer",
-    "icon": "🧩",
+    "icon": "box",
     "name": "Phrasal Verb & Collocation Harmonizer",
     "desc": "Harmonizes natural phrasal verbs and native speaker collocations.",
     "explain": "Harmonizes natural phrasal verbs and native speaker collocations.",
@@ -221,7 +221,7 @@
   },
   {
     "id": "idm-metaphor-naturalizer",
-    "icon": "🎨",
+    "icon": "box",
     "name": "Metaphor & Simile Naturalizer",
     "desc": "Replaces translated tropes with elegant target-language metaphors.",
     "explain": "Replaces translated tropes with elegant target-language metaphors.",
@@ -233,7 +233,7 @@
   },
   {
     "id": "idm-false-friends-filter",
-    "icon": "⚠️",
+    "icon": "box",
     "name": "False Friends & Cognates Filter",
     "desc": "Corrects deceptive cognates that look similar across dfferent languages but mean different things.",
     "explain": "Corrects deceptive cognates that look similar across dfferent languages but mean different things.",
@@ -245,7 +245,7 @@
   },
   {
     "id": "idm-proverbial-equivalents",
-    "icon": "📜",
+    "icon": "box",
     "name": "Proverbial Cross-Cultural Matcher",
     "desc": "Maps source proverbs to equivalent ancestral wisdom sayings in the target language.",
     "explain": "Maps source proverbs to equivalent ancestral wisdom sayings in the target language.",
@@ -257,7 +257,7 @@
   },
   {
     "id": "idm-nuance-spectrum-mapper",
-    "icon": "🌈",
+    "icon": "box",
     "name": "Lexical Connotation Spectrum Mapper",
     "desc": "Maps emotional connotations and sub-textual tones of near-synonyms.",
     "explain": "Maps emotional connotations and sub-textual tones of near-synonyms.",
@@ -269,7 +269,7 @@
   },
   {
     "id": "idm-humor-pun-translator",
-    "icon": "🃏",
+    "icon": "box",
     "name": "Humor & Wordplay Transcreation",
     "desc": "Re-invents untranslatable puns and jokes using target language linguistic mechanics.",
     "explain": "Re-invents untranslatable puns and jokes using target language linguistic mechanics.",
@@ -281,7 +281,7 @@
   },
   {
     "id": "ped-socratic-tutor-mode",
-    "icon": "🏛️",
+    "icon": "box",
     "name": "Socratic Language Coach",
     "desc": "Guides language acquisition via probing questions rather than passive corrections.",
     "explain": "Guides language acquisition via probing questions rather than passive corrections.",
@@ -291,7 +291,7 @@
   },
   {
     "id": "ped-error-correction-feedback",
-    "icon": "📝",
+    "icon": "box",
     "name": "Granular Error & Grammar Auditor",
     "desc": "Provides structured feedback tables detailing syntactic errors and rules.",
     "explain": "Provides structured feedback tables detailing syntactic errors and rules.",
@@ -303,7 +303,7 @@
   },
   {
     "id": "ped-spaced-recall-builder",
-    "icon": "🗂️",
+    "icon": "box",
     "name": "Anki Flashcard Generator",
     "desc": "Compiles vocabulary from text into Anki-ready spaced repetition flashcards.",
     "explain": "Compiles vocabulary from text into Anki-ready spaced repetition flashcards.",
@@ -315,7 +315,7 @@
   },
   {
     "id": "ped-contextual-cloze-creator",
-    "icon": "🧩",
+    "icon": "box",
     "name": "Contextual Cloze Drill Builder",
     "desc": "Transforms reading prose into gap-fill exercises testing vocabulary retention.",
     "explain": "Transforms reading prose into gap-fill exercises testing vocabulary retention.",
@@ -327,7 +327,7 @@
   },
   {
     "id": "ped-pronunciation-ipa-guide",
-    "icon": "🗣️",
+    "icon": "box",
     "name": "Phonetic IPA & Accent Guide",
     "desc": "Provides International Phonetic Alphabet (IPA) transcriptions and stress markers.",
     "explain": "Provides International Phonetic Alphabet (IPA) transcriptions and stress markers.",
@@ -339,7 +339,7 @@
   },
   {
     "id": "ped-immersion-scenario-roleplay",
-    "icon": "🎭",
+    "icon": "box",
     "name": "Interactive Immersion Roleplay",
     "desc": "Engages users in real-world conversational roleplay scenarios with feedback.",
     "explain": "Engages users in real-world conversational roleplay scenarios with feedback.",

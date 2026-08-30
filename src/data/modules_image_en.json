@@ -1,7 +1,7 @@
 [
   {
     "id": "medium-oil-painting",
-    "icon": "🎨",
+    "icon": "box",
     "name": "Oil Painting & Canvas Medium",
     "desc": "Applies classical impasto oil paint texture and visible brush stroke aesthetics.",
     "explain": "Applies classical impasto oil paint texture and visible brush stroke aesthetics.",
@@ -11,7 +11,7 @@
   },
   {
     "id": "medium-3d-octane",
-    "icon": "💎",
+    "icon": "box",
     "name": "3D Octane Render Engine",
     "desc": "Renders photorealistic 3D glass, polished chrome, and ray-traced optics.",
     "explain": "Renders photorealistic 3D glass, polished chrome, and ray-traced optics.",
@@ -23,7 +23,7 @@
   },
   {
     "id": "medium-cinematic-film",
-    "icon": "📷",
+    "icon": "box",
     "name": "35mm Analog Film Photography",
     "desc": "Injects nostalgic Kodak 35mm film grain and authentic lens characteristics.",
     "explain": "Injects nostalgic Kodak 35mm film grain and authentic lens characteristics.",
@@ -33,7 +33,7 @@
   },
   {
     "id": "medium-cyberpunk-vector",
-    "icon": "👾",
+    "icon": "box",
     "name": "Cyberpunk Vector Aesthetic",
     "desc": "Produces crisp-lined vector illustration with vivid cyberpunk neon accents.",
     "explain": "Produces crisp-lined vector illustration with vivid cyberpunk neon accents.",
@@ -45,7 +45,7 @@
   },
   {
     "id": "medium-watercolor-wash",
-    "icon": "🖌️",
+    "icon": "box",
     "name": "Watercolor Wash & Botanical",
     "desc": "Creates translucent watercolor layers and textured cotton paper absorption.",
     "explain": "Creates translucent watercolor layers and textured cotton paper absorption.",
@@ -57,7 +57,7 @@
   },
   {
     "id": "medium-hyperreal-macro",
-    "icon": "🔬",
+    "icon": "box",
     "name": "Hyper-Realistic Macro Shot",
     "desc": "Magnifies microscopic surface textures with extreme shallow depth of field.",
     "explain": "Magnifies microscopic surface textures with extreme shallow depth of field.",
@@ -69,7 +69,7 @@
   },
   {
     "id": "composition-rule-of-thirds",
-    "icon": "📐",
+    "icon": "box",
     "name": "Rule of Thirds Framing",
     "desc": "Positions subjects along grid intersections for visual balance and dynamism.",
     "explain": "Positions subjects along grid intersections for visual balance and dynamism.",
@@ -79,7 +79,7 @@
   },
   {
     "id": "composition-golden-ratio",
-    "icon": "🐚",
+    "icon": "box",
     "name": "Golden Ratio & Fibonacci Spiral",
     "desc": "Arranges visual elements along a natural logarithmic Fibonacci spiral.",
     "explain": "Arranges visual elements along a natural logarithmic Fibonacci spiral.",
@@ -91,7 +91,7 @@
   },
   {
     "id": "composition-low-angle",
-    "icon": "🦅",
+    "icon": "box",
     "name": "Dramatic Low-Angle View",
     "desc": "Places camera low looking up to grant subjects monumental scale and power.",
     "explain": "Places camera low looking up to grant subjects monumental scale and power.",
@@ -103,7 +103,7 @@
   },
   {
     "id": "composition-isometric-grid",
-    "icon": "📦",
+    "icon": "box",
     "name": "Isometric Architectural Grid",
     "desc": "Renders scenes from a 45-degree orthographic diorama perspective.",
     "explain": "Renders scenes from a 45-degree orthographic diorama perspective.",
@@ -115,7 +115,7 @@
   },
   {
     "id": "composition-leading-lines",
-    "icon": "🛣️",
+    "icon": "box",
     "name": "Leading Lines & Depth",
     "desc": "Uses roads, railways, or architectural lines to pull focus toward vanishing points.",
     "explain": "Uses roads, railways, or architectural lines to pull focus toward vanishing points.",
@@ -127,7 +127,7 @@
   },
   {
     "id": "composition-symmetry-balance",
-    "icon": "🪞",
+    "icon": "box",
     "name": "Bilateral Symmetry & Balance",
     "desc": "Establishes hypnotic center-weighted architectural symmetry.",
     "explain": "Establishes hypnotic center-weighted architectural symmetry.",
@@ -139,7 +139,7 @@
   },
   {
     "id": "lighting-volumetric-rays",
-    "icon": "☀️",
+    "icon": "box",
     "name": "Volumetric God Rays",
     "desc": "Injects dramatic sunbeams cutting through atmospheric haze and mist.",
     "explain": "Injects dramatic sunbeams cutting through atmospheric haze and mist.",
@@ -149,7 +149,7 @@
   },
   {
     "id": "lighting-cinematic-rim",
-    "icon": "🌟",
+    "icon": "box",
     "name": "Dramatic Rim Lighting",
     "desc": "Places strong backlight to separate subjects from dark backgrounds with glowing contours.",
     "explain": "Places strong backlight to separate subjects from dark backgrounds with glowing contours.",
@@ -161,7 +161,7 @@
   },
   {
     "id": "lighting-golden-hour",
-    "icon": "🌅",
+    "icon": "box",
     "name": "Golden Hour Warm Glow",
     "desc": "Casts low-sun warm golden light and soft elongated shadows.",
     "explain": "Casts low-sun warm golden light and soft elongated shadows.",
@@ -173,7 +173,7 @@
   },
   {
     "id": "lighting-neon-cyber-glow",
-    "icon": "🔴",
+    "icon": "box",
     "name": "Dual Neon Cyber Glow",
     "desc": "Bathes scene in contrasting cyan and magenta neon illumination.",
     "explain": "Bathes scene in contrasting cyan and magenta neon illumination.",
@@ -185,7 +185,7 @@
   },
   {
     "id": "lighting-chiaroscuro-contrast",
-    "icon": "🌗",
+    "icon": "box",
     "name": "Chiaroscuro High Contrast",
     "desc": "Creates Caravaggio-esque extreme contrast between pitch darkness and harsh light.",
     "explain": "Creates Caravaggio-esque extreme contrast between pitch darkness and harsh light.",
@@ -197,7 +197,7 @@
   },
   {
     "id": "lighting-bioluminescent",
-    "icon": "🍄",
+    "icon": "box",
     "name": "Bioluminescent Organic Glow",
     "desc": "Casts soft cyan-green light emitted by self-luminous organic organisms.",
     "explain": "Casts soft cyan-green light emitted by self-luminous organic organisms.",
@@ -209,7 +209,7 @@
   },
   {
     "id": "atmosphere-fog-mist",
-    "icon": "🌫️",
+    "icon": "box",
     "name": "Heavy Fog & Atmospheric Mist",
     "desc": "Generates atmospheric depth through layered fog and mysterious haze.",
     "explain": "Generates atmospheric depth through layered fog and mysterious haze.",
@@ -219,7 +219,7 @@
   },
   {
     "id": "atmosphere-surreal-dream",
-    "icon": "☁️",
+    "icon": "box",
     "name": "Surreal Dreamscape Dynamics",
     "desc": "Incorporates Magritte or Dali-esque gravity-defying surrealist elements.",
     "explain": "Incorporates Magritte or Dali-esque gravity-defying surrealist elements.",
@@ -231,7 +231,7 @@
   },
   {
     "id": "atmosphere-dystopian-decay",
-    "icon": "🏭",
+    "icon": "box",
     "name": "Dystopian Industrial Decay",
     "desc": "Creates post-apocalyptic overgrown concrete and rusted industrial textures.",
     "explain": "Creates post-apocalyptic overgrown concrete and rusted industrial textures.",
@@ -243,7 +243,7 @@
   },
   {
     "id": "atmosphere-ethereal-fantasy",
-    "icon": "✨",
+    "icon": "box",
     "name": "Ethereal Fantasy Sparkles",
     "desc": "Coats environment with magical floating dust particles and soft bloom halos.",
     "explain": "Coats environment with magical floating dust particles and soft bloom halos.",
@@ -255,7 +255,7 @@
   },
   {
     "id": "atmosphere-retro-synthwave",
-    "icon": "🌇",
+    "icon": "box",
     "name": "80s Retro Synthwave Vibe",
     "desc": "Establishes a purple sunset outrun aesthetic with perspective grid lines.",
     "explain": "Establishes a purple sunset outrun aesthetic with perspective grid lines.",
@@ -267,7 +267,7 @@
   },
   {
     "id": "atmosphere-film-noir",
-    "icon": "🕵️",
+    "icon": "box",
     "name": "Gritty Film Noir Mystery",
     "desc": "Constructs a moody black-and-white atmosphere with venetian blind shadows.",
     "explain": "Constructs a moody black-and-white atmosphere with venetian blind shadows.",
@@ -279,7 +279,7 @@
   },
   {
     "id": "parameters-midjourney-v6",
-    "icon": "⚙️",
+    "icon": "box",
     "name": "Midjourney v6 Flag Protocol",
     "desc": "Applies Midjourney v6 photorealism and raw style flags to prompt tail.",
     "explain": "Applies Midjourney v6 photorealism and raw style flags to prompt tail.",
@@ -289,7 +289,7 @@
   },
   {
     "id": "parameters-aspect-ratio",
-    "icon": "📐",
+    "icon": "box",
     "name": "Aspect Ratio Tuning (--ar 16:9)",
     "desc": "Locks aspect ratios for cinematic landscape or vertical mobile viewports.",
     "explain": "Locks aspect ratios for cinematic landscape or vertical mobile viewports.",
@@ -301,7 +301,7 @@
   },
   {
     "id": "parameters-negative-prompt",
-    "icon": "🚫",
+    "icon": "box",
     "name": "Negative Prompt Filtering",
     "desc": "Excludes unwanted anatomical flaws, blur, signatures, and extra limbs.",
     "explain": "Excludes unwanted anatomical flaws, blur, signatures, and extra limbs.",
@@ -313,7 +313,7 @@
   },
   {
     "id": "parameters-chaos-stylize",
-    "icon": "🎛️",
+    "icon": "box",
     "name": "Chaos & Stylize Control",
     "desc": "Balances artistic aesthetic quality against creative randomness.",
     "explain": "Balances artistic aesthetic quality against creative randomness.",
@@ -325,7 +325,7 @@
   },
   {
     "id": "parameters-flux-guidance",
-    "icon": "⚡",
+    "icon": "box",
     "name": "Flux.1 Guidance & Steps Tuning",
     "desc": "Configures Flux.1 guidance scales and step counts for prompt adherence.",
     "explain": "Configures Flux.1 guidance scales and step counts for prompt adherence.",
@@ -337,7 +337,7 @@
   },
   {
     "id": "parameters-sdxl-refiner",
-    "icon": "🔧",
+    "icon": "box",
     "name": "SDXL Refiner & LoRA Weights",
     "desc": "Injects SDXL refiner pass and LoRA detail weights for micro-textures.",
     "explain": "Injects SDXL refiner pass and LoRA detail weights for micro-textures.",

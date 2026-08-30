@@ -5,7 +5,7 @@ export const businessSpec = {
     "seviye": "validation",
     "mod": "vc",
     "derinlik": "standart",
-    "format": "pitch-deck"
+    "format": "pitchdeck"
   },
   "icon": "briefcase",
   "category": "life",

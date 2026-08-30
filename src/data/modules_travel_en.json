@@ -1,7 +1,7 @@
 [
   {
     "id": "cur-anti-tourist-trap-filter",
-    "icon": "🚫",
+    "icon": "box",
     "name": "Anti-Tourist Trap Filter",
     "desc": "Filters out overpriced, low-quality tourist traps and gimmicky venues.",
     "explain": "Filters out overpriced, low-quality tourist traps and gimmicky venues.",
@@ -11,7 +11,7 @@
   },
   {
     "id": "cur-local-hidden-gem-route",
-    "icon": "💎",
+    "icon": "box",
     "name": "Local Hidden Gem Curation",
     "desc": "Curates authentic neighborhood spots known primarily to local residents.",
     "explain": "Curates authentic neighborhood spots known primarily to local residents.",
@@ -23,7 +23,7 @@
   },
   {
     "id": "cur-culinary-foodie-itinerary",
-    "icon": "🍜",
+    "icon": "box",
     "name": "Culinary & Street Food Quest Mapping",
     "desc": "Maps iconic local dishes, street food stalls, and historic markets.",
     "explain": "Maps iconic local dishes, street food stalls, and historic markets.",
@@ -35,7 +35,7 @@
   },
   {
     "id": "cur-niche-interest-customizer",
-    "icon": "🎨",
+    "icon": "box",
     "name": "Niche Interest Customizer (Art/Architecture)",
     "desc": "Customizes itineraries around specific passions like brutalism, record stores, or coffee.",
     "explain": "Customizes itineraries around specific passions like brutalism, record stores, or coffee.",
@@ -47,7 +47,7 @@
   },
   {
     "id": "cur-slow-travel-immersion",
-    "icon": "🚲",
+    "icon": "box",
     "name": "Slow Travel & Cultural Immersion",
     "desc": "Prioritizes deep neighborhood immersion over frantic sight-checking lists.",
     "explain": "Prioritizes deep neighborhood immersion over frantic sight-checking lists.",
@@ -59,7 +59,7 @@
   },
   {
     "id": "cur-family-accessible-curation",
-    "icon": "👨‍👩‍👧",
+    "icon": "box",
     "name": "Family & Accessibility Curation",
     "desc": "Customizes routes for stroller/wheelchair access and kid-friendly rest breaks.",
     "explain": "Customizes routes for stroller/wheelchair access and kid-friendly rest breaks.",
@@ -71,7 +71,7 @@
   },
   {
     "id": "rte-walking-distance-transit-opt",
-    "icon": "🚶",
+    "icon": "box",
     "name": "Walking Radius & Transit Optimization",
     "desc": "Sequences daily stops within walkable radii or direct transit lines.",
     "explain": "Sequences daily stops within walkable radii or direct transit lines.",
@@ -81,7 +81,7 @@
   },
   {
     "id": "rte-day-by-day-geographical-clustering",
-    "icon": "📍",
+    "icon": "box",
     "name": "Day-by-Day Geographic Clustering",
     "desc": "Clusters daily itineraries geographically to avoid crisscrossing cities.",
     "explain": "Clusters daily itineraries geographically to avoid crisscrossing cities.",
@@ -93,7 +93,7 @@
   },
   {
     "id": "rte-scenic-roadtrip-pitstops",
-    "icon": "🚗",
+    "icon": "box",
     "name": "Scenic Road Trip & Pitstop Planner",
     "desc": "Replaces highway routes with scenic side roads, vistas, and roadside diners.",
     "explain": "Replaces highway routes with scenic side roads, vistas, and roadside diners.",
@@ -105,7 +105,7 @@
   },
   {
     "id": "rte-day-trip-hub-spoke-model",
-    "icon": "🚲",
+    "icon": "box",
     "name": "Hub-and-Spoke Excursion Strategy",
     "desc": "Bases travel in one hub city while planning day trips to outlying towns.",
     "explain": "Bases travel in one hub city while planning day trips to outlying towns.",
@@ -117,7 +117,7 @@
   },
   {
     "id": "rte-pace-fatigue-management",
-    "icon": "☕",
+    "icon": "box",
     "name": "Travel Fatigue & Rest Break Pacing",
     "desc": "Schedules afternoon rest breaks and coffee pauses to prevent burnout.",
     "explain": "Schedules afternoon rest breaks and coffee pauses to prevent burnout.",
@@ -129,7 +129,7 @@
   },
   {
     "id": "rte-weather-contingency-indoor-plan",
-    "icon": "🌧️",
+    "icon": "box",
     "name": "Rainy Day & Weather Contingency Plan",
     "desc": "Pre-plans indoor museum and market alternatives for bad weather days.",
     "explain": "Pre-plans indoor museum and market alternatives for bad weather days.",
@@ -141,7 +141,7 @@
   },
   {
     "id": "cul-local-etiquette-taboos",
-    "icon": "🤝",
+    "icon": "box",
     "name": "Cultural Etiquette & Taboo Protocol",
     "desc": "Outlines body language, dress codes, and social etiquette guidelines.",
     "explain": "Outlines body language, dress codes, and social etiquette guidelines.",
@@ -151,7 +151,7 @@
   },
   {
     "id": "cul-basic-language-survival-phrases",
-    "icon": "🗣️",
+    "icon": "box",
     "name": "Essential Local Phrasebook & Slang",
     "desc": "Provides 10 crucial survival phrases with phonetic pronunciations.",
     "explain": "Provides 10 crucial survival phrases with phonetic pronunciations.",
@@ -163,7 +163,7 @@
   },
   {
     "id": "cul-tipping-bargaining-customs",
-    "icon": "💵",
+    "icon": "box",
     "name": "Tipping & Haggling Customs Guide",
     "desc": "Explains expected tipping percentages and local market bargaining etiquette.",
     "explain": "Explains expected tipping percentages and local market bargaining etiquette.",
@@ -187,7 +187,7 @@
   },
   {
     "id": "cul-respectful-photography-ethics",
-    "icon": "📸",
+    "icon": "box",
     "name": "Respectful Photography & Site Ethics",
     "desc": "Establishes ethical guidelines for photographing locals and heritage sites.",
     "explain": "Establishes ethical guidelines for photographing locals and heritage sites.",
@@ -199,7 +199,7 @@
   },
   {
     "id": "cul-historical-context-primer",
-    "icon": "📜",
+    "icon": "box",
     "name": "Concise Historical & Cultural Primer",
     "desc": "Provides a brief 3-paragraph historical context primer to enrich sightseeing.",
     "explain": "Provides a brief 3-paragraph historical context primer to enrich sightseeing.",
@@ -211,7 +211,7 @@
   },
   {
     "id": "log-packing-capsule-wardrobe",
-    "icon": "🧳",
+    "icon": "box",
     "name": "Minimalist Capsule Wardrobe & Packing",
     "desc": "Designs a carry-on-only capsule wardrobe packing checklist.",
     "explain": "Designs a carry-on-only capsule wardrobe packing checklist.",
@@ -221,7 +221,7 @@
   },
   {
     "id": "log-visa-entry-passport-checklist",
-    "icon": "🛂",
+    "icon": "box",
     "name": "Visa, Entry & Passport Checklist",
     "desc": "Verifies passport validity, eVisa procedures, and entry forms.",
     "explain": "Verifies passport validity, eVisa procedures, and entry forms.",
@@ -233,7 +233,7 @@
   },
   {
     "id": "log-sim-eSim-connectivity-plan",
-    "icon": "📱",
+    "icon": "box",
     "name": "eSIM & Mobile Connectivity Plan",
     "desc": "Outlines cost-effective local eSIM and offline map downloads to avoid roaming fees.",
     "explain": "Outlines cost-effective local eSIM and offline map downloads to avoid roaming fees.",
@@ -245,7 +245,7 @@
   },
   {
     "id": "log-travel-insurance-health-prep",
-    "icon": "🏥",
+    "icon": "box",
     "name": "Travel Insurance & Medical Prep",
     "desc": "Ensures comprehensive emergency health coverage and prescription compliance.",
     "explain": "Ensures comprehensive emergency health coverage and prescription compliance.",
@@ -257,7 +257,7 @@
   },
   {
     "id": "log-flight-layover-optimization",
-    "icon": "✈️",
+    "icon": "box",
     "name": "Flight Layover & Transit Lounge Optimization",
     "desc": "Leverages airport lounges or transit mini-tours for long layovers.",
     "explain": "Leverages airport lounges or transit mini-tours for long layovers.",
@@ -269,7 +269,7 @@
   },
   {
     "id": "log-luggage-storage-mobility",
-    "icon": "🧳",
+    "icon": "box",
     "name": "Luggage Storage & Mobility Management",
     "desc": "Identifies day-use luggage storage apps for early arrival/late departure days.",
     "explain": "Identifies day-use luggage storage apps for early arrival/late departure days.",
@@ -281,7 +281,7 @@
   },
   {
     "id": "bdg-daily-expense-categorizer",
-    "icon": "💰",
+    "icon": "box",
     "name": "Daily Budget Allocation & Expense Planner",
     "desc": "Allocates daily budgets across lodging, food, transit, and sight admissions.",
     "explain": "Allocates daily budgets across lodging, food, transit, and sight admissions.",
@@ -291,7 +291,7 @@
   },
   {
     "id": "bdg-multi-currency-fx-strategy",
-    "icon": "💳",
+    "icon": "box",
     "name": "FX Banking & Fee-Free Payment Strategy",
     "desc": "Avoids Dynamic Currency Conversion (DCC) traps using fee-free cards.",
     "explain": "Avoids Dynamic Currency Conversion (DCC) traps using fee-free cards.",
@@ -303,7 +303,7 @@
   },
   {
     "id": "bdg-accommodation-value-finder",
-    "icon": "🏨",
+    "icon": "box",
     "name": "Boutique vs. Value Lodging Audit",
     "desc": "Balances central location accessibility against value-for-money accommodation.",
     "explain": "Balances central location accessibility against value-for-money accommodation.",
@@ -315,7 +315,7 @@
   },
   {
     "id": "bdg-city-pass-attraction-roi",
-    "icon": "🎟️",
+    "icon": "box",
     "name": "City Tourist Pass ROI Calculator",
     "desc": "Calculates cost-benefit ratio of purchasing official tourist city passes.",
     "explain": "Calculates cost-benefit ratio of purchasing official tourist city passes.",
@@ -327,7 +327,7 @@
   },
   {
     "id": "bdg-transportation-card-hack",
-    "icon": "🎫",
+    "icon": "box",
     "name": "Local Transit Pass & Card Savings",
     "desc": "Leverages multi-day unlimited transit passes or contactless daily fare capping.",
     "explain": "Leverages multi-day unlimited transit passes or contactless daily fare capping.",
@@ -339,7 +339,7 @@
   },
   {
     "id": "bdg-emergency-contingency-fund",
-    "icon": "🛡️",
+    "icon": "box",
     "name": "Travel Emergency Contingency Buffer",
     "desc": "Locks a 15% emergency cash buffer for missed transport or unforeseen events.",
     "explain": "Locks a 15% emergency cash buffer for missed transport or unforeseen events.",

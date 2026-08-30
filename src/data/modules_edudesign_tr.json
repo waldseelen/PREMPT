@@ -1,7 +1,7 @@
 [
   {
     "id": "tax-blooms-question-matrix",
-    "icon": "🧠",
+    "icon": "box",
     "name": "Bloom Taksonomisi Soru Matrisi",
     "desc": "Hatırlama'dan Yaratma'ya Bloom basamaklarına uygun sorular üretir.",
     "explain": "Hatırlama'dan Yaratma'ya Bloom basamaklarına uygun sorular üretir.",
@@ -11,7 +11,7 @@
   },
   {
     "id": "tax-depth-of-knowledge-dok",
-    "icon": "📊",
+    "icon": "box",
     "name": "Webb DOK Bilişsel Derinlik Hizalaması",
     "desc": "Görevleri DOK Seviye 1 (Hatırlama) ile Seviye 4 (Genişletilmiş Düşünme) arasında derecelendirir.",
     "explain": "Görevleri DOK Seviye 1 (Hatırlama) ile Seviye 4 (Genişletilmiş Düşünme) arasında derecelendirir.",
@@ -23,7 +23,7 @@
   },
   {
     "id": "tax-solo-taxonomy-aligner",
-    "icon": "🧱",
+    "icon": "box",
     "name": "SOLO Taksonomisi Yapısal Değerlendirme",
     "desc": "Öğrenci yanıtlarını Tek Yönlü'den İlişkisel ve Soyutlanmış Düzeye sınıflandırır.",
     "explain": "Öğrenci yanıtlarını Tek Yönlü'den İlişkisel ve Soyutlanmış Düzeye sınıflandırır.",
@@ -35,7 +35,7 @@
   },
   {
     "id": "tax-affective-domain-goals",
-    "icon": "❤️",
+    "icon": "box",
     "name": "Krathwohl Duรับsal Alan Hedefleri",
     "desc": "Öğrencinin tutum, değer verme ve karakterize etme gelişimini planlar.",
     "explain": "Öğrencinin tutum, değer verme ve karakterize etme gelişimini planlar.",
@@ -47,7 +47,7 @@
   },
   {
     "id": "tax-psychomotor-skill-scaffolding",
-    "icon": "✋",
+    "icon": "box",
     "name": "Psikomotor Beceri İskeletleme (Dave)",
     "desc": "Fiziksel ve pratik becerilerin taklitten doğallaşmaya gelişim haritası.",
     "explain": "Fiziksel ve pratik becerilerin taklitten doğallaşmaya gelişim haritası.",
@@ -59,7 +59,7 @@
   },
   {
     "id": "tax-higher-order-prompting",
-    "icon": "🎯",
+    "icon": "box",
     "name": "Üst Düzey Düşünme Soru Üretici",
     "desc": "Ezberci soruları eleştirel düşünmeyi tetikleyen açık uçlu sorulara dönüştürür.",
     "explain": "Ezberci soruları eleştirel düşünmeyi tetikleyen açık uçlu sorulara dönüştürür.",
@@ -71,7 +71,7 @@
   },
   {
     "id": "cur-backward-design-ubd",
-    "icon": "🎯",
+    "icon": "box",
     "name": "Tersine Müfredat Tasarımı (UbD)",
     "desc": "Wiggins & McTighe UbD modeliyle önce hedef ve kanıtı, sonra etkinlikleri planlar.",
     "explain": "Wiggins & McTighe UbD modeliyle önce hedef ve kanıtı, sonra etkinlikleri planlar.",
@@ -81,7 +81,7 @@
   },
   {
     "id": "cur-scaffolding-chunking",
-    "icon": "🧩",
+    "icon": "box",
     "name": "Bilişsel Yük & Mikro-Bölümleme (Chunking)",
     "desc": "Karmaşık konuları bilişsel aşırı yüklenmeyi önleyecek küçük parçalara böler.",
     "explain": "Karmaşık konuları bilişsel aşırı yüklenmeyi önleyecek küçük parçalara böler.",
@@ -93,7 +93,7 @@
   },
   {
     "id": "cur-interleaving-spaced-curriculum",
-    "icon": "🔄",
+    "icon": "box",
     "name": "Aralıklı & Çapraz Öğrenme Takvimi",
     "desc": "Unutmayı engellemek için konuları zaman içine yayan aralıklı tekrar planı hazırlar.",
     "explain": "Unutmayı engellemek için konuları zaman içine yayan aralıklı tekrar planı hazırlar.",
@@ -105,7 +105,7 @@
   },
   {
     "id": "cur-cross-disciplinary-bridge",
-    "icon": "🌉",
+    "icon": "box",
     "name": "Disiplinlerarası Proje Bağlantısı",
     "desc": "Dersi matematik, tarih veya sanat gibi farklı disiplinlerle evlendirir.",
     "explain": "Dersi matematik, tarih veya sanat gibi farklı disiplinlerle evlendirir.",
@@ -117,7 +117,7 @@
   },
   {
     "id": "cur-competency-based-map",
-    "icon": "🗺️",
+    "icon": "box",
     "name": "Yetkinlik Tabanlı Beceri Haritası",
     "desc": "Zaman bazlı ders yerine somut beceri kazanımına dayalı ilerleme haritası.",
     "explain": "Zaman bazlı ders yerine somut beceri kazanımına dayalı ilerleme haritası.",
@@ -129,7 +129,7 @@
   },
   {
     "id": "cur-universal-learning-design",
-    "icon": "♿",
+    "icon": "box",
     "name": "Evrensel Öğrenme Tasarımı (UDL)",
     "desc": "Görsel, işitsel ve kinestetik farklılıklara erişilebilir kapsayıcı ders mimarisi.",
     "explain": "Görsel, işitsel ve kinestetik farklılıklara erişilebilir kapsayıcı ders mimarisi.",
@@ -141,7 +141,7 @@
   },
   {
     "id": "ass-formative-exit-ticket",
-    "icon": "🎟️",
+    "icon": "box",
     "name": "Biçimlendirici Çıkış Bilteti (Exit Ticket)",
     "desc": "Ders sonunda 2 dakikalık anlık anlama denetimi ve çıkış kartı soruları.",
     "explain": "Ders sonunda 2 dakikalık anlık anlama denetimi ve çıkış kartı soruları.",
@@ -151,7 +151,7 @@
   },
   {
     "id": "ass-summative-capstone-spec",
-    "icon": "🏆",
+    "icon": "box",
     "name": "Özetleyici Bitirme (Capstone) Şartnamesi",
     "desc": "Dönem sonu için tüm becerileri sentezleyen kapsamlı proje şartnamesi.",
     "explain": "Dönem sonu için tüm becerileri sentezleyen kapsamlı proje şartnamesi.",
@@ -163,7 +163,7 @@
   },
   {
     "id": "ass-authentic-task-assessment",
-    "icon": "💼",
+    "icon": "box",
     "name": "Gerçek Hayat Özgün Değerlendirmesi",
     "desc": "Teorik sınav yerine sektördeki gerçek bir problemi çözdüren görev kurgular.",
     "explain": "Teorik sınav yerine sektördeki gerçek bir problemi çözdüren görev kurgular.",
@@ -175,7 +175,7 @@
   },
   {
     "id": "ass-item-analysis-distractor",
-    "icon": "📝",
+    "icon": "box",
     "name": "Çoktan Seçmeli Çeldirici Titizlik Testi",
     "desc": "Test sorularındaki çeldiricilerin (distractors) kalitesini ve çeldirme gücünü denetler.",
     "explain": "Test sorularındaki çeldiricilerin (distractors) kalitesini ve çeldirme gücünü denetler.",
@@ -187,7 +187,7 @@
   },
   {
     "id": "ass-diagnostic-prior-knowledge",
-    "icon": "🔍",
+    "icon": "box",
     "name": "Ön Bilgi Teşhis Envanteri (Diagnostic)",
     "desc": "Ünite öncesi öğrencilerin kavram yanılgılarını ve hazırbulunuşluğunu ölçer.",
     "explain": "Ünite öncesi öğrencilerin kavram yanılgılarını ve hazırbulunuşluğunu ölçer.",
@@ -199,7 +199,7 @@
   },
   {
     "id": "ass-peer-self-eval-protocol",
-    "icon": "🤝",
+    "icon": "box",
     "name": "Akran ve Öz-Değerlendirme Protokolü",
     "desc": "Öğrencilerin birbirini ve kendilerini objektif değerlendirme mekanizması.",
     "explain": "Öğrencilerin birbirini ve kendilerini objektif değerlendirme mekanizması.",
@@ -211,7 +211,7 @@
   },
   {
     "id": "eng-gamification-loop",
-    "icon": "🎮",
+    "icon": "box",
     "name": "Oyunlaştırılmış Öğrenme Döngüsü",
     "desc": "Puan, rozet, liderlik tablosu ve görev mekanikleri ile motivasyonu artırır.",
     "explain": "Puan, rozet, liderlik tablosu ve görev mekanikleri ile motivasyonu artırır.",
@@ -221,7 +221,7 @@
   },
   {
     "id": "eng-socratic-seminar-guide",
-    "icon": "🗣️",
+    "icon": "box",
     "name": "Sokratik Seminer Tartışma Rehberi",
     "desc": "Sınıf içi derin grup tartışması için metin odaklı Sokratik sorgulama kurgular.",
     "explain": "Sınıf içi derin grup tartışması için metin odaklı Sokratik sorgulama kurgular.",
@@ -233,7 +233,7 @@
   },
   {
     "id": "eng-active-recall-drill",
-    "icon": "⚡",
+    "icon": "box",
     "name": "Aktif Hatırlama Egzersiz Motoru",
     "desc": "Pasif okuma yerine bilgiyi zihinden çekmeye zorlayan alıştırma düzeni.",
     "explain": "Pasif okuma yerine bilgiyi zihinden çekmeye zorlayan alıştırma düzeni.",
@@ -245,7 +245,7 @@
   },
   {
     "id": "eng-case-study-dilemma-builder",
-    "icon": "📖",
+    "icon": "box",
     "name": "Vaka Analizi & Etik İklem Senaryosu",
     "desc": "Öğrencileri gerçek bir şirket veya olay ikileminin içine atan senaryo.",
     "explain": "Öğrencileri gerçek bir şirket veya olay ikileminin içine atan senaryo.",
@@ -257,7 +257,7 @@
   },
   {
     "id": "eng-flipper-classroom-prep",
-    "icon": "🔄",
+    "icon": "box",
     "name": "Ters-Yüz Sınıf (Flipped Classroom) Planı",
     "desc": "Evde içerik tüketimi, sınıfta aktif uygulama ve problem çözme planı.",
     "explain": "Evde içerik tüketimi, sınıfta aktif uygulama ve problem çözme planı.",
@@ -269,7 +269,7 @@
   },
   {
     "id": "eng-peer-instruction-think-pair",
-    "icon": "💬",
+    "icon": "box",
     "name": "Düşün-Eşleş-Paylaş (Think-Pair-Share)",
     "desc": "Bireysel düşünme, akranla tartışma ve sınıfla paylaşma adımlı ders akışı.",
     "explain": "Bireysel düşünme, akranla tartışma ve sınıfla paylaşma adımlı ders akışı.",
@@ -281,7 +281,7 @@
   },
   {
     "id": "rub-holistic-analytical-rubric",
-    "icon": "📊",
+    "icon": "box",
     "name": "Analitik Değerlendirme Rubriği",
     "desc": "Kriterleri 4 seviyede (Yetersiz, Geliştirilmeli, Başarılı, Mükemmel) detaylandıran rubrik.",
     "explain": "Kriterleri 4 seviyede (Yetersiz, Geliştirilmeli, Başarılı, Mükemmel) detaylandıran rubrik.",
@@ -291,7 +291,7 @@
   },
   {
     "id": "rub-single-point-rubric",
-    "icon": "🎯",
+    "icon": "box",
     "name": "Tek Nokta (Single-Point) Rubriği",
     "desc": "Merkeze başarı standardını koyup sağa geliştirme, sola övgü alanı açar.",
     "explain": "Merkeze başarı standardını koyup sağa geliştirme, sola övgü alanı açar.",
@@ -303,7 +303,7 @@
   },
   {
     "id": "rub-objective-performance-criteria",
-    "icon": "🔍",
+    "icon": "box",
     "name": "Somut Gözlemlenebilir Performans Ölçütleri",
     "desc": "Öznel değerlendirmeleri kaldırıp yerine sayısal ve somut kanıt kriterleri koyar.",
     "explain": "Öznel değerlendirmeleri kaldırıp yerine sayısal ve somut kanıt kriterleri koyar.",
@@ -315,7 +315,7 @@
   },
   {
     "id": "rub-exemplar-anchor-papers",
-    "icon": "🥇",
+    "icon": "box",
     "name": "Örnek Çıktı (Anchor Papers) Matrisi",
     "desc": "Altın, Gümüş ve Bronz seviyedeki örnek öğrenci çalışmalarını betimler.",
     "explain": "Altın, Gümüş ve Bronz seviyedeki örnek öğrenci çalışmalarını betimler.",
@@ -327,7 +327,7 @@
   },
   {
     "id": "rub-constructive-feedback-bank",
-    "icon": "💬",
+    "icon": "box",
     "name": "Yapıcı Geri Bildirim İfade Bankası",
     "desc": "Öğretmenin hızlıca kullanabileceği geliştirici geri bildirim cümleleri üretir.",
     "explain": "Öğretmenin hızlıca kullanabileceği geliştirici geri bildirim cümleleri üretir.",
@@ -339,7 +339,7 @@
   },
   {
     "id": "rub-mastery-threshold-matrix",
-    "icon": "🏁",
+    "icon": "box",
     "name": "Standart Tabanlı Ustalık (Mastery) Eşiği",
     "desc": "Öğrencinin bir sonraki konuya geçmesi için gereken ustalık kriterini koyar.",
     "explain": "Öğrencinin bir sonraki konuya geçmesi için gereken ustalık kriterini koyar.",

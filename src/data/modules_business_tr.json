@@ -1,7 +1,7 @@
 [
   {
     "id": "val-problem-solution-fit",
-    "icon": "🧩",
+    "icon": "box",
     "name": "Problem-Çözüm Uyum Stres Testi",
     "desc": "Çözümün pazardaki gerçek ve acı veren bir soruna denk geldiğini doğrular.",
     "explain": "Çözümün pazardaki gerçek ve acı veren bir soruna denk geldiğini doğrular.",
@@ -11,7 +11,7 @@
   },
   {
     "id": "val-customer-interview-script",
-    "icon": "🎙️",
+    "icon": "box",
     "name": "Mom Test Müşteri Mülakat Rehberi",
     "desc": "Müşterinin yalan söylemesini engelleyen Rob Fitzpatrick Mom Test soruları.",
     "explain": "Müşterinin yalan söylemesini engelleyen Rob Fitzpatrick Mom Test soruları.",
@@ -23,7 +23,7 @@
   },
   {
     "id": "val-smoke-test-landing-page",
-    "icon": "🧪",
+    "icon": "box",
     "name": "MVP Duman Testi (Smoke Test) Şartnamesi",
     "desc": "Kod yazmadan ürün talebini ölçen Landing Page deneyi tasarlar.",
     "explain": "Kod yazmadan ürün talebini ölçen Landing Page deneyi tasarlar.",
@@ -35,7 +35,7 @@
   },
   {
     "id": "val-value-prop-canvas",
-    "icon": "💎",
+    "icon": "box",
     "name": "Osterwalder Değer Önerisi Tuvali",
     "desc": "Müşteri işleri, acıları ve kazançları ile ürün özelliklerini eşleştirir.",
     "explain": "Müşteri işleri, acıları ve kazançları ile ürün özelliklerini eşleştirir.",
@@ -47,7 +47,7 @@
   },
   {
     "id": "val-jobs-to-be-done-jtbd",
-    "icon": "🎯",
+    "icon": "box",
     "name": "Jobs-to-be-Done (JTBD) Çerçevesi",
     "desc": "Müşterinin ürünü hangi duygusal ve fonksiyonel iş için 'kiraladığını' bulur.",
     "explain": "Müşterinin ürünü hangi duygusal ve fonksiyonel iş için 'kiraladığını' bulur.",
@@ -59,7 +59,7 @@
   },
   {
     "id": "val-pivot-or-persevere-audit",
-    "icon": "🔄",
+    "icon": "box",
     "name": "Pivot vs. Sebat (Persevere) Denetimi",
     "desc": "Mevcut stratejide ısrar mı edileceğini yoksa yön mü değiştirileceğini ölçer.",
     "explain": "Mevcut stratejide ısrar mı edileceğini yoksa yön mü değiştirileceğini ölçer.",
@@ -71,7 +71,7 @@
   },
   {
     "id": "mkt-tam-sam-som-calc",
-    "icon": "📊",
+    "icon": "box",
     "name": "TAM-SAM-SOM Pazar Büyüklüğü Motoru",
     "desc": "Pazar potansiyelini Taban-Yukarı (Bottom-up) yöntemle hesaplar.",
     "explain": "Pazar potansiyelini Taban-Yukarı (Bottom-up) yöntemle hesaplar.",
@@ -81,7 +81,7 @@
   },
   {
     "id": "mkt-porters-five-forces",
-    "icon": "🏛️",
+    "icon": "box",
     "name": "Porter'ın 5 Güç Sektör Denetimi",
     "desc": "Sektörün rekabet yoğunluğunu ve kar marjı baskısını analiz eder.",
     "explain": "Sektörün rekabet yoğunluğunu ve kar marjı baskısını analiz eder.",
@@ -93,7 +93,7 @@
   },
   {
     "id": "mkt-pestel-macro-analysis",
-    "icon": "🌐",
+    "icon": "box",
     "name": "PESTEL Makro Çevre Taraması",
     "desc": "Politik, Ekonomik, Sosyal, Teknolojik, Etik ve Yasal riskleri tarar.",
     "explain": "Politik, Ekonomik, Sosyal, Teknolojik, Etik ve Yasal riskleri tarar.",
@@ -105,7 +105,7 @@
   },
   {
     "id": "mkt-competitor-matrix-positioning",
-    "icon": "🗺️",
+    "icon": "box",
     "name": "Rakip Konumlandırma Algı Matrisi",
     "desc": "Rakipleri 2 kritik eksende haritalandırıp pazardaki beyaz alanı (White Space) bulur.",
     "explain": "Rakipleri 2 kritik eksende haritalandırıp pazardaki beyaz alanı (White Space) bulur.",
@@ -117,7 +117,7 @@
   },
   {
     "id": "mkt-blue-ocean-strategy",
-    "icon": "🌊",
+    "icon": "box",
     "name": "Mavi Okyanus ve ERRC Matrisi",
     "desc": "Rekabeti anlamsız kılmak için Yok Et-Azalt-Yükselt-Yarat (ERRC) matrisi kurar.",
     "explain": "Rekabeti anlamsız kılmak için Yok Et-Azalt-Yükselt-Yarat (ERRC) matrisi kurar.",
@@ -129,7 +129,7 @@
   },
   {
     "id": "mkt-icp-persona-definition",
-    "icon": "👤",
+    "icon": "box",
     "name": "İdeal Müşteri Profili (ICP) Mimarısı",
     "desc": "En yüksek LTV veren ideal kurumsal/bireysel müşteriyi profiller.",
     "explain": "En yüksek LTV veren ideal kurumsal/bireysel müşteriyi profiller.",
@@ -141,7 +141,7 @@
   },
   {
     "id": "eco-cac-ltv-ratio-check",
-    "icon": "⚖️",
+    "icon": "box",
     "name": "CAC:LTV Oranı ve Amorti Süresi Denetimi",
     "desc": "Müşteri edinme maliyeti ile yaşam boyu değer dengesini ($LTV > 3 \\times CAC$) test eder.",
     "explain": "Müşteri edinme maliyeti ile yaşam boyu değer dengesini ($LTV > 3 \\times CAC$) test eder.",
@@ -151,7 +151,7 @@
   },
   {
     "id": "eco-cohort-retention-curve",
-    "icon": "📈",
+    "icon": "box",
     "name": "Kohort Elde Tutma (Retention) ve Churn Engine",
     "desc": "Kullanıcı tutundurma eğrisini inceleyip sızıntılı kova (leaky bucket) sorununu çözer.",
     "explain": "Kullanıcı tutundurma eğrisini inceleyip sızıntılı kova (leaky bucket) sorununu çözer.",
@@ -163,7 +163,7 @@
   },
   {
     "id": "eco-pricing-tier-strategy",
-    "icon": "🏷️",
+    "icon": "box",
     "name": "Değer Tabanlı Fiyatlandırma Stratejisi",
     "desc": "Maliyet tabanlı yerine müşterinin algıladığı değere göre katmanlı fiyatlama kurar.",
     "explain": "Maliyet tabanlı yerine müşterinin algıladığı değere göre katmanlı fiyatlama kurar.",
@@ -175,7 +175,7 @@
   },
   {
     "id": "eco-gross-margin-breakdown",
-    "icon": "📊",
+    "icon": "box",
     "name": "Brüt Kar Marjı ve Katkı Payı Denetimi",
     "desc": "Satışların doğrudan maliyetlerini (COGS) ve brüt marj sürdürülebilirliğini ölçer.",
     "explain": "Satışların doğrudan maliyetlerini (COGS) ve brüt marj sürdürülebilirliğini ölçer.",
@@ -187,7 +187,7 @@
   },
   {
     "id": "eco-burn-rate-runway-calc",
-    "icon": "🔥",
+    "icon": "box",
     "name": "Nakit Yakış Hızı (Burn Rate) & Runway",
     "desc": "Mevcut nakdin kaç ay yeteceğini (Runway) ve net yakış hızını hesaplar.",
     "explain": "Mevcut nakdin kaç ay yeteceğini (Runway) ve net yakış hızını hesaplar.",
@@ -199,7 +199,7 @@
   },
   {
     "id": "eco-freemium-conversion-funnel",
-    "icon": "🧲",
+    "icon": "box",
     "name": "Freemium'dan Ücretliye Dönüşüm Hunisi",
     "desc": "Ücretsiz kullanıcıları ücretli pakete geçiren tetikleyici kısıtları koyar.",
     "explain": "Ücretsiz kullanıcıları ücretli pakete geçiren tetikleyici kısıtları koyar.",
@@ -211,7 +211,7 @@
   },
   {
     "id": "pit-10-slide-pitch-deck",
-    "icon": "📊",
+    "icon": "box",
     "name": "10 Slaytlık Yatırımcı Pitch Deck Mimarisi",
     "desc": "Sequoia/YC formatında 10 slaytlık yatırımcı sunumu omurgası kurar.",
     "explain": "Sequoia/YC formatında 10 slaytlık yatırımcı sunumu omurgası kurar.",
@@ -221,7 +221,7 @@
   },
   {
     "id": "pit-hook-elevator-pitch",
-    "icon": "⏱️",
+    "icon": "box",
     "name": "30 Saniyelik Asansör Cümlesi (Elevator Pitch)",
     "desc": "Girişimin değer önerisini 30 saniyede akılda kalıcı şekilde özetler.",
     "explain": "Girişimin değer önerisini 30 saniyede akılda kalıcı şekilde özetler.",
@@ -233,7 +233,7 @@
   },
   {
     "id": "pit-investor-qa-defense",
-    "icon": "🛡️",
+    "icon": "box",
     "name": "Yatırımcı Soru-Cevap Savunma Matrisi",
     "desc": "Yatırımcıların soracağı en zor 5 itiraza hazır yanıtlar kurgular.",
     "explain": "Yatırımcıların soracağı en zor 5 itiraza hazır yanıtlar kurgular.",
@@ -245,7 +245,7 @@
   },
   {
     "id": "pit-traction-milestone-roadmap",
-    "icon": "🚀",
+    "icon": "box",
     "name": "Traction & Yol Haritası Gösterimi",
     "desc": "Geçmiş büyüme ivmesini ve gelecekteki 18 aylık kilometre taşlarını sergiler.",
     "explain": "Geçmiş büyüme ivmesini ve gelecekteki 18 aylık kilometre taşlarını sergiler.",
@@ -257,7 +257,7 @@
   },
   {
     "id": "pit-narrative-arc-storytelling",
-    "icon": "📖",
+    "icon": "box",
     "name": "Girişimci Hikaye Arkı (Storytelling)",
     "desc": "Sunumu kuru rakamlardan çıkarıp duygusal ve mantıksal bir hikayeye dönüştürür.",
     "explain": "Sunumu kuru rakamlardan çıkarıp duygusal ve mantıksal bir hikayeye dönüştürür.",
@@ -269,7 +269,7 @@
   },
   {
     "id": "pit-data-room-checklist",
-    "icon": "📁",
+    "icon": "box",
     "name": "Yatırımcı Data Room Hazırlık Listesi",
     "desc": "Due-diligence süreci için gerekli hukuki, finansal ve teknik belgeleri düzenler.",
     "explain": "Due-diligence süreci için gerekli hukuki, finansal ve teknik belgeleri düzenler.",
@@ -281,7 +281,7 @@
   },
   {
     "id": "rsk-business-pre-mortem",
-    "icon": "💀",
+    "icon": "box",
     "name": "Şirket İçi İş Pre-Mortem Analizi",
     "desc": "Girişimin 3 yıl sonra iflas ettiğini varsayıp nedenlerini önceden çözer.",
     "explain": "Girişimin 3 yıl sonra iflas ettiğini varsayıp nedenlerini önceden çözer.",
@@ -291,7 +291,7 @@
   },
   {
     "id": "rsk-swot-matrix-action",
-    "icon": "🧩",
+    "icon": "box",
     "name": "Eyleme Dönüştürülebilir TOWS/SWOT Matrisi",
     "desc": "Güçlü ve zayıf yönleri fırsat ve tehditlerle çaprazlayıp strateji üretir.",
     "explain": "Güçlü ve zayıf yönleri fırsat ve tehditlerle çaprazlayıp strateji üretir.",
@@ -303,7 +303,7 @@
   },
   {
     "id": "rsk-regulatory-moat-check",
-    "icon": "🏰",
+    "icon": "box",
     "name": "Yasal & Fikri Mülkiyet Hendek (Moat) Analizi",
     "desc": "Patent, marka tescili ve regülasyon uyumu ile rekabet avantajı savunması.",
     "explain": "Patent, marka tescili ve regülasyon uyumu ile rekabet avantajı savunması.",
@@ -315,7 +315,7 @@
   },
   {
     "id": "rsk-single-point-failure",
-    "icon": "⚠️",
+    "icon": "box",
     "name": "Operasyonel Tek Nokta Hata (SPOF) Taraması",
     "desc": "Sistemi çökertebilecek tek bir tedarikçiye veya kişiye bağımlılığı bulur.",
     "explain": "Sistemi çökertebilecek tek bir tedarikçiye veya kişiye bağımlılığı bulur.",
@@ -327,7 +327,7 @@
   },
   {
     "id": "rsk-scenario-financial-stress",
-    "icon": "📉",
+    "icon": "box",
     "name": "Finansal Stres Senaryosu (Bear/Base/Bull)",
     "desc": "Gelirlerin %50 düştüğü kötümser senaryoda finansal dayanıklılığı test eder.",
     "explain": "Gelirlerin %50 düştüğü kötümser senaryoda finansal dayanıklılığı test eder.",
@@ -339,7 +339,7 @@
   },
   {
     "id": "rsk-key-person-dependence",
-    "icon": "👥",
+    "icon": "box",
     "name": "Kilit Personel ve Tedarikçi Bağımlılık Denetimi",
     "desc": "Kilit kurucu veya tedarikçi ayrıldığında operasyonun devamlılığını sağlar.",
     "explain": "Kilit kurucu veya tedarikçi ayrıldığında operasyonun devamlılığını sağlar.",

@@ -1,7 +1,7 @@
 [
   {
     "id": "audience-intent-triage",
-    "icon": "🎯",
+    "icon": "box",
     "name": "Kitle ve Niyet Triyajı",
     "desc": "Okuyucunun arama niyetini (Search Intent) ve uzmanlık seviyesini belirler.",
     "explain": "Okuyucunun arama niyetini (Search Intent) ve uzmanlık seviyesini belirler.",
@@ -11,7 +11,7 @@
   },
   {
     "id": "thesis-sharpener",
-    "icon": "🗡️",
+    "icon": "box",
     "name": "Tez ve Ana Fikir Keskinleştirici",
     "desc": "Yazının tek bir güçlü, savunulabilir ve radikal iddiasını belirler.",
     "explain": "Yazının tek bir güçlü, savunulabilir ve radikal iddiasını belirler.",
@@ -23,7 +23,7 @@
   },
   {
     "id": "core-hook-extractor",
-    "icon": "🪝",
+    "icon": "box",
     "name": "Kritik Çengel (Hook) Çıkarıcı",
     "desc": "İlk 3 saniyede okuyucunun dikkatini kilitleyen çengeller tasarlar.",
     "explain": "İlk 3 saniyede okuyucunun dikkatini kilitleyen çengeller tasarlar.",
@@ -35,7 +35,7 @@
   },
   {
     "id": "tone-authority-setter",
-    "icon": "🎙️",
+    "icon": "box",
     "name": "Ton ve Otorite Ayarlayıcı",
     "desc": "Metnin editoryal duruşunu (pragmatik, samimi, akademik) ayarlar.",
     "explain": "Metnin editoryal duruşunu (pragmatik, samimi, akademik) ayarlar.",
@@ -47,7 +47,7 @@
   },
   {
     "id": "value-prop-alignment",
-    "icon": "💎",
+    "icon": "box",
     "name": "Değer Önerisi Hizalaması",
     "desc": "Okuyucunun yazıyı okuduktan sonra kazanacağı somut çıktıyı netleştirir.",
     "explain": "Okuyucunun yazıyı okuduktan sonra kazanacağı somut çıktıyı netleştirir.",
@@ -59,7 +59,7 @@
   },
   {
     "id": "content-angle-pivot",
-    "icon": "🔄",
+    "icon": "box",
     "name": "İçerik Açısı (Angle) Pivotu",
     "desc": "Sıradan bir konuyu radikal ve özgün bir perspektife kaydırır.",
     "explain": "Sıradan bir konuyu radikal ve özgün bir perspektife kaydırır.",
@@ -71,7 +71,7 @@
   },
   {
     "id": "evidence-hierarchy-audit",
-    "icon": "📊",
+    "icon": "box",
     "name": "Kanıt Hiyerarşisi Denetimi (BLOG.md)",
     "desc": "İddiaları SAĞLAM, KÜÇÜLDÜ, TARTIŞMALI, BİLİNMİYOR veya ÇÖKTÜ olarak etiketler.",
     "explain": "İddiaları SAĞLAM, KÜÇÜLDÜ, TARTIŞMALI, BİLİNMİYOR veya ÇÖKTÜ olarak etiketler.",
@@ -83,7 +83,7 @@
   },
   {
     "id": "claim-verification-grid",
-    "icon": "🔍",
+    "icon": "box",
     "name": "İddia Doğrulama Matrisi",
     "desc": "Soyut iddiaları somut vaka çalışmaları ve istatistiklerle destekler.",
     "explain": "Soyut iddiaları somut vaka çalışmaları ve istatistiklerle destekler.",
@@ -95,7 +95,7 @@
   },
   {
     "id": "data-citation-scrubber",
-    "icon": "🧹",
+    "icon": "box",
     "name": "Veri ve Atıf Ayıklayıcı",
     "desc": "Tarihi geçmiş, kaynağı belirsiz veya uydurma istatistikleri temizler.",
     "explain": "Tarihi geçmiş, kaynağı belirsiz veya uydurma istatistikleri temizler.",
@@ -107,7 +107,7 @@
   },
   {
     "id": "anecdotal-evidence-test",
-    "icon": "📖",
+    "icon": "box",
     "name": "Anekdotsal Kanıt Testi",
     "desc": "Tekil hikayelerin genelleme gibi sunulmasını engeller.",
     "explain": "Tekil hikayelerin genelleme gibi sunulmasını engeller.",
@@ -119,7 +119,7 @@
   },
   {
     "id": "expert-quote-integration",
-    "icon": "💬",
+    "icon": "box",
     "name": "Uzman Görüşü ve Alıntı Entegrasyonu",
     "desc": "Alanında otorite isimlerin nitelikli görüşlerini metne yedirir.",
     "explain": "Alanında otorite isimlerin nitelikli görüşlerini metne yedirir.",
@@ -131,7 +131,7 @@
   },
   {
     "id": "counter-evidence-check",
-    "icon": "⚖️",
+    "icon": "box",
     "name": "Karşıt Kanıt Taraması",
     "desc": "Savunulan teze zıt ampirik verileri açıkça kabul eder ve tartışır.",
     "explain": "Savunulan teze zıt ampirik verileri açıkça kabul eder ve tartışır.",
@@ -143,7 +143,7 @@
   },
   {
     "id": "steelman-counter-arg",
-    "icon": "🛡️",
+    "icon": "box",
     "name": "Karşıt Görüşü Steelman Etme",
     "desc": "Okuyucunun olası itirazlarını samimiyetle ve en güçlü haliyle ele alır.",
     "explain": "Okuyucunun olası itirazlarını samimiyetle ve en güçlü haliyle ele alır.",
@@ -155,7 +155,7 @@
   },
   {
     "id": "dialectic-synthesis-flow",
-    "icon": "☯️",
+    "icon": "box",
     "name": "Diyalektik Akış (Tez-Antitez-Sentez)",
     "desc": "Yazıyı yüzeysel bir listeden derin bir diyalektik anlatıya dönüştürür.",
     "explain": "Yazıyı yüzeysel bir listeden derin bir diyalektik anlatıya dönüştürür.",
@@ -167,7 +167,7 @@
   },
   {
     "id": "nuance-injector",
-    "icon": "🎨",
+    "icon": "box",
     "name": "Nüans Enjektörü",
     "desc": "Siyah-beyaz anlatıları gri alanlar ve koşullu geçerlilikle zenginleştirir.",
     "explain": "Siyah-beyaz anlatıları gri alanlar ve koşullu geçerlilikle zenginleştirir.",
@@ -179,7 +179,7 @@
   },
   {
     "id": "cognitive-dissonance-hook",
-    "icon": "⚡",
+    "icon": "box",
     "name": "Bilişsel Çelişki Kurgusu",
     "desc": "Okuyucunun mevcut kabullerini sarsarak merak uyandırır.",
     "explain": "Okuyucunun mevcut kabullerini sarsarak merak uyandırır.",
@@ -191,7 +191,7 @@
   },
   {
     "id": "paradox-resolution-narrative",
-    "icon": "🧩",
+    "icon": "box",
     "name": "Paradox Çözüm Anlatısı",
     "desc": "Sektörel bir çelişkiyi veya paradoksu çözüme kavuşturan hikaye dizilimi.",
     "explain": "Sektörel bir çelişkiyi veya paradoksu çözüme kavuşturan hikaye dizilimi.",
@@ -203,7 +203,7 @@
   },
   {
     "id": "multiple-perspectives-grid",
-    "icon": "🌐",
+    "icon": "box",
     "name": "Çoklu Perspektif Matrisi",
     "desc": "Konuyu geliştirici, yönetici ve müşteri gözünden eşzamanlı değerlendirir.",
     "explain": "Konuyu geliştirici, yönetici ve müşteri gözünden eşzamanlı değerlendirir.",
@@ -215,7 +215,7 @@
   },
   {
     "id": "outline-builder-notes",
-    "icon": "📝",
+    "icon": "box",
     "name": "Taslak Mimarı ve YAZIM NOTU (BLOG.md)",
     "desc": "Her alt başlığa [YAZIM NOTU: Ton/Amaç] direktifleri ekleyerek taslağı kurar.",
     "explain": "Her alt başlığa [YAZIM NOTU: Ton/Amaç] direktifleri ekleyerek taslağı kurar.",
@@ -225,7 +225,7 @@
   },
   {
     "id": "section-transition-pacing",
-    "icon": "⏱️",
+    "icon": "box",
     "name": "Bölüm Geçişleri ve Tempo (Pacing)",
     "desc": "Uzun metinlerde okuyucunun kopmasını engelleyen ritmik geçişler kurar.",
     "explain": "Uzun metinlerde okuyucunun kopmasını engelleyen ritmik geçişler kurar.",
@@ -237,7 +237,7 @@
   },
   {
     "id": "pyramid-principle",
-    "icon": "🔺",
+    "icon": "box",
     "name": "Piramit İlkesi (Minto Pyramid)",
     "desc": "Önce ana sonucu/çözümü söyler, ardından destekleyici nedenlere inip detayı verir.",
     "explain": "Önce ana sonucu/çözümü söyler, ardından destekleyici nedenlere inip detayı verir.",
@@ -249,7 +249,7 @@
   },
   {
     "id": "skimmability-formatter",
-    "icon": "👀",
+    "icon": "box",
     "name": "Gözle Taranabilirlik (Skimmability) Formatı",
     "desc": "Kalın vurgular, maddeler ve çağrı kutuları (callout) ile taranabilirlik sağlar.",
     "explain": "Kalın vurgular, maddeler ve çağrı kutuları (callout) ile taranabilirlik sağlar.",
@@ -261,7 +261,7 @@
   },
   {
     "id": "key-takeaway-distiller",
-    "icon": "💡",
+    "icon": "box",
     "name": "Özet Notlar (TL;DR) Kutusu",
     "desc": "Yazının başında veya sonunda 3 maddelik yönetici özeti çıkarır.",
     "explain": "Yazının başında veya sonunda 3 maddelik yönetici özeti çıkarır.",
@@ -273,7 +273,7 @@
   },
   {
     "id": "article-closure-callout",
-    "icon": "🚀",
+    "icon": "box",
     "name": "Kapanış ve Eylem Çağrısı (CTA)",
     "desc": "Satış odaklı olmayan, entelektüel bir tartışma veya eylem çağrısı tasarlar.",
     "explain": "Satış odaklı olmayan, entelektüel bir tartışma veya eylem çağrısı tasarlar.",
@@ -285,7 +285,7 @@
   },
   {
     "id": "pop-culture-cliche-filter",
-    "icon": "🚫",
+    "icon": "box",
     "name": "Pop-Kültür ve AI Klişe Filtresi",
     "desc": "'Game-changer', 'Revolutionary', 'Delve', 'Unpack' gibi klişeleri bıçak gibi keser.",
     "explain": "'Game-changer', 'Revolutionary', 'Delve', 'Unpack' gibi klişeleri bıçak gibi keser.",
@@ -297,7 +297,7 @@
   },
   {
     "id": "ai-jargon-slasher",
-    "icon": "⚔️",
+    "icon": "box",
     "name": "Yapay Zeka Metin İzleri Temizliği",
     "desc": "LLM metinlerinin karakteristik bağlaçlarını ve simetrik yapısını kırar.",
     "explain": "LLM metinlerinin karakteristik bağlaçlarını ve simetrik yapısını kırar.",
@@ -309,7 +309,7 @@
   },
   {
     "id": "fluff-sentence-remover",
-    "icon": "✂️",
+    "icon": "box",
     "name": "Laf Kalabalığı (Fluff) Budayıcı",
     "desc": "Anlama katkısı sağlamayan tüm dolgu cümlelerini çıkarır.",
     "explain": "Anlama katkısı sağlamayan tüm dolgu cümlelerini çıkarır.",
@@ -321,7 +321,7 @@
   },
   {
     "id": "passive-voice-trimmer",
-    "icon": "🧹",
+    "icon": "box",
     "name": "Edilgen Dili Etken Dile Çevirme",
     "desc": "Yazının enerjisini düşüren edilgen cümleleri doğrudan etken eylemlere dönüştürür.",
     "explain": "Yazının enerjisini düşüren edilgen cümleleri doğrudan etken eylemlere dönüştürür.",
@@ -333,7 +333,7 @@
   },
   {
     "id": "clickbait-de-escalator",
-    "icon": "🧯",
+    "icon": "box",
     "name": "Tık Tuzağı (Clickbait) Nötrleme",
     "desc": "Aşırı abartılı başlık ve iddiaları editoryal dürüstlük seviyesine çeker.",
     "explain": "Aşırı abartılı başlık ve iddiaları editoryal dürüstlük seviyesine çeker.",
@@ -345,7 +345,7 @@
   },
   {
     "id": "repetition-purger",
-    "icon": "🔄",
+    "icon": "box",
     "name": "Tekrar ve Tautology Temizliği",
     "desc": "Farklı kelimelerle aynı şeyi söyleyen yinelenen paragrafları siler.",
     "explain": "Farklı kelimelerle aynı şeyi söyleyen yinelenen paragrafları siler.",

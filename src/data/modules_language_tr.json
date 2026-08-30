@@ -1,7 +1,7 @@
 [
   {
     "id": "loc-cultural-adaptation",
-    "icon": "🌍",
+    "icon": "box",
     "name": "Kültürel Bağlam Lokalizasyonu",
     "desc": "Metni hedef kültürün sosyal değerlerine ve duyarlılıklarına göre uyarlar.",
     "explain": "Metni hedef kültürün sosyal değerlerine ve duyarlılıklarına göre uyarlar.",
@@ -11,7 +11,7 @@
   },
   {
     "id": "loc-idiomatic-transcreation",
-    "icon": "🎭",
+    "icon": "box",
     "name": "Deyimsel Transkreasyon (Kreatif Çeviri)",
     "desc": "Deyimleri doğrudan çevirmek yerine hedef dildeki tam duygusal karşılığını bulur.",
     "explain": "Deyimleri doğrudan çevirmek yerine hedef dildeki tam duygusal karşılığını bulur.",
@@ -23,7 +23,7 @@
   },
   {
     "id": "loc-dialect-regional-register",
-    "icon": "🗺️",
+    "icon": "box",
     "name": "Bölgesel Diyalekt ve Ağız Kalibrasyonu",
     "desc": "Metni spesifik bir coğrafi diyalekte (Örn: Amerikan vs. İngiliz İngilizcesi) kilitler.",
     "explain": "Metni spesifik bir coğrafi diyalekte (Örn: Amerikan vs. İngiliz İngilizcesi) kilitler.",
@@ -35,7 +35,7 @@
   },
   {
     "id": "loc-brand-voice-translation",
-    "icon": "🏷️",
+    "icon": "box",
     "name": "Marka Tonu ve Ses Hizalaması",
     "desc": "Çeviride markanın kurumsal kişiliğini ve arketipik tonunu korur.",
     "explain": "Çeviride markanın kurumsal kişiliğini ve arketipik tonunu korur.",
@@ -47,7 +47,7 @@
   },
   {
     "id": "loc-taboo-etiquette-check",
-    "icon": "🛡️",
+    "icon": "box",
     "name": "Kültürel Tabu ve Etiket Denetimi",
     "desc": "Hedef kültürde hakaret veya potansiyel gaf sayılabilecek unsurları engeller.",
     "explain": "Hedef kültürde hakaret veya potansiyel gaf sayılabilecek unsurları engeller.",
@@ -59,7 +59,7 @@
   },
   {
     "id": "loc-slang-colloquial-fit",
-    "icon": "🗣️",
+    "icon": "box",
     "name": "Güncel Argo ve Sokak Dili Adaptörü",
     "desc": "Metne hedef dildeki doğal, modern sokak söylemlerini enjekte eder.",
     "explain": "Metne hedef dildeki doğal, modern sokak söylemlerini enjekte eder.",
@@ -71,7 +71,7 @@
   },
   {
     "id": "reg-academic-c2-elevation",
-    "icon": "🎓",
+    "icon": "box",
     "name": "CEFR C2 Akademik Seviye Yükseltme",
     "desc": "Metni en üst düzey formal akademik terminoloji ve yapıya taşır.",
     "explain": "Metni en üst düzey formal akademik terminoloji ve yapıya taşır.",
@@ -81,7 +81,7 @@
   },
   {
     "id": "reg-diplomatic-courtesy-tone",
-    "icon": "🕊️",
+    "icon": "box",
     "name": "Diplomatik & Resmi Zarafet Tonu",
     "desc": "Üslubu nazik, keskin hatları yumuşatılmış diplomatik bir tona getirir.",
     "explain": "Üslubu nazik, keskin hatları yumuşatılmış diplomatik bir tona getirir.",
@@ -93,7 +93,7 @@
   },
   {
     "id": "reg-casual-conversational-flow",
-    "icon": "☕",
+    "icon": "box",
     "name": "Doğal Konuşma Dili (Casual Conversational)",
     "desc": "Metindeki kasıntı ve resmi havayı atıp samimi bir sohbet tonu verir.",
     "explain": "Metindeki kasıntı ve resmi havayı atıp samimi bir sohbet tonu verir.",
@@ -105,7 +105,7 @@
   },
   {
     "id": "reg-executive-brevity-style",
-    "icon": "💼",
+    "icon": "box",
     "name": "Üst Yönetici (Executive) Özet Stili",
     "desc": "Laf kalabalığını atıp doğrudan karara yönelik vurucu ve özgün dil sunar.",
     "explain": "Laf kalabalığını atıp doğrudan karara yönelik vurucu ve özgün dil sunar.",
@@ -117,7 +117,7 @@
   },
   {
     "id": "reg-archaic-literary-voice",
-    "icon": "📜",
+    "icon": "box",
     "name": "Edebi ve Dönemsel Anlatı Dili",
     "desc": "Metne klasik 19. yüzyıl edebiyatı veya epik anlatı havası verir.",
     "explain": "Metne klasik 19. yüzyıl edebiyatı veya epik anlatı havası verir.",
@@ -129,7 +129,7 @@
   },
   {
     "id": "reg-jargon-simplifier",
-    "icon": "💡",
+    "icon": "box",
     "name": "Teknik Jargon Sadeleştirici (Feynman)",
     "desc": "Karmaşık teknik terimleri 12 yaşındaki birinin anlayacağı dile çevirir.",
     "explain": "Karmaşık teknik terimleri 12 yaşındaki birinin anlayacağı dile çevirir.",
@@ -141,7 +141,7 @@
   },
   {
     "id": "flu-rhythm-cadence-refiner",
-    "icon": "🎶",
+    "icon": "box",
     "name": "Cümle Ritmi ve Müzikalite (Cadence)",
     "desc": "Kısa ve uzun cümleleri harmanlayarak okuma akışına müzikal bir ritim katar.",
     "explain": "Kısa ve uzun cümleleri harmanlayarak okuma akışına müzikal bir ritim katar.",
@@ -151,7 +151,7 @@
   },
   {
     "id": "flu-active-voice-conversion",
-    "icon": "⚡",
+    "icon": "box",
     "name": "Etken Fiil ve Dinamizm Enjeksiyonu",
     "desc": "Edilgen (passive) cümleleri dinamik etken (active) eylemlere çevirir.",
     "explain": "Edilgen (passive) cümleleri dinamik etken (active) eylemlere çevirir.",
@@ -163,7 +163,7 @@
   },
   {
     "id": "flu-redundancy-slasher",
-    "icon": "✂️",
+    "icon": "box",
     "name": "Gereksiz Kelime ve Pleonasm Temizliği",
     "desc": "Anlama katkı sağlamayan zayıf zarfları ve kelime tekrarlarını budar.",
     "explain": "Anlama katkı sağlamayan zayıf zarfları ve kelime tekrarlarını budar.",
@@ -175,7 +175,7 @@
   },
   {
     "id": "flu-transitional-cohesion",
-    "icon": "🔗",
+    "icon": "box",
     "name": "Mantıksal Bağlaçlar ve Akıcılık",
     "desc": "Paragraflar arasına kusursuz akademik geçiş bağlaçları yerleştirir.",
     "explain": "Paragraflar arasına kusursuz akademik geçiş bağlaçları yerleştirir.",
@@ -187,7 +187,7 @@
   },
   {
     "id": "flu-vocabulary-precision",
-    "icon": "🎯",
+    "icon": "box",
     "name": "Kelime Seçim Hassasiyeti (Precision)",
     "desc": "Genel kelimeleri bağlama tam uyan spesifik nüanslı kelimelerle değiştirir.",
     "explain": "Genel kelimeleri bağlama tam uyan spesifik nüanslı kelimelerle değiştirir.",
@@ -199,7 +199,7 @@
   },
   {
     "id": "flu-readability-score-optimizer",
-    "icon": "📊",
+    "icon": "box",
     "name": "Flesch-Kincaid Okunabilirlik Optimizasyonu",
     "desc": "Metnin okunabilirlik skorunu hedef kitle karmaşıklığına göre ayarlar.",
     "explain": "Metnin okunabilirlik skorunu hedef kitle karmaşıklığına göre ayarlar.",
@@ -211,7 +211,7 @@
   },
   {
     "id": "idm-phrasal-verb-harmonizer",
-    "icon": "🧩",
+    "icon": "box",
     "name": "Phrasal Verb ve Kalıp Uyumlayıcı",
     "desc": "İngilizce phrasal verb'leri zorlama olmadan doğal akışta harmanlar.",
     "explain": "İngilizce phrasal verb'leri zorlama olmadan doğal akışta harmanlar.",
@@ -221,7 +221,7 @@
   },
   {
     "id": "idm-metaphor-naturalizer",
-    "icon": "🎨",
+    "icon": "box",
     "name": "Metefer ve Benzetme Doğallaştırıcı",
     "desc": "Eğreti duran benzetmeleri hedef dildeki zarif metaforlara çevirir.",
     "explain": "Eğreti duran benzetmeleri hedef dildeki zarif metaforlara çevirir.",
@@ -233,7 +233,7 @@
   },
   {
     "id": "idm-false-friends-filter",
-    "icon": "⚠️",
+    "icon": "box",
     "name": "Yalancı Eşdeğer (False Friends) Düzeltici",
     "desc": "Farklı dillerde benzer görünen ama anlamı farklı kelime gaflarını siler.",
     "explain": "Farklı dillerde benzer görünen ama anlamı farklı kelime gaflarını siler.",
@@ -245,7 +245,7 @@
   },
   {
     "id": "idm-proverbial-equivalents",
-    "icon": "📜",
+    "icon": "box",
     "name": "Kültürlerarası Atasözü Eşleştirici",
     "desc": "Kaynak atasözünün hedef kültürdeki birebir hikmet karşılığını bulur.",
     "explain": "Kaynak atasözünün hedef kültürdeki birebir hikmet karşılığını bulur.",
@@ -257,7 +257,7 @@
   },
   {
     "id": "idm-nuance-spectrum-mapper",
-    "icon": "🌈",
+    "icon": "box",
     "name": "Kelime Nüans ve Yan Anlam Spektrumu",
     "desc": "Benzer anlamlı kelimelerin pozitif/negatif yan anlamlarını (connotation) çözer.",
     "explain": "Benzer anlamlı kelimelerin pozitif/negatif yan anlamlarını (connotation) çözer.",
@@ -269,7 +269,7 @@
   },
   {
     "id": "idm-humor-pun-translator",
-    "icon": "🃏",
+    "icon": "box",
     "name": "Mizah ve Kelime Oyunu Transkreasyonu",
     "desc": "Çevrilmesi imkansız esprileri hedef dilde yeniden icat eder.",
     "explain": "Çevrilmesi imkansız esprileri hedef dilde yeniden icat eder.",
@@ -281,7 +281,7 @@
   },
   {
     "id": "ped-socratic-tutor-mode",
-    "icon": "🏛️",
+    "icon": "box",
     "name": "Sokratik Dil Eğitmeni Modu",
     "desc": "Doğrudan cevabı vermeyip yönlendirici sorularla dili öğreten eğitmen.",
     "explain": "Doğrudan cevabı vermeyip yönlendirici sorularla dili öğreten eğitmen.",
@@ -291,7 +291,7 @@
   },
   {
     "id": "ped-error-correction-feedback",
-    "icon": "📝",
+    "icon": "box",
     "name": "Ayrıntılı Hata Analizi ve Geri Bildirim",
     "desc": "Gramo-sentaktik hataları tablo halinde kural açıklamasıyla sunar.",
     "explain": "Gramo-sentaktik hataları tablo halinde kural açıklamasıyla sunar.",
@@ -303,7 +303,7 @@
   },
   {
     "id": "ped-spaced-recall-builder",
-    "icon": "🗂️",
+    "icon": "box",
     "name": "Anki Flashcard & Aralıklı Tekrar Kartı",
     "desc": "Metindeki zor kelimelerden Anki formatında flashcard seti üretir.",
     "explain": "Metindeki zor kelimelerden Anki formatında flashcard seti üretir.",
@@ -315,7 +315,7 @@
   },
   {
     "id": "ped-contextual-cloze-creator",
-    "icon": "🧩",
+    "icon": "box",
     "name": "Bağlamsal Boşluk Doldurma Alıştırması",
     "desc": "Metni kelime dağarcığını test eden boşluk doldurma testine dönüştürür.",
     "explain": "Metni kelime dağarcığını test eden boşluk doldurma testine dönüştürür.",
@@ -327,7 +327,7 @@
   },
   {
     "id": "ped-pronunciation-ipa-guide",
-    "icon": "🗣️",
+    "icon": "box",
     "name": "IPA Telaffuz ve Vurgu Rehberi",
     "desc": "Zor kelimelerin Uluslararası Fonetik Alfabe (IPA) okunuşlarını ve vurgularını verir.",
     "explain": "Zor kelimelerin Uluslararası Fonetik Alfabe (IPA) okunuşlarını ve vurgularını verir.",
@@ -339,7 +339,7 @@
   },
   {
     "id": "ped-immersion-scenario-roleplay",
-    "icon": "🎭",
+    "icon": "box",
     "name": "İnteraktif Dilde Rol Yapma (Roleplay)",
     "desc": "Kullanıcıyı gerçek hayat senaryolarında dilde pratik yapmaya davet eder.",
     "explain": "Kullanıcıyı gerçek hayat senaryolarında dilde pratik yapmaya davet eder.",

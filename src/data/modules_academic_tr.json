@@ -1,7 +1,7 @@
 [
   {
     "id": "research-question-def",
-    "icon": "🎯",
+    "icon": "box",
     "name": "Araştırma Sorusu Tanımı",
     "desc": "Açık, odaklı, cevabı ampirik olarak verilebilir bir akademik araştırma sorusu kurar.",
     "explain": "Açık, odaklı, cevabı ampirik olarak verilebilir bir akademik araştırma sorusu kurar.",
@@ -11,7 +11,7 @@
   },
   {
     "id": "methodology-triangulation",
-    "icon": "📐",
+    "icon": "triangle",
     "name": "Metodolojik Çaprazlama",
     "desc": "Veri güvenilirliğini artırmak için çoklu araştırma yöntemlerini harmanlar.",
     "explain": "Veri güvenilirliğini artırmak için çoklu araştırma yöntemlerini harmanlar.",
@@ -23,7 +23,7 @@
   },
   {
     "id": "sample-power-analysis",
-    "icon": "📊",
+    "icon": "barchart3",
     "name": "Örneklem Güç Analizi",
     "desc": "İstatistiksel anlamlılık için gerekli minimum örneklem büyüklüğünü hesaplar.",
     "explain": "İstatistiksel anlamlılık için gerekli minimum örneklem büyüklüğünü hesaplar.",
@@ -35,7 +35,7 @@
   },
   {
     "id": "variable-operationalization",
-    "icon": "🔬",
+    "icon": "sliders",
     "name": "Değişken Operasyonelleştirme",
     "desc": "Soyut kavramları ölçülebilir bağımsız, bağımlı ve kontrol değişkenlerine dönüştürür.",
     "explain": "Soyut kavramları ölçülebilir bağımsız, bağımlı ve kontrol değişkenlerine dönüştürür.",
@@ -47,7 +47,7 @@
   },
   {
     "id": "quantitative-audit",
-    "icon": "🔢",
+    "icon": "calculator",
     "name": "Nicel Yöntem Denetimi",
     "desc": "Ekonometrik ve istatistiksel modellerin varsayımsal uygunluğunu denetler.",
     "explain": "Ekonometrik ve istatistiksel modellerin varsayımsal uygunluğunu denetler.",
@@ -59,7 +59,7 @@
   },
   {
     "id": "qualitative-rigor-check",
-    "icon": "🗣️",
+    "icon": "filecheck",
     "name": "Nitel Titizlik Testi",
     "desc": "Gömülü teori, fenomenoloji veya içerik analizinde aktarılabilirlik ve güvenilirlik sağlar.",
     "explain": "Gömülü teori, fenomenoloji veya içerik analizinde aktarılabilirlik ve güvenilirlik sağlar.",
@@ -71,7 +71,7 @@
   },
   {
     "id": "lit-search-strategy",
-    "icon": "🔎",
+    "icon": "search",
     "name": "Literatür Tarama Stratejisi",
     "desc": "Web of Science, Scopus ve PubMed üzerinde sistematik arama dizgileri oluşturur.",
     "explain": "Web of Science, Scopus ve PubMed üzerinde sistematik arama dizgileri oluşturur.",
@@ -83,7 +83,7 @@
   },
   {
     "id": "lit-gap-identification",
-    "icon": "🕳️",
+    "icon": "crosshair",
     "name": "Literatürdeki Boşluk (Gap) Tespiti",
     "desc": "Mevcut akademik birikimdeki çelişki, eksiklik ve incelenmemiş alanları ortaya çıkarır.",
     "explain": "Mevcut akademik birikimdeki çelişki, eksiklik ve incelenmemiş alanları ortaya çıkarır.",
@@ -95,7 +95,7 @@
   },
   {
     "id": "seminal-vs-recent-audit",
-    "icon": "📚",
+    "icon": "history",
     "name": "Klasik vs. Güncel Literatür Dengesi",
     "desc": "Kök teoriler ile son 3 yıla ait makaleler arasındaki oran dengesini kurar.",
     "explain": "Kök teoriler ile son 3 yıla ait makaleler arasındaki oran dengesini kurar.",
@@ -107,7 +107,7 @@
   },
   {
     "id": "theoretical-framework",
-    "icon": "🏛️",
+    "icon": "box",
     "name": "Teorik Çerçeve Kurulumu",
     "desc": "Çalışmayı akademik disiplinin ana kuramsal modellerine bağlar.",
     "explain": "Çalışmayı akademik disiplinin ana kuramsal modellerine bağlar.",
@@ -119,7 +119,7 @@
   },
   {
     "id": "citation-context-check",
-    "icon": "🔗",
+    "icon": "quote",
     "name": "Atıf Bağlamı Doğrulaması",
     "desc": "Atıf yapılan kaynakların iddiasının doğru aktarılıp aktarılmadığını kontrol eder.",
     "explain": "Atıf yapılan kaynakların iddiasının doğru aktarılıp aktarılmadığını kontrol eder.",
@@ -131,7 +131,7 @@
   },
   {
     "id": "systematic-review-protocol",
-    "icon": "📋",
+    "icon": "listchecks",
     "name": "Sistematik Derleme Protokolü",
     "desc": "PRISMA veya Cochrane standartlarında bir derleme mimarisi sunar.",
     "explain": "PRISMA veya Cochrane standartlarında bir derleme mimarisi sunar.",
@@ -143,7 +143,7 @@
   },
   {
     "id": "academic-tone-c2",
-    "icon": "✍️",
+    "icon": "graduationcap",
     "name": "Akademik Dil Elevasyonu (CEFR C2)",
     "desc": "Metni resmi, kesin, tarafsız ve üst düzey akademik terminolojiye yükseltir.",
     "explain": "Metni resmi, kesin, tarafsız ve üst düzey akademik terminolojiye yükseltir.",
@@ -153,7 +153,7 @@
   },
   {
     "id": "passive-active-balancer",
-    "icon": "⚖️",
+    "icon": "refreshcw",
     "name": "Etken/Edilgen Çatı Dengesi",
     "desc": "Metodoloji ve bulgular bölümlerinde edat ve çatı kullanımını optimize eder.",
     "explain": "Metodoloji ve bulgular bölümlerinde edat ve çatı kullanımını optimize eder.",
@@ -165,7 +165,7 @@
   },
   {
     "id": "cohesion-transitional-flow",
-    "icon": "🌊",
+    "icon": "waypoints",
     "name": "Metin İçi Mantıksal Akış",
     "desc": "Paragraflar arası akademik geçiş bağlaçları ile akıcılığı sağlar.",
     "explain": "Paragraflar arası akademik geçiş bağlaçları ile akıcılığı sağlar.",
@@ -177,7 +177,7 @@
   },
   {
     "id": "hedging-claim-calibration",
-    "icon": "🛡️",
+    "icon": "scale",
     "name": "İddia Kalibrasyonu (Hedging)",
     "desc": "Aşırı kesin ifadeleri ihtiyatlı ve bilimsel üsluba dönüştürür.",
     "explain": "Aşırı kesin ifadeleri ihtiyatlı ve bilimsel üsluba dönüştürür.",
@@ -189,7 +189,7 @@
   },
   {
     "id": "abstract-distillation",
-    "icon": "🧪",
+    "icon": "filetext",
     "name": "Özet (Abstract) Distilasyonu",
     "desc": "Özeti IMRaD (Giriş, Yöntem, Bulgular, Tartışma) formatında tam 250 kelimede sıkar.",
     "explain": "Özeti IMRaD (Giriş, Yöntem, Bulgular, Tartışma) formatında tam 250 kelimede sıkar.",
@@ -201,7 +201,7 @@
   },
   {
     "id": "discussion-implication-craft",
-    "icon": "💡",
+    "icon": "messagesquare",
     "name": "Tartışma ve Çıkarımlar",
     "desc": "Bulguları teorik ve pratik doğurgularıyla sentezleyen tartışma yazımı.",
     "explain": "Bulguları teorik ve pratik doğurgularıyla sentezleyen tartışma yazımı.",
@@ -213,7 +213,7 @@
   },
   {
     "id": "peer-review-response",
-    "icon": "📨",
+    "icon": "messagecircle",
     "name": "Hakem Eleştirisi Yanıtı",
     "desc": "Hakem yorumlarına profesyonel, yapıcı ve nokta atışı yanıt matrisi hazırlar.",
     "explain": "Hakem yorumlarına profesyonel, yapıcı ve nokta atışı yanıt matrisi hazırlar.",
@@ -225,7 +225,7 @@
   },
   {
     "id": "reviewer-critique-deconstruct",
-    "icon": "🔍",
+    "icon": "scissors",
     "name": "Hakem Yorumu Ayrıştırma",
     "desc": "Sert veya muğlak hakem yorumlarının altındaki metodolojik talebi çözer.",
     "explain": "Sert veya muğlak hakem yorumlarının altındaki metodolojik talebi çözer.",
@@ -237,7 +237,7 @@
   },
   {
     "id": "counter-argument-fortification",
-    "icon": "🏰",
+    "icon": "shield",
     "name": "Karşıt Argüman Tahkimatı",
     "desc": "Potansiyel hakem itirazlarını makale içine önceden yerleştirir.",
     "explain": "Potansiyel hakem itirazlarını makale içine önceden yerleştirir.",
@@ -249,7 +249,7 @@
   },
   {
     "id": "major-revision-roadmap",
-    "icon": "🗺️",
+    "icon": "milestone",
     "name": "Majör Revizyon Yol Haritası",
     "desc": "Kapsamlı yeniden derleme gerektiren kararlar için adım adım iş planı çıkarır.",
     "explain": "Kapsamlı yeniden derleme gerektiren kararlar için adım adım iş planı çıkarır.",
@@ -261,7 +261,7 @@
   },
   {
     "id": "editor-letter-drafting",
-    "icon": "✉️",
+    "icon": "filecode",
     "name": "Editör Kapak Yazısı (Cover Letter)",
     "desc": "Dergi editörünü çalışmanın özgünlüğü ve uygunluğuna ikna eden mektup.",
     "explain": "Dergi editörünü çalışmanın özgünlüğü ve uygunluğuna ikna eden mektup.",
@@ -273,7 +273,7 @@
   },
   {
     "id": "double-blind-anonymizer",
-    "icon": "🎭",
+    "icon": "eyeoff",
     "name": "Çift Kör Anonimleştirme",
     "desc": "Metindeki tüm öz atıf ve kimlik ifşa eden unsurları temizler.",
     "explain": "Metindeki tüm öz atıf ve kimlik ifşa eden unsurları temizler.",
@@ -283,7 +283,7 @@
   },
   {
     "id": "statistical-validity-audit",
-    "icon": "📉",
+    "icon": "barchart",
     "name": "İstatistiksel Geçerlilik Denetimi",
     "desc": "Veri analizindeki metodolojik hataları ve varsayım ihlallerini tespit eder.",
     "explain": "Veri analizindeki metodolojik hataları ve varsayım ihlallerini tespit eder.",
@@ -295,7 +295,7 @@
   },
   {
     "id": "p-hacking-duster",
-    "icon": "🧹",
+    "icon": "filter",
     "name": "p-Hacking ve HARKing Temizliği",
     "desc": "Sonuca göre hipotez yazma veya veriyle oynama izlerini engeller.",
     "explain": "Sonuca göre hipotez yazma veya veriyle oynama izlerini engeller.",
@@ -307,7 +307,7 @@
   },
   {
     "id": "construct-validity-check",
-    "icon": "🧩",
+    "icon": "checkcircle2",
     "name": "Yapı Geçerliliği Testi",
     "desc": "Ölçüm araçlarının teorik konsepti ne derece temsil ettiğini doğrular.",
     "explain": "Ölçüm araçlarının teorik konsepti ne derece temsil ettiğini doğrular.",
@@ -319,7 +319,7 @@
   },
   {
     "id": "external-validity-bounds",
-    "icon": "🌐",
+    "icon": "maximize2",
     "name": "Dış Geçerlilik ve Genellenebilirlik",
     "desc": "Bulguların farklı evren ve bağlamlara aktarılabilirlik sınırlarını koyar.",
     "explain": "Bulguların farklı evren ve bağlamlara aktarılabilirlik sınırlarını koyar.",
@@ -331,7 +331,7 @@
   },
   {
     "id": "ethical-board-compliance",
-    "icon": "⚖️",
+    "icon": "shieldcheck",
     "name": "Etik Kurul Uyum Protokolü",
     "desc": "Aydınlatılmış onam, veri gizliliği ve zarar vermeme ilkelerini denetler.",
     "explain": "Aydınlatılmış onam, veri gizliliği ve zarar vermeme ilkelerini denetler.",
@@ -343,7 +343,7 @@
   },
   {
     "id": "reproducibility-checklist",
-    "icon": "🔄",
+    "icon": "box",
     "name": "Tekrarlanabilirlik (Reproducibility) Kontrolü",
     "desc": "Açık bilim standartlarında kod, veri ve analiz protokolü eksiksizliği sağlar.",
     "explain": "Açık bilim standartlarında kod, veri ve analiz protokolü eksiksizliği sağlar.",

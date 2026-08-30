@@ -9,5 +9,9 @@ export const FORMATTERS = {
 };
 
 export function getFormatter(targetId) {
-    return FORMATTERS[targetId] || FORMATTERS.markdown;
+    if (targetId && Object.hasOwn(FORMATTERS, targetId)) {
+        return FORMATTERS[targetId];
+    }
+    return FORMATTERS.markdown;
 }
+

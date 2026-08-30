@@ -1,7 +1,7 @@
 [
   {
     "id": "wrk-progressive-overload-plan",
-    "icon": "🏋️",
+    "icon": "box",
     "name": "Kademeli Aşırı Yüklenme (Progressive Overload)",
     "desc": "Kas hipertrofisi ve güç için ağırlık/hacim artış protokolü kurar.",
     "explain": "Kas hipertrofisi ve güç için ağırlık/hacim artış protokolü kurar.",
@@ -11,7 +11,7 @@
   },
   {
     "id": "wrk-rpe-rir-intensity-guide",
-    "icon": "📊",
+    "icon": "box",
     "name": "RPE ve RIR Şiddet Kalibrasyonu",
     "desc": "Set şiddetini Algılanan Zorluk Derecesi (RPE 7-9) ve Yedek Tekrar (RIR) ile ayarlar.",
     "explain": "Set şiddetini Algılanan Zorluk Derecesi (RPE 7-9) ve Yedek Tekrar (RIR) ile ayarlar.",
@@ -23,7 +23,7 @@
   },
   {
     "id": "wrk-hypertrophy-split-design",
-    "icon": "💪",
+    "icon": "box",
     "name": "Kas Hipertrofisi Bölgesel Program (Split)",
     "desc": "İtme-Çekme-Bacak (PPL) veya Alt-Üst Vücut antrenman bölünmesi kurgular.",
     "explain": "İtme-Çekme-Bacak (PPL) veya Alt-Üst Vücut antrenman bölünmesi kurgular.",
@@ -35,7 +35,7 @@
   },
   {
     "id": "wrk-zone2-cardio-protocol",
-    "icon": "🫀",
+    "icon": "box",
     "name": "Zone 2 Kardiyo & Mitokondri Protokolü",
     "desc": "Maksimum nabzın %60-70'inde mitokondri sağlığı ve yağ yakımı kardiyosu.",
     "explain": "Maksimum nabzın %60-70'inde mitokondri sağlığı ve yağ yakımı kardiyosu.",
@@ -47,7 +47,7 @@
   },
   {
     "id": "wrk-mobility-joint-prep",
-    "icon": "🧘",
+    "icon": "box",
     "name": "Antrenman Öncesi Eklem & Mobilite Isınması",
     "desc": "Dinamik esneme ve eklem mobilizasyonu ile sakatlık riskini düşürür.",
     "explain": "Dinamik esneme ve eklem mobilizasyonu ile sakatlık riskini düşürür.",
@@ -59,7 +59,7 @@
   },
   {
     "id": "wrk-hiit-tabata-structure",
-    "icon": "⏱️",
+    "icon": "box",
     "name": "Yüksek Şiddetli Aralıklı (HIIT) Tabata",
     "desc": "Kısa sürede yüksek kalori ve VO2 max geliştiren 20/10 sn aralıklı çalışma.",
     "explain": "Kısa sürede yüksek kalori ve VO2 max geliştiren 20/10 sn aralıklı çalışma.",
@@ -71,7 +71,7 @@
   },
   {
     "id": "cir-morning-sunlight-anchor",
-    "icon": "☀️",
+    "icon": "box",
     "name": "Sabah Güneşi ve Kortizol Çapası",
     "desc": "Uyandıktan sonraki ilk 30 dakikada doğal ışıkla sirkadiyen saati sıfırlar (Huberman).",
     "explain": "Uyandıktan sonraki ilk 30 dakikada doğal ışıkla sirkadiyen saati sıfırlar (Huberman).",
@@ -81,7 +81,7 @@
   },
   {
     "id": "cir-blue-light-melatonin-prep",
-    "icon": "🌙",
+    "icon": "box",
     "name": "Akşam Mavi Işık ve Melatonin Hijyeni",
     "desc": "Güneş battıktan sonra ekran ışığını kısıp melatonini doğal olarak yükseltir.",
     "explain": "Güneş battıktan sonra ekran ışığını kısıp melatonini doğal olarak yükseltir.",
@@ -93,7 +93,7 @@
   },
   {
     "id": "cir-temperature-sleep-cooling",
-    "icon": "❄️",
+    "icon": "box",
     "name": "Uyku Mimarisi ve Vücut Sıcaklığı Düşürme",
     "desc": "Derin uyku için yatak odası sıcaklığını (18-19°C) ve vücut soğumasını ayarlar.",
     "explain": "Derin uyku için yatak odası sıcaklığını (18-19°C) ve vücut soğumasını ayarlar.",
@@ -105,7 +105,7 @@
   },
   {
     "id": "cir-caffeine-half-life-cutoff",
-    "icon": "☕",
+    "icon": "box",
     "name": "Kafein Yarılanma Ömrü ve Kesilme Zamanı",
     "desc": "Kafeinin adenozin reseptörlerini tıkamasını engellemek için kesilme saati koyar.",
     "explain": "Kafeinin adenozin reseptörlerini tıkamasını engellemek için kesilme saati koyar.",
@@ -117,7 +117,7 @@
   },
   {
     "id": "cir-circadian-meal-timing",
-    "icon": "🍽️",
+    "icon": "box",
     "name": "Krono-Beslenme ve Aralıklı Oruç Penceresi",
     "desc": "Yemek saatlerini sirkadiyen metabolizma ve insülin duyarlılığı ile eşler.",
     "explain": "Yemek saatlerini sirkadiyen metabolizma ve insülin duyarlılığı ile eşler.",
@@ -129,7 +129,7 @@
   },
   {
     "id": "cir-jet-lag-shift-resync",
-    "icon": "✈️",
+    "icon": "box",
     "name": "Jet-Lag ve Vardiyalı Çalışma Yeniden Eşleme",
     "desc": "Zaman dilimi değişikliklerinde vücut saatini ışık ve sıcaklıkla hızlıca adapte eder.",
     "explain": "Zaman dilimi değişikliklerinde vücut saatini ışık ve sıcaklıkla hızlıca adapte eder.",
@@ -141,7 +141,7 @@
   },
   {
     "id": "nut-macro-distribution-calculator",
-    "icon": "🥗",
+    "icon": "box",
     "name": "Kişiselleştirilmiş Makro Dağılım Stratejisi",
     "desc": "Hedefe göre Protein, Karbonhidrat ve Yağ gramajlarını kalibre eder.",
     "explain": "Hedefe göre Protein, Karbonhidrat ve Yağ gramajlarını kalibre eder.",
@@ -151,7 +151,7 @@
   },
   {
     "id": "nut-protein-leucine-threshold",
-    "icon": "🥩",
+    "icon": "box",
     "name": "Protein Zamanlaması ve Lösin Eşiği",
     "desc": "Kas protein sentezini (MPS) tetiklemek için öğün başı 3g lösin kuralı.",
     "explain": "Kas protein sentezini (MPS) tetiklemek için öğün başı 3g lösin kuralı.",
@@ -163,7 +163,7 @@
   },
   {
     "id": "nut-micronutrient-density-audit",
-    "icon": "🥑",
+    "icon": "box",
     "name": "Mikro Besin Yoğunluğu ve Eksiklik Taraması",
     "desc": "Magnezyum, Çinko, D3 ve B12 gibi kritik vitamin/mineral alımını ölçer.",
     "explain": "Magnezyum, Çinko, D3 ve B12 gibi kritik vitamin/mineral alımını ölçer.",
@@ -175,7 +175,7 @@
   },
   {
     "id": "nut-gut-microbiome-fiber-mix",
-    "icon": "🦠",
+    "icon": "box",
     "name": "Bağırsak Mikrobiyomu ve Prebiyotik Lif",
     "desc": "Bağırsak florasını 30 farklı bitkisel lif kaynağı ile besleme planı.",
     "explain": "Bağırsak florasını 30 farklı bitkisel lif kaynağı ile besleme planı.",
@@ -187,7 +187,7 @@
   },
   {
     "id": "nut-hydration-electrolyte-balance",
-    "icon": "💧",
+    "icon": "box",
     "name": "Hidrasyon ve Elektrolit (Denge) Protokolü",
     "desc": "Sodyum, Potasyum ve Magnezyum dengesi ile hücresel hidrasyon sağlar.",
     "explain": "Sodyum, Potasyum ve Magnezyum dengesi ile hücresel hidrasyon sağlar.",
@@ -199,7 +199,7 @@
   },
   {
     "id": "nut-glycemic-index-energy-stabilizer",
-    "icon": "📉",
+    "icon": "box",
     "name": "Glisemik Yük ve Enerji Dalgalanması Engelleyici",
     "desc": "Kan şekerini stabil tutarak öğle sonrası çökmeleri (energy crash) engeller.",
     "explain": "Kan şekerini stabil tutarak öğle sonrası çökmeleri (energy crash) engeller.",
@@ -211,7 +211,7 @@
   },
   {
     "id": "adp-injury-deload-protocol",
-    "icon": "🩹",
+    "icon": "box",
     "name": "Sakatlık Uyum ve Planlı Hafifletme (Deload)",
     "desc": "Her 4-6 haftada bir hacmi %50 düşürerek tendon ve merkezi sinir sistemini dinlendirir.",
     "explain": "Her 4-6 haftada bir hacmi %50 düşürerek tendon ve merkezi sinir sistemini dinlendirir.",
@@ -221,7 +221,7 @@
   },
   {
     "id": "adp-hrv-stress-recovery-readiness",
-    "icon": "🫀",
+    "icon": "box",
     "name": "HRV ve SSS İyileşme (Recovery) Ölçümü",
     "desc": "Kalp Atış Hızı Değişkenliği (HRV) verisine göre antrenman sertliğini ayarlar.",
     "explain": "Kalp Atış Hızı Değişkenliği (HRV) verisine göre antrenman sertliğini ayarlar.",
@@ -233,7 +233,7 @@
   },
   {
     "id": "adp-sauna-cold-plunge-protocol",
-    "icon": "🧊",
+    "icon": "box",
     "name": "Termal Terapi: Sauna ve Soğuk Maruziyeti",
     "desc": "Hormezis için sauna (80°C) ve soğuk duş/buz banyosu (10-15°C) zamanlaması.",
     "explain": "Hormezis için sauna (80°C) ve soğuk duş/buz banyosu (10-15°C) zamanlaması.",
@@ -245,7 +245,7 @@
   },
   {
     "id": "adp-active-recovery-session",
-    "icon": "🚶",
+    "icon": "box",
     "name": "Aktif Toparlanma ve Kan Akışı Seansı",
     "desc": "Dinlenme günlerinde hafif yürüyüş ve kan dolaşımı artırıcı aktiviteler.",
     "explain": "Dinlenme günlerinde hafif yürüyüş ve kan dolaşımı artırıcı aktiviteler.",
@@ -257,7 +257,7 @@
   },
   {
     "id": "adp-cortisol-breathwork-downshift",
-    "icon": "🫁",
+    "icon": "box",
     "name": "Antrenman Sonrası Parasempatik Nefes",
     "desc": "Nefes egzersizi (Physiological Sigh) ile kortizolü düşürüp iyileşmeyi başlatır.",
     "explain": "Nefes egzersizi (Physiological Sigh) ile kortizolü düşürüp iyileşmeyi başlatır.",
@@ -269,7 +269,7 @@
   },
   {
     "id": "adp-travel-fitness-bodyweight",
-    "icon": "🧳",
+    "icon": "box",
     "name": "Otel ve Seyahat Form Modifikasyonu",
     "desc": "Ekipmansız otel odasında vücut ağırlığı ve direnç bandı antrenmanı.",
     "explain": "Ekipmansız otel odasında vücut ağırlığı ve direnç bandı antrenmanı.",
@@ -281,7 +281,7 @@
   },
   {
     "id": "hab-habit-stacking-atomic",
-    "icon": "🔗",
+    "icon": "box",
     "name": "Atomik Alışkanlık İstifleme (Habit Stacking)",
     "desc": "Yeni sağlıklı alışkanlığı mevcut bir rutinin hemen arkasına bağlar (James Clear).",
     "explain": "Yeni sağlıklı alışkanlığı mevcut bir rutinin hemen arkasına bağlar (James Clear).",
@@ -291,7 +291,7 @@
   },
   {
     "id": "hab-dopamine-reward-decoupling",
-    "icon": "🧠",
+    "icon": "box",
     "name": "Dopamin Orucu ve Ödül Bağlantısını Koparma",
     "desc": "Süreçten zevk almak için harici dopamin ödüllerini sağlıklı alışkanlıktan ayırır.",
     "explain": "Süreçten zevk almak için harici dopamin ödüllerini sağlıklı alışkanlıktan ayırır.",
@@ -303,7 +303,7 @@
   },
   {
     "id": "hab-identity-based-behavior",
-    "icon": "🎭",
+    "icon": "box",
     "name": "Kimlik Tabanlı Davranış Değişimi",
     "desc": "'Kilo vermek istiyorum' yerine 'Ben spor yapan biriyim' kimliği inşası.",
     "explain": "'Kilo vermek istiyorum' yerine 'Ben spor yapan biriyim' kimliği inşası.",
@@ -315,7 +315,7 @@
   },
   {
     "id": "hab-relapse-prevention-plan",
-    "icon": "🛡️",
+    "icon": "box",
     "name": "Alışkanlık Bozulmasını Engelleme (If-Then)",
     "desc": "Stres veya seyahat anında alışkanlığın kopmaması için 'Eğer-İse' planı.",
     "explain": "Stres veya seyahat anında alışkanlığın kopmaması için 'Eğer-İse' planı.",
@@ -327,7 +327,7 @@
   },
   {
     "id": "hab-accountability-tracking-system",
-    "icon": "📅",
+    "icon": "box",
     "name": "Sayısal Takip ve İncir Zinciri Kırma (Streak)",
     "desc": "Alışkanlığı görsel olarak takip edip 'Asla 2 gün üst üste aksatma' kuralı koyar.",
     "explain": "Alışkanlığı görsel olarak takip edip 'Asla 2 gün üst üste aksatma' kuralı koyar.",
@@ -339,7 +339,7 @@
   },
   {
     "id": "hab-environment-design-audit",
-    "icon": "🏡",
+    "icon": "box",
     "name": "Çevre Tasarımı ve Tetikleyici Eleme",
     "desc": "Kötü alışkanlık tetikleyicilerini göz önünden kaldırıp iyiyi kolaylaştırır.",
     "explain": "Kötü alışkanlık tetikleyicilerini göz önünden kaldırıp iyiyi kolaylaştırır.",

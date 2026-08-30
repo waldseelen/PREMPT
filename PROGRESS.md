@@ -79,7 +79,14 @@ Notes on the gates themselves (not results):
    - Wrapped root application in `ErrorBoundary` to prevent any subcomponent error from causing a blank white screen.
    - Added `useShallow` to `DomainSwitcher.jsx` and `OnboardingTour.jsx` for rock-solid state subscriptions.
 
+9. **5-Stream Deep Audit Remediation (42 Findings Resolved):**
+   - **Stream 1 (Data & Parity):** Translated 25 modules in `modules_blog_en.json` (`AUD-C01`), fixed `defaultConfig` ID drift across 11 domain specs (`AUD-H01`), cleaned 878 raw Unicode emojis from data catalogs to semantic string IDs (`AUD-M02`), fixed English explain strings for `ornekler` and `uzman` in `modules_en.json` (`AUD-M10`), and added `moduleFilterEmpty` in `i18n.js` (`AUD-M09`).
+   - **Stream 2 (Compiler & Routing):** Protected `getDomain`, `getFormatter`, `openInAI`, and `structureBuilder` against object prototype collisions via `Object.hasOwn` (`AUD-H02`), updated `structureBuilder.js` to `replaceAll('{{ALAN}}')` (`AUD-M05`), passed `injectedRules` into `analyzePromptComplexity` in `PreviewPanel.jsx` (`AUD-H05`), standardized URL length limits with `encodeURIComponent` (`AUD-M04`), trimmed whitespace from topic inputs (`AUD-L05`), and added `'noopener,noreferrer'` to `window.open` (`AUD-L02`).
+   - **Stream 3 (State & Lifecycle):** Added 250ms debouncing and `try...catch` wrapper to `history.replaceState` in `App.jsx` (`AUD-H04`), reset `activePreset`, `injectedRules`, and `dependencyHints` in `setModules` action (`AUD-M01`), consolidated duplicate `useEngineState` calls in `ActionBar.jsx` (`AUD-L09`), and added a "Reset Data & Reload" storage purge button in `ErrorBoundary.jsx` (`AUD-M08`).
+   - **Stream 4 (UI/UX & Accessibility):** Replaced emoji in `edudesignSpec.js` (`AUD-H03`), enforced WCAG AA compliant text color (`#090d16`) on bright domain pills in `DomainSwitcher.jsx` (`AUD-H06`), tuned ChatGPT/Claude/Perplexity button backgrounds for >4.5:1 AA contrast (`AUD-H07`), added `onFocus`/`onBlur` keyboard tooltip triggers to `ModuleGrid.jsx` cards (`AUD-H08`), mapped all 136 missing modules in `moduleIconRegistry.js` (593 total mapped, 0 falling back to Box) (`AUD-M03`), enabled keyboard focus with `tabIndex={0}` on `PreviewPanel.jsx` (`AUD-M11`), and balanced mobile utility actions grid to 2x2 symmetrical columns (`AUD-M12`).
+   - **Stream 5 (Validation Gates):** Extended `scripts/validate-modules.mjs` with `validateDefaultConfig` assertion, DAG circular dependency DFS detection, Rule 13 emoji assertion on all JSON data files, and `validateModuleIconRegistry` 100% module coverage assertion (`AUD-M13`).
+
 #### What Was Verified
 - `npm run lint`: passed with 0 errors and 0 warnings.
-- `npm run validate`: passed across all 15 domains, 457 modules, 180 presets, parameter descriptions, compiler texts, category translations, presentation mappings, and output targets.
-- `npm run build`: compiled in 1.33s with 0 chunk size warnings.
+- `npm run validate`: passed across all 15 domains, 457 modules (0 emojis, 100% Lucide icon registry mapping, 0 cycles), 180 presets, 60 parameter axes, compiler texts, category translations, presentation mappings, and output targets.
+- `npm run build`: compiled in 851ms with 0 chunk size warnings.

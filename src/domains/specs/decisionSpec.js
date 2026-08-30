@@ -5,7 +5,7 @@ export const decisionSpec = {
     "seviye": "tip2",
     "mod": "premortem",
     "derinlik": "orta",
-    "format": "matris"
+    "format": "matris2x2"
   },
   "icon": "brain",
   "category": "mind",

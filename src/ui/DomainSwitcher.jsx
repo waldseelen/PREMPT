@@ -37,7 +37,7 @@ export default function DomainSwitcher() {
                     {grp.domains.map(d => {
                         const isActive = activeDomain === d.id;
                         const IconComponent = getIcon(DOMAIN_ICON_IDS[d.id]);
-                        const isBrightColor = grp.color === '#f59e0b' || grp.color === '#06b6d4' || grp.color === '#fbbf24' || grp.color === '#2dd4bf';
+                        const isBrightColor = grp.color !== '#6366f1';
                         const activeTextColor = isBrightColor ? '#090d16' : '#ffffff';
                         return (
                             <button

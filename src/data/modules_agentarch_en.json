@@ -1,7 +1,7 @@
 [
   {
     "id": "persona-role-definition",
-    "icon": "🎭",
+    "icon": "box",
     "name": "Persona & Role Architecture",
     "desc": "Establishes agent expertise, domain boundaries, and foundational identity.",
     "explain": "Establishes agent expertise, domain boundaries, and foundational identity.",
@@ -11,7 +11,7 @@
   },
   {
     "id": "epistemic-stance-setting",
-    "icon": "🧠",
+    "icon": "compass",
     "name": "Epistemic Stance Calibration",
     "desc": "Sets agent stance toward uncertainty, speculation, and unknowable facts.",
     "explain": "Sets agent stance toward uncertainty, speculation, and unknowable facts.",
@@ -23,7 +23,7 @@
   },
   {
     "id": "tone-register-locking",
-    "icon": "🎙️",
+    "icon": "lock",
     "name": "Tone & Register Lock",
     "desc": "Locks communication style and strictly forbids conversational fluff.",
     "explain": "Locks communication style and strictly forbids conversational fluff.",
@@ -35,7 +35,7 @@
   },
   {
     "id": "domain-expert-profile",
-    "icon": "🎓",
+    "icon": "usercheck",
     "name": "Domain Expert Profile",
     "desc": "Injects domain jargon, conceptual frameworks, and mental models into agent persona.",
     "explain": "Injects domain jargon, conceptual frameworks, and mental models into agent persona.",
@@ -47,7 +47,7 @@
   },
   {
     "id": "cognitive-bias-override",
-    "icon": "🛠️",
+    "icon": "brain",
     "name": "Sycophancy Override",
     "desc": "Overrides default LLM tendency to agree with flawed user premises.",
     "explain": "Overrides default LLM tendency to agree with flawed user premises.",
@@ -59,7 +59,7 @@
   },
   {
     "id": "adaptive-persona-shift",
-    "icon": "🔄",
+    "icon": "shuffle",
     "name": "Dynamic Persona Shift",
     "desc": "Enables agent to shift operational modes based on task lifecycle phase.",
     "explain": "Enables agent to shift operational modes based on task lifecycle phase.",
@@ -71,7 +71,7 @@
   },
   {
     "id": "cot-step-by-step",
-    "icon": "🔗",
+    "icon": "listordered",
     "name": "Chain-of-Thought (CoT) Injection",
     "desc": "Forces step-by-step explicit reasoning before delivering final output.",
     "explain": "Forces step-by-step explicit reasoning before delivering final output.",
@@ -81,7 +81,7 @@
   },
   {
     "id": "tree-of-thought-prompt",
-    "icon": "🌳",
+    "icon": "gitfork",
     "name": "Tree-of-Thoughts (ToT) Architecture",
     "desc": "Generates and evaluates 3 parallel reasoning paths before selecting the optimum.",
     "explain": "Generates and evaluates 3 parallel reasoning paths before selecting the optimum.",
@@ -93,7 +93,7 @@
   },
   {
     "id": "self-reflection-loop",
-    "icon": "🪞",
+    "icon": "rotateccw",
     "name": "Self-Reflection & Correction Loop",
     "desc": "Requires agent to self-audit generated responses prior to final output.",
     "explain": "Requires agent to self-audit generated responses prior to final output.",
@@ -105,7 +105,7 @@
   },
   {
     "id": "verification-step-injection",
-    "icon": "✅",
+    "icon": "checksquare",
     "name": "Intermediate Verification Step",
     "desc": "Injects explicit sanity checks at each step of complex calculations.",
     "explain": "Injects explicit sanity checks at each step of complex calculations.",
@@ -117,7 +117,7 @@
   },
   {
     "id": "path-divergence-evaluation",
-    "icon": "🔀",
+    "icon": "split",
     "name": "Path Divergence Report",
     "desc": "Documents explicit reasons for rejecting alternative reasoning branches.",
     "explain": "Documents explicit reasons for rejecting alternative reasoning branches.",
@@ -129,7 +129,7 @@
   },
   {
     "id": "reasoning-depth-governor",
-    "icon": "🎛️",
+    "icon": "gauge",
     "name": "Reasoning Depth Governor",
     "desc": "Dynamically modulates CoT reasoning depth based on query complexity.",
     "explain": "Dynamically modulates CoT reasoning depth based on query complexity.",
@@ -141,7 +141,7 @@
   },
   {
     "id": "hallucination-guardrail",
-    "icon": "🛡️",
+    "icon": "shieldalert",
     "name": "Hallucination Guardrail",
     "desc": "Strictly prevents fabrication of unverified facts, citations, or data.",
     "explain": "Strictly prevents fabrication of unverified facts, citations, or data.",
@@ -151,7 +151,7 @@
   },
   {
     "id": "output-format-locking",
-    "icon": "🔒",
+    "icon": "folderlock",
     "name": "Output Format Locking",
     "desc": "Locks output strictly to JSON, XML, or Markdown schemas without markdown clutter.",
     "explain": "Locks output strictly to JSON, XML, or Markdown schemas without markdown clutter.",
@@ -163,7 +163,7 @@
   },
   {
     "id": "forbidden-phrase-filter",
-    "icon": "🚫",
+    "icon": "slash",
     "name": "Forbidden Phrase Blacklist",
     "desc": "Blacklists ubiquitous AI clichés and meta-commentary.",
     "explain": "Blacklists ubiquitous AI clichés and meta-commentary.",
@@ -175,7 +175,7 @@
   },
   {
     "id": "claim-source-attribution",
-    "icon": "📌",
+    "icon": "link2",
     "name": "Claim Grounding Attribution",
     "desc": "Forces every factual claim to carry explicit context attributions.",
     "explain": "Forces every factual claim to carry explicit context attributions.",
@@ -187,7 +187,7 @@
   },
   {
     "id": "safety-policy-aligner",
-    "icon": "⚖️",
+    "icon": "shieldcheck",
     "name": "Safety & Policy Alignment",
     "desc": "Executes standard neutral refusal protocols upon encountering unsafe prompts.",
     "explain": "Executes standard neutral refusal protocols upon encountering unsafe prompts.",
@@ -199,7 +199,7 @@
   },
   {
     "id": "boundary-breach-fallback",
-    "icon": "🚨",
+    "icon": "alertoctagon",
     "name": "Boundary Breach Fallback Protocol",
     "desc": "Triggers clean fallback output if format or guardrails are violated.",
     "explain": "Triggers clean fallback output if format or guardrails are violated.",
@@ -211,7 +211,7 @@
   },
   {
     "id": "few-shot-exemplar-design",
-    "icon": "💡",
+    "icon": "copy",
     "name": "Few-Shot Exemplar Design",
     "desc": "Provides gold-standard input-output pairs to guide model performance.",
     "explain": "Provides gold-standard input-output pairs to guide model performance.",
@@ -221,7 +221,7 @@
   },
   {
     "id": "edge-case-few-shot",
-    "icon": "🧩",
+    "icon": "target",
     "name": "Edge-Case Few-Shot Exemplar",
     "desc": "Demonstrates correct handling of incomplete, malformed, or ambiguous inputs.",
     "explain": "Demonstrates correct handling of incomplete, malformed, or ambiguous inputs.",
@@ -233,7 +233,7 @@
   },
   {
     "id": "negative-example-contrast",
-    "icon": "❌",
+    "icon": "box",
     "name": "Negative Exemplar Contrast",
     "desc": "Shows anti-patterns and explicit examples of prohibited output formats.",
     "explain": "Shows anti-patterns and explicit examples of prohibited output formats.",
@@ -245,7 +245,7 @@
   },
   {
     "id": "dynamic-context-exemplar",
-    "icon": "🔄",
+    "icon": "sparkles",
     "name": "Dynamic Context Exemplar",
     "desc": "Constructs variable-driven few-shot templates for dynamic payloads.",
     "explain": "Constructs variable-driven few-shot templates for dynamic payloads.",
@@ -257,7 +257,7 @@
   },
   {
     "id": "format-strictness-examples",
-    "icon": "📐",
+    "icon": "table",
     "name": "Format Strictness Exemplars",
     "desc": "Demonstrates complete schema population for multi-nested JSON structures.",
     "explain": "Demonstrates complete schema population for multi-nested JSON structures.",
@@ -269,7 +269,7 @@
   },
   {
     "id": "multi-turn-few-shot-chain",
-    "icon": "💬",
+    "icon": "link",
     "name": "Multi-Turn Dialogue Exemplar",
     "desc": "Illustrates context maintenance across multi-turn conversational exchanges.",
     "explain": "Illustrates context maintenance across multi-turn conversational exchanges.",
@@ -281,7 +281,7 @@
   },
   {
     "id": "variable-ingestion-schema",
-    "icon": "📥",
+    "icon": "database",
     "name": "Variable Ingestion Schema",
     "desc": "Defines parametric variable (`{{variable}}`) injection architecture.",
     "explain": "Defines parametric variable (`{{variable}}`) injection architecture.",
@@ -291,7 +291,7 @@
   },
   {
     "id": "multi-agent-handoff",
-    "icon": "🤝",
+    "icon": "users",
     "name": "Multi-Agent Handoff Protocol",
     "desc": "Formats standardized handoff payloads for agent-to-agent transitions.",
     "explain": "Formats standardized handoff payloads for agent-to-agent transitions.",
@@ -303,7 +303,7 @@
   },
   {
     "id": "task-decomposition-router",
-    "icon": "🔀",
+    "icon": "network",
     "name": "Task Decomposition Router",
     "desc": "Decomposes complex goals into parallel tasks routed to specialized agents.",
     "explain": "Decomposes complex goals into parallel tasks routed to specialized agents.",
@@ -315,7 +315,7 @@
   },
   {
     "id": "state-persistence-prompt",
-    "icon": "💾",
+    "icon": "harddrive",
     "name": "State Persistence Protocol",
     "desc": "Maintains turn-by-turn state in a structured state tracking object.",
     "explain": "Maintains turn-by-turn state in a structured state tracking object.",
@@ -327,7 +327,7 @@
   },
   {
     "id": "response-aggregation-spec",
-    "icon": "📑",
+    "icon": "combine",
     "name": "Response Aggregation & Synthesis",
     "desc": "Aggregates raw outputs from multiple agents into a unified final output.",
     "explain": "Aggregates raw outputs from multiple agents into a unified final output.",
@@ -339,7 +339,7 @@
   },
   {
     "id": "zero-api-prompt-compiler",
-    "icon": "⚡",
+    "icon": "cpu",
     "name": "PREMPT Zero-API Compiler Template",
     "desc": "Compiles active modules into a single deterministic master prompt.",
     "explain": "Compiles active modules into a single deterministic master prompt.",

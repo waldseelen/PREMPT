@@ -1,7 +1,7 @@
 [
   {
     "id": "root-cause-5-whys",
-    "icon": "🕵️",
+    "icon": "box",
     "name": "Root Cause (5 Whys) Analysis",
     "desc": "Drills beneath surface symptoms to uncover underlying root causes.",
     "explain": "Drills beneath surface symptoms to uncover underlying root causes.",
@@ -11,7 +11,7 @@
   },
   {
     "id": "problem-boundary-def",
-    "icon": "🎯",
+    "icon": "box",
     "name": "Problem Boundary Definition",
     "desc": "Clarifies exact in-scope and out-of-scope problem bounds.",
     "explain": "Clarifies exact in-scope and out-of-scope problem bounds.",
@@ -23,7 +23,7 @@
   },
   {
     "id": "functional-analysis",
-    "icon": "⚙️",
+    "icon": "settings",
     "name": "Functional System Analysis",
     "desc": "Deconstructs a system into components and functional interactions.",
     "explain": "Deconstructs a system into components and functional interactions.",
@@ -35,7 +35,7 @@
   },
   {
     "id": "constraint-mapping",
-    "icon": "🧱",
+    "icon": "lock",
     "name": "Constraint Mapping (TOC)",
     "desc": "Applies Goldratt's Theory of Constraints to isolate system bottlenecks.",
     "explain": "Applies Goldratt's Theory of Constraints to isolate system bottlenecks.",
@@ -47,7 +47,7 @@
   },
   {
     "id": "issue-tree-breakdown",
-    "icon": "🌳",
+    "icon": "listtree",
     "name": "Issue Tree (MECE) Breakdown",
     "desc": "Decomposes problems into mutually exclusive, collectively exhaustive branches.",
     "explain": "Decomposes problems into mutually exclusive, collectively exhaustive branches.",
@@ -59,7 +59,7 @@
   },
   {
     "id": "system-component-map",
-    "icon": "🗺️",
+    "icon": "blocks",
     "name": "System Component Mapping",
     "desc": "Maps interactions across supersystems, main systems, and subsystems.",
     "explain": "Maps interactions across supersystems, main systems, and subsystems.",
@@ -71,7 +71,7 @@
   },
   {
     "id": "triz-contradiction-matrix",
-    "icon": "⚡",
+    "icon": "box",
     "name": "TRIZ Contradiction Matrix",
     "desc": "Resolves engineering contradictions without compromised trade-offs.",
     "explain": "Resolves engineering contradictions without compromised trade-offs.",
@@ -83,7 +83,7 @@
   },
   {
     "id": "triz-ideality-operator",
-    "icon": "✨",
+    "icon": "crown",
     "name": "TRIZ Ideal Final Result (IFR)",
     "desc": "Drives systems toward zero cost and complexity while retaining pure function.",
     "explain": "Drives systems toward zero cost and complexity while retaining pure function.",
@@ -95,7 +95,7 @@
   },
   {
     "id": "triz-resource-inventory",
-    "icon": "🎒",
+    "icon": "packagesearch",
     "name": "TRIZ Resource Inventory",
     "desc": "Uncovers idle internal and environmental resources for problem resolution.",
     "explain": "Uncovers idle internal and environmental resources for problem resolution.",
@@ -107,7 +107,7 @@
   },
   {
     "id": "triz-substance-field",
-    "icon": "🧲",
+    "icon": "sparkles",
     "name": "TRIZ Substance-Field (Su-Field)",
     "desc": "Models and transforms substance-field interactions to fix system flaws.",
     "explain": "Models and transforms substance-field interactions to fix system flaws.",
@@ -119,7 +119,7 @@
   },
   {
     "id": "triz-evolution-lines",
-    "icon": "📈",
+    "icon": "trendingup",
     "name": "TRIZ System Evolution Lines",
     "desc": "Forecasts technological evolution paths along S-curves.",
     "explain": "Forecasts technological evolution paths along S-curves.",
@@ -131,7 +131,7 @@
   },
   {
     "id": "triz-su-field-analysis",
-    "icon": "🌀",
+    "icon": "atom",
     "name": "TRIZ Standard Solutions",
     "desc": "Applies TRIZ 76 Standard Solutions to eliminate system flaws.",
     "explain": "Applies TRIZ 76 Standard Solutions to eliminate system flaws.",
@@ -143,7 +143,7 @@
   },
   {
     "id": "de-bono-6-hats",
-    "icon": "🎩",
+    "icon": "palette",
     "name": "de Bono 6 Thinking Hats",
     "desc": "Systematically explores problems from six distinct cognitive perspectives.",
     "explain": "Systematically explores problems from six distinct cognitive perspectives.",
@@ -153,7 +153,7 @@
   },
   {
     "id": "random-word-stimulus",
-    "icon": "🎲",
+    "icon": "dices",
     "name": "Random Stimulus Technique",
     "desc": "Forces unexpected connections by introducing random unrelated words.",
     "explain": "Forces unexpected connections by introducing random unrelated words.",
@@ -165,7 +165,7 @@
   },
   {
     "id": "provocation-po",
-    "icon": "💥",
+    "icon": "flame",
     "name": "Provocation (PO) Operator",
     "desc": "Formulates absurd statements to open new lateral thinking pathways.",
     "explain": "Formulates absurd statements to open new lateral thinking pathways.",
@@ -177,7 +177,7 @@
   },
   {
     "id": "analogical-transfer",
-    "icon": "🧬",
+    "icon": "moveright",
     "name": "Biomimicry & Analogy Transfer",
     "desc": "Transfers evolutionary and cross-industry solutions to the target domain.",
     "explain": "Transfers evolutionary and cross-industry solutions to the target domain.",
@@ -189,7 +189,7 @@
   },
   {
     "id": "perspective-reversal",
-    "icon": "🔄",
+    "icon": "rotateccw",
     "name": "Perspective Reversal",
     "desc": "Views the problem through the first-person perspective of system objects.",
     "explain": "Views the problem through the first-person perspective of system objects.",
@@ -201,7 +201,7 @@
   },
   {
     "id": "cross-domain-pollination",
-    "icon": "🐝",
+    "icon": "combine",
     "name": "Cross-Domain Pollination",
     "desc": "Imports architectural models from radically unrelated fields.",
     "explain": "Imports architectural models from radically unrelated fields.",
@@ -213,7 +213,7 @@
   },
   {
     "id": "scamper-substitute",
-    "icon": "🔄",
+    "icon": "shuffle",
     "name": "SCAMPER - Substitute",
     "desc": "Replaces system materials, components, or process steps.",
     "explain": "Replaces system materials, components, or process steps.",
@@ -223,7 +223,7 @@
   },
   {
     "id": "scamper-combine-adapt",
-    "icon": "🧩",
+    "icon": "plus",
     "name": "SCAMPER - Combine & Adapt",
     "desc": "Blends multiple functions and adapts external solutions.",
     "explain": "Blends multiple functions and adapts external solutions.",
@@ -235,7 +235,7 @@
   },
   {
     "id": "scamper-modify-magnify",
-    "icon": "🔍",
+    "icon": "maximize",
     "name": "SCAMPER - Modify & Magnify",
     "desc": "Exaggerates or minimizes dimensions, frequency, and scale.",
     "explain": "Exaggerates or minimizes dimensions, frequency, and scale.",
@@ -247,7 +247,7 @@
   },
   {
     "id": "scamper-put-other-use",
-    "icon": "♻️",
+    "icon": "plug",
     "name": "SCAMPER - Put to Other Use",
     "desc": "Repurposes system outputs or waste streams for alternate markets.",
     "explain": "Repurposes system outputs or waste streams for alternate markets.",
@@ -259,7 +259,7 @@
   },
   {
     "id": "scamper-eliminate-reverse",
-    "icon": "✂️",
+    "icon": "box",
     "name": "SCAMPER - Eliminate & Reverse",
     "desc": "Excises non-essential elements and reverses step sequences.",
     "explain": "Excises non-essential elements and reverses step sequences.",
@@ -271,7 +271,7 @@
   },
   {
     "id": "scamper-full-matrix",
-    "icon": "🎛️",
+    "icon": "grid",
     "name": "SCAMPER Full Operator Matrix",
     "desc": "Combines all 7 SCAMPER operators into a comprehensive idea matrix.",
     "explain": "Combines all 7 SCAMPER operators into a comprehensive idea matrix.",
@@ -283,7 +283,7 @@
   },
   {
     "id": "morphological-matrix",
-    "icon": "📊",
+    "icon": "table",
     "name": "Morphological Analysis Matrix",
     "desc": "Explores unexpected solution configurations across parameter grids.",
     "explain": "Explores unexpected solution configurations across parameter grids.",
@@ -295,7 +295,7 @@
   },
   {
     "id": "solution-feasibility-grid",
-    "icon": "🎯",
+    "icon": "checksquare",
     "name": "Solution Feasibility Grid",
     "desc": "Plots solutions across Impact vs. Effort axes.",
     "explain": "Plots solutions across Impact vs. Effort axes.",
@@ -307,7 +307,7 @@
   },
   {
     "id": "failure-mode-effect",
-    "icon": "⚠️",
+    "icon": "alertoctagon",
     "name": "FMEA Failure Mode Analysis",
     "desc": "Calculates Risk Priority Numbers ($RPN = S \\times O \\times D$) for proposed solutions.",
     "explain": "Calculates Risk Priority Numbers ($RPN = S \\times O \\times D$) for proposed solutions.",
@@ -319,7 +319,7 @@
   },
   {
     "id": "trade-off-optimization",
-    "icon": "⚖️",
+    "icon": "scale",
     "name": "Multi-Criteria Decision Analysis",
     "desc": "Applies weighted MCDA scoring across competing options.",
     "explain": "Applies weighted MCDA scoring across competing options.",
@@ -331,7 +331,7 @@
   },
   {
     "id": "pilot-experiment-design",
-    "icon": "🧪",
+    "icon": "flaskconical",
     "name": "Pilot Experiment Protocol",
     "desc": "Designs low-cost, low-risk field trials to test solution validity.",
     "explain": "Designs low-cost, low-risk field trials to test solution validity.",
@@ -343,7 +343,7 @@
   },
   {
     "id": "solution-impact-matrix",
-    "icon": "🚀",
+    "icon": "barchart2",
     "name": "Solution Impact Mapping",
     "desc": "Maps long-term systemic transformations generated by implementation.",
     "explain": "Maps long-term systemic transformations generated by implementation.",

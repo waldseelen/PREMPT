@@ -1,7 +1,7 @@
 [
   {
     "id": "tax-blooms-question-matrix",
-    "icon": "🧠",
+    "icon": "box",
     "name": "Bloom's Taxonomy Cognitive Matrix",
     "desc": "Constructs questions across all six Bloom cognitive levels from Remember to Create.",
     "explain": "Constructs questions across all six Bloom cognitive levels from Remember to Create.",
@@ -11,7 +11,7 @@
   },
   {
     "id": "tax-depth-of-knowledge-dok",
-    "icon": "📊",
+    "icon": "box",
     "name": "Webb's DOK Rigor Calibration",
     "desc": "Ranks and elevates tasks across Webb's Depth of Knowledge levels 1 to 4.",
     "explain": "Ranks and elevates tasks across Webb's Depth of Knowledge levels 1 to 4.",
@@ -23,7 +23,7 @@
   },
   {
     "id": "tax-solo-taxonomy-aligner",
-    "icon": "🧱",
+    "icon": "box",
     "name": "SOLO Taxonomy Structural Evaluator",
     "desc": "Classifies student responses from Unistructural to Extended Abstract levels.",
     "explain": "Classifies student responses from Unistructural to Extended Abstract levels.",
@@ -35,7 +35,7 @@
   },
   {
     "id": "tax-affective-domain-goals",
-    "icon": "❤️",
+    "icon": "box",
     "name": "Krathwohl's Affective Domain Goals",
     "desc": "Designs learning goals targeting student attitudes, values, and characterization.",
     "explain": "Designs learning goals targeting student attitudes, values, and characterization.",
@@ -47,7 +47,7 @@
   },
   {
     "id": "tax-psychomotor-skill-scaffolding",
-    "icon": "✋",
+    "icon": "box",
     "name": "Psychomotor Skill Scaffolding (Dave)",
     "desc": "Maps physical skill progression from imitation to naturalized mastery.",
     "explain": "Maps physical skill progression from imitation to naturalized mastery.",
@@ -59,7 +59,7 @@
   },
   {
     "id": "tax-higher-order-prompting",
-    "icon": "🎯",
+    "icon": "box",
     "name": "Higher-Order Thinking Generator",
     "desc": "Converts rote recall questions into critical thinking open-ended prompts.",
     "explain": "Converts rote recall questions into critical thinking open-ended prompts.",
@@ -71,7 +71,7 @@
   },
   {
     "id": "cur-backward-design-ubd",
-    "icon": "🎯",
+    "icon": "box",
     "name": "Backward Curriculum Design (UbD)",
     "desc": "Applies Wiggins & McTighe UbD framework: desired results -> assessment -> learning plan.",
     "explain": "Applies Wiggins & McTighe UbD framework: desired results -> assessment -> learning plan.",
@@ -81,7 +81,7 @@
   },
   {
     "id": "cur-scaffolding-chunking",
-    "icon": "🧩",
+    "icon": "box",
     "name": "Cognitive Load & Micro-Chunking",
     "desc": "Chunks complex concepts into digestible micro-lessons to prevent cognitive overload.",
     "explain": "Chunks complex concepts into digestible micro-lessons to prevent cognitive overload.",
@@ -93,7 +93,7 @@
   },
   {
     "id": "cur-interleaving-spaced-curriculum",
-    "icon": "🔄",
+    "icon": "box",
     "name": "Interleaved & Spaced Schedule",
     "desc": "Distributes learning topics across time with interleaved practice to maximize retention.",
     "explain": "Distributes learning topics across time with interleaved practice to maximize retention.",
@@ -105,7 +105,7 @@
   },
   {
     "id": "cur-cross-disciplinary-bridge",
-    "icon": "🌉",
+    "icon": "box",
     "name": "Cross-Disciplinary Project Builder",
     "desc": "Connects core subjects with complementary STEM/STEAM disciplines.",
     "explain": "Connects core subjects with complementary STEM/STEAM disciplines.",
@@ -117,7 +117,7 @@
   },
   {
     "id": "cur-competency-based-map",
-    "icon": "🗺️",
+    "icon": "box",
     "name": "Competency-Based Skill Matrix",
     "desc": "Replaces seat-time progression with concrete competency mastery criteria.",
     "explain": "Replaces seat-time progression with concrete competency mastery criteria.",
@@ -129,7 +129,7 @@
   },
   {
     "id": "cur-universal-learning-design",
-    "icon": "♿",
+    "icon": "box",
     "name": "Universal Design for Learning (UDL)",
     "desc": "Ensures accessible learning via multiple means of representation and engagement.",
     "explain": "Ensures accessible learning via multiple means of representation and engagement.",
@@ -141,7 +141,7 @@
   },
   {
     "id": "ass-formative-exit-ticket",
-    "icon": "🎟️",
+    "icon": "box",
     "name": "Formative Exit Ticket Generator",
     "desc": "Creates 2-minute end-of-class formative comprehension check tickets.",
     "explain": "Creates 2-minute end-of-class formative comprehension check tickets.",
@@ -151,7 +151,7 @@
   },
   {
     "id": "ass-summative-capstone-spec",
-    "icon": "🏆",
+    "icon": "box",
     "name": "Summative Capstone Project Spec",
     "desc": "Authorizes comprehensive capstone project specifications synthesizing course goals.",
     "explain": "Authorizes comprehensive capstone project specifications synthesizing course goals.",
@@ -163,7 +163,7 @@
   },
   {
     "id": "ass-authentic-task-assessment",
-    "icon": "💼",
+    "icon": "box",
     "name": "Authentic Task Assessment Design",
     "desc": "Replaces standardized tests with real-world professional problem-solving tasks.",
     "explain": "Replaces standardized tests with real-world professional problem-solving tasks.",
@@ -175,7 +175,7 @@
   },
   {
     "id": "ass-item-analysis-distractor",
-    "icon": "📝",
+    "icon": "box",
     "name": "Multiple-Choice Distractor Rigor",
     "desc": "Audits test items to ensure distractors target common conceptual errors.",
     "explain": "Audits test items to ensure distractors target common conceptual errors.",
@@ -187,7 +187,7 @@
   },
   {
     "id": "ass-diagnostic-prior-knowledge",
-    "icon": "🔍",
+    "icon": "box",
     "name": "Diagnostic Prior-Knowledge Audit",
     "desc": "Uncovers student misconceptions and prerequisite readiness prior to units.",
     "explain": "Uncovers student misconceptions and prerequisite readiness prior to units.",
@@ -199,7 +199,7 @@
   },
   {
     "id": "ass-peer-self-eval-protocol",
-    "icon": "🤝",
+    "icon": "box",
     "name": "Peer & Self-Assessment Protocol",
     "desc": "Establishes metacognitive rubrics for peer review and self-reflection.",
     "explain": "Establishes metacognitive rubrics for peer review and self-reflection.",
@@ -211,7 +211,7 @@
   },
   {
     "id": "eng-gamification-loop",
-    "icon": "🎮",
+    "icon": "box",
     "name": "Gamified Learning Loop Mechanics",
     "desc": "Injects quests, XP points, and level progression to drive intrinsic motivation.",
     "explain": "Injects quests, XP points, and level progression to drive intrinsic motivation.",
@@ -221,7 +221,7 @@
   },
   {
     "id": "eng-socratic-seminar-guide",
-    "icon": "🗣️",
+    "icon": "box",
     "name": "Socratic Seminar Discussion Guide",
     "desc": "Facilitates student-led text-centered group inquiry and discussion.",
     "explain": "Facilitates student-led text-centered group inquiry and discussion.",
@@ -233,7 +233,7 @@
   },
   {
     "id": "eng-active-recall-drill",
-    "icon": "⚡",
+    "icon": "box",
     "name": "Active Recall Flashcard Engine",
     "desc": "Replaces passive reading with forced memory retrieval practice.",
     "explain": "Replaces passive reading with forced memory retrieval practice.",
@@ -245,7 +245,7 @@
   },
   {
     "id": "eng-case-study-dilemma-builder",
-    "icon": "📖",
+    "icon": "box",
     "name": "Case-Based Dilemma Scenario",
     "desc": "Places learners inside complex real-world organizational dilemmas.",
     "explain": "Places learners inside complex real-world organizational dilemmas.",
@@ -257,7 +257,7 @@
   },
   {
     "id": "eng-flipper-classroom-prep",
-    "icon": "🔄",
+    "icon": "box",
     "name": "Flipped Classroom Pre-Work Blueprint",
     "desc": "Shifts direct instruction to pre-work, reserving class time for active practice.",
     "explain": "Shifts direct instruction to pre-work, reserving class time for active practice.",
@@ -269,7 +269,7 @@
   },
   {
     "id": "eng-peer-instruction-think-pair",
-    "icon": "💬",
+    "icon": "box",
     "name": "Think-Pair-Share Scripting",
     "desc": "Structures individual reflection, peer debate, and class synthesis steps.",
     "explain": "Structures individual reflection, peer debate, and class synthesis steps.",
@@ -281,7 +281,7 @@
   },
   {
     "id": "rub-holistic-analytical-rubric",
-    "icon": "📊",
+    "icon": "box",
     "name": "Multi-Tier Analytical Rubric",
     "desc": "Generates multi-criteria scoring rubrics across 4 performance tiers.",
     "explain": "Generates multi-criteria scoring rubrics across 4 performance tiers.",
@@ -291,7 +291,7 @@
   },
   {
     "id": "rub-single-point-rubric",
-    "icon": "🎯",
+    "icon": "box",
     "name": "Single-Point Rubric Generator",
     "desc": "Focuses on central target standards flanked by areas for growth and mastery.",
     "explain": "Focuses on central target standards flanked by areas for growth and mastery.",
@@ -303,7 +303,7 @@
   },
   {
     "id": "rub-objective-performance-criteria",
-    "icon": "🔍",
+    "icon": "box",
     "name": "Observable Performance Criteria",
     "desc": "Replaces subjective adjectives with measurable behavioral evidence.",
     "explain": "Replaces subjective adjectives with measurable behavioral evidence.",
@@ -315,7 +315,7 @@
   },
   {
     "id": "rub-exemplar-anchor-papers",
-    "icon": "🥇",
+    "icon": "box",
     "name": "Exemplar Anchor Paper Matrix",
     "desc": "Describes qualitative benchmarks for Gold, Silver, and Bronze student work.",
     "explain": "Describes qualitative benchmarks for Gold, Silver, and Bronze student work.",
@@ -327,7 +327,7 @@
   },
   {
     "id": "rub-constructive-feedback-bank",
-    "icon": "💬",
+    "icon": "box",
     "name": "Actionable Feedback Bank Generator",
     "desc": "Compiles reusable, growth-oriented feedback prompts for educators.",
     "explain": "Compiles reusable, growth-oriented feedback prompts for educators.",
@@ -339,7 +339,7 @@
   },
   {
     "id": "rub-mastery-threshold-matrix",
-    "icon": "🏁",
+    "icon": "box",
     "name": "Standards-Based Mastery Thresholds",
     "desc": "Establishes non-negotiable mastery gates required for topic advancement.",
     "explain": "Establishes non-negotiable mastery gates required for topic advancement.",

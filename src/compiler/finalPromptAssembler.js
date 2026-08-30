@@ -6,7 +6,7 @@ import { getFormatter } from './formatterRegistry';
 // selected config.hedef — used by ActionBar's AI deep-link buttons, which
 // cannot hand a JSON system-message payload to a chat-paste flow.
 export function assembleFinalPrompt(state, { forceTarget } = {}) {
-    if (!state?.config?.konu || !Array.isArray(state?.selectedModules) || state.selectedModules.length === 0) {
+    if (!state?.config?.konu?.trim() || !Array.isArray(state?.selectedModules) || state.selectedModules.length === 0) {
         return '';
     }
 
@@ -21,7 +21,7 @@ export function assembleFinalPrompt(state, { forceTarget } = {}) {
 }
 
 export function analyzePromptComplexity(state) {
-    if (!state?.config?.konu || !Array.isArray(state?.selectedModules) || state.selectedModules.length === 0) {
+    if (!state?.config?.konu?.trim() || !Array.isArray(state?.selectedModules) || state.selectedModules.length === 0) {
         return {
             chars: 0,
             tokens: 0,
@@ -44,10 +44,17 @@ export function analyzePromptComplexity(state) {
     const uniqueLayers = new Set(sortedModules.map((m) => m.layer)).size;
     const complexityScore = Math.min(100, Math.round((sortedModules.length * 10) + (uniqueLayers * 5) + (state.config.monolog ? 20 : 0)));
 
+    let isTooLongForUrl;
+    try {
+        isTooLongForUrl = encodeURIComponent(fullText).length > 3800;
+    } catch {
+        isTooLongForUrl = chars > 2000;
+    }
+
     return {
         chars,
         tokens,
-        isTooLongForUrl: chars > 4000,
+        isTooLongForUrl,
         complexityScore,
         layersUsed: uniqueLayers,
         moduleCount: sortedModules.length

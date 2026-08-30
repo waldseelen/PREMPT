@@ -1,7 +1,7 @@
 [
   {
     "id": "req-clarify",
-    "icon": "📋",
+    "icon": "box",
     "name": "Gereksinim Netleştirme",
     "desc": "Belirsiz isteği spesifikasyona çevir",
     "explain": "Kod yazılmadan önce belirsiz bir görev tanımından net fonksiyonel ve fonksiyonel olmayan gereksinimleri çıkarır.",
@@ -11,7 +11,7 @@
   },
   {
     "id": "api-design",
-    "icon": "🔌",
+    "icon": "box",
     "name": "API / Arayüz Tasarımı",
     "desc": "Gövdeden önce sözleşmeyi tasarla",
     "explain": "Uygulama henüz yokken, genel arayüzü (fonksiyonlar, endpoint'ler veya tipler) kararlı bir sözleşme olarak tasarlar.",
@@ -23,7 +23,7 @@
   },
   {
     "id": "data-model",
-    "icon": "🗄️",
+    "icon": "box",
     "name": "Veri Modeli ve Şema Tasarımı",
     "desc": "Mantıktan önce veriyi şekillendir",
     "explain": "Özelliğin üzerinde çalışacağı varlıkları, ilişkileri ve kısıtları tasarlar.",
@@ -35,7 +35,7 @@
   },
   {
     "id": "architecture",
-    "icon": "🏗️",
+    "icon": "box",
     "name": "Mimari / Sistem Tasarımı",
     "desc": "Bileşenler, sınırlar, veri akışı",
     "explain": "Sistemi bileşenlere, sorumluluklarına ve aralarındaki veri/kontrol akışına haritalar.",
@@ -47,7 +47,7 @@
   },
   {
     "id": "tech-select",
-    "icon": "🧰",
+    "icon": "box",
     "name": "Teknoloji ve Kütüphane Seçimi",
     "desc": "İş için doğru aracı seç",
     "explain": "Aday dilleri, framework'leri veya kütüphaneleri, en popüler seçeneğe varsayılan olarak yönelmek yerine görevin gerçek kısıtlarına göre değerlendirir.",
@@ -57,7 +57,7 @@
   },
   {
     "id": "concurrency",
-    "icon": "🔀",
+    "icon": "box",
     "name": "Eşzamanlılık ve Thread-Safety Tasarımı",
     "desc": "Güvenli paralel çalışma için tasarla",
     "explain": "Uygulamaya başlamadan önce eşzamanlılık modelini — neyin paralel çalışacağını, neyin senkronize edilmesi gerektiğini ve paylaşılan durumun nasıl korunacağını — tasarlar.",
@@ -67,7 +67,7 @@
   },
   {
     "id": "threat-model",
-    "icon": "🕵️",
+    "icon": "box",
     "name": "Tehdit Modelleme (STRIDE)",
     "desc": "Olmadan önce neyin yanlış gidebileceğini haritala",
     "explain": "Bir olaydan sonra keşfetmek yerine, uygulamadan önce sistematik olarak STRIDE çerçevesini kullanarak sisteme yönelik potansiyel tehditleri haritalar.",
@@ -77,7 +77,7 @@
   },
   {
     "id": "auth-design",
-    "icon": "🔑",
+    "icon": "box",
     "name": "Kimlik Doğrulama ve Yetkilendirme Tasarımı",
     "desc": "İnşa etmeden önce kimin neyi yapabileceğini tasarla",
     "explain": "Kimliğin nasıl kurulacağını, oturum/token'ların nasıl çalışacağını ve izinlerin nasıl uygulanacağını — uygulama öncesinde — tasarlar.",
@@ -87,7 +87,7 @@
   },
   {
     "id": "implement",
-    "icon": "⌨️",
+    "icon": "box",
     "name": "Spesifikasyondan Uygulama",
     "desc": "Çalışan uygulamayı yaz",
     "explain": "Daha önce tanımlanan kısıtları ve arayüzleri uygulayarak gerçek çalışan implementasyonu yazar.",
@@ -97,7 +97,7 @@
   },
   {
     "id": "scaffold",
-    "icon": "🧩",
+    "icon": "box",
     "name": "İskelet / Boilerplate",
     "desc": "Başlangıç yapısını üret",
     "explain": "Uygulamaya hemen başlanabilmesi için başlangıç proje veya modül yapısını — dosyalar, klasörler, config — üretir.",
@@ -107,7 +107,7 @@
   },
   {
     "id": "algorithm",
-    "icon": "🧮",
+    "icon": "box",
     "name": "Algoritma Tasarımı (+ Big-O)",
     "desc": "Algoritmayı tasarla ve analiz et",
     "explain": "Problemin çekirdek algoritmasını tasarlar ve zaman/alan karmaşıklığını formel olarak analiz eder.",
@@ -117,7 +117,7 @@
   },
   {
     "id": "idioms",
-    "icon": "🎨",
+    "icon": "box",
     "name": "Deyimsel Kalıplar",
     "desc": "Bu dilin beklediği gibi yaz",
     "explain": "Kodu, ait olduğu dil/framework'e özgü deyimlere, isimlendirme kurallarına ve standart kütüphane kullanımına uyacak şekilde yeniden yazar veya inceler.",
@@ -127,7 +127,7 @@
   },
   {
     "id": "observability",
-    "icon": "📡",
+    "icon": "box",
     "name": "Gözlemlenebilirlik ve Loglama",
     "desc": "Hataların teşhis edilebilir olmasını sağla",
     "explain": "Kod inşa edilirken neyin loglanacağını, ölçüleceğini ve izleneceğini tasarlar, böylece production sorunları görünmez değil teşhis edilebilir olur.",
@@ -137,7 +137,7 @@
   },
   {
     "id": "explain",
-    "icon": "💬",
+    "icon": "box",
     "name": "Bu Kodu Açıkla",
     "desc": "Bu kod gerçekte ne yapıyor?",
     "explain": "Bir kod parçasının ne yaptığını ve neden bu şekilde yazıldığını bölüm bölüm açıklar.",
@@ -147,7 +147,7 @@
   },
   {
     "id": "trace",
-    "icon": "🐾",
+    "icon": "box",
     "name": "Yürütme İzi",
     "desc": "Çalıştırmayı adım adım takip et",
     "explain": "Somut bir girdinin kodun gerçek yürütme yolunu satır satır izler, her adımda durumu gösterir.",
@@ -159,7 +159,7 @@
   },
   {
     "id": "codebase-map",
-    "icon": "🗺️",
+    "icon": "box",
     "name": "Kod Tabanı Haritası",
     "desc": "Yabancı bir kod tabanında yön bul",
     "explain": "Yabancı bir kod tabanının veya modül kümesinin yapısal bir haritasını çıkarır — ne var, parçalar nasıl ilişkili, nereden başlanmalı.",
@@ -169,7 +169,7 @@
   },
   {
     "id": "compare-approaches",
-    "icon": "⚖️",
+    "icon": "box",
     "name": "Yaklaşım Karşılaştırması",
     "desc": "Uygulama stratejilerini tart",
     "explain": "Aynı şeyi uygulamanın birden fazla geçerli yolunu, açık bir ödünleşim analiziyle karşılaştırır.",
@@ -179,7 +179,7 @@
   },
   {
     "id": "review",
-    "icon": "🔍",
+    "icon": "box",
     "name": "Kod İncelemesi",
     "desc": "Kıdemli seviye inceleme geçişi",
     "explain": "Kodu, bir pull request'te kıdemli bir mühendisin yapacağı gibi — doğruluk, tasarım ve sürdürülebilirlik açısından — inceler.",
@@ -189,7 +189,7 @@
   },
   {
     "id": "security",
-    "icon": "🛡️",
+    "icon": "box",
     "name": "Güvenlik Denetimi (OWASP)",
     "desc": "İstismar edilebilir zayıflıkları bul",
     "explain": "Kodu, ilgili yerlerde OWASP Top 10 kategorilerini kontrol listesi olarak kullanarak güvenlik açıkları için denetler.",
@@ -199,7 +199,7 @@
   },
   {
     "id": "performance",
-    "icon": "⚡",
+    "icon": "box",
     "name": "Performans ve Karmaşıklık",
     "desc": "Darboğazı bul",
     "explain": "Kodu performans darboğazları ve karmaşıklık sorunları için analiz eder ve düzeltmeleri gerçek etkiye göre önceliklendirir.",
@@ -209,7 +209,7 @@
   },
   {
     "id": "tests",
-    "icon": "✅",
+    "icon": "box",
     "name": "Test Üretimi",
     "desc": "Bozulmadan önce kapsa",
     "explain": "Kod için, sadece birkaç mutlu-yol kontrolü değil, test kategorisine göre organize edilmiş kapsamlı bir test paketi üretir.",
@@ -219,7 +219,7 @@
   },
   {
     "id": "edge-cases",
-    "icon": "🎯",
+    "icon": "box",
     "name": "Uç Durum ve Hata Avı",
     "desc": "Bu gerçekte nerede bozulur?",
     "explain": "Kodun sessizce yanlış sonuç ürettiği veya çöktüğü girdileri ve koşulları sistematik olarak avlar.",
@@ -229,7 +229,7 @@
   },
   {
     "id": "debug",
-    "icon": "🐛",
+    "icon": "box",
     "name": "Kök Neden Hata Ayıklama",
     "desc": "Belirtiden kök nedene",
     "explain": "Sistematik bir hipotez-ve-eleme süreciyle gözlemlenen bir hata veya hatadan gerçek kök nedene doğru geriye çalışır.",
@@ -241,7 +241,7 @@
   },
   {
     "id": "supply-chain",
-    "icon": "📦",
+    "icon": "box",
     "name": "Bağımlılık ve Tedarik Zinciri Denetimi",
     "desc": "Import ederken neye güvendiğini denetle",
     "explain": "Bu kodun dayandığı üçüncü taraf bağımlılıkları bilinen güvenlik açıkları, bakım sağlığı ve biri ele geçirilirse etki alanı açısından denetler.",
@@ -251,7 +251,7 @@
   },
   {
     "id": "a11y",
-    "icon": "♿",
+    "icon": "box",
     "name": "Erişilebilirlik Denetimi",
     "desc": "Senin gibi kullanmayan kullanıcılar için denetle",
     "explain": "Arayüzü erişilebilirlik açısından — klavye navigasyonu, ekran okuyucu desteği, renk kontrastı ve kullanıcıları dışlayan diğer engeller — denetler.",
@@ -261,7 +261,7 @@
   },
   {
     "id": "infra-security",
-    "icon": "🐳",
+    "icon": "box",
     "name": "Konteyner ve Altyapı Güvenliği",
     "desc": "Sadece kodu değil, çalıştığı ortamı denetle",
     "explain": "Bu kodun çalıştığı konteyner imajlarını, Dockerfile'ları ve infrastructure-as-code konfigürasyonunu yanlış yapılandırmalar ve sertleştirme eksiklikleri için denetler.",
@@ -271,7 +271,7 @@
   },
   {
     "id": "refactor",
-    "icon": "🔧",
+    "icon": "box",
     "name": "Yeniden Yapılandırma (Davranış Korunarak)",
     "desc": "Yapıyı iyileştir, davranışı koru",
     "explain": "Kodun harici davranışını biçimsel olarak koruyarak okunabilirlik ve sürdürülebilirlik için yeniden yapılandırır.",
@@ -281,7 +281,7 @@
   },
   {
     "id": "patterns",
-    "icon": "🧱",
+    "icon": "box",
     "name": "Tasarım Deseni Uygulaması",
     "desc": "Trend değil, doğru deseni uygula",
     "explain": "Bilinen bir tasarım deseninin probleme gerçekten uyup uymadığını belirler ve yalnızca karmaşıklığını hak ediyorsa uygular.",
@@ -291,7 +291,7 @@
   },
   {
     "id": "migration",
-    "icon": "🚚",
+    "icon": "box",
     "name": "Göç / Modernizasyon",
     "desc": "Yeniye güvenle geç",
     "explain": "Riskli bir big-bang yeniden yazım olmadan, eski bir kütüphaneden/sürümden/kalıptan yenisine güvenli, aşamalı bir göç planlar.",
@@ -303,7 +303,7 @@
   },
   {
     "id": "docs",
-    "icon": "📄",
+    "icon": "box",
     "name": "Dokümantasyon (Docstring/README/ADR)",
     "desc": "Düzgünce yaz",
     "explain": "Artefakta uygun dokümantasyon üretir — satır içi docstring, bir README bölümü veya bir mimari karar kaydı.",
@@ -313,7 +313,7 @@
   },
   {
     "id": "commit-pr",
-    "icon": "📮",
+    "icon": "box",
     "name": "Commit ve PR Mesajı",
     "desc": "Diff'i değil, değişikliği açıkla",
     "explain": "Sadece ne değiştiğini değil, değişikliğin neden yapıldığını açıklayan net bir commit mesajı ve pull request açıklaması yazar.",
@@ -323,7 +323,7 @@
   },
   {
     "id": "cicd",
-    "icon": "🚀",
+    "icon": "box",
     "name": "CI/CD Pipeline Tasarımı",
     "desc": "Commit'ten production'a giden yolu tasarla",
     "explain": "Bu kodu commit'ten production'da güvenle çalışır hale getiren otomatik pipeline aşamalarını — build, test, güvenlik taraması, deploy — tasarlar.",

@@ -15,12 +15,9 @@ export default function ActionBar({ showToast }) {
     const [showGeminiModal, setShowGeminiModal] = useState(false);
     const [showRecipesModal, setShowRecipesModal] = useState(false);
 
-    const { clearAll, applySharedState } = useEngineState(useShallow((state) => ({
+    const { clearAll, applySharedState, lang, domain } = useEngineState(useShallow((state) => ({
         clearAll: state.clearAll,
-        applySharedState: state.applySharedState
-    })));
-
-    const { lang, domain } = useEngineState(useShallow((state) => ({
+        applySharedState: state.applySharedState,
         lang: state.config.lang,
         domain: state.config.domain
     })));
@@ -187,13 +184,13 @@ export default function ActionBar({ showToast }) {
                         <ExternalLink size={10} aria-hidden="true" />
                     </a>
                 </div>
-                <button className="btn btn-secondary" style={{ background: '#10a37f', color: '#fff', borderColor: '#10a37f', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', fontSize: '0.8rem', padding: '8px 4px', fontWeight: 500 }} onClick={() => handleOpenAI('chatgpt')}>
+                <button className="btn btn-secondary" style={{ background: '#087055', color: '#ffffff', borderColor: '#087055', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', fontSize: '0.8rem', padding: '8px 4px', fontWeight: 600 }} onClick={() => handleOpenAI('chatgpt')}>
                     <SiOpenaigym size={14} /> ChatGPT
                 </button>
-                <button className="btn btn-secondary" style={{ background: '#d97757', color: '#fff', borderColor: '#d97757', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', fontSize: '0.8rem', padding: '8px 4px', fontWeight: 500 }} onClick={() => handleOpenAI('claude')}>
+                <button className="btn btn-secondary" style={{ background: '#b54c2d', color: '#ffffff', borderColor: '#b54c2d', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', fontSize: '0.8rem', padding: '8px 4px', fontWeight: 600 }} onClick={() => handleOpenAI('claude')}>
                     <SiAnthropic size={14} /> Claude
                 </button>
-                <button className="btn btn-secondary" style={{ background: '#22b8cd', color: '#1a1a1a', borderColor: '#22b8cd', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', fontSize: '0.8rem', padding: '8px 4px', fontWeight: 500 }} onClick={() => handleOpenAI('perplexity')}>
+                <button className="btn btn-secondary" style={{ background: '#22b8cd', color: '#090d16', borderColor: '#22b8cd', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', fontSize: '0.8rem', padding: '8px 4px', fontWeight: 600 }} onClick={() => handleOpenAI('perplexity')}>
                     <SiPerplexity size={14} /> Perplexity
                 </button>
             </div>

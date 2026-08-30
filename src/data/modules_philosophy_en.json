@@ -1,7 +1,7 @@
 [
   {
     "id": "fallacy-detector",
-    "icon": "🔍",
+    "icon": "box",
     "name": "Logical Fallacy Detector",
     "desc": "Identifies formal and informal logic fallacies within arguments.",
     "explain": "Identifies formal and informal logic fallacies within arguments.",
@@ -11,7 +11,7 @@
   },
   {
     "id": "syllogism-validator",
-    "icon": "⚖️",
+    "icon": "box",
     "name": "Syllogism Validator",
     "desc": "Audits formal validity and soundness of deductive syllogisms.",
     "explain": "Audits formal validity and soundness of deductive syllogisms.",
@@ -23,7 +23,7 @@
   },
   {
     "id": "premise-deconstruction",
-    "icon": "🧩",
+    "icon": "boxes",
     "name": "Premise Deconstruction",
     "desc": "Exposes unstated hidden premises and implicit enthymemes.",
     "explain": "Exposes unstated hidden premises and implicit enthymemes.",
@@ -35,7 +35,7 @@
   },
   {
     "id": "formal-validity-test",
-    "icon": "📐",
+    "icon": "checkcheck",
     "name": "Symbolic Logic Test",
     "desc": "Performs formal propositional logic checks ($P \\rightarrow Q$).",
     "explain": "Performs formal propositional logic checks ($P \\rightarrow Q$).",
@@ -47,7 +47,7 @@
   },
   {
     "id": "informal-fallacy-purge",
-    "icon": "🧹",
+    "icon": "alerttriangle",
     "name": "Informal Fallacy Purge",
     "desc": "Strips semantic distortions, false equivalences, and rhetorical ploys.",
     "explain": "Strips semantic distortions, false equivalences, and rhetorical ploys.",
@@ -59,7 +59,7 @@
   },
   {
     "id": "modal-logic-check",
-    "icon": "🌌",
+    "icon": "sparkle",
     "name": "Modal Logic Audit",
     "desc": "Evaluates propositions across dimensions of necessity and possibility.",
     "explain": "Evaluates propositions across dimensions of necessity and possibility.",
@@ -71,7 +71,7 @@
   },
   {
     "id": "utilitarian-calculus",
-    "icon": "🧮",
+    "icon": "box",
     "name": "Utilitarian Hedonic Calculus",
     "desc": "Measures net aggregate pleasure versus pain across affected populations.",
     "explain": "Measures net aggregate pleasure versus pain across affected populations.",
@@ -91,7 +91,7 @@
   },
   {
     "id": "virtue-ethics-audit",
-    "icon": "🏛️",
+    "icon": "award",
     "name": "Virtue Ethics Audit",
     "desc": "Evaluates moral character traits and Aristotelian Golden Mean alignment.",
     "explain": "Evaluates moral character traits and Aristotelian Golden Mean alignment.",
@@ -104,7 +104,7 @@
   },
   {
     "id": "care-ethics-perspective",
-    "icon": "🤝",
+    "icon": "heartpulse",
     "name": "Ethics of Care Analysis",
     "desc": "Focuses on relational duties, interdependence, and vulnerability.",
     "explain": "Focuses on relational duties, interdependence, and vulnerability.",
@@ -116,7 +116,7 @@
   },
   {
     "id": "rawlsian-veil-ignorance",
-    "icon": "🙈",
+    "icon": "glasses",
     "name": "Rawlsian Veil of Ignorance",
     "desc": "Evaluates justice by stripping knowledge of personal societal status.",
     "explain": "Evaluates justice by stripping knowledge of personal societal status.",
@@ -128,7 +128,7 @@
   },
   {
     "id": "ethical-dilemma-resolver",
-    "icon": "🔀",
+    "icon": "gitmerge",
     "name": "Ethical Dilemma Resolution",
     "desc": "Resolves irreconcilable trade-offs between competing normative frameworks.",
     "explain": "Resolves irreconcilable trade-offs between competing normative frameworks.",
@@ -141,7 +141,7 @@
   },
   {
     "id": "socratic-aporia",
-    "icon": "🏛️",
+    "icon": "helpcircle",
     "name": "Socratic Aporia Engine",
     "desc": "Drives interlocutors into productive epistemic perplexity via dialectic questioning.",
     "explain": "Drives interlocutors into productive epistemic perplexity via dialectic questioning.",
@@ -151,7 +151,7 @@
   },
   {
     "id": "justification-trilemma",
-    "icon": "🔺",
+    "icon": "triangle",
     "name": "Münchhausen Trilemma",
     "desc": "Exposes ultimate justification limits: infinite regress, circularity, or dogmatism.",
     "explain": "Exposes ultimate justification limits: infinite regress, circularity, or dogmatism.",
@@ -163,7 +163,7 @@
   },
   {
     "id": "radical-skepticism-filter",
-    "icon": "🤔",
+    "icon": "search",
     "name": "Cartesian Radical Skepticism",
     "desc": "Subjects all sensory data and assumptions to methodical doubt.",
     "explain": "Subjects all sensory data and assumptions to methodical doubt.",
@@ -175,7 +175,7 @@
   },
   {
     "id": "empiricism-vs-rationalism",
-    "icon": "⚖️",
+    "icon": "splitsquarehorizontal",
     "name": "Empiricism vs. Rationalism",
     "desc": "Separates claims grounded in sensory experience versus pure a priori reasoning.",
     "explain": "Separates claims grounded in sensory experience versus pure a priori reasoning.",
@@ -187,7 +187,7 @@
   },
   {
     "id": "coherentism-check",
-    "icon": "🕸️",
+    "icon": "component",
     "name": "Epistemic Coherentism Test",
     "desc": "Verifies how seamlessly claims integrate into web of belief networks.",
     "explain": "Verifies how seamlessly claims integrate into web of belief networks.",
@@ -199,7 +199,7 @@
   },
   {
     "id": "epistemic-humility-test",
-    "icon": "🌾",
+    "icon": "feather",
     "name": "Epistemic Humility Audit",
     "desc": "Maps the absolute limits of human knowability and model bounds.",
     "explain": "Maps the absolute limits of human knowability and model bounds.",
@@ -211,7 +211,7 @@
   },
   {
     "id": "ship-of-theseus-paradox",
-    "icon": "⛵",
+    "icon": "anchor",
     "name": "Ship of Theseus Paradox",
     "desc": "Examines identity, persistence, and essence through continuous replacement.",
     "explain": "Examines identity, persistence, and essence through continuous replacement.",
@@ -221,7 +221,7 @@
   },
   {
     "id": "trolley-problem-variation",
-    "icon": "🚃",
+    "icon": "split",
     "name": "Trolley Problem Dynamics",
     "desc": "Explores active intervention versus passive omission moral responsibility.",
     "explain": "Explores active intervention versus passive omission moral responsibility.",
@@ -233,7 +233,7 @@
   },
   {
     "id": "newcomb-paradox-audit",
-    "icon": "📦",
+    "icon": "boxes",
     "name": "Newcomb's Paradox Audit",
     "desc": "Explores decision theory tension between dominant choice and expected utility.",
     "explain": "Explores decision theory tension between dominant choice and expected utility.",
@@ -245,7 +245,7 @@
   },
   {
     "id": "prisoner-dilemma-matrix",
-    "icon": "🚔",
+    "icon": "grid",
     "name": "Prisoner's Dilemma Matrix",
     "desc": "Models conflict between individual rationality and collective welfare.",
     "explain": "Models conflict between individual rationality and collective welfare.",
@@ -257,7 +257,7 @@
   },
   {
     "id": "experience-machine-test",
-    "icon": "🔌",
+    "icon": "monitor",
     "name": "Nozick's Experience Machine",
     "desc": "Tests preference for genuine reality over simulated hedonism.",
     "explain": "Tests preference for genuine reality over simulated hedonism.",
@@ -269,7 +269,7 @@
   },
   {
     "id": "mary-color-scientist",
-    "icon": "🎨",
+    "icon": "palette",
     "name": "Mary the Color Scientist (Qualia)",
     "desc": "Explores the gap between physical information and subjective qualia.",
     "explain": "Explores the gap between physical information and subjective qualia.",
@@ -281,7 +281,7 @@
   },
   {
     "id": "dialectic-synthesis",
-    "icon": "☯️",
+    "icon": "gitmerge",
     "name": "Hegelian Dialectic Synthesis",
     "desc": "Reconciles thesis and antithesis into a higher-order synthesis (Aufhebung).",
     "explain": "Reconciles thesis and antithesis into a higher-order synthesis (Aufhebung).",
@@ -293,7 +293,7 @@
   },
   {
     "id": "steelman-construction",
-    "icon": "🛡️",
+    "icon": "shieldcheck",
     "name": "Steelman Construction",
     "desc": "Rebuilds opposition arguments into their most formidable form.",
     "explain": "Rebuilds opposition arguments into their most formidable form.",
@@ -305,7 +305,7 @@
   },
   {
     "id": "immanent-critique",
-    "icon": "🔬",
+    "icon": "crosshair",
     "name": "Immanent Critique",
     "desc": "Critiques a system internally using its own premises and values.",
     "explain": "Critiques a system internally using its own premises and values.",
@@ -317,7 +317,7 @@
   },
   {
     "id": "genealogy-deconstruction",
-    "icon": "📜",
+    "icon": "history",
     "name": "Genealogical Deconstruction",
     "desc": "Uncovers historical power dynamics shaping foundational concepts.",
     "explain": "Uncovers historical power dynamics shaping foundational concepts.",
@@ -329,7 +329,7 @@
   },
   {
     "id": "paradigm-shift-detector",
-    "icon": "💥",
+    "icon": "zap",
     "name": "Kuhnian Paradigm Shift",
     "desc": "Identifies accumulated anomalies signaling an impending paradigm shift.",
     "explain": "Identifies accumulated anomalies signaling an impending paradigm shift.",
@@ -341,7 +341,7 @@
   },
   {
     "id": "metaphysical-presupposition",
-    "icon": "🌌",
+    "icon": "atom",
     "name": "Metaphysical Presupposition Audit",
     "desc": "Interrogates underlying assumptions regarding existence, causality, and time.",
     "explain": "Interrogates underlying assumptions regarding existence, causality, and time.",
