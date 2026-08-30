@@ -60,8 +60,8 @@ PREMPT/
 ├── index.html                        # Root HTML mount point
 │
 ├── scripts/
-│   ├── validate-modules.mjs          # `npm run validate` — validates 15-domain modules, presets, parameters, targets
-│   ├── validate-ai-routes.mjs        # Validates AI URL encoding and query strategies
+│   ├── validate-modules.mjs          # `npm run validate` — validates 15-domain modules (0 emojis, 0 DAG cycles), 180 presets, defaultConfig, moduleIconRegistry, parameter hover coverage, and output targets
+│   ├── validate-ai-routes.mjs        # Validates AI URL encoding, query strategies, and clipboard fallback contracts
 │   └── audit-parameter-hover.mjs    # Validates every advanced parameter label/option has TR/EN hover copy
 │
 └── src/
