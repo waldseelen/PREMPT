@@ -66,8 +66,7 @@ PREMPT/
 │
 └── src/
     ├── main.jsx                      # React root mount
-    ├── App.jsx                       # Unified layout orchestrator
-    ├── App.css                       # Unused Vite-scaffold leftover (not imported by any file)
+    ├── App.jsx                       # Unified layout orchestrator & root ErrorBoundary
     ├── index.css                     # Primary styling, CSS custom properties, glassmorphism
     │
     ├── domains/                      # Declarative domain specifications & central registry
@@ -115,15 +114,17 @@ PREMPT/
         ├── Header.jsx                # Header title + optional DomainSwitcher + lang/theme controls
         ├── DomainSwitcher.jsx        # Horizontal navigation driven by domains/presentation.js
         ├── ParameterSelect.jsx       # Accessible option dropdown with hover/focus explanations
-        ├── ParameterHoverMenu.jsx   # Advanced label hover/focus menu from centralized descriptions
+        ├── ParameterHoverMenu.jsx    # Advanced label hover/focus menu from centralized descriptions
         ├── PresetBar.jsx             # 12-preset per domain rendering with overflow protection
-        ├── ModuleGrid.jsx            # Module card grid with centralized module hover model
-        ├── ConfigPanel.jsx          # Dynamic parameter selectors driven by domain specs and descriptions
-        ├── TopicInput.jsx           # Topic and domain expertise inputs
-        ├── ActionBar.jsx             # Reset, Copy, AI router buttons, Share/Export/Import
+        ├── ModuleGrid.jsx            # Module card grid with centralized module hover model & Lucide icons
+        ├── ConfigPanel.jsx           # Dynamic parameter selectors driven by domain specs and descriptions
+        ├── TopicInput.jsx            # Topic and domain expertise inputs
+        ├── ActionBar.jsx             # Reset, Copy, AI router buttons, Share/Export/Import & Recipes Modal
         ├── PreviewPanel.jsx          # Live prompt preview & token complexity stats
         ├── RecipesPanel.jsx          # Saved recipes management
-        └── OnboardingTour.jsx       # Step-by-step interactive onboarding tour
+        ├── PortalTooltip.jsx         # createPortal-based tooltip immune to parent overflow clipping
+        ├── moduleIconRegistry.js     # 457-module Lucide icon mapping registry
+        └── OnboardingTour.jsx        # Step-by-step interactive onboarding tour (on-demand via Help icon)
 ```
 
 ---

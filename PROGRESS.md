@@ -73,7 +73,13 @@ Notes on the gates themselves (not results):
    - Removed double tooltip `title` attribute from `PresetBar.jsx` and redundant back button from `DefaultFlow.jsx`.
    - Restructured `ErrorBoundary.jsx` styling and theme variables.
 
+8. **Advanced Mode White Screen & Tour Lifecycle Fix:**
+   - Eliminated render-time `setState` calls in `OnboardingTour.jsx` causing React render loops.
+   - Removed automatic tour auto-start from `App.jsx` and converted `OnboardingTour` to strictly on-demand via the Header Help icon (`HelpCircle`).
+   - Wrapped root application in `ErrorBoundary` to prevent any subcomponent error from causing a blank white screen.
+   - Added `useShallow` to `DomainSwitcher.jsx` and `OnboardingTour.jsx` for rock-solid state subscriptions.
+
 #### What Was Verified
 - `npm run lint`: passed with 0 errors and 0 warnings.
 - `npm run validate`: passed across all 15 domains, 457 modules, 180 presets, parameter descriptions, compiler texts, category translations, presentation mappings, and output targets.
-- `npm run build`: compiled in 755ms with 0 chunk size warnings.
+- `npm run build`: compiled in 1.33s with 0 chunk size warnings.
