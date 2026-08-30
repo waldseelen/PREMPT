@@ -3,412 +3,352 @@
     "id": "stride-threat-model",
     "icon": "🛡️",
     "name": "STRIDE Threat Modeling",
-    "category": "threat",
-    "description": "Audits systems against the full STRIDE threat categories.",
+    "desc": "Audits systems against the full STRIDE threat categories.",
+    "explain": "Audits systems against the full STRIDE threat categories.",
     "layer": "threat",
     "requires": [],
-    "prompt": "Perform STRIDE Threat Modeling: Audit system architecture across Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, and Elevation of Privilege.",
-    "desc": "Audits systems against the full STRIDE threat categories.",
-    "explain": "Audits systems against the full STRIDE threat categories."
+    "prompt": "Perform STRIDE Threat Modeling: Audit system architecture across Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, and Elevation of Privilege."
   },
   {
     "id": "attack-surface-mapping",
     "icon": "🗺️",
     "name": "Attack Surface Mapping",
-    "category": "threat",
-    "description": "Identifies and maps all exposed endpoints, open ports, and API vectors.",
+    "desc": "Identifies and maps all exposed endpoints, open ports, and API vectors.",
+    "explain": "Identifies and maps all exposed endpoints, open ports, and API vectors.",
     "layer": "threat",
     "requires": [
       "stride-threat-model"
     ],
-    "prompt": "Map the system Attack Surface: Catalog all public endpoints, open network ports, input fields, and third-party API integration points.",
-    "desc": "Identifies and maps all exposed endpoints, open ports, and API vectors.",
-    "explain": "Identifies and maps all exposed endpoints, open ports, and API vectors."
+    "prompt": "Map the system Attack Surface: Catalog all public endpoints, open network ports, input fields, and third-party API integration points."
   },
   {
     "id": "threat-actor-profiling",
     "icon": "🥷",
     "name": "Threat Actor Profiling",
-    "category": "threat",
-    "description": "Models capabilities, resources, and motivations of adversary profiles.",
+    "desc": "Models capabilities, resources, and motivations of adversary profiles.",
+    "explain": "Models capabilities, resources, and motivations of adversary profiles.",
     "layer": "threat",
     "requires": [
       "stride-threat-model"
     ],
-    "prompt": "Profile potential Threat Actors: Analyze motivations, technical capabilities, and likely attack pathways for Script Kiddies, Insider Threats, APTs, and State-Sponsored actors.",
-    "desc": "Models capabilities, resources, and motivations of adversary profiles.",
-    "explain": "Models capabilities, resources, and motivations of adversary profiles."
+    "prompt": "Profile potential Threat Actors: Analyze motivations, technical capabilities, and likely attack pathways for Script Kiddies, Insider Threats, APTs, and State-Sponsored actors."
   },
   {
     "id": "data-flow-diagram-audit",
     "icon": "🔄",
     "name": "Data Flow Diagram (DFD) Audit",
-    "category": "threat",
-    "description": "Audits data transitions across system trust boundaries.",
+    "desc": "Audits data transitions across system trust boundaries.",
+    "explain": "Audits data transitions across system trust boundaries.",
     "layer": "threat",
     "requires": [
       "attack-surface-mapping"
     ],
-    "prompt": "Audit Level 1 Data Flow Diagrams (DFDs): Identify encryption and authentication gaps where data flows traverse Trust Boundaries.",
-    "desc": "Audits data transitions across system trust boundaries.",
-    "explain": "Audits data transitions across system trust boundaries."
+    "prompt": "Audit Level 1 Data Flow Diagrams (DFDs): Identify encryption and authentication gaps where data flows traverse Trust Boundaries."
   },
   {
     "id": "dread-risk-scoring",
     "icon": "📊",
     "name": "DREAD Risk Scoring",
-    "category": "threat",
-    "description": "Prioritizes threats using the DREAD scoring model.",
+    "desc": "Prioritizes threats using the DREAD scoring model.",
+    "explain": "Prioritizes threats using the DREAD scoring model.",
     "layer": "threat",
     "requires": [
       "stride-threat-model"
     ],
-    "prompt": "Score threats using DREAD: Assign 1-10 scores for Damage Potential, Reproducibility, Exploitability, Affected Users, and Discoverability.",
-    "desc": "Prioritizes threats using the DREAD scoring model.",
-    "explain": "Prioritizes threats using the DREAD scoring model."
+    "prompt": "Score threats using DREAD: Assign 1-10 scores for Damage Potential, Reproducibility, Exploitability, Affected Users, and Discoverability."
   },
   {
     "id": "attack-tree-construction",
     "icon": "🌲",
     "name": "Attack Tree Construction",
-    "category": "threat",
-    "description": "Models multi-stage dependent and alternate attack pathways to root goals.",
+    "desc": "Models multi-stage dependent and alternate attack pathways to root goals.",
+    "explain": "Models multi-stage dependent and alternate attack pathways to root goals.",
     "layer": "threat",
     "requires": [
       "attack-surface-mapping"
     ],
-    "prompt": "Construct an Attack Tree for root target compromise: Model attack sub-goals using AND/OR logic gates and assign cost/complexity attributes to steps.",
-    "desc": "Models multi-stage dependent and alternate attack pathways to root goals.",
-    "explain": "Models multi-stage dependent and alternate attack pathways to root goals."
+    "prompt": "Construct an Attack Tree for root target compromise: Model attack sub-goals using AND/OR logic gates and assign cost/complexity attributes to steps."
   },
   {
     "id": "owasp-top10-scanner",
     "icon": "🐛",
     "name": "OWASP Top 10 Security Audit",
-    "category": "appsec",
-    "description": "Audits applications against the top 10 web application vulnerabilities.",
+    "desc": "Audits applications against the top 10 web application vulnerabilities.",
+    "explain": "Audits applications against the top 10 web application vulnerabilities.",
     "layer": "appsec",
     "requires": [],
-    "prompt": "Audit application against OWASP Top 10 vulnerabilities (Injection, Broken Auth, Sensitive Data Exposure, XXE, Broken Access Control, Misconfig, XSS, etc.).",
-    "desc": "Audits applications against the top 10 web application vulnerabilities.",
-    "explain": "Audits applications against the top 10 web application vulnerabilities."
+    "prompt": "Audit application against OWASP Top 10 vulnerabilities (Injection, Broken Auth, Sensitive Data Exposure, XXE, Broken Access Control, Misconfig, XSS, etc.)."
   },
   {
     "id": "input-validation-spec",
     "icon": "🧼",
     "name": "Input Validation & Sanitization",
-    "category": "appsec",
-    "description": "Defines strict input filtering to neutralize SQLi, XSS, and Injection risks.",
+    "desc": "Defines strict input filtering to neutralize SQLi, XSS, and Injection risks.",
+    "explain": "Defines strict input filtering to neutralize SQLi, XSS, and Injection risks.",
     "layer": "appsec",
     "requires": [
       "owasp-top10-scanner"
     ],
-    "prompt": "Write Strict Input Validation Specs: Enforce allowlist validation, prepared statements for database queries, and context-aware output encoding.",
-    "desc": "Defines strict input filtering to neutralize SQLi, XSS, and Injection risks.",
-    "explain": "Defines strict input filtering to neutralize SQLi, XSS, and Injection risks."
+    "prompt": "Write Strict Input Validation Specs: Enforce allowlist validation, prepared statements for database queries, and context-aware output encoding."
   },
   {
     "id": "auth-authz-hardener",
     "icon": "🔑",
     "name": "AuthN & AuthZ Hardening",
-    "category": "appsec",
-    "description": "Hardens authentication, authorization, JWT handling, and access controls.",
+    "desc": "Hardens authentication, authorization, JWT handling, and access controls.",
+    "explain": "Hardens authentication, authorization, JWT handling, and access controls.",
     "layer": "appsec",
     "requires": [
       "owasp-top10-scanner"
     ],
-    "prompt": "Harden AuthN/AuthZ architecture: Secure JWT signing/expiration, enforce fine-grained RBAC/ABAC controls, and mitigate BOLA/IDOR vulnerabilities.",
-    "desc": "Hardens authentication, authorization, JWT handling, and access controls.",
-    "explain": "Hardens authentication, authorization, JWT handling, and access controls."
+    "prompt": "Harden AuthN/AuthZ architecture: Secure JWT signing/expiration, enforce fine-grained RBAC/ABAC controls, and mitigate BOLA/IDOR vulnerabilities."
   },
   {
     "id": "api-security-checklist",
     "icon": "🔌",
     "name": "API Security Audit",
-    "category": "appsec",
-    "description": "Audits endpoints against OWASP API Security Top 10 standards.",
+    "desc": "Audits endpoints against OWASP API Security Top 10 standards.",
+    "explain": "Audits endpoints against OWASP API Security Top 10 standards.",
     "layer": "appsec",
     "requires": [
       "owasp-top10-scanner"
     ],
-    "prompt": "Audit endpoints against OWASP API Security Top 10: Check rate limiting, CORS configuration, API gateway authentication, and sensitive data exposure.",
-    "desc": "Audits endpoints against OWASP API Security Top 10 standards.",
-    "explain": "Audits endpoints against OWASP API Security Top 10 standards."
+    "prompt": "Audit endpoints against OWASP API Security Top 10: Check rate limiting, CORS configuration, API gateway authentication, and sensitive data exposure."
   },
   {
     "id": "secrets-management-audit",
     "icon": "🔐",
     "name": "Secrets Management Audit",
-    "category": "appsec",
-    "description": "Detects hardcoded secrets and enforces secure vault management.",
+    "desc": "Detects hardcoded secrets and enforces secure vault management.",
+    "explain": "Detects hardcoded secrets and enforces secure vault management.",
     "layer": "appsec",
     "requires": [
       "auth-authz-hardener"
     ],
-    "prompt": "Audit secrets management: Scan codebases for hardcoded API keys, private keys, and database credentials. Enforce HashiCorp Vault or KMS integration.",
-    "desc": "Detects hardcoded secrets and enforces secure vault management.",
-    "explain": "Detects hardcoded secrets and enforces secure vault management."
+    "prompt": "Audit secrets management: Scan codebases for hardcoded API keys, private keys, and database credentials. Enforce HashiCorp Vault or KMS integration."
   },
   {
     "id": "memory-safety-checker",
     "icon": "🧠",
     "name": "Memory Safety & Buffer Overflow",
-    "category": "appsec",
-    "description": "Identifies low-level memory leaks, pointer flaws, and buffer overflows.",
+    "desc": "Identifies low-level memory leaks, pointer flaws, and buffer overflows.",
+    "explain": "Identifies low-level memory leaks, pointer flaws, and buffer overflows.",
     "layer": "appsec",
     "requires": [
       "input-validation-spec"
     ],
-    "prompt": "Audit memory safety: Identify buffer overflow, use-after-free, and memory leak vulnerabilities, recommending safe memory patterns (Rust/RAII).",
-    "desc": "Identifies low-level memory leaks, pointer flaws, and buffer overflows.",
-    "explain": "Identifies low-level memory leaks, pointer flaws, and buffer overflows."
+    "prompt": "Audit memory safety: Identify buffer overflow, use-after-free, and memory leak vulnerabilities, recommending safe memory patterns (Rust/RAII)."
   },
   {
     "id": "zero-trust-architecture",
     "icon": "🏰",
     "name": "Zero-Trust Architecture Spec",
-    "category": "audit",
-    "description": "Applies 'Never Trust, Always Verify' across networks and identities.",
+    "desc": "Applies 'Never Trust, Always Verify' across networks and identities.",
+    "explain": "Applies 'Never Trust, Always Verify' across networks and identities.",
     "layer": "audit",
     "requires": [],
-    "prompt": "Apply Zero-Trust Architecture principles: 'Never Trust, Always Verify'. Eliminate implicit network trust and enforce continuous identity verification and least privilege (PoLP).",
-    "desc": "Applies 'Never Trust, Always Verify' across networks and identities.",
-    "explain": "Applies 'Never Trust, Always Verify' across networks and identities."
+    "prompt": "Apply Zero-Trust Architecture principles: 'Never Trust, Always Verify'. Eliminate implicit network trust and enforce continuous identity verification and least privilege (PoLP)."
   },
   {
     "id": "log-audit-trail-spec",
     "icon": "📜",
     "name": "SIEM & Audit Trail Spec",
-    "category": "audit",
-    "description": "Designs tamper-evident logging infrastructure for forensics and incident response.",
+    "desc": "Designs tamper-evident logging infrastructure for forensics and incident response.",
+    "explain": "Designs tamper-evident logging infrastructure for forensics and incident response.",
     "layer": "audit",
     "requires": [
       "zero-trust-architecture"
     ],
-    "prompt": "Specify SIEM & Audit Trail Architecture: Enforce append-only immutable logs, cryptographic log integrity (HMAC), PII masking, and unified NTP timestamping.",
-    "desc": "Designs tamper-evident logging infrastructure for forensics and incident response.",
-    "explain": "Designs tamper-evident logging infrastructure for forensics and incident response."
+    "prompt": "Specify SIEM & Audit Trail Architecture: Enforce append-only immutable logs, cryptographic log integrity (HMAC), PII masking, and unified NTP timestamping."
   },
   {
     "id": "identity-access-review",
     "icon": "👤",
     "name": "Privileged Access Management (PAM)",
-    "category": "audit",
-    "description": "Audits account permissions and enforces Principle of Least Privilege.",
+    "desc": "Audits account permissions and enforces Principle of Least Privilege.",
+    "explain": "Audits account permissions and enforces Principle of Least Privilege.",
     "layer": "audit",
     "requires": [
       "zero-trust-architecture"
     ],
-    "prompt": "Audit Privileged Access Management (PAM): Eliminate privilege escalation vectors, orphan accounts, and unneeded administrator permissions.",
-    "desc": "Audits account permissions and enforces Principle of Least Privilege.",
-    "explain": "Audits account permissions and enforces Principle of Least Privilege."
+    "prompt": "Audit Privileged Access Management (PAM): Eliminate privilege escalation vectors, orphan accounts, and unneeded administrator permissions."
   },
   {
     "id": "network-segmentation-audit",
     "icon": "🧱",
     "name": "Network Micro-Segmentation",
-    "category": "audit",
-    "description": "Segments network zones to block lateral adversary movement.",
+    "desc": "Segments network zones to block lateral adversary movement.",
+    "explain": "Segments network zones to block lateral adversary movement.",
     "layer": "audit",
     "requires": [
       "zero-trust-architecture"
     ],
-    "prompt": "Audit network micro-segmentation: Review firewall rules, DMZ isolation, and VLAN boundaries to prevent lateral movement across environments.",
-    "desc": "Segments network zones to block lateral adversary movement.",
-    "explain": "Segments network zones to block lateral adversary movement."
+    "prompt": "Audit network micro-segmentation: Review firewall rules, DMZ isolation, and VLAN boundaries to prevent lateral movement across environments."
   },
   {
     "id": "crypto-cipher-suite-check",
     "icon": "🔒",
     "name": "Cryptographic Standards Audit",
-    "category": "audit",
-    "description": "Phases out weak ciphers and enforces modern TLS/AES standards.",
+    "desc": "Phases out weak ciphers and enforces modern TLS/AES standards.",
+    "explain": "Phases out weak ciphers and enforces modern TLS/AES standards.",
     "layer": "audit",
     "requires": [
       "zero-trust-architecture"
     ],
-    "prompt": "Audit cryptographic implementations: Deprecate legacy ciphers (MD5, SHA1, DES, RC4) and enforce TLS 1.3, AES-256-GCM, and Post-Quantum Cryptography (PQC) readiness.",
-    "desc": "Phases out weak ciphers and enforces modern TLS/AES standards.",
-    "explain": "Phases out weak ciphers and enforces modern TLS/AES standards."
+    "prompt": "Audit cryptographic implementations: Deprecate legacy ciphers (MD5, SHA1, DES, RC4) and enforce TLS 1.3, AES-256-GCM, and Post-Quantum Cryptography (PQC) readiness."
   },
   {
     "id": "incident-response-readiness",
     "icon": "🚨",
     "name": "Incident Response Readiness",
-    "category": "audit",
-    "description": "Develops incident response plans following NIST SP 800-61.",
+    "desc": "Develops incident response plans following NIST SP 800-61.",
+    "explain": "Develops incident response plans following NIST SP 800-61.",
     "layer": "audit",
     "requires": [
       "log-audit-trail-spec"
     ],
-    "prompt": "Draft a NIST SP 800-61 compliant Incident Response Plan (IRP): Detail steps for Preparation, Detection & Analysis, Containment, Eradication, Recovery, and Post-Incident lessons.",
-    "desc": "Develops incident response plans following NIST SP 800-61.",
-    "explain": "Develops incident response plans following NIST SP 800-61."
+    "prompt": "Draft a NIST SP 800-61 compliant Incident Response Plan (IRP): Detail steps for Preparation, Detection & Analysis, Containment, Eradication, Recovery, and Post-Incident lessons."
   },
   {
     "id": "pentest-scenario-builder",
     "icon": "🎯",
     "name": "Penetration Testing Scenario Builder",
-    "category": "pentest",
-    "description": "Designs ethical hacking exploitation scenarios customized to target systems.",
+    "desc": "Designs ethical hacking exploitation scenarios customized to target systems.",
+    "explain": "Designs ethical hacking exploitation scenarios customized to target systems.",
     "layer": "pentest",
     "requires": [
       "attack-surface-mapping"
     ],
-    "prompt": "Build an ethical Penetration Testing Scenario: Detail Reconnaissance, Vulnerability Discovery, Exploitation, and Post-Exploitation phases.",
-    "desc": "Designs ethical hacking exploitation scenarios customized to target systems.",
-    "explain": "Designs ethical hacking exploitation scenarios customized to target systems."
+    "prompt": "Build an ethical Penetration Testing Scenario: Detail Reconnaissance, Vulnerability Discovery, Exploitation, and Post-Exploitation phases."
   },
   {
     "id": "social-engineering-vectors",
     "icon": "🎣",
     "name": "Social Engineering Vectors",
-    "category": "pentest",
-    "description": "Simulates phishing and human-centric security breach scenarios.",
+    "desc": "Simulates phishing and human-centric security breach scenarios.",
+    "explain": "Simulates phishing and human-centric security breach scenarios.",
     "layer": "pentest",
     "requires": [
       "pentest-scenario-builder"
     ],
-    "prompt": "Develop Social Engineering & Spear Phishing simulation vectors: Analyze credential harvesting, pretexting, and human-element entry points.",
-    "desc": "Simulates phishing and human-centric security breach scenarios.",
-    "explain": "Simulates phishing and human-centric security breach scenarios."
+    "prompt": "Develop Social Engineering & Spear Phishing simulation vectors: Analyze credential harvesting, pretexting, and human-element entry points."
   },
   {
     "id": "exploit-payload-analysis",
     "icon": "💣",
     "name": "Exploit & Payload Analysis",
-    "category": "pentest",
-    "description": "Analyzes executable payload mechanics to author detection signatures.",
+    "desc": "Analyzes executable payload mechanics to author detection signatures.",
+    "explain": "Analyzes executable payload mechanics to author detection signatures.",
     "layer": "pentest",
     "requires": [
       "pentest-scenario-builder"
     ],
-    "prompt": "Analyze exploit payload mechanics: Evaluate Proof of Concept (PoC) code and author defensive YARA / Snort detection signatures.",
-    "desc": "Analyzes executable payload mechanics to author detection signatures.",
-    "explain": "Analyzes executable payload mechanics to author detection signatures."
+    "prompt": "Analyze exploit payload mechanics: Evaluate Proof of Concept (PoC) code and author defensive YARA / Snort detection signatures."
   },
   {
     "id": "privilege-escalation-check",
     "icon": "📈",
     "name": "Privilege Escalation Audit",
-    "category": "pentest",
-    "description": "Identifies pathways from low-privilege access to root/SYSTEM authority.",
+    "desc": "Identifies pathways from low-privilege access to root/SYSTEM authority.",
+    "explain": "Identifies pathways from low-privilege access to root/SYSTEM authority.",
     "layer": "pentest",
     "requires": [
       "pentest-scenario-builder"
     ],
-    "prompt": "Audit Privilege Escalation vectors: Scan for Linux (SUID bits, sudoers misconfigurations) and Windows (Token Impersonation, Unquoted Service Paths) flaws.",
-    "desc": "Identifies pathways from low-privilege access to root/SYSTEM authority.",
-    "explain": "Identifies pathways from low-privilege access to root/SYSTEM authority."
+    "prompt": "Audit Privilege Escalation vectors: Scan for Linux (SUID bits, sudoers misconfigurations) and Windows (Token Impersonation, Unquoted Service Paths) flaws."
   },
   {
     "id": "lateral-movement-pathway",
     "icon": "↔️",
     "name": "Lateral Movement Pathway Analysis",
-    "category": "pentest",
-    "description": "Maps and blocks internal lateral pivoting across networked hosts.",
+    "desc": "Maps and blocks internal lateral pivoting across networked hosts.",
+    "explain": "Maps and blocks internal lateral pivoting across networked hosts.",
     "layer": "pentest",
     "requires": [
       "exploit-payload-analysis"
     ],
-    "prompt": "Map Lateral Movement pathways: Design defensive controls against Pass-the-Hash, Pass-the-Ticket (Kerberos), and SSH key pivoting.",
-    "desc": "Maps and blocks internal lateral pivoting across networked hosts.",
-    "explain": "Maps and blocks internal lateral pivoting across networked hosts."
+    "prompt": "Map Lateral Movement pathways: Design defensive controls against Pass-the-Hash, Pass-the-Ticket (Kerberos), and SSH key pivoting."
   },
   {
     "id": "egress-filtering-test",
     "icon": "📤",
     "name": "Egress Filtering & Data Exfiltration",
-    "category": "pentest",
-    "description": "Tests egress controls against C2 tunneling and covert data leaks.",
+    "desc": "Tests egress controls against C2 tunneling and covert data leaks.",
+    "explain": "Tests egress controls against C2 tunneling and covert data leaks.",
     "layer": "pentest",
     "requires": [
       "privilege-escalation-check"
     ],
-    "prompt": "Audit Egress Filtering controls: Test network boundaries against covert exfiltration channels including DNS Tunneling, ICMP leaks, and C2 beacons.",
-    "desc": "Tests egress controls against C2 tunneling and covert data leaks.",
-    "explain": "Tests egress controls against C2 tunneling and covert data leaks."
+    "prompt": "Audit Egress Filtering controls: Test network boundaries against covert exfiltration channels including DNS Tunneling, ICMP leaks, and C2 beacons."
   },
   {
     "id": "iso27001-gap-analysis",
     "icon": "📋",
     "name": "ISO 27001 / NIST CSF Gap Analysis",
-    "category": "compliance",
-    "description": "Evaluates information security management against international frameworks.",
+    "desc": "Evaluates information security management against international frameworks.",
+    "explain": "Evaluates information security management against international frameworks.",
     "layer": "compliance",
     "requires": [],
-    "prompt": "Perform ISO/IEC 27001:2022 or NIST CSF Gap Analysis: Evaluate baseline control coverage and document missing policy/technical controls.",
-    "desc": "Evaluates information security management against international frameworks.",
-    "explain": "Evaluates information security management against international frameworks."
+    "prompt": "Perform ISO/IEC 27001:2022 or NIST CSF Gap Analysis: Evaluate baseline control coverage and document missing policy/technical controls."
   },
   {
     "id": "gdpr-data-privacy-spec",
     "icon": "🇪🇺",
     "name": "GDPR / Data Privacy Specification",
-    "category": "compliance",
-    "description": "Audits data minimisation, pseudonymisation, and regulatory compliance.",
+    "desc": "Audits data minimisation, pseudonymisation, and regulatory compliance.",
+    "explain": "Audits data minimisation, pseudonymisation, and regulatory compliance.",
     "layer": "compliance",
     "requires": [
       "iso27001-gap-analysis"
     ],
-    "prompt": "Enforce GDPR / Data Privacy Compliance: Audit Data Minimization, Pseudonymization, Right to be Forgotten protocols, and 72-hour breach notification readiness.",
-    "desc": "Audits data minimisation, pseudonymisation, and regulatory compliance.",
-    "explain": "Audits data minimisation, pseudonymisation, and regulatory compliance."
+    "prompt": "Enforce GDPR / Data Privacy Compliance: Audit Data Minimization, Pseudonymization, Right to be Forgotten protocols, and 72-hour breach notification readiness."
   },
   {
     "id": "soc2-type2-controls",
     "icon": "📜",
     "name": "SOC 2 Type II Trust Criteria Audit",
-    "category": "compliance",
-    "description": "Audits operational effectiveness across Security, Availability, and Confidentiality.",
+    "desc": "Audits operational effectiveness across Security, Availability, and Confidentiality.",
+    "explain": "Audits operational effectiveness across Security, Availability, and Confidentiality.",
     "layer": "compliance",
     "requires": [
       "iso27001-gap-analysis"
     ],
-    "prompt": "Audit against SOC 2 Type II Trust Services Criteria: Document operational evidence across Security, Availability, Processing Integrity, and Confidentiality.",
-    "desc": "Audits operational effectiveness across Security, Availability, and Confidentiality.",
-    "explain": "Audits operational effectiveness across Security, Availability, and Confidentiality."
+    "prompt": "Audit against SOC 2 Type II Trust Services Criteria: Document operational evidence across Security, Availability, Processing Integrity, and Confidentiality."
   },
   {
     "id": "supply-chain-risk-audit",
     "icon": "🔗",
     "name": "Software Supply Chain Audit",
-    "category": "compliance",
-    "description": "Audits third-party open-source dependencies and SBOM risks.",
+    "desc": "Audits third-party open-source dependencies and SBOM risks.",
+    "explain": "Audits third-party open-source dependencies and SBOM risks.",
     "layer": "compliance",
     "requires": [
       "iso27001-gap-analysis"
     ],
-    "prompt": "Perform Software Supply Chain Risk Audit: Generate Software Bill of Materials (SBOM), scan open-source dependencies for known vulnerabilities (CVEs), and audit vendor risks.",
-    "desc": "Audits third-party open-source dependencies and SBOM risks.",
-    "explain": "Audits third-party open-source dependencies and SBOM risks."
+    "prompt": "Perform Software Supply Chain Risk Audit: Generate Software Bill of Materials (SBOM), scan open-source dependencies for known vulnerabilities (CVEs), and audit vendor risks."
   },
   {
     "id": "vulnerability-remediation",
     "icon": "🩹",
     "name": "Vulnerability Remediation Plan",
-    "category": "compliance",
-    "description": "Prioritizes vulnerability patching based on CVSS metrics and operational risk.",
+    "desc": "Prioritizes vulnerability patching based on CVSS metrics and operational risk.",
+    "explain": "Prioritizes vulnerability patching based on CVSS metrics and operational risk.",
     "layer": "compliance",
     "requires": [
       "soc2-type2-controls"
     ],
-    "prompt": "Formulate a Vulnerability Remediation Roadmap: Prioritize flaws by CVSS score, providing immediate operational workarounds and permanent patch code snippets.",
-    "desc": "Prioritizes vulnerability patching based on CVSS metrics and operational risk.",
-    "explain": "Prioritizes vulnerability patching based on CVSS metrics and operational risk."
+    "prompt": "Formulate a Vulnerability Remediation Roadmap: Prioritize flaws by CVSS score, providing immediate operational workarounds and permanent patch code snippets."
   },
   {
     "id": "ransomware-resilience-check",
     "icon": "☣️",
     "name": "Ransomware Resilience Audit",
-    "category": "compliance",
-    "description": "Evaluates backup immutability, disaster recovery, and RTO/RPO targets.",
+    "desc": "Evaluates backup immutability, disaster recovery, and RTO/RPO targets.",
+    "explain": "Evaluates backup immutability, disaster recovery, and RTO/RPO targets.",
     "layer": "compliance",
     "requires": [
       "vulnerability-remediation"
     ],
-    "prompt": "Conduct a Ransomware Resilience Audit: Verify 3-2-1 backup architecture, offline/immutable storage enforcement, and bare-metal recovery time objectives (RTO/RPO).",
-    "desc": "Evaluates backup immutability, disaster recovery, and RTO/RPO targets.",
-    "explain": "Evaluates backup immutability, disaster recovery, and RTO/RPO targets."
+    "prompt": "Conduct a Ransomware Resilience Audit: Verify 3-2-1 backup architecture, offline/immutable storage enforcement, and bare-metal recovery time objectives (RTO/RPO)."
   }
 ]

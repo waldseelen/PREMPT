@@ -3,414 +3,354 @@
     "id": "root-cause-5-whys",
     "icon": "🕵️",
     "name": "Root Cause (5 Whys) Analysis",
-    "category": "deconstruction",
-    "description": "Drills beneath surface symptoms to uncover underlying root causes.",
+    "desc": "Drills beneath surface symptoms to uncover underlying root causes.",
+    "explain": "Drills beneath surface symptoms to uncover underlying root causes.",
     "layer": "deconstruction",
     "requires": [],
-    "prompt": "Execute 5 Whys technique: Ask 'Why?' five consecutive times to strip away symptoms and pinpoint the fundamental root cause.",
-    "desc": "Drills beneath surface symptoms to uncover underlying root causes.",
-    "explain": "Drills beneath surface symptoms to uncover underlying root causes."
+    "prompt": "Execute 5 Whys technique: Ask 'Why?' five consecutive times to strip away symptoms and pinpoint the fundamental root cause."
   },
   {
     "id": "problem-boundary-def",
     "icon": "🎯",
     "name": "Problem Boundary Definition",
-    "category": "deconstruction",
-    "description": "Clarifies exact in-scope and out-of-scope problem bounds.",
+    "desc": "Clarifies exact in-scope and out-of-scope problem bounds.",
+    "explain": "Clarifies exact in-scope and out-of-scope problem bounds.",
     "layer": "deconstruction",
     "requires": [
       "root-cause-5-whys"
     ],
-    "prompt": "Define problem boundaries (In-Scope vs. Out-of-Scope): Clarify precisely what is being solved and what is explicitly excluded to prevent scope creep.",
-    "desc": "Clarifies exact in-scope and out-of-scope problem bounds.",
-    "explain": "Clarifies exact in-scope and out-of-scope problem bounds."
+    "prompt": "Define problem boundaries (In-Scope vs. Out-of-Scope): Clarify precisely what is being solved and what is explicitly excluded to prevent scope creep."
   },
   {
     "id": "functional-analysis",
     "icon": "⚙️",
     "name": "Functional System Analysis",
-    "category": "deconstruction",
-    "description": "Deconstructs a system into components and functional interactions.",
+    "desc": "Deconstructs a system into components and functional interactions.",
+    "explain": "Deconstructs a system into components and functional interactions.",
     "layer": "deconstruction",
     "requires": [
       "problem-boundary-def"
     ],
-    "prompt": "Perform Functional Analysis: Break system components into Subject-Action-Object pairs. Identify insufficient, redundant, or harmful functions.",
-    "desc": "Deconstructs a system into components and functional interactions.",
-    "explain": "Deconstructs a system into components and functional interactions."
+    "prompt": "Perform Functional Analysis: Break system components into Subject-Action-Object pairs. Identify insufficient, redundant, or harmful functions."
   },
   {
     "id": "constraint-mapping",
     "icon": "🧱",
     "name": "Constraint Mapping (TOC)",
-    "category": "deconstruction",
-    "description": "Applies Goldratt's Theory of Constraints to isolate system bottlenecks.",
+    "desc": "Applies Goldratt's Theory of Constraints to isolate system bottlenecks.",
+    "explain": "Applies Goldratt's Theory of Constraints to isolate system bottlenecks.",
     "layer": "deconstruction",
     "requires": [
       "problem-boundary-def"
     ],
-    "prompt": "Apply Theory of Constraints (TOC): Identify the single primary bottleneck constraining total system throughput and focus analysis exclusively on it.",
-    "desc": "Applies Goldratt's Theory of Constraints to isolate system bottlenecks.",
-    "explain": "Applies Goldratt's Theory of Constraints to isolate system bottlenecks."
+    "prompt": "Apply Theory of Constraints (TOC): Identify the single primary bottleneck constraining total system throughput and focus analysis exclusively on it."
   },
   {
     "id": "issue-tree-breakdown",
     "icon": "🌳",
     "name": "Issue Tree (MECE) Breakdown",
-    "category": "deconstruction",
-    "description": "Decomposes problems into mutually exclusive, collectively exhaustive branches.",
+    "desc": "Decomposes problems into mutually exclusive, collectively exhaustive branches.",
+    "explain": "Decomposes problems into mutually exclusive, collectively exhaustive branches.",
     "layer": "deconstruction",
     "requires": [
       "root-cause-5-whys"
     ],
-    "prompt": "Deconstruct the problem into a MECE (Mutually Exclusive, Collectively Exhaustive) Issue Tree. Ensure zero overlaps and zero unexamined logical gaps.",
-    "desc": "Decomposes problems into mutually exclusive, collectively exhaustive branches.",
-    "explain": "Decomposes problems into mutually exclusive, collectively exhaustive branches."
+    "prompt": "Deconstruct the problem into a MECE (Mutually Exclusive, Collectively Exhaustive) Issue Tree. Ensure zero overlaps and zero unexamined logical gaps."
   },
   {
     "id": "system-component-map",
     "icon": "🗺️",
     "name": "System Component Mapping",
-    "category": "deconstruction",
-    "description": "Maps interactions across supersystems, main systems, and subsystems.",
+    "desc": "Maps interactions across supersystems, main systems, and subsystems.",
+    "explain": "Maps interactions across supersystems, main systems, and subsystems.",
     "layer": "deconstruction",
     "requires": [
       "functional-analysis"
     ],
-    "prompt": "Map material, energy, and information flows across supersystem, core system, and subsystem boundaries.",
-    "desc": "Maps interactions across supersystems, main systems, and subsystems.",
-    "explain": "Maps interactions across supersystems, main systems, and subsystems."
+    "prompt": "Map material, energy, and information flows across supersystem, core system, and subsystem boundaries."
   },
   {
     "id": "triz-contradiction-matrix",
     "icon": "⚡",
     "name": "TRIZ Contradiction Matrix",
-    "category": "triz",
-    "description": "Resolves engineering contradictions without compromised trade-offs.",
+    "desc": "Resolves engineering contradictions without compromised trade-offs.",
+    "explain": "Resolves engineering contradictions without compromised trade-offs.",
     "layer": "triz",
     "requires": [
       "functional-analysis"
     ],
-    "prompt": "Apply the TRIZ Contradiction Matrix: Identify the improving parameter vs. worsening parameter trade-off and select relevant Inventive Principles from TRIZ.",
-    "desc": "Resolves engineering contradictions without compromised trade-offs.",
-    "explain": "Resolves engineering contradictions without compromised trade-offs."
+    "prompt": "Apply the TRIZ Contradiction Matrix: Identify the improving parameter vs. worsening parameter trade-off and select relevant Inventive Principles from TRIZ."
   },
   {
     "id": "triz-ideality-operator",
     "icon": "✨",
     "name": "TRIZ Ideal Final Result (IFR)",
-    "category": "triz",
-    "description": "Drives systems toward zero cost and complexity while retaining pure function.",
+    "desc": "Drives systems toward zero cost and complexity while retaining pure function.",
+    "explain": "Drives systems toward zero cost and complexity while retaining pure function.",
     "layer": "triz",
     "requires": [
       "triz-contradiction-matrix"
     ],
-    "prompt": "Define the Ideal Final Result (IFR): How can the system perform the required function BY ITSELF without adding cost, space, or complexity?",
-    "desc": "Drives systems toward zero cost and complexity while retaining pure function.",
-    "explain": "Drives systems toward zero cost and complexity while retaining pure function."
+    "prompt": "Define the Ideal Final Result (IFR): How can the system perform the required function BY ITSELF without adding cost, space, or complexity?"
   },
   {
     "id": "triz-resource-inventory",
     "icon": "🎒",
     "name": "TRIZ Resource Inventory",
-    "category": "triz",
-    "description": "Uncovers idle internal and environmental resources for problem resolution.",
+    "desc": "Uncovers idle internal and environmental resources for problem resolution.",
+    "explain": "Uncovers idle internal and environmental resources for problem resolution.",
     "layer": "triz",
     "requires": [
       "triz-ideality-operator"
     ],
-    "prompt": "Conduct a TRIZ Resource Audit: Identify free, idle, or wasted resources (waste heat, gravity, space, time, materials) to solve the problem.",
-    "desc": "Uncovers idle internal and environmental resources for problem resolution.",
-    "explain": "Uncovers idle internal and environmental resources for problem resolution."
+    "prompt": "Conduct a TRIZ Resource Audit: Identify free, idle, or wasted resources (waste heat, gravity, space, time, materials) to solve the problem."
   },
   {
     "id": "triz-substance-field",
     "icon": "🧲",
     "name": "TRIZ Substance-Field (Su-Field)",
-    "category": "triz",
-    "description": "Models and transforms substance-field interactions to fix system flaws.",
+    "desc": "Models and transforms substance-field interactions to fix system flaws.",
+    "explain": "Models and transforms substance-field interactions to fix system flaws.",
     "layer": "triz",
     "requires": [
       "triz-contradiction-matrix"
     ],
-    "prompt": "Perform Su-Field Analysis: Model the system as $S_1$ (Substance 1), $S_2$ (Substance 2), and $F$ (Field). Introduce a new field or substance to neutralize harmful interactions.",
-    "desc": "Models and transforms substance-field interactions to fix system flaws.",
-    "explain": "Models and transforms substance-field interactions to fix system flaws."
+    "prompt": "Perform Su-Field Analysis: Model the system as $S_1$ (Substance 1), $S_2$ (Substance 2), and $F$ (Field). Introduce a new field or substance to neutralize harmful interactions."
   },
   {
     "id": "triz-evolution-lines",
     "icon": "📈",
     "name": "TRIZ System Evolution Lines",
-    "category": "triz",
-    "description": "Forecasts technological evolution paths along S-curves.",
+    "desc": "Forecasts technological evolution paths along S-curves.",
+    "explain": "Forecasts technological evolution paths along S-curves.",
     "layer": "triz",
     "requires": [
       "triz-ideality-operator"
     ],
-    "prompt": "Analyze System Evolution Lines: Locate the system's position on its S-curve and project its next evolutionary jump toward dynamism or miniaturization.",
-    "desc": "Forecasts technological evolution paths along S-curves.",
-    "explain": "Forecasts technological evolution paths along S-curves."
+    "prompt": "Analyze System Evolution Lines: Locate the system's position on its S-curve and project its next evolutionary jump toward dynamism or miniaturization."
   },
   {
     "id": "triz-su-field-analysis",
     "icon": "🌀",
     "name": "TRIZ Standard Solutions",
-    "category": "triz",
-    "description": "Applies TRIZ 76 Standard Solutions to eliminate system flaws.",
+    "desc": "Applies TRIZ 76 Standard Solutions to eliminate system flaws.",
+    "explain": "Applies TRIZ 76 Standard Solutions to eliminate system flaws.",
     "layer": "triz",
     "requires": [
       "triz-substance-field"
     ],
-    "prompt": "Select and apply 3 relevant TRIZ Standard Solutions (from the 76 standards) to transform system structure and eliminate chronic failure modes.",
-    "desc": "Applies TRIZ 76 Standard Solutions to eliminate system flaws.",
-    "explain": "Applies TRIZ 76 Standard Solutions to eliminate system flaws."
+    "prompt": "Select and apply 3 relevant TRIZ Standard Solutions (from the 76 standards) to transform system structure and eliminate chronic failure modes."
   },
   {
     "id": "de-bono-6-hats",
     "icon": "🎩",
     "name": "de Bono 6 Thinking Hats",
-    "category": "lateral",
-    "description": "Systematically explores problems from six distinct cognitive perspectives.",
+    "desc": "Systematically explores problems from six distinct cognitive perspectives.",
+    "explain": "Systematically explores problems from six distinct cognitive perspectives.",
     "layer": "lateral",
     "requires": [],
-    "prompt": "Apply 6 Thinking Hats sequentially: White (Data), Red (Emotion), Black (Risk), Yellow (Value), Green (Creativity), Blue (Process Control). Segregate outputs accordingly.",
-    "desc": "Systematically explores problems from six distinct cognitive perspectives.",
-    "explain": "Systematically explores problems from six distinct cognitive perspectives."
+    "prompt": "Apply 6 Thinking Hats sequentially: White (Data), Red (Emotion), Black (Risk), Yellow (Value), Green (Creativity), Blue (Process Control). Segregate outputs accordingly."
   },
   {
     "id": "random-word-stimulus",
     "icon": "🎲",
     "name": "Random Stimulus Technique",
-    "category": "lateral",
-    "description": "Forces unexpected connections by introducing random unrelated words.",
+    "desc": "Forces unexpected connections by introducing random unrelated words.",
+    "explain": "Forces unexpected connections by introducing random unrelated words.",
     "layer": "lateral",
     "requires": [
       "de-bono-6-hats"
     ],
-    "prompt": "Execute Random Entry: Select an entirely unrelated object/word and forcibly bridge its attributes to the problem domain to generate breakthrough ideas.",
-    "desc": "Forces unexpected connections by introducing random unrelated words.",
-    "explain": "Forces unexpected connections by introducing random unrelated words."
+    "prompt": "Execute Random Entry: Select an entirely unrelated object/word and forcibly bridge its attributes to the problem domain to generate breakthrough ideas."
   },
   {
     "id": "provocation-po",
     "icon": "💥",
     "name": "Provocation (PO) Operator",
-    "category": "lateral",
-    "description": "Formulates absurd statements to open new lateral thinking pathways.",
+    "desc": "Formulates absurd statements to open new lateral thinking pathways.",
+    "explain": "Formulates absurd statements to open new lateral thinking pathways.",
     "layer": "lateral",
     "requires": [
       "de-bono-6-hats"
     ],
-    "prompt": "Formulate a Provocation (PO): State an absurd, reality-defying hypothesis (e.g., 'PO: Cars have square wheels'). Use this as a stepping stone to derive practical innovations.",
-    "desc": "Formulates absurd statements to open new lateral thinking pathways.",
-    "explain": "Formulates absurd statements to open new lateral thinking pathways."
+    "prompt": "Formulate a Provocation (PO): State an absurd, reality-defying hypothesis (e.g., 'PO: Cars have square wheels'). Use this as a stepping stone to derive practical innovations."
   },
   {
     "id": "analogical-transfer",
     "icon": "🧬",
     "name": "Biomimicry & Analogy Transfer",
-    "category": "lateral",
-    "description": "Transfers evolutionary and cross-industry solutions to the target domain.",
+    "desc": "Transfers evolutionary and cross-industry solutions to the target domain.",
+    "explain": "Transfers evolutionary and cross-industry solutions to the target domain.",
     "layer": "lateral",
     "requires": [
       "de-bono-6-hats"
     ],
-    "prompt": "Apply Biomimicry or cross-industry analogy: Identify how natural organisms or distant industries solved an identical functional problem and transfer the mechanism.",
-    "desc": "Transfers evolutionary and cross-industry solutions to the target domain.",
-    "explain": "Transfers evolutionary and cross-industry solutions to the target domain."
+    "prompt": "Apply Biomimicry or cross-industry analogy: Identify how natural organisms or distant industries solved an identical functional problem and transfer the mechanism."
   },
   {
     "id": "perspective-reversal",
     "icon": "🔄",
     "name": "Perspective Reversal",
-    "category": "lateral",
-    "description": "Views the problem through the first-person perspective of system objects.",
+    "desc": "Views the problem through the first-person perspective of system objects.",
+    "explain": "Views the problem through the first-person perspective of system objects.",
     "layer": "lateral",
     "requires": [
       "de-bono-6-hats"
     ],
-    "prompt": "Invert perspective: Describe the problem in first-person prose from the perspective of the object or opponent ('I am a data packet moving through this node...').",
-    "desc": "Views the problem through the first-person perspective of system objects.",
-    "explain": "Views the problem through the first-person perspective of system objects."
+    "prompt": "Invert perspective: Describe the problem in first-person prose from the perspective of the object or opponent ('I am a data packet moving through this node...')."
   },
   {
     "id": "cross-domain-pollination",
     "icon": "🐝",
     "name": "Cross-Domain Pollination",
-    "category": "lateral",
-    "description": "Imports architectural models from radically unrelated fields.",
+    "desc": "Imports architectural models from radically unrelated fields.",
+    "explain": "Imports architectural models from radically unrelated fields.",
     "layer": "lateral",
     "requires": [
       "analogical-transfer"
     ],
-    "prompt": "Execute Cross-Domain Pollination: Solve the target problem using structural principles imported from aerospace, deep-sea biology, or game design.",
-    "desc": "Imports architectural models from radically unrelated fields.",
-    "explain": "Imports architectural models from radically unrelated fields."
+    "prompt": "Execute Cross-Domain Pollination: Solve the target problem using structural principles imported from aerospace, deep-sea biology, or game design."
   },
   {
     "id": "scamper-substitute",
     "icon": "🔄",
     "name": "SCAMPER - Substitute",
-    "category": "scamper",
-    "description": "Replaces system materials, components, or process steps.",
+    "desc": "Replaces system materials, components, or process steps.",
+    "explain": "Replaces system materials, components, or process steps.",
     "layer": "scamper",
     "requires": [],
-    "prompt": "Apply SCAMPER - Substitute: What materials, steps, people, or energy sources in this system can be substituted with alternatives?",
-    "desc": "Replaces system materials, components, or process steps.",
-    "explain": "Replaces system materials, components, or process steps."
+    "prompt": "Apply SCAMPER - Substitute: What materials, steps, people, or energy sources in this system can be substituted with alternatives?"
   },
   {
     "id": "scamper-combine-adapt",
     "icon": "🧩",
     "name": "SCAMPER - Combine & Adapt",
-    "category": "scamper",
-    "description": "Blends multiple functions and adapts external solutions.",
+    "desc": "Blends multiple functions and adapts external solutions.",
+    "explain": "Blends multiple functions and adapts external solutions.",
     "layer": "scamper",
     "requires": [
       "scamper-substitute"
     ],
-    "prompt": "Apply SCAMPER - Combine & Adapt: What external services or functions can be merged into this system? How can external frameworks be adapted here?",
-    "desc": "Blends multiple functions and adapts external solutions.",
-    "explain": "Blends multiple functions and adapts external solutions."
+    "prompt": "Apply SCAMPER - Combine & Adapt: What external services or functions can be merged into this system? How can external frameworks be adapted here?"
   },
   {
     "id": "scamper-modify-magnify",
     "icon": "🔍",
     "name": "SCAMPER - Modify & Magnify",
-    "category": "scamper",
-    "description": "Exaggerates or minimizes dimensions, frequency, and scale.",
+    "desc": "Exaggerates or minimizes dimensions, frequency, and scale.",
+    "explain": "Exaggerates or minimizes dimensions, frequency, and scale.",
     "layer": "scamper",
     "requires": [
       "scamper-combine-adapt"
     ],
-    "prompt": "Apply SCAMPER - Modify/Magnify/Minify: What happens if a core attribute is magnified 100x or shrunk down to micro-scale?",
-    "desc": "Exaggerates or minimizes dimensions, frequency, and scale.",
-    "explain": "Exaggerates or minimizes dimensions, frequency, and scale."
+    "prompt": "Apply SCAMPER - Modify/Magnify/Minify: What happens if a core attribute is magnified 100x or shrunk down to micro-scale?"
   },
   {
     "id": "scamper-put-other-use",
     "icon": "♻️",
     "name": "SCAMPER - Put to Other Use",
-    "category": "scamper",
-    "description": "Repurposes system outputs or waste streams for alternate markets.",
+    "desc": "Repurposes system outputs or waste streams for alternate markets.",
+    "explain": "Repurposes system outputs or waste streams for alternate markets.",
     "layer": "scamper",
     "requires": [
       "scamper-modify-magnify"
     ],
-    "prompt": "Apply SCAMPER - Put to Other Use: How can this system or its waste outputs be repurposed for a completely different industry or market segment?",
-    "desc": "Repurposes system outputs or waste streams for alternate markets.",
-    "explain": "Repurposes system outputs or waste streams for alternate markets."
+    "prompt": "Apply SCAMPER - Put to Other Use: How can this system or its waste outputs be repurposed for a completely different industry or market segment?"
   },
   {
     "id": "scamper-eliminate-reverse",
     "icon": "✂️",
     "name": "SCAMPER - Eliminate & Reverse",
-    "category": "scamper",
-    "description": "Excises non-essential elements and reverses step sequences.",
+    "desc": "Excises non-essential elements and reverses step sequences.",
+    "explain": "Excises non-essential elements and reverses step sequences.",
     "layer": "scamper",
     "requires": [
       "scamper-put-other-use"
     ],
-    "prompt": "Apply SCAMPER - Eliminate & Reverse: Completely excise the single most complex process step. What happens if sequence order is completely reversed?",
-    "desc": "Excises non-essential elements and reverses step sequences.",
-    "explain": "Excises non-essential elements and reverses step sequences."
+    "prompt": "Apply SCAMPER - Eliminate & Reverse: Completely excise the single most complex process step. What happens if sequence order is completely reversed?"
   },
   {
     "id": "scamper-full-matrix",
     "icon": "🎛️",
     "name": "SCAMPER Full Operator Matrix",
-    "category": "scamper",
-    "description": "Combines all 7 SCAMPER operators into a comprehensive idea matrix.",
+    "desc": "Combines all 7 SCAMPER operators into a comprehensive idea matrix.",
+    "explain": "Combines all 7 SCAMPER operators into a comprehensive idea matrix.",
     "layer": "scamper",
     "requires": [
       "scamper-eliminate-reverse"
     ],
-    "prompt": "Synthesize a 7-point SCAMPER matrix covering all operators and extract the top 3 breakthrough candidate concepts.",
-    "desc": "Combines all 7 SCAMPER operators into a comprehensive idea matrix.",
-    "explain": "Combines all 7 SCAMPER operators into a comprehensive idea matrix."
+    "prompt": "Synthesize a 7-point SCAMPER matrix covering all operators and extract the top 3 breakthrough candidate concepts."
   },
   {
     "id": "morphological-matrix",
     "icon": "📊",
     "name": "Morphological Analysis Matrix",
-    "category": "evaluation",
-    "description": "Explores unexpected solution configurations across parameter grids.",
+    "desc": "Explores unexpected solution configurations across parameter grids.",
+    "explain": "Explores unexpected solution configurations across parameter grids.",
     "layer": "evaluation",
     "requires": [
       "issue-tree-breakdown"
     ],
-    "prompt": "Construct a Morphological Analysis Matrix: Map key system parameters against sub-options. Combine sub-options systematically to discover novel configurations.",
-    "desc": "Explores unexpected solution configurations across parameter grids.",
-    "explain": "Explores unexpected solution configurations across parameter grids."
+    "prompt": "Construct a Morphological Analysis Matrix: Map key system parameters against sub-options. Combine sub-options systematically to discover novel configurations."
   },
   {
     "id": "solution-feasibility-grid",
     "icon": "🎯",
     "name": "Solution Feasibility Grid",
-    "category": "evaluation",
-    "description": "Plots solutions across Impact vs. Effort axes.",
+    "desc": "Plots solutions across Impact vs. Effort axes.",
+    "explain": "Plots solutions across Impact vs. Effort axes.",
     "layer": "evaluation",
     "requires": [
       "morphological-matrix"
     ],
-    "prompt": "Score candidate solutions on a Feasibility Matrix (Impact vs. Effort). Segregate Quick Wins from high-leverage strategic initiatives.",
-    "desc": "Plots solutions across Impact vs. Effort axes.",
-    "explain": "Plots solutions across Impact vs. Effort axes."
+    "prompt": "Score candidate solutions on a Feasibility Matrix (Impact vs. Effort). Segregate Quick Wins from high-leverage strategic initiatives."
   },
   {
     "id": "failure-mode-effect",
     "icon": "⚠️",
     "name": "FMEA Failure Mode Analysis",
-    "category": "evaluation",
-    "description": "Calculates Risk Priority Numbers ($RPN = S \\times O \\times D$) for proposed solutions.",
+    "desc": "Calculates Risk Priority Numbers ($RPN = S \\times O \\times D$) for proposed solutions.",
+    "explain": "Calculates Risk Priority Numbers ($RPN = S \\times O \\times D$) for proposed solutions.",
     "layer": "evaluation",
     "requires": [
       "solution-feasibility-grid"
     ],
-    "prompt": "Conduct FMEA (Failure Mode and Effects Analysis): Score Severity (S), Occurrence (O), and Detection (D) to compute Risk Priority Numbers ($RPN = S \\times O \\times D$).",
-    "desc": "Calculates Risk Priority Numbers ($RPN = S \\times O \\times D$) for proposed solutions.",
-    "explain": "Calculates Risk Priority Numbers ($RPN = S \\times O \\times D$) for proposed solutions."
+    "prompt": "Conduct FMEA (Failure Mode and Effects Analysis): Score Severity (S), Occurrence (O), and Detection (D) to compute Risk Priority Numbers ($RPN = S \\times O \\times D$)."
   },
   {
     "id": "trade-off-optimization",
     "icon": "⚖️",
     "name": "Multi-Criteria Decision Analysis",
-    "category": "evaluation",
-    "description": "Applies weighted MCDA scoring across competing options.",
+    "desc": "Applies weighted MCDA scoring across competing options.",
+    "explain": "Applies weighted MCDA scoring across competing options.",
     "layer": "evaluation",
     "requires": [
       "solution-feasibility-grid"
     ],
-    "prompt": "Perform Multi-Criteria Decision Analysis (MCDA): Score candidates against weighted evaluation metrics to mathematically select the optimal path.",
-    "desc": "Applies weighted MCDA scoring across competing options.",
-    "explain": "Applies weighted MCDA scoring across competing options."
+    "prompt": "Perform Multi-Criteria Decision Analysis (MCDA): Score candidates against weighted evaluation metrics to mathematically select the optimal path."
   },
   {
     "id": "pilot-experiment-design",
     "icon": "🧪",
     "name": "Pilot Experiment Protocol",
-    "category": "evaluation",
-    "description": "Designs low-cost, low-risk field trials to test solution validity.",
+    "desc": "Designs low-cost, low-risk field trials to test solution validity.",
+    "explain": "Designs low-cost, low-risk field trials to test solution validity.",
     "layer": "evaluation",
     "requires": [
       "failure-mode-effect"
     ],
-    "prompt": "Design a low-risk Pilot Experiment Protocol: Define minimum test scope, control baseline metrics, and quantitative success gates.",
-    "desc": "Designs low-cost, low-risk field trials to test solution validity.",
-    "explain": "Designs low-cost, low-risk field trials to test solution validity."
+    "prompt": "Design a low-risk Pilot Experiment Protocol: Define minimum test scope, control baseline metrics, and quantitative success gates."
   },
   {
     "id": "solution-impact-matrix",
     "icon": "🚀",
     "name": "Solution Impact Mapping",
-    "category": "evaluation",
-    "description": "Maps long-term systemic transformations generated by implementation.",
+    "desc": "Maps long-term systemic transformations generated by implementation.",
+    "explain": "Maps long-term systemic transformations generated by implementation.",
     "layer": "evaluation",
     "requires": [
       "solution-feasibility-grid"
     ],
-    "prompt": "Map long-term systemic impact: Summarize new operational capabilities unlocked and systemic complexity eliminated post-implementation.",
-    "desc": "Maps long-term systemic transformations generated by implementation.",
-    "explain": "Maps long-term systemic transformations generated by implementation."
+    "prompt": "Map long-term systemic impact: Summarize new operational capabilities unlocked and systemic complexity eliminated post-implementation."
   }
 ]

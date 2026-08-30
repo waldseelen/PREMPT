@@ -3,410 +3,350 @@
     "id": "tax-blooms-question-matrix",
     "icon": "🧠",
     "name": "Bloom's Taxonomy Cognitive Matrix",
-    "category": "taxonomy",
-    "description": "Constructs questions across all six Bloom cognitive levels from Remember to Create.",
+    "desc": "Constructs questions across all six Bloom cognitive levels from Remember to Create.",
+    "explain": "Constructs questions across all six Bloom cognitive levels from Remember to Create.",
     "layer": "taxonomy",
     "requires": [],
-    "prompt": "Construct a Bloom's Taxonomy Question Matrix: Draft 1 target assessment question for each level: Remember, Understand, Apply, Analyze, Evaluate, and Create.",
-    "desc": "Constructs questions across all six Bloom cognitive levels from Remember to Create.",
-    "explain": "Constructs questions across all six Bloom cognitive levels from Remember to Create."
+    "prompt": "Construct a Bloom's Taxonomy Question Matrix: Draft 1 target assessment question for each level: Remember, Understand, Apply, Analyze, Evaluate, and Create."
   },
   {
     "id": "tax-depth-of-knowledge-dok",
     "icon": "📊",
     "name": "Webb's DOK Rigor Calibration",
-    "category": "taxonomy",
-    "description": "Ranks and elevates tasks across Webb's Depth of Knowledge levels 1 to 4.",
+    "desc": "Ranks and elevates tasks across Webb's Depth of Knowledge levels 1 to 4.",
+    "explain": "Ranks and elevates tasks across Webb's Depth of Knowledge levels 1 to 4.",
     "layer": "taxonomy",
     "requires": [
       "tax-blooms-question-matrix"
     ],
-    "prompt": "Align learning tasks to Webb's Depth of Knowledge (DOK): Elevate basic DOK 1 (Recall) tasks into DOK 3 (Strategic Thinking) and DOK 4 (Extended Thinking) investigations.",
-    "desc": "Ranks and elevates tasks across Webb's Depth of Knowledge levels 1 to 4.",
-    "explain": "Ranks and elevates tasks across Webb's Depth of Knowledge levels 1 to 4."
+    "prompt": "Align learning tasks to Webb's Depth of Knowledge (DOK): Elevate basic DOK 1 (Recall) tasks into DOK 3 (Strategic Thinking) and DOK 4 (Extended Thinking) investigations."
   },
   {
     "id": "tax-solo-taxonomy-aligner",
     "icon": "🧱",
     "name": "SOLO Taxonomy Structural Evaluator",
-    "category": "taxonomy",
-    "description": "Classifies student responses from Unistructural to Extended Abstract levels.",
+    "desc": "Classifies student responses from Unistructural to Extended Abstract levels.",
+    "explain": "Classifies student responses from Unistructural to Extended Abstract levels.",
     "layer": "taxonomy",
     "requires": [
       "tax-blooms-question-matrix"
     ],
-    "prompt": "Evaluate learning outcomes via SOLO Taxonomy: Classify target understanding levels across Unistructural, Multistructural, Relational, and Extended Abstract stages.",
-    "desc": "Classifies student responses from Unistructural to Extended Abstract levels.",
-    "explain": "Classifies student responses from Unistructural to Extended Abstract levels."
+    "prompt": "Evaluate learning outcomes via SOLO Taxonomy: Classify target understanding levels across Unistructural, Multistructural, Relational, and Extended Abstract stages."
   },
   {
     "id": "tax-affective-domain-goals",
     "icon": "❤️",
     "name": "Krathwohl's Affective Domain Goals",
-    "category": "taxonomy",
-    "description": "Designs learning goals targeting student attitudes, values, and characterization.",
+    "desc": "Designs learning goals targeting student attitudes, values, and characterization.",
+    "explain": "Designs learning goals targeting student attitudes, values, and characterization.",
     "layer": "taxonomy",
     "requires": [
       "tax-blooms-question-matrix"
     ],
-    "prompt": "Formulate Affective Domain Learning Objectives (Krathwohl): Map growth across Receiving, Responding, Valuing, Organizing, and Characterizing by a Value System.",
-    "desc": "Designs learning goals targeting student attitudes, values, and characterization.",
-    "explain": "Designs learning goals targeting student attitudes, values, and characterization."
+    "prompt": "Formulate Affective Domain Learning Objectives (Krathwohl): Map growth across Receiving, Responding, Valuing, Organizing, and Characterizing by a Value System."
   },
   {
     "id": "tax-psychomotor-skill-scaffolding",
     "icon": "✋",
     "name": "Psychomotor Skill Scaffolding (Dave)",
-    "category": "taxonomy",
-    "description": "Maps physical skill progression from imitation to naturalized mastery.",
+    "desc": "Maps physical skill progression from imitation to naturalized mastery.",
+    "explain": "Maps physical skill progression from imitation to naturalized mastery.",
     "layer": "taxonomy",
     "requires": [
       "tax-blooms-question-matrix"
     ],
-    "prompt": "Map Psychomotor Skill Scaffolding (Dave's Taxonomy): Outline progression steps through Imitation, Manipulation, Precision, Articulation, and Naturalization.",
-    "desc": "Maps physical skill progression from imitation to naturalized mastery.",
-    "explain": "Maps physical skill progression from imitation to naturalized mastery."
+    "prompt": "Map Psychomotor Skill Scaffolding (Dave's Taxonomy): Outline progression steps through Imitation, Manipulation, Precision, Articulation, and Naturalization."
   },
   {
     "id": "tax-higher-order-prompting",
     "icon": "🎯",
     "name": "Higher-Order Thinking Generator",
-    "category": "taxonomy",
-    "description": "Converts rote recall questions into critical thinking open-ended prompts.",
+    "desc": "Converts rote recall questions into critical thinking open-ended prompts.",
+    "explain": "Converts rote recall questions into critical thinking open-ended prompts.",
     "layer": "taxonomy",
     "requires": [
       "tax-depth-of-knowledge-dok"
     ],
-    "prompt": "Replace rote recall prompts: Generate 3 Higher-Order Thinking Skills (HOTS) questions requiring students to construct hypotheses, question assumptions, and evaluate trade-offs.",
-    "desc": "Converts rote recall questions into critical thinking open-ended prompts.",
-    "explain": "Converts rote recall questions into critical thinking open-ended prompts."
+    "prompt": "Replace rote recall prompts: Generate 3 Higher-Order Thinking Skills (HOTS) questions requiring students to construct hypotheses, question assumptions, and evaluate trade-offs."
   },
   {
     "id": "cur-backward-design-ubd",
     "icon": "🎯",
     "name": "Backward Curriculum Design (UbD)",
-    "category": "curriculum",
-    "description": "Applies Wiggins & McTighe UbD framework: desired results -> assessment -> learning plan.",
+    "desc": "Applies Wiggins & McTighe UbD framework: desired results -> assessment -> learning plan.",
+    "explain": "Applies Wiggins & McTighe UbD framework: desired results -> assessment -> learning plan.",
     "layer": "curriculum",
     "requires": [],
-    "prompt": "Apply Understanding by Design (UbD) Backward Design: (Stage 1) Identify Desired Results & Big Ideas -> (Stage 2) Determine Assessment Evidence -> (Stage 3) Design Learning Experiences.",
-    "desc": "Applies Wiggins & McTighe UbD framework: desired results -> assessment -> learning plan.",
-    "explain": "Applies Wiggins & McTighe UbD framework: desired results -> assessment -> learning plan."
+    "prompt": "Apply Understanding by Design (UbD) Backward Design: (Stage 1) Identify Desired Results & Big Ideas -> (Stage 2) Determine Assessment Evidence -> (Stage 3) Design Learning Experiences."
   },
   {
     "id": "cur-scaffolding-chunking",
     "icon": "🧩",
     "name": "Cognitive Load & Micro-Chunking",
-    "category": "curriculum",
-    "description": "Chunks complex concepts into digestible micro-lessons to prevent cognitive overload.",
+    "desc": "Chunks complex concepts into digestible micro-lessons to prevent cognitive overload.",
+    "explain": "Chunks complex concepts into digestible micro-lessons to prevent cognitive overload.",
     "layer": "curriculum",
     "requires": [
       "cur-backward-design-ubd"
     ],
-    "prompt": "Apply Cognitive Load Theory: Structure topic delivery into 10-15 minute digestible Micro-Chunks interleaved with cognitive processing breaks.",
-    "desc": "Chunks complex concepts into digestible micro-lessons to prevent cognitive overload.",
-    "explain": "Chunks complex concepts into digestible micro-lessons to prevent cognitive overload."
+    "prompt": "Apply Cognitive Load Theory: Structure topic delivery into 10-15 minute digestible Micro-Chunks interleaved with cognitive processing breaks."
   },
   {
     "id": "cur-interleaving-spaced-curriculum",
     "icon": "🔄",
     "name": "Interleaved & Spaced Schedule",
-    "category": "curriculum",
-    "description": "Distributes learning topics across time with interleaved practice to maximize retention.",
+    "desc": "Distributes learning topics across time with interleaved practice to maximize retention.",
+    "explain": "Distributes learning topics across time with interleaved practice to maximize retention.",
     "layer": "curriculum",
     "requires": [
       "cur-backward-design-ubd"
     ],
-    "prompt": "Architect an Interleaved & Spaced Curriculum Schedule: Re-arrange linear topics into a spiral curriculum map revisiting prior concepts at strategic intervals.",
-    "desc": "Distributes learning topics across time with interleaved practice to maximize retention.",
-    "explain": "Distributes learning topics across time with interleaved practice to maximize retention."
+    "prompt": "Architect an Interleaved & Spaced Curriculum Schedule: Re-arrange linear topics into a spiral curriculum map revisiting prior concepts at strategic intervals."
   },
   {
     "id": "cur-cross-disciplinary-bridge",
     "icon": "🌉",
     "name": "Cross-Disciplinary Project Builder",
-    "category": "curriculum",
-    "description": "Connects core subjects with complementary STEM/STEAM disciplines.",
+    "desc": "Connects core subjects with complementary STEM/STEAM disciplines.",
+    "explain": "Connects core subjects with complementary STEM/STEAM disciplines.",
     "layer": "curriculum",
     "requires": [
       "cur-backward-design-ubd"
     ],
-    "prompt": "Design a Cross-Disciplinary STEM/STEAM Unit: Integrate the primary subject with complementary concepts from [Mathematics / Ethics / History / Coding].",
-    "desc": "Connects core subjects with complementary STEM/STEAM disciplines.",
-    "explain": "Connects core subjects with complementary STEM/STEAM disciplines."
+    "prompt": "Design a Cross-Disciplinary STEM/STEAM Unit: Integrate the primary subject with complementary concepts from [Mathematics / Ethics / History / Coding]."
   },
   {
     "id": "cur-competency-based-map",
     "icon": "🗺️",
     "name": "Competency-Based Skill Matrix",
-    "category": "curriculum",
-    "description": "Replaces seat-time progression with concrete competency mastery criteria.",
+    "desc": "Replaces seat-time progression with concrete competency mastery criteria.",
+    "explain": "Replaces seat-time progression with concrete competency mastery criteria.",
     "layer": "curriculum",
     "requires": [
       "cur-backward-design-ubd"
     ],
-    "prompt": "Build a Competency-Based Learning Map: Replace seat-time requirements with explicit 'Can-Do' mastery statements and micro-credential skill thresholds.",
-    "desc": "Replaces seat-time progression with concrete competency mastery criteria.",
-    "explain": "Replaces seat-time progression with concrete competency mastery criteria."
+    "prompt": "Build a Competency-Based Learning Map: Replace seat-time requirements with explicit 'Can-Do' mastery statements and micro-credential skill thresholds."
   },
   {
     "id": "cur-universal-learning-design",
     "icon": "♿",
     "name": "Universal Design for Learning (UDL)",
-    "category": "curriculum",
-    "description": "Ensures accessible learning via multiple means of representation and engagement.",
+    "desc": "Ensures accessible learning via multiple means of representation and engagement.",
+    "explain": "Ensures accessible learning via multiple means of representation and engagement.",
     "layer": "curriculum",
     "requires": [
       "cur-scaffolding-chunking"
     ],
-    "prompt": "Implement Universal Design for Learning (UDL): Incorporate (a) Multiple Means of Representation, (b) Multiple Means of Action & Expression, and (c) Multiple Means of Engagement.",
-    "desc": "Ensures accessible learning via multiple means of representation and engagement.",
-    "explain": "Ensures accessible learning via multiple means of representation and engagement."
+    "prompt": "Implement Universal Design for Learning (UDL): Incorporate (a) Multiple Means of Representation, (b) Multiple Means of Action & Expression, and (c) Multiple Means of Engagement."
   },
   {
     "id": "ass-formative-exit-ticket",
     "icon": "🎟️",
     "name": "Formative Exit Ticket Generator",
-    "category": "assessment",
-    "description": "Creates 2-minute end-of-class formative comprehension check tickets.",
+    "desc": "Creates 2-minute end-of-class formative comprehension check tickets.",
+    "explain": "Creates 2-minute end-of-class formative comprehension check tickets.",
     "layer": "assessment",
     "requires": [],
-    "prompt": "Design a Formative Exit Ticket: Include 3 quick checks: 'Core takeaway today', 'Single remaining point of confusion', and 1 rapid application question.",
-    "desc": "Creates 2-minute end-of-class formative comprehension check tickets.",
-    "explain": "Creates 2-minute end-of-class formative comprehension check tickets."
+    "prompt": "Design a Formative Exit Ticket: Include 3 quick checks: 'Core takeaway today', 'Single remaining point of confusion', and 1 rapid application question."
   },
   {
     "id": "ass-summative-capstone-spec",
     "icon": "🏆",
     "name": "Summative Capstone Project Spec",
-    "category": "assessment",
-    "description": "Authorizes comprehensive capstone project specifications synthesizing course goals.",
+    "desc": "Authorizes comprehensive capstone project specifications synthesizing course goals.",
+    "explain": "Authorizes comprehensive capstone project specifications synthesizing course goals.",
     "layer": "assessment",
     "requires": [
       "ass-formative-exit-ticket"
     ],
-    "prompt": "Draft a Summative Capstone Project Specification: Define project deliverables, operational constraints, submission formats, and evaluation rubrics.",
-    "desc": "Authorizes comprehensive capstone project specifications synthesizing course goals.",
-    "explain": "Authorizes comprehensive capstone project specifications synthesizing course goals."
+    "prompt": "Draft a Summative Capstone Project Specification: Define project deliverables, operational constraints, submission formats, and evaluation rubrics."
   },
   {
     "id": "ass-authentic-task-assessment",
     "icon": "💼",
     "name": "Authentic Task Assessment Design",
-    "category": "assessment",
-    "description": "Replaces standardized tests with real-world professional problem-solving tasks.",
+    "desc": "Replaces standardized tests with real-world professional problem-solving tasks.",
+    "explain": "Replaces standardized tests with real-world professional problem-solving tasks.",
     "layer": "assessment",
     "requires": [
       "ass-formative-exit-ticket"
     ],
-    "prompt": "Design an Authentic Performance Assessment: Position students in a real-world professional role solving an actual client problem instead of taking a paper test.",
-    "desc": "Replaces standardized tests with real-world professional problem-solving tasks.",
-    "explain": "Replaces standardized tests with real-world professional problem-solving tasks."
+    "prompt": "Design an Authentic Performance Assessment: Position students in a real-world professional role solving an actual client problem instead of taking a paper test."
   },
   {
     "id": "ass-item-analysis-distractor",
     "icon": "📝",
     "name": "Multiple-Choice Distractor Rigor",
-    "category": "assessment",
-    "description": "Audits test items to ensure distractors target common conceptual errors.",
+    "desc": "Audits test items to ensure distractors target common conceptual errors.",
+    "explain": "Audits test items to ensure distractors target common conceptual errors.",
     "layer": "assessment",
     "requires": [
       "ass-formative-exit-ticket"
     ],
-    "prompt": "Audit Multiple-Choice Question Quality: Check option length balance and ensure distractors explicitly target common student misconceptions rather than trick syntax.",
-    "desc": "Audits test items to ensure distractors target common conceptual errors.",
-    "explain": "Audits test items to ensure distractors target common conceptual errors."
+    "prompt": "Audit Multiple-Choice Question Quality: Check option length balance and ensure distractors explicitly target common student misconceptions rather than trick syntax."
   },
   {
     "id": "ass-diagnostic-prior-knowledge",
     "icon": "🔍",
     "name": "Diagnostic Prior-Knowledge Audit",
-    "category": "assessment",
-    "description": "Uncovers student misconceptions and prerequisite readiness prior to units.",
+    "desc": "Uncovers student misconceptions and prerequisite readiness prior to units.",
+    "explain": "Uncovers student misconceptions and prerequisite readiness prior to units.",
     "layer": "assessment",
     "requires": [
       "ass-formative-exit-ticket"
     ],
-    "prompt": "Create a Pre-Unit Diagnostic Assessment: Draft 5 diagnostic questions designed to expose student misconceptions and missing prerequisite knowledge.",
-    "desc": "Uncovers student misconceptions and prerequisite readiness prior to units.",
-    "explain": "Uncovers student misconceptions and prerequisite readiness prior to units."
+    "prompt": "Create a Pre-Unit Diagnostic Assessment: Draft 5 diagnostic questions designed to expose student misconceptions and missing prerequisite knowledge."
   },
   {
     "id": "ass-peer-self-eval-protocol",
     "icon": "🤝",
     "name": "Peer & Self-Assessment Protocol",
-    "category": "assessment",
-    "description": "Establishes metacognitive rubrics for peer review and self-reflection.",
+    "desc": "Establishes metacognitive rubrics for peer review and self-reflection.",
+    "explain": "Establishes metacognitive rubrics for peer review and self-reflection.",
     "layer": "assessment",
     "requires": [
       "ass-authentic-task-assessment"
     ],
-    "prompt": "Construct a Peer & Self-Assessment Protocol: Provide structured rubrics enabling students to give constructive peer feedback and self-evaluate metacognitively.",
-    "desc": "Establishes metacognitive rubrics for peer review and self-reflection.",
-    "explain": "Establishes metacognitive rubrics for peer review and self-reflection."
+    "prompt": "Construct a Peer & Self-Assessment Protocol: Provide structured rubrics enabling students to give constructive peer feedback and self-evaluate metacognitively."
   },
   {
     "id": "eng-gamification-loop",
     "icon": "🎮",
     "name": "Gamified Learning Loop Mechanics",
-    "category": "engagement",
-    "description": "Injects quests, XP points, and level progression to drive intrinsic motivation.",
+    "desc": "Injects quests, XP points, and level progression to drive intrinsic motivation.",
+    "explain": "Injects quests, XP points, and level progression to drive intrinsic motivation.",
     "layer": "engagement",
     "requires": [],
-    "prompt": "Integrate Gamification Architecture: Design quest lines, experience points (XP), level progression, and micro-badges to boost engagement.",
-    "desc": "Injects quests, XP points, and level progression to drive intrinsic motivation.",
-    "explain": "Injects quests, XP points, and level progression to drive intrinsic motivation."
+    "prompt": "Integrate Gamification Architecture: Design quest lines, experience points (XP), level progression, and micro-badges to boost engagement."
   },
   {
     "id": "eng-socratic-seminar-guide",
     "icon": "🗣️",
     "name": "Socratic Seminar Discussion Guide",
-    "category": "engagement",
-    "description": "Facilitates student-led text-centered group inquiry and discussion.",
+    "desc": "Facilitates student-led text-centered group inquiry and discussion.",
+    "explain": "Facilitates student-led text-centered group inquiry and discussion.",
     "layer": "engagement",
     "requires": [
       "eng-gamification-loop"
     ],
-    "prompt": "Structure a Socratic Seminar Guide: Formulate opening, clarification, and closing questions that foster student-led, text-centered group inquiry.",
-    "desc": "Facilitates student-led text-centered group inquiry and discussion.",
-    "explain": "Facilitates student-led text-centered group inquiry and discussion."
+    "prompt": "Structure a Socratic Seminar Guide: Formulate opening, clarification, and closing questions that foster student-led, text-centered group inquiry."
   },
   {
     "id": "eng-active-recall-drill",
     "icon": "⚡",
     "name": "Active Recall Flashcard Engine",
-    "category": "engagement",
-    "description": "Replaces passive reading with forced memory retrieval practice.",
+    "desc": "Replaces passive reading with forced memory retrieval practice.",
+    "explain": "Replaces passive reading with forced memory retrieval practice.",
     "layer": "engagement",
     "requires": [
       "eng-gamification-loop"
     ],
-    "prompt": "Build an Active Recall Drill: Replace passive review with 5 forced-retrieval prompts compelling students to reconstruct core concepts from memory.",
-    "desc": "Replaces passive reading with forced memory retrieval practice.",
-    "explain": "Replaces passive reading with forced memory retrieval practice."
+    "prompt": "Build an Active Recall Drill: Replace passive review with 5 forced-retrieval prompts compelling students to reconstruct core concepts from memory."
   },
   {
     "id": "eng-case-study-dilemma-builder",
     "icon": "📖",
     "name": "Case-Based Dilemma Scenario",
-    "category": "engagement",
-    "description": "Places learners inside complex real-world organizational dilemmas.",
+    "desc": "Places learners inside complex real-world organizational dilemmas.",
+    "explain": "Places learners inside complex real-world organizational dilemmas.",
     "layer": "engagement",
     "requires": [
       "eng-gamification-loop"
     ],
-    "prompt": "Write a Real-World Case Dilemma: Place learners in a complex scenario forcing a choice between competing priorities with no easy right answer.",
-    "desc": "Places learners inside complex real-world organizational dilemmas.",
-    "explain": "Places learners inside complex real-world organizational dilemmas."
+    "prompt": "Write a Real-World Case Dilemma: Place learners in a complex scenario forcing a choice between competing priorities with no easy right answer."
   },
   {
     "id": "eng-flipper-classroom-prep",
     "icon": "🔄",
     "name": "Flipped Classroom Pre-Work Blueprint",
-    "category": "engagement",
-    "description": "Shifts direct instruction to pre-work, reserving class time for active practice.",
+    "desc": "Shifts direct instruction to pre-work, reserving class time for active practice.",
+    "explain": "Shifts direct instruction to pre-work, reserving class time for active practice.",
     "layer": "engagement",
     "requires": [
       "eng-gamification-loop"
     ],
-    "prompt": "Blueprint a Flipped Classroom Sequence: Define asynchronous pre-class content acquisition and map synchronous class time strictly to collaborative problem-solving.",
-    "desc": "Shifts direct instruction to pre-work, reserving class time for active practice.",
-    "explain": "Shifts direct instruction to pre-work, reserving class time for active practice."
+    "prompt": "Blueprint a Flipped Classroom Sequence: Define asynchronous pre-class content acquisition and map synchronous class time strictly to collaborative problem-solving."
   },
   {
     "id": "eng-peer-instruction-think-pair",
     "icon": "💬",
     "name": "Think-Pair-Share Scripting",
-    "category": "engagement",
-    "description": "Structures individual reflection, peer debate, and class synthesis steps.",
+    "desc": "Structures individual reflection, peer debate, and class synthesis steps.",
+    "explain": "Structures individual reflection, peer debate, and class synthesis steps.",
     "layer": "engagement",
     "requires": [
       "eng-socratic-seminar-guide"
     ],
-    "prompt": "Script a Peer Instruction (Think-Pair-Share) exercise: Present a conceptual challenge, mandate individual reflection, and guide peer-to-peer persuasive debate.",
-    "desc": "Structures individual reflection, peer debate, and class synthesis steps.",
-    "explain": "Structures individual reflection, peer debate, and class synthesis steps."
+    "prompt": "Script a Peer Instruction (Think-Pair-Share) exercise: Present a conceptual challenge, mandate individual reflection, and guide peer-to-peer persuasive debate."
   },
   {
     "id": "rub-holistic-analytical-rubric",
     "icon": "📊",
     "name": "Multi-Tier Analytical Rubric",
-    "category": "rubrics",
-    "description": "Generates multi-criteria scoring rubrics across 4 performance tiers.",
+    "desc": "Generates multi-criteria scoring rubrics across 4 performance tiers.",
+    "explain": "Generates multi-criteria scoring rubrics across 4 performance tiers.",
     "layer": "rubrics",
     "requires": [],
-    "prompt": "Construct a Multi-Tier Analytical Rubric: Map performance across 4 evaluation criteria and 4 achievement levels (Unsatisfactory, Developing, Proficient, Exemplary).",
-    "desc": "Generates multi-criteria scoring rubrics across 4 performance tiers.",
-    "explain": "Generates multi-criteria scoring rubrics across 4 performance tiers."
+    "prompt": "Construct a Multi-Tier Analytical Rubric: Map performance across 4 evaluation criteria and 4 achievement levels (Unsatisfactory, Developing, Proficient, Exemplary)."
   },
   {
     "id": "rub-single-point-rubric",
     "icon": "🎯",
     "name": "Single-Point Rubric Generator",
-    "category": "rubrics",
-    "description": "Focuses on central target standards flanked by areas for growth and mastery.",
+    "desc": "Focuses on central target standards flanked by areas for growth and mastery.",
+    "explain": "Focuses on central target standards flanked by areas for growth and mastery.",
     "layer": "rubrics",
     "requires": [
       "rub-holistic-analytical-rubric"
     ],
-    "prompt": "Create a Single-Point Rubric: Format as Left Column: [Concerns / Areas for Growth] | Center Column: [TARGET MASTERY STANDARD] | Right Column: [Exceeds Standards].",
-    "desc": "Focuses on central target standards flanked by areas for growth and mastery.",
-    "explain": "Focuses on central target standards flanked by areas for growth and mastery."
+    "prompt": "Create a Single-Point Rubric: Format as Left Column: [Concerns / Areas for Growth] | Center Column: [TARGET MASTERY STANDARD] | Right Column: [Exceeds Standards]."
   },
   {
     "id": "rub-objective-performance-criteria",
     "icon": "🔍",
     "name": "Observable Performance Criteria",
-    "category": "rubrics",
-    "description": "Replaces subjective adjectives with measurable behavioral evidence.",
+    "desc": "Replaces subjective adjectives with measurable behavioral evidence.",
+    "explain": "Replaces subjective adjectives with measurable behavioral evidence.",
     "layer": "rubrics",
     "requires": [
       "rub-holistic-analytical-rubric"
     ],
-    "prompt": "Purge subjective adjectives ('good', 'well-written'): Replace with concrete observable performance evidence (e.g., 'includes 3 peer-reviewed citations').",
-    "desc": "Replaces subjective adjectives with measurable behavioral evidence.",
-    "explain": "Replaces subjective adjectives with measurable behavioral evidence."
+    "prompt": "Purge subjective adjectives ('good', 'well-written'): Replace with concrete observable performance evidence (e.g., 'includes 3 peer-reviewed citations')."
   },
   {
     "id": "rub-exemplar-anchor-papers",
     "icon": "🥇",
     "name": "Exemplar Anchor Paper Matrix",
-    "category": "rubrics",
-    "description": "Describes qualitative benchmarks for Gold, Silver, and Bronze student work.",
+    "desc": "Describes qualitative benchmarks for Gold, Silver, and Bronze student work.",
+    "explain": "Describes qualitative benchmarks for Gold, Silver, and Bronze student work.",
     "layer": "rubrics",
     "requires": [
       "rub-holistic-analytical-rubric"
     ],
-    "prompt": "Draft Exemplar Anchor Paper Descriptions: Articulate explicit qualitative distinctions separating Gold (Exemplary), Silver (Proficient), and Bronze (Developing) student work.",
-    "desc": "Describes qualitative benchmarks for Gold, Silver, and Bronze student work.",
-    "explain": "Describes qualitative benchmarks for Gold, Silver, and Bronze student work."
+    "prompt": "Draft Exemplar Anchor Paper Descriptions: Articulate explicit qualitative distinctions separating Gold (Exemplary), Silver (Proficient), and Bronze (Developing) student work."
   },
   {
     "id": "rub-constructive-feedback-bank",
     "icon": "💬",
     "name": "Actionable Feedback Bank Generator",
-    "category": "rubrics",
-    "description": "Compiles reusable, growth-oriented feedback prompts for educators.",
+    "desc": "Compiles reusable, growth-oriented feedback prompts for educators.",
+    "explain": "Compiles reusable, growth-oriented feedback prompts for educators.",
     "layer": "rubrics",
     "requires": [
       "rub-single-point-rubric"
     ],
-    "prompt": "Build an Actionable Feedback Bank: Provide 5 growth-oriented feedback templates addressing common student performance gaps constructively.",
-    "desc": "Compiles reusable, growth-oriented feedback prompts for educators.",
-    "explain": "Compiles reusable, growth-oriented feedback prompts for educators."
+    "prompt": "Build an Actionable Feedback Bank: Provide 5 growth-oriented feedback templates addressing common student performance gaps constructively."
   },
   {
     "id": "rub-mastery-threshold-matrix",
     "icon": "🏁",
     "name": "Standards-Based Mastery Thresholds",
-    "category": "rubrics",
-    "description": "Establishes non-negotiable mastery gates required for topic advancement.",
+    "desc": "Establishes non-negotiable mastery gates required for topic advancement.",
+    "explain": "Establishes non-negotiable mastery gates required for topic advancement.",
     "layer": "rubrics",
     "requires": [
       "rub-objective-performance-criteria"
     ],
-    "prompt": "Establish Standards-Based Mastery Thresholds: Define non-negotiable 80% baseline competency criteria required before students unlock downstream modules.",
-    "desc": "Establishes non-negotiable mastery gates required for topic advancement.",
-    "explain": "Establishes non-negotiable mastery gates required for topic advancement."
+    "prompt": "Establish Standards-Based Mastery Thresholds: Define non-negotiable 80% baseline competency criteria required before students unlock downstream modules."
   }
 ]

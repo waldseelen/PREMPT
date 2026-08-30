@@ -32,7 +32,17 @@ export const languageSpec = {
         "fluency": "Akıcılık & Ton",
         "localization": "Lokalizasyon & Kültür",
         "pedagogy": "Eğitim & Düzeltme"
-      }
+      },
+      "categories": {
+        "localization": "Kültürel Adaptasyon",
+        "register": "Ton & Dil Düzeyi",
+        "fluency": "Akıcılık & Deyimler",
+        "idioms": "Deyim & Kalıplar",
+        "pedagogy": "Dilbilgisi & Açıklama"
+      },
+      "modulesTitle": "Modüller (Module Blocks)",
+      "presetsTitle": "Uzman Hazır Şablonları (System Presets)",
+      "paramsTitle": "Parametreler"
     },
     "en": {
       "title": "Language, Translation & Nuance Coach",
@@ -49,7 +59,17 @@ export const languageSpec = {
         "fluency": "Fluency & Tone",
         "localization": "Localization & Culture",
         "pedagogy": "Pedagogy & Correction"
-      }
+      },
+      "categories": {
+        "localization": "Cultural Localization",
+        "register": "Tone & Register",
+        "fluency": "Fluency & Idioms",
+        "idioms": "Expressions & Phrasing",
+        "pedagogy": "Grammar & Pedagogy"
+      },
+      "modulesTitle": "Module Blocks",
+      "presetsTitle": "System Presets",
+      "paramsTitle": "Parameters"
     }
   },
   "optionSets": {
@@ -112,18 +132,80 @@ export const languageSpec = {
   },
   "compilerTexts": {
     "tr": {
-      "topicHeader": "KAYNAK METİN",
-      "levelHeader": "İŞLEM TİPİ",
-      "modeHeader": "TONE & REGISTER",
-      "depthHeader": "NÜANS SEVİYESİ",
-      "formatHeader": "ÇEVİRİ FORMATI"
+      "mod": {
+        "kurumsal": "Sen profesyonel bir kurumsal çevirmen ve dil danışmanısın. İş dünyası jargonu, resmi ton ve diplomatik nezaket kurallarını kusursuz uygularsın.",
+        "edebi": "Sen edebi çevirmen ve metin yazarısın. Metnin ritmini, duygusunu, mecazlarını ve yazarın özgün sesini hedef dile aktarırsın.",
+        "samimi": "Sen modern yerelleştirme (localization) uzmanısın. Günlük konuşma dili, sokak argosu, mizah ve popüler kültür kodlarını doğal biçimde uyarlarsın."
+      },
+      "derinlik": {
+        "dilbilgisi": "Sadece dilbilgisi düzeltmesi ve doğrudan çeviri sun.",
+        "parlatma": "Akıcılık, ton kalibrasyonu ve alternatif ifadelerle metni parlat.",
+        "kulturel": "Kültürel adaptasyon, deyimsel eşleşmeler ve detaylı çeviri notlarıyla zenginleştir."
+      },
+      "format": {
+        "yanyana": "Kaynak ve hedef metni yan yana karşılaştırmalı formatta sun.",
+        "aciklama": "Çeviriyi, tercih edilen sözcüklerin açıklamalarıyla birlikte ver.",
+        "rephrase": "Farklı ton ve kayıtlar için 3 alternatif yeniden ifade formatında hazırla."
+      },
+      "labels": {
+        "role": "[ROLE]",
+        "goal": "[GOAL]",
+        "context": "[CONTEXT]",
+        "modules": "[ACTIVE MODULES]",
+        "instructions": "[INSTRUCTIONS]",
+        "format": "[OUTPUT FORMAT]",
+        "constraints": "[CONSTRAINTS / SAFETY]"
+      },
+      "contextLabels": {
+        "domain": "Alan:",
+        "level": "Seviye:",
+        "depthRequirement": "Derinlik Gereksinimi:"
+      },
+      "goalTemplate": "\"{{KONU}}\" metnini kültürel nüanslar, dilbilgisi hassasiyeti ve hedef kitle tonuna kusursuz uyum sağlayacak şekilde lokalize ve optimize etmek.",
+      "constraintsBase": [
+        "Birebir (kelime kelimesine) çeviri yapma; anlamsal ve kültürel eşdeğerliği sağla.",
+        "Deyimlerin ve mecazların hedef dildeki doğal karşılıklarını kullan.",
+        "Ton tutarlılığını (resmi/samimi) metin boyunca koru."
+      ],
+      "monologueText": "İÇ SES MODU: Çeviriyi tamamlamadan önce (<thinking> tagleri içinde) sahte eşdeğerleri (false friends) ve kültürel anlam kaymalarını denetle."
     },
     "en": {
-      "topicHeader": "SOURCE TEXT",
-      "levelHeader": "TASK TYPE",
-      "modeHeader": "TONE & REGISTER",
-      "depthHeader": "NUANCE DEPTH",
-      "formatHeader": "OUTPUT FORMAT"
+      "mod": {
+        "kurumsal": "You are a corporate localization consultant. You enforce professional tone, executive register, and domain terminology.",
+        "edebi": "You are a literary translator. You preserve authorial voice, lyrical cadence, metaphorical resonance, and subtext.",
+        "samimi": "You are a contemporary localization specialist. You adapt idioms, colloquialisms, humor, and cultural references authentically."
+      },
+      "derinlik": {
+        "dilbilgisi": "Focus on precise grammatical correction and faithful translation.",
+        "parlatma": "Calibrate register, enhance sentence flow, and provide refined phrasings.",
+        "kulturel": "Provide comprehensive localization with cultural rationale and annotated translation notes."
+      },
+      "format": {
+        "yanyana": "Present as side-by-side source and target comparative layout.",
+        "aciklama": "Provide the translated text accompanied by lexical and stylistic footnotes.",
+        "rephrase": "Offer 3 distinct tonal rephrasing variants (formal, concise, expressive)."
+      },
+      "labels": {
+        "role": "[ROLE]",
+        "goal": "[GOAL]",
+        "context": "[CONTEXT]",
+        "modules": "[ACTIVE MODULES]",
+        "instructions": "[INSTRUCTIONS]",
+        "format": "[OUTPUT FORMAT]",
+        "constraints": "[CONSTRAINTS / SAFETY]"
+      },
+      "contextLabels": {
+        "domain": "Domain:",
+        "level": "Level:",
+        "depthRequirement": "Depth Requirement:"
+      },
+      "goalTemplate": "To localize, refine, and optimize the text \"{{KONU}}\" with cultural nuances, grammatical precision, and tone calibration.",
+      "constraintsBase": [
+        "Never translate verbatim; prioritize semantic, stylistic, and cultural equivalence.",
+        "Map idioms and figures of speech to native target expressions.",
+        "Maintain uncompromising register consistency throughout."
+      ],
+      "monologueText": "INTERNAL MONOLOGUE: Before finalizing translation, audit false cognates and subtle tonal drift in <thinking> tags."
     }
   },
   "presets": {
@@ -131,15 +213,14 @@ export const languageSpec = {
       "id": "cefr-c2-polish",
       "group": "fluency",
       "name": {
-        "tr": "💎 CEFR C2 Üslup Yükseltme",
-        "en": "💎 CEFR C2 Executive Polish"
+        "tr": "CEFR C2 Üslup Yükseltme",
+        "en": "CEFR C2 Executive Polish"
       },
       "desc": {
         "tr": "Metni doğal C2 seviyesine yükseltir.",
         "en": "Elevates text to native executive C2 register."
       },
       "forceModules": [
-        "loc-cultural-adaptation",
         "loc-cultural-adaptation"
       ],
       "override": {
@@ -155,8 +236,8 @@ export const languageSpec = {
       "id": "cultural-loc",
       "group": "localization",
       "name": {
-        "tr": "🌍 Kültürel Lokalizasyon",
-        "en": "🌍 Cultural Localization"
+        "tr": "Kültürel Lokalizasyon",
+        "en": "Cultural Localization"
       },
       "desc": {
         "tr": "Deyimleri hedef kültürün diline adapte eder.",
@@ -179,8 +260,8 @@ export const languageSpec = {
       "id": "socratic-tutor",
       "group": "pedagogy",
       "name": {
-        "tr": "🗣️ Sokratik Dil Koçu",
-        "en": "🗣️ Socratic Language Tutor"
+        "tr": "Sokratik Dil Koçu",
+        "en": "Socratic Language Tutor"
       },
       "desc": {
         "tr": "Hataları soru sorarak kendinizin düzeltmesini sağlar.",
@@ -203,8 +284,8 @@ export const languageSpec = {
       "id": "idiom-translator",
       "group": "localization",
       "name": {
-        "tr": "🎭 Deyim & Mecaz Dönüştürücü",
-        "en": "🎭 Idiom & Metaphor Adapter"
+        "tr": "Deyim & Mecaz Dönüştürücü",
+        "en": "Idiom & Metaphor Adapter"
       },
       "desc": {
         "tr": "Birebir çeviri yerine yerel deyim karşılığını bulur.",
@@ -227,8 +308,8 @@ export const languageSpec = {
       "id": "formal-email",
       "group": "fluency",
       "name": {
-        "tr": "💼 Resmi Kurumsal E-Posta",
-        "en": "💼 Formal Corporate Email"
+        "tr": "Resmi Kurumsal E-Posta",
+        "en": "Formal Corporate Email"
       },
       "desc": {
         "tr": "İş dünyasına uygun saygılı ve net e-posta tonu.",
@@ -251,8 +332,8 @@ export const languageSpec = {
       "id": "literary-prose",
       "group": "fluency",
       "name": {
-        "tr": "📖 Edebi Düzyazı & Ton",
-        "en": "📖 Literary Prose & Tone"
+        "tr": "Edebi Düzyazı & Ton",
+        "en": "Literary Prose & Tone"
       },
       "desc": {
         "tr": "Zengin kelime dağarcığı ve şiirsel akış.",
@@ -275,8 +356,8 @@ export const languageSpec = {
       "id": "academic-translator",
       "group": "fluency",
       "name": {
-        "tr": "📚 Akademik Makale Çevirisi",
-        "en": "📚 Academic Paper Translation"
+        "tr": "Akademik Makale Çevirisi",
+        "en": "Academic Paper Translation"
       },
       "desc": {
         "tr": "Dergi standartlarında bilimsel terminoloji.",
@@ -299,8 +380,8 @@ export const languageSpec = {
       "id": "slang-native",
       "group": "localization",
       "name": {
-        "tr": "💬 Günlük Yerel Konuşma Dili",
-        "en": "💬 Casual Native Slang"
+        "tr": "Günlük Yerel Konuşma Dili",
+        "en": "Casual Native Slang"
       },
       "desc": {
         "tr": "Sokakta konuşulan doğal günlük ifade kalıpları.",
@@ -323,8 +404,8 @@ export const languageSpec = {
       "id": "pitch-speech",
       "group": "fluency",
       "name": {
-        "tr": "🎙️ Sunum & Konuşma Metni",
-        "en": "🎙️ Presentation Speech Polish"
+        "tr": "Sunum & Konuşma Metni",
+        "en": "Presentation Speech Polish"
       },
       "desc": {
         "tr": "Vurgulu ve akılda kalıcı konuşma üslubu.",
@@ -347,8 +428,8 @@ export const languageSpec = {
       "id": "grammar-fixer",
       "group": "pedagogy",
       "name": {
-        "tr": "✏️ Dil Bilgisi & İmla Düzeltme",
-        "en": "✏️ Grammar & Punctuation Fixer"
+        "tr": "Dil Bilgisi & İmla Düzeltme",
+        "en": "Grammar & Punctuation Fixer"
       },
       "desc": {
         "tr": "Anlamı değiştirmeden imla hatalarını giderir.",
@@ -371,8 +452,8 @@ export const languageSpec = {
       "id": "dubbing-sync",
       "group": "localization",
       "name": {
-        "tr": "🎬 Altyazı & Dublaj Uyumlaması",
-        "en": "🎬 Subtitle & Dubbing Sync"
+        "tr": "Altyazı & Dublaj Uyumlaması",
+        "en": "Subtitle & Dubbing Sync"
       },
       "desc": {
         "tr": "Ekran süresine ve dudak payına uygun metin.",
@@ -395,8 +476,8 @@ export const languageSpec = {
       "id": "bilingual-side",
       "group": "pedagogy",
       "name": {
-        "tr": "🔀 Yan Yana Çift Dilli Metin",
-        "en": "🔀 Side-by-Side Dual Language"
+        "tr": "Yan Yana Çift Dilli Metin",
+        "en": "Side-by-Side Dual Language"
       },
       "desc": {
         "tr": "Orijinal ve çeviriyi paralel sütunlarda sunar.",

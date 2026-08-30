@@ -32,7 +32,17 @@ export const decisionSpec = {
         "framework": "Zihinsel Çerçeve",
         "risk": "Risk & Analiz",
         "execution": "Uygulama & Öncelik"
-      }
+      },
+      "categories": {
+        "foundation": "Karar Çerçevesi",
+        "analysis": "Seçenek Analizi",
+        "tradeoff": "Ödünleşim & Risk",
+        "biases": "Bilişsel Yanlılıklar",
+        "execution": "Uygulama & Takip"
+      },
+      "modulesTitle": "Modüller (Module Blocks)",
+      "presetsTitle": "Uzman Hazır Şablonları (System Presets)",
+      "paramsTitle": "Parametreler"
     },
     "en": {
       "title": "Decision Engine & Risk Architect",
@@ -49,7 +59,17 @@ export const decisionSpec = {
         "framework": "Mental Frameworks",
         "risk": "Risk & Tradeoffs",
         "execution": "Execution & Priority"
-      }
+      },
+      "categories": {
+        "foundation": "Decision Framing",
+        "analysis": "Option Analysis",
+        "tradeoff": "Tradeoffs & Risks",
+        "biases": "Cognitive Biases",
+        "execution": "Execution & Tracking"
+      },
+      "modulesTitle": "Module Blocks",
+      "presetsTitle": "System Presets",
+      "paramsTitle": "Parameters"
     }
   },
   "optionSets": {
@@ -128,18 +148,86 @@ export const decisionSpec = {
   },
   "compilerTexts": {
     "tr": {
-      "topicHeader": "KARAR PROBLEMI",
-      "levelHeader": "KARAR TİPİ",
-      "modeHeader": "ZİHİNSEL PERSPEKTİF",
-      "depthHeader": "ANALİZ DERİNLİĞİ",
-      "formatHeader": "KARAR FORMATI"
+      "mod": {
+        "premortem": "Sen bir risk ve premortem analistisin. Kararın gelecekte neden başarısız olabileceğini baştan simüle eder ve zayıf noktaları ortaya çıkarırsın.",
+        "rasyonel": "Sen rasyonel karar kuramcısı ve stratejik danışmansın. Seçenekleri objektif kriterler, ağırlıklar ve beklenen değerler üzerinden puanlarsın.",
+        "ikincicil": "Sen ikinci ve üçüncü derece sonuçları düşünen bir sistem analistisin. Bir kararın yalnızca anlık değil, dolaylı ve uzun vadeli zincirleme etkilerini modelllersin.",
+        "sokratik": "Sen kritik düşünme koçusun. Karar vericinin kör noktalarını, gizli varsayımlarını ve duygusal yanlılıklarını yönlendirici sorularla açığa çıkarırsın."
+      },
+      "derinlik": {
+        "temel": "Temel karar matrisini ve ana riskleri özetle.",
+        "orta": "Kriterleri puanla, ödünleşimleri ve 2. derece sonuçları dengeli açıkla.",
+        "derin": "Kapsamlı senaryo analizi, hassasiyet testleri ve bilişsel yanlılık denetimi yap.",
+        "kapsamli": "Uç riskler, geri döndürülebilirlik katsayıları ve detaylı uygulama yol haritası dahil tam analizi sun."
+      },
+      "format": {
+        "matris2x2": "2x2 Karar matrisi ve ağırlıklı puanlama tablosu formatında yapılandır.",
+        "evtablo": "Beklenen değer ve olasılık tablosu formatında hazırla.",
+        "tradeoffs": "Ödünleşimler ve artı/eksi dengesini maddeler halinde sun.",
+        "agac": "Karar ağacı ve dallanan senaryolar formatında yapılandır."
+      },
+      "labels": {
+        "role": "[ROLE]",
+        "goal": "[GOAL]",
+        "context": "[CONTEXT]",
+        "modules": "[ACTIVE MODULES]",
+        "instructions": "[INSTRUCTIONS]",
+        "format": "[OUTPUT FORMAT]",
+        "constraints": "[CONSTRAINTS / SAFETY]"
+      },
+      "contextLabels": {
+        "domain": "Alan:",
+        "level": "Seviye:",
+        "depthRequirement": "Derinlik Gereksinimi:"
+      },
+      "goalTemplate": "\"{{KONU}}\" kararını tüm boyutları, riskleri, alternatifleri ve ödünleşimleriyle rasyonel olarak değerlendirip net bir aksiyona varmak.",
+      "constraintsBase": [
+        "Tüm seçeneklerin artı ve eksilerini net ve dürüstçe ortaya koy.",
+        "Kararın geri döndürülebilir (Tip 1 vs Tip 2) olup olmadığını mutlaka belirt.",
+        "Bilişsel yanlılıklardan arınmış, somut bir eylem önerisiyle sonlandır."
+      ],
+      "monologueText": "İÇ SES MODU: Karar önerisi oluşturmadan önce (<thinking> tagleri içinde) en olumsuz 3 senaryoyu ve en az 2 alternatif seçeneği simüle et."
     },
     "en": {
-      "topicHeader": "DECISION PROBLEM",
-      "levelHeader": "DECISION TYPE",
-      "modeHeader": "MENTAL PERSPECTIVE",
-      "depthHeader": "ANALYSIS DEPTH",
-      "formatHeader": "DECISION FORMAT"
+      "mod": {
+        "premortem": "You are a premortem and risk analyst. You simulate why a decision might fail in the future and expose fatal flaws proactively.",
+        "rasyonel": "You are a rational decision theorist and strategic advisor. You score options against objective criteria, weights, and expected values.",
+        "ikincicil": "You are a systems thinker focused on second and third-order consequences. You model long-term systemic ripples.",
+        "sokratik": "You are a critical thinking coach. You expose blind spots, hidden assumptions, and emotional biases through structured questions."
+      },
+      "derinlik": {
+        "temel": "Summarize the core decision matrix and primary risks.",
+        "orta": "Score criteria with balanced explanations of tradeoffs and second-order effects.",
+        "derin": "Perform comprehensive scenario analysis, sensitivity checks, and cognitive bias audits.",
+        "kapsamli": "Provide an exhaustive evaluation including tail risks, reversibility ratings, and step-by-step execution triggers."
+      },
+      "format": {
+        "matris2x2": "Structure as a 2x2 decision matrix and weighted scoring table.",
+        "evtablo": "Format as expected value and probability tables.",
+        "tradeoffs": "Present explicit pros/cons tradeoffs and non-negotiables.",
+        "agac": "Structure as a decision tree with branching decision nodes."
+      },
+      "labels": {
+        "role": "[ROLE]",
+        "goal": "[GOAL]",
+        "context": "[CONTEXT]",
+        "modules": "[ACTIVE MODULES]",
+        "instructions": "[INSTRUCTIONS]",
+        "format": "[OUTPUT FORMAT]",
+        "constraints": "[CONSTRAINTS / SAFETY]"
+      },
+      "contextLabels": {
+        "domain": "Domain:",
+        "level": "Level:",
+        "depthRequirement": "Depth Requirement:"
+      },
+      "goalTemplate": "To rigorously evaluate the decision \"{{KONU}}\" across all dimensions, risks, alternatives, and tradeoffs to arrive at a clear, defensible action.",
+      "constraintsBase": [
+        "State all pros and cons transparently and objectively.",
+        "Explicitly categorize decision reversibility (Type 1 vs Type 2).",
+        "Conclude with a clear, bias-resistant recommendation."
+      ],
+      "monologueText": "INTERNAL MONOLOGUE: Before formulating advice, simulate 3 catastrophic failure modes and at least 2 counter-alternatives in <thinking> tags."
     }
   },
   "presets": {
@@ -147,15 +235,14 @@ export const decisionSpec = {
       "id": "premortem-audit",
       "group": "risk",
       "name": {
-        "tr": "☠️ Pre-Mortem Risk Auditi",
-        "en": "☠️ Pre-Mortem Audit"
+        "tr": "Pre-Mortem Risk Auditi",
+        "en": "Pre-Mortem Audit"
       },
       "desc": {
         "tr": "Kararın gelecekte başarısız olma senaryolarını önden simüle eder.",
         "en": "Simulates failure modes before executing decision."
       },
       "forceModules": [
-        "decision-framing",
         "decision-framing"
       ],
       "override": {
@@ -171,8 +258,8 @@ export const decisionSpec = {
       "id": "ev-rational",
       "group": "framework",
       "name": {
-        "tr": "📊 EV (Beklenen Değer) Analizi",
-        "en": "📊 EV Rational Analysis"
+        "tr": "EV (Beklenen Değer) Analizi",
+        "en": "EV Rational Analysis"
       },
       "desc": {
         "tr": "Olasılıklar ve finansal riskleri sayısal kıyaslar.",
@@ -195,8 +282,8 @@ export const decisionSpec = {
       "id": "second-order",
       "group": "risk",
       "name": {
-        "tr": "🌊 2. Derece Domino Analizi",
-        "en": "🌊 2nd-Order Domino Effects"
+        "tr": "2. Derece Domino Analizi",
+        "en": "2nd-Order Domino Effects"
       },
       "desc": {
         "tr": "Kararın 6 ay ve 2 yıl sonraki dolaylı etkilerini haritalandırır.",
@@ -219,8 +306,8 @@ export const decisionSpec = {
       "id": "triage-fast",
       "group": "framework",
       "name": {
-        "tr": "⚡ Hızlı Karar Triyajı",
-        "en": "⚡ Fast Decision Triage"
+        "tr": "Hızlı Karar Triyajı",
+        "en": "Fast Decision Triage"
       },
       "desc": {
         "tr": "Tip 1 (Geri Dönülemez) vs Tip 2 (Geri Dönülebilir) karar ayırımı.",
@@ -243,8 +330,8 @@ export const decisionSpec = {
       "id": "tradeoff-matrix",
       "group": "framework",
       "name": {
-        "tr": "⚖️ Ödünleşim & Pros-Cons Matrisi",
-        "en": "⚖️ Trade-off & Pros-Cons"
+        "tr": "Ödünleşim & Pros-Cons Matrisi",
+        "en": "Trade-off & Pros-Cons"
       },
       "desc": {
         "tr": "Fırsat maliyetlerini ve alternatif kazanımları tartarcasına dengeler.",
@@ -267,8 +354,8 @@ export const decisionSpec = {
       "id": "bias-hunter",
       "group": "risk",
       "name": {
-        "tr": "🧠 Bilişsel Yanılgı Avcısı",
-        "en": "🧠 Cognitive Bias Audit"
+        "tr": "Bilişsel Yanılgı Avcısı",
+        "en": "Cognitive Bias Audit"
       },
       "desc": {
         "tr": "Onaylama ve batık maliyet yanılgılarını temizler.",
@@ -291,8 +378,8 @@ export const decisionSpec = {
       "id": "scenario-planning",
       "group": "risk",
       "name": {
-        "tr": "🔮 Senaryo Planlama (En İyi/Kötü)",
-        "en": "🔮 Best/Worst Case Scenarios"
+        "tr": "Senaryo Planlama (En İyi/Kötü)",
+        "en": "Best/Worst Case Scenarios"
       },
       "desc": {
         "tr": "İyimser, kötümser ve nötr senaryoları simüle eder.",
@@ -315,8 +402,8 @@ export const decisionSpec = {
       "id": "opportunity-cost",
       "group": "framework",
       "name": {
-        "tr": "💸 Fırsat Maliyeti Hesabı",
-        "en": "💸 Opportunity Cost Spec"
+        "tr": "Fırsat Maliyeti Hesabı",
+        "en": "Opportunity Cost Spec"
       },
       "desc": {
         "tr": "Seçilmeyen yolun getireceği kayıpları hesaplar.",
@@ -339,8 +426,8 @@ export const decisionSpec = {
       "id": "reversibility-check",
       "group": "framework",
       "name": {
-        "tr": "🔄 Geri Dönülebilirlik Testi",
-        "en": "🔄 Reversibility Test"
+        "tr": "Geri Dönülebilirlik Testi",
+        "en": "Reversibility Test"
       },
       "desc": {
         "tr": "Karardan geri adım atmanın kaçış kapılarını kurgular.",
@@ -363,8 +450,8 @@ export const decisionSpec = {
       "id": "stakeholder-map",
       "group": "execution",
       "name": {
-        "tr": "👥 Paydaş Etki Haritası",
-        "en": "👥 Stakeholder Impact Map"
+        "tr": "Paydaş Etki Haritası",
+        "en": "Stakeholder Impact Map"
       },
       "desc": {
         "tr": "Kararın etkileyeceği tüm grupları analiz eder.",
@@ -387,8 +474,8 @@ export const decisionSpec = {
       "id": "crisis-protocol",
       "group": "execution",
       "name": {
-        "tr": "🚨 Kriz Karar Protokolü",
-        "en": "🚨 Crisis Decision Protocol"
+        "tr": "Kriz Karar Protokolü",
+        "en": "Crisis Decision Protocol"
       },
       "desc": {
         "tr": "Baskı altında hızlı ve rasyonel hamle planı.",
@@ -411,8 +498,8 @@ export const decisionSpec = {
       "id": "pareto-priority",
       "group": "execution",
       "name": {
-        "tr": "🎯 80/20 Pareto Önceliklendirme",
-        "en": "🎯 80/20 Pareto Prioritization"
+        "tr": "80/20 Pareto Önceliklendirme",
+        "en": "80/20 Pareto Prioritization"
       },
       "desc": {
         "tr": "%80 etki yaratacak %20 kritik hamleyi bulur.",

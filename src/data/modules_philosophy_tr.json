@@ -3,412 +3,352 @@
     "id": "fallacy-detector",
     "icon": "🔍",
     "name": "Safsata Tespit Motoru",
-    "category": "logic",
-    "description": "Argümanlardaki kayıtlı mantıksal safsataları (fallacies) tespit eder.",
+    "desc": "Argümanlardaki kayıtlı mantıksal safsataları (fallacies) tespit eder.",
+    "explain": "Argümanlardaki kayıtlı mantıksal safsataları (fallacies) tespit eder.",
     "layer": "logic",
     "requires": [],
-    "prompt": "Metindeki mantıksal safsataları (Ad Hominem, Straw Man, False Dilemma, Begging the Question) tespit et. Her safsatanın çıkarım zincirini nasıl bozduğunu göster.",
-    "desc": "Argümanlardaki kayıtlı mantıksal safsataları (fallacies) tespit eder.",
-    "explain": "Argümanlardaki kayıtlı mantıksal safsataları (fallacies) tespit eder."
+    "prompt": "Metindeki mantıksal safsataları (Ad Hominem, Straw Man, False Dilemma, Begging the Question) tespit et. Her safsatanın çıkarım zincirini nasıl bozduğunu göster."
   },
   {
     "id": "syllogism-validator",
     "icon": "⚖️",
     "name": "Kıyas (Syllogism) Doğrulayıcı",
-    "category": "logic",
-    "description": "Tümdenelimsel kıyasların biçimsel geçerliliğini denetler.",
+    "desc": "Tümdenelimsel kıyasların biçimsel geçerliliğini denetler.",
+    "explain": "Tümdenelimsel kıyasların biçimsel geçerliliğini denetler.",
     "layer": "logic",
     "requires": [
       "fallacy-detector"
     ],
-    "prompt": "Argümanı standart kıyas yapısına dönüştür: Büyük Öncül, Küçük Öncül ve Sonuç. Çıkarımın biçimsel olarak geçerli (valid) ve içerik olarak doğru (sound) olup olmadığını test et.",
-    "desc": "Tümdenelimsel kıyasların biçimsel geçerliliğini denetler.",
-    "explain": "Tümdenelimsel kıyasların biçimsel geçerliliğini denetler."
+    "prompt": "Argümanı standart kıyas yapısına dönüştür: Büyük Öncül, Küçük Öncül ve Sonuç. Çıkarımın biçimsel olarak geçerli (valid) ve içerik olarak doğru (sound) olup olmadığını test et."
   },
   {
     "id": "premise-deconstruction",
     "icon": "🧩",
     "name": "Öncül Ayrıştırma",
-    "category": "logic",
-    "description": "Gizli ve söylenmemiş (enthymeme) öncülleri açığa çıkarır.",
+    "desc": "Gizli ve söylenmemiş (enthymeme) öncülleri açığa çıkarır.",
+    "explain": "Gizli ve söylenmemiş (enthymeme) öncülleri açığa çıkarır.",
     "layer": "logic",
     "requires": [
       "syllogism-validator"
     ],
-    "prompt": "Argümanın dayanmakta olduğu gizli/örtük öncülleri (enthymemes) açığa çıkar. Bu gizli kabullerin yanlışlanabilirliğini test et.",
-    "desc": "Gizli ve söylenmemiş (enthymeme) öncülleri açığa çıkarır.",
-    "explain": "Gizli ve söylenmemiş (enthymeme) öncülleri açığa çıkarır."
+    "prompt": "Argümanın dayanmakta olduğu gizli/örtük öncülleri (enthymemes) açığa çıkar. Bu gizli kabullerin yanlışlanabilirliğini test et."
   },
   {
     "id": "formal-validity-test",
     "icon": "📐",
     "name": "Sembolik Mantık Testi",
-    "category": "logic",
-    "description": "Önermeler mantığı ile ($P \\rightarrow Q$) tutarlılık analizi yapar.",
+    "desc": "Önermeler mantığı ile ($P \\rightarrow Q$) tutarlılık analizi yapar.",
+    "explain": "Önermeler mantığı ile ($P \\rightarrow Q$) tutarlılık analizi yapar.",
     "layer": "logic",
     "requires": [
       "syllogism-validator"
     ],
-    "prompt": "Argümanı sembolik mantık diline çevir ($P \\rightarrow Q, \\neg Q \\vdash \\neg P$). Modus Ponens veya Modus Tollens kurallarının doğru uygulanıp uygulanmadığını kontrol et.",
-    "desc": "Önermeler mantığı ile ($P \\rightarrow Q$) tutarlılık analizi yapar.",
-    "explain": "Önermeler mantığı ile ($P \\rightarrow Q$) tutarlılık analizi yapar."
+    "prompt": "Argümanı sembolik mantık diline çevir ($P \\rightarrow Q, \\neg Q \\vdash \\neg P$). Modus Ponens veya Modus Tollens kurallarının doğru uygulanıp uygulanmadığını kontrol et."
   },
   {
     "id": "informal-fallacy-purge",
     "icon": "🧹",
     "name": "Kayıt Dışı Safsata Temizliği",
-    "category": "logic",
-    "description": "İçeriksel ve retoriksel saptırmaları temizler.",
+    "desc": "İçeriksel ve retoriksel saptırmaları temizler.",
+    "explain": "İçeriksel ve retoriksel saptırmaları temizler.",
     "layer": "logic",
     "requires": [
       "fallacy-detector"
     ],
-    "prompt": "İçeriksel (informal) safsataları temizle: Yanıltıcı benzetmeleri, otoriteye başvurma (Ad Verecundiam) ve duygusal ajitasyon unsurlarını metinden tamamen süz.",
-    "desc": "İçeriksel ve retoriksel saptırmaları temizler.",
-    "explain": "İçeriksel ve retoriksel saptırmaları temizler."
+    "prompt": "İçeriksel (informal) safsataları temizle: Yanıltıcı benzetmeleri, otoriteye başvurma (Ad Verecundiam) ve duygusal ajitasyon unsurlarını metinden tamamen süz."
   },
   {
     "id": "modal-logic-check",
     "icon": "🌌",
     "name": "Kipsel (Modal) Mantık Analizi",
-    "category": "logic",
-    "description": "Zorunluluk, olasılık ve imkan kavramlarının kurgusunu denetler.",
+    "desc": "Zorunluluk, olasılık ve imkan kavramlarının kurgusunu denetler.",
+    "explain": "Zorunluluk, olasılık ve imkan kavramlarının kurgusunu denetler.",
     "layer": "logic",
     "requires": [
       "formal-validity-test"
     ],
-    "prompt": "Kipsel mantık (Modal Logic) süzgecinden geçir: Önermelerin 'zorunlu olarak mı doğru' ($\\Box P$), yoksa 'mümkün dünyalarda mı doğru' ($\\Diamond P$) olduğunu ayrıştır.",
-    "desc": "Zorunluluk, olasılık ve imkan kavramlarının kurgusunu denetler.",
-    "explain": "Zorunluluk, olasılık ve imkan kavramlarının kurgusunu denetler."
+    "prompt": "Kipsel mantık (Modal Logic) süzgecinden geçir: Önermelerin 'zorunlu olarak mı doğru' ($\\Box P$), yoksa 'mümkün dünyalarda mı doğru' ($\\Diamond P$) olduğunu ayrıştır."
   },
   {
     "id": "utilitarian-calculus",
     "icon": "🧮",
     "name": "Faydacı (Utilitarian) Hesaplama",
-    "category": "ethics",
-    "description": "Eylemin net mutluluk ve acı bilançosunu ölçer (Jeremy Bentham / J.S. Mill).",
+    "desc": "Eylemin net mutluluk ve acı bilançosunu ölçer (Jeremy Bentham / J.S. Mill).",
+    "explain": "Eylemin net mutluluk ve acı bilançosunu ölçer (Jeremy Bentham / J.S. Mill).",
     "layer": "ethics",
     "requires": [],
-    "prompt": "Faydacı etik (Utilitarianism) açısından analiz et: Eylemin tüm etkilenen aktörlerde yaratacağı toplam hazzı ve acıyı (hedonic calculus) kıyasla. Net toplumsal faydayı hesapla.",
-    "desc": "Eylemin net mutluluk ve acı bilançosunu ölçer (Jeremy Bentham / J.S. Mill).",
-    "explain": "Eylemin net mutluluk ve acı bilançosunu ölçer (Jeremy Bentham / J.S. Mill)."
+    "prompt": "Faydacı etik (Utilitarianism) açısından analiz et: Eylemin tüm etkilenen aktörlerde yaratacağı toplam hazzı ve acıyı (hedonic calculus) kıyasla. Net toplumsal faydayı hesapla."
   },
   {
     "id": "deontological-screen",
     "icon": "Ö",
     "name": "Ödev Etiği (Kantian) Testi",
-    "category": "ethics",
-    "description": "Koşulsuz Buyruk (Categorical Imperative) ve evrenselleştirilebilirlik testi.",
+    "desc": "Koşulsuz Buyruk (Categorical Imperative) ve evrenselleştirilebilirlik testi.",
+    "explain": "Koşulsuz Buyruk (Categorical Imperative) ve evrenselleştirilebilirlik testi.",
     "layer": "ethics",
     "requires": [],
-    "prompt": "Kant'ın Ödev Etiği ve Koşulsuz Buyruk (Categorical Imperative) süzgecini uygula: (a) Bu eylemin maksimi evrensel bir yasa olabilir mi? (b) İnsanlar araç olarak mı, yoksa amaç olarak mı görülüyor?",
-    "desc": "Koşulsuz Buyruk (Categorical Imperative) ve evrenselleştirilebilirlik testi.",
-    "explain": "Koşulsuz Buyruk (Categorical Imperative) ve evrenselleştirilebilirlik testi."
+    "prompt": "Kant'ın Ödev Etiği ve Koşulsuz Buyruk (Categorical Imperative) süzgecini uygula: (a) Bu eylemin maksimi evrensel bir yasa olabilir mi? (b) İnsanlar araç olarak mı, yoksa amaç olarak mı görülüyor?"
   },
   {
     "id": "virtue-ethics-audit",
     "icon": "🏛️",
     "name": "Erdem Etiği Denetimi",
-    "category": "ethics",
-    "description": "Eylemin karakter, erdem ve altın orta (Aristoteles) ilkelerine uygunluğunu inceler.",
+    "desc": "Eylemin karakter, erdem ve altın orta (Aristoteles) ilkelerine uygunluğunu inceler.",
+    "explain": "Eylemin karakter, erdem ve altın orta (Aristoteles) ilkelerine uygunluğunu inceler.",
     "layer": "ethics",
     "requires": [
       "utilitarian-calculus",
       "deontological-screen"
     ],
-    "prompt": "Aristotelesçi Erdem Etiği açısından değerlendir: Eylem hangi erdemleri (cesaret, adalet, ölçülülük) sergiliyor? Aşırılık ile eksiklik arasındaki 'Altın Orta' (Golden Mean) nerededir?",
-    "desc": "Eylemin karakter, erdem ve altın orta (Aristoteles) ilkelerine uygunluğunu inceler.",
-    "explain": "Eylemin karakter, erdem ve altın orta (Aristoteles) ilkelerine uygunluğunu inceler."
+    "prompt": "Aristotelesçi Erdem Etiği açısından değerlendir: Eylem hangi erdemleri (cesaret, adalet, ölçülülük) sergiliyor? Aşırılık ile eksiklik arasındaki 'Altın Orta' (Golden Mean) nerededir?"
   },
   {
     "id": "care-ethics-perspective",
     "icon": "🤝",
     "name": "Bakım Etiği (Ethics of Care)",
-    "category": "ethics",
-    "description": "İlişkiler, bağımlılıklar ve empati odaklı etik yaklaşım getirir.",
+    "desc": "İlişkiler, bağımlılıklar ve empati odaklı etik yaklaşım getirir.",
+    "explain": "İlişkiler, bağımlılıklar ve empati odaklı etik yaklaşım getirir.",
     "layer": "ethics",
     "requires": [
       "virtue-ethics-audit"
     ],
-    "prompt": "Bakım Etiği (Ethics of Care) lensini uygula: Soyut kurallar yerine, karar alanındaki bağımlılık ilişkilerini, kırılgan grupları ve empati sorumluluklarını ön plana çıkar.",
-    "desc": "İlişkiler, bağımlılıklar ve empati odaklı etik yaklaşım getirir.",
-    "explain": "İlişkiler, bağımlılıklar ve empati odaklı etik yaklaşım getirir."
+    "prompt": "Bakım Etiği (Ethics of Care) lensini uygula: Soyut kurallar yerine, karar alanındaki bağımlılık ilişkilerini, kırılgan grupları ve empati sorumluluklarını ön plana çıkar."
   },
   {
     "id": "rawlsian-veil-ignorance",
     "icon": "🙈",
     "name": "Rawlsian Bilgisizlik Peçesi",
-    "category": "ethics",
-    "description": "Toplumsal konumunu bilmeden adil düzen tasarlama (John Rawls).",
+    "desc": "Toplumsal konumunu bilmeden adil düzen tasarlama (John Rawls).",
+    "explain": "Toplumsal konumunu bilmeden adil düzen tasarlama (John Rawls).",
     "layer": "ethics",
     "requires": [
       "deontological-screen"
     ],
-    "prompt": "John Rawls'un 'Bilgisizlik Peçesi' (Veil of Ignorance) testini yap: Topluluktaki konumunu (zengin/fakir, güçlü/zayıf) bilmeseydin, bu karar veya kuralı adil kabul eder miydin?",
-    "desc": "Toplumsal konumunu bilmeden adil düzen tasarlama (John Rawls).",
-    "explain": "Toplumsal konumunu bilmeden adil düzen tasarlama (John Rawls)."
+    "prompt": "John Rawls'un 'Bilgisizlik Peçesi' (Veil of Ignorance) testini yap: Topluluktaki konumunu (zengin/fakir, güçlü/zayıf) bilmeseydin, bu karar veya kuralı adil kabul eder miydin?"
   },
   {
     "id": "ethical-dilemma-resolver",
     "icon": "🔀",
     "name": "Etik İkilem Çözücü",
-    "category": "ethics",
-    "description": "Çatışan etik teoriler arasında karar matrisi kurar.",
+    "desc": "Çatışan etik teoriler arasında karar matrisi kurar.",
+    "explain": "Çatışan etik teoriler arasında karar matrisi kurar.",
     "layer": "ethics",
     "requires": [
       "utilitarian-calculus",
       "deontological-screen"
     ],
-    "prompt": "Etik ikilemi çöz: Faydacı sonuçlar ile Deontolojik ilkeler çatıştığında, ortaya çıkan trajik ödünleşmeyi tanımla ve etik gerekçelendirmeyi sun.",
-    "desc": "Çatışan etik teoriler arasında karar matrisi kurar.",
-    "explain": "Çatışan etik teoriler arasında karar matrisi kurar."
+    "prompt": "Etik ikilemi çöz: Faydacı sonuçlar ile Deontolojik ilkeler çatıştığında, ortaya çıkan trajik ödünleşmeyi tanımla ve etik gerekçelendirmeyi sun."
   },
   {
     "id": "socratic-aporia",
     "icon": "🏛️",
     "name": "Sokratik Aporia Çıkmazı",
-    "category": "epistemology",
-    "description": "Sorgulama ile muhatabı bilgiçlik yanılsamasından çıkarıp aporyaya sokar.",
+    "desc": "Sorgulama ile muhatabı bilgiçlik yanılsamasından çıkarıp aporyaya sokar.",
+    "explain": "Sorgulama ile muhatabı bilgiçlik yanılsamasından çıkarıp aporyaya sokar.",
     "layer": "epistemology",
     "requires": [],
-    "prompt": "Sokratik yöntemi uygula: Doğrudan yanıt vermek yerine, muhatabın tanımındaki çelişkileri görünür kılacak 3 ardışık soru sorarak onu 'Aporia' (çıkmaz) durumuna getir.",
-    "desc": "Sorgulama ile muhatabı bilgiçlik yanılsamasından çıkarıp aporyaya sokar.",
-    "explain": "Sorgulama ile muhatabı bilgiçlik yanılsamasından çıkarıp aporyaya sokar."
+    "prompt": "Sokratik yöntemi uygula: Doğrudan yanıt vermek yerine, muhatabın tanımındaki çelişkileri görünür kılacak 3 ardışık soru sorarak onu 'Aporia' (çıkmaz) durumuna getir."
   },
   {
     "id": "justification-trilemma",
     "icon": "🔺",
     "name": "Münchhausen Trilemması",
-    "category": "epistemology",
-    "description": "Bilginin temellendirilmesindeki 3 imkansızlığı (dogmatizm, döngüsellik, sonsuz gerileme) denetler.",
+    "desc": "Bilginin temellendirilmesindeki 3 imkansızlığı (dogmatizm, döngüsellik, sonsuz gerileme) denetler.",
+    "explain": "Bilginin temellendirilmesindeki 3 imkansızlığı (dogmatizm, döngüsellik, sonsuz gerileme) denetler.",
     "layer": "epistemology",
     "requires": [
       "socratic-aporia"
     ],
-    "prompt": "Münchhausen Trilemması denetimi yap: Doğrulama zinciri nereye dayanıyor? (a) Sonsuz gerileme mi (regress)? (b) Döngüsel kanıtlama mı (circularity)? (c) Dogmatik kabullenme mi?",
-    "desc": "Bilginin temellendirilmesindeki 3 imkansızlığı (dogmatizm, döngüsellik, sonsuz gerileme) denetler.",
-    "explain": "Bilginin temellendirilmesindeki 3 imkansızlığı (dogmatizm, döngüsellik, sonsuz gerileme) denetler."
+    "prompt": "Münchhausen Trilemması denetimi yap: Doğrulama zinciri nereye dayanıyor? (a) Sonsuz gerileme mi (regress)? (b) Döngüsel kanıtlama mı (circularity)? (c) Dogmatik kabullenme mi?"
   },
   {
     "id": "radical-skepticism-filter",
     "icon": "🤔",
     "name": "Radikal Şüphecilik (Cartesian)",
-    "category": "epistemology",
-    "description": "Tüm duyu verilerini ve kabulleri Kartezyen şüpheye tabi tutar.",
+    "desc": "Tüm duyu verilerini ve kabulleri Kartezyen şüpheye tabi tutar.",
+    "explain": "Tüm duyu verilerini ve kabulleri Kartezyen şüpheye tabi tutar.",
     "layer": "epistemology",
     "requires": [
       "socratic-aporia"
     ],
-    "prompt": "Descartes'ın Radikal Şüphecilik süzgecini uygula: Bu iddia tamamen yanıltıcı bir duyu verisi veya illüzyon olabilir mi? Şüphe duyulamayacak sarsılmaz çekirdek nedir?",
-    "desc": "Tüm duyu verilerini ve kabulleri Kartezyen şüpheye tabi tutar.",
-    "explain": "Tüm duyu verilerini ve kabulleri Kartezyen şüpheye tabi tutar."
+    "prompt": "Descartes'ın Radikal Şüphecilik süzgecini uygula: Bu iddia tamamen yanıltıcı bir duyu verisi veya illüzyon olabilir mi? Şüphe duyulamayacak sarsılmaz çekirdek nedir?"
   },
   {
     "id": "empiricism-vs-rationalism",
     "icon": "⚖️",
     "name": "Ampirizm vs. Rasyonalizm",
-    "category": "epistemology",
-    "description": "Bilginin kaynağını (deneyim mi, doğuştan akıl mı) ayrıştırır.",
+    "desc": "Bilginin kaynağını (deneyim mi, doğuştan akıl mı) ayrıştırır.",
+    "explain": "Bilginin kaynağını (deneyim mi, doğuştan akıl mı) ayrıştırır.",
     "layer": "epistemology",
     "requires": [
       "justification-trilemma"
     ],
-    "prompt": "Bilgi iddiasını ayrıştır: Bu sonuç ampirik gözleme mi (a posteriori) yoksa saf akıl yürütmeye mi (a priori) dayanıyor? İki kaynak arasındaki epistemik uyumsuzlukları bul.",
-    "desc": "Bilginin kaynağını (deneyim mi, doğuştan akıl mı) ayrıştırır.",
-    "explain": "Bilginin kaynağını (deneyim mi, doğuştan akıl mı) ayrıştırır."
+    "prompt": "Bilgi iddiasını ayrıştır: Bu sonuç ampirik gözleme mi (a posteriori) yoksa saf akıl yürütmeye mi (a priori) dayanıyor? İki kaynak arasındaki epistemik uyumsuzlukları bul."
   },
   {
     "id": "coherentism-check",
     "icon": "🕸️",
     "name": "Bağdaşımcılık (Coherentism) Testi",
-    "category": "epistemology",
-    "description": "İddianın mevcut inanç ağıyla mantıksal ağ uyumunu doğrula.",
+    "desc": "İddianın mevcut inanç ağıyla mantıksal ağ uyumunu doğrula.",
+    "explain": "İddianın mevcut inanç ağıyla mantıksal ağ uyumunu doğrula.",
     "layer": "epistemology",
     "requires": [
       "justification-trilemma"
     ],
-    "prompt": "Epistemik Bağdaşımcılık (Coherentism) testi yap: Yeni önerme, önceden kabul edilmiş sarsılmaz inançlar ağıyla mantıksal olarak çelişmeden eklemlenebiliyor mu?",
-    "desc": "İddianın mevcut inanç ağıyla mantıksal ağ uyumunu doğrula.",
-    "explain": "İddianın mevcut inanç ağıyla mantıksal ağ uyumunu doğrula."
+    "prompt": "Epistemik Bağdaşımcılık (Coherentism) testi yap: Yeni önerme, önceden kabul edilmiş sarsılmaz inançlar ağıyla mantıksal olarak çelişmeden eklemlenebiliyor mu?"
   },
   {
     "id": "epistemic-humility-test",
     "icon": "🌾",
     "name": "Epistemik Mütevazılık",
-    "category": "epistemology",
-    "description": "Cahillik sınırlarını ve bilinemezcilik (agnostisizm) alanlarını haritalandırır.",
+    "desc": "Cahillik sınırlarını ve bilinemezcilik (agnostisizm) alanlarını haritalandırır.",
+    "explain": "Cahillik sınırlarını ve bilinemezcilik (agnostisizm) alanlarını haritalandırır.",
     "layer": "epistemology",
     "requires": [
       "socratic-aporia"
     ],
-    "prompt": "Epistemik mütevazılık sınırını çiz: Modellerin ve insan zihninin doğası gereği KESİNLİKLE BİLEMEYECEĞİ alanları tanımla. Cehalet marjinini kabul et.",
-    "desc": "Cahillik sınırlarını ve bilinemezcilik (agnostisizm) alanlarını haritalandırır.",
-    "explain": "Cahillik sınırlarını ve bilinemezcilik (agnostisizm) alanlarını haritalandırır."
+    "prompt": "Epistemik mütevazılık sınırını çiz: Modellerin ve insan zihninin doğası gereği KESİNLİKLE BİLEMEYECEĞİ alanları tanımla. Cehalet marjinini kabul et."
   },
   {
     "id": "ship-of-theseus-paradox",
     "icon": "⛵",
     "name": "Theseus'un Gemisi Paradoksu",
-    "category": "thought-experiments",
-    "description": "Kimlik, süreklilik ve öz kavramlarını sorgulatan düşünce deneyi.",
+    "desc": "Kimlik, süreklilik ve öz kavramlarını sorgulatan düşünce deneyi.",
+    "explain": "Kimlik, süreklilik ve öz kavramlarını sorgulatan düşünce deneyi.",
     "layer": "thought-experiments",
     "requires": [],
-    "prompt": "Theseus'un Gemisi paradoksunu sisteme/kavrama uygula: Bir sistemin tüm parçaları zamanla değiştirildiğinde, o sistem hala 'aynı' sistem midir? Özü (essence) tanımla.",
-    "desc": "Kimlik, süreklilik ve öz kavramlarını sorgulatan düşünce deneyi.",
-    "explain": "Kimlik, süreklilik ve öz kavramlarını sorgulatan düşünce deneyi."
+    "prompt": "Theseus'un Gemisi paradoksunu sisteme/kavrama uygula: Bir sistemin tüm parçaları zamanla değiştirildiğinde, o sistem hala 'aynı' sistem midir? Özü (essence) tanımla."
   },
   {
     "id": "trolley-problem-variation",
     "icon": "🚃",
     "name": "Tramvay Problemi Varyasyonları",
-    "category": "thought-experiments",
-    "description": "Müdahale etme ile seyirci kalma arasındaki sorumluluk etiği deneyi.",
+    "desc": "Müdahale etme ile seyirci kalma arasındaki sorumluluk etiği deneyi.",
+    "explain": "Müdahale etme ile seyirci kalma arasındaki sorumluluk etiği deneyi.",
     "layer": "thought-experiments",
     "requires": [
       "ship-of-theseus-paradox"
     ],
-    "prompt": "Tramvay Problemi kurgusunu karar problemine uyarla: Edilgen kalarak felakete izin vermek ile aktif müdahale ederek yan hasar yaratmak arasındaki ahlaki sorumluluğu tartış.",
-    "desc": "Müdahale etme ile seyirci kalma arasındaki sorumluluk etiği deneyi.",
-    "explain": "Müdahale etme ile seyirci kalma arasındaki sorumluluk etiği deneyi."
+    "prompt": "Tramvay Problemi kurgusunu karar problemine uyarla: Edilgen kalarak felakete izin vermek ile aktif müdahale ederek yan hasar yaratmak arasındaki ahlaki sorumluluğu tartış."
   },
   {
     "id": "newcomb-paradox-audit",
     "icon": "📦",
     "name": "Newcomb Paradoksu",
-    "category": "thought-experiments",
-    "description": "Özgür irade ile kusursuz öngörü arasındaki karar teorisi paradoksu.",
+    "desc": "Özgür irade ile kusursuz öngörü arasındaki karar teorisi paradoksu.",
+    "explain": "Özgür irade ile kusursuz öngörü arasındaki karar teorisi paradoksu.",
     "layer": "thought-experiments",
     "requires": [
       "ship-of-theseus-paradox"
     ],
-    "prompt": "Newcomb Paradoksu analizi yap: Karar alıcının seçimi deterministik bir öngörü algoritmasıyla çakıştığında; baskın strateji mi yoksa beklenen fayda mı seçilmeli?",
-    "desc": "Özgür irade ile kusursuz öngörü arasındaki karar teorisi paradoksu.",
-    "explain": "Özgür irade ile kusursuz öngörü arasındaki karar teorisi paradoksu."
+    "prompt": "Newcomb Paradoksu analizi yap: Karar alıcının seçimi deterministik bir öngörü algoritmasıyla çakıştığında; baskın strateji mi yoksa beklenen fayda mı seçilmeli?"
   },
   {
     "id": "prisoner-dilemma-matrix",
     "icon": "🚔",
     "name": "Mahkum İkilemi ve Oyun Teorisi",
-    "category": "thought-experiments",
-    "description": "Bireysel rasyonellik ile kolektif çıkar çatışması deneyi.",
+    "desc": "Bireysel rasyonellik ile kolektif çıkar çatışması deneyi.",
+    "explain": "Bireysel rasyonellik ile kolektif çıkar çatışması deneyi.",
     "layer": "thought-experiments",
     "requires": [
       "trolley-problem-variation"
     ],
-    "prompt": "Mahkum İkilemi (Prisoner's Dilemma) matrisini kur: Aktörlerin bencil rasyonelliği nasıl kolektif felakete (Nash Dengesi) yol açıyor? İtiraf/İşbirliği dinamiklerini göster.",
-    "desc": "Bireysel rasyonellik ile kolektif çıkar çatışması deneyi.",
-    "explain": "Bireysel rasyonellik ile kolektif çıkar çatışması deneyi."
+    "prompt": "Mahkum İkilemi (Prisoner's Dilemma) matrisini kur: Aktörlerin bencil rasyonelliği nasıl kolektif felakete (Nash Dengesi) yol açıyor? İtiraf/İşbirliği dinamiklerini göster."
   },
   {
     "id": "experience-machine-test",
     "icon": "🔌",
     "name": "Deneyim Makinesi (Nozick)",
-    "category": "thought-experiments",
-    "description": "Simüle edilmiş mutluluk ile gerçeklik arasındaki değer tercihi.",
+    "desc": "Simüle edilmiş mutluluk ile gerçeklik arasındaki değer tercihi.",
+    "explain": "Simüle edilmiş mutluluk ile gerçeklik arasındaki değer tercihi.",
     "layer": "thought-experiments",
     "requires": [
       "trolley-problem-variation"
     ],
-    "prompt": "Robert Nozick'in Deneyim Makinesi testini uygula: Sahte fakat kusursuz bir simülasyon mu, yoksa acı dolu ama gerçek bir deneyim mi? Gerçekliğin özsel değerini sorgula.",
-    "desc": "Simüle edilmiş mutluluk ile gerçeklik arasındaki değer tercihi.",
-    "explain": "Simüle edilmiş mutluluk ile gerçeklik arasındaki değer tercihi."
+    "prompt": "Robert Nozick'in Deneyim Makinesi testini uygula: Sahte fakat kusursuz bir simülasyon mu, yoksa acı dolu ama gerçek bir deneyim mi? Gerçekliğin özsel değerini sorgula."
   },
   {
     "id": "mary-color-scientist",
     "icon": "🎨",
     "name": "Meryem'in Odası (Qualia)",
-    "category": "thought-experiments",
-    "description": "Fiziksel bilgi ile öznel deneyim (Qualia) arasındaki fark.",
+    "desc": "Fiziksel bilgi ile öznel deneyim (Qualia) arasındaki fark.",
+    "explain": "Fiziksel bilgi ile öznel deneyim (Qualia) arasındaki fark.",
     "layer": "thought-experiments",
     "requires": [
       "ship-of-theseus-paradox"
     ],
-    "prompt": "Frank Jackson'ın 'Meryem Odası' düşünce deneyini uygula: Te Teorik/fiziksel bilgi, birinci şahıs öznel deneyimin (Qualia) yerini tutabilir mi? Bilgi eksikliğini saptar.",
-    "desc": "Fiziksel bilgi ile öznel deneyim (Qualia) arasındaki fark.",
-    "explain": "Fiziksel bilgi ile öznel deneyim (Qualia) arasındaki fark."
+    "prompt": "Frank Jackson'ın 'Meryem Odası' düşünce deneyini uygula: Te Teorik/fiziksel bilgi, birinci şahıs öznel deneyimin (Qualia) yerini tutabilir mi? Bilgi eksikliğini saptar."
   },
   {
     "id": "dialectic-synthesis",
     "icon": "☯️",
     "name": "Hegelci Diyalektik Sentez",
-    "category": "critique",
-    "description": "Tez ve antitezi daha üst bir sentezde (Aufhebung) birleştirir.",
+    "desc": "Tez ve antitezi daha üst bir sentezde (Aufhebung) birleştirir.",
+    "explain": "Tez ve antitezi daha üst bir sentezde (Aufhebung) birleştirir.",
     "layer": "critique",
     "requires": [
       "premise-deconstruction"
     ],
-    "prompt": "Hegelci Diyalektik metodu uygula: (a) Tez iddialarını sun. (b) Antitez zıtlıklarını çıkar. (c) Her ikisini de aşan ve kapsayan üst düzey Sentezi (Aufhebung) inşa et.",
-    "desc": "Tez ve antitezi daha üst bir sentezde (Aufhebung) birleştirir.",
-    "explain": "Tez ve antitezi daha üst bir sentezde (Aufhebung) birleştirir."
+    "prompt": "Hegelci Diyalektik metodu uygula: (a) Tez iddialarını sun. (b) Antitez zıtlıklarını çıkar. (c) Her ikisini de aşan ve kapsayan üst düzey Sentezi (Aufhebung) inşa et."
   },
   {
     "id": "steelman-construction",
     "icon": "🛡️",
     "name": "Steelman (En Güçlü Karşıtlık)",
-    "category": "critique",
-    "description": "Karşı tarafın argümanını zayıflatmak yerine olabilecek en güçlü haliyle kurar.",
+    "desc": "Karşı tarafın argümanını zayıflatmak yerine olabilecek en güçlü haliyle kurar.",
+    "explain": "Karşı tarafın argümanını zayıflatmak yerine olabilecek en güçlü haliyle kurar.",
     "layer": "critique",
     "requires": [
       "dialectic-synthesis"
     ],
-    "prompt": "Karşıt argümanı 'Steelman' tekniğiyle yeniden inşa et: Karşı tarafın savunmasını onun bile yapamadığı kadar güçlü, tutarlı ve sarsılmaz bir mantıkla yeniden yaz, sonra eleştir.",
-    "desc": "Karşı tarafın argümanını zayıflatmak yerine olabilecek en güçlü haliyle kurar.",
-    "explain": "Karşı tarafın argümanını zayıflatmak yerine olabilecek en güçlü haliyle kurar."
+    "prompt": "Karşıt argümanı 'Steelman' tekniğiyle yeniden inşa et: Karşı tarafın savunmasını onun bile yapamadığı kadar güçlü, tutarlı ve sarsılmaz bir mantıkla yeniden yaz, sonra eleştir."
   },
   {
     "id": "immanent-critique",
     "icon": "🔬",
     "name": "İçsel Eleştiri (Immanent Critique)",
-    "category": "critique",
-    "description": "Sistemi dışarıdan değil, kendi kendi koyduğu kurallarla içeriden vurur.",
+    "desc": "Sistemi dışarıdan değil, kendi kendi koyduğu kurallarla içeriden vurur.",
+    "explain": "Sistemi dışarıdan değil, kendi kendi koyduğu kurallarla içeriden vurur.",
     "layer": "critique",
     "requires": [
       "steelman-construction"
     ],
-    "prompt": "İçsel Eleştiri (Immanent Critique) yap: Metni dış değerlerle değil, sistemin kendi kabul ettiği temel ilkelere sadık kalarak, kendi içindeki çelişkileri üzerinden çürüt.",
-    "desc": "Sistemi dışarıdan değil, kendi kendi koyduğu kurallarla içeriden vurur.",
-    "explain": "Sistemi dışarıdan değil, kendi kendi koyduğu kurallarla içeriden vurur."
+    "prompt": "İçsel Eleştiri (Immanent Critique) yap: Metni dış değerlerle değil, sistemin kendi kabul ettiği temel ilkelere sadık kalarak, kendi içindeki çelişkileri üzerinden çürüt."
   },
   {
     "id": "genealogy-deconstruction",
     "icon": "📜",
     "name": "Soybilimsel (Foucault/Nietzsche) Dekonstrüksiyon",
-    "category": "critique",
-    "description": "Kavramların tarihsel ve iktidar odaklı kökenlerini açığa çıkarır.",
+    "desc": "Kavramların tarihsel ve iktidar odaklı kökenlerini açığa çıkarır.",
+    "explain": "Kavramların tarihsel ve iktidar odaklı kökenlerini açığa çıkarır.",
     "layer": "critique",
     "requires": [
       "immanent-critique"
     ],
-    "prompt": "Kavramın Soybilimsel (Genealogical) dekonstrüksiyonunu yap: 'Evrensel ve doğal' sanılan bu kavram hangi tarihsel güç mücadelelerinin ve iktidar ilişkilerinin ürünüdür?",
-    "desc": "Kavramların tarihsel ve iktidar odaklı kökenlerini açığa çıkarır.",
-    "explain": "Kavramların tarihsel ve iktidar odaklı kökenlerini açığa çıkarır."
+    "prompt": "Kavramın Soybilimsel (Genealogical) dekonstrüksiyonunu yap: 'Evrensel ve doğal' sanılan bu kavram hangi tarihsel güç mücadelelerinin ve iktidar ilişkilerinin ürünüdür?"
   },
   {
     "id": "paradigm-shift-detector",
     "icon": "💥",
     "name": "Paradigma Değişimi (Kuhn)",
-    "category": "critique",
-    "description": "Mevcut modelin çözemediği anomalileri tespit ederek paradigma değişimini öngörür.",
+    "desc": "Mevcut modelin çözemediği anomalileri tespit ederek paradigma değişimini öngörür.",
+    "explain": "Mevcut modelin çözemediği anomalileri tespit ederek paradigma değişimini öngörür.",
     "layer": "critique",
     "requires": [
       "dialectic-synthesis"
     ],
-    "prompt": "Thomas Kuhn'un Paradigma Değişimi modelini uygula: Mevcut düşünce modelinin halı altına süpürdüğü anomalileri bir araya getir ve devrimsel paradigma kırılmasını tanımla.",
-    "desc": "Mevcut modelin çözemediği anomalileri tespit ederek paradigma değişimini öngörür.",
-    "explain": "Mevcut modelin çözemediği anomalileri tespit ederek paradigma değişimini öngörür."
+    "prompt": "Thomas Kuhn'un Paradigma Değişimi modelini uygula: Mevcut düşünce modelinin halı altına süpürdüğü anomalileri bir araya getir ve devrimsel paradigma kırılmasını tanımla."
   },
   {
     "id": "metaphysical-presupposition",
     "icon": "🌌",
     "name": "Metafizik Önkabuller Denetimi",
-    "category": "critique",
-    "description": "Varoluş, zaman ve nedensellik hakkındaki temel metafiziksel kabulleri sorgular.",
+    "desc": "Varoluş, zaman ve nedensellik hakkındaki temel metafiziksel kabulleri sorgular.",
+    "explain": "Varoluş, zaman ve nedensellik hakkındaki temel metafiziksel kabulleri sorgular.",
     "layer": "critique",
     "requires": [
       "premise-deconstruction"
     ],
-    "prompt": "Düşüncenin temelindeki Metafizik Önkabulleri (Varsayılan ontoloji, nedensellik modeli, zaman algısı) sorgula. Bu kabuller değişirse sonuç nasıl değişir?",
-    "desc": "Varoluş, zaman ve nedensellik hakkındaki temel metafiziksel kabulleri sorgular.",
-    "explain": "Varoluş, zaman ve nedensellik hakkındaki temel metafiziksel kabulleri sorgular."
+    "prompt": "Düşüncenin temelindeki Metafizik Önkabulleri (Varsayılan ontoloji, nedensellik modeli, zaman algısı) sorgula. Bu kabuller değişirse sonuç nasıl değişir?"
   }
 ]

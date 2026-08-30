@@ -3,414 +3,354 @@
     "id": "research-question-def",
     "icon": "🎯",
     "name": "Araştırma Sorusu Tanımı",
-    "category": "methodology",
-    "description": "Açık, odaklı, cevabı ampirik olarak verilebilir bir akademik araştırma sorusu kurar.",
+    "desc": "Açık, odaklı, cevabı ampirik olarak verilebilir bir akademik araştırma sorusu kurar.",
+    "explain": "Açık, odaklı, cevabı ampirik olarak verilebilir bir akademik araştırma sorusu kurar.",
     "layer": "methodology",
     "requires": [],
-    "prompt": "Araştırma sorusunu (Research Question) FINER (Feasible, Interesting, Novel, Ethical, Relevant) kriterlerine göre yapılandır. Sorunun sınırlarını belirle ve alt hipotezleri ($H_0, H_1$) türet.",
-    "desc": "Açık, odaklı, cevabı ampirik olarak verilebilir bir akademik araştırma sorusu kurar.",
-    "explain": "Açık, odaklı, cevabı ampirik olarak verilebilir bir akademik araştırma sorusu kurar."
+    "prompt": "Araştırma sorusunu (Research Question) FINER (Feasible, Interesting, Novel, Ethical, Relevant) kriterlerine göre yapılandır. Sorunun sınırlarını belirle ve alt hipotezleri ($H_0, H_1$) türet."
   },
   {
     "id": "methodology-triangulation",
     "icon": "📐",
     "name": "Metodolojik Çaprazlama",
-    "category": "methodology",
-    "description": "Veri güvenilirliğini artırmak için çoklu araştırma yöntemlerini harmanlar.",
+    "desc": "Veri güvenilirliğini artırmak için çoklu araştırma yöntemlerini harmanlar.",
+    "explain": "Veri güvenilirliğini artırmak için çoklu araştırma yöntemlerini harmanlar.",
     "layer": "methodology",
     "requires": [
       "research-question-def"
     ],
-    "prompt": "Araştırma deseninde Metodolojik Çaprazlama (Triangulation) tasarla: Nicel ve nitel veri toplama tekniklerini nasıl entegre edeceğini ve yöntemler arası sapmaları nasıl dengeleyeceğini açıkla.",
-    "desc": "Veri güvenilirliğini artırmak için çoklu araştırma yöntemlerini harmanlar.",
-    "explain": "Veri güvenilirliğini artırmak için çoklu araştırma yöntemlerini harmanlar."
+    "prompt": "Araştırma deseninde Metodolojik Çaprazlama (Triangulation) tasarla: Nicel ve nitel veri toplama tekniklerini nasıl entegre edeceğini ve yöntemler arası sapmaları nasıl dengeleyeceğini açıkla."
   },
   {
     "id": "sample-power-analysis",
     "icon": "📊",
     "name": "Örneklem Güç Analizi",
-    "category": "methodology",
-    "description": "İstatistiksel anlamlılık için gerekli minimum örneklem büyüklüğünü hesaplar.",
+    "desc": "İstatistiksel anlamlılık için gerekli minimum örneklem büyüklüğünü hesaplar.",
+    "explain": "İstatistiksel anlamlılık için gerekli minimum örneklem büyüklüğünü hesaplar.",
     "layer": "methodology",
     "requires": [
       "methodology-triangulation"
     ],
-    "prompt": "Örneklem evrenini ve seçim tekniğini tanımla. İstatistiksel Güç Analizi (Power Analysis - $\\alpha = 0.05, 1-\\beta = 0.80$) için etki büyüklüğü (effect size) varsayımlarını gerekçelendir.",
-    "desc": "İstatistiksel anlamlılık için gerekli minimum örneklem büyüklüğünü hesaplar.",
-    "explain": "İstatistiksel anlamlılık için gerekli minimum örneklem büyüklüğünü hesaplar."
+    "prompt": "Örneklem evrenini ve seçim tekniğini tanımla. İstatistiksel Güç Analizi (Power Analysis - $\\alpha = 0.05, 1-\\beta = 0.80$) için etki büyüklüğü (effect size) varsayımlarını gerekçelendir."
   },
   {
     "id": "variable-operationalization",
     "icon": "🔬",
     "name": "Değişken Operasyonelleştirme",
-    "category": "methodology",
-    "description": "Soyut kavramları ölçülebilir bağımsız, bağımlı ve kontrol değişkenlerine dönüştürür.",
+    "desc": "Soyut kavramları ölçülebilir bağımsız, bağımlı ve kontrol değişkenlerine dönüştürür.",
+    "explain": "Soyut kavramları ölçülebilir bağımsız, bağımlı ve kontrol değişkenlerine dönüştürür.",
     "layer": "methodology",
     "requires": [
       "research-question-def"
     ],
-    "prompt": "Çalışmadaki tüm konseptleri operasyonel hale getir: Bağımlı, bağımsız, aracı (mediator) ve düzenleyici (moderator) değişkenleri tanımla. Ölçüm ölçeklerini (Likert, sürekli, nominal) belirt.",
-    "desc": "Soyut kavramları ölçülebilir bağımsız, bağımlı ve kontrol değişkenlerine dönüştürür.",
-    "explain": "Soyut kavramları ölçülebilir bağımsız, bağımlı ve kontrol değişkenlerine dönüştürür."
+    "prompt": "Çalışmadaki tüm konseptleri operasyonel hale getir: Bağımlı, bağımsız, aracı (mediator) ve düzenleyici (moderator) değişkenleri tanımla. Ölçüm ölçeklerini (Likert, sürekli, nominal) belirt."
   },
   {
     "id": "quantitative-audit",
     "icon": "🔢",
     "name": "Nicel Yöntem Denetimi",
-    "category": "methodology",
-    "description": "Ekonometrik ve istatistiksel modellerin varsayımsal uygunluğunu denetler.",
+    "desc": "Ekonometrik ve istatistiksel modellerin varsayımsal uygunluğunu denetler.",
+    "explain": "Ekonometrik ve istatistiksel modellerin varsayımsal uygunluğunu denetler.",
     "layer": "methodology",
     "requires": [
       "sample-power-analysis"
     ],
-    "prompt": "Nicel veri analizi planını denetle: Seçilen istatistiksel testlerin (ANOVA, Regression, SEM) normallik, eşvaryanslılık (homoscedasticity) ve çoklu doğrusallık (multicollinearity) varsayımlarını test et.",
-    "desc": "Ekonometrik ve istatistiksel modellerin varsayımsal uygunluğunu denetler.",
-    "explain": "Ekonometrik ve istatistiksel modellerin varsayımsal uygunluğunu denetler."
+    "prompt": "Nicel veri analizi planını denetle: Seçilen istatistiksel testlerin (ANOVA, Regression, SEM) normallik, eşvaryanslılık (homoscedasticity) ve çoklu doğrusallık (multicollinearity) varsayımlarını test et."
   },
   {
     "id": "qualitative-rigor-check",
     "icon": "🗣️",
     "name": "Nitel Titizlik Testi",
-    "category": "methodology",
-    "description": "Gömülü teori, fenomenoloji veya içerik analizinde aktarılabilirlik ve güvenilirlik sağlar.",
+    "desc": "Gömülü teori, fenomenoloji veya içerik analizinde aktarılabilirlik ve güvenilirlik sağlar.",
+    "explain": "Gömülü teori, fenomenoloji veya içerik analizinde aktarılabilirlik ve güvenilirlik sağlar.",
     "layer": "methodology",
     "requires": [
       "variable-operationalization"
     ],
-    "prompt": "Nitel metodolojinin titizliğini (Lincoln & Guba kriterleri) doğrula: İnanılırlık (credibility), aktarılabilirlik (transferability), tutarlılık (dependability) ve teyit edilebilirlik (confirmability) protokollerini yaz.",
-    "desc": "Gömülü teori, fenomenoloji veya içerik analizinde aktarılabilirlik ve güvenilirlik sağlar.",
-    "explain": "Gömülü teori, fenomenoloji veya içerik analizinde aktarılabilirlik ve güvenilirlik sağlar."
+    "prompt": "Nitel metodolojinin titizliğini (Lincoln & Guba kriterleri) doğrula: İnanılırlık (credibility), aktarılabilirlik (transferability), tutarlılık (dependability) ve teyit edilebilirlik (confirmability) protokollerini yaz."
   },
   {
     "id": "lit-search-strategy",
     "icon": "🔎",
     "name": "Literatür Tarama Stratejisi",
-    "category": "literature",
-    "description": "Web of Science, Scopus ve PubMed üzerinde sistematik arama dizgileri oluşturur.",
+    "desc": "Web of Science, Scopus ve PubMed üzerinde sistematik arama dizgileri oluşturur.",
+    "explain": "Web of Science, Scopus ve PubMed üzerinde sistematik arama dizgileri oluşturur.",
     "layer": "literature",
     "requires": [
       "research-question-def"
     ],
-    "prompt": "Sistematik literatür taraması için Boole operatörlü (AND, OR, NOT) arama dizgilerini tasarla. Dahil etme (inclusion) ve hariç tutma (exclusion) kriterlerini PRISMA standartlarına göre yaz.",
-    "desc": "Web of Science, Scopus ve PubMed üzerinde sistematik arama dizgileri oluşturur.",
-    "explain": "Web of Science, Scopus ve PubMed üzerinde sistematik arama dizgileri oluşturur."
+    "prompt": "Sistematik literatür taraması için Boole operatörlü (AND, OR, NOT) arama dizgilerini tasarla. Dahil etme (inclusion) ve hariç tutma (exclusion) kriterlerini PRISMA standartlarına göre yaz."
   },
   {
     "id": "lit-gap-identification",
     "icon": "🕳️",
     "name": "Literatürdeki Boşluk (Gap) Tespiti",
-    "category": "literature",
-    "description": "Mevcut akademik birikimdeki çelişki, eksiklik ve incelenmemiş alanları ortaya çıkarır.",
+    "desc": "Mevcut akademik birikimdeki çelişki, eksiklik ve incelenmemiş alanları ortaya çıkarır.",
+    "explain": "Mevcut akademik birikimdeki çelişki, eksiklik ve incelenmemiş alanları ortaya çıkarır.",
     "layer": "literature",
     "requires": [
       "lit-search-strategy"
     ],
-    "prompt": "Mevcut literatürdeki 'Araştırma Boşluğu'nu (Research Gap) tanımla: Bu çalışma metodolojik bir eksikliği mi, çelişkili bulguları mı yoksa yeni bir bağlamı mı adresliyor?",
-    "desc": "Mevcut akademik birikimdeki çelişki, eksiklik ve incelenmemiş alanları ortaya çıkarır.",
-    "explain": "Mevcut akademik birikimdeki çelişki, eksiklik ve incelenmemiş alanları ortaya çıkarır."
+    "prompt": "Mevcut literatürdeki 'Araştırma Boşluğu'nu (Research Gap) tanımla: Bu çalışma metodolojik bir eksikliği mi, çelişkili bulguları mı yoksa yeni bir bağlamı mı adresliyor?"
   },
   {
     "id": "seminal-vs-recent-audit",
     "icon": "📚",
     "name": "Klasik vs. Güncel Literatür Dengesi",
-    "category": "literature",
-    "description": "Kök teoriler ile son 3 yıla ait makaleler arasındaki oran dengesini kurar.",
+    "desc": "Kök teoriler ile son 3 yıla ait makaleler arasındaki oran dengesini kurar.",
+    "explain": "Kök teoriler ile son 3 yıla ait makaleler arasındaki oran dengesini kurar.",
     "layer": "literature",
     "requires": [
       "lit-search-strategy"
     ],
-    "prompt": "Atıf matrisini denetle: Çalışmanın temellerini oluşturan temel teorik makaleler (seminal papers) ile son 3 yılda yayımlanan güncel makaleler arasındaki tarihsel dengeyi optimize et.",
-    "desc": "Kök teoriler ile son 3 yıla ait makaleler arasındaki oran dengesini kurar.",
-    "explain": "Kök teoriler ile son 3 yıla ait makaleler arasındaki oran dengesini kurar."
+    "prompt": "Atıf matrisini denetle: Çalışmanın temellerini oluşturan temel teorik makaleler (seminal papers) ile son 3 yılda yayımlanan güncel makaleler arasındaki tarihsel dengeyi optimize et."
   },
   {
     "id": "theoretical-framework",
     "icon": "🏛️",
     "name": "Teorik Çerçeve Kurulumu",
-    "category": "literature",
-    "description": "Çalışmayı akademik disiplinin ana kuramsal modellerine bağlar.",
+    "desc": "Çalışmayı akademik disiplinin ana kuramsal modellerine bağlar.",
+    "explain": "Çalışmayı akademik disiplinin ana kuramsal modellerine bağlar.",
     "layer": "literature",
     "requires": [
       "lit-gap-identification"
     ],
-    "prompt": "Araştırmanın teorik omurgasını inşa et: Hangi ana kuram(lar) üzerine inşa ediliyor? Teorinin temel kabulleri ile araştırmanın hipotezleri arasındaki mantıksal bağı kur.",
-    "desc": "Çalışmayı akademik disiplinin ana kuramsal modellerine bağlar.",
-    "explain": "Çalışmayı akademik disiplinin ana kuramsal modellerine bağlar."
+    "prompt": "Araştırmanın teorik omurgasını inşa et: Hangi ana kuram(lar) üzerine inşa ediliyor? Teorinin temel kabulleri ile araştırmanın hipotezleri arasındaki mantıksal bağı kur."
   },
   {
     "id": "citation-context-check",
     "icon": "🔗",
     "name": "Atıf Bağlamı Doğrulaması",
-    "category": "literature",
-    "description": "Atıf yapılan kaynakların iddiasının doğru aktarılıp aktarılmadığını kontrol eder.",
+    "desc": "Atıf yapılan kaynakların iddiasının doğru aktarılıp aktarılmadığını kontrol eder.",
+    "explain": "Atıf yapılan kaynakların iddiasının doğru aktarılıp aktarılmadığını kontrol eder.",
     "layer": "literature",
     "requires": [
       "seminal-vs-recent-audit"
     ],
-    "prompt": "Atıf bağlamı denetimi yap: Metin içinde atıf yapılan makalelerin orijinal bulgularının bağlamından koparılmadan, doğru bir akademik tarafsızlıkla yansıtıldığını doğrula.",
-    "desc": "Atıf yapılan kaynakların iddiasının doğru aktarılıp aktarılmadığını kontrol eder.",
-    "explain": "Atıf yapılan kaynakların iddiasının doğru aktarılıp aktarılmadığını kontrol eder."
+    "prompt": "Atıf bağlamı denetimi yap: Metin içinde atıf yapılan makalelerin orijinal bulgularının bağlamından koparılmadan, doğru bir akademik tarafsızlıkla yansıtıldığını doğrula."
   },
   {
     "id": "systematic-review-protocol",
     "icon": "📋",
     "name": "Sistematik Derleme Protokolü",
-    "category": "literature",
-    "description": "PRISMA veya Cochrane standartlarında bir derleme mimarisi sunar.",
+    "desc": "PRISMA veya Cochrane standartlarında bir derleme mimarisi sunar.",
+    "explain": "PRISMA veya Cochrane standartlarında bir derleme mimarisi sunar.",
     "layer": "literature",
     "requires": [
       "lit-gap-identification"
     ],
-    "prompt": "PRISMA uyumlu Sistematik Derleme Protokolü yaz: Veri çıkarma formunu, makale seçim akış şemasını ve yayın yanlılığı (publication bias) değerlendirme yöntemini kodla.",
-    "desc": "PRISMA veya Cochrane standartlarında bir derleme mimarisi sunar.",
-    "explain": "PRISMA veya Cochrane standartlarında bir derleme mimarisi sunar."
+    "prompt": "PRISMA uyumlu Sistematik Derleme Protokolü yaz: Veri çıkarma formunu, makale seçim akış şemasını ve yayın yanlılığı (publication bias) değerlendirme yöntemini kodla."
   },
   {
     "id": "academic-tone-c2",
     "icon": "✍️",
     "name": "Akademik Dil Elevasyonu (CEFR C2)",
-    "category": "writing",
-    "description": "Metni resmi, kesin, tarafsız ve üst düzey akademik terminolojiye yükseltir.",
+    "desc": "Metni resmi, kesin, tarafsız ve üst düzey akademik terminolojiye yükseltir.",
+    "explain": "Metni resmi, kesin, tarafsız ve üst düzey akademik terminolojiye yükseltir.",
     "layer": "writing",
     "requires": [],
-    "prompt": "Metnin dilini CEFR C2 akademik seviyesine yükselt: Gayriresmi ifadeleri, jargon dışı jargonları sil. Pasif ve aktif çatı dengesini kurarak tarafsız ve otoriter bir ton sağla.",
-    "desc": "Metni resmi, kesin, tarafsız ve üst düzey akademik terminolojiye yükseltir.",
-    "explain": "Metni resmi, kesin, tarafsız ve üst düzey akademik terminolojiye yükseltir."
+    "prompt": "Metnin dilini CEFR C2 akademik seviyesine yükselt: Gayriresmi ifadeleri, jargon dışı jargonları sil. Pasif ve aktif çatı dengesini kurarak tarafsız ve otoriter bir ton sağla."
   },
   {
     "id": "passive-active-balancer",
     "icon": "⚖️",
     "name": "Etken/Edilgen Çatı Dengesi",
-    "category": "writing",
-    "description": "Metodoloji ve bulgular bölümlerinde edat ve çatı kullanımını optimize eder.",
+    "desc": "Metodoloji ve bulgular bölümlerinde edat ve çatı kullanımını optimize eder.",
+    "explain": "Metodoloji ve bulgular bölümlerinde edat ve çatı kullanımını optimize eder.",
     "layer": "writing",
     "requires": [
       "academic-tone-c2"
     ],
-    "prompt": "Metindeki çatı yapısını bölüm standartlarına göre ayarla: Metodolojide edilgen (passive voice) kullanımı korurken, giriş ve tartışma bölümlerinde etken (active voice) odağı artır.",
-    "desc": "Metodoloji ve bulgular bölümlerinde edat ve çatı kullanımını optimize eder.",
-    "explain": "Metodoloji ve bulgular bölümlerinde edat ve çatı kullanımını optimize eder."
+    "prompt": "Metindeki çatı yapısını bölüm standartlarına göre ayarla: Metodolojide edilgen (passive voice) kullanımı korurken, giriş ve tartışma bölümlerinde etken (active voice) odağı artır."
   },
   {
     "id": "cohesion-transitional-flow",
     "icon": "🌊",
     "name": "Metin İçi Mantıksal Akış",
-    "category": "writing",
-    "description": "Paragraflar arası akademik geçiş bağlaçları ile akıcılığı sağlar.",
+    "desc": "Paragraflar arası akademik geçiş bağlaçları ile akıcılığı sağlar.",
+    "explain": "Paragraflar arası akademik geçiş bağlaçları ile akıcılığı sağlar.",
     "layer": "writing",
     "requires": [
       "academic-tone-c2"
     ],
-    "prompt": "Paragraf geçişlerini ve mantıksal akışı (Cohesion & Coherence) güçlendir: Fikirler arası nedensellik, karşıtlık ve ekleme bağlaçlarını akademik normlara göre düzenle.",
-    "desc": "Paragraflar arası akademik geçiş bağlaçları ile akıcılığı sağlar.",
-    "explain": "Paragraflar arası akademik geçiş bağlaçları ile akıcılığı sağlar."
+    "prompt": "Paragraf geçişlerini ve mantıksal akışı (Cohesion & Coherence) güçlendir: Fikirler arası nedensellik, karşıtlık ve ekleme bağlaçlarını akademik normlara göre düzenle."
   },
   {
     "id": "hedging-claim-calibration",
     "icon": "🛡️",
     "name": "İddia Kalibrasyonu (Hedging)",
-    "category": "writing",
-    "description": "Aşırı kesin ifadeleri ihtiyatlı ve bilimsel üsluba dönüştürür.",
+    "desc": "Aşırı kesin ifadeleri ihtiyatlı ve bilimsel üsluba dönüştürür.",
+    "explain": "Aşırı kesin ifadeleri ihtiyatlı ve bilimsel üsluba dönüştürür.",
     "layer": "writing",
     "requires": [
       "academic-tone-c2"
     ],
-    "prompt": "İddiaların dozajını kalibre et (Hedging): Kesinlik bildiren aşırı genellemeleri (örn. 'kanıtlamıştır', 'kesindir') bilimsel ihtiyat bildiren kalıplara ('veriler işaret etmektedir', 'koşullara bağlı olarak suggest eder') dönüştür.",
-    "desc": "Aşırı kesin ifadeleri ihtiyatlı ve bilimsel üsluba dönüştürür.",
-    "explain": "Aşırı kesin ifadeleri ihtiyatlı ve bilimsel üsluba dönüştürür."
+    "prompt": "İddiaların dozajını kalibre et (Hedging): Kesinlik bildiren aşırı genellemeleri (örn. 'kanıtlamıştır', 'kesindir') bilimsel ihtiyat bildiren kalıplara ('veriler işaret etmektedir', 'koşullara bağlı olarak suggest eder') dönüştür."
   },
   {
     "id": "abstract-distillation",
     "icon": "🧪",
     "name": "Özet (Abstract) Distilasyonu",
-    "category": "writing",
-    "description": "Özeti IMRaD (Giriş, Yöntem, Bulgular, Tartışma) formatında tam 250 kelimede sıkar.",
+    "desc": "Özeti IMRaD (Giriş, Yöntem, Bulgular, Tartışma) formatında tam 250 kelimede sıkar.",
+    "explain": "Özeti IMRaD (Giriş, Yöntem, Bulgular, Tartışma) formatında tam 250 kelimede sıkar.",
     "layer": "writing",
     "requires": [
       "academic-tone-c2"
     ],
-    "prompt": "IMRaD yapısına tam uyumlu 200-250 kelimelik Özet yaz: Arka plan (1 cümle), Amaç/Soru (1 cümle), Yöntem (2 cümle), Temel Bulgular (2 cümle), Özgün Katkı/Çıkarım (1 cümle).",
-    "desc": "Özeti IMRaD (Giriş, Yöntem, Bulgular, Tartışma) formatında tam 250 kelimede sıkar.",
-    "explain": "Özeti IMRaD (Giriş, Yöntem, Bulgular, Tartışma) formatında tam 250 kelimede sıkar."
+    "prompt": "IMRaD yapısına tam uyumlu 200-250 kelimelik Özet yaz: Arka plan (1 cümle), Amaç/Soru (1 cümle), Yöntem (2 cümle), Temel Bulgular (2 cümle), Özgün Katkı/Çıkarım (1 cümle)."
   },
   {
     "id": "discussion-implication-craft",
     "icon": "💡",
     "name": "Tartışma ve Çıkarımlar",
-    "category": "writing",
-    "description": "Bulguları teorik ve pratik doğurgularıyla sentezleyen tartışma yazımı.",
+    "desc": "Bulguları teorik ve pratik doğurgularıyla sentezleyen tartışma yazımı.",
+    "explain": "Bulguları teorik ve pratik doğurgularıyla sentezleyen tartışma yazımı.",
     "layer": "writing",
     "requires": [
       "hedging-claim-calibration"
     ],
-    "prompt": "Tartışma (Discussion) bölümünü kurgula: Bulguları literatürdeki mevcut çalışmalarla karşılaştır, beklenmeyen sonuçları teorik olarak açıkla ve politika/uygulama çıkarımlarını yaz.",
-    "desc": "Bulguları teorik ve pratik doğurgularıyla sentezleyen tartışma yazımı.",
-    "explain": "Bulguları teorik ve pratik doğurgularıyla sentezleyen tartışma yazımı."
+    "prompt": "Tartışma (Discussion) bölümünü kurgula: Bulguları literatürdeki mevcut çalışmalarla karşılaştır, beklenmeyen sonuçları teorik olarak açıkla ve politika/uygulama çıkarımlarını yaz."
   },
   {
     "id": "peer-review-response",
     "icon": "📨",
     "name": "Hakem Eleştirisi Yanıtı",
-    "category": "review",
-    "description": "Hakem yorumlarına profesyonel, yapıcı ve nokta atışı yanıt matrisi hazırlar.",
+    "desc": "Hakem yorumlarına profesyonel, yapıcı ve nokta atışı yanıt matrisi hazırlar.",
+    "explain": "Hakem yorumlarına profesyonel, yapıcı ve nokta atışı yanıt matrisi hazırlar.",
     "layer": "review",
     "requires": [
       "research-question-def"
     ],
-    "prompt": "Hakem eleştirilerine yanıt matrisi (Response to Reviewers) oluştur: Her bir eleştiriyi alıntıla, verilen yanıtı, yapılan revizyonu ve makaledeki sayfa/satır numarasını tablo halinde yaz.",
-    "desc": "Hakem yorumlarına profesyonel, yapıcı ve nokta atışı yanıt matrisi hazırlar.",
-    "explain": "Hakem yorumlarına profesyonel, yapıcı ve nokta atışı yanıt matrisi hazırlar."
+    "prompt": "Hakem eleştirilerine yanıt matrisi (Response to Reviewers) oluştur: Her bir eleştiriyi alıntıla, verilen yanıtı, yapılan revizyonu ve makaledeki sayfa/satır numarasını tablo halinde yaz."
   },
   {
     "id": "reviewer-critique-deconstruct",
     "icon": "🔍",
     "name": "Hakem Yorumu Ayrıştırma",
-    "category": "review",
-    "description": "Sert veya muğlak hakem yorumlarının altındaki metodolojik talebi çözer.",
+    "desc": "Sert veya muğlak hakem yorumlarının altındaki metodolojik talebi çözer.",
+    "explain": "Sert veya muğlak hakem yorumlarının altındaki metodolojik talebi çözer.",
     "layer": "review",
     "requires": [
       "peer-review-response"
     ],
-    "prompt": "Muğlak veya sert Hakem Yorumunu parçalarına ayır: Hakemin asıl metodolojik veya teorik endişesi nedir? Yanıt verirken savunmacı tondan kaçınıp bilimsel kanıtı öne çıkar.",
-    "desc": "Sert veya muğlak hakem yorumlarının altındaki metodolojik talebi çözer.",
-    "explain": "Sert veya muğlak hakem yorumlarının altındaki metodolojik talebi çözer."
+    "prompt": "Muğlak veya sert Hakem Yorumunu parçalarına ayır: Hakemin asıl metodolojik veya teorik endişesi nedir? Yanıt verirken savunmacı tondan kaçınıp bilimsel kanıtı öne çıkar."
   },
   {
     "id": "counter-argument-fortification",
     "icon": "🏰",
     "name": "Karşıt Argüman Tahkimatı",
-    "category": "review",
-    "description": "Potansiyel hakem itirazlarını makale içine önceden yerleştirir.",
+    "desc": "Potansiyel hakem itirazlarını makale içine önceden yerleştirir.",
+    "explain": "Potansiyel hakem itirazlarını makale içine önceden yerleştirir.",
     "layer": "review",
     "requires": [
       "reviewer-critique-deconstruct"
     ],
-    "prompt": "Makaleye yönelik olası 3 majör hakem itirazını öngör ve bu itirazları metnin 'Sınırlılıklar' veya 'Tartışma' bölümünde önceden çürüterek tahkimat sağla.",
-    "desc": "Potansiyel hakem itirazlarını makale içine önceden yerleştirir.",
-    "explain": "Potansiyel hakem itirazlarını makale içine önceden yerleştirir."
+    "prompt": "Makaleye yönelik olası 3 majör hakem itirazını öngör ve bu itirazları metnin 'Sınırlılıklar' veya 'Tartışma' bölümünde önceden çürüterek tahkimat sağla."
   },
   {
     "id": "major-revision-roadmap",
     "icon": "🗺️",
     "name": "Majör Revizyon Yol Haritası",
-    "category": "review",
-    "description": "Kapsamlı yeniden derleme gerektiren kararlar için adım adım iş planı çıkarır.",
+    "desc": "Kapsamlı yeniden derleme gerektiren kararlar için adım adım iş planı çıkarır.",
+    "explain": "Kapsamlı yeniden derleme gerektiren kararlar için adım adım iş planı çıkarır.",
     "layer": "review",
     "requires": [
       "peer-review-response"
     ],
-    "prompt": "Majör Revizyon (Major Revision) kararı için eylem planı oluştur: Yeni veri analizi, literatür eklemeleri ve yeniden yazım adımlarını öncelik ve zaman eksenine oturt.",
-    "desc": "Kapsamlı yeniden derleme gerektiren kararlar için adım adım iş planı çıkarır.",
-    "explain": "Kapsamlı yeniden derleme gerektiren kararlar için adım adım iş planı çıkarır."
+    "prompt": "Majör Revizyon (Major Revision) kararı için eylem planı oluştur: Yeni veri analizi, literatür eklemeleri ve yeniden yazım adımlarını öncelik ve zaman eksenine oturt."
   },
   {
     "id": "editor-letter-drafting",
     "icon": "✉️",
     "name": "Editör Kapak Yazısı (Cover Letter)",
-    "category": "review",
-    "description": "Dergi editörünü çalışmanın özgünlüğü ve uygunluğuna ikna eden mektup.",
+    "desc": "Dergi editörünü çalışmanın özgünlüğü ve uygunluğuna ikna eden mektup.",
+    "explain": "Dergi editörünü çalışmanın özgünlüğü ve uygunluğuna ikna eden mektup.",
     "layer": "review",
     "requires": [
       "major-revision-roadmap"
     ],
-    "prompt": "Dergi Editörüne gönderilecek profesyonel Kapak Yazısı (Cover Letter) taslağı oluştur: Çalışmanın derginin kapsamı ile uyumunu ve literatüre getirdiği yeniliği vurgula.",
-    "desc": "Dergi editörünü çalışmanın özgünlüğü ve uygunluğuna ikna eden mektup.",
-    "explain": "Dergi editörünü çalışmanın özgünlüğü ve uygunluğuna ikna eden mektup."
+    "prompt": "Dergi Editörüne gönderilecek profesyonel Kapak Yazısı (Cover Letter) taslağı oluştur: Çalışmanın derginin kapsamı ile uyumunu ve literatüre getirdiği yeniliği vurgula."
   },
   {
     "id": "double-blind-anonymizer",
     "icon": "🎭",
     "name": "Çift Kör Anonimleştirme",
-    "category": "review",
-    "description": "Metindeki tüm öz atıf ve kimlik ifşa eden unsurları temizler.",
+    "desc": "Metindeki tüm öz atıf ve kimlik ifşa eden unsurları temizler.",
+    "explain": "Metindeki tüm öz atıf ve kimlik ifşa eden unsurları temizler.",
     "layer": "review",
     "requires": [],
-    "prompt": "Metni Çift Kör (Double-Blind) hakem değerlendirmesine uygun hale getir: Yazar isimleri, kurum bilgileri, proje fon kodları ve öz-atıf izlerini tamamen anonimleştir.",
-    "desc": "Metindeki tüm öz atıf ve kimlik ifşa eden unsurları temizler.",
-    "explain": "Metindeki tüm öz atıf ve kimlik ifşa eden unsurları temizler."
+    "prompt": "Metni Çift Kör (Double-Blind) hakem değerlendirmesine uygun hale getir: Yazar isimleri, kurum bilgileri, proje fon kodları ve öz-atıf izlerini tamamen anonimleştir."
   },
   {
     "id": "statistical-validity-audit",
     "icon": "📉",
     "name": "İstatistiksel Geçerlilik Denetimi",
-    "category": "validation",
-    "description": "Veri analizindeki metodolojik hataları ve varsayım ihlallerini tespit eder.",
+    "desc": "Veri analizindeki metodolojik hataları ve varsayım ihlallerini tespit eder.",
+    "explain": "Veri analizindeki metodolojik hataları ve varsayım ihlallerini tespit eder.",
     "layer": "validation",
     "requires": [
       "quantitative-audit"
     ],
-    "prompt": "İstatistiksel geçerliliği denetle: Tip I ve Tip II hata risklerini, serbestlik derecelerini ve etki büyüklüklerinin ($R^2$, Cohen's $d$) doğru raporlanıp raporlanmadığını tarafsızca incele.",
-    "desc": "Veri analizindeki metodolojik hataları ve varsayım ihlallerini tespit eder.",
-    "explain": "Veri analizindeki metodolojik hataları ve varsayım ihlallerini tespit eder."
+    "prompt": "İstatistiksel geçerliliği denetle: Tip I ve Tip II hata risklerini, serbestlik derecelerini ve etki büyüklüklerinin ($R^2$, Cohen's $d$) doğru raporlanıp raporlanmadığını tarafsızca incele."
   },
   {
     "id": "p-hacking-duster",
     "icon": "🧹",
     "name": "p-Hacking ve HARKing Temizliği",
-    "category": "validation",
-    "description": "Sonuca göre hipotez yazma veya veriyle oynama izlerini engeller.",
+    "desc": "Sonuca göre hipotez yazma veya veriyle oynama izlerini engeller.",
+    "explain": "Sonuca göre hipotez yazma veya veriyle oynama izlerini engeller.",
     "layer": "validation",
     "requires": [
       "statistical-validity-audit"
     ],
-    "prompt": "Çalışmayı p-Hacking ve HARKing (Hypothesizing After Results are Known) risklerine karşı tarafsızca denetle. Hipotezlerin veri toplanmadan önce kurulduğunu ve veri ayıklama olmadığını teyit et.",
-    "desc": "Sonuca göre hipotez yazma veya veriyle oynama izlerini engeller.",
-    "explain": "Sonuca göre hipotez yazma veya veriyle oynama izlerini engeller."
+    "prompt": "Çalışmayı p-Hacking ve HARKing (Hypothesizing After Results are Known) risklerine karşı tarafsızca denetle. Hipotezlerin veri toplanmadan önce kurulduğunu ve veri ayıklama olmadığını teyit et."
   },
   {
     "id": "construct-validity-check",
     "icon": "🧩",
     "name": "Yapı Geçerliliği Testi",
-    "category": "validation",
-    "description": "Ölçüm araçlarının teorik konsepti ne derece temsil ettiğini doğrular.",
+    "desc": "Ölçüm araçlarının teorik konsepti ne derece temsil ettiğini doğrular.",
+    "explain": "Ölçüm araçlarının teorik konsepti ne derece temsil ettiğini doğrular.",
     "layer": "validation",
     "requires": [
       "variable-operationalization"
     ],
-    "prompt": "Ölçüm araçlarının Yapı Geçerliliğini (Construct Validity) doğrula: Yakınsak (convergent) ve ayırt edici (discriminant) geçerlilik metriklerini (AVE, CR) analiz et.",
-    "desc": "Ölçüm araçlarının teorik konsepti ne derece temsil ettiğini doğrular.",
-    "explain": "Ölçüm araçlarının teorik konsepti ne derece temsil ettiğini doğrular."
+    "prompt": "Ölçüm araçlarının Yapı Geçerliliğini (Construct Validity) doğrula: Yakınsak (convergent) ve ayırt edici (discriminant) geçerlilik metriklerini (AVE, CR) analiz et."
   },
   {
     "id": "external-validity-bounds",
     "icon": "🌐",
     "name": "Dış Geçerlilik ve Genellenebilirlik",
-    "category": "validation",
-    "description": "Bulguların farklı evren ve bağlamlara aktarılabilirlik sınırlarını koyar.",
+    "desc": "Bulguların farklı evren ve bağlamlara aktarılabilirlik sınırlarını koyar.",
+    "explain": "Bulguların farklı evren ve bağlamlara aktarılabilirlik sınırlarını koyar.",
     "layer": "validation",
     "requires": [
       "construct-validity-check"
     ],
-    "prompt": "Çalışmanın Dış Geçerlilik (External Validity) sınırlarını açıkça koy: Bulgular hangi popülasyon, coğrafya ve zaman dilimi için geçerlidir? Aşırı genellemeleri engelle.",
-    "desc": "Bulguların farklı evren ve bağlamlara aktarılabilirlik sınırlarını koyar.",
-    "explain": "Bulguların farklı evren ve bağlamlara aktarılabilirlik sınırlarını koyar."
+    "prompt": "Çalışmanın Dış Geçerlilik (External Validity) sınırlarını açıkça koy: Bulgular hangi popülasyon, coğrafya ve zaman dilimi için geçerlidir? Aşırı genellemeleri engelle."
   },
   {
     "id": "ethical-board-compliance",
     "icon": "⚖️",
     "name": "Etik Kurul Uyum Protokolü",
-    "category": "validation",
-    "description": "Aydınlatılmış onam, veri gizliliği ve zarar vermeme ilkelerini denetler.",
+    "desc": "Aydınlatılmış onam, veri gizliliği ve zarar vermeme ilkelerini denetler.",
+    "explain": "Aydınlatılmış onam, veri gizliliği ve zarar vermeme ilkelerini denetler.",
     "layer": "validation",
     "requires": [
       "research-question-def"
     ],
-    "prompt": "Etik Kurul Onay standartlarını kontrol et: İnsan/hayvan denek kullanımı, aydınlatılmış onam (informed consent), KVKK/GDPR uyumu ve veri saklama prosedürlerini doğrula.",
-    "desc": "Aydınlatılmış onam, veri gizliliği ve zarar vermeme ilkelerini denetler.",
-    "explain": "Aydınlatılmış onam, veri gizliliği ve zarar vermeme ilkelerini denetler."
+    "prompt": "Etik Kurul Onay standartlarını kontrol et: İnsan/hayvan denek kullanımı, aydınlatılmış onam (informed consent), KVKK/GDPR uyumu ve veri saklama prosedürlerini doğrula."
   },
   {
     "id": "reproducibility-checklist",
     "icon": "🔄",
     "name": "Tekrarlanabilirlik (Reproducibility) Kontrolü",
-    "category": "validation",
-    "description": "Açık bilim standartlarında kod, veri ve analiz protokolü eksiksizliği sağlar.",
+    "desc": "Açık bilim standartlarında kod, veri ve analiz protokolü eksiksizliği sağlar.",
+    "explain": "Açık bilim standartlarında kod, veri ve analiz protokolü eksiksizliği sağlar.",
     "layer": "validation",
     "requires": [
       "statistical-validity-audit"
     ],
-    "prompt": "Tekrarlanabilirlik Kontrol Listesini doldur: Başka bir araştırmacının aynı veri seti ve kodlar (R/Python/Stata) ile birebir aynı sonuçları elde edip edemeyeceğini doğrula.",
-    "desc": "Açık bilim standartlarında kod, veri ve analiz protokolü eksiksizliği sağlar.",
-    "explain": "Açık bilim standartlarında kod, veri ve analiz protokolü eksiksizliği sağlar."
+    "prompt": "Tekrarlanabilirlik Kontrol Listesini doldur: Başka bir araştırmacının aynı veri seti ve kodlar (R/Python/Stata) ile birebir aynı sonuçları elde edip edemeyeceğini doğrula."
   }
 ]

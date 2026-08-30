@@ -7,19 +7,20 @@ import { serializeState, sanitizePayload, encodePayloadToParam } from '../utils/
 import { getDomain } from '../domains';
 import { SiGooglegemini, SiAnthropic, SiPerplexity, SiOpenaigym } from '@icons-pack/react-simple-icons';
 import { getTranslation } from '../locales/i18n';
-import { Copy, RotateCcw, Share2, Download, Upload, X, ExternalLink } from 'lucide-react';
+import { Copy, RotateCcw, Share2, Download, Upload, X, ExternalLink, Bookmark } from 'lucide-react';
+import RecipesPanel from './RecipesPanel';
 
 export default function ActionBar({ showToast }) {
     const fileInputRef = useRef(null);
     const [showGeminiModal, setShowGeminiModal] = useState(false);
+    const [showRecipesModal, setShowRecipesModal] = useState(false);
 
-    const { clearAll, applySharedState } = useEngineState(useShallow(state => ({
+    const { clearAll, applySharedState } = useEngineState(useShallow((state) => ({
         clearAll: state.clearAll,
         applySharedState: state.applySharedState
     })));
-    
-    // We only need lang/domain from config for translations
-    const { lang, domain } = useEngineState(useShallow(state => ({
+
+    const { lang, domain } = useEngineState(useShallow((state) => ({
         lang: state.config.lang,
         domain: state.config.domain
     })));
@@ -32,12 +33,12 @@ export default function ActionBar({ showToast }) {
         if (!prompt) return;
 
         openInAI('gemini', prompt,
-            () => showToast(`📋 Gemini açıldı! Prompt panoya kopyalandı (Ctrl+V ile yapıştırın).`, 'success'),
+            () => showToast('Gemini açıldı! Prompt panoya kopyalandı (Ctrl+V ile yapıştırın).', 'success'),
             (queryAttached) => {
                 if (queryAttached) {
-                    showToast(`🚀 Gemini açılıyor (Prompt eklenti ile dolduruluyor)`, 'success');
+                    showToast('Gemini açılıyor (Prompt eklenti ile dolduruluyor)', 'success');
                 } else {
-                    showToast(`📋 Gemini açıldı! Prompt PANOYA KOPYALANDI — Kutuda Ctrl+V yapın.`, 'success');
+                    showToast('Gemini açıldı! Prompt PANOYA KOPYALANDI — Kutuda Ctrl+V yapın.', 'success');
                 }
             }
         );
@@ -50,7 +51,7 @@ export default function ActionBar({ showToast }) {
             showToast(t.toastNeedPrompt, 'warn');
             return;
         }
-        copyToClipboard(prompt, 
+        copyToClipboard(prompt,
             () => showToast(t.toastCopied),
             () => showToast(t.toastCopyFail, 'warn')
         );
@@ -81,12 +82,12 @@ export default function ActionBar({ showToast }) {
         const name = aiNames[aiName] || aiName;
 
         openInAI(aiName, prompt,
-            () => showToast(`📋 ${name} açıldı! Prompt panoya kopyalandı (Ctrl+V ile yapıştırın).`, 'success'),
+            () => showToast(`${name} açıldı! Prompt panoya kopyalandı (Ctrl+V ile yapıştırın).`, 'success'),
             (queryAttached) => {
                 if (queryAttached) {
-                    showToast(`🚀 ${name} açılıyor (Prompt doğrudan aktarıldı)`, 'success');
+                    showToast(`${name} açılıyor (Prompt doğrudan aktarıldı)`, 'success');
                 } else {
-                    showToast(`📋 ${name} açıldı! Prompt PANOYA KOPYALANDI — Kutuda Ctrl+V (Yapıştır) yapın.`, 'success');
+                    showToast(`${name} açıldı! Prompt PANOYA KOPYALANDI — Kutuda Ctrl+V (Yapıştır) yapın.`, 'success');
                 }
             }
         );
@@ -98,7 +99,7 @@ export default function ActionBar({ showToast }) {
         const param = encodePayloadToParam(payload);
         const route = getDomain(currentState.config.domain).route;
         const url = `${window.location.origin}/${route}?share=${param}`;
-        const isLong = url.length > 2000; // matches the spirit of aiRouter's own length guard
+        const isLong = url.length > 2000;
         copyToClipboard(url,
             () => showToast(isLong ? t.toastShareLong : t.toastShareCopied, isLong ? 'warn' : 'success'),
             () => showToast(t.toastCopyFail, 'warn')
@@ -123,7 +124,7 @@ export default function ActionBar({ showToast }) {
 
     const handleImportFile = (e) => {
         const file = e.target.files?.[0];
-        e.target.value = ''; // allow re-selecting the same file next time
+        e.target.value = '';
         if (!file) return;
 
         const reader = new FileReader();
@@ -143,7 +144,7 @@ export default function ActionBar({ showToast }) {
 
     return (
         <div className="actions-bar advanced-actions" style={{ display: 'flex', flexDirection: 'column', gap: '8px', width: '100%', marginBottom: '16px' }}>
-            {/* Row 1: Reset, Copy — preview compiles live now, no separate Generate step */}
+            {/* Row 1: Reset, Copy */}
             <div className="advanced-action-row advanced-primary-actions" style={{ display: 'flex', gap: '8px', width: '100%' }}>
                 <button className="btn btn-secondary" style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }} onClick={() => { clearAll(); showToast(t.toastReset); }}>
                     <RotateCcw size={16} /> {t.btnReset}
@@ -152,11 +153,11 @@ export default function ActionBar({ showToast }) {
                     <Copy size={16} /> {t.btnCopy}
                 </button>
             </div>
-            
+
             {/* Row 2: AI Export Buttons */}
             <div className="advanced-action-row advanced-ai-actions" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '8px', width: '100%' }}>
                 <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
-                    <button className="btn btn-gemini" style={{ flex: 1, background: '#1e326c', color: '#fff', borderColor: '#1e326c', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px', fontSize: '0.78rem', padding: '8px 4px' }} onClick={() => handleOpenAI('gemini')}>
+                    <button className="btn btn-gemini" style={{ width: '100%', background: '#1e326c', color: '#fff', borderColor: '#1e326c', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', fontSize: '0.8rem', padding: '8px 4px', fontWeight: 500 }} onClick={() => handleOpenAI('gemini')}>
                         <SiGooglegemini size={14} /> Gemini
                     </button>
                     <a
@@ -166,7 +167,7 @@ export default function ActionBar({ showToast }) {
                         style={{
                             position: 'absolute',
                             top: '-6px',
-                            right: '-4px',
+                            right: '2px',
                             background: '#3b82f6',
                             color: '#ffffff',
                             borderRadius: '50%',
@@ -183,34 +184,76 @@ export default function ActionBar({ showToast }) {
                         }}
                         title="Gemini URL doldurma eklentisini yüklemek için tıklayın (Chrome Web Store)"
                     >
-                                                    <ExternalLink size={10} aria-hidden="true" />
-
+                        <ExternalLink size={10} aria-hidden="true" />
                     </a>
                 </div>
-                <button className="btn btn-secondary" style={{ background: '#10a37f', color: '#fff', borderColor: '#10a37f', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', fontSize: '0.8rem', padding: '8px 4px' }} onClick={() => handleOpenAI('chatgpt')}>
+                <button className="btn btn-secondary" style={{ background: '#10a37f', color: '#fff', borderColor: '#10a37f', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', fontSize: '0.8rem', padding: '8px 4px', fontWeight: 500 }} onClick={() => handleOpenAI('chatgpt')}>
                     <SiOpenaigym size={14} /> ChatGPT
                 </button>
-                <button className="btn btn-secondary" style={{ background: '#d97757', color: '#fff', borderColor: '#d97757', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', fontSize: '0.8rem', padding: '8px 4px' }} onClick={() => handleOpenAI('claude')}>
+                <button className="btn btn-secondary" style={{ background: '#d97757', color: '#fff', borderColor: '#d97757', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', fontSize: '0.8rem', padding: '8px 4px', fontWeight: 500 }} onClick={() => handleOpenAI('claude')}>
                     <SiAnthropic size={14} /> Claude
                 </button>
-                <button className="btn btn-secondary" style={{ background: '#22b8cd', color: '#1a1a1a', borderColor: '#22b8cd', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', fontSize: '0.8rem', padding: '8px 4px', fontWeight: 600 }} onClick={() => handleOpenAI('perplexity')}>
+                <button className="btn btn-secondary" style={{ background: '#22b8cd', color: '#1a1a1a', borderColor: '#22b8cd', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', fontSize: '0.8rem', padding: '8px 4px', fontWeight: 500 }} onClick={() => handleOpenAI('perplexity')}>
                     <SiPerplexity size={14} /> Perplexity
                 </button>
             </div>
 
-            {/* Row 3: Share / Export / Import — config + selected modules, no backend */}
-            <div className="advanced-action-row advanced-utility-actions" style={{ display: 'flex', gap: '8px', width: '100%' }}>
-                <button className="btn btn-secondary" style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', fontSize: '0.8rem' }} onClick={handleShare} title={t.btnShare}>
-                    <Share2 size={14} /> {t.btnShare}
+            {/* Row 3: Share / Export / Import / Recipes */}
+            <div className="advanced-action-row advanced-utility-actions" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '8px', width: '100%' }}>
+                <button className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px', fontSize: '0.78rem', padding: '8px 4px' }} onClick={handleShare} title={t.btnShare}>
+                    <Share2 size={13} /> {t.btnShare}
                 </button>
-                <button className="btn btn-secondary" style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', fontSize: '0.8rem' }} onClick={handleExport} title={t.btnExport}>
-                    <Download size={14} /> {t.btnExport}
+                <button className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px', fontSize: '0.78rem', padding: '8px 4px' }} onClick={handleExport} title={t.btnExport}>
+                    <Download size={13} /> {t.btnExport}
                 </button>
-                <button className="btn btn-secondary" style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', fontSize: '0.8rem' }} onClick={handleImportClick} title={t.btnImport}>
-                    <Upload size={14} /> {t.btnImport}
+                <button className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px', fontSize: '0.78rem', padding: '8px 4px' }} onClick={handleImportClick} title={t.btnImport}>
+                    <Upload size={13} /> {t.btnImport}
+                </button>
+                <button className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px', fontSize: '0.78rem', padding: '8px 4px' }} onClick={() => setShowRecipesModal(true)} title={t.recipesTitle}>
+                    <Bookmark size={13} /> {t.recipesTitle || 'Tarifler'}
                 </button>
                 <input ref={fileInputRef} type="file" accept="application/json" onChange={handleImportFile} style={{ display: 'none' }} />
             </div>
+
+            {/* Recipes Modal */}
+            {showRecipesModal && (
+                <div className="modal-overlay" style={{
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    background: 'rgba(15, 23, 42, 0.75)',
+                    backdropFilter: 'blur(8px)',
+                    WebkitBackdropFilter: 'blur(8px)',
+                    zIndex: 999999,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    padding: '20px'
+                }}>
+                    <div
+                        className="modal-card"
+                        role="dialog"
+                        aria-modal="true"
+                        style={{
+                            background: 'var(--bg-card, #0f172a)',
+                            border: '1px solid var(--border-strong, rgba(255,255,255,0.18))',
+                            borderRadius: '16px',
+                            padding: '20px',
+                            maxWidth: '480px',
+                            width: '100%',
+                            maxHeight: 'min(90vh, 90dvh)',
+                            overflowY: 'auto',
+                            boxShadow: '0 20px 50px rgba(0,0,0,0.5)',
+                            color: 'var(--text-primary)',
+                            position: 'relative'
+                        }}
+                    >
+                        <RecipesPanel showToast={showToast} onClose={() => setShowRecipesModal(false)} />
+                    </div>
+                </div>
+            )}
 
             {/* Gemini Extension Modal */}
             {showGeminiModal && (
@@ -241,6 +284,8 @@ export default function ActionBar({ showToast }) {
                             padding: '24px',
                             maxWidth: '520px',
                             width: '100%',
+                            maxHeight: 'min(90vh, 90dvh)',
+                            overflowY: 'auto',
                             boxShadow: '0 20px 50px rgba(0,0,0,0.5)',
                             color: 'var(--text-primary)',
                             position: 'relative'

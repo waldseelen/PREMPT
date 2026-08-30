@@ -3,410 +3,350 @@
     "id": "tax-blooms-question-matrix",
     "icon": "🧠",
     "name": "Bloom Taksonomisi Soru Matrisi",
-    "category": "taxonomy",
-    "description": "Hatırlama'dan Yaratma'ya Bloom basamaklarına uygun sorular üretir.",
+    "desc": "Hatırlama'dan Yaratma'ya Bloom basamaklarına uygun sorular üretir.",
+    "explain": "Hatırlama'dan Yaratma'ya Bloom basamaklarına uygun sorular üretir.",
     "layer": "taxonomy",
     "requires": [],
-    "prompt": "Bloom Taksonomisine göre soru matrisi oluştur: Hatırlama, Anlama, Uygulama, Analiz, Değerlendirme ve Yaratma basamaklarının her biri için 1'er adet ölçme sorusu türet.",
-    "desc": "Hatırlama'dan Yaratma'ya Bloom basamaklarına uygun sorular üretir.",
-    "explain": "Hatırlama'dan Yaratma'ya Bloom basamaklarına uygun sorular üretir."
+    "prompt": "Bloom Taksonomisine göre soru matrisi oluştur: Hatırlama, Anlama, Uygulama, Analiz, Değerlendirme ve Yaratma basamaklarının her biri için 1'er adet ölçme sorusu türet."
   },
   {
     "id": "tax-depth-of-knowledge-dok",
     "icon": "📊",
     "name": "Webb DOK Bilişsel Derinlik Hizalaması",
-    "category": "taxonomy",
-    "description": "Görevleri DOK Seviye 1 (Hatırlama) ile Seviye 4 (Genişletilmiş Düşünme) arasında derecelendirir.",
+    "desc": "Görevleri DOK Seviye 1 (Hatırlama) ile Seviye 4 (Genişletilmiş Düşünme) arasında derecelendirir.",
+    "explain": "Görevleri DOK Seviye 1 (Hatırlama) ile Seviye 4 (Genişletilmiş Düşünme) arasında derecelendirir.",
     "layer": "taxonomy",
     "requires": [
       "tax-blooms-question-matrix"
     ],
-    "prompt": "Öğrenme görevlerini Webb'in DOK (Depth of Knowledge) modeline göre hizala: DOK 1 (Recall) düzeyindeki basit görevleri DOK 3 (Strategic) ve DOK 4 (Extended Thinking) seviyesine yükselt.",
-    "desc": "Görevleri DOK Seviye 1 (Hatırlama) ile Seviye 4 (Genişletilmiş Düşünme) arasında derecelendirir.",
-    "explain": "Görevleri DOK Seviye 1 (Hatırlama) ile Seviye 4 (Genişletilmiş Düşünme) arasında derecelendirir."
+    "prompt": "Öğrenme görevlerini Webb'in DOK (Depth of Knowledge) modeline göre hizala: DOK 1 (Recall) düzeyindeki basit görevleri DOK 3 (Strategic) ve DOK 4 (Extended Thinking) seviyesine yükselt."
   },
   {
     "id": "tax-solo-taxonomy-aligner",
     "icon": "🧱",
     "name": "SOLO Taksonomisi Yapısal Değerlendirme",
-    "category": "taxonomy",
-    "description": "Öğrenci yanıtlarını Tek Yönlü'den İlişkisel ve Soyutlanmış Düzeye sınıflandırır.",
+    "desc": "Öğrenci yanıtlarını Tek Yönlü'den İlişkisel ve Soyutlanmış Düzeye sınıflandırır.",
+    "explain": "Öğrenci yanıtlarını Tek Yönlü'den İlişkisel ve Soyutlanmış Düzeye sınıflandırır.",
     "layer": "taxonomy",
     "requires": [
       "tax-blooms-question-matrix"
     ],
-    "prompt": "Öğrenme çıktılarını SOLO (Structure of Observed Learning Outcome) taksonomisine göre değerlendir: Yanıtları Tek Yönlü (Unistructural), Çok Yönlü (Multistructural), İlişkisel (Relational) ve Genişletilmiş Soyut (Extended Abstract) olarak kodla.",
-    "desc": "Öğrenci yanıtlarını Tek Yönlü'den İlişkisel ve Soyutlanmış Düzeye sınıflandırır.",
-    "explain": "Öğrenci yanıtlarını Tek Yönlü'den İlişkisel ve Soyutlanmış Düzeye sınıflandırır."
+    "prompt": "Öğrenme çıktılarını SOLO (Structure of Observed Learning Outcome) taksonomisine göre değerlendir: Yanıtları Tek Yönlü (Unistructural), Çok Yönlü (Multistructural), İlişkisel (Relational) ve Genişletilmiş Soyut (Extended Abstract) olarak kodla."
   },
   {
     "id": "tax-affective-domain-goals",
     "icon": "❤️",
     "name": "Krathwohl Duรับsal Alan Hedefleri",
-    "category": "taxonomy",
-    "description": "Öğrencinin tutum, değer verme ve karakterize etme gelişimini planlar.",
+    "desc": "Öğrencinin tutum, değer verme ve karakterize etme gelişimini planlar.",
+    "explain": "Öğrencinin tutum, değer verme ve karakterize etme gelişimini planlar.",
     "layer": "taxonomy",
     "requires": [
       "tax-blooms-question-matrix"
     ],
-    "prompt": "Duyuşsal Alan (Affective Domain - Krathwohl) hedefleri koy: Öğrencinin konuyu sadece zihnen değil; Alma, Tepkide Bulunma, Değer Verme ve Bir Değer Sistemiyle Karakterize Etme süreçlerini tasarla.",
-    "desc": "Öğrencinin tutum, değer verme ve karakterize etme gelişimini planlar.",
-    "explain": "Öğrencinin tutum, değer verme ve karakterize etme gelişimini planlar."
+    "prompt": "Duyuşsal Alan (Affective Domain - Krathwohl) hedefleri koy: Öğrencinin konuyu sadece zihnen değil; Alma, Tepkide Bulunma, Değer Verme ve Bir Değer Sistemiyle Karakterize Etme süreçlerini tasarla."
   },
   {
     "id": "tax-psychomotor-skill-scaffolding",
     "icon": "✋",
     "name": "Psikomotor Beceri İskeletleme (Dave)",
-    "category": "taxonomy",
-    "description": "Fiziksel ve pratik becerilerin taklitten doğallaşmaya gelişim haritası.",
+    "desc": "Fiziksel ve pratik becerilerin taklitten doğallaşmaya gelişim haritası.",
+    "explain": "Fiziksel ve pratik becerilerin taklitten doğallaşmaya gelişim haritası.",
     "layer": "taxonomy",
     "requires": [
       "tax-blooms-question-matrix"
     ],
-    "prompt": "Psikomotor Beceri Gelişim Haritası çıkar (Dave Taksonomisi): Taklit Etme (Imitation), Manipülasyon, Hassasiyet (Precision), Eklemleme ve Doğallaşma (Naturalization) adımlarını kurgula.",
-    "desc": "Fiziksel ve pratik becerilerin taklitten doğallaşmaya gelişim haritası.",
-    "explain": "Fiziksel ve pratik becerilerin taklitten doğallaşmaya gelişim haritası."
+    "prompt": "Psikomotor Beceri Gelişim Haritası çıkar (Dave Taksonomisi): Taklit Etme (Imitation), Manipülasyon, Hassasiyet (Precision), Eklemleme ve Doğallaşma (Naturalization) adımlarını kurgula."
   },
   {
     "id": "tax-higher-order-prompting",
     "icon": "🎯",
     "name": "Üst Düzey Düşünme Soru Üretici",
-    "category": "taxonomy",
-    "description": "Ezberci soruları eleştirel düşünmeyi tetikleyen açık uçlu sorulara dönüştürür.",
+    "desc": "Ezberci soruları eleştirel düşünmeyi tetikleyen açık uçlu sorulara dönüştürür.",
+    "explain": "Ezberci soruları eleştirel düşünmeyi tetikleyen açık uçlu sorulara dönüştürür.",
     "layer": "taxonomy",
     "requires": [
       "tax-depth-of-knowledge-dok"
     ],
-    "prompt": "Ezberci (Low-order) soruları sil: Yerine öğrencide hipotez kurma, varsayımları sorgulama ve alternatif üretmeyi zorunlu kılan 3 adet Üst Düzey Düşünme (HOTS) sorusu ekle.",
-    "desc": "Ezberci soruları eleştirel düşünmeyi tetikleyen açık uçlu sorulara dönüştürür.",
-    "explain": "Ezberci soruları eleştirel düşünmeyi tetikleyen açık uçlu sorulara dönüştürür."
+    "prompt": "Ezberci (Low-order) soruları sil: Yerine öğrencide hipotez kurma, varsayımları sorgulama ve alternatif üretmeyi zorunlu kılan 3 adet Üst Düzey Düşünme (HOTS) sorusu ekle."
   },
   {
     "id": "cur-backward-design-ubd",
     "icon": "🎯",
     "name": "Tersine Müfredat Tasarımı (UbD)",
-    "category": "curriculum",
-    "description": "Wiggins & McTighe UbD modeliyle önce hedef ve kanıtı, sonra etkinlikleri planlar.",
+    "desc": "Wiggins & McTighe UbD modeliyle önce hedef ve kanıtı, sonra etkinlikleri planlar.",
+    "explain": "Wiggins & McTighe UbD modeliyle önce hedef ve kanıtı, sonra etkinlikleri planlar.",
     "layer": "curriculum",
     "requires": [],
-    "prompt": "Understanding by Design (UbD - Tersine Tasarım) metodunu uygula: (Aşama 1) İstenen Büyük Fikir ve Çıktıları belirle -> (Aşama 2) Kabul edilebilir Değerlendirme Kanıtlarını koy -> (Aşama 3) Öğrenme Deneyimlerini planla.",
-    "desc": "Wiggins & McTighe UbD modeliyle önce hedef ve kanıtı, sonra etkinlikleri planlar.",
-    "explain": "Wiggins & McTighe UbD modeliyle önce hedef ve kanıtı, sonra etkinlikleri planlar."
+    "prompt": "Understanding by Design (UbD - Tersine Tasarım) metodunu uygula: (Aşama 1) İstenen Büyük Fikir ve Çıktıları belirle -> (Aşama 2) Kabul edilebilir Değerlendirme Kanıtlarını koy -> (Aşama 3) Öğrenme Deneyimlerini planla."
   },
   {
     "id": "cur-scaffolding-chunking",
     "icon": "🧩",
     "name": "Bilişsel Yük & Mikro-Bölümleme (Chunking)",
-    "category": "curriculum",
-    "description": "Karmaşık konuları bilişsel aşırı yüklenmeyi önleyecek küçük parçalara böler.",
+    "desc": "Karmaşık konuları bilişsel aşırı yüklenmeyi önleyecek küçük parçalara böler.",
+    "explain": "Karmaşık konuları bilişsel aşırı yüklenmeyi önleyecek küçük parçalara böler.",
     "layer": "curriculum",
     "requires": [
       "cur-backward-design-ubd"
     ],
-    "prompt": "Bilişsel Yük Teorisini (Cognitive Load Theory) uygula: Konuyu 10-15 dakikalık sindirilebilir Mikro-Bölümlere (Chunking) ayır ve aralara bilgi işleme mola yapıları koy.",
-    "desc": "Karmaşık konuları bilişsel aşırı yüklenmeyi önleyecek küçük parçalara böler.",
-    "explain": "Karmaşık konuları bilişsel aşırı yüklenmeyi önleyecek küçük parçalara böler."
+    "prompt": "Bilişsel Yük Teorisini (Cognitive Load Theory) uygula: Konuyu 10-15 dakikalık sindirilebilir Mikro-Bölümlere (Chunking) ayır ve aralara bilgi işleme mola yapıları koy."
   },
   {
     "id": "cur-interleaving-spaced-curriculum",
     "icon": "🔄",
     "name": "Aralıklı & Çapraz Öğrenme Takvimi",
-    "category": "curriculum",
-    "description": "Unutmayı engellemek için konuları zaman içine yayan aralıklı tekrar planı hazırlar.",
+    "desc": "Unutmayı engellemek için konuları zaman içine yayan aralıklı tekrar planı hazırlar.",
+    "explain": "Unutmayı engellemek için konuları zaman içine yayan aralıklı tekrar planı hazırlar.",
     "layer": "curriculum",
     "requires": [
       "cur-backward-design-ubd"
     ],
-    "prompt": "Aralıklı ve Çapraz Öğrenme (Spaced & Interleaved Retrieval) takvimi kurgula: Konuları blok halinde öğretmek yerine, geçmiş konuları sonraki haftalara serpiştiren sarmal müfredat haritası yaz.",
-    "desc": "Unutmayı engellemek için konuları zaman içine yayan aralıklı tekrar planı hazırlar.",
-    "explain": "Unutmayı engellemek için konuları zaman içine yayan aralıklı tekrar planı hazırlar."
+    "prompt": "Aralıklı ve Çapraz Öğrenme (Spaced & Interleaved Retrieval) takvimi kurgula: Konuları blok halinde öğretmek yerine, geçmiş konuları sonraki haftalara serpiştiren sarmal müfredat haritası yaz."
   },
   {
     "id": "cur-cross-disciplinary-bridge",
     "icon": "🌉",
     "name": "Disiplinlerarası Proje Bağlantısı",
-    "category": "curriculum",
-    "description": "Dersi matematik, tarih veya sanat gibi farklı disiplinlerle evlendirir.",
+    "desc": "Dersi matematik, tarih veya sanat gibi farklı disiplinlerle evlendirir.",
+    "explain": "Dersi matematik, tarih veya sanat gibi farklı disiplinlerle evlendirir.",
     "layer": "curriculum",
     "requires": [
       "cur-backward-design-ubd"
     ],
-    "prompt": "Disiplinlerarası (Cross-Disciplinary) bağlantı kur: Bu ders konusunu [Matematik / Etik / Tarih / Kodlama] ile birleştiren gerçek hayat STEM/STEAM projesi tasarla.",
-    "desc": "Dersi matematik, tarih veya sanat gibi farklı disiplinlerle evlendirir.",
-    "explain": "Dersi matematik, tarih veya sanat gibi farklı disiplinlerle evlendirir."
+    "prompt": "Disiplinlerarası (Cross-Disciplinary) bağlantı kur: Bu ders konusunu [Matematik / Etik / Tarih / Kodlama] ile birleştiren gerçek hayat STEM/STEAM projesi tasarla."
   },
   {
     "id": "cur-competency-based-map",
     "icon": "🗺️",
     "name": "Yetkinlik Tabanlı Beceri Haritası",
-    "category": "curriculum",
-    "description": "Zaman bazlı ders yerine somut beceri kazanımına dayalı ilerleme haritası.",
+    "desc": "Zaman bazlı ders yerine somut beceri kazanımına dayalı ilerleme haritası.",
+    "explain": "Zaman bazlı ders yerine somut beceri kazanımına dayalı ilerleme haritası.",
     "layer": "curriculum",
     "requires": [
       "cur-backward-design-ubd"
     ],
-    "prompt": "Yetkinlik Tabanlı Müfredat (Competency-Based Learning) haritası oluştur: Her modül için öğrencinin göstermesi gereken somut 'Yapabilir' (Can-Do) kriterlerini ve mikro-rozet yetkinliklerini tanımla.",
-    "desc": "Zaman bazlı ders yerine somut beceri kazanımına dayalı ilerleme haritası.",
-    "explain": "Zaman bazlı ders yerine somut beceri kazanımına dayalı ilerleme haritası."
+    "prompt": "Yetkinlik Tabanlı Müfredat (Competency-Based Learning) haritası oluştur: Her modül için öğrencinin göstermesi gereken somut 'Yapabilir' (Can-Do) kriterlerini ve mikro-rozet yetkinliklerini tanımla."
   },
   {
     "id": "cur-universal-learning-design",
     "icon": "♿",
     "name": "Evrensel Öğrenme Tasarımı (UDL)",
-    "category": "curriculum",
-    "description": "Görsel, işitsel ve kinestetik farklılıklara erişilebilir kapsayıcı ders mimarisi.",
+    "desc": "Görsel, işitsel ve kinestetik farklılıklara erişilebilir kapsayıcı ders mimarisi.",
+    "explain": "Görsel, işitsel ve kinestetik farklılıklara erişilebilir kapsayıcı ders mimarisi.",
     "layer": "curriculum",
     "requires": [
       "cur-scaffolding-chunking"
     ],
-    "prompt": "Evrensel Öğrenme Tasarımı (UDL - Universal Design for Learning) uygula: (a) Çoklu Sunum Yolları (Görsel/İşitsel/Metin), (b) Çoklu İfade Yolları ve (c) Çoklu Katılım Yöntemlerini derse entegre et.",
-    "desc": "Görsel, işitsel ve kinestetik farklılıklara erişilebilir kapsayıcı ders mimarisi.",
-    "explain": "Görsel, işitsel ve kinestetik farklılıklara erişilebilir kapsayıcı ders mimarisi."
+    "prompt": "Evrensel Öğrenme Tasarımı (UDL - Universal Design for Learning) uygula: (a) Çoklu Sunum Yolları (Görsel/İşitsel/Metin), (b) Çoklu İfade Yolları ve (c) Çoklu Katılım Yöntemlerini derse entegre et."
   },
   {
     "id": "ass-formative-exit-ticket",
     "icon": "🎟️",
     "name": "Biçimlendirici Çıkış Bilteti (Exit Ticket)",
-    "category": "assessment",
-    "description": "Ders sonunda 2 dakikalık anlık anlama denetimi ve çıkış kartı soruları.",
+    "desc": "Ders sonunda 2 dakikalık anlık anlama denetimi ve çıkış kartı soruları.",
+    "explain": "Ders sonunda 2 dakikalık anlık anlama denetimi ve çıkış kartı soruları.",
     "layer": "assessment",
     "requires": [],
-    "prompt": "Ders sonu Biçimlendirici Değerlendirme (Formative Exit Ticket) tasarla: Öğrencinin 'Bugün öğrendiğim en kritik şey', 'Hala kafamı karıştıran nokta' ve 1 adet uygulama sorusundan oluşan 2 dakikalık denetim yaz.",
-    "desc": "Ders sonunda 2 dakikalık anlık anlama denetimi ve çıkış kartı soruları.",
-    "explain": "Ders sonunda 2 dakikalık anlık anlama denetimi ve çıkış kartı soruları."
+    "prompt": "Ders sonu Biçimlendirici Değerlendirme (Formative Exit Ticket) tasarla: Öğrencinin 'Bugün öğrendiğim en kritik şey', 'Hala kafamı karıştıran nokta' ve 1 adet uygulama sorusundan oluşan 2 dakikalık denetim yaz."
   },
   {
     "id": "ass-summative-capstone-spec",
     "icon": "🏆",
     "name": "Özetleyici Bitirme (Capstone) Şartnamesi",
-    "category": "assessment",
-    "description": "Dönem sonu için tüm becerileri sentezleyen kapsamlı proje şartnamesi.",
+    "desc": "Dönem sonu için tüm becerileri sentezleyen kapsamlı proje şartnamesi.",
+    "explain": "Dönem sonu için tüm becerileri sentezleyen kapsamlı proje şartnamesi.",
     "layer": "assessment",
     "requires": [
       "ass-formative-exit-ticket"
     ],
-    "prompt": "Özetleyici Bitirme Projesi (Summative Capstone Project) Şartnamesi yaz: Proje teslim kriterlerini, kısıtları, sunum formatını ve değerlendirme ağırlıklarını belirle.",
-    "desc": "Dönem sonu için tüm becerileri sentezleyen kapsamlı proje şartnamesi.",
-    "explain": "Dönem sonu için tüm becerileri sentezleyen kapsamlı proje şartnamesi."
+    "prompt": "Özetleyici Bitirme Projesi (Summative Capstone Project) Şartnamesi yaz: Proje teslim kriterlerini, kısıtları, sunum formatını ve değerlendirme ağırlıklarını belirle."
   },
   {
     "id": "ass-authentic-task-assessment",
     "icon": "💼",
     "name": "Gerçek Hayat Özgün Değerlendirmesi",
-    "category": "assessment",
-    "description": "Teorik sınav yerine sektördeki gerçek bir problemi çözdüren görev kurgular.",
+    "desc": "Teorik sınav yerine sektördeki gerçek bir problemi çözdüren görev kurgular.",
+    "explain": "Teorik sınav yerine sektördeki gerçek bir problemi çözdüren görev kurgular.",
     "layer": "assessment",
     "requires": [
       "ass-formative-exit-ticket"
     ],
-    "prompt": "Özgün Değerlendirme Görevi (Authentic Task) tasarla: Öğrenciyi kağıt-kalem sınavı yerine, gerçek bir müşteriye veya kuruma profesyonel bir ürün/çözüm sunar rolde konumlandır.",
-    "desc": "Teorik sınav yerine sektördeki gerçek bir problemi çözdüren görev kurgular.",
-    "explain": "Teorik sınav yerine sektördeki gerçek bir problemi çözdüren görev kurgular."
+    "prompt": "Özgün Değerlendirme Görevi (Authentic Task) tasarla: Öğrenciyi kağıt-kalem sınavı yerine, gerçek bir müşteriye veya kuruma profesyonel bir ürün/çözüm sunar rolde konumlandır."
   },
   {
     "id": "ass-item-analysis-distractor",
     "icon": "📝",
     "name": "Çoktan Seçmeli Çeldirici Titizlik Testi",
-    "category": "assessment",
-    "description": "Test sorularındaki çeldiricilerin (distractors) kalitesini ve çeldirme gücünü denetler.",
+    "desc": "Test sorularındaki çeldiricilerin (distractors) kalitesini ve çeldirme gücünü denetler.",
+    "explain": "Test sorularındaki çeldiricilerin (distractors) kalitesini ve çeldirme gücünü denetler.",
     "layer": "assessment",
     "requires": [
       "ass-formative-exit-ticket"
     ],
-    "prompt": "Çoktan Seçmeli Soru Bankası Titizlik Denetimi yap: Sorulardaki şıkların uzunluk eşitliğini, çeldiricilerin (distractors) mantıksal kavrayış zayıflıklarını ölçme gücünü kontrol et.",
-    "desc": "Test sorularındaki çeldiricilerin (distractors) kalitesini ve çeldirme gücünü denetler.",
-    "explain": "Test sorularındaki çeldiricilerin (distractors) kalitesini ve çeldirme gücünü denetler."
+    "prompt": "Çoktan Seçmeli Soru Bankası Titizlik Denetimi yap: Sorulardaki şıkların uzunluk eşitliğini, çeldiricilerin (distractors) mantıksal kavrayış zayıflıklarını ölçme gücünü kontrol et."
   },
   {
     "id": "ass-diagnostic-prior-knowledge",
     "icon": "🔍",
     "name": "Ön Bilgi Teşhis Envanteri (Diagnostic)",
-    "category": "assessment",
-    "description": "Ünite öncesi öğrencilerin kavram yanılgılarını ve hazırbulunuşluğunu ölçer.",
+    "desc": "Ünite öncesi öğrencilerin kavram yanılgılarını ve hazırbulunuşluğunu ölçer.",
+    "explain": "Ünite öncesi öğrencilerin kavram yanılgılarını ve hazırbulunuşluğunu ölçer.",
     "layer": "assessment",
     "requires": [
       "ass-formative-exit-ticket"
     ],
-    "prompt": "Ünite Başı Teşhis Sınavı (Diagnostic Prior-Knowledge Audit) oluştur: Öğrencilerin yaygın kavram yanılgılarını (misconceptions) ve eksik ön koşul bilgilerini açığa çıkaracak 5 soru yaz.",
-    "desc": "Ünite öncesi öğrencilerin kavram yanılgılarını ve hazırbulunuşluğunu ölçer.",
-    "explain": "Ünite öncesi öğrencilerin kavram yanılgılarını ve hazırbulunuşluğunu ölçer."
+    "prompt": "Ünite Başı Teşhis Sınavı (Diagnostic Prior-Knowledge Audit) oluştur: Öğrencilerin yaygın kavram yanılgılarını (misconceptions) ve eksik ön koşul bilgilerini açığa çıkaracak 5 soru yaz."
   },
   {
     "id": "ass-peer-self-eval-protocol",
     "icon": "🤝",
     "name": "Akran ve Öz-Değerlendirme Protokolü",
-    "category": "assessment",
-    "description": "Öğrencilerin birbirini ve kendilerini objektif değerlendirme mekanizması.",
+    "desc": "Öğrencilerin birbirini ve kendilerini objektif değerlendirme mekanizması.",
+    "explain": "Öğrencilerin birbirini ve kendilerini objektif değerlendirme mekanizması.",
     "layer": "assessment",
     "requires": [
       "ass-authentic-task-assessment"
     ],
-    "prompt": "Akran ve Öz-Değerlendirme (Peer & Self-Assessment) Protokolü kurgula: Öğrencilerin arkadaşlarına yapıcı geri bildirim vermesini ve kendi süreçlerini metakognitif olarak değerlendirmesini sağlayan form yaz.",
-    "desc": "Öğrencilerin birbirini ve kendilerini objektif değerlendirme mekanizması.",
-    "explain": "Öğrencilerin birbirini ve kendilerini objektif değerlendirme mekanizması."
+    "prompt": "Akran ve Öz-Değerlendirme (Peer & Self-Assessment) Protokolü kurgula: Öğrencilerin arkadaşlarına yapıcı geri bildirim vermesini ve kendi süreçlerini metakognitif olarak değerlendirmesini sağlayan form yaz."
   },
   {
     "id": "eng-gamification-loop",
     "icon": "🎮",
     "name": "Oyunlaştırılmış Öğrenme Döngüsü",
-    "category": "engagement",
-    "description": "Puan, rozet, liderlik tablosu ve görev mekanikleri ile motivasyonu artırır.",
+    "desc": "Puan, rozet, liderlik tablosu ve görev mekanikleri ile motivasyonu artırır.",
+    "explain": "Puan, rozet, liderlik tablosu ve görev mekanikleri ile motivasyonu artırır.",
     "layer": "engagement",
     "requires": [],
-    "prompt": "Ders içeriğine Oyunlaştırma (Gamification Architecture) entegre et: Görev zincirleri (quests), tecrübe puanı (XP), seviye atlama ve mikro-rozet mekanikleriyle öğrenme motivasyonunu yükselt.",
-    "desc": "Puan, rozet, liderlik tablosu ve görev mekanikleri ile motivasyonu artırır.",
-    "explain": "Puan, rozet, liderlik tablosu ve görev mekanikleri ile motivasyonu artırır."
+    "prompt": "Ders içeriğine Oyunlaştırma (Gamification Architecture) entegre et: Görev zincirleri (quests), tecrübe puanı (XP), seviye atlama ve mikro-rozet mekanikleriyle öğrenme motivasyonunu yükselt."
   },
   {
     "id": "eng-socratic-seminar-guide",
     "icon": "🗣️",
     "name": "Sokratik Seminer Tartışma Rehberi",
-    "category": "engagement",
-    "description": "Sınıf içi derin grup tartışması için metin odaklı Sokratik sorgulama kurgular.",
+    "desc": "Sınıf içi derin grup tartışması için metin odaklı Sokratik sorgulama kurgular.",
+    "explain": "Sınıf içi derin grup tartışması için metin odaklı Sokratik sorgulama kurgular.",
     "layer": "engagement",
     "requires": [
       "eng-gamification-loop"
     ],
-    "prompt": "Sokratik Seminer Tartışma Rehberi tasarla: Öğrencilerin öğretmen merkezli değil, kendi aralarında metin üzerinden derin tartışma yürütecekleri açılış, genişleme ve kapanış sorularını yaz.",
-    "desc": "Sınıf içi derin grup tartışması için metin odaklı Sokratik sorgulama kurgular.",
-    "explain": "Sınıf içi derin grup tartışması için metin odaklı Sokratik sorgulama kurgular."
+    "prompt": "Sokratik Seminer Tartışma Rehberi tasarla: Öğrencilerin öğretmen merkezli değil, kendi aralarında metin üzerinden derin tartışma yürütecekleri açılış, genişleme ve kapanış sorularını yaz."
   },
   {
     "id": "eng-active-recall-drill",
     "icon": "⚡",
     "name": "Aktif Hatırlama Egzersiz Motoru",
-    "category": "engagement",
-    "description": "Pasif okuma yerine bilgiyi zihinden çekmeye zorlayan alıştırma düzeni.",
+    "desc": "Pasif okuma yerine bilgiyi zihinden çekmeye zorlayan alıştırma düzeni.",
+    "explain": "Pasif okuma yerine bilgiyi zihinden çekmeye zorlayan alıştırma düzeni.",
     "layer": "engagement",
     "requires": [
       "eng-gamification-loop"
     ],
-    "prompt": "Aktif Hatırlama (Active Recall) antrenmanı kurgula: Öğrenciyi notları tekrar okumaktan alıkoyup, bilgiyi zihninden sıfırdan çağırmaya zorlayacak 5 hızlı hatırlama sorusu yaz.",
-    "desc": "Pasif okuma yerine bilgiyi zihinden çekmeye zorlayan alıştırma düzeni.",
-    "explain": "Pasif okuma yerine bilgiyi zihinden çekmeye zorlayan alıştırma düzeni."
+    "prompt": "Aktif Hatırlama (Active Recall) antrenmanı kurgula: Öğrenciyi notları tekrar okumaktan alıkoyup, bilgiyi zihninden sıfırdan çağırmaya zorlayacak 5 hızlı hatırlama sorusu yaz."
   },
   {
     "id": "eng-case-study-dilemma-builder",
     "icon": "📖",
     "name": "Vaka Analizi & Etik İklem Senaryosu",
-    "category": "engagement",
-    "description": "Öğrencileri gerçek bir şirket veya olay ikileminin içine atan senaryo.",
+    "desc": "Öğrencileri gerçek bir şirket veya olay ikileminin içine atan senaryo.",
+    "explain": "Öğrencileri gerçek bir şirket veya olay ikileminin içine atan senaryo.",
     "layer": "engagement",
     "requires": [
       "eng-gamification-loop"
     ],
-    "prompt": "Gerçek Vaka İkilemi (Case Study Dilemma) yaz: Öğrenciyi net bir doğrusu olmayan, iki kötü veya iki iyi seçenek arasında karar vermek zorunda bırakan senaryoya yerleştir.",
-    "desc": "Öğrencileri gerçek bir şirket veya olay ikileminin içine atan senaryo.",
-    "explain": "Öğrencileri gerçek bir şirket veya olay ikileminin içine atan senaryo."
+    "prompt": "Gerçek Vaka İkilemi (Case Study Dilemma) yaz: Öğrenciyi net bir doğrusu olmayan, iki kötü veya iki iyi seçenek arasında karar vermek zorunda bırakan senaryoya yerleştir."
   },
   {
     "id": "eng-flipper-classroom-prep",
     "icon": "🔄",
     "name": "Ters-Yüz Sınıf (Flipped Classroom) Planı",
-    "category": "engagement",
-    "description": "Evde içerik tüketimi, sınıfta aktif uygulama ve problem çözme planı.",
+    "desc": "Evde içerik tüketimi, sınıfta aktif uygulama ve problem çözme planı.",
+    "explain": "Evde içerik tüketimi, sınıfta aktif uygulama ve problem çözme planı.",
     "layer": "engagement",
     "requires": [
       "eng-gamification-loop"
     ],
-    "prompt": "Ters-Yüz Sınıf (Flipped Classroom) mimarisi kur: (Ev Görevi) Okuma/video izleme hazırlığı -> (Sınıf İçi) Direkt problem çözme, mentörlük ve işbirlikli pratik adımlarını yaz.",
-    "desc": "Evde içerik tüketimi, sınıfta aktif uygulama ve problem çözme planı.",
-    "explain": "Evde içerik tüketimi, sınıfta aktif uygulama ve problem çözme planı."
+    "prompt": "Ters-Yüz Sınıf (Flipped Classroom) mimarisi kur: (Ev Görevi) Okuma/video izleme hazırlığı -> (Sınıf İçi) Direkt problem çözme, mentörlük ve işbirlikli pratik adımlarını yaz."
   },
   {
     "id": "eng-peer-instruction-think-pair",
     "icon": "💬",
     "name": "Düşün-Eşleş-Paylaş (Think-Pair-Share)",
-    "category": "engagement",
-    "description": "Bireysel düşünme, akranla tartışma ve sınıfla paylaşma adımlı ders akışı.",
+    "desc": "Bireysel düşünme, akranla tartışma ve sınıfla paylaşma adımlı ders akışı.",
+    "explain": "Bireysel düşünme, akranla tartışma ve sınıfla paylaşma adımlı ders akışı.",
     "layer": "engagement",
     "requires": [
       "eng-socratic-seminar-guide"
     ],
-    "prompt": "Think-Pair-Share (Düşün-Eşleş-Paylaş) İkna Egzersizi kurgula: Çelişkili bir konsept sorusu ver; öğrencilerin önce tek başına düşünmesini, sonra akranını ikna etmesini sağlayan akış yaz.",
-    "desc": "Bireysel düşünme, akranla tartışma ve sınıfla paylaşma adımlı ders akışı.",
-    "explain": "Bireysel düşünme, akranla tartışma ve sınıfla paylaşma adımlı ders akışı."
+    "prompt": "Think-Pair-Share (Düşün-Eşleş-Paylaş) İkna Egzersizi kurgula: Çelişkili bir konsept sorusu ver; öğrencilerin önce tek başına düşünmesini, sonra akranını ikna etmesini sağlayan akış yaz."
   },
   {
     "id": "rub-holistic-analytical-rubric",
     "icon": "📊",
     "name": "Analitik Değerlendirme Rubriği",
-    "category": "rubrics",
-    "description": "Kriterleri 4 seviyede (Yetersiz, Geliştirilmeli, Başarılı, Mükemmel) detaylandıran rubrik.",
+    "desc": "Kriterleri 4 seviyede (Yetersiz, Geliştirilmeli, Başarılı, Mükemmel) detaylandıran rubrik.",
+    "explain": "Kriterleri 4 seviyede (Yetersiz, Geliştirilmeli, Başarılı, Mükemmel) detaylandıran rubrik.",
     "layer": "rubrics",
     "requires": [],
-    "prompt": "Çok Kriterli Analitik Rubrik (Analytic Rubric) oluştur: Performansı 4 ana kriter üzerinden, 4 başarı seviyesinde (1-Yetersiz, 2-Gelişmekte, 3-Yetkin, 4-Mükemmel) somut davranışsal ifadelerle matris olarak yaz.",
-    "desc": "Kriterleri 4 seviyede (Yetersiz, Geliştirilmeli, Başarılı, Mükemmel) detaylandıran rubrik.",
-    "explain": "Kriterleri 4 seviyede (Yetersiz, Geliştirilmeli, Başarılı, Mükemmel) detaylandıran rubrik."
+    "prompt": "Çok Kriterli Analitik Rubrik (Analytic Rubric) oluştur: Performansı 4 ana kriter üzerinden, 4 başarı seviyesinde (1-Yetersiz, 2-Gelişmekte, 3-Yetkin, 4-Mükemmel) somut davranışsal ifadelerle matris olarak yaz."
   },
   {
     "id": "rub-single-point-rubric",
     "icon": "🎯",
     "name": "Tek Nokta (Single-Point) Rubriği",
-    "category": "rubrics",
-    "description": "Merkeze başarı standardını koyup sağa geliştirme, sola övgü alanı açar.",
+    "desc": "Merkeze başarı standardını koyup sağa geliştirme, sola övgü alanı açar.",
+    "explain": "Merkeze başarı standardını koyup sağa geliştirme, sola övgü alanı açar.",
     "layer": "rubrics",
     "requires": [
       "rub-holistic-analytical-rubric"
     ],
-    "prompt": "Single-Point Rubric (Tek Nokta Rubriği) tasarla: Sol Kolon: [Geliştirilmesi Gereken Alanlar] | Orta Kolon: [HEDEF BAŞARI STANDARDI] | Sağ Kolon: [Standardı Aşan Özgün Yanlar] şeklinde düzenle.",
-    "desc": "Merkeze başarı standardını koyup sağa geliştirme, sola övgü alanı açar.",
-    "explain": "Merkeze başarı standardını koyup sağa geliştirme, sola övgü alanı açar."
+    "prompt": "Single-Point Rubric (Tek Nokta Rubriği) tasarla: Sol Kolon: [Geliştirilmesi Gereken Alanlar] | Orta Kolon: [HEDEF BAŞARI STANDARDI] | Sağ Kolon: [Standardı Aşan Özgün Yanlar] şeklinde düzenle."
   },
   {
     "id": "rub-objective-performance-criteria",
     "icon": "🔍",
     "name": "Somut Gözlemlenebilir Performans Ölçütleri",
-    "category": "rubrics",
-    "description": "Öznel değerlendirmeleri kaldırıp yerine sayısal ve somut kanıt kriterleri koyar.",
+    "desc": "Öznel değerlendirmeleri kaldırıp yerine sayısal ve somut kanıt kriterleri koyar.",
+    "explain": "Öznel değerlendirmeleri kaldırıp yerine sayısal ve somut kanıt kriterleri koyar.",
     "layer": "rubrics",
     "requires": [
       "rub-holistic-analytical-rubric"
     ],
-    "prompt": "Rubrikteki tüm muğlak sıfatları ('iyi yazılmış', 'güzel sunum') sil: Yerine 'en az 3 ampirik kaynak içeren', 'hata oranı %5'in altında olan' gibi somut gözlemlenebilir kanıt kriterleri koy.",
-    "desc": "Öznel değerlendirmeleri kaldırıp yerine sayısal ve somut kanıt kriterleri koyar.",
-    "explain": "Öznel değerlendirmeleri kaldırıp yerine sayısal ve somut kanıt kriterleri koyar."
+    "prompt": "Rubrikteki tüm muğlak sıfatları ('iyi yazılmış', 'güzel sunum') sil: Yerine 'en az 3 ampirik kaynak içeren', 'hata oranı %5'in altında olan' gibi somut gözlemlenebilir kanıt kriterleri koy."
   },
   {
     "id": "rub-exemplar-anchor-papers",
     "icon": "🥇",
     "name": "Örnek Çıktı (Anchor Papers) Matrisi",
-    "category": "rubrics",
-    "description": "Altın, Gümüş ve Bronz seviyedeki örnek öğrenci çalışmalarını betimler.",
+    "desc": "Altın, Gümüş ve Bronz seviyedeki örnek öğrenci çalışmalarını betimler.",
+    "explain": "Altın, Gümüş ve Bronz seviyedeki örnek öğrenci çalışmalarını betimler.",
     "layer": "rubrics",
     "requires": [
       "rub-holistic-analytical-rubric"
     ],
-    "prompt": "Örnek Çıktı (Anchor Exemplars) tanımları yaz: Mükemmel (Altın), Ortalama (Gümüş) ve Yetersiz (Bronz) seviyedeki örnek öğrenci ödevlerinin niteliksel farklarını açıkça betimle.",
-    "desc": "Altın, Gümüş ve Bronz seviyedeki örnek öğrenci çalışmalarını betimler.",
-    "explain": "Altın, Gümüş ve Bronz seviyedeki örnek öğrenci çalışmalarını betimler."
+    "prompt": "Örnek Çıktı (Anchor Exemplars) tanımları yaz: Mükemmel (Altın), Ortalama (Gümüş) ve Yetersiz (Bronz) seviyedeki örnek öğrenci ödevlerinin niteliksel farklarını açıkça betimle."
   },
   {
     "id": "rub-constructive-feedback-bank",
     "icon": "💬",
     "name": "Yapıcı Geri Bildirim İfade Bankası",
-    "category": "rubrics",
-    "description": "Öğretmenin hızlıca kullanabileceği geliştirici geri bildirim cümleleri üretir.",
+    "desc": "Öğretmenin hızlıca kullanabileceği geliştirici geri bildirim cümleleri üretir.",
+    "explain": "Öğretmenin hızlıca kullanabileceği geliştirici geri bildirim cümleleri üretir.",
     "layer": "rubrics",
     "requires": [
       "rub-single-point-rubric"
     ],
-    "prompt": "Öğretmen için Yapıcı Geri Bildirim Bankası (Actionable Feedback Bank) oluştur: Öğrencinin zayıf kaldığı alanlar için incitmeyen ama gelişimi net gösteren 5 hazır geri bildirim kalıbı yaz.",
-    "desc": "Öğretmenin hızlıca kullanabileceği geliştirici geri bildirim cümleleri üretir.",
-    "explain": "Öğretmenin hızlıca kullanabileceği geliştirici geri bildirim cümleleri üretir."
+    "prompt": "Öğretmen için Yapıcı Geri Bildirim Bankası (Actionable Feedback Bank) oluştur: Öğrencinin zayıf kaldığı alanlar için incitmeyen ama gelişimi net gösteren 5 hazır geri bildirim kalıbı yaz."
   },
   {
     "id": "rub-mastery-threshold-matrix",
     "icon": "🏁",
     "name": "Standart Tabanlı Ustalık (Mastery) Eşiği",
-    "category": "rubrics",
-    "description": "Öğrencinin bir sonraki konuya geçmesi için gereken ustalık kriterini koyar.",
+    "desc": "Öğrencinin bir sonraki konuya geçmesi için gereken ustalık kriterini koyar.",
+    "explain": "Öğrencinin bir sonraki konuya geçmesi için gereken ustalık kriterini koyar.",
     "layer": "rubrics",
     "requires": [
       "rub-objective-performance-criteria"
     ],
-    "prompt": "Ustalık Tabanlı Geçiş Eşiği (Mastery Threshold) belirle: Öğrencinin 'geçti' sayılması ve sonraki üniteye erişmesi için minimum %80 performans göstermesi gereken vazgeçilmez temel becerileri kilitle.",
-    "desc": "Öğrencinin bir sonraki konuya geçmesi için gereken ustalık kriterini koyar.",
-    "explain": "Öğrencinin bir sonraki konuya geçmesi için gereken ustalık kriterini koyar."
+    "prompt": "Ustalık Tabanlı Geçiş Eşiği (Mastery Threshold) belirle: Öğrencinin 'geçti' sayılması ve sonraki üniteye erişmesi için minimum %80 performans göstermesi gereken vazgeçilmez temel becerileri kilitle."
   }
 ]

@@ -3,410 +3,350 @@
     "id": "cur-anti-tourist-trap-filter",
     "icon": "🚫",
     "name": "Turist Tuzağı Ayıklama Filtresi",
-    "category": "curation",
-    "description": "Şişirilmiş fiyatlı, kalitesiz turist mekanlarını listeden tamamen temizler.",
+    "desc": "Şişirilmiş fiyatlı, kalitesiz turist mekanlarını listeden tamamen temizler.",
+    "explain": "Şişirilmiş fiyatlı, kalitesiz turist mekanlarını listeden tamamen temizler.",
     "layer": "curation",
     "requires": [],
-    "prompt": "Turist Tuzağı (Anti-Tourist Trap) filtresi çalıştır: Otantik olmayan, turist otobüslerinin uğradığı, fiyatları şişirilmiş popüler mekanları listeden tamamen ayıkla.",
-    "desc": "Şişirilmiş fiyatlı, kalitesiz turist mekanlarını listeden tamamen temizler.",
-    "explain": "Şişirilmiş fiyatlı, kalitesiz turist mekanlarını listeden tamamen temizler."
+    "prompt": "Turist Tuzağı (Anti-Tourist Trap) filtresi çalıştır: Otantik olmayan, turist otobüslerinin uğradığı, fiyatları şişirilmiş popüler mekanları listeden tamamen ayıkla."
   },
   {
     "id": "cur-local-hidden-gem-route",
     "icon": "💎",
     "name": "Yerel Gizli Cevherler (Hidden Gems) Rotası",
-    "category": "curation",
-    "description": "Sadece yerel halkın bildiği özgün lezzet ve mahalle noktalarını keşfeder.",
+    "desc": "Sadece yerel halkın bildiği özgün lezzet ve mahalle noktalarını keşfeder.",
+    "explain": "Sadece yerel halkın bildiği özgün lezzet ve mahalle noktalarını keşfeder.",
     "layer": "curation",
     "requires": [
       "cur-anti-tourist-trap-filter"
     ],
-    "prompt": "Yerel Gizli Cevherler (Local Hidden Gems) kürasyonu yap: Rehber kitaplarda yer almayan, sadece lokal halkın gittiği otantik mahalle restoranlarını ve gizli mekanları listele.",
-    "desc": "Sadece yerel halkın bildiği özgün lezzet ve mahalle noktalarını keşfeder.",
-    "explain": "Sadece yerel halkın bildiği özgün lezzet ve mahalle noktalarını keşfeder."
+    "prompt": "Yerel Gizli Cevherler (Local Hidden Gems) kürasyonu yap: Rehber kitaplarda yer almayan, sadece lokal halkın gittiği otantik mahalle restoranlarını ve gizli mekanları listele."
   },
   {
     "id": "cur-culinary-foodie-itinerary",
     "icon": "🍜",
     "name": "Mutfak & Sokak Lezzetleri Keşif Haritası",
-    "category": "curation",
-    "description": "Şehrin en iyi sokak lezzetlerini ve ikonik yerel yemeklerini haritalandırır.",
+    "desc": "Şehrin en iyi sokak lezzetlerini ve ikonik yerel yemeklerini haritalandırır.",
+    "explain": "Şehrin en iyi sokak lezzetlerini ve ikonik yerel yemeklerini haritalandırır.",
     "layer": "curation",
     "requires": [
       "cur-anti-tourist-trap-filter"
     ],
-    "prompt": "Gastronomi Odaklı Rota (Foodie Itinerary) oluştur: Şehrin imza sokak lezzetlerini, tarihi pazarlarını ve ikonik tatlarını tadım sırasına göre kurgula.",
-    "desc": "Şehrin en iyi sokak lezzetlerini ve ikonik yerel yemeklerini haritalandırır.",
-    "explain": "Şehrin en iyi sokak lezzetlerini ve ikonik yerel yemeklerini haritalandırır."
+    "prompt": "Gastronomi Odaklı Rota (Foodie Itinerary) oluştur: Şehrin imza sokak lezzetlerini, tarihi pazarlarını ve ikonik tatlarını tadım sırasına göre kurgula."
   },
   {
     "id": "cur-niche-interest-customizer",
     "icon": "🎨",
     "name": "Niş İlgi Alanı Uyumlaması (Sanat/Mimari)",
-    "category": "curation",
-    "description": "Rotayı mimari, vintage mağazalar veya tarih gibi özel ilgiye göre özelleştirir.",
+    "desc": "Rotayı mimari, vintage mağazalar veya tarih gibi özel ilgiye göre özelleştirir.",
+    "explain": "Rotayı mimari, vintage mağazalar veya tarih gibi özel ilgiye göre özelleştirir.",
     "layer": "curation",
     "requires": [
       "cur-anti-tourist-trap-filter"
     ],
-    "prompt": "Niş İlgi Alanı Özelleştirmesi yap: Rotayı kullanıcının özel tutkusu olan [Brütalist Mimari / Sahaf & Plakçılar / Çağdaş Sanat / Kahve Kültürü] etrafında yeniden ör.",
-    "desc": "Rotayı mimari, vintage mağazalar veya tarih gibi özel ilgiye göre özelleştirir.",
-    "explain": "Rotayı mimari, vintage mağazalar veya tarih gibi özel ilgiye göre özelleştirir."
+    "prompt": "Niş İlgi Alanı Özelleştirmesi yap: Rotayı kullanıcının özel tutkusu olan [Brütalist Mimari / Sahaf & Plakçılar / Çağdaş Sanat / Kahve Kültürü] etrafında yeniden ör."
   },
   {
     "id": "cur-slow-travel-immersion",
     "icon": "🚲",
     "name": "Yavaş Seyahat (Slow Travel) & Kültürel Derinlik",
-    "category": "curation",
-    "description": "Şehir şehir koşmak yerine tek bir mahallede derinlemesine yaşama deneyimi.",
+    "desc": "Şehir şehir koşmak yerine tek bir mahallede derinlemesine yaşama deneyimi.",
+    "explain": "Şehir şehir koşmak yerine tek bir mahallede derinlemesine yaşama deneyimi.",
     "layer": "curation",
     "requires": [
       "cur-anti-tourist-trap-filter"
     ],
-    "prompt": "Yavaş Seyahat (Slow Travel) felsefesi uygula: Bir günde 10 yer görme telaşını bırak; tek bir tarihi mahallede sindirerek vakit geçirecek derin deneyim akışı tasarla.",
-    "desc": "Şehir şehir koşmak yerine tek bir mahallede derinlemesine yaşama deneyimi.",
-    "explain": "Şehir şehir koşmak yerine tek bir mahallede derinlemesine yaşama deneyimi."
+    "prompt": "Yavaş Seyahat (Slow Travel) felsefesi uygula: Bir günde 10 yer görme telaşını bırak; tek bir tarihi mahallede sindirerek vakit geçirecek derin deneyim akışı tasarla."
   },
   {
     "id": "cur-family-accessible-curation",
     "icon": "👨‍👩‍👧",
     "name": "Aile & Erişilebilirlik Odaklı Kürasyon",
-    "category": "curation",
-    "description": "Çocuklu aileler ve engelsiz erişim ihtiyaçlarına uygun mekan seçimi.",
+    "desc": "Çocuklu aileler ve engelsiz erişim ihtiyaçlarına uygun mekan seçimi.",
+    "explain": "Çocuklu aileler ve engelsiz erişim ihtiyaçlarına uygun mekan seçimi.",
     "layer": "curation",
     "requires": [
       "cur-local-hidden-gem-route"
     ],
-    "prompt": "Aile ve Erişilebilirlik Uyarlaması yap: Bebek arabası/tekerlekli sandalye erişimine uygun, çocuk dostu mola alanları içeren ve yorulmayı önleyen rota çıkar.",
-    "desc": "Çocuklu aileler ve engelsiz erişim ihtiyaçlarına uygun mekan seçimi.",
-    "explain": "Çocuklu aileler ve engelsiz erişim ihtiyaçlarına uygun mekan seçimi."
+    "prompt": "Aile ve Erişilebilirlik Uyarlaması yap: Bebek arabası/tekerlekli sandalye erişimine uygun, çocuk dostu mola alanları içeren ve yorulmayı önleyen rota çıkar."
   },
   {
     "id": "rte-walking-distance-transit-opt",
     "icon": "🚶",
     "name": "Yürüme Mesafesi ve Toplu Taşıma Optimizasyonu",
-    "category": "route",
-    "description": "Noktaları mantıklı yürüme yarıçapı ve metro hatlarına göre dizeler.",
+    "desc": "Noktaları mantıklı yürüme yarıçapı ve metro hatlarına göre dizeler.",
+    "explain": "Noktaları mantıklı yürüme yarıçapı ve metro hatlarına göre dizeler.",
     "layer": "route",
     "requires": [],
-    "prompt": "Yürüme Mesafesi ve Toplu Taşıma Optimizasyonu yap: Günlük durakları birbirine yürüme mesafesinde (maks 15 dk) veya aynı metro hattı üzerinde sıralayarak zaman kaybını sıfırla.",
-    "desc": "Noktaları mantıklı yürüme yarıçapı ve metro hatlarına göre dizeler.",
-    "explain": "Noktaları mantıklı yürüme yarıçapı ve metro hatlarına göre dizeler."
+    "prompt": "Yürüme Mesafesi ve Toplu Taşıma Optimizasyonu yap: Günlük durakları birbirine yürüme mesafesinde (maks 15 dk) veya aynı metro hattı üzerinde sıralayarak zaman kaybını sıfırla."
   },
   {
     "id": "rte-day-by-day-geographical-clustering",
     "icon": "📍",
     "name": "Coğrafi Kümeleme (Geographic Clustering)",
-    "category": "route",
-    "description": "Her günü şehrin farklı bir yakasına ayırarak zikzak çizmeyi engeller.",
+    "desc": "Her günü şehrin farklı bir yakasına ayırarak zikzak çizmeyi engeller.",
+    "explain": "Her günü şehrin farklı bir yakasına ayırarak zikzak çizmeyi engeller.",
     "layer": "route",
     "requires": [
       "rte-walking-distance-transit-opt"
     ],
-    "prompt": "Coğrafi Kümeleme (Geographic Clustering) kuralı koy: Şehrin doğusu ile batısını aynı güne koyma; her günü tek bir bölgeye/semte odaklayarak zikzak seyahati engelle.",
-    "desc": "Her günü şehrin farklı bir yakasına ayırarak zikzak çizmeyi engeller.",
-    "explain": "Her günü şehrin farklı bir yakasına ayırarak zikzak çizmeyi engeller."
+    "prompt": "Coğrafi Kümeleme (Geographic Clustering) kuralı koy: Şehrin doğusu ile batısını aynı güne koyma; her günü tek bir bölgeye/semte odaklayarak zikzak seyahati engelle."
   },
   {
     "id": "rte-scenic-roadtrip-pitstops",
     "icon": "🚗",
     "name": "Manzaralı Road Trip ve Mola Noktaları",
-    "category": "route",
-    "description": "Otoyol yerine manzaralı rotaları ve otantik mola yerlerini seçer.",
+    "desc": "Otoyol yerine manzaralı rotaları ve otantik mola yerlerini seçer.",
+    "explain": "Otoyol yerine manzaralı rotaları ve otantik mola yerlerini seçer.",
     "layer": "route",
     "requires": [
       "rte-walking-distance-transit-opt"
     ],
-    "prompt": "Manzaralı Rota (Scenic Road Trip) planla: Sıkıcı sıkışık otoyollar yerine manzaralı tali yolları, fotoğraf noktalarını ve otantik yol üstü lokantalarını rotaya ekle.",
-    "desc": "Otoyol yerine manzaralı rotaları ve otantik mola yerlerini seçer.",
-    "explain": "Otoyol yerine manzaralı rotaları ve otantik mola yerlerini seçer."
+    "prompt": "Manzaralı Rota (Scenic Road Trip) planla: Sıkıcı sıkışık otoyollar yerine manzaralı tali yolları, fotoğraf noktalarını ve otantik yol üstü lokantalarını rotaya ekle."
   },
   {
     "id": "rte-day-trip-hub-spoke-model",
     "icon": "🚲",
     "name": "Hub-and-Spoke Günübirlik Kaçış Modeli",
-    "category": "route",
-    "description": "Tek bir merkez otelde konaklayıp çevre kasabalara günübirlik geziler düzenler.",
+    "desc": "Tek bir merkez otelde konaklayıp çevre kasabalara günübirlik geziler düzenler.",
+    "explain": "Tek bir merkez otelde konaklayıp çevre kasabalara günübirlik geziler düzenler.",
     "layer": "route",
     "requires": [
       "rte-day-by-day-geographical-clustering"
     ],
-    "prompt": "Hub-and-Spoke Seyahat Modeli kur: Sürekli otel değiştirmek yerine ana bir şehir merkezinde sabit kalıp (Hub), trenle 1 saatlik mesafedeki kasabalara günübirlik geziler (Spokes) planla.",
-    "desc": "Tek bir merkez otelde konaklayıp çevre kasabalara günübirlik geziler düzenler.",
-    "explain": "Tek bir merkez otelde konaklayıp çevre kasabalara günübirlik geziler düzenler."
+    "prompt": "Hub-and-Spoke Seyahat Modeli kur: Sürekli otel değiştirmek yerine ana bir şehir merkezinde sabit kalıp (Hub), trenle 1 saatlik mesafedeki kasabalara günübirlik geziler (Spokes) planla."
   },
   {
     "id": "rte-pace-fatigue-management",
     "icon": "☕",
     "name": "Seyahat Yorgunluğu ve Tempo Yönetimi",
-    "category": "route",
-    "description": "Öğleden sonralara dinlenme ve kahve molaları koyarak tükenmeyi engeller.",
+    "desc": "Öğleden sonralara dinlenme ve kahve molaları koyarak tükenmeyi engeller.",
+    "explain": "Öğleden sonralara dinlenme ve kahve molaları koyarak tükenmeyi engeller.",
     "layer": "route",
     "requires": [
       "rte-day-by-day-geographical-clustering"
     ],
-    "prompt": "Seyahat Temposu ve Yorgunluk Yönetimi ekle: Yoğun sabah müze gezisinin ardından öğleden sonra parkta veya kafede 2 saatlik serbest dinlenme molası kurgula.",
-    "desc": "Öğleden sonralara dinlenme ve kahve molaları koyarak tükenmeyi engeller.",
-    "explain": "Öğleden sonralara dinlenme ve kahve molaları koyarak tükenmeyi engeller."
+    "prompt": "Seyahat Temposu ve Yorgunluk Yönetimi ekle: Yoğun sabah müze gezisinin ardından öğleden sonra parkta veya kafede 2 saatlik serbest dinlenme molası kurgula."
   },
   {
     "id": "rte-weather-contingency-indoor-plan",
     "icon": "🌧️",
     "name": "Yağmurlu Gün & Hava Durumu B Planı",
-    "category": "route",
-    "description": "Kötü hava koşullarında otomatik devreye girecek kapalı mekan alternatifleri.",
+    "desc": "Kötü hava koşullarında otomatik devreye girecek kapalı mekan alternatifleri.",
+    "explain": "Kötü hava koşullarında otomatik devreye girecek kapalı mekan alternatifleri.",
     "layer": "route",
     "requires": [
       "rte-day-by-day-geographical-clustering"
     ],
-    "prompt": "Hava Durumu B Planı (Contingency Indoor Plan) oluştur: Ani yağmur veya aşırı sıcak durumunda açık hava aktivitelerinin yerini alacak kapalı pazar, müze ve pasaj alternatifleri yaz.",
-    "desc": "Kötü hava koşullarında otomatik devreye girecek kapalı mekan alternatifleri.",
-    "explain": "Kötü hava koşullarında otomatik devreye girecek kapalı mekan alternatifleri."
+    "prompt": "Hava Durumu B Planı (Contingency Indoor Plan) oluştur: Ani yağmur veya aşırı sıcak durumunda açık hava aktivitelerinin yerini alacak kapalı pazar, müze ve pasaj alternatifleri yaz."
   },
   {
     "id": "cul-local-etiquette-taboos",
     "icon": "🤝",
     "name": "Yerel Etiket Kılavuzu ve Kültürel Tabular",
-    "category": "culture",
-    "description": "Gidilen ülkedeki beden dili, bahşiş ve sosyal saygı kuralları.",
+    "desc": "Gidilen ülkedeki beden dili, bahşiş ve sosyal saygı kuralları.",
+    "explain": "Gidilen ülkedeki beden dili, bahşiş ve sosyal saygı kuralları.",
     "layer": "culture",
     "requires": [],
-    "prompt": "Yerel Etiket Kılavuzu (Cultural Etiquette & Taboos) hazırla: Gidilen ülkede yapılmaması gereken 3 kritik gafı, tapınak/kutsal mekan giyim kurallarını ve selamlaşma adabını yaz.",
-    "desc": "Gidilen ülkedeki beden dili, bahşiş ve sosyal saygı kuralları.",
-    "explain": "Gidilen ülkedeki beden dili, bahşiş ve sosyal saygı kuralları."
+    "prompt": "Yerel Etiket Kılavuzu (Cultural Etiquette & Taboos) hazırla: Gidilen ülkede yapılmaması gereken 3 kritik gafı, tapınak/kutsal mekan giyim kurallarını ve selamlaşma adabını yaz."
   },
   {
     "id": "cul-basic-language-survival-phrases",
     "icon": "🗣️",
     "name": "Temel Hayatta Kalma Kelimeleri (Survival Phrases)",
-    "category": "culture",
-    "description": "Lokal dilde 'Teşekkürler', 'Hesap lütfen' gibi 10 kritik cümle rehberi.",
+    "desc": "Lokal dilde 'Teşekkürler', 'Hesap lütfen' gibi 10 kritik cümle rehberi.",
+    "explain": "Lokal dilde 'Teşekkürler', 'Hesap lütfen' gibi 10 kritik cümle rehberi.",
     "layer": "culture",
     "requires": [
       "cul-local-etiquette-taboos"
     ],
-    "prompt": "Yerel Dilde Hayatta Kalma İfadeleri (Survival Phrases) rehberi sun: Okunuşlarıyla birlikte en önemli 10 nezaket ve sipariş cümlesini (Teşekkürler, Hesap lütfen, İmdat vb.) listele.",
-    "desc": "Lokal dilde 'Teşekkürler', 'Hesap lütfen' gibi 10 kritik cümle rehberi.",
-    "explain": "Lokal dilde 'Teşekkürler', 'Hesap lütfen' gibi 10 kritik cümle rehberi."
+    "prompt": "Yerel Dilde Hayatta Kalma İfadeleri (Survival Phrases) rehberi sun: Okunuşlarıyla birlikte en önemli 10 nezaket ve sipariş cümlesini (Teşekkürler, Hesap lütfen, İmdat vb.) listele."
   },
   {
     "id": "cul-tipping-bargaining-customs",
     "icon": "💵",
     "name": "Bahşiş ve Pazarlık Kültürü Rehberi",
-    "category": "culture",
-    "description": "Ülkeye özgü bahşiş oranları ve pazarlık yapma kurallarını açıklar.",
+    "desc": "Ülkeye özgü bahşiş oranları ve pazarlık yapma kurallarını açıklar.",
+    "explain": "Ülkeye özgü bahşiş oranları ve pazarlık yapma kurallarını açıklar.",
     "layer": "culture",
     "requires": [
       "cul-local-etiquette-taboos"
     ],
-    "prompt": "Bahşiş ve Pazarlık Kültürü kurallarını açıkla: Restoranda bahşiş zorunlu mu (% kaç?), takside yuvarlama yapılır mı ve yerel pazarlarda pazarlık adabı nasıldır belirt.",
-    "desc": "Ülkeye özgü bahşiş oranları ve pazarlık yapma kurallarını açıklar.",
-    "explain": "Ülkeye özgü bahşiş oranları ve pazarlık yapma kurallarını açıklar."
+    "prompt": "Bahşiş ve Pazarlık Kültürü kurallarını açıkla: Restoranda bahşiş zorunlu mu (% kaç?), takside yuvarlama yapılır mı ve yerel pazarlarda pazarlık adabı nasıldır belirt."
   },
   {
     "id": "cul-festival-seasonal-event-align",
     "icon": "Ö",
     "name": "Özel Sezon ve Festival Hizalaması",
-    "category": "culture",
-    "description": "Seyahat tarihlerini yerel festivaller ve kutlamalarla denk getirir.",
+    "desc": "Seyahat tarihlerini yerel festivaller ve kutlamalarla denk getirir.",
+    "explain": "Seyahat tarihlerini yerel festivaller ve kutlamalarla denk getirir.",
     "layer": "culture",
     "requires": [
       "cul-local-etiquette-taboos"
     ],
-    "prompt": "Sezon ve Festival Hizalaması yap: Seyahat tarihlerinde gerçekleşecek yerel festivalleri, bayramları, pazar günleri kapalı yerleri ve özel kültürel etkinlikleri takvime işle.",
-    "desc": "Seyahat tarihlerini yerel festivaller ve kutlamalarla denk getirir.",
-    "explain": "Seyahat tarihlerini yerel festivaller ve kutlamalarla denk getirir."
+    "prompt": "Sezon ve Festival Hizalaması yap: Seyahat tarihlerinde gerçekleşecek yerel festivalleri, bayramları, pazar günleri kapalı yerleri ve özel kültürel etkinlikleri takvime işle."
   },
   {
     "id": "cul-respectful-photography-ethics",
     "icon": "📸",
     "name": "Etik Fotoğrafçılık ve Mahremiyet",
-    "category": "culture",
-    "description": "Yerel halkı ve çocukları fotoğraflarken dikkat edilecek etik ilkeler.",
+    "desc": "Yerel halkı ve çocukları fotoğraflarken dikkat edilecek etik ilkeler.",
+    "explain": "Yerel halkı ve çocukları fotoğraflarken dikkat edilecek etik ilkeler.",
     "layer": "culture",
     "requires": [
       "cul-local-etiquette-taboos"
     ],
-    "prompt": "Etik Fotoğrafçılık Kuralları koy: Yerel halkın, çocukların ve dini ibadetlerin fotoğraflanmasında izin alma adabını ve yasaklı çekim alanlarını hatırlat.",
-    "desc": "Yerel halkı ve çocukları fotoğraflarken dikkat edilecek etik ilkeler.",
-    "explain": "Yerel halkı ve çocukları fotoğraflarken dikkat edilecek etik ilkeler."
+    "prompt": "Etik Fotoğrafçılık Kuralları koy: Yerel halkın, çocukların ve dini ibadetlerin fotoğraflanmasında izin alma adabını ve yasaklı çekim alanlarını hatırlat."
   },
   {
     "id": "cul-historical-context-primer",
     "icon": "📜",
     "name": "Özet Tarihsel ve Sosyo-Kültürel Arka Plan",
-    "category": "culture",
-    "description": "Şehrin günümüzdeki dokusunu anlamak için 3 paragraflık özet tarih rehberi.",
+    "desc": "Şehrin günümüzdeki dokusunu anlamak için 3 paragraflık özet tarih rehberi.",
+    "explain": "Şehrin günümüzdeki dokusunu anlamak için 3 paragraflık özet tarih rehberi.",
     "layer": "culture",
     "requires": [
       "cul-local-etiquette-taboos"
     ],
-    "prompt": "Özet Tarihsel ve Sosyolojik Arka Plan (Historical Primer) yaz: Şehrin mimarisini ve toplum yapısını şekillendiren 3 ana tarihsel dönüm noktasını özetle.",
-    "desc": "Şehrin günümüzdeki dokusunu anlamak için 3 paragraflık özet tarih rehberi.",
-    "explain": "Şehrin günümüzdeki dokusunu anlamak için 3 paragraflık özet tarih rehberi."
+    "prompt": "Özet Tarihsel ve Sosyolojik Arka Plan (Historical Primer) yaz: Şehrin mimarisini ve toplum yapısını şekillendiren 3 ana tarihsel dönüm noktasını özetle."
   },
   {
     "id": "log-packing-capsule-wardrobe",
     "icon": "🧳",
     "name": "Minimalist Kapsül Gardırop & Bagaj Listesi",
-    "category": "logistics",
-    "description": "Sadece kabin bagajıyla seyahat etmeyi sağlayan kombin hazırlığı.",
+    "desc": "Sadece kabin bagajıyla seyahat etmeyi sağlayan kombin hazırlığı.",
+    "explain": "Sadece kabin bagajıyla seyahat etmeyi sağlayan kombin hazırlığı.",
     "layer": "logistics",
     "requires": [],
-    "prompt": "Minimalist Kapsül Gardırop (Capsule Wardrobe) ve Bagaj Listesi oluştur: Kat kat giyilebilen (layering), birbiriyle eşleşen nötr renkli giysilerle kabin bagajı listesi yaz.",
-    "desc": "Sadece kabin bagajıyla seyahat etmeyi sağlayan kombin hazırlığı.",
-    "explain": "Sadece kabin bagajıyla seyahat etmeyi sağlayan kombin hazırlığı."
+    "prompt": "Minimalist Kapsül Gardırop (Capsule Wardrobe) ve Bagaj Listesi oluştur: Kat kat giyilebilen (layering), birbiriyle eşleşen nötr renkli giysilerle kabin bagajı listesi yaz."
   },
   {
     "id": "log-visa-entry-passport-checklist",
     "icon": "🛂",
     "name": "Vize, Giriş Koşulları ve Pasaport Denetimi",
-    "category": "logistics",
-    "description": "Pasaport geçerlilik süresi, vize ve harç zorunluluklarını kontrol eder.",
+    "desc": "Pasaport geçerlilik süresi, vize ve harç zorunluluklarını kontrol eder.",
+    "explain": "Pasaport geçerlilik süresi, vize ve harç zorunluluklarını kontrol eder.",
     "layer": "logistics",
     "requires": [
       "log-packing-capsule-wardrobe"
     ],
-    "prompt": "Vize ve Ülke Giriş Şartları Kontrol Listesi hazırla: Pasaportun en az 6 ay geçerlilik kuralı, eVisa / Kapıda Vize prosedürleri ve zorunlu aşı/form belgelerini doğrula.",
-    "desc": "Pasaport geçerlilik süresi, vize ve harç zorunluluklarını kontrol eder.",
-    "explain": "Pasaport geçerlilik süresi, vize ve harç zorunluluklarını kontrol eder."
+    "prompt": "Vize ve Ülke Giriş Şartları Kontrol Listesi hazırla: Pasaportun en az 6 ay geçerlilik kuralı, eVisa / Kapıda Vize prosedürleri ve zorunlu aşı/form belgelerini doğrula."
   },
   {
     "id": "log-sim-eSim-connectivity-plan",
     "icon": "📱",
     "name": "eSIM ve Mobil İnternet Bağlantı Stratejisi",
-    "category": "logistics",
-    "description": "Yüksek roaming ücretlerinden kaçınmak için yerel eSIM/SIM seçimi.",
+    "desc": "Yüksek roaming ücretlerinden kaçınmak için yerel eSIM/SIM seçimi.",
+    "explain": "Yüksek roaming ücretlerinden kaçınmak için yerel eSIM/SIM seçimi.",
     "layer": "logistics",
     "requires": [
       "log-packing-capsule-wardrobe"
     ],
-    "prompt": "eSIM ve Mobil İnternet Bağlantı Stratejisi yaz: Havaalanında kazıklanmadan uygun fiyatlı Airalo/local eSIM veya fiziksel SIM kart alma ve harita offline indirme adımlarını belirle.",
-    "desc": "Yüksek roaming ücretlerinden kaçınmak için yerel eSIM/SIM seçimi.",
-    "explain": "Yüksek roaming ücretlerinden kaçınmak için yerel eSIM/SIM seçimi."
+    "prompt": "eSIM ve Mobil İnternet Bağlantı Stratejisi yaz: Havaalanında kazıklanmadan uygun fiyatlı Airalo/local eSIM veya fiziksel SIM kart alma ve harita offline indirme adımlarını belirle."
   },
   {
     "id": "log-travel-insurance-health-prep",
     "icon": "🏥",
     "name": "Seyahat Sağlık Sigortası ve İlaç Hazırlığı",
-    "category": "logistics",
-    "description": "Acil sağlık durumları ve kişisel reçeteli ilaçların taşınma kuralları.",
+    "desc": "Acil sağlık durumları ve kişisel reçeteli ilaçların taşınma kuralları.",
+    "explain": "Acil sağlık durumları ve kişisel reçeteli ilaçların taşınma kuralları.",
     "layer": "logistics",
     "requires": [
       "log-visa-entry-passport-checklist"
     ],
-    "prompt": "Seyahat Sağlık Sigortası ve Medikal Hazırlık yap: Sigortanın bagaj kaybı ve tıbbi tahliyeyi kapsadığını teyit et; reçeteli ilaçların İngilizce doktor raporu kuralını hatırla.",
-    "desc": "Acil sağlık durumları ve kişisel reçeteli ilaçların taşınma kuralları.",
-    "explain": "Acil sağlık durumları ve kişisel reçeteli ilaçların taşınma kuralları."
+    "prompt": "Seyahat Sağlık Sigortası ve Medikal Hazırlık yap: Sigortanın bagaj kaybı ve tıbbi tahliyeyi kapsadığını teyit et; reçeteli ilaçların İngilizce doktor raporu kuralını hatırla."
   },
   {
     "id": "log-flight-layover-optimization",
     "icon": "✈️",
     "name": "Aktarma (Layover) ve Havalimanı Dinlenme",
-    "category": "logistics",
-    "description": "Uzun aktarmalarda lounge kullanımı veya hızlı şehir turu optimizasyonu.",
+    "desc": "Uzun aktarmalarda lounge kullanımı veya hızlı şehir turu optimizasyonu.",
+    "explain": "Uzun aktarmalarda lounge kullanımı veya hızlı şehir turu optimizasyonu.",
     "layer": "logistics",
     "requires": [
       "log-visa-entry-passport-checklist"
     ],
-    "prompt": "Aktarma (Layover) İyileştirmesi yap: 6 saati aşan aktarmalarda havalimanı lounge imkanlarını veya bagajı bırakıp hızlı bir transit şehir turu yapma B planını kurgula.",
-    "desc": "Uzun aktarmalarda lounge kullanımı veya hızlı şehir turu optimizasyonu.",
-    "explain": "Uzun aktarmalarda lounge kullanımı veya hızlı şehir turu optimizasyonu."
+    "prompt": "Aktarma (Layover) İyileştirmesi yap: 6 saati aşan aktarmalarda havalimanı lounge imkanlarını veya bagajı bırakıp hızlı bir transit şehir turu yapma B planını kurgula."
   },
   {
     "id": "log-luggage-storage-mobility",
     "icon": "🧳",
     "name": "Bagaj Depolama ve Mobilite Yönetimi",
-    "category": "logistics",
-    "description": "Erken giriş / geç çıkış günlerinde bagaj bırakma noktaları (Radical Storage).",
+    "desc": "Erken giriş / geç çıkış günlerinde bagaj bırakma noktaları (Radical Storage).",
+    "explain": "Erken giriş / geç çıkış günlerinde bagaj bırakma noktaları (Radical Storage).",
     "layer": "logistics",
     "requires": [
       "log-packing-capsule-wardrobe"
     ],
-    "prompt": "Bagaj Depolama ve Hareket Kabiliyeti planı yap: Otel check-in öncesi ve check-out sonrası çantaları güvenle bırakacak istasyon veya uygulama (Bounce / Nannybag) noktalarını belirle.",
-    "desc": "Erken giriş / geç çıkış günlerinde bagaj bırakma noktaları (Radical Storage).",
-    "explain": "Erken giriş / geç çıkış günlerinde bagaj bırakma noktaları (Radical Storage)."
+    "prompt": "Bagaj Depolama ve Hareket Kabiliyeti planı yap: Otel check-in öncesi ve check-out sonrası çantaları güvenle bırakacak istasyon veya uygulama (Bounce / Nannybag) noktalarını belirle."
   },
   {
     "id": "bdg-daily-expense-categorizer",
     "icon": "💰",
     "name": "Günlük Bütçe Tahsisi ve Harcama Planı",
-    "category": "budget",
-    "description": "Bütçeyi Konaklama, Yeme-İçme, Ulaşım ve Müze kategorilerine böler.",
+    "desc": "Bütçeyi Konaklama, Yeme-İçme, Ulaşım ve Müze kategorilerine böler.",
+    "explain": "Bütçeyi Konaklama, Yeme-İçme, Ulaşım ve Müze kategorilerine böler.",
     "layer": "budget",
     "requires": [],
-    "prompt": "Günlük Bütçe Tahsis Tablosu oluştur: Günlük bütçeyi [Yeme-İçme %40 / Ulaşım %20 / Etkinlik-Müze %30 / Beklenmedik %10] oranında harcama kalemlerine böl.",
-    "desc": "Bütçeyi Konaklama, Yeme-İçme, Ulaşım ve Müze kategorilerine böler.",
-    "explain": "Bütçeyi Konaklama, Yeme-İçme, Ulaşım ve Müze kategorilerine böler."
+    "prompt": "Günlük Bütçe Tahsis Tablosu oluştur: Günlük bütçeyi [Yeme-İçme %40 / Ulaşım %20 / Etkinlik-Müze %30 / Beklenmedik %10] oranında harcama kalemlerine böl."
   },
   {
     "id": "bdg-multi-currency-fx-strategy",
     "icon": "💳",
     "name": "Döviz Kuru ve Komisyonsuz Bankacılık",
-    "category": "budget",
-    "description": "Dinamik kur çevrim (DCC) komisyon tuzaklarından kaçınma taktikleri.",
+    "desc": "Dinamik kur çevrim (DCC) komisyon tuzaklarından kaçınma taktikleri.",
+    "explain": "Dinamik kur çevrim (DCC) komisyon tuzaklarından kaçınma taktikleri.",
     "layer": "budget",
     "requires": [
       "bdg-daily-expense-categorizer"
     ],
-    "prompt": "Döviz ve Kart Kullanım Stratejisi (No-FX Fee) belirle: POS cihazlarında asla yerel para birimi dışında (DCC tuzağı) ödeme yapmama ve sıfır komisyonlu kart (Revolut/Wise) kullanımı kuralı koy.",
-    "desc": "Dinamik kur çevrim (DCC) komisyon tuzaklarından kaçınma taktikleri.",
-    "explain": "Dinamik kur çevrim (DCC) komisyon tuzaklarından kaçınma taktikleri."
+    "prompt": "Döviz ve Kart Kullanım Stratejisi (No-FX Fee) belirle: POS cihazlarında asla yerel para birimi dışında (DCC tuzağı) ödeme yapmama ve sıfır komisyonlu kart (Revolut/Wise) kullanımı kuralı koy."
   },
   {
     "id": "bdg-accommodation-value-finder",
     "icon": "🏨",
     "name": "Butik vs. Fiyat/Performans Konaklama",
-    "category": "budget",
-    "description": "Merkeze yakınlık ve F/P dengesini optimize eden konaklama seçimi.",
+    "desc": "Merkeze yakınlık ve F/P dengesini optimize eden konaklama seçimi.",
+    "explain": "Merkeze yakınlık ve F/P dengesini optimize eden konaklama seçimi.",
     "layer": "budget",
     "requires": [
       "bdg-daily-expense-categorizer"
     ],
-    "prompt": "Fiyat/Performans Konaklama Analizi yap: Lüks oteller yerine merkeze toplu taşımayla 15 dk mesafedeki güvenli, puanı 8.5+ olan butik otel/Airbnb filtreleme kriterlerini yaz.",
-    "desc": "Merkeze yakınlık ve F/P dengesini optimize eden konaklama seçimi.",
-    "explain": "Merkeze yakınlık ve F/P dengesini optimize eden konaklama seçimi."
+    "prompt": "Fiyat/Performans Konaklama Analizi yap: Lüks oteller yerine merkeze toplu taşımayla 15 dk mesafedeki güvenli, puanı 8.5+ olan butik otel/Airbnb filtreleme kriterlerini yaz."
   },
   {
     "id": "bdg-city-pass-attraction-roi",
     "icon": "🎟️",
     "name": "Şehir Turist Kartı (City Pass) ROI Hesabı",
-    "category": "budget",
-    "description": "City Pass kartlarının verdiğin paraya değip değmeyeceğini hesaplar.",
+    "desc": "City Pass kartlarının verdiğin paraya değip değmeyeceğini hesaplar.",
+    "explain": "City Pass kartlarının verdiğin paraya değip değmeyeceğini hesaplar.",
     "layer": "budget",
     "requires": [
       "bdg-daily-expense-categorizer"
     ],
-    "prompt": "City Pass ROI Analizi yap: Şehir kartının (City Pass) toplam maliyeti ile gezilecek müzelerin tekil bilet fiyatlarını kıyaslayarak kart almanın karlı olup olmadığını hesapla.",
-    "desc": "City Pass kartlarının verdiğin paraya değip değmeyeceğini hesaplar.",
-    "explain": "City Pass kartlarının verdiğin paraya değip değmeyeceğini hesaplar."
+    "prompt": "City Pass ROI Analizi yap: Şehir kartının (City Pass) toplam maliyeti ile gezilecek müzelerin tekil bilet fiyatlarını kıyaslayarak kart almanın karlı olup olmadığını hesapla."
   },
   {
     "id": "bdg-transportation-card-hack",
     "icon": "🎫",
     "name": "Toplu Taşıma Kartı ve İndirimli Bilet",
-    "category": "budget",
-    "description": "Tekil bilet yerine 3 günlük sınırsız turist ulaşım kartı optimizasyonu.",
+    "desc": "Tekil bilet yerine 3 günlük sınırsız turist ulaşım kartı optimizasyonu.",
+    "explain": "Tekil bilet yerine 3 günlük sınırsız turist ulaşım kartı optimizasyonu.",
     "layer": "budget",
     "requires": [
       "bdg-daily-expense-categorizer"
     ],
-    "prompt": "Ulaşım Kartı Tasarruf Taktiği yaz: Tekil bilet almak yerine 24/72 saatlik sınırsız turist ulaşım kartı veya temassız kredi kartı (Contactless capping) avantajlarını kullan.",
-    "desc": "Tekil bilet yerine 3 günlük sınırsız turist ulaşım kartı optimizasyonu.",
-    "explain": "Tekil bilet yerine 3 günlük sınırsız turist ulaşım kartı optimizasyonu."
+    "prompt": "Ulaşım Kartı Tasarruf Taktiği yaz: Tekil bilet almak yerine 24/72 saatlik sınırsız turist ulaşım kartı veya temassız kredi kartı (Contactless capping) avantajlarını kullan."
   },
   {
     "id": "bdg-emergency-contingency-fund",
     "icon": "🛡️",
     "name": "Acil Durum Yedek Bütçe Akçesi",
-    "category": "budget",
-    "description": "Kaçırılan uçak veya acil durumlar için %15 yedek nakit akçesi.",
+    "desc": "Kaçırılan uçak veya acil durumlar için %15 yedek nakit akçesi.",
+    "explain": "Kaçırılan uçak veya acil durumlar için %15 yedek nakit akçesi.",
     "layer": "budget",
     "requires": [
       "bdg-daily-expense-categorizer"
     ],
-    "prompt": "Acil Durum Bütçe Akçesi (Contingency Fund) ayır: Toplam seyahat bütçesinin %15'ini kaçan trenler, kayıp eşyalar veya acil durumlar için dokunulmaz yedek fon olarak kilitle.",
-    "desc": "Kaçırılan uçak veya acil durumlar için %15 yedek nakit akçesi.",
-    "explain": "Kaçırılan uçak veya acil durumlar için %15 yedek nakit akçesi."
+    "prompt": "Acil Durum Bütçe Akçesi (Contingency Fund) ayır: Toplam seyahat bütçesinin %15'ini kaçan trenler, kayıp eşyalar veya acil durumlar için dokunulmaz yedek fon olarak kilitle."
   }
 ]

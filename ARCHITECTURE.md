@@ -47,32 +47,35 @@ ui/  →  store/  →  engine/  →  compiler/  →  data/
 
 ```text
 PREMPT/
-├── AGENT.md                          # Rules for AI coding agents working in this repo
-├── ARCHITECTURE.md                   # This file
-├── CLAUDE.md                         # Vendor-neutral agent rules & guidelines
-├── MEMORY.md                         # Durable facts about codebase behavior
-├── PROGRESS.md                       # Gate status and session history
-├── TASKS.md                          # Active work queue
-├── README.md                         # User-facing overview & sitemap
+├── AGENT.md                          # Pointer stub to CLAUDE.md
+├── AGENTS.md                         # Pointer stub to CLAUDE.md
+├── ARCHITECTURE.md                   # Structure, boundaries, data flow (this file)
+├── CLAUDE.md                         # Canonical rulebook and engineering standards
+├── MEMORY.md                         # Durable facts and non-obvious traps
+├── PROGRESS.md                       # Sole owner of dates, session history & gate status (✅)
+├── TASKS.md                          # Sole owner of work queue and checkboxes ([ ] / [x])
+├── README.md                         # User-facing orientation & overview
 ├── package.json                      # Build & test scripts
 ├── vite.config.js                    # Vite build config
 ├── index.html                        # Root HTML mount point
 │
 ├── scripts/
-│   ├── validate-modules.mjs          # `npm run validate` — validates module, preset, and output-target contracts across all 15 domains
+│   ├── validate-modules.mjs          # `npm run validate` — validates 15-domain modules, presets, parameters, targets
+│   ├── validate-ai-routes.mjs        # Validates AI URL encoding and query strategies
 │   └── audit-parameter-hover.mjs    # Validates every advanced parameter label/option has TR/EN hover copy
 │
 └── src/
     ├── main.jsx                      # React root mount
-    ├── App.jsx                       # Unified single viewport layout
-    ├── index.css                     # Primary styling, CSS custom properties, glassmorphism, horizontal header bar
+    ├── App.jsx                       # Unified layout orchestrator
+    ├── App.css                       # Unused Vite-scaffold leftover (not imported by any file)
+    ├── index.css                     # Primary styling, CSS custom properties, glassmorphism
     │
     ├── domains/                      # Declarative domain specifications & central registry
     │   ├── index.js                    # DOMAINS registry map, DEFAULT_DOMAIN ('learning'), getDomain(id)
-│   ├── presentation.js             # Central domain navigation groups, theme tokens, and icon ids
-│   ├── parameterDescriptions.js    # Bilingual hover explanations for every domain parameter option
-│   └── specs/                      # Unified domain spec files (15 domains)
-│       ├── types.js                # JSDoc type definitions for DomainSpec
+    │   ├── presentation.js             # Central domain navigation groups, theme tokens, and icon ids
+    │   ├── parameterDescriptions.js    # Bilingual hover explanations for every domain parameter option
+    │   └── specs/                      # Unified domain spec files (15 domains)
+    │       ├── types.js                # JSDoc type definitions for DomainSpec
     │       ├── learningSpec.js         # Learning spec (UI, optionSets, compilerTexts, 12 presets)
     │       ├── codeSpec.js             # Code spec (UI, optionSets, compilerTexts, 12 presets)
     │       ├── decisionSpec.js         # Decision spec (UI, optionSets, compilerTexts, 12 presets)
@@ -91,27 +94,36 @@ PREMPT/
     │
     ├── data/                         # Pure module definitions (15 domain pairs: modules_<domain>_{tr,en}.json)
     ├── config/                       # Shared vocabularies used across UI, compiler, and persistence
-    │   ├── outputTargets.js          # Single output-target id registry
+    │   ├── outputTargets.js          # Single output-target id registry (markdown, claude-xml, openai-json, label-tags)
     │   └── theme.js                  # Theme ids, labels, and transition helper
     ├── engine/                       # Business logic (moduleRegistry, dependencyResolver, suggestionRules, presetEngine)
     ├── compiler/                     # Prompt compilation pipeline and formatter registry
+    │   ├── finalPromptAssembler.js   # Dispatches block assembly to target formatters
+    │   ├── structureBuilder.js       # Assembles 7-block prompt representation
+    │   ├── promptComplexityAnalyzer.js# Computes token estimates (divisor 3.5) and URL length flags
+    │   ├── formatterRegistry.js      # Registry mapping hedef ids to formatters
+    │   └── formatters/               # Output target renderers
+    │       ├── markdown.js           # Standard Markdown format
+    │       ├── claudeXml.js          # Claude-optimized XML tag format
+    │       ├── openaiJson.js         # OpenAI API system/user payload format
+    │       └── labelTags.js          # Labeled tag block format
     ├── store/                        # Zustand store (engineState.js)
     ├── locales/                      # Shared UI strings (i18n.js) & compiler text adapter (compilerTexts.js)
     ├── utils/                        # aiRouter.js, domainRoute.js, statePayload.js
     └── ui/                           # Default wizard and Advanced workspace components
-        ├── DefaultFlow.jsx            # Five-step default journey with progressive disclosure
+        ├── DefaultFlow.jsx           # Five-step default journey with progressive disclosure
         ├── Header.jsx                # Header title + optional DomainSwitcher + lang/theme controls
         ├── DomainSwitcher.jsx        # Horizontal navigation driven by domains/presentation.js
         ├── ParameterSelect.jsx       # Accessible option dropdown with hover/focus explanations
-        ├── ParameterHoverMenu.jsx    # Advanced label hover/focus menu from centralized descriptions
+        ├── ParameterHoverMenu.jsx   # Advanced label hover/focus menu from centralized descriptions
         ├── PresetBar.jsx             # 12-preset per domain rendering with overflow protection
         ├── ModuleGrid.jsx            # Module card grid with centralized module hover model
-        ├── ConfigPanel.jsx           # Dynamic parameter selectors driven by domain specs and descriptions
-        ├── TopicInput.jsx            # Topic and domain expertise inputs
+        ├── ConfigPanel.jsx          # Dynamic parameter selectors driven by domain specs and descriptions
+        ├── TopicInput.jsx           # Topic and domain expertise inputs
         ├── ActionBar.jsx             # Reset, Copy, AI router buttons, Share/Export/Import
         ├── PreviewPanel.jsx          # Live prompt preview & token complexity stats
         ├── RecipesPanel.jsx          # Saved recipes management
-        └── OnboardingTour.jsx        # Step-by-step interactive onboarding tour
+        └── OnboardingTour.jsx       # Step-by-step interactive onboarding tour
 ```
 
 ---
@@ -127,28 +139,30 @@ Single Zustand store with `persist` middleware (`learning-os-engine-storage`):
     gorunum,                         // 'default' | 'advanced'; UI preference persisted locally only
     konu, alan,                      // topic text, domain expertise text
     seviye, mod, derinlik, format,   // option-set values derived from domain spec
+    hedef,                           // output target id ('markdown' | 'claude-xml' | 'openai-json' | 'label-tags')
     monolog, autoResolveDeps,        // booleans
     theme, lang, tourCompleted       // UI environment
   },
-  view: 'workspace',                 // Single unified viewport
-  selectedModules: [],               // array of module ids
-  activePreset: null,                // active preset id or null
-  injectedRules: [],                 // extra constraint lines
-  generatedPrompt: '',
-  dependencyHints: [],               // transitive closure hints
-  showTour: false,
-  savedRecipes: []                   // saved recipe templates
+  view: 'workspace',                 // Single unified viewport ('workspace')
+  selectedModules: [],               // array of module ids (session-only)
+  activePreset: null,                // active preset id or null (session-only)
+  injectedRules: [],                 // extra constraint lines (session-only)
+  dependencyHints: [],               // transitive closure hints (session-only)
+  showTour: false,                   // tour visibility (session-only)
+  savedRecipes: []                   // saved recipe templates (persisted)
 }
 ```
+
+*Note: `generatedPrompt` is not stored in state; `PreviewPanel.jsx` derives the compiled prompt locally with `useMemo` via `assembleFinalPrompt(state)`.*
 
 ---
 
 ## 🔗 Prompt Compilation Pipeline
 
-1. **`sortDependencies(selectedModules, domain, lang)`:** Topologically sorts modules according to dependency graphs.
-2. **`buildPromptStructure(state, sortedModules)`:** Assembles 7-block structured prompt object (`[ROLE]`, `[GOAL]`, `[CONTEXT]`, `[ACTIVE MODULES]`, `[INSTRUCTIONS]`, `[OUTPUT FORMAT]`, `[CONSTRAINTS/SAFETY]`).
-3. **`assembleFinalPrompt(state)`:** Concatenates blocks into final output string.
-4. **`analyzePromptComplexity(state)`:** Computes character count, token estimate, and complexity score for `PreviewPanel`.
+1. **`sortDependencies(selectedModules, domain, lang)`:** Topologically sorts selected modules according to dependency graphs.
+2. **`buildPromptStructure(state, sortedModules)`:** Assembles a 7-block structured prompt object (`[ROLE]`, `[GOAL]`, `[CONTEXT]`, `[ACTIVE MODULES]`, `[INSTRUCTIONS]`, `[OUTPUT FORMAT]`, `[CONSTRAINTS/SAFETY]`).
+3. **`assembleFinalPrompt(state)`:** Dispatches the structured prompt to the active output formatter (`src/compiler/formatters/` for `markdown`, `claude-xml`, `openai-json`, or `label-tags`) based on `config.hedef`.
+4. **`analyzePromptComplexity(state)`:** Computes character count, token estimate (dividing character count by `3.5`), and complexity score for `PreviewPanel`.
 
 ---
 
@@ -158,5 +172,5 @@ Single Zustand store with `persist` middleware (`learning-os-engine-storage`):
 npm run dev        # Starts Vite dev server (port 3000)
 npm run build      # Compiles production bundle to dist/
 npm run lint       # Runs ESLint code check
-npm run validate       # Validates 15-domain modules, presets, parameter hover coverage, presentation, and output-target ids
+npm run validate   # Validates 15-domain modules, presets, parameter hover coverage, presentation, and output-target ids
 ```

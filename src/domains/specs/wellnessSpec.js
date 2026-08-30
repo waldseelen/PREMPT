@@ -32,7 +32,17 @@ export const wellnessSpec = {
         "workout": "Spor & Performans",
         "sleep": "Uyku & Sirkadiyen",
         "habits": "Alışkanlık & Beslenme"
-      }
+      },
+      "categories": {
+        "workout": "Antrenman & Hareket",
+        "circadian": "Sirkadiyen & Uyku",
+        "nutrition": "Beslenme & Biyokimya",
+        "adaptation": "Stres & Adaptasyon",
+        "habits": "Alışkanlık & Sürdürülebilirlik"
+      },
+      "modulesTitle": "Modüller (Module Blocks)",
+      "presetsTitle": "Uzman Hazır Şablonları (System Presets)",
+      "paramsTitle": "Parametreler"
     },
     "en": {
       "title": "Wellness, Fitness & Circadian Ops",
@@ -49,7 +59,17 @@ export const wellnessSpec = {
         "workout": "Fitness & Performance",
         "sleep": "Sleep & Circadian",
         "habits": "Habits & Nutrition"
-      }
+      },
+      "categories": {
+        "workout": "Movement & Training",
+        "circadian": "Circadian & Sleep",
+        "nutrition": "Nutrition & Biochemistry",
+        "adaptation": "Stress & Adaptation",
+        "habits": "Habit Systems"
+      },
+      "modulesTitle": "Module Blocks",
+      "presetsTitle": "System Presets",
+      "paramsTitle": "Parameters"
     }
   },
   "optionSets": {
@@ -116,18 +136,80 @@ export const wellnessSpec = {
   },
   "compilerTexts": {
     "tr": {
-      "topicHeader": "SAĞLIK HEDEFİ",
-      "levelHeader": "ODAK ALANI",
-      "modeHeader": "WELLNESS PERSONASI",
-      "depthHeader": "RUTİN DERİNLİĞİ",
-      "formatHeader": "WELLNESS FORMATI"
+      "mod": {
+        "biohacker": "Sen kanıta dayalı biyohacking ve fizyoloji koçusun. Sirkadiyen ritim, mitokondriyal sağlık, biyobelirteçler ve uyku optimizasyonunu birleştirirsin.",
+        "fizyoterapist": "Sen spor fizyoterapisti ve hareket uzmanısın. Postür düzeltme, sakatlık önleme, progressive overload ve mobilite protokolleri tasarlarsın.",
+        "habit": "Sen davranış bilimcisi ve alışkanlık mimarısısın. Mikro-adımlar, tetikleyici zincirleri ve sürdürülebilir yaşam tarzı dönüşümleri kurgularsın."
+      },
+      "derinlik": {
+        "temel": "Temel günlük rutin ve uygulanabilir 3 ana prensip sun.",
+        "haftalik": "Haftalık antrenman, beslenme ve toparlanma (recovery) planı oluştur.",
+        "biohacking": "Biyobelirteçler, takviye protokolleri, sirkadiyen ışık döngüleri ve ileri toparlanma yöntemleri içeren tam rehber hazırla."
+      },
+      "format": {
+        "haftaliktablo": "Haftalık program ve takip tablosu formatında yapılandır.",
+        "sirkadiyencart": "24 Saatlik sirkadiyen zamanlama çizelgesi şeklinde sun.",
+        "makrohesap": "Beslenme ve makro/mikro besin hesaplama şeması formatında hazırla."
+      },
+      "labels": {
+        "role": "[ROLE]",
+        "goal": "[GOAL]",
+        "context": "[CONTEXT]",
+        "modules": "[ACTIVE MODULES]",
+        "instructions": "[INSTRUCTIONS]",
+        "format": "[OUTPUT FORMAT]",
+        "constraints": "[CONSTRAINTS / SAFETY]"
+      },
+      "contextLabels": {
+        "domain": "Alan:",
+        "level": "Seviye:",
+        "depthRequirement": "Derinlik Gereksinimi:"
+      },
+      "goalTemplate": "\"{{KONU}}\" hedefi doğrultusunda biyomekanik, sirkadiyen ritim ve beslenme ilkelerine dayalı sürdürülebilir bir sağlık protokolü geliştirmek.",
+      "constraintsBase": [
+        "Tüm önerileri insan fizyolojisi ve bilimsel literatüre dayandır.",
+        "Aşırı katı, sürdürülemez ve sakatlık riski taşıyan programlardan kaçın.",
+        "Toparlanma (uyku ve dinlenme) sürecini antrenman kadar önceliklendir."
+      ],
+      "monologueText": "İÇ SES MODU: Protokolü yazmadan önce (<thinking> tagleri içinde) aşırı antrenman (overtraining) ve sakatlık risk faktörlerini denetle."
     },
     "en": {
-      "topicHeader": "WELLNESS GOAL",
-      "levelHeader": "FOCUS AREA",
-      "modeHeader": "WELLNESS PERSONA",
-      "depthHeader": "ROUTINE DEPTH",
-      "formatHeader": "WELLNESS SYNTAX"
+      "mod": {
+        "biohacker": "You are an evidence-based physiology and biohacking coach. You optimize circadian timing, mitochondrial health, and biomarker metrics.",
+        "fizyoterapist": "You are a sports physiotherapist and movement specialist. You design progressive overload, mobility, and injury prevention frameworks.",
+        "habit": "You are a behavioral scientist and habit architect. You design low-friction habit loops, environmental cues, and sustainable routines."
+      },
+      "derinlik": {
+        "temel": "Provide core daily routine and 3 actionable foundational principles.",
+        "haftalik": "Build a comprehensive 7-day movement, nutrition, and recovery schedule.",
+        "biohacking": "Deliver an advanced biomarker, supplementation, circadian photobiology, and recovery protocol."
+      },
+      "format": {
+        "haftaliktablo": "Format as a weekly routine and accountability matrix.",
+        "sirkadiyencart": "Structure as a 24-hour circadian timing protocol.",
+        "makrohesap": "Format as an analytical macro/micro-nutrient calculation breakdown."
+      },
+      "labels": {
+        "role": "[ROLE]",
+        "goal": "[GOAL]",
+        "context": "[CONTEXT]",
+        "modules": "[ACTIVE MODULES]",
+        "instructions": "[INSTRUCTIONS]",
+        "format": "[OUTPUT FORMAT]",
+        "constraints": "[CONSTRAINTS / SAFETY]"
+      },
+      "contextLabels": {
+        "domain": "Domain:",
+        "level": "Level:",
+        "depthRequirement": "Depth Requirement:"
+      },
+      "goalTemplate": "To engineer a science-backed, sustainable wellness and recovery protocol based on physiology and circadian biology for \"{{KONU}}\".",
+      "constraintsBase": [
+        "Ground all recommendations in peer-reviewed physiological science.",
+        "Avoid unsustainable extremes and high-risk biomechanical prescriptions.",
+        "Prioritize sleep and nervous system recovery on equal footing with exertion."
+      ],
+      "monologueText": "INTERNAL MONOLOGUE: Before detailing protocols, evaluate overtraining risks and metabolic fatigue factors in <thinking> tags."
     }
   },
   "presets": {
@@ -135,32 +217,34 @@ export const wellnessSpec = {
       "id": "circadian-reset",
       "group": "sleep",
       "name": {
-        "tr": "🌅 Sirkadiyen Ritim & Uyku Sıfırlama",
-        "en": "🌅 Circadian Sleep Reset"
+        "tr": "Sirkadiyen Ritim & Uyku Sıfırlama",
+        "en": "Circadian Sleep Reset"
       },
       "desc": {
         "tr": "Işık maruziyeti ve melatonin zamanlamasını optimize eder.",
         "en": "Optimizes light exposure and sleep timing."
       },
       "forceModules": [
-        "wrk-progressive-overload-plan",
-        "wrk-progressive-overload-plan"
+        "cir-morning-sunlight-anchor",
+        "cir-blue-light-melatonin-prep"
       ],
       "override": {
-        "derinlik": "haftalik",
-        "format": "haftaliktablo",
-        "mod": "biohacker"
+        "seviye": "sirkadiyen",
+        "mod": "biohacker",
+        "derinlik": "biohacking",
+        "format": "sirkadiyencart"
       },
       "injectRules": [
-        "Apply wellness domain rule for circadian-reset."
+        "Align sleep-wake timing with photobiology and natural light exposure intervals.",
+        "Structure core body temperature and meal timing protocols."
       ]
     },
     "hypertrophy-plan": {
       "id": "hypertrophy-plan",
       "group": "workout",
       "name": {
-        "tr": "🏋️ Antrenman & Hipertrofi Programı",
-        "en": "🏋️ Workout & Hypertrophy Plan"
+        "tr": "Antrenman & Hipertrofi Programı",
+        "en": "Workout & Hypertrophy Plan"
       },
       "desc": {
         "tr": "Kas kütlesi artırıcı haftalık antrenman.",
@@ -183,8 +267,8 @@ export const wellnessSpec = {
       "id": "sustainable-habit",
       "group": "habits",
       "name": {
-        "tr": "🧘 Sürdürülebilir Alışkanlık Mimarı",
-        "en": "🧘 Sustainable Habit Stack"
+        "tr": "Sürdürülebilir Alışkanlık Mimarı",
+        "en": "Sustainable Habit Stack"
       },
       "desc": {
         "tr": "Tükenmişlik riski olmayan mikro-alışkanlıklar.",
@@ -207,8 +291,8 @@ export const wellnessSpec = {
       "id": "macro-nutrition",
       "group": "habits",
       "name": {
-        "tr": "🥗 Makro & Beslenme Stratejisi",
-        "en": "🥗 Macro Nutrition Strategy"
+        "tr": "Makro & Beslenme Stratejisi",
+        "en": "Macro Nutrition Strategy"
       },
       "desc": {
         "tr": "Protein, karbonhidrat ve kalori dengesi.",
@@ -231,8 +315,8 @@ export const wellnessSpec = {
       "id": "injury-prevention",
       "group": "workout",
       "name": {
-        "tr": "🩺 Sakatlık Önleme & Mobilite",
-        "en": "🩺 Injury Prevention & Mobility"
+        "tr": "Sakatlık Önleme & Mobilite",
+        "en": "Injury Prevention & Mobility"
       },
       "desc": {
         "tr": "Eklem sağlığı ve esneklik egzersizleri.",
@@ -255,8 +339,8 @@ export const wellnessSpec = {
       "id": "dopamine-detox",
       "group": "habits",
       "name": {
-        "tr": "🧠 Dopamin Detoksu & Odaklanma",
-        "en": "🧠 Dopamine Detox Protocol"
+        "tr": "Dopamin Detoksu & Odaklanma",
+        "en": "Dopamine Detox Protocol"
       },
       "desc": {
         "tr": "Dijital ekran bağımlılığını azaltma adımları.",
@@ -279,8 +363,8 @@ export const wellnessSpec = {
       "id": "stress-cortisol",
       "group": "sleep",
       "name": {
-        "tr": "🌿 Stres & Kortizol Yönetimi",
-        "en": "🌿 Stress & Cortisol Balance"
+        "tr": "Stres & Kortizol Yönetimi",
+        "en": "Stress & Cortisol Balance"
       },
       "desc": {
         "tr": "Nefes egzersizleri ve sinir sistemi regülasyonu.",
@@ -303,8 +387,8 @@ export const wellnessSpec = {
       "id": "posture-ergonomics",
       "group": "workout",
       "name": {
-        "tr": "🪑 Postür & Masa Başı Ergonomi",
-        "en": "🪑 Desk Posture & Ergonomics"
+        "tr": "Postür & Masa Başı Ergonomi",
+        "en": "Desk Posture & Ergonomics"
       },
       "desc": {
         "tr": "Boyun ve bel ağrılarını önleyici rutin.",
@@ -327,8 +411,8 @@ export const wellnessSpec = {
       "id": "fasting-protocol",
       "group": "habits",
       "name": {
-        "tr": "⏱️ Aralıklı Oruç (Fasting) Protokolü",
-        "en": "⏱️ Intermittent Fasting Protocol"
+        "tr": "Aralıklı Oruç (Fasting) Protokolü",
+        "en": "Intermittent Fasting Protocol"
       },
       "desc": {
         "tr": "Otofaji ve insülin duyarlılığı planı.",
@@ -351,8 +435,8 @@ export const wellnessSpec = {
       "id": "mindful-meditation",
       "group": "sleep",
       "name": {
-        "tr": "🕊️ Zihinsel Dayanıklılık & Nefes",
-        "en": "🕊️ Mindful Resilience Drill"
+        "tr": "Zihinsel Dayanıklılık & Nefes",
+        "en": "Mindful Resilience Drill"
       },
       "desc": {
         "tr": "Zihinsel berraklık ve kaygı düşürme.",
@@ -375,8 +459,8 @@ export const wellnessSpec = {
       "id": "cardio-vo2max",
       "group": "workout",
       "name": {
-        "tr": "🏃 VO2 Max & Kondisyon Planı",
-        "en": "🏃 VO2 Max Conditioning"
+        "tr": "VO2 Max & Kondisyon Planı",
+        "en": "VO2 Max Conditioning"
       },
       "desc": {
         "tr": "Kalp-damar sağlığı için Zone 2 kardiyo.",
@@ -399,8 +483,8 @@ export const wellnessSpec = {
       "id": "evening-wind-down",
       "group": "sleep",
       "name": {
-        "tr": "🌙 Akşam Uykuya Geçiş Rutini",
-        "en": "🌙 Evening Wind-Down Routine"
+        "tr": "Akşam Uykuya Geçiş Rutini",
+        "en": "Evening Wind-Down Routine"
       },
       "desc": {
         "tr": "Derin REM uykusuna hazırlık rehberi.",

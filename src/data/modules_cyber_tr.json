@@ -3,412 +3,352 @@
     "id": "stride-threat-model",
     "icon": "🛡️",
     "name": "STRIDE Tehdit Modellemesi",
-    "category": "threat",
-    "description": "Sistemi STRIDE (Spoofing, Tampering, Repudiation, Info Disclosure, DoS, EoP) kalkanından geçirir.",
+    "desc": "Sistemi STRIDE (Spoofing, Tampering, Repudiation, Info Disclosure, DoS, EoP) kalkanından geçirir.",
+    "explain": "Sistemi STRIDE (Spoofing, Tampering, Repudiation, Info Disclosure, DoS, EoP) kalkanından geçirir.",
     "layer": "threat",
     "requires": [],
-    "prompt": "STRIDETehdit Modellemesi yap: Mimariyi Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service ve Elevation of Privilege vektörleri üzerinden denetle.",
-    "desc": "Sistemi STRIDE (Spoofing, Tampering, Repudiation, Info Disclosure, DoS, EoP) kalkanından geçirir.",
-    "explain": "Sistemi STRIDE (Spoofing, Tampering, Repudiation, Info Disclosure, DoS, EoP) kalkanından geçirir."
+    "prompt": "STRIDETehdit Modellemesi yap: Mimariyi Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service ve Elevation of Privilege vektörleri üzerinden denetle."
   },
   {
     "id": "attack-surface-mapping",
     "icon": "🗺️",
     "name": "Saldırı Yüzeyi Haritalama",
-    "category": "threat",
-    "description": "Dışa açık tüm uç noktaları, portları ve API girişlerini tespit eder.",
+    "desc": "Dışa açık tüm uç noktaları, portları ve API girişlerini tespit eder.",
+    "explain": "Dışa açık tüm uç noktaları, portları ve API girişlerini tespit eder.",
     "layer": "threat",
     "requires": [
       "stride-threat-model"
     ],
-    "prompt": "Saldırı Yüzeyini (Attack Surface) haritalandır: Dışa açık tüm API endpoint'lerini, açık portları, veri giriş formlarını ve üçüncü taraf entegrasyon noktalarını listele.",
-    "desc": "Dışa açık tüm uç noktaları, portları ve API girişlerini tespit eder.",
-    "explain": "Dışa açık tüm uç noktaları, portları ve API girişlerini tespit eder."
+    "prompt": "Saldırı Yüzeyini (Attack Surface) haritalandır: Dışa açık tüm API endpoint'lerini, açık portları, veri giriş formlarını ve üçüncü taraf entegrasyon noktalarını listele."
   },
   {
     "id": "threat-actor-profiling",
     "icon": "🥷",
     "name": "Tehdit Aktörü Profilleme",
-    "category": "threat",
-    "description": "Betimlenen sistemi hedef alabilecek aktörlerin yetenek ve motivasyonunu modeller.",
+    "desc": "Betimlenen sistemi hedef alabilecek aktörlerin yetenek ve motivasyonunu modeller.",
+    "explain": "Betimlenen sistemi hedef alabilecek aktörlerin yetenek ve motivasyonunu modeller.",
     "layer": "threat",
     "requires": [
       "stride-threat-model"
     ],
-    "prompt": "Olası Tehdit Aktörlerini profille: Senaryodaki rakip (Script Kiddie, APT, Insider Threat, State-Sponsored) motivasyonunu, kaynağını ve olası saldırı patikasını belirle.",
-    "desc": "Betimlenen sistemi hedef alabilecek aktörlerin yetenek ve motivasyonunu modeller.",
-    "explain": "Betimlenen sistemi hedef alabilecek aktörlerin yetenek ve motivasyonunu modeller."
+    "prompt": "Olası Tehdit Aktörlerini profille: Senaryodaki rakip (Script Kiddie, APT, Insider Threat, State-Sponsored) motivasyonunu, kaynağını ve olası saldırı patikasını belirle."
   },
   {
     "id": "data-flow-diagram-audit",
     "icon": "🔄",
     "name": "Veri Akış Diyagramı (DFD) Denetimi",
-    "category": "threat",
-    "description": "Güvenlik sınırları (trust boundaries) arasındaki veri geçişlerini inceler.",
+    "desc": "Güvenlik sınırları (trust boundaries) arasındaki veri geçişlerini inceler.",
+    "explain": "Güvenlik sınırları (trust boundaries) arasındaki veri geçişlerini inceler.",
     "layer": "threat",
     "requires": [
       "attack-surface-mapping"
     ],
-    "prompt": "Veri Akış Diyagramını (DFD Level 1) denetle: Güvenlik Sınırlarını (Trust Boundaries) kesen veri geçişlerinde şifreleme ve kimlik doğrulama eksiklerini bul.",
-    "desc": "Güvenlik sınırları (trust boundaries) arasındaki veri geçişlerini inceler.",
-    "explain": "Güvenlik sınırları (trust boundaries) arasındaki veri geçişlerini inceler."
+    "prompt": "Veri Akış Diyagramını (DFD Level 1) denetle: Güvenlik Sınırlarını (Trust Boundaries) kesen veri geçişlerinde şifreleme ve kimlik doğrulama eksiklerini bul."
   },
   {
     "id": "dread-risk-scoring",
     "icon": "📊",
     "name": "DREAD Risk Puanlama",
-    "category": "threat",
-    "description": "Tehditleri DREAD (Damage, Reproducibility, Exploitability, Affected Users, Discoverability) skoruyla önceliklendirir.",
+    "desc": "Tehditleri DREAD (Damage, Reproducibility, Exploitability, Affected Users, Discoverability) skoruyla önceliklendirir.",
+    "explain": "Tehditleri DREAD (Damage, Reproducibility, Exploitability, Affected Users, Discoverability) skoruyla önceliklendirir.",
     "layer": "threat",
     "requires": [
       "stride-threat-model"
     ],
-    "prompt": "Tehditleri DREAD modeliyle puanla: Hasar Potansiyeli, Tekrarlanabilirlik, Sömürülebilirlik, Etkilenen Kullanıcılar ve Keşfedilebilirlik değerlerine 1-10 arası skor ver.",
-    "desc": "Tehditleri DREAD (Damage, Reproducibility, Exploitability, Affected Users, Discoverability) skoruyla önceliklendirir.",
-    "explain": "Tehditleri DREAD (Damage, Reproducibility, Exploitability, Affected Users, Discoverability) skoruyla önceliklendirir."
+    "prompt": "Tehditleri DREAD modeliyle puanla: Hasar Potansiyeli, Tekrarlanabilirlik, Sömürülebilirlik, Etkilenen Kullanıcılar ve Keşfedilebilirlik değerlerine 1-10 arası skor ver."
   },
   {
     "id": "attack-tree-construction",
     "icon": "🌲",
     "name": "Saldırı Ağacı (Attack Tree) İnşası",
-    "category": "threat",
-    "description": "Kök hedefe ulaşmak için gereken bağımlı ve alternatif saldırı adımlarını ağaç yapısında modeller.",
+    "desc": "Kök hedefe ulaşmak için gereken bağımlı ve alternatif saldırı adımlarını ağaç yapısında modeller.",
+    "explain": "Kök hedefe ulaşmak için gereken bağımlı ve alternatif saldırı adımlarını ağaç yapısında modeller.",
     "layer": "threat",
     "requires": [
       "attack-surface-mapping"
     ],
-    "prompt": "Kök hedef için Saldırı Ağacı (Attack Tree) oluştur: AND/OR mantıksal kapılarıyla saldırganın adımlarını ve her bir adımın maliyet/zorluk seviyesini modelle.",
-    "desc": "Kök hedefe ulaşmak için gereken bağımlı ve alternatif saldırı adımlarını ağaç yapısında modeller.",
-    "explain": "Kök hedefe ulaşmak için gereken bağımlı ve alternatif saldırı adımlarını ağaç yapısında modeller."
+    "prompt": "Kök hedef için Saldırı Ağacı (Attack Tree) oluştur: AND/OR mantıksal kapılarıyla saldırganın adımlarını ve her bir adımın maliyet/zorluk seviyesini modelle."
   },
   {
     "id": "owasp-top10-scanner",
     "icon": "🐛",
     "name": "OWASP Top 10 Taraması",
-    "category": "appsec",
-    "description": "Uygulamayı en kritik 10 web güvenliği zafiyetine karşı denetler.",
+    "desc": "Uygulamayı en kritik 10 web güvenliği zafiyetine karşı denetler.",
+    "explain": "Uygulamayı en kritik 10 web güvenliği zafiyetine karşı denetler.",
     "layer": "appsec",
     "requires": [],
-    "prompt": "OWASP Top 10 (Injection, Broken Auth, Sensitive Data Exposure, XXE, Broken Access Control, Misconfig, XSS, Insecure Deserialization, Vulnerable Components, Insufficient Logging) denetimi yap.",
-    "desc": "Uygulamayı en kritik 10 web güvenliği zafiyetine karşı denetler.",
-    "explain": "Uygulamayı en kritik 10 web güvenliği zafiyetine karşı denetler."
+    "prompt": "OWASP Top 10 (Injection, Broken Auth, Sensitive Data Exposure, XXE, Broken Access Control, Misconfig, XSS, Insecure Deserialization, Vulnerable Components, Insufficient Logging) denetimi yap."
   },
   {
     "id": "input-validation-spec",
     "icon": "🧼",
     "name": "Girdi Doğrulama ve Sanitizasyon",
-    "category": "appsec",
-    "description": "SQLi, XSS ve Command Injection risklerini sıfırlayan girdi filtreleme kuralı.",
+    "desc": "SQLi, XSS ve Command Injection risklerini sıfırlayan girdi filtreleme kuralı.",
+    "explain": "SQLi, XSS ve Command Injection risklerini sıfırlayan girdi filtreleme kuralı.",
     "layer": "appsec",
     "requires": [
       "owasp-top10-scanner"
     ],
-    "prompt": "Strict Input Validation spesifikasyonu yaz: Beyaz liste (allowlist) tabanlı girdi doğrulama, parametreli sorgu (prepared statements) ve HTML/SQL kaçış (escaping) kurallarını koy.",
-    "desc": "SQLi, XSS ve Command Injection risklerini sıfırlayan girdi filtreleme kuralı.",
-    "explain": "SQLi, XSS ve Command Injection risklerini sıfırlayan girdi filtreleme kuralı."
+    "prompt": "Strict Input Validation spesifikasyonu yaz: Beyaz liste (allowlist) tabanlı girdi doğrulama, parametreli sorgu (prepared statements) ve HTML/SQL kaçış (escaping) kurallarını koy."
   },
   {
     "id": "auth-authz-hardener",
     "icon": "🔑",
     "name": "Kimlik Doğrulama ve Yetkilendirme Sıkılaştırma",
-    "category": "appsec",
-    "description": "OAuth2, JWT, RBAC/ABAC ve MFA güvenlik mimarisini sertleştirir.",
+    "desc": "OAuth2, JWT, RBAC/ABAC ve MFA güvenlik mimarisini sertleştirir.",
+    "explain": "OAuth2, JWT, RBAC/ABAC ve MFA güvenlik mimarisini sertleştirir.",
     "layer": "appsec",
     "requires": [
       "owasp-top10-scanner"
     ],
-    "prompt": "AuthN/AuthZ mimarisini sertleştir: JWT imzalama güvenliği, token ömrü, RBAC/ABAC rol denetimleri ve BOLA/IDOR zafiyetlerini engelleyici kontrol mekanizması yaz.",
-    "desc": "OAuth2, JWT, RBAC/ABAC ve MFA güvenlik mimarisini sertleştirir.",
-    "explain": "OAuth2, JWT, RBAC/ABAC ve MFA güvenlik mimarisini sertleştirir."
+    "prompt": "AuthN/AuthZ mimarisini sertleştir: JWT imzalama güvenliği, token ömrü, RBAC/ABAC rol denetimleri ve BOLA/IDOR zafiyetlerini engelleyici kontrol mekanizması yaz."
   },
   {
     "id": "api-security-checklist",
     "icon": "🔌",
     "name": "API Güvenlik Kontrol Listesi",
-    "category": "appsec",
-    "description": "OWASP API Security Top 10 standartlarına uyumu denetler.",
+    "desc": "OWASP API Security Top 10 standartlarına uyumu denetler.",
+    "explain": "OWASP API Security Top 10 standartlarına uyumu denetler.",
     "layer": "appsec",
     "requires": [
       "owasp-top10-scanner"
     ],
-    "prompt": "OWASP API Security Top 10 denetimi yap: Rate limiting, CORS politikaları, API gateway güvenlik katmanı ve hassas veri sızıntı alanlarını denetle.",
-    "desc": "OWASP API Security Top 10 standartlarına uyumu denetler.",
-    "explain": "OWASP API Security Top 10 standartlarına uyumu denetler."
+    "prompt": "OWASP API Security Top 10 denetimi yap: Rate limiting, CORS politikaları, API gateway güvenlik katmanı ve hassas veri sızıntı alanlarını denetle."
   },
   {
     "id": "secrets-management-audit",
     "icon": "🔐",
     "name": "Hassas Veri ve Gizli Anahtar Yönetimi",
-    "category": "appsec",
-    "description": "Kod tabanında ve CI/CD süreçlerinde sızdırılan API key ve şifre Taraması.",
+    "desc": "Kod tabanında ve CI/CD süreçlerinde sızdırılan API key ve şifre Taraması.",
+    "explain": "Kod tabanında ve CI/CD süreçlerinde sızdırılan API key ve şifre Taraması.",
     "layer": "appsec",
     "requires": [
       "auth-authz-hardener"
     ],
-    "prompt": "Secrets Management denetimi yap: Kodda hardcoded unutulmuş API key, private key ve veritabanı parolalarını tespit et. HashiCorp Vault veya KMS entegrasyonu yaz.",
-    "desc": "Kod tabanında ve CI/CD süreçlerinde sızdırılan API key ve şifre Taraması.",
-    "explain": "Kod tabanında ve CI/CD süreçlerinde sızdırılan API key ve şifre Taraması."
+    "prompt": "Secrets Management denetimi yap: Kodda hardcoded unutulmuş API key, private key ve veritabanı parolalarını tespit et. HashiCorp Vault veya KMS entegrasyonu yaz."
   },
   {
     "id": "memory-safety-checker",
     "icon": "🧠",
     "name": "Bellek Güvenliği ve Buffer Overflow Taraması",
-    "category": "appsec",
-    "description": "C/C++ ve düşük seviyeli dillerde bellek sızıntısı ve overflow Taraması.",
+    "desc": "C/C++ ve düşük seviyeli dillerde bellek sızıntısı ve overflow Taraması.",
+    "explain": "C/C++ ve düşük seviyeli dillerde bellek sızıntısı ve overflow Taraması.",
     "layer": "appsec",
     "requires": [
       "input-validation-spec"
     ],
-    "prompt": "Bellek Güvenliği (Memory Safety) analizi yap: Buffer Overflow, Use-After-Free ve Memory Leak risklerini tespit edip Rust/RAII gibi güvenli bellek yaklaşımlarına geçiş sağla.",
-    "desc": "C/C++ ve düşük seviyeli dillerde bellek sızıntısı ve overflow Taraması.",
-    "explain": "C/C++ ve düşük seviyeli dillerde bellek sızıntısı ve overflow Taraması."
+    "prompt": "Bellek Güvenliği (Memory Safety) analizi yap: Buffer Overflow, Use-After-Free ve Memory Leak risklerini tespit edip Rust/RAII gibi güvenli bellek yaklaşımlarına geçiş sağla."
   },
   {
     "id": "zero-trust-architecture",
     "icon": "🏰",
     "name": "Zero-Trust (Sıfır Güven) Mimarisi",
-    "category": "audit",
-    "description": "'Asla güvenme, her zaman doğrula' prensibini ağ ve kimlik katmanına uygular.",
+    "desc": "'Asla güvenme, her zaman doğrula' prensibini ağ ve kimlik katmanına uygular.",
+    "explain": "'Asla güvenme, her zaman doğrula' prensibini ağ ve kimlik katmanına uygular.",
     "layer": "audit",
     "requires": [],
-    "prompt": "Zero-Trust Mimari prensiplerini uygula: 'Never Trust, Always Verify'. İç ve dış ağ ayrımını kaldırarak her istekte sürekli kimlik doğrulama ve en düşük yetki (PoLP) kuralı koy.",
-    "desc": "'Asla güvenme, her zaman doğrula' prensibini ağ ve kimlik katmanına uygular.",
-    "explain": "'Asla güvenme, her zaman doğrula' prensibini ağ ve kimlik katmanına uygular."
+    "prompt": "Zero-Trust Mimari prensiplerini uygula: 'Never Trust, Always Verify'. İç ve dış ağ ayrımını kaldırarak her istekte sürekli kimlik doğrulama ve en düşük yetki (PoLP) kuralı koy."
   },
   {
     "id": "log-audit-trail-spec",
     "icon": "📜",
     "name": "SIEM ve İz Kaydı (Audit Trail) Şartnamesi",
-    "category": "audit",
-    "description": "Adli bilişim ve olay müdahalesi için değiştirilemez log altyapısı kurar.",
+    "desc": "Adli bilişim ve olay müdahalesi için değiştirilemez log altyapısı kurar.",
+    "explain": "Adli bilişim ve olay müdahalesi için değiştirilemez log altyapısı kurar.",
     "layer": "audit",
     "requires": [
       "zero-trust-architecture"
     ],
-    "prompt": "SIEM ve Log Audit Trail mimarisi tasarla: Değiştirilemez (append-only) log kaydı, log bütünlüğü (HMAC), hassas veri maskeleme (PII masking) ve zaman damgası standartlarını belirle.",
-    "desc": "Adli bilişim ve olay müdahalesi için değiştirilemez log altyapısı kurar.",
-    "explain": "Adli bilişim ve olay müdahalesi için değiştirilemez log altyapısı kurar."
+    "prompt": "SIEM ve Log Audit Trail mimarisi tasarla: Değiştirilemez (append-only) log kaydı, log bütünlüğü (HMAC), hassas veri maskeleme (PII masking) ve zaman damgası standartlarını belirle."
   },
   {
     "id": "identity-access-review",
     "icon": "👤",
     "name": "Erişim Yetkileri ve Privileged Access (PAM)",
-    "category": "audit",
-    "description": "Aşırı yetkili hesapları ve atıl kullanıcı erişimlerini temizler.",
+    "desc": "Aşırı yetkili hesapları ve atıl kullanıcı erişimlerini temizler.",
+    "explain": "Aşırı yetkili hesapları ve atıl kullanıcı erişimlerini temizler.",
     "layer": "audit",
     "requires": [
       "zero-trust-architecture"
     ],
-    "prompt": "PAM (Privileged Access Management) ve En Düşük Yetki (Principle of Least Privilege) denetimi yap: Yetki yükseltme (escalation) yollarını ve yetkisiz admin hesaplarını temizle.",
-    "desc": "Aşırı yetkili hesapları ve atıl kullanıcı erişimlerini temizler.",
-    "explain": "Aşırı yetkili hesapları ve atıl kullanıcı erişimlerini temizler."
+    "prompt": "PAM (Privileged Access Management) ve En Düşük Yetki (Principle of Least Privilege) denetimi yap: Yetki yükseltme (escalation) yollarını ve yetkisiz admin hesaplarını temizle."
   },
   {
     "id": "network-segmentation-audit",
     "icon": "🧱",
     "name": "Ağ Segmentasyonu ve Mikro-Bölümleme",
-    "category": "audit",
-    "description": "Yanal ilerlemeyi (lateral movement) engellemek için ağ güvenliğini böler.",
+    "desc": "Yanal ilerlemeyi (lateral movement) engellemek için ağ güvenliğini böler.",
+    "explain": "Yanal ilerlemeyi (lateral movement) engellemek için ağ güvenliğini böler.",
     "layer": "audit",
     "requires": [
       "zero-trust-architecture"
     ],
-    "prompt": "Ağ Segmentasyonu ve Mikro-Bölümleme (Micro-segmentation) denetimi yap: DMZ, Prod ve Dev ortamları arasındaki güvenlik duvarı kurallarını ve izole VLAN yapılarını tasarla.",
-    "desc": "Yanal ilerlemeyi (lateral movement) engellemek için ağ güvenliğini böler.",
-    "explain": "Yanal ilerlemeyi (lateral movement) engellemek için ağ güvenliğini böler."
+    "prompt": "Ağ Segmentasyonu ve Mikro-Bölümleme (Micro-segmentation) denetimi yap: DMZ, Prod ve Dev ortamları arasındaki güvenlik duvarı kurallarını ve izole VLAN yapılarını tasarla."
   },
   {
     "id": "crypto-cipher-suite-check",
     "icon": "🔒",
     "name": "Kriptografi ve Kripto Standartları Denetimi",
-    "category": "audit",
-    "description": "Zayıf algoritmaları (MD5, SHA1, DES) ayıklayıp güncel TLS/AES standartlarını zorlar.",
+    "desc": "Zayıf algoritmaları (MD5, SHA1, DES) ayıklayıp güncel TLS/AES standartlarını zorlar.",
+    "explain": "Zayıf algoritmaları (MD5, SHA1, DES) ayıklayıp güncel TLS/AES standartlarını zorlar.",
     "layer": "audit",
     "requires": [
       "zero-trust-architecture"
     ],
-    "prompt": "Kriptografik Denetim yap: Zayıf algoritmaları (MD5, SHA1, RC4, DES) sistemden temizle. TLS 1.3, AES-256-GCM ve Kuantum Sonrası Kriptografi (PQC) hazırlık planı sun.",
-    "desc": "Zayıf algoritmaları (MD5, SHA1, DES) ayıklayıp güncel TLS/AES standartlarını zorlar.",
-    "explain": "Zayıf algoritmaları (MD5, SHA1, DES) ayıklayıp güncel TLS/AES standartlarını zorlar."
+    "prompt": "Kriptografik Denetim yap: Zayıf algoritmaları (MD5, SHA1, RC4, DES) sistemden temizle. TLS 1.3, AES-256-GCM ve Kuantum Sonrası Kriptografi (PQC) hazırlık planı sun."
   },
   {
     "id": "incident-response-readiness",
     "icon": "🚨",
     "name": "Olay Müdahale (Incident Response) Hazırlığı",
-    "category": "audit",
-    "description": "NIST SP 800-61 standartlarında siber olay müdahale planı oluşturur.",
+    "desc": "NIST SP 800-61 standartlarında siber olay müdahale planı oluşturur.",
+    "explain": "NIST SP 800-61 standartlarında siber olay müdahale planı oluşturur.",
     "layer": "audit",
     "requires": [
       "log-audit-trail-spec"
     ],
-    "prompt": "NIST SP 800-61 uyumlu Olay Müdahale Planı (IRP) yaz: Hazırlık, Tespit, Sınırlandırma (Containment), Eradike Etme, İyileştirme ve Ders Çıkarma adımlarını detaylandır.",
-    "desc": "NIST SP 800-61 standartlarında siber olay müdahale planı oluşturur.",
-    "explain": "NIST SP 800-61 standartlarında siber olay müdahale planı oluşturur."
+    "prompt": "NIST SP 800-61 uyumlu Olay Müdahale Planı (IRP) yaz: Hazırlık, Tespit, Sınırlandırma (Containment), Eradike Etme, İyileştirme ve Ders Çıkarma adımlarını detaylandır."
   },
   {
     "id": "pentest-scenario-builder",
     "icon": "🎯",
     "name": "Sızma Testi Senaryo Kurucu",
-    "category": "pentest",
-    "description": "Etik hacker gözüyle hedef sisteme özel sızma testi adımları yazar.",
+    "desc": "Etik hacker gözüyle hedef sisteme özel sızma testi adımları yazar.",
+    "explain": "Etik hacker gözüyle hedef sisteme özel sızma testi adımları yazar.",
     "layer": "pentest",
     "requires": [
       "attack-surface-mapping"
     ],
-    "prompt": "Hedef sisteme özel Sızma Testi (Penetration Test) Senaryosu tasarla: Bilgi Toplama, Keşif, Zafiyet Taraması, Istismar (Exploitation) ve Post-Exploitation adımlarını simüle et.",
-    "desc": "Etik hacker gözüyle hedef sisteme özel sızma testi adımları yazar.",
-    "explain": "Etik hacker gözüyle hedef sisteme özel sızma testi adımları yazar."
+    "prompt": "Hedef sisteme özel Sızma Testi (Penetration Test) Senaryosu tasarla: Bilgi Toplama, Keşif, Zafiyet Taraması, Istismar (Exploitation) ve Post-Exploitation adımlarını simüle et."
   },
   {
     "id": "social-engineering-vectors",
     "icon": "🎣",
     "name": "Sosyal Mühendislik Vektörleri",
-    "category": "pentest",
-    "description": "Oltalama (Phishing) ve insan odaklı siber tehditleri simüle eder.",
+    "desc": "Oltalama (Phishing) ve insan odaklı siber tehditleri simüle eder.",
+    "explain": "Oltalama (Phishing) ve insan odaklı siber tehditleri simüle eder.",
     "layer": "pentest",
     "requires": [
       "pentest-scenario-builder"
     ],
-    "prompt": "Sosyal Mühendislik ve Phishing simülasyon senaryosu yaz: Hedef odaklı oltalama (Spear Phishing), credential harvesting ve insan faktörüne dayalı sızma vektörlerini analiz et.",
-    "desc": "Oltalama (Phishing) ve insan odaklı siber tehditleri simüle eder.",
-    "explain": "Oltalama (Phishing) ve insan odaklı siber tehditleri simüle eder."
+    "prompt": "Sosyal Mühendislik ve Phishing simülasyon senaryosu yaz: Hedef odaklı oltalama (Spear Phishing), credential harvesting ve insan faktörüne dayalı sızma vektörlerini analiz et."
   },
   {
     "id": "exploit-payload-analysis",
     "icon": "💣",
     "name": "İstismar (Exploit) ve Payload Analizi",
-    "category": "pentest",
-    "description": "Zafiyetin çalıştırılabilir kodla istismar edilme potansiyelini inceler.",
+    "desc": "Zafiyetin çalıştırılabilir kodla istismar edilme potansiyelini inceler.",
+    "explain": "Zafiyetin çalıştırılabilir kodla istismar edilme potansiyelini inceler.",
     "layer": "pentest",
     "requires": [
       "pentest-scenario-builder"
     ],
-    "prompt": "Zafiyetin istismar (Exploitation) dinamiklerini incele: PoC (Proof of Concept) payload mantığını analiz et ve bu payload'u engelleyecek YARA / Snort kurallarını yaz.",
-    "desc": "Zafiyetin çalıştırılabilir kodla istismar edilme potansiyelini inceler.",
-    "explain": "Zafiyetin çalıştırılabilir kodla istismar edilme potansiyelini inceler."
+    "prompt": "Zafiyetin istismar (Exploitation) dinamiklerini incele: PoC (Proof of Concept) payload mantığını analiz et ve bu payload'u engelleyecek YARA / Snort kurallarını yaz."
   },
   {
     "id": "privilege-escalation-check",
     "icon": "📈",
     "name": "Yetki Yükseltme (PrivEsc) Yolları",
-    "category": "pentest",
-    "description": "Düşük yetkili hesaptan root/SYSTEM yetkisine geçiş yollarını tespit eder.",
+    "desc": "Düşük yetkili hesaptan root/SYSTEM yetkisine geçiş yollarını tespit eder.",
+    "explain": "Düşük yetkili hesaptan root/SYSTEM yetkisine geçiş yollarını tespit eder.",
     "layer": "pentest",
     "requires": [
       "pentest-scenario-builder"
     ],
-    "prompt": "Yetki Yükseltme (Privilege Escalation) vektörlerini denetle: Linux (SUID, Sudoers, Kernel Exploit) ve Windows (Token Impersonation, Unquoted Service Path) açıklarını tara.",
-    "desc": "Düşük yetkili hesaptan root/SYSTEM yetkisine geçiş yollarını tespit eder.",
-    "explain": "Düşük yetkili hesaptan root/SYSTEM yetkisine geçiş yollarını tespit eder."
+    "prompt": "Yetki Yükseltme (Privilege Escalation) vektörlerini denetle: Linux (SUID, Sudoers, Kernel Exploit) ve Windows (Token Impersonation, Unquoted Service Path) açıklarını tara."
   },
   {
     "id": "lateral-movement-pathway",
     "icon": "↔️",
     "name": "Yanal İlerleme (Lateral Movement) Analizi",
-    "category": "pentest",
-    "description": "Ağ içinde makineden makineye sıçrama yollarını engeller.",
+    "desc": "Ağ içinde makineden makineye sıçrama yollarını engeller.",
+    "explain": "Ağ içinde makineden makineye sıçrama yollarını engeller.",
     "layer": "pentest",
     "requires": [
       "exploit-payload-analysis"
     ],
-    "prompt": "Yanal İlerleme (Lateral Movement) patikalarını haritalandır: Pass-the-Hash, Pass-the-Ticket (Kerberos) ve SSH anahtar atlamalarını engelleyecek sertleştirme tedbirlerini al.",
-    "desc": "Ağ içinde makineden makineye sıçrama yollarını engeller.",
-    "explain": "Ağ içinde makineden makineye sıçrama yollarını engeller."
+    "prompt": "Yanal İlerleme (Lateral Movement) patikalarını haritalandır: Pass-the-Hash, Pass-the-Ticket (Kerberos) ve SSH anahtar atlamalarını engelleyecek sertleştirme tedbirlerini al."
   },
   {
     "id": "egress-filtering-test",
     "icon": "📤",
     "name": "Ağ Dışa Akış (Egress) ve Veri Sızıntısı Testi",
-    "category": "pentest",
-    "description": "Zararlı yazılımın komuta kontrol (C2) sunucusuyla iletişimini keser.",
+    "desc": "Zararlı yazılımın komuta kontrol (C2) sunucusuyla iletişimini keser.",
+    "explain": "Zararlı yazılımın komuta kontrol (C2) sunucusuyla iletişimini keser.",
     "layer": "pentest",
     "requires": [
       "privilege-escalation-check"
     ],
-    "prompt": "Ağ Dışa Akış (Egress Filtering) kontrollerini test et: Tünelleme (DNS Tunneling, ICMP Exfiltration) ve C2 (Command & Control) veri sızıntı kanallarını engelle.",
-    "desc": "Zararlı yazılımın komuta kontrol (C2) sunucusuyla iletişimini keser.",
-    "explain": "Zararlı yazılımın komuta kontrol (C2) sunucusuyla iletişimini keser."
+    "prompt": "Ağ Dışa Akış (Egress Filtering) kontrollerini test et: Tünelleme (DNS Tunneling, ICMP Exfiltration) ve C2 (Command & Control) veri sızıntı kanallarını engelle."
   },
   {
     "id": "iso27001-gap-analysis",
     "icon": "📋",
     "name": "ISO 27001 / NIST CSF Boşluk Analizi",
-    "category": "compliance",
-    "description": "Siber güvenlik yönetim sistemini uluslararası standartlara göre kıyaslar.",
+    "desc": "Siber güvenlik yönetim sistemini uluslararası standartlara göre kıyaslar.",
+    "explain": "Siber güvenlik yönetim sistemini uluslararası standartlara göre kıyaslar.",
     "layer": "compliance",
     "requires": [],
-    "prompt": "ISO/IEC 27001:2022 Annex A veya NIST Cybersecurity Framework (CSF) boşluk analizi yap: Mevcut kontrollerin standartla uyum oranını ve eksik politika maddelerini çıkar.",
-    "desc": "Siber güvenlik yönetim sistemini uluslararası standartlara göre kıyaslar.",
-    "explain": "Siber güvenlik yönetim sistemini uluslararası standartlara göre kıyaslar."
+    "prompt": "ISO/IEC 27001:2022 Annex A veya NIST Cybersecurity Framework (CSF) boşluk analizi yap: Mevcut kontrollerin standartla uyum oranını ve eksik politika maddelerini çıkar."
   },
   {
     "id": "gdpr-data-privacy-spec",
     "icon": "🇪🇺",
     "name": "KVKK / GDPR Veri Mahremiyeti Standartları",
-    "category": "compliance",
-    "description": "Kişisel verilerin işlenmesi, anonimleştirilmesi ve silinmesi protokolü.",
+    "desc": "Kişisel verilerin işlenmesi, anonimleştirilmesi ve silinmesi protokolü.",
+    "explain": "Kişisel verilerin işlenmesi, anonimleştirilmesi ve silinmesi protokolü.",
     "layer": "compliance",
     "requires": [
       "iso27001-gap-analysis"
     ],
-    "prompt": "KVKK / GDPR Veri Koruma Standartlarını uygula: Veri Minimizasyonu, Anonimleştirme/Pseudonymization, Unutulma Hakkı ve Veri İhlal Bildirimi (72 saat) süreçlerini doğrula.",
-    "desc": "Kişisel verilerin işlenmesi, anonimleştirilmesi ve silinmesi protokolü.",
-    "explain": "Kişisel verilerin işlenmesi, anonimleştirilmesi ve silinmesi protokolü."
+    "prompt": "KVKK / GDPR Veri Koruma Standartlarını uygula: Veri Minimizasyonu, Anonimleştirme/Pseudonymization, Unutulma Hakkı ve Veri İhlal Bildirimi (72 saat) süreçlerini doğrula."
   },
   {
     "id": "soc2-type2-controls",
     "icon": "📜",
     "name": "SOC 2 Type II Güvenilirlik İlkeleri",
-    "category": "compliance",
-    "description": "Güvenlik, Kullanılabilirlik ve Gizlilik ilkelerine operasyonel uyum denetimi.",
+    "desc": "Güvenlik, Kullanılabilirlik ve Gizlilik ilkelerine operasyonel uyum denetimi.",
+    "explain": "Güvenlik, Kullanılabilirlik ve Gizlilik ilkelerine operasyonel uyum denetimi.",
     "layer": "compliance",
     "requires": [
       "iso27001-gap-analysis"
     ],
-    "prompt": "SOC 2 Type II Güvenilirlik Hizmet Kriterlerine (Trust Services Criteria) göre denetle: Güvenlik, Kullanılabilirlik, İşleme Bütünlüğü, Gizlilik ve Mahremiyet kanıtlarını listele.",
-    "desc": "Güvenlik, Kullanılabilirlik ve Gizlilik ilkelerine operasyonel uyum denetimi.",
-    "explain": "Güvenlik, Kullanılabilirlik ve Gizlilik ilkelerine operasyonel uyum denetimi."
+    "prompt": "SOC 2 Type II Güvenilirlik Hizmet Kriterlerine (Trust Services Criteria) göre denetle: Güvenlik, Kullanılabilirlik, İşleme Bütünlüğü, Gizlilik ve Mahremiyet kanıtlarını listele."
   },
   {
     "id": "supply-chain-risk-audit",
     "icon": "🔗",
     "name": "Tedarik Zinciri Güvenlik Denetimi",
-    "category": "compliance",
-    "description": "Üçüncü taraf kütüphanelerin ve tedarikçilerin güvenlik riskini ölçer.",
+    "desc": "Üçüncü taraf kütüphanelerin ve tedarikçilerin güvenlik riskini ölçer.",
+    "explain": "Üçüncü taraf kütüphanelerin ve tedarikçilerin güvenlik riskini ölçer.",
     "layer": "compliance",
     "requires": [
       "iso27001-gap-analysis"
     ],
-    "prompt": "Tedarik Zinciri Risk Analizi (Supply Chain Risk Audit) yap: SBOM (Software Bill of Materials) çıkar, bağımlılıklardaki zafiyetleri (Dependabot/Snyk) ve açık kaynak risklerini tara.",
-    "desc": "Üçüncü taraf kütüphanelerin ve tedarikçilerin güvenlik riskini ölçer.",
-    "explain": "Üçüncü taraf kütüphanelerin ve tedarikçilerin güvenlik riskini ölçer."
+    "prompt": "Tedarik Zinciri Risk Analizi (Supply Chain Risk Audit) yap: SBOM (Software Bill of Materials) çıkar, bağımlılıklardaki zafiyetleri (Dependabot/Snyk) ve açık kaynak risklerini tara."
   },
   {
     "id": "vulnerability-remediation",
     "icon": "🩹",
     "name": "Zafiyet Yamalama ve Düzeltme (Remediation)",
-    "category": "compliance",
-    "description": "Tespit edilen zafiyetlerin kapatılması için öncelikli yama planı sunar.",
+    "desc": "Tespit edilen zafiyetlerin kapatılması için öncelikli yama planı sunar.",
+    "explain": "Tespit edilen zafiyetlerin kapatılması için öncelikli yama planı sunar.",
     "layer": "compliance",
     "requires": [
       "soc2-type2-controls"
     ],
-    "prompt": "Tespit edilen zafiyetler için Kökten Düzeltme (Remediation) Reçetesi yaz: CVSS skoruna göre önceliklendir, geçici çözüm (workaround) ve kalıcı kod düzeltmesini (patch) sun.",
-    "desc": "Tespit edilen zafiyetlerin kapatılması için öncelikli yama planı sunar.",
-    "explain": "Tespit edilen zafiyetlerin kapatılması için öncelikli yama planı sunar."
+    "prompt": "Tespit edilen zafiyetler için Kökten Düzeltme (Remediation) Reçetesi yaz: CVSS skoruna göre önceliklendir, geçici çözüm (workaround) ve kalıcı kod düzeltmesini (patch) sun."
   },
   {
     "id": "ransomware-resilience-check",
     "icon": "☣️",
     "name": "Fidye Yazılımı (Ransomware) Dayanıklılığı",
-    "category": "compliance",
-    "description": "Sistemin Ransomware saldırılarına karşı yedekleme ve kurtarma direncini test eder.",
+    "desc": "Sistemin Ransomware saldırılarına karşı yedekleme ve kurtarma direncini test eder.",
+    "explain": "Sistemin Ransomware saldırılarına karşı yedekleme ve kurtarma direncini test eder.",
     "layer": "compliance",
     "requires": [
       "vulnerability-remediation"
     ],
-    "prompt": "Ransomware Dayanıklılık Testi yap: 3-2-1 Yedekleme Kuralı, çevrimdışı/değiştirilemez (immutable) yedekleme ve sistem imajından hızlı geri dönme (RTO/RPO) sürelerini doğrula.",
-    "desc": "Sistemin Ransomware saldırılarına karşı yedekleme ve kurtarma direncini test eder.",
-    "explain": "Sistemin Ransomware saldırılarına karşı yedekleme ve kurtarma direncini test eder."
+    "prompt": "Ransomware Dayanıklılık Testi yap: 3-2-1 Yedekleme Kuralı, çevrimdışı/değiştirilemez (immutable) yedekleme ve sistem imajından hızlı geri dönme (RTO/RPO) sürelerini doğrula."
   }
 ]

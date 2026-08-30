@@ -1,36 +1,28 @@
 import { useEngineState } from '../store/engineState';
-import { useShallow } from 'zustand/react/shallow';
 import { DOMAIN_GROUPS, DOMAIN_ICON_IDS } from '../domains/presentation';
 import { getIcon } from './iconRegistry';
 
 export default function DomainSwitcher() {
-    const { config, setDomain } = useEngineState(useShallow(state => ({
-        config: state.config,
-        setDomain: state.setDomain
-    })));
-
-    const activeDomain = config.domain || 'learning';
-    const lang = config.lang || 'tr';
+    const { activeDomain, setDomain, lang } = useEngineState(state => ({
+        activeDomain: state.config.domain,
+        setDomain: state.setDomain,
+        lang: state.config.lang || 'tr'
+    }));
 
     return (
-        <nav 
-            className="header-domain-bar" 
-            aria-label="Domain Selector"
-            style={{ 
-                display: 'flex', 
-                gap: '6px', 
-                alignItems: 'center', 
-                overflowX: 'auto', 
-                padding: '2px 0',
-                maxWidth: '100%',
-                scrollbarWidth: 'none',
-                msOverflowStyle: 'none'
-            }}
-        >
+        <nav className="header-domain-bar domain-switcher-container" aria-label={lang === 'en' ? 'Domain selection' : 'Alan seçimi'} style={{
+            display: 'flex',
+            gap: '8px',
+            alignItems: 'center',
+            overflowX: 'auto',
+            padding: '2px 0',
+            scrollbarWidth: 'none',
+            msOverflowStyle: 'none'
+        }}>
             {DOMAIN_GROUPS.map(grp => (
                 <div 
                     key={grp.id} 
-                    style={{ 
+                    style={{
                         display: 'flex', 
                         gap: '2px', 
                         padding: '2px 4px', 
@@ -44,6 +36,8 @@ export default function DomainSwitcher() {
                     {grp.domains.map(d => {
                         const isActive = activeDomain === d.id;
                         const IconComponent = getIcon(DOMAIN_ICON_IDS[d.id]);
+                        const isBrightColor = grp.color === '#f59e0b' || grp.color === '#06b6d4' || grp.color === '#fbbf24' || grp.color === '#2dd4bf';
+                        const activeTextColor = isBrightColor ? '#090d16' : '#ffffff';
                         return (
                             <button
                                 key={d.id}
@@ -57,7 +51,7 @@ export default function DomainSwitcher() {
                                     borderRadius: '5px',
                                     fontSize: '0.7rem',
                                     fontWeight: isActive ? 700 : 500,
-                                    color: isActive ? '#ffffff' : 'var(--text-primary)',
+                                    color: isActive ? activeTextColor : 'var(--text-primary)',
                                     background: isActive ? grp.color : 'transparent',
                                     border: 'none',
                                     cursor: 'pointer',

@@ -3,408 +3,348 @@
     "id": "medium-oil-painting",
     "icon": "🎨",
     "name": "Yağlı Boya & Tuval Estetiği",
-    "category": "medium",
-    "description": "Görsele klasik impasto yağlı boya dokusu ve fırça darbeleri kazandırır.",
+    "desc": "Görsele klasik impasto yağlı boya dokusu ve fırça darbeleri kazandırır.",
+    "explain": "Görsele klasik impasto yağlı boya dokusu ve fırça darbeleri kazandırır.",
     "layer": "medium",
     "requires": [],
-    "prompt": "Stili Klasik Yağlı Boya olarak ayarla: İmpasto tekniği, belirgin fırça darbeleri (heavy brush strokes), tuval dokusu ve zengin yağlı boya katmanları detayını ekle.",
-    "desc": "Görsele klasik impasto yağlı boya dokusu ve fırça darbeleri kazandırır.",
-    "explain": "Görsele klasik impasto yağlı boya dokusu ve fırça darbeleri kazandırır."
+    "prompt": "Stili Klasik Yağlı Boya olarak ayarla: İmpasto tekniği, belirgin fırça darbeleri (heavy brush strokes), tuval dokusu ve zengin yağlı boya katmanları detayını ekle."
   },
   {
     "id": "medium-3d-octane",
     "icon": "💎",
     "name": "3D Octane Render Motoru",
-    "category": "medium",
-    "description": "Fotogerçekçi 3D cam, metal ve ray-traced ışık kırılmaları kurgular.",
+    "desc": "Fotogerçekçi 3D cam, metal ve ray-traced ışık kırılmaları kurgular.",
+    "explain": "Fotogerçekçi 3D cam, metal ve ray-traced ışık kırılmaları kurgular.",
     "layer": "medium",
     "requires": [
       "medium-oil-painting"
     ],
-    "prompt": "Stili 3D Octane Render olarak ayarla: Ultra gerçekçi 3D modelleme, Cinema4D, ray-traced cam ve krom yüzeyler, subsurface scattering ve 8K detay ekle.",
-    "desc": "Fotogerçekçi 3D cam, metal ve ray-traced ışık kırılmaları kurgular.",
-    "explain": "Fotogerçekçi 3D cam, metal ve ray-traced ışık kırılmaları kurgular."
+    "prompt": "Stili 3D Octane Render olarak ayarla: Ultra gerçekçi 3D modelleme, Cinema4D, ray-traced cam ve krom yüzeyler, subsurface scattering ve 8K detay ekle."
   },
   {
     "id": "medium-cinematic-film",
     "icon": "📷",
     "name": "35mm Analog Film Fotoğrafçılığı",
-    "category": "medium",
-    "description": "Nostaljik Kodak 35mm film greni ve otantik lens karakteri ekler.",
+    "desc": "Nostaljik Kodak 35mm film greni ve otantik lens karakteri ekler.",
+    "explain": "Nostaljik Kodak 35mm film greni ve otantik lens karakteri ekler.",
     "layer": "medium",
     "requires": [],
-    "prompt": "Görseli Kodak Portra 400 35mm analog film çekimi olarak tasarla: Hafif film greni (film grain), doğal renk paleti, 50mm f/1.4 lens bokeh ve otantik nostalji kat.",
-    "desc": "Nostaljik Kodak 35mm film greni ve otantik lens karakteri ekler.",
-    "explain": "Nostaljik Kodak 35mm film greni ve otantik lens karakteri ekler."
+    "prompt": "Görseli Kodak Portra 400 35mm analog film çekimi olarak tasarla: Hafif film greni (film grain), doğal renk paleti, 50mm f/1.4 lens bokeh ve otantik nostalji kat."
   },
   {
     "id": "medium-cyberpunk-vector",
     "icon": "👾",
     "name": "Vektörel Siberpunk Estetiği",
-    "category": "medium",
-    "description": "Keskin hatlı, siberpunk neon vurgulu vektörel illüstrasyon üretir.",
+    "desc": "Keskin hatlı, siberpunk neon vurgulu vektörel illüstrasyon üretir.",
+    "explain": "Keskin hatlı, siberpunk neon vurgulu vektörel illüstrasyon üretir.",
     "layer": "medium",
     "requires": [
       "medium-oil-painting"
     ],
-    "prompt": "Stili Grafik Vektör & Siberpunk olarak belirle: Keskin illüstrasyon hatları, düz renk alanları, parlak neon vurgular ve çizgi roman mürekkep detayları ekle.",
-    "desc": "Keskin hatlı, siberpunk neon vurgulu vektörel illüstrasyon üretir.",
-    "explain": "Keskin hatlı, siberpunk neon vurgulu vektörel illüstrasyon üretir."
+    "prompt": "Stili Grafik Vektör & Siberpunk olarak belirle: Keskin illüstrasyon hatları, düz renk alanları, parlak neon vurgular ve çizgi roman mürekkep detayları ekle."
   },
   {
     "id": "medium-watercolor-wash",
     "icon": "🖌️",
     "name": "Suluboya ve Botanik Dokusu",
-    "category": "medium",
-    "description": "Şeffaf suluboya katmanları ve pamuklu kağıt emiciliği sağlar.",
+    "desc": "Şeffaf suluboya katmanları ve pamuklu kağıt emiciliği sağlar.",
+    "explain": "Şeffaf suluboya katmanları ve pamuklu kağıt emiciliği sağlar.",
     "layer": "medium",
     "requires": [
       "medium-oil-painting"
     ],
-    "prompt": "Stili Suluboya (Watercolor Wash) yap: Islak üzerine ıslak tekniği, şeffaf renk katmanları, kenar mürekkep dağılmaları ve dokulu pamuk kağıt hissi ver.",
-    "desc": "Şeffaf suluboya katmanları ve pamuklu kağıt emiciliği sağlar.",
-    "explain": "Şeffaf suluboya katmanları ve pamuklu kağıt emiciliği sağlar."
+    "prompt": "Stili Suluboya (Watercolor Wash) yap: Islak üzerine ıslak tekniği, şeffaf renk katmanları, kenar mürekkep dağılmaları ve dokulu pamuk kağıt hissi ver."
   },
   {
     "id": "medium-hyperreal-macro",
     "icon": "🔬",
     "name": "Hiper-Gerçekçi Makro Çekim",
-    "category": "medium",
-    "description": "Gözle görülmeyen mikroskobik yüzey detaylarını odaklayarak büyütür.",
+    "desc": "Gözle görülmeyen mikroskobik yüzey detaylarını odaklayarak büyütür.",
+    "explain": "Gözle görülmeyen mikroskobik yüzey detaylarını odaklayarak büyütür.",
     "layer": "medium",
     "requires": [
       "medium-cinematic-film"
     ],
-    "prompt": "Makro Fotoğrafçılık lensi kur: 100mm Macro f/2.8 ile mikroskobik detaylar, su damlaları, doku gözenekleri ve aşırı dar alan derinliği (shallow DOF) tanımla.",
-    "desc": "Gözle görülmeyen mikroskobik yüzey detaylarını odaklayarak büyütür.",
-    "explain": "Gözle görülmeyen mikroskobik yüzey detaylarını odaklayarak büyütür."
+    "prompt": "Makro Fotoğrafçılık lensi kur: 100mm Macro f/2.8 ile mikroskobik detaylar, su damlaları, doku gözenekleri ve aşırı dar alan derinliği (shallow DOF) tanımla."
   },
   {
     "id": "composition-rule-of-thirds",
     "icon": "📐",
     "name": "Üçte Bir Kuralı & Çerçeveleme",
-    "category": "composition",
-    "description": "Ana nesneyi ızgara kesişim noktalarına yerleştirerek dinamizm sağlar.",
+    "desc": "Ana nesneyi ızgara kesişim noktalarına yerleştirerek dinamizm sağlar.",
+    "explain": "Ana nesneyi ızgara kesişim noktalarına yerleştirerek dinamizm sağlar.",
     "layer": "composition",
     "requires": [],
-    "prompt": "Kompozisyonu Üçte Bir Kuralına (Rule of Thirds) göre kurgula: Ana konuyu sol veya sağ dikey çizgi kesişimine oturt, negatif alan (negative space) dengesini sağla.",
-    "desc": "Ana nesneyi ızgara kesişim noktalarına yerleştirerek dinamizm sağlar.",
-    "explain": "Ana nesneyi ızgara kesişim noktalarına yerleştirerek dinamizm sağlar."
+    "prompt": "Kompozisyonu Üçte Bir Kuralına (Rule of Thirds) göre kurgula: Ana konuyu sol veya sağ dikey çizgi kesişimine oturt, negatif alan (negative space) dengesini sağla."
   },
   {
     "id": "composition-golden-ratio",
     "icon": "🐚",
     "name": "Altın Oran ve Fibonacci Sarmalı",
-    "category": "composition",
-    "description": "Görsel elemanları Fibonacci sarmalı boyunca doğal bir akışa dizer.",
+    "desc": "Görsel elemanları Fibonacci sarmalı boyunca doğal bir akışa dizer.",
+    "explain": "Görsel elemanları Fibonacci sarmalı boyunca doğal bir akışa dizer.",
     "layer": "composition",
     "requires": [
       "composition-rule-of-thirds"
     ],
-    "prompt": "Kompozisyonu Altın Oran (Golden Ratio / Fibonacci Spiral) boyunca düzenle: Gözün görselde gezinmesini sağlayacak kavisli ve dengeli eleman dizilimi kur.",
-    "desc": "Görsel elemanları Fibonacci sarmalı boyunca doğal bir akışa dizer.",
-    "explain": "Görsel elemanları Fibonacci sarmalı boyunca doğal bir akışa dizer."
+    "prompt": "Kompozisyonu Altın Oran (Golden Ratio / Fibonacci Spiral) boyunca düzenle: Gözün görselde gezinmesini sağlayacak kavisli ve dengeli eleman dizilimi kur."
   },
   {
     "id": "composition-low-angle",
     "icon": "🦅",
     "name": "Dramatik Alt Açı (Worm's-Eye)",
-    "category": "composition",
-    "description": "Kamerayı aşağıya koyarak objeye anıtsal ve heybetli bir boyut katar.",
+    "desc": "Kamerayı aşağıya koyarak objeye anıtsal ve heybetli bir boyut katar.",
+    "explain": "Kamerayı aşağıya koyarak objeye anıtsal ve heybetli bir boyut katar.",
     "layer": "composition",
     "requires": [
       "composition-rule-of-thirds"
     ],
-    "prompt": "Kamera açısını Aşırı Alt Açı (Low-Angle / Worm's-eye view) yap: Konuyu görkemli, anıtsal ve hakim gösterecek geniş açı perspektif kırılması ekle.",
-    "desc": "Kamerayı aşağıya koyarak objeye anıtsal ve heybetli bir boyut katar.",
-    "explain": "Kamerayı aşağıya koyarak objeye anıtsal ve heybetli bir boyut katar."
+    "prompt": "Kamera açısını Aşırı Alt Açı (Low-Angle / Worm's-eye view) yap: Konuyu görkemli, anıtsal ve hakim gösterecek geniş açı perspektif kırılması ekle."
   },
   {
     "id": "composition-isometric-grid",
     "icon": "📦",
     "name": "İzometrik Mimari Izgara",
-    "category": "composition",
-    "description": "Sahneyi 45 derece izometrik perspektiften diorama gibi kurgular.",
+    "desc": "Sahneyi 45 derece izometrik perspektiften diorama gibi kurgular.",
+    "explain": "Sahneyi 45 derece izometrik perspektiften diorama gibi kurgular.",
     "layer": "composition",
     "requires": [
       "composition-rule-of-thirds"
     ],
-    "prompt": "Kompozisyonu 3D İzometrik Perspektif (Isometric Grid) olarak kur: Sahneyi 45 derece açıdan mini bir diorama kutusu gibi eksiksiz ve ortogonal görselleştir.",
-    "desc": "Sahneyi 45 derece izometrik perspektiften diorama gibi kurgular.",
-    "explain": "Sahneyi 45 derece izometrik perspektiften diorama gibi kurgular."
+    "prompt": "Kompozisyonu 3D İzometrik Perspektif (Isometric Grid) olarak kur: Sahneyi 45 derece açıdan mini bir diorama kutusu gibi eksiksiz ve ortogonal görselleştir."
   },
   {
     "id": "composition-leading-lines",
     "icon": "🛣️",
     "name": "Yönlendirici Çizgiler & Derinlik",
-    "category": "composition",
-    "description": "Yol, ray veya mimari hatlarla odağı merkeze doğru çeker.",
+    "desc": "Yol, ray veya mimari hatlarla odağı merkeze doğru çeker.",
+    "explain": "Yol, ray veya mimari hatlarla odağı merkeze doğru çeker.",
     "layer": "composition",
     "requires": [
       "composition-rule-of-thirds"
     ],
-    "prompt": "Yönlendirici Çizgiler (Leading Lines) ekle: Perspektif kaçış noktasına doğru uzanan yollar, koridorlar veya ışık huzmeleriyle izleyici gözünü konuya yönlendir.",
-    "desc": "Yol, ray veya mimari hatlarla odağı merkeze doğru çeker.",
-    "explain": "Yol, ray veya mimari hatlarla odağı merkeze doğru çeker."
+    "prompt": "Yönlendirici Çizgiler (Leading Lines) ekle: Perspektif kaçış noktasına doğru uzanan yollar, koridorlar veya ışık huzmeleriyle izleyici gözünü konuya yönlendir."
   },
   {
     "id": "composition-symmetry-balance",
     "icon": "🪞",
     "name": "Bilateral Simetri ve Denge",
-    "category": "composition",
-    "description": "Mükemmel dikey simetri ile hipnotik ve huzurlu bir düzen yaratır.",
+    "desc": "Mükemmel dikey simetri ile hipnotik ve huzurlu bir düzen yaratır.",
+    "explain": "Mükemmel dikey simetri ile hipnotik ve huzurlu bir düzen yaratır.",
     "layer": "composition",
     "requires": [
       "composition-golden-ratio"
     ],
-    "prompt": "Kusursuz Bilateral Simetri kur: Kadrajı tam ortadan ikiye bölen Wes Anderson tarzı merkeze odaklı denge ve mimari simetri oluştur.",
-    "desc": "Mükemmel dikey simetri ile hipnotik ve huzurlu bir düzen yaratır.",
-    "explain": "Mükemmel dikey simetri ile hipnotik ve huzurlu bir düzen yaratır."
+    "prompt": "Kusursuz Bilateral Simetri kur: Kadrajı tam ortadan ikiye bölen Wes Anderson tarzı merkeze odaklı denge ve mimari simetri oluştur."
   },
   {
     "id": "lighting-volumetric-rays",
     "icon": "☀️",
     "name": "Hacimsel Işık Hüzmeleri (God Rays)",
-    "category": "lighting",
-    "description": "Tozlu veya sisli havadan süzülen dramatik güneş ışığı huzmeleri ekler.",
+    "desc": "Tozlu veya sisli havadan süzülen dramatik güneş ışığı huzmeleri ekler.",
+    "explain": "Tozlu veya sisli havadan süzülen dramatik güneş ışığı huzmeleri ekler.",
     "layer": "lighting",
     "requires": [],
-    "prompt": "Işıklandırmayı Hacimsel Işık Hüzmeleri (Volumetric God Rays) olarak ayarla: Pencereden veya ağaç dalları arasından süzülen belirgin sisli ışık hüzmeleri ekle.",
-    "desc": "Tozlu veya sisli havadan süzülen dramatik güneş ışığı huzmeleri ekler.",
-    "explain": "Tozlu veya sisli havadan süzülen dramatik güneş ışığı huzmeleri ekler."
+    "prompt": "Işıklandırmayı Hacimsel Işık Hüzmeleri (Volumetric God Rays) olarak ayarla: Pencereden veya ağaç dalları arasından süzülen belirgin sisli ışık hüzmeleri ekle."
   },
   {
     "id": "lighting-cinematic-rim",
     "icon": "🌟",
     "name": "Dramatik Kenar Işığı (Rim Light)",
-    "category": "lighting",
-    "description": "Objeyi arka plandan ayırmak için arkasından parlak kontür ışığı verir.",
+    "desc": "Objeyi arka plandan ayırmak için arkasından parlak kontür ışığı verir.",
+    "explain": "Objeyi arka plandan ayırmak için arkasından parlak kontür ışığı verir.",
     "layer": "lighting",
     "requires": [
       "lighting-volumetric-rays"
     ],
-    "prompt": "Arka plana parlak Kenar Işığı (Rim Lighting / Backlight) yerleştir: Konunun saç ve omuz hatlarını parlak bir kontür çizgisiyle karanlık fondan ayır.",
-    "desc": "Objeyi arka plandan ayırmak için arkasından parlak kontür ışığı verir.",
-    "explain": "Objeyi arka plandan ayırmak için arkasından parlak kontür ışığı verir."
+    "prompt": "Arka plana parlak Kenar Işığı (Rim Lighting / Backlight) yerleştir: Konunun saç ve omuz hatlarını parlak bir kontür çizgisiyle karanlık fondan ayır."
   },
   {
     "id": "lighting-golden-hour",
     "icon": "🌅",
     "name": "Altın Saat Sıcak Işığı",
-    "category": "lighting",
-    "description": "Gün batımı öncesinin yumuşak, uzun gölgeli altın rengi ışımasını verir.",
+    "desc": "Gün batımı öncesinin yumuşak, uzun gölgeli altın rengi ışımasını verir.",
+    "explain": "Gün batımı öncesinin yumuşak, uzun gölgeli altın rengi ışımasını verir.",
     "layer": "lighting",
     "requires": [
       "lighting-volumetric-rays"
     ],
-    "prompt": "Aydınlatmayı Altın Saat (Golden Hour) yap: Alçak açıdan gelen ılık turuncu/altın ışık, uzun yumuşak gölgeler ve sıcak renk doygunluğu tanımla.",
-    "desc": "Gün batımı öncesinin yumuşak, uzun gölgeli altın rengi ışımasını verir.",
-    "explain": "Gün batımı öncesinin yumuşak, uzun gölgeli altın rengi ışımasını verir."
+    "prompt": "Aydınlatmayı Altın Saat (Golden Hour) yap: Alçak açıdan gelen ılık turuncu/altın ışık, uzun yumuşak gölgeler ve sıcak renk doygunluğu tanımla."
   },
   {
     "id": "lighting-neon-cyber-glow",
     "icon": "🔴",
     "name": "İkili Neon Siber Parıltı",
-    "category": "lighting",
-    "description": "Zıt mavi ve pembe neon ışıklarla sahneye siberpunk ışıması katar.",
+    "desc": "Zıt mavi ve pembe neon ışıklarla sahneye siberpunk ışıması katar.",
+    "explain": "Zıt mavi ve pembe neon ışıklarla sahneye siberpunk ışıması katar.",
     "layer": "lighting",
     "requires": [
       "lighting-volumetric-rays"
     ],
-    "prompt": "İkili Neon Işıklandırma (Dual Neon Glow - Cyan & Magenta) ekle: Yüzeylerde zıt neon yansımaları, ıslak asfalt parıltıları ve yüksek doygunluklu renk zıtlığı kur.",
-    "desc": "Zıt mavi ve pembe neon ışıklarla sahneye siberpunk ışıması katar.",
-    "explain": "Zıt mavi ve pembe neon ışıklarla sahneye siberpunk ışıması katar."
+    "prompt": "İkili Neon Işıklandırma (Dual Neon Glow - Cyan & Magenta) ekle: Yüzeylerde zıt neon yansımaları, ıslak asfalt parıltıları ve yüksek doygunluklu renk zıtlığı kur."
   },
   {
     "id": "lighting-chiaroscuro-contrast",
     "icon": "🌗",
     "name": "Chiaroscuro Yüksek Karşıtlık",
-    "category": "lighting",
-    "description": "Caravaggio tarzı karanlık ve aydınlık arasında sert kontrast yaratır.",
+    "desc": "Caravaggio tarzı karanlık ve aydınlık arasında sert kontrast yaratır.",
+    "explain": "Caravaggio tarzı karanlık ve aydınlık arasında sert kontrast yaratır.",
     "layer": "lighting",
     "requires": [
       "lighting-volumetric-rays"
     ],
-    "prompt": "Chiaroscuro aydınlatma tekniği uygula: Derin zifiri siyah gölgeler ile tek bir noktadan gelen sert nokta ışık (spotlight) arasında dramatik kontrast oluştur.",
-    "desc": "Caravaggio tarzı karanlık ve aydınlık arasında sert kontrast yaratır.",
-    "explain": "Caravaggio tarzı karanlık ve aydınlık arasında sert kontrast yaratır."
+    "prompt": "Chiaroscuro aydınlatma tekniği uygula: Derin zifiri siyah gölgeler ile tek bir noktadan gelen sert nokta ışık (spotlight) arasında dramatik kontrast oluştur."
   },
   {
     "id": "lighting-bioluminescent",
     "icon": "🍄",
     "name": "Biyolüminesans Doğal Parıltı",
-    "category": "lighting",
-    "description": "Mavi-yeşil ışık saçan organik organizma ve mantar parıltıları ekler.",
+    "desc": "Mavi-yeşil ışık saçan organik organizma ve mantar parıltıları ekler.",
+    "explain": "Mavi-yeşil ışık saçan organik organizma ve mantar parıltıları ekler.",
     "layer": "lighting",
     "requires": [
       "lighting-neon-cyber-glow"
     ],
-    "prompt": "Biyolüminesans (Bioluminescent Ambient Light) aydınlatma kur: Karanlık ortamda kendiliğinden mavi-yeşil ışık yayan organik bitkiler, mantarlar ve deniz canlıları parıltısı ver.",
-    "desc": "Mavi-yeşil ışık saçan organik organizma ve mantar parıltıları ekler.",
-    "explain": "Mavi-yeşil ışık saçan organik organizma ve mantar parıltıları ekler."
+    "prompt": "Biyolüminesans (Bioluminescent Ambient Light) aydınlatma kur: Karanlık ortamda kendiliğinden mavi-yeşil ışık yayan organik bitkiler, mantarlar ve deniz canlıları parıltısı ver."
   },
   {
     "id": "atmosphere-fog-mist",
     "icon": "🌫️",
     "name": "Yoğun Sis ve Atmosferik Derinlik",
-    "category": "atmosphere",
-    "description": "Derinlik hissi veren katmanlı sis ve gizemli atmosfer kurgular.",
+    "desc": "Derinlik hissi veren katmanlı sis ve gizemli atmosfer kurgular.",
+    "explain": "Derinlik hissi veren katmanlı sis ve gizemli atmosfer kurgular.",
     "layer": "atmosphere",
     "requires": [],
-    "prompt": "Atmosfere Yoğun Katmanlı Sis (Heavy Fog & Mist) ekle: Arka plandaki objelerin siste silikleştiği derinlik katan (aerial perspective) gizemli bir hava yarat.",
-    "desc": "Derinlik hissi veren katmanlı sis ve gizemli atmosfer kurgular.",
-    "explain": "Derinlik hissi veren katmanlı sis ve gizemli atmosfer kurgular."
+    "prompt": "Atmosfere Yoğun Katmanlı Sis (Heavy Fog & Mist) ekle: Arka plandaki objelerin siste silikleştiği derinlik katan (aerial perspective) gizemli bir hava yarat."
   },
   {
     "id": "atmosphere-surreal-dream",
     "icon": "☁️",
     "name": "Sürreal Düşsel Dinamikler",
-    "category": "atmosphere",
-    "description": "Magritte veya Dali tarzı yerçekimine aykırı sürrealist öğeler katar.",
+    "desc": "Magritte veya Dali tarzı yerçekimine aykırı sürrealist öğeler katar.",
+    "explain": "Magritte veya Dali tarzı yerçekimine aykırı sürrealist öğeler katar.",
     "layer": "atmosphere",
     "requires": [
       "atmosphere-fog-mist"
     ],
-    "prompt": "Atmosferi Sürreal ve Düşsel (Surreal Dreamscape) yap: Havada süzülen adalar, eriyen saatler veya imkansız gökyüzü renkleriyle Dali ve Magritte tarzı düşsel öğeler ekle.",
-    "desc": "Magritte veya Dali tarzı yerçekimine aykırı sürrealist öğeler katar.",
-    "explain": "Magritte veya Dali tarzı yerçekimine aykırı sürrealist öğeler katar."
+    "prompt": "Atmosferi Sürreal ve Düşsel (Surreal Dreamscape) yap: Havada süzülen adalar, eriyen saatler veya imkansız gökyüzü renkleriyle Dali ve Magritte tarzı düşsel öğeler ekle."
   },
   {
     "id": "atmosphere-dystopian-decay",
     "icon": "🏭",
     "name": "Ütopik/Distopik Endüstriyel Çürüme",
-    "category": "atmosphere",
-    "description": "Terk edilmiş, paslı ve doğa tarafından geri alınan kıyamet sonrası hava.",
+    "desc": "Terk edilmiş, paslı ve doğa tarafından geri alınan kıyamet sonrası hava.",
+    "explain": "Terk edilmiş, paslı ve doğa tarafından geri alınan kıyamet sonrası hava.",
     "layer": "atmosphere",
     "requires": [
       "atmosphere-fog-mist"
     ],
-    "prompt": "Distopik Pas ve Çürüme Dokusu (Post-Apocalyptic Decay) ver: Sarmaşıklarla kaplanmış terk edilmiş beton yapılar, paslı metaller ve kasvetli puslu hava ekle.",
-    "desc": "Terk edilmiş, paslı ve doğa tarafından geri alınan kıyamet sonrası hava.",
-    "explain": "Terk edilmiş, paslı ve doğa tarafından geri alınan kıyamet sonrası hava."
+    "prompt": "Distopik Pas ve Çürüme Dokusu (Post-Apocalyptic Decay) ver: Sarmaşıklarla kaplanmış terk edilmiş beton yapılar, paslı metaller ve kasvetli puslu hava ekle."
   },
   {
     "id": "atmosphere-ethereal-fantasy",
     "icon": "✨",
     "name": "Ruhani Fantastik Parıltı",
-    "category": "atmosphere",
-    "description": "Büyülü toz tanecikleri ve masalsı ışık haleleri oluşturur.",
+    "desc": "Büyülü toz tanecikleri ve masalsı ışık haleleri oluşturur.",
+    "explain": "Büyülü toz tanecikleri ve masalsı ışık haleleri oluşturur.",
     "layer": "atmosphere",
     "requires": [
       "atmosphere-fog-mist"
     ],
-    "prompt": "Etrafı Ruhani Fantastik (Ethereal Fantasy Sparkles) hava ile kapla: Havada süzülen altın toz tanecikleri, yumuşak parıltı haleleri (bloom effect) ve masalsı atmosfer kat.",
-    "desc": "Büyülü toz tanecikleri ve masalsı ışık haleleri oluşturur.",
-    "explain": "Büyülü toz tanecikleri ve masalsı ışık haleleri oluşturur."
+    "prompt": "Etrafı Ruhani Fantastik (Ethereal Fantasy Sparkles) hava ile kapla: Havada süzülen altın toz tanecikleri, yumuşak parıltı haleleri (bloom effect) ve masalsı atmosfer kat."
   },
   {
     "id": "atmosphere-retro-synthwave",
     "icon": "🌇",
     "name": "80'ler Retro Synthwave Havası",
-    "category": "atmosphere",
-    "description": "Mor gökyüzü, tel kafes ızgara ve 80'ler nostaljisi kurgular.",
+    "desc": "Mor gökyüzü, tel kafes ızgara ve 80'ler nostaljisi kurgular.",
+    "explain": "Mor gökyüzü, tel kafes ızgara ve 80'ler nostaljisi kurgular.",
     "layer": "atmosphere",
     "requires": [
       "atmosphere-fog-mist"
     ],
-    "prompt": "80'ler Synthwave / Outrun atmosferi yarat: Mor ve morötesi gün batımı gökyüzü, ufuktaki tel kafes ızgara (wireframe grid) ve retro-fütüristik estetik ver.",
-    "desc": "Mor gökyüzü, tel kafes ızgara ve 80'ler nostaljisi kurgular.",
-    "explain": "Mor gökyüzü, tel kafes ızgara ve 80'ler nostaljisi kurgular."
+    "prompt": "80'ler Synthwave / Outrun atmosferi yarat: Mor ve morötesi gün batımı gökyüzü, ufuktaki tel kafes ızgara (wireframe grid) ve retro-fütüristik estetik ver."
   },
   {
     "id": "atmosphere-film-noir",
     "icon": "🕵️",
     "name": "Kasvetli Film Noir Gizemi",
-    "category": "atmosphere",
-    "description": "Siyah-beyaz, jaluzi gölgeleri ve yağmurlu gece caddeleri atmosferi.",
+    "desc": "Siyah-beyaz, jaluzi gölgeleri ve yağmurlu gece caddeleri atmosferi.",
+    "explain": "Siyah-beyaz, jaluzi gölgeleri ve yağmurlu gece caddeleri atmosferi.",
     "layer": "atmosphere",
     "requires": [
       "atmosphere-dystopian-decay"
     ],
-    "prompt": "Kasvetli Film Noir atmosferi oluştur: Islak sokaklar, jaluzilerden süzülen çizgili gölgeler, tren dumanı ve karanlık suç anlatısı estetiği kur.",
-    "desc": "Siyah-beyaz, jaluzi gölgeleri ve yağmurlu gece caddeleri atmosferi.",
-    "explain": "Siyah-beyaz, jaluzi gölgeleri ve yağmurlu gece caddeleri atmosferi."
+    "prompt": "Kasvetli Film Noir atmosferi oluştur: Islak sokaklar, jaluzilerden süzülen çizgili gölgeler, tren dumanı ve karanlık suç anlatısı estetiği kur."
   },
   {
     "id": "parameters-midjourney-v6",
     "icon": "⚙️",
     "name": "Midjourney v6 Parametre Bayrakları",
-    "category": "parameters",
-    "description": "Midjourney v6 için fotogerçekçilik ve metin işleme parametrelerini ekler.",
+    "desc": "Midjourney v6 için fotogerçekçilik ve metin işleme parametrelerini ekler.",
+    "explain": "Midjourney v6 için fotogerçekçilik ve metin işleme parametrelerini ekler.",
     "layer": "parameters",
     "requires": [],
-    "prompt": "Promptun sonuna Midjourney v6 parametrelerini ekle: `--v 6.0 --style raw --q 2` komutlarıyla ham fotogerçekçilik ve yüksek detay seviyesine kilitlen.",
-    "desc": "Midjourney v6 için fotogerçekçilik ve metin işleme parametrelerini ekler.",
-    "explain": "Midjourney v6 için fotogerçekçilik ve metin işleme parametrelerini ekler."
+    "prompt": "Promptun sonuna Midjourney v6 parametrelerini ekle: `--v 6.0 --style raw --q 2` komutlarıyla ham fotogerçekçilik ve yüksek detay seviyesine kilitlen."
   },
   {
     "id": "parameters-aspect-ratio",
     "icon": "📐",
     "name": "En-Boy Oranı Ayarı (--ar 16:9)",
-    "category": "parameters",
-    "description": "Sinematik veya dikey ekranlar için kadraj oranını sabitler.",
+    "desc": "Sinematik veya dikey ekranlar için kadraj oranını sabitler.",
+    "explain": "Sinematik veya dikey ekranlar için kadraj oranını sabitler.",
     "layer": "parameters",
     "requires": [
       "parameters-midjourney-v6"
     ],
-    "prompt": "Görsel format parametresini tanımla: Sinematik manzara için `--ar 16:9` veya dikey mobil için `--ar 9:16` en-boy oranını prompt sonuna yerleştir.",
-    "desc": "Sinematik veya dikey ekranlar için kadraj oranını sabitler.",
-    "explain": "Sinematik veya dikey ekranlar için kadraj oranını sabitler."
+    "prompt": "Görsel format parametresini tanımla: Sinematik manzara için `--ar 16:9` veya dikey mobil için `--ar 9:16` en-boy oranını prompt sonuna yerleştir."
   },
   {
     "id": "parameters-negative-prompt",
     "icon": "🚫",
     "name": "Negatif Prompt Filtreleme",
-    "category": "parameters",
-    "description": "İstenmeyen bozulmaları, fazla parmakları ve bulanıklığı engeller.",
+    "desc": "İstenmeyen bozulmaları, fazla parmakları ve bulanıklığı engeller.",
+    "explain": "İstenmeyen bozulmaları, fazla parmakları ve bulanıklığı engeller.",
     "layer": "parameters",
     "requires": [
       "parameters-midjourney-v6"
     ],
-    "prompt": "Negatif Prompt / Exclude filtresini ekle: `--no blur, watermark, deformed hands, extra limbs, low resolution, oversaturated, signature` parametresi koy.",
-    "desc": "İstenmeyen bozulmaları, fazla parmakları ve bulanıklığı engeller.",
-    "explain": "İstenmeyen bozulmaları, fazla parmakları ve bulanıklığı engeller."
+    "prompt": "Negatif Prompt / Exclude filtresini ekle: `--no blur, watermark, deformed hands, extra limbs, low resolution, oversaturated, signature` parametresi koy."
   },
   {
     "id": "parameters-chaos-stylize",
     "icon": "🎛️",
     "name": "Chaos & Stylize Kontrolü",
-    "category": "parameters",
-    "description": "Görselin sürpriz varyasyonunu ve sanatsal özgürlük dozajını ayarlar.",
+    "desc": "Görselin sürpriz varyasyonunu ve sanatsal özgürlük dozajını ayarlar.",
+    "explain": "Görselin sürpriz varyasyonunu ve sanatsal özgürlük dozajını ayarlar.",
     "layer": "parameters",
     "requires": [
       "parameters-aspect-ratio"
     ],
-    "prompt": "Sanatsal özgürlük ve varyasyon parametrelerini ayarla: `--stylize 250 --chaos 15` ekleyerek estetik kaliteyi yükseltip hafif kreatif sürprizlere izin ver.",
-    "desc": "Görselin sürpriz varyasyonunu ve sanatsal özgürlük dozajını ayarlar.",
-    "explain": "Görselin sürpriz varyasyonunu ve sanatsal özgürlük dozajını ayarlar."
+    "prompt": "Sanatsal özgürlük ve varyasyon parametrelerini ayarla: `--stylize 250 --chaos 15` ekleyerek estetik kaliteyi yükseltip hafif kreatif sürprizlere izin ver."
   },
   {
     "id": "parameters-flux-guidance",
     "icon": "⚡",
     "name": "Flux.1 Guidance & Steps Tuning",
-    "category": "parameters",
-    "description": "Flux.1 modelleri için adımları ve metin takip katılığı ayarlar.",
+    "desc": "Flux.1 modelleri için adımları ve metin takip katılığı ayarlar.",
+    "explain": "Flux.1 modelleri için adımları ve metin takip katılığı ayarlar.",
     "layer": "parameters",
     "requires": [
       "parameters-negative-prompt"
     ],
-    "prompt": "Flux.1 Model ayarlarını kodla: `Guidance Scale: 3.5`, `Inference Steps: 35` ve `Prompt Strength: 0.85` ile tam metin sadakati ve yüksek detay üret.",
-    "desc": "Flux.1 modelleri için adımları ve metin takip katılığı ayarlar.",
-    "explain": "Flux.1 modelleri için adımları ve metin takip katılığı ayarlar."
+    "prompt": "Flux.1 Model ayarlarını kodla: `Guidance Scale: 3.5`, `Inference Steps: 35` ve `Prompt Strength: 0.85` ile tam metin sadakati ve yüksek detay üret."
   },
   {
     "id": "parameters-sdxl-refiner",
     "icon": "🔧",
     "name": "SDXL Refiner & LoRA Ağırlıkları",
-    "category": "parameters",
-    "description": "Stable Diffusion XL için refiner ve özel stil LoRA ağırlığı tanımlar.",
+    "desc": "Stable Diffusion XL için refiner ve özel stil LoRA ağırlığı tanımlar.",
+    "explain": "Stable Diffusion XL için refiner ve özel stil LoRA ağırlığı tanımlar.",
     "layer": "parameters",
     "requires": [
       "parameters-flux-guidance"
     ],
-    "prompt": "SDXL & LoRA parametrelerini bağla: `<lora:detail_enhancer:0.65>`, `Base Denoise: 0.8`, `Refiner Switch: 0.2` ekleyerek mikroskobik doku kalitesini artır.",
-    "desc": "Stable Diffusion XL için refiner ve özel stil LoRA ağırlığı tanımlar.",
-    "explain": "Stable Diffusion XL için refiner ve özel stil LoRA ağırlığı tanımlar."
+    "prompt": "SDXL & LoRA parametrelerini bağla: `<lora:detail_enhancer:0.65>`, `Base Denoise: 0.8`, `Refiner Switch: 0.2` ekleyerek mikroskobik doku kalitesini artır."
   }
 ]

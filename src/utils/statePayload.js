@@ -43,7 +43,7 @@ export function sanitizePayload(raw, lang = 'tr') {
     const validIds = new Set(registry.map((m) => m.id));
 
     const selectedModules = Array.isArray(raw?.selectedModules)
-        ? raw.selectedModules.filter((id) => validIds.has(id))
+        ? Array.from(new Set(raw.selectedModules.filter((id) => validIds.has(id))))
         : [];
 
     const fallbackOrValid = (value, validList, fallback) =>
@@ -65,22 +65,46 @@ export function sanitizePayload(raw, lang = 'tr') {
         selectedModules,
         activePreset
     };
-    if (typeof raw?.konu === 'string') sanitized.konu = raw.konu;
-    if (typeof raw?.alan === 'string') sanitized.alan = raw.alan;
+    if (typeof raw?.konu === 'string') sanitized.konu = raw.konu.slice(0, 10000);
+    if (typeof raw?.alan === 'string') sanitized.alan = raw.alan.slice(0, 10000);
     return sanitized;
 }
 
 export function encodePayloadToParam(payload) {
-    return encodeURIComponent(btoa(unescape(encodeURIComponent(JSON.stringify(payload)))));
+    try {
+        const json = JSON.stringify(payload);
+        if (typeof TextEncoder !== 'undefined') {
+            const bytes = new TextEncoder().encode(json);
+            let bin = '';
+            for (let i = 0; i < bytes.length; i++) {
+                bin += String.fromCharCode(bytes[i]);
+            }
+            return encodeURIComponent(btoa(bin));
+        }
+        return encodeURIComponent(btoa(unescape(encodeURIComponent(json))));
+    } catch {
+        return '';
+    }
 }
 
 // Returns null on any decode failure (malformed base64/JSON) instead of
 // throwing — callers treat null as "no shareable state present".
 export function decodePayloadFromParam(param) {
     try {
-        const json = decodeURIComponent(escape(atob(decodeURIComponent(param))));
-        return JSON.parse(json);
+        const raw = atob(decodeURIComponent(param));
+        if (typeof TextDecoder !== 'undefined') {
+            const bytes = new Uint8Array(raw.length);
+            for (let i = 0; i < raw.length; i++) {
+                bytes[i] = raw.charCodeAt(i);
+            }
+            return JSON.parse(new TextDecoder().decode(bytes));
+        }
+        return JSON.parse(decodeURIComponent(escape(raw)));
     } catch {
-        return null;
+        try {
+            return JSON.parse(decodeURIComponent(escape(atob(decodeURIComponent(param)))));
+        } catch {
+            return null;
+        }
     }
 }

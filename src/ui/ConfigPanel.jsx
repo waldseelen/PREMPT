@@ -1,18 +1,22 @@
+import { useState } from 'react';
 import { useEngineState } from '../store/engineState';
 import { useShallow } from 'zustand/react/shallow';
 import { getTranslation } from '../locales/i18n';
 import { getDomain } from '../domains';
 import { OUTPUT_TARGETS } from '../config/outputTargets';
-import { GraduationCap, Workflow, Layers, FileText, BrainCircuit, Link, Terminal } from 'lucide-react';
+import { GraduationCap, Workflow, Layers, FileText, BrainCircuit, Link, Terminal, Info } from 'lucide-react';
 import { getParameterDescription } from '../domains/parameterDescriptions';
 import ParameterSelect from './ParameterSelect';
 import ParameterHoverMenu from './ParameterHoverMenu';
+import PortalTooltip from './PortalTooltip';
 
 export default function ConfigPanel() {
-    const { config, setConfig } = useEngineState(useShallow(state => ({
+    const { config, setConfig } = useEngineState(useShallow((state) => ({
         config: state.config,
         setConfig: state.setConfig
     })));
+    const [hoveredHelp, setHoveredHelp] = useState(null);
+
     const t = getTranslation(config.lang, config.domain);
     const domain = getDomain(config.domain);
 
@@ -48,7 +52,7 @@ export default function ConfigPanel() {
                 
                 <div className="config-form">
                     <div className="input-group">
-                        <label htmlFor="sel-seviye" style={{display: 'flex', alignItems: 'center', gap: '6px', position: 'relative'}}>
+                        <label htmlFor="sel-seviye" style={{ display: 'flex', alignItems: 'center', gap: '6px', position: 'relative' }}>
                             <GraduationCap size={14} /> {domain.ui?.levelLabel || t.levelLabel}
                             <ParameterHoverMenu
                                 label={domain.ui?.levelLabel || t.levelLabel}
@@ -64,7 +68,7 @@ export default function ConfigPanel() {
                         />
                     </div>
                     <div className="input-group">
-                        <label htmlFor="sel-mod" style={{display: 'flex', alignItems: 'center', gap: '6px', position: 'relative'}}>
+                        <label htmlFor="sel-mod" style={{ display: 'flex', alignItems: 'center', gap: '6px', position: 'relative' }}>
                             <Workflow size={14} /> {domain.ui?.modeLabel || t.modeLabel}
                             <ParameterHoverMenu
                                 label={domain.ui?.modeLabel || t.modeLabel}
@@ -80,7 +84,7 @@ export default function ConfigPanel() {
                         />
                     </div>
                     <div className="input-group">
-                        <label htmlFor="sel-derinlik" style={{display: 'flex', alignItems: 'center', gap: '6px', position: 'relative'}}>
+                        <label htmlFor="sel-derinlik" style={{ display: 'flex', alignItems: 'center', gap: '6px', position: 'relative' }}>
                             <Layers size={14} /> {domain.ui?.depthLabel || t.depthLabel}
                             <ParameterHoverMenu
                                 label={domain.ui?.depthLabel || t.depthLabel}
@@ -97,7 +101,7 @@ export default function ConfigPanel() {
                         />
                     </div>
                     <div className="input-group">
-                        <label htmlFor="sel-format" style={{display: 'flex', alignItems: 'center', gap: '6px', position: 'relative'}}>
+                        <label htmlFor="sel-format" style={{ display: 'flex', alignItems: 'center', gap: '6px', position: 'relative' }}>
                             <FileText size={14} /> {domain.ui?.formatLabel || t.formatLabel}
                             <ParameterHoverMenu
                                 label={domain.ui?.formatLabel || t.formatLabel}
@@ -114,20 +118,29 @@ export default function ConfigPanel() {
                         />
                     </div>
                     <div className="input-group">
-                        <label htmlFor="sel-hedef" style={{display: 'flex', alignItems: 'center', gap: '6px', position: 'relative'}}>
-                            <Terminal size={14} /> {t.targetLabel}
-                            <div className="config-tooltip">
-                                <ul className="tooltip-list">
-                                    {Object.entries(t.targetDescs || {}).map(([key, text]) => {
-                                        const [title, ...rest] = text.split(':');
-                                        return (
-                                            <li key={key}>
-                                                <strong>{title}:</strong>{rest.join(':')}
-                                            </li>
-                                        );
-                                    })}
-                                </ul>
-                            </div>
+                        <label htmlFor="sel-hedef" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                            <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                                <Terminal size={14} /> {t.targetLabel}
+                            </span>
+                            <span
+                                className="parameter-hover-trigger"
+                                tabIndex={0}
+                                aria-label={t.targetLabel}
+                                onMouseEnter={(e) => setHoveredHelp({
+                                    title: t.targetLabel,
+                                    type: 'targets',
+                                    rect: e.currentTarget.getBoundingClientRect()
+                                })}
+                                onMouseLeave={() => setHoveredHelp(null)}
+                                onFocus={(e) => setHoveredHelp({
+                                    title: t.targetLabel,
+                                    type: 'targets',
+                                    rect: e.currentTarget.getBoundingClientRect()
+                                })}
+                                onBlur={() => setHoveredHelp(null)}
+                            >
+                                <Info size={14} aria-hidden="true" />
+                            </span>
                         </label>
                         <select id="sel-hedef" value={config.hedef} onChange={(e) => setConfig('hedef', e.target.value)}>
                             {OUTPUT_TARGETS.map((id) => (
@@ -138,7 +151,7 @@ export default function ConfigPanel() {
                 </div>
                 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginTop: 'auto', paddingTop: '20px', borderTop: '1px solid var(--border)' }}>
-                    <div className="toggle-row">
+                    <div className="toggle-row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                         <div className="input-group" style={{ flexDirection: 'row', alignItems: 'center', gap: '10px' }}>
                             <label className="toggle-switch">
                                 <input type="checkbox" id="chk-monolog" checked={config.monolog} onChange={(e) => setConfig('monolog', e.target.checked)} />
@@ -148,11 +161,27 @@ export default function ConfigPanel() {
                                 <BrainCircuit size={14} /> {t.monologLabel}
                             </label>
                         </div>
-                        <div className="config-tooltip">
-                            {t.monologDesc}
-                        </div>
+                        <span
+                            className="parameter-hover-trigger"
+                            tabIndex={0}
+                            aria-label={t.monologLabel}
+                            onMouseEnter={(e) => setHoveredHelp({
+                                title: t.monologLabel,
+                                desc: t.monologDesc,
+                                rect: e.currentTarget.getBoundingClientRect()
+                            })}
+                            onMouseLeave={() => setHoveredHelp(null)}
+                            onFocus={(e) => setHoveredHelp({
+                                title: t.monologLabel,
+                                desc: t.monologDesc,
+                                rect: e.currentTarget.getBoundingClientRect()
+                            })}
+                            onBlur={() => setHoveredHelp(null)}
+                        >
+                            <Info size={14} aria-hidden="true" />
+                        </span>
                     </div>
-                    <div className="toggle-row">
+                    <div className="toggle-row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                         <div className="input-group" style={{ flexDirection: 'row', alignItems: 'center', gap: '10px' }}>
                             <label className="toggle-switch">
                                 <input type="checkbox" id="chk-autoresolve" checked={config.autoResolveDeps} onChange={(e) => setConfig('autoResolveDeps', e.target.checked)} />
@@ -162,12 +191,47 @@ export default function ConfigPanel() {
                                 <Link size={14} /> {t.autoResolveLabel}
                             </label>
                         </div>
-                        <div className="config-tooltip">
-                            {t.autoResolveDesc}
-                        </div>
+                        <span
+                            className="parameter-hover-trigger"
+                            tabIndex={0}
+                            aria-label={t.autoResolveLabel}
+                            onMouseEnter={(e) => setHoveredHelp({
+                                title: t.autoResolveLabel,
+                                desc: t.autoResolveDesc,
+                                rect: e.currentTarget.getBoundingClientRect()
+                            })}
+                            onMouseLeave={() => setHoveredHelp(null)}
+                            onFocus={(e) => setHoveredHelp({
+                                title: t.autoResolveLabel,
+                                desc: t.autoResolveDesc,
+                                rect: e.currentTarget.getBoundingClientRect()
+                            })}
+                            onBlur={() => setHoveredHelp(null)}
+                        >
+                            <Info size={14} aria-hidden="true" />
+                        </span>
                     </div>
                 </div>
             </div>
+
+            {hoveredHelp && (
+                <PortalTooltip targetRect={hoveredHelp.rect} isOpen={Boolean(hoveredHelp)}>
+                    <div className="tooltip-title">{hoveredHelp.title}</div>
+                    {hoveredHelp.desc && <div className="tooltip-explain">{hoveredHelp.desc}</div>}
+                    {hoveredHelp.type === 'targets' && (
+                        <ul className="tooltip-list" style={{ marginTop: '8px' }}>
+                            {Object.entries(t.targetDescs || {}).map(([key, text]) => {
+                                const [title, ...rest] = text.split(':');
+                                return (
+                                    <li key={key}>
+                                        <strong>{title}:</strong> {rest.join(':')}
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    )}
+                </PortalTooltip>
+            )}
         </aside>
     );
 }

@@ -3,410 +3,350 @@
     "id": "loc-cultural-adaptation",
     "icon": "🌍",
     "name": "Kültürel Bağlam Lokalizasyonu",
-    "category": "localization",
-    "description": "Metni hedef kültürün sosyal değerlerine ve duyarlılıklarına göre uyarlar.",
+    "desc": "Metni hedef kültürün sosyal değerlerine ve duyarlılıklarına göre uyarlar.",
+    "explain": "Metni hedef kültürün sosyal değerlerine ve duyarlılıklarına göre uyarlar.",
     "layer": "localization",
     "requires": [],
-    "prompt": "Metni sadece kelime kelime çevirme; hedef kültürün sosyal normlarına, mizah anlayışına ve değer yargılarına göre tam Kültürel Lokalizasyon (Adaptation) uygula.",
-    "desc": "Metni hedef kültürün sosyal değerlerine ve duyarlılıklarına göre uyarlar.",
-    "explain": "Metni hedef kültürün sosyal değerlerine ve duyarlılıklarına göre uyarlar."
+    "prompt": "Metni sadece kelime kelime çevirme; hedef kültürün sosyal normlarına, mizah anlayışına ve değer yargılarına göre tam Kültürel Lokalizasyon (Adaptation) uygula."
   },
   {
     "id": "loc-idiomatic-transcreation",
     "icon": "🎭",
     "name": "Deyimsel Transkreasyon (Kreatif Çeviri)",
-    "category": "localization",
-    "description": "Deyimleri doğrudan çevirmek yerine hedef dildeki tam duygusal karşılığını bulur.",
+    "desc": "Deyimleri doğrudan çevirmek yerine hedef dildeki tam duygusal karşılığını bulur.",
+    "explain": "Deyimleri doğrudan çevirmek yerine hedef dildeki tam duygusal karşılığını bulur.",
     "layer": "localization",
     "requires": [
       "loc-cultural-adaptation"
     ],
-    "prompt": "Metne Transkreasyon (Transcreation) uygula: Kaynak dildeki deyim ve atasözlerini birebir çevirmek yerine, hedef dilde aynı etkiyi yaratan kültürel eşdeğerlerini koy.",
-    "desc": "Deyimleri doğrudan çevirmek yerine hedef dildeki tam duygusal karşılığını bulur.",
-    "explain": "Deyimleri doğrudan çevirmek yerine hedef dildeki tam duygusal karşılığını bulur."
+    "prompt": "Metne Transkreasyon (Transcreation) uygula: Kaynak dildeki deyim ve atasözlerini birebir çevirmek yerine, hedef dilde aynı etkiyi yaratan kültürel eşdeğerlerini koy."
   },
   {
     "id": "loc-dialect-regional-register",
     "icon": "🗺️",
     "name": "Bölgesel Diyalekt ve Ağız Kalibrasyonu",
-    "category": "localization",
-    "description": "Metni spesifik bir coğrafi diyalekte (Örn: Amerikan vs. İngiliz İngilizcesi) kilitler.",
+    "desc": "Metni spesifik bir coğrafi diyalekte (Örn: Amerikan vs. İngiliz İngilizcesi) kilitler.",
+    "explain": "Metni spesifik bir coğrafi diyalekte (Örn: Amerikan vs. İngiliz İngilizcesi) kilitler.",
     "layer": "localization",
     "requires": [
       "loc-cultural-adaptation"
     ],
-    "prompt": "Bölgesel diyalekt ayarı yap: Metni [Amerikan / İngiliz / Avustralya] İngilizcesinin spesifik yazım, kelime ve dilbilgisi normlarına (%100 lokal sıklık) hizala.",
-    "desc": "Metni spesifik bir coğrafi diyalekte (Örn: Amerikan vs. İngiliz İngilizcesi) kilitler.",
-    "explain": "Metni spesifik bir coğrafi diyalekte (Örn: Amerikan vs. İngiliz İngilizcesi) kilitler."
+    "prompt": "Bölgesel diyalekt ayarı yap: Metni [Amerikan / İngiliz / Avustralya] İngilizcesinin spesifik yazım, kelime ve dilbilgisi normlarına (%100 lokal sıklık) hizala."
   },
   {
     "id": "loc-brand-voice-translation",
     "icon": "🏷️",
     "name": "Marka Tonu ve Ses Hizalaması",
-    "category": "localization",
-    "description": "Çeviride markanın kurumsal kişiliğini ve arketipik tonunu korur.",
+    "desc": "Çeviride markanın kurumsal kişiliğini ve arketipik tonunu korur.",
+    "explain": "Çeviride markanın kurumsal kişiliğini ve arketipik tonunu korur.",
     "layer": "localization",
     "requires": [
       "loc-cultural-adaptation"
     ],
-    "prompt": "Çeviride Marka Sesini (Brand Voice) koru: Markanın [Yenilikçi / Samimi / Otoriter] kurumsal arketipik tonunu hedef dilin pazarlama terminolojisine aktar.",
-    "desc": "Çeviride markanın kurumsal kişiliğini ve arketipik tonunu korur.",
-    "explain": "Çeviride markanın kurumsal kişiliğini ve arketipik tonunu korur."
+    "prompt": "Çeviride Marka Sesini (Brand Voice) koru: Markanın [Yenilikçi / Samimi / Otoriter] kurumsal arketipik tonunu hedef dilin pazarlama terminolojisine aktar."
   },
   {
     "id": "loc-taboo-etiquette-check",
     "icon": "🛡️",
     "name": "Kültürel Tabu ve Etiket Denetimi",
-    "category": "localization",
-    "description": "Hedef kültürde hakaret veya potansiyel gaf sayılabilecek unsurları engeller.",
+    "desc": "Hedef kültürde hakaret veya potansiyel gaf sayılabilecek unsurları engeller.",
+    "explain": "Hedef kültürde hakaret veya potansiyel gaf sayılabilecek unsurları engeller.",
     "layer": "localization",
     "requires": [
       "loc-cultural-adaptation"
     ],
-    "prompt": "Kültürel Tabu ve Etiket Denetimi yap: Metinde hedef kültürün dini, politik veya sosyal hassasiyetlerini zedeleyebilecek potansiyel gafları tespit et ve düzelt.",
-    "desc": "Hedef kültürde hakaret veya potansiyel gaf sayılabilecek unsurları engeller.",
-    "explain": "Hedef kültürde hakaret veya potansiyel gaf sayılabilecek unsurları engeller."
+    "prompt": "Kültürel Tabu ve Etiket Denetimi yap: Metinde hedef kültürün dini, politik veya sosyal hassasiyetlerini zedeleyebilecek potansiyel gafları tespit et ve düzelt."
   },
   {
     "id": "loc-slang-colloquial-fit",
     "icon": "🗣️",
     "name": "Güncel Argo ve Sokak Dili Adaptörü",
-    "category": "localization",
-    "description": "Metne hedef dildeki doğal, modern sokak söylemlerini enjekte eder.",
+    "desc": "Metne hedef dildeki doğal, modern sokak söylemlerini enjekte eder.",
+    "explain": "Metne hedef dildeki doğal, modern sokak söylemlerini enjekte eder.",
     "layer": "localization",
     "requires": [
       "loc-idiomatic-transcreation"
     ],
-    "prompt": "Z-Kuşağı veya modern sokak dili adaptasyonu yap: Hedef dilde yapay durmayan, güncel ve otantik popüler jargon/argo karşılıklarını doğal akışta kullan.",
-    "desc": "Metne hedef dildeki doğal, modern sokak söylemlerini enjekte eder.",
-    "explain": "Metne hedef dildeki doğal, modern sokak söylemlerini enjekte eder."
+    "prompt": "Z-Kuşağı veya modern sokak dili adaptasyonu yap: Hedef dilde yapay durmayan, güncel ve otantik popüler jargon/argo karşılıklarını doğal akışta kullan."
   },
   {
     "id": "reg-academic-c2-elevation",
     "icon": "🎓",
     "name": "CEFR C2 Akademik Seviye Yükseltme",
-    "category": "register",
-    "description": "Metni en üst düzey formal akademik terminoloji ve yapıya taşır.",
+    "desc": "Metni en üst düzey formal akademik terminoloji ve yapıya taşır.",
+    "explain": "Metni en üst düzey formal akademik terminoloji ve yapıya taşır.",
     "layer": "register",
     "requires": [],
-    "prompt": "Metnin dil seviyesini CEFR C2 Akademik düzeyine yükselt: Basit fiil ve sıfatları kaldır; yerlerine C2 seviyesinde formal, kesin ve bilimsel kelimeler koy.",
-    "desc": "Metni en üst düzey formal akademik terminoloji ve yapıya taşır.",
-    "explain": "Metni en üst düzey formal akademik terminoloji ve yapıya taşır."
+    "prompt": "Metnin dil seviyesini CEFR C2 Akademik düzeyine yükselt: Basit fiil ve sıfatları kaldır; yerlerine C2 seviyesinde formal, kesin ve bilimsel kelimeler koy."
   },
   {
     "id": "reg-diplomatic-courtesy-tone",
     "icon": "🕊️",
     "name": "Diplomatik & Resmi Zarafet Tonu",
-    "category": "register",
-    "description": "Üslubu nazik, keskin hatları yumuşatılmış diplomatik bir tona getirir.",
+    "desc": "Üslubu nazik, keskin hatları yumuşatılmış diplomatik bir tona getirir.",
+    "explain": "Üslubu nazik, keskin hatları yumuşatılmış diplomatik bir tona getirir.",
     "layer": "register",
     "requires": [
       "reg-academic-c2-elevation"
     ],
-    "prompt": "Diplomatik Ton (Tactful & Courteous Register) uygula: Sert talepleri ve direkt eleştirileri profesyonel ve diplomatik bir nezaketle yeniden kaleme al.",
-    "desc": "Üslubu nazik, keskin hatları yumuşatılmış diplomatik bir tona getirir.",
-    "explain": "Üslubu nazik, keskin hatları yumuşatılmış diplomatik bir tona getirir."
+    "prompt": "Diplomatik Ton (Tactful & Courteous Register) uygula: Sert talepleri ve direkt eleştirileri profesyonel ve diplomatik bir nezaketle yeniden kaleme al."
   },
   {
     "id": "reg-casual-conversational-flow",
     "icon": "☕",
     "name": "Doğal Konuşma Dili (Casual Conversational)",
-    "category": "register",
-    "description": "Metindeki kasıntı ve resmi havayı atıp samimi bir sohbet tonu verir.",
+    "desc": "Metindeki kasıntı ve resmi havayı atıp samimi bir sohbet tonu verir.",
+    "explain": "Metindeki kasıntı ve resmi havayı atıp samimi bir sohbet tonu verir.",
     "layer": "register",
     "requires": [
       "reg-academic-c2-elevation"
     ],
-    "prompt": "Metni Doğal Konuşma Dilinde (Casual Conversational) yeniden yaz: Resmi dili kır, kısaltmaları (contractions) kullan ve bir dostla kahve içerken konuşur gibi akıcı yap.",
-    "desc": "Metindeki kasıntı ve resmi havayı atıp samimi bir sohbet tonu verir.",
-    "explain": "Metindeki kasıntı ve resmi havayı atıp samimi bir sohbet tonu verir."
+    "prompt": "Metni Doğal Konuşma Dilinde (Casual Conversational) yeniden yaz: Resmi dili kır, kısaltmaları (contractions) kullan ve bir dostla kahve içerken konuşur gibi akıcı yap."
   },
   {
     "id": "reg-executive-brevity-style",
     "icon": "💼",
     "name": "Üst Yönetici (Executive) Özet Stili",
-    "category": "register",
-    "description": "Laf kalabalığını atıp doğrudan karara yönelik vurucu ve özgün dil sunar.",
+    "desc": "Laf kalabalığını atıp doğrudan karara yönelik vurucu ve özgün dil sunar.",
+    "explain": "Laf kalabalığını atıp doğrudan karara yönelik vurucu ve özgün dil sunar.",
     "layer": "register",
     "requires": [
       "reg-academic-c2-elevation"
     ],
-    "prompt": "Üst Yönetici Dili (Executive Brevity) uygula: Tüm süslü paragrafları sil; doğrudan eyleme ve karara odaklı, net, kısa ve vurucu bir dil kur.",
-    "desc": "Laf kalabalığını atıp doğrudan karara yönelik vurucu ve özgün dil sunar.",
-    "explain": "Laf kalabalığını atıp doğrudan karara yönelik vurucu ve özgün dil sunar."
+    "prompt": "Üst Yönetici Dili (Executive Brevity) uygula: Tüm süslü paragrafları sil; doğrudan eyleme ve karara odaklı, net, kısa ve vurucu bir dil kur."
   },
   {
     "id": "reg-archaic-literary-voice",
     "icon": "📜",
     "name": "Edebi ve Dönemsel Anlatı Dili",
-    "category": "register",
-    "description": "Metne klasik 19. yüzyıl edebiyatı veya epik anlatı havası verir.",
+    "desc": "Metne klasik 19. yüzyıl edebiyatı veya epik anlatı havası verir.",
+    "explain": "Metne klasik 19. yüzyıl edebiyatı veya epik anlatı havası verir.",
     "layer": "register",
     "requires": [
       "reg-academic-c2-elevation"
     ],
-    "prompt": "Metne Klasik Edebi Ton (Literary / Period Voice) kazandır: 19. yüzyıl romancıları veya epik anlatıcılar gibi zengin betimlemeler ve edebi üslup kullan.",
-    "desc": "Metne klasik 19. yüzyıl edebiyatı veya epik anlatı havası verir.",
-    "explain": "Metne klasik 19. yüzyıl edebiyatı veya epik anlatı havası verir."
+    "prompt": "Metne Klasik Edebi Ton (Literary / Period Voice) kazandır: 19. yüzyıl romancıları veya epik anlatıcılar gibi zengin betimlemeler ve edebi üslup kullan."
   },
   {
     "id": "reg-jargon-simplifier",
     "icon": "💡",
     "name": "Teknik Jargon Sadeleştirici (Feynman)",
-    "category": "register",
-    "description": "Karmaşık teknik terimleri 12 yaşındaki birinin anlayacağı dile çevirir.",
+    "desc": "Karmaşık teknik terimleri 12 yaşındaki birinin anlayacağı dile çevirir.",
+    "explain": "Karmaşık teknik terimleri 12 yaşındaki birinin anlayacağı dile çevirir.",
     "layer": "register",
     "requires": [
       "reg-casual-conversational-flow"
     ],
-    "prompt": "Feynman Tekniği ile sadeleştir: Ağır teknik terminolojiyi çıkar; konuyu 12 yaşındaki bir çocuğa veya teknik dışı bir yöneticiye anlatır gibi sade analojilerle ifade et.",
-    "desc": "Karmaşık teknik terimleri 12 yaşındaki birinin anlayacağı dile çevirir.",
-    "explain": "Karmaşık teknik terimleri 12 yaşındaki birinin anlayacağı dile çevirir."
+    "prompt": "Feynman Tekniği ile sadeleştir: Ağır teknik terminolojiyi çıkar; konuyu 12 yaşındaki bir çocuğa veya teknik dışı bir yöneticiye anlatır gibi sade analojilerle ifade et."
   },
   {
     "id": "flu-rhythm-cadence-refiner",
     "icon": "🎶",
     "name": "Cümle Ritmi ve Müzikalite (Cadence)",
-    "category": "fluency",
-    "description": "Kısa ve uzun cümleleri harmanlayarak okuma akışına müzikal bir ritim katar.",
+    "desc": "Kısa ve uzun cümleleri harmanlayarak okuma akışına müzikal bir ritim katar.",
+    "explain": "Kısa ve uzun cümleleri harmanlayarak okuma akışına müzikal bir ritim katar.",
     "layer": "fluency",
     "requires": [],
-    "prompt": "Cümle Ritmini ve Müzikalitesini (Cadence & Prose Rhythm) düzenle: Hep aynı boyuttaki monoton cümle yapısını kır; kısa, orta ve uzun cümleleri ritmik bir akışla diz.",
-    "desc": "Kısa ve uzun cümleleri harmanlayarak okuma akışına müzikal bir ritim katar.",
-    "explain": "Kısa ve uzun cümleleri harmanlayarak okuma akışına müzikal bir ritim katar."
+    "prompt": "Cümle Ritmini ve Müzikalitesini (Cadence & Prose Rhythm) düzenle: Hep aynı boyuttaki monoton cümle yapısını kır; kısa, orta ve uzun cümleleri ritmik bir akışla diz."
   },
   {
     "id": "flu-active-voice-conversion",
     "icon": "⚡",
     "name": "Etken Fiil ve Dinamizm Enjeksiyonu",
-    "category": "fluency",
-    "description": "Edilgen (passive) cümleleri dinamik etken (active) eylemlere çevirir.",
+    "desc": "Edilgen (passive) cümleleri dinamik etken (active) eylemlere çevirir.",
+    "explain": "Edilgen (passive) cümleleri dinamik etken (active) eylemlere çevirir.",
     "layer": "fluency",
     "requires": [
       "flu-rhythm-cadence-refiner"
     ],
-    "prompt": "Metindeki hantal edilgen (passive voice) yapıları sil: Tüm cümleleri güçlü etken fiillerle (active voice) yeniden kurarak metnin enerjisini yükselt.",
-    "desc": "Edilgen (passive) cümleleri dinamik etken (active) eylemlere çevirir.",
-    "explain": "Edilgen (passive) cümleleri dinamik etken (active) eylemlere çevirir."
+    "prompt": "Metindeki hantal edilgen (passive voice) yapıları sil: Tüm cümleleri güçlü etken fiillerle (active voice) yeniden kurarak metnin enerjisini yükselt."
   },
   {
     "id": "flu-redundancy-slasher",
     "icon": "✂️",
     "name": "Gereksiz Kelime ve Pleonasm Temizliği",
-    "category": "fluency",
-    "description": "Anlama katkı sağlamayan zayıf zarfları ve kelime tekrarlarını budar.",
+    "desc": "Anlama katkı sağlamayan zayıf zarfları ve kelime tekrarlarını budar.",
+    "explain": "Anlama katkı sağlamayan zayıf zarfları ve kelime tekrarlarını budar.",
     "layer": "fluency",
     "requires": [
       "flu-rhythm-cadence-refiner"
     ],
-    "prompt": "Kelime İsrafını (Redundancy & Pleonasm) buda: Metindeki 'very', 'really', 'actually' gibi zayıf zarfları ve aynı anlama gelen ikileme kelimeleri tamamen sil.",
-    "desc": "Anlama katkı sağlamayan zayıf zarfları ve kelime tekrarlarını budar.",
-    "explain": "Anlama katkı sağlamayan zayıf zarfları ve kelime tekrarlarını budar."
+    "prompt": "Kelime İsrafını (Redundancy & Pleonasm) buda: Metindeki 'very', 'really', 'actually' gibi zayıf zarfları ve aynı anlama gelen ikileme kelimeleri tamamen sil."
   },
   {
     "id": "flu-transitional-cohesion",
     "icon": "🔗",
     "name": "Mantıksal Bağlaçlar ve Akıcılık",
-    "category": "fluency",
-    "description": "Paragraflar arasına kusursuz akademik geçiş bağlaçları yerleştirir.",
+    "desc": "Paragraflar arasına kusursuz akademik geçiş bağlaçları yerleştirir.",
+    "explain": "Paragraflar arasına kusursuz akademik geçiş bağlaçları yerleştirir.",
     "layer": "fluency",
     "requires": [
       "flu-rhythm-cadence-refiner"
     ],
-    "prompt": "Paragraf Geçişlerini ve Mantıksal Cohesion'ı güçlendir: Düşünceler arasındaki zıtlık, nedensellik ve ekleme bağlaçlarını doğal ve pürüzsüz hale getir.",
-    "desc": "Paragraflar arasına kusursuz akademik geçiş bağlaçları yerleştirir.",
-    "explain": "Paragraflar arasına kusursuz akademik geçiş bağlaçları yerleştirir."
+    "prompt": "Paragraf Geçişlerini ve Mantıksal Cohesion'ı güçlendir: Düşünceler arasındaki zıtlık, nedensellik ve ekleme bağlaçlarını doğal ve pürüzsüz hale getir."
   },
   {
     "id": "flu-vocabulary-precision",
     "icon": "🎯",
     "name": "Kelime Seçim Hassasiyeti (Precision)",
-    "category": "fluency",
-    "description": "Genel kelimeleri bağlama tam uyan spesifik nüanslı kelimelerle değiştirir.",
+    "desc": "Genel kelimeleri bağlama tam uyan spesifik nüanslı kelimelerle değiştirir.",
+    "explain": "Genel kelimeleri bağlama tam uyan spesifik nüanslı kelimelerle değiştirir.",
     "layer": "fluency",
     "requires": [
       "flu-rhythm-cadence-refiner"
     ],
-    "prompt": "Lexical Precision (Kelime Hassasiyeti) uygula: 'Good', 'bad', 'big' gibi jenerik sıfatlar yerine bağlamın tam duygu ve şiddetini veren nüanslı kelimeler seç.",
-    "desc": "Genel kelimeleri bağlama tam uyan spesifik nüanslı kelimelerle değiştirir.",
-    "explain": "Genel kelimeleri bağlama tam uyan spesifik nüanslı kelimelerle değiştirir."
+    "prompt": "Lexical Precision (Kelime Hassasiyeti) uygula: 'Good', 'bad', 'big' gibi jenerik sıfatlar yerine bağlamın tam duygu ve şiddetini veren nüanslı kelimeler seç."
   },
   {
     "id": "flu-readability-score-optimizer",
     "icon": "📊",
     "name": "Flesch-Kincaid Okunabilirlik Optimizasyonu",
-    "category": "fluency",
-    "description": "Metnin okunabilirlik skorunu hedef kitle karmaşıklığına göre ayarlar.",
+    "desc": "Metnin okunabilirlik skorunu hedef kitle karmaşıklığına göre ayarlar.",
+    "explain": "Metnin okunabilirlik skorunu hedef kitle karmaşıklığına göre ayarlar.",
     "layer": "fluency",
     "requires": [
       "flu-redundancy-slasher"
     ],
-    "prompt": "Metnin Flesch-Kincaid Okunabilirlik Skorunu optimize et: Cümle karmaşıklığını hedef kitlenin okuma seviyesine (Grade 8-12) göre tam olarak kalibre et.",
-    "desc": "Metnin okunabilirlik skorunu hedef kitle karmaşıklığına göre ayarlar.",
-    "explain": "Metnin okunabilirlik skorunu hedef kitle karmaşıklığına göre ayarlar."
+    "prompt": "Metnin Flesch-Kincaid Okunabilirlik Skorunu optimize et: Cümle karmaşıklığını hedef kitlenin okuma seviyesine (Grade 8-12) göre tam olarak kalibre et."
   },
   {
     "id": "idm-phrasal-verb-harmonizer",
     "icon": "🧩",
     "name": "Phrasal Verb ve Kalıp Uyumlayıcı",
-    "category": "idioms",
-    "description": "İngilizce phrasal verb'leri zorlama olmadan doğal akışta harmanlar.",
+    "desc": "İngilizce phrasal verb'leri zorlama olmadan doğal akışta harmanlar.",
+    "explain": "İngilizce phrasal verb'leri zorlama olmadan doğal akışta harmanlar.",
     "layer": "idioms",
     "requires": [],
-    "prompt": "Phrasal Verb ve Collocation kullanımını doğallaştır: Metne yapay durmayan, anadili İngilizce olanların günlük hayatta tercih ettiği doğal öbekleşmeleri yerleştir.",
-    "desc": "İngilizce phrasal verb'leri zorlama olmadan doğal akışta harmanlar.",
-    "explain": "İngilizce phrasal verb'leri zorlama olmadan doğal akışta harmanlar."
+    "prompt": "Phrasal Verb ve Collocation kullanımını doğallaştır: Metne yapay durmayan, anadili İngilizce olanların günlük hayatta tercih ettiği doğal öbekleşmeleri yerleştir."
   },
   {
     "id": "idm-metaphor-naturalizer",
     "icon": "🎨",
     "name": "Metefer ve Benzetme Doğallaştırıcı",
-    "category": "idioms",
-    "description": "Eğreti duran benzetmeleri hedef dildeki zarif metaforlara çevirir.",
+    "desc": "Eğreti duran benzetmeleri hedef dildeki zarif metaforlara çevirir.",
+    "explain": "Eğreti duran benzetmeleri hedef dildeki zarif metaforlara çevirir.",
     "layer": "idioms",
     "requires": [
       "idm-phrasal-verb-harmonizer"
     ],
-    "prompt": "Metafor ve Benzetmeleri (Simile) hedef dilin estetiğine göre doğallaştır: Göze batan çeviri kokan benzetmeleri çıkarıp daha zarif ve akılda kalıcı metaforlar kur.",
-    "desc": "Eğreti duran benzetmeleri hedef dildeki zarif metaforlara çevirir.",
-    "explain": "Eğreti duran benzetmeleri hedef dildeki zarif metaforlara çevirir."
+    "prompt": "Metafor ve Benzetmeleri (Simile) hedef dilin estetiğine göre doğallaştır: Göze batan çeviri kokan benzetmeleri çıkarıp daha zarif ve akılda kalıcı metaforlar kur."
   },
   {
     "id": "idm-false-friends-filter",
     "icon": "⚠️",
     "name": "Yalancı Eşdeğer (False Friends) Düzeltici",
-    "category": "idioms",
-    "description": "Farklı dillerde benzer görünen ama anlamı farklı kelime gaflarını siler.",
+    "desc": "Farklı dillerde benzer görünen ama anlamı farklı kelime gaflarını siler.",
+    "explain": "Farklı dillerde benzer görünen ama anlamı farklı kelime gaflarını siler.",
     "layer": "idioms",
     "requires": [
       "idm-phrasal-verb-harmonizer"
     ],
-    "prompt": "Yalancı Eşdeğerler (False Friends / False Cognates) taraması yap: Şeklen benzeyen ancak farklı dillerde tamamen farklı anlama gelen kelime hatalarını düzelt.",
-    "desc": "Farklı dillerde benzer görünen ama anlamı farklı kelime gaflarını siler.",
-    "explain": "Farklı dillerde benzer görünen ama anlamı farklı kelime gaflarını siler."
+    "prompt": "Yalancı Eşdeğerler (False Friends / False Cognates) taraması yap: Şeklen benzeyen ancak farklı dillerde tamamen farklı anlama gelen kelime hatalarını düzelt."
   },
   {
     "id": "idm-proverbial-equivalents",
     "icon": "📜",
     "name": "Kültürlerarası Atasözü Eşleştirici",
-    "category": "idioms",
-    "description": "Kaynak atasözünün hedef kültürdeki birebir hikmet karşılığını bulur.",
+    "desc": "Kaynak atasözünün hedef kültürdeki birebir hikmet karşılığını bulur.",
+    "explain": "Kaynak atasözünün hedef kültürdeki birebir hikmet karşılığını bulur.",
     "layer": "idioms",
     "requires": [
       "idm-phrasal-verb-harmonizer"
     ],
-    "prompt": "Atasözleri ve Özdeyişler için tam Kültürlerarası Eşdeğer bul: Kelime kelime tercüme etmek yerine hedef kültürün tarihsel hafızasındaki aynı hikmeti veren atasözünü yerleştir.",
-    "desc": "Kaynak atasözünün hedef kültürdeki birebir hikmet karşılığını bulur.",
-    "explain": "Kaynak atasözünün hedef kültürdeki birebir hikmet karşılığını bulur."
+    "prompt": "Atasözleri ve Özdeyişler için tam Kültürlerarası Eşdeğer bul: Kelime kelime tercüme etmek yerine hedef kültürün tarihsel hafızasındaki aynı hikmeti veren atasözünü yerleştir."
   },
   {
     "id": "idm-nuance-spectrum-mapper",
     "icon": "🌈",
     "name": "Kelime Nüans ve Yan Anlam Spektrumu",
-    "category": "idioms",
-    "description": "Benzer anlamlı kelimelerin pozitif/negatif yan anlamlarını (connotation) çözer.",
+    "desc": "Benzer anlamlı kelimelerin pozitif/negatif yan anlamlarını (connotation) çözer.",
+    "explain": "Benzer anlamlı kelimelerin pozitif/negatif yan anlamlarını (connotation) çözer.",
     "layer": "idioms",
     "requires": [
       "idm-metaphor-naturalizer"
     ],
-    "prompt": "Kelime Yan Anlam (Connotation vs. Denotation) Spektrumu çıkar: Seçilen kelimenin taşıdığı gizli duygusal tonu (pozitif, negatif, nötr) analiz et ve tam duyguya göre değiştir.",
-    "desc": "Benzer anlamlı kelimelerin pozitif/negatif yan anlamlarını (connotation) çözer.",
-    "explain": "Benzer anlamlı kelimelerin pozitif/negatif yan anlamlarını (connotation) çözer."
+    "prompt": "Kelime Yan Anlam (Connotation vs. Denotation) Spektrumu çıkar: Seçilen kelimenin taşıdığı gizli duygusal tonu (pozitif, negatif, nötr) analiz et ve tam duyguya göre değiştir."
   },
   {
     "id": "idm-humor-pun-translator",
     "icon": "🃏",
     "name": "Mizah ve Kelime Oyunu Transkreasyonu",
-    "category": "idioms",
-    "description": "Çevrilmesi imkansız esprileri hedef dilde yeniden icat eder.",
+    "desc": "Çevrilmesi imkansız esprileri hedef dilde yeniden icat eder.",
+    "explain": "Çevrilmesi imkansız esprileri hedef dilde yeniden icat eder.",
     "layer": "idioms",
     "requires": [
       "idm-proverbial-equivalents"
     ],
-    "prompt": "Mizah ve Kelime Oyunlarını (Puns / Wordplay) Transkreasyon ile yeniden üret: Çevrildiğinde anlamını yitiren nükte ve espriyi hedef dilin olanaklarıyla sıfırdan kurgula.",
-    "desc": "Çevrilmesi imkansız esprileri hedef dilde yeniden icat eder.",
-    "explain": "Çevrilmesi imkansız esprileri hedef dilde yeniden icat eder."
+    "prompt": "Mizah ve Kelime Oyunlarını (Puns / Wordplay) Transkreasyon ile yeniden üret: Çevrildiğinde anlamını yitiren nükte ve espriyi hedef dilin olanaklarıyla sıfırdan kurgula."
   },
   {
     "id": "ped-socratic-tutor-mode",
     "icon": "🏛️",
     "name": "Sokratik Dil Eğitmeni Modu",
-    "category": "pedagogy",
-    "description": "Doğrudan cevabı vermeyip yönlendirici sorularla dili öğreten eğitmen.",
+    "desc": "Doğrudan cevabı vermeyip yönlendirici sorularla dili öğreten eğitmen.",
+    "explain": "Doğrudan cevabı vermeyip yönlendirici sorularla dili öğreten eğitmen.",
     "layer": "pedagogy",
     "requires": [],
-    "prompt": "Sokratik Dil Öğretmeni rolüne geç: Kullanıcının dil hatasını doğrudan düzeltme; hatayı kendisinin bulmasını sağlayacak yönlendirici 2 ipucu sorusu sor.",
-    "desc": "Doğrudan cevabı vermeyip yönlendirici sorularla dili öğreten eğitmen.",
-    "explain": "Doğrudan cevabı vermeyip yönlendirici sorularla dili öğreten eğitmen."
+    "prompt": "Sokratik Dil Öğretmeni rolüne geç: Kullanıcının dil hatasını doğrudan düzeltme; hatayı kendisinin bulmasını sağlayacak yönlendirici 2 ipucu sorusu sor."
   },
   {
     "id": "ped-error-correction-feedback",
     "icon": "📝",
     "name": "Ayrıntılı Hata Analizi ve Geri Bildirim",
-    "category": "pedagogy",
-    "description": "Gramo-sentaktik hataları tablo halinde kural açıklamasıyla sunar.",
+    "desc": "Gramo-sentaktik hataları tablo halinde kural açıklamasıyla sunar.",
+    "explain": "Gramo-sentaktik hataları tablo halinde kural açıklamasıyla sunar.",
     "layer": "pedagogy",
     "requires": [
       "ped-socratic-tutor-mode"
     ],
-    "prompt": "Girdi metnine Ayrıntılı Dilbilgisi ve Sentaks Analizi yap: Hatalı Kısım | Doğru Kullanım | Dilbilgisi Kuralı ve Nedeni şeklinde tablo halinde raporla.",
-    "desc": "Gramo-sentaktik hataları tablo halinde kural açıklamasıyla sunar.",
-    "explain": "Gramo-sentaktik hataları tablo halinde kural açıklamasıyla sunar."
+    "prompt": "Girdi metnine Ayrıntılı Dilbilgisi ve Sentaks Analizi yap: Hatalı Kısım | Doğru Kullanım | Dilbilgisi Kuralı ve Nedeni şeklinde tablo halinde raporla."
   },
   {
     "id": "ped-spaced-recall-builder",
     "icon": "🗂️",
     "name": "Anki Flashcard & Aralıklı Tekrar Kartı",
-    "category": "pedagogy",
-    "description": "Metindeki zor kelimelerden Anki formatında flashcard seti üretir.",
+    "desc": "Metindeki zor kelimelerden Anki formatında flashcard seti üretir.",
+    "explain": "Metindeki zor kelimelerden Anki formatında flashcard seti üretir.",
     "layer": "pedagogy",
     "requires": [
       "ped-socratic-tutor-mode"
     ],
-    "prompt": "Metindeki hedef kelimelerden Anki Flashcard seti oluştur: Front: [Kelime + Örnek Cümledeki Boşluk] | Back: [Tanım + İpucu + IPA Telaffuz] formatında yaz.",
-    "desc": "Metindeki zor kelimelerden Anki formatında flashcard seti üretir.",
-    "explain": "Metindeki zor kelimelerden Anki formatında flashcard seti üretir."
+    "prompt": "Metindeki hedef kelimelerden Anki Flashcard seti oluştur: Front: [Kelime + Örnek Cümledeki Boşluk] | Back: [Tanım + İpucu + IPA Telaffuz] formatında yaz."
   },
   {
     "id": "ped-contextual-cloze-creator",
     "icon": "🧩",
     "name": "Bağlamsal Boşluk Doldurma Alıştırması",
-    "category": "pedagogy",
-    "description": "Metni kelime dağarcığını test eden boşluk doldurma testine dönüştürür.",
+    "desc": "Metni kelime dağarcığını test eden boşluk doldurma testine dönüştürür.",
+    "explain": "Metni kelime dağarcığını test eden boşluk doldurma testine dönüştürür.",
     "layer": "pedagogy",
     "requires": [
       "ped-socratic-tutor-mode"
     ],
-    "prompt": "Metinden Bağlamsal Boşluk Doldurma (Cloze Test) Egzersizi üret: Hedef kelimeleri çıkarıp yerlerine numaralandırılmış boşluklar koy ve en alta çoktan seçmeli opsiyonlar ekle.",
-    "desc": "Metni kelime dağarcığını test eden boşluk doldurma testine dönüştürür.",
-    "explain": "Metni kelime dağarcığını test eden boşluk doldurma testine dönüştürür."
+    "prompt": "Metinden Bağlamsal Boşluk Doldurma (Cloze Test) Egzersizi üret: Hedef kelimeleri çıkarıp yerlerine numaralandırılmış boşluklar koy ve en alta çoktan seçmeli opsiyonlar ekle."
   },
   {
     "id": "ped-pronunciation-ipa-guide",
     "icon": "🗣️",
     "name": "IPA Telaffuz ve Vurgu Rehberi",
-    "category": "pedagogy",
-    "description": "Zor kelimelerin Uluslararası Fonetik Alfabe (IPA) okunuşlarını ve vurgularını verir.",
+    "desc": "Zor kelimelerin Uluslararası Fonetik Alfabe (IPA) okunuşlarını ve vurgularını verir.",
+    "explain": "Zor kelimelerin Uluslararası Fonetik Alfabe (IPA) okunuşlarını ve vurgularını verir.",
     "layer": "pedagogy",
     "requires": [
       "ped-error-correction-feedback"
     ],
-    "prompt": "Zor kelimeler için Uluslararası Fonetik Alfabe (IPA) Telaffuz Rehberi hazırla: Kelimenin IPA transkripsiyonunu, hece vurgusunu (syllable stress) ve ses kaydını taklit eden phonetic okunuşunu sun.",
-    "desc": "Zor kelimelerin Uluslararası Fonetik Alfabe (IPA) okunuşlarını ve vurgularını verir.",
-    "explain": "Zor kelimelerin Uluslararası Fonetik Alfabe (IPA) okunuşlarını ve vurgularını verir."
+    "prompt": "Zor kelimeler için Uluslararası Fonetik Alfabe (IPA) Telaffuz Rehberi hazırla: Kelimenin IPA transkripsiyonunu, hece vurgusunu (syllable stress) ve ses kaydını taklit eden phonetic okunuşunu sun."
   },
   {
     "id": "ped-immersion-scenario-roleplay",
     "icon": "🎭",
     "name": "İnteraktif Dilde Rol Yapma (Roleplay)",
-    "category": "pedagogy",
-    "description": "Kullanıcıyı gerçek hayat senaryolarında dilde pratik yapmaya davet eder.",
+    "desc": "Kullanıcıyı gerçek hayat senaryolarında dilde pratik yapmaya davet eder.",
+    "explain": "Kullanıcıyı gerçek hayat senaryolarında dilde pratik yapmaya davet eder.",
     "layer": "pedagogy",
     "requires": [
       "ped-socratic-tutor-mode"
     ],
-    "prompt": "İnteraktif Dil Rol Yapma (Roleplay) Senaryosu başlat: Sen [İş Görüşmecisi / Otel Resepsiyonisti / Garson] ol; kullanıcı ile belirtilen seviyede diyalog başlat ve her turda mini dönüt ver.",
-    "desc": "Kullanıcıyı gerçek hayat senaryolarında dilde pratik yapmaya davet eder.",
-    "explain": "Kullanıcıyı gerçek hayat senaryolarında dilde pratik yapmaya davet eder."
+    "prompt": "İnteraktif Dil Rol Yapma (Roleplay) Senaryosu başlat: Sen [İş Görüşmecisi / Otel Resepsiyonisti / Garson] ol; kullanıcı ile belirtilen seviyede diyalog başlat ve her turda mini dönüt ver."
   }
 ]

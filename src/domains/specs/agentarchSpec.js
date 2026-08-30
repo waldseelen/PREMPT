@@ -32,7 +32,17 @@ export const agentarchSpec = {
         "system": "System Prompts",
         "guardrails": "Güvenlik & Sınırlar",
         "orchestration": "Orkestrasyon & Bellek"
-      }
+      },
+      "categories": {
+        "persona": "Persona & Sistem Rolü",
+        "cot": "Düşünce Zinciri (CoT)",
+        "guardrails": "Güvenlik & Sınırlar",
+        "fewshot": "Few-Shot Örnekleri",
+        "orchestration": "Araçlar & Orkestrasyon"
+      },
+      "modulesTitle": "Modüller (Module Blocks)",
+      "presetsTitle": "Uzman Hazır Şablonları (System Presets)",
+      "paramsTitle": "Parametreler"
     },
     "en": {
       "title": "Meta-Prompt & AI Agent Architect",
@@ -49,7 +59,17 @@ export const agentarchSpec = {
         "system": "System Prompts",
         "guardrails": "Safety & Boundaries",
         "orchestration": "Orchestration & Memory"
-      }
+      },
+      "categories": {
+        "persona": "Persona & System Role",
+        "cot": "Chain-of-Thought (CoT)",
+        "guardrails": "Safety Guardrails",
+        "fewshot": "Few-Shot Examples",
+        "orchestration": "Tools & Orchestration"
+      },
+      "modulesTitle": "Module Blocks",
+      "presetsTitle": "System Presets",
+      "paramsTitle": "Parameters"
     }
   },
   "optionSets": {
@@ -112,18 +132,80 @@ export const agentarchSpec = {
   },
   "compilerTexts": {
     "tr": {
-      "topicHeader": "AGENT GÖREVİ",
-      "levelHeader": "PROMPT TİPİ",
-      "modeHeader": "MİMARLIK TARZI",
-      "depthHeader": "GÜVENİLİRLİK",
-      "formatHeader": "PROMPT YAPISI"
+      "mod": {
+        "guardrail": "Sen sıfır toleranslı bir yapay zeka güvenlik ve prompt mimarısısın. Halüsinasyonu engelleyen deterministik kısıtlar ve savunma bariyerleri tasarlarsın.",
+        "cot": "Sen akıl yürütme (Reasoning & CoT) mimarısısın. Modelin adım adım düşünmesini, ara adımları doğrulamasını ve mantık zincirini kurmasını sağlarsın.",
+        "fewshot": "Sen örnek temelli öğrenme (Few-Shot Prompting) uzmanısın. Karmaşık girdi/çıktı sözleşmelerini mükemmel kurgulanmış örnek çiftleriyle tanımlarsın."
+      },
+      "derinlik": {
+        "standart": "Temel sistem promptu, rol tanımı ve standart kısıtlar.",
+        "zerohallucination": "Sıkı halüsinasyon engelleme, negatif kısıtlar ve doğrulama filtreleri.",
+        "askeri": "Askeri düzeyde deterministik guardrail mimarisi, tool calling şemaları ve hata yakalama döngüleri."
+      },
+      "format": {
+        "xml": "Claude ve gelişmiş LLM uyumlu XML tag hiyerarşisi kullan.",
+        "systemjson": "OpenAI API ve Structured Outputs uyumlu JSON formatı hazırla.",
+        "template": "Değişken parametreli ve modüler Markdown template formatı kullan."
+      },
+      "labels": {
+        "role": "[ROLE]",
+        "goal": "[GOAL]",
+        "context": "[CONTEXT]",
+        "modules": "[ACTIVE MODULES]",
+        "instructions": "[INSTRUCTIONS]",
+        "format": "[OUTPUT FORMAT]",
+        "constraints": "[CONSTRAINTS / SAFETY]"
+      },
+      "contextLabels": {
+        "domain": "Alan:",
+        "level": "Seviye:",
+        "depthRequirement": "Derinlik Gereksinimi:"
+      },
+      "goalTemplate": "\"{{KONU}}\" yapay zeka ajanı için sıfır-halüsinasyon hedefli, deterministik ve üretim kalitesinde bir sistem promptu ve çalışma mimarisi oluşturmak.",
+      "constraintsBase": [
+        "Prompt içinde belirsiz, yoruma açık ifadeler bırakma.",
+        "Modelin bilmediği durumlarda \"bilmiyorum\" demesini zorunlu kıl.",
+        "Girdi ve çıktı formatını şematik olarak kilitli tut."
+      ],
+      "monologueText": "İÇ SES MODU: Prompt mimarisini yazmadan önce (<thinking> tagleri içinde) olası prompt enjeksiyonu ve halüsinasyon vektörlerini test et."
     },
     "en": {
-      "topicHeader": "AGENT TASK",
-      "levelHeader": "PROMPT TYPE",
-      "modeHeader": "ARCHITECTURAL STYLE",
-      "depthHeader": "RELIABILITY",
-      "formatHeader": "PROMPT STRUCTURE"
+      "mod": {
+        "guardrail": "You are a zero-tolerance AI safety and prompt architect. You design deterministic constraints, refusal boundaries, and anti-hallucination barriers.",
+        "cot": "You are a Chain-of-Thought and reasoning loop architect. You enforce rigorous step-by-step verification before final answers.",
+        "fewshot": "You are an exemplary few-shot prompting engineer. You establish airtight input/output contracts through curated demonstration pairs."
+      },
+      "derinlik": {
+        "standart": "Standard system prompt with defined persona and core constraints.",
+        "zerohallucination": "Strict anti-hallucination guardrails, negative constraints, and verification protocols.",
+        "askeri": "Mission-critical deterministic architecture with tool schema contracts and failure recovery loops."
+      },
+      "format": {
+        "xml": "Format using Claude-optimized semantic XML tag hierarchy.",
+        "systemjson": "Format using OpenAI Structured Outputs compliant JSON schema.",
+        "template": "Format as a parameterized modular Markdown prompt template."
+      },
+      "labels": {
+        "role": "[ROLE]",
+        "goal": "[GOAL]",
+        "context": "[CONTEXT]",
+        "modules": "[ACTIVE MODULES]",
+        "instructions": "[INSTRUCTIONS]",
+        "format": "[OUTPUT FORMAT]",
+        "constraints": "[CONSTRAINTS / SAFETY]"
+      },
+      "contextLabels": {
+        "domain": "Domain:",
+        "level": "Level:",
+        "depthRequirement": "Depth Requirement:"
+      },
+      "goalTemplate": "To construct a zero-hallucination, deterministic, production-grade system prompt and agent execution architecture for \"{{KONU}}\".",
+      "constraintsBase": [
+        "Leave zero room for ambiguous model interpretation.",
+        "Mandate explicit uncertainty refusal when facts are missing.",
+        "Enforce strict input/output contract validation."
+      ],
+      "monologueText": "INTERNAL MONOLOGUE: Before assembling the system prompt, stress-test prompt injection and hallucination vectors in <thinking> tags."
     }
   },
   "presets": {
@@ -139,7 +221,6 @@ export const agentarchSpec = {
         "en": "Enforces strict facts-only guardrails."
       },
       "forceModules": [
-        "persona-role-definition",
         "persona-role-definition"
       ],
       "override": {

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import { useEngineState } from '../store/engineState';
 import { getTranslation } from '../locales/i18n';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -12,7 +12,7 @@ export default function OnboardingTour() {
     const cardRef = useRef(null);
 
     const t = getTranslation(config.lang, config.domain);
-    const steps = t.tourSteps || [];
+    const steps = useMemo(() => t.tourSteps || [], [t.tourSteps]);
 
     // 4 non-overlapping strips tiling the viewport around `rect` (padded),
     // so the darkened/blurred overlay geometrically cannot cover the
@@ -104,7 +104,7 @@ export default function OnboardingTour() {
                             width: '320px',
                             zIndex: 10005
                         });
-                    } else if (selector === '.domain-switch') {
+                    } else if (selector === '.domain-switcher-container' || selector === '.domain-switch') {
                         setCoords({
                             position: 'fixed',
                             top: `${rect.bottom + 16}px`,

@@ -3,410 +3,350 @@
     "id": "loc-cultural-adaptation",
     "icon": "🌍",
     "name": "Cultural Context Localization",
-    "category": "localization",
-    "description": "Adapts prose to target culture social norms, humor, and values.",
+    "desc": "Adapts prose to target culture social norms, humor, and values.",
+    "explain": "Adapts prose to target culture social norms, humor, and values.",
     "layer": "localization",
     "requires": [],
-    "prompt": "Do not translate literally; perform complete Cultural Localization adapting text to target culture social norms, humor, and underlying value systems.",
-    "desc": "Adapts prose to target culture social norms, humor, and values.",
-    "explain": "Adapts prose to target culture social norms, humor, and values."
+    "prompt": "Do not translate literally; perform complete Cultural Localization adapting text to target culture social norms, humor, and underlying value systems."
   },
   {
     "id": "loc-idiomatic-transcreation",
     "icon": "🎭",
     "name": "Idiomatic Transcreation",
-    "category": "localization",
-    "description": "Re-creates idioms and creative phrasing with equivalent target culture emotional resonance.",
+    "desc": "Re-creates idioms and creative phrasing with equivalent target culture emotional resonance.",
+    "explain": "Re-creates idioms and creative phrasing with equivalent target culture emotional resonance.",
     "layer": "localization",
     "requires": [
       "loc-cultural-adaptation"
     ],
-    "prompt": "Execute Transcreation: Re-create source idioms, metaphors, and wordplay using culturally authentic equivalents that produce identical emotional resonance.",
-    "desc": "Re-creates idioms and creative phrasing with equivalent target culture emotional resonance.",
-    "explain": "Re-creates idioms and creative phrasing with equivalent target culture emotional resonance."
+    "prompt": "Execute Transcreation: Re-create source idioms, metaphors, and wordplay using culturally authentic equivalents that produce identical emotional resonance."
   },
   {
     "id": "loc-dialect-regional-register",
     "icon": "🗺️",
     "name": "Regional Dialect Calibration",
-    "category": "localization",
-    "description": "Locks text to specific geographical dialects (e.g., US vs. UK English).",
+    "desc": "Locks text to specific geographical dialects (e.g., US vs. UK English).",
+    "explain": "Locks text to specific geographical dialects (e.g., US vs. UK English).",
     "layer": "localization",
     "requires": [
       "loc-cultural-adaptation"
     ],
-    "prompt": "Calibrate regional dialect: Enforce strict compliance with [US / UK / Australian] spelling, vocabulary, and grammatical conventions.",
-    "desc": "Locks text to specific geographical dialects (e.g., US vs. UK English).",
-    "explain": "Locks text to specific geographical dialects (e.g., US vs. UK English)."
+    "prompt": "Calibrate regional dialect: Enforce strict compliance with [US / UK / Australian] spelling, vocabulary, and grammatical conventions."
   },
   {
     "id": "loc-brand-voice-translation",
     "icon": "🏷️",
     "name": "Brand Voice Alignment",
-    "category": "localization",
-    "description": "Preserves corporate brand identity and personality archetypes across languages.",
+    "desc": "Preserves corporate brand identity and personality archetypes across languages.",
+    "explain": "Preserves corporate brand identity and personality archetypes across languages.",
     "layer": "localization",
     "requires": [
       "loc-cultural-adaptation"
     ],
-    "prompt": "Maintain Brand Voice across translation: Adapt the company's [Innovative / Warm / Authoritative] brand archetype into target market terminology.",
-    "desc": "Preserves corporate brand identity and personality archetypes across languages.",
-    "explain": "Preserves corporate brand identity and personality archetypes across languages."
+    "prompt": "Maintain Brand Voice across translation: Adapt the company's [Innovative / Warm / Authoritative] brand archetype into target market terminology."
   },
   {
     "id": "loc-taboo-etiquette-check",
     "icon": "🛡️",
     "name": "Cultural Taboo & Etiquette Audit",
-    "category": "localization",
-    "description": "Screens text for potential cultural gaffes, offensive idioms, or taboo references.",
+    "desc": "Screens text for potential cultural gaffes, offensive idioms, or taboo references.",
+    "explain": "Screens text for potential cultural gaffes, offensive idioms, or taboo references.",
     "layer": "localization",
     "requires": [
       "loc-cultural-adaptation"
     ],
-    "prompt": "Audit for Cultural Taboos & Etiquette: Detect and eliminate phrasing that could offend religious, political, or social sensitivities in the target region.",
-    "desc": "Screens text for potential cultural gaffes, offensive idioms, or taboo references.",
-    "explain": "Screens text for potential cultural gaffes, offensive idioms, or taboo references."
+    "prompt": "Audit for Cultural Taboos & Etiquette: Detect and eliminate phrasing that could offend religious, political, or social sensitivities in the target region."
   },
   {
     "id": "loc-slang-colloquial-fit",
     "icon": "🗣️",
     "name": "Modern Colloquial & Slang Adaptor",
-    "category": "localization",
-    "description": "Injects authentic, contemporary slang and informal expressions.",
+    "desc": "Injects authentic, contemporary slang and informal expressions.",
+    "explain": "Injects authentic, contemporary slang and informal expressions.",
     "layer": "localization",
     "requires": [
       "loc-idiomatic-transcreation"
     ],
-    "prompt": "Adapt modern slang & informal register: Inject authentic, non-stilted contemporary colloquial expressions popular among native speakers.",
-    "desc": "Injects authentic, contemporary slang and informal expressions.",
-    "explain": "Injects authentic, contemporary slang and informal expressions."
+    "prompt": "Adapt modern slang & informal register: Inject authentic, non-stilted contemporary colloquial expressions popular among native speakers."
   },
   {
     "id": "reg-academic-c2-elevation",
     "icon": "🎓",
     "name": "CEFR C2 Academic Elevation",
-    "category": "register",
-    "description": "Elevates prose to formal, precise C2-level academic standard.",
+    "desc": "Elevates prose to formal, precise C2-level academic standard.",
+    "explain": "Elevates prose to formal, precise C2-level academic standard.",
     "layer": "register",
     "requires": [],
-    "prompt": "Elevate register to CEFR C2 Academic standard: Replace basic verbs and adjectives with precise, formal C2-level vocabulary and complex syntactic structures.",
-    "desc": "Elevates prose to formal, precise C2-level academic standard.",
-    "explain": "Elevates prose to formal, precise C2-level academic standard."
+    "prompt": "Elevate register to CEFR C2 Academic standard: Replace basic verbs and adjectives with precise, formal C2-level vocabulary and complex syntactic structures."
   },
   {
     "id": "reg-diplomatic-courtesy-tone",
     "icon": "🕊️",
     "name": "Diplomatic & Formal Tact",
-    "category": "register",
-    "description": "Refreshes prose into tactful, courteous, and diplomatically polished tone.",
+    "desc": "Refreshes prose into tactful, courteous, and diplomatically polished tone.",
+    "explain": "Refreshes prose into tactful, courteous, and diplomatically polished tone.",
     "layer": "register",
     "requires": [
       "reg-academic-c2-elevation"
     ],
-    "prompt": "Apply Diplomatic Register (Tactful & Courteous): Reframe direct demands or sharp criticisms into polished, courteous diplomatic phrasing.",
-    "desc": "Refreshes prose into tactful, courteous, and diplomatically polished tone.",
-    "explain": "Refreshes prose into tactful, courteous, and diplomatically polished tone."
+    "prompt": "Apply Diplomatic Register (Tactful & Courteous): Reframe direct demands or sharp criticisms into polished, courteous diplomatic phrasing."
   },
   {
     "id": "reg-casual-conversational-flow",
     "icon": "☕",
     "name": "Natural Conversational Register",
-    "category": "register",
-    "description": "Strips stiffness to establish a warm, natural conversational cadence.",
+    "desc": "Strips stiffness to establish a warm, natural conversational cadence.",
+    "explain": "Strips stiffness to establish a warm, natural conversational cadence.",
     "layer": "register",
     "requires": [
       "reg-academic-c2-elevation"
     ],
-    "prompt": "Rewrite in Natural Conversational style: Strip formal stiffness, deploy natural contractions, and write with the warm flow of an engaging coffee chat.",
-    "desc": "Strips stiffness to establish a warm, natural conversational cadence.",
-    "explain": "Strips stiffness to establish a warm, natural conversational cadence."
+    "prompt": "Rewrite in Natural Conversational style: Strip formal stiffness, deploy natural contractions, and write with the warm flow of an engaging coffee chat."
   },
   {
     "id": "reg-executive-brevity-style",
     "icon": "💼",
     "name": "Executive Brevity & Directness",
-    "category": "register",
-    "description": "Strips fluff to deliver concise, action-oriented executive prose.",
+    "desc": "Strips fluff to deliver concise, action-oriented executive prose.",
+    "explain": "Strips fluff to deliver concise, action-oriented executive prose.",
     "layer": "register",
     "requires": [
       "reg-academic-c2-elevation"
     ],
-    "prompt": "Apply Executive Brevity: Eliminate narrative preamble; deploy concise, punchy, action-oriented language optimized for C-suite decision-makers.",
-    "desc": "Strips fluff to deliver concise, action-oriented executive prose.",
-    "explain": "Strips fluff to deliver concise, action-oriented executive prose."
+    "prompt": "Apply Executive Brevity: Eliminate narrative preamble; deploy concise, punchy, action-oriented language optimized for C-suite decision-makers."
   },
   {
     "id": "reg-archaic-literary-voice",
     "icon": "📜",
     "name": "Literary & Period Narrative Style",
-    "category": "register",
-    "description": "Infuses prose with rich 19th-century literary descriptions and epic voice.",
+    "desc": "Infuses prose with rich 19th-century literary descriptions and epic voice.",
+    "explain": "Infuses prose with rich 19th-century literary descriptions and epic voice.",
     "layer": "register",
     "requires": [
       "reg-academic-c2-elevation"
     ],
-    "prompt": "Infuse Classic Literary Voice: Use elaborate cadence, rich descriptive metaphors, and evocative prose styling reminiscent of 19th-century classic literature.",
-    "desc": "Infuses prose with rich 19th-century literary descriptions and epic voice.",
-    "explain": "Infuses prose with rich 19th-century literary descriptions and epic voice."
+    "prompt": "Infuse Classic Literary Voice: Use elaborate cadence, rich descriptive metaphors, and evocative prose styling reminiscent of 19th-century classic literature."
   },
   {
     "id": "reg-jargon-simplifier",
     "icon": "💡",
     "name": "Technical Jargon De-escalator",
-    "category": "register",
-    "description": "Simplifies dense technical terms into accessible plain language (Feynman).",
+    "desc": "Simplifies dense technical terms into accessible plain language (Feynman).",
+    "explain": "Simplifies dense technical terms into accessible plain language (Feynman).",
     "layer": "register",
     "requires": [
       "reg-casual-conversational-flow"
     ],
-    "prompt": "De-escalate technical jargon using the Feynman Technique: Strip dense acronyms and explain complex mechanics using clear analogies accessible to a 12-year-old.",
-    "desc": "Simplifies dense technical terms into accessible plain language (Feynman).",
-    "explain": "Simplifies dense technical terms into accessible plain language (Feynman)."
+    "prompt": "De-escalate technical jargon using the Feynman Technique: Strip dense acronyms and explain complex mechanics using clear analogies accessible to a 12-year-old."
   },
   {
     "id": "flu-rhythm-cadence-refiner",
     "icon": "🎶",
     "name": "Sentence Cadence & Rhythm Polish",
-    "category": "fluency",
-    "description": "Varies sentence length to create musical, engaging prose rhythm.",
+    "desc": "Varies sentence length to create musical, engaging prose rhythm.",
+    "explain": "Varies sentence length to create musical, engaging prose rhythm.",
     "layer": "fluency",
     "requires": [],
-    "prompt": "Refine Sentence Cadence & Rhythm: Break monotonous sentence lengths by alternating short punchy declarations with elegant, flowing compound structures.",
-    "desc": "Varies sentence length to create musical, engaging prose rhythm.",
-    "explain": "Varies sentence length to create musical, engaging prose rhythm."
+    "prompt": "Refine Sentence Cadence & Rhythm: Break monotonous sentence lengths by alternating short punchy declarations with elegant, flowing compound structures."
   },
   {
     "id": "flu-active-voice-conversion",
     "icon": "⚡",
     "name": "Active Voice Dynamic Injector",
-    "category": "fluency",
-    "description": "Converts passive sentence constructions into dynamic active verbs.",
+    "desc": "Converts passive sentence constructions into dynamic active verbs.",
+    "explain": "Converts passive sentence constructions into dynamic active verbs.",
     "layer": "fluency",
     "requires": [
       "flu-rhythm-cadence-refiner"
     ],
-    "prompt": "Convert passive voice to dynamic Active Voice: Eliminate weak passive constructions and rephrase sentences with energetic action verbs.",
-    "desc": "Converts passive sentence constructions into dynamic active verbs.",
-    "explain": "Converts passive sentence constructions into dynamic active verbs."
+    "prompt": "Convert passive voice to dynamic Active Voice: Eliminate weak passive constructions and rephrase sentences with energetic action verbs."
   },
   {
     "id": "flu-redundancy-slasher",
     "icon": "✂️",
     "name": "Conciseness & Redundancy Purge",
-    "category": "fluency",
-    "description": "Prunes weak adverbs, filler phrases, and pleonastic word pairs.",
+    "desc": "Prunes weak adverbs, filler phrases, and pleonastic word pairs.",
+    "explain": "Prunes weak adverbs, filler phrases, and pleonastic word pairs.",
     "layer": "fluency",
     "requires": [
       "flu-rhythm-cadence-refiner"
     ],
-    "prompt": "Purge Redundancy & Pleonasm: Strip weak adverbs ('very', 'really', 'actually') and redundant word pairings to tighten prose density.",
-    "desc": "Prunes weak adverbs, filler phrases, and pleonastic word pairs.",
-    "explain": "Prunes weak adverbs, filler phrases, and pleonastic word pairs."
+    "prompt": "Purge Redundancy & Pleonasm: Strip weak adverbs ('very', 'really', 'actually') and redundant word pairings to tighten prose density."
   },
   {
     "id": "flu-transitional-cohesion",
     "icon": "🔗",
     "name": "Discourse Markers & Flow Refiner",
-    "category": "fluency",
-    "description": "Smooths paragraph transitions with natural academic discourse markers.",
+    "desc": "Smooths paragraph transitions with natural academic discourse markers.",
+    "explain": "Smooths paragraph transitions with natural academic discourse markers.",
     "layer": "fluency",
     "requires": [
       "flu-rhythm-cadence-refiner"
     ],
-    "prompt": "Strengthen Discourse Cohesion: Refine transitional phrases between paragraphs to ensure seamless logical contrast, causality, and narrative progression.",
-    "desc": "Smooths paragraph transitions with natural academic discourse markers.",
-    "explain": "Smooths paragraph transitions with natural academic discourse markers."
+    "prompt": "Strengthen Discourse Cohesion: Refine transitional phrases between paragraphs to ensure seamless logical contrast, causality, and narrative progression."
   },
   {
     "id": "flu-vocabulary-precision",
     "icon": "🎯",
     "name": "Lexical Precision Calibration",
-    "category": "fluency",
-    "description": "Replaces generic terms with precise, contextually nuanced vocabulary.",
+    "desc": "Replaces generic terms with precise, contextually nuanced vocabulary.",
+    "explain": "Replaces generic terms with precise, contextually nuanced vocabulary.",
     "layer": "fluency",
     "requires": [
       "flu-rhythm-cadence-refiner"
     ],
-    "prompt": "Calibrate Lexical Precision: Replace generic adjectives ('good', 'bad', 'big') with highly specific vocabulary matching exact contextual nuances.",
-    "desc": "Replaces generic terms with precise, contextually nuanced vocabulary.",
-    "explain": "Replaces generic terms with precise, contextually nuanced vocabulary."
+    "prompt": "Calibrate Lexical Precision: Replace generic adjectives ('good', 'bad', 'big') with highly specific vocabulary matching exact contextual nuances."
   },
   {
     "id": "flu-readability-score-optimizer",
     "icon": "📊",
     "name": "Flesch-Kincaid Readability Tuner",
-    "category": "fluency",
-    "description": "Tunes readability metrics to match intended target audience grade levels.",
+    "desc": "Tunes readability metrics to match intended target audience grade levels.",
+    "explain": "Tunes readability metrics to match intended target audience grade levels.",
     "layer": "fluency",
     "requires": [
       "flu-redundancy-slasher"
     ],
-    "prompt": "Optimize Flesch-Kincaid Readability score: Adjust sentence length and syllabic complexity to match target reader grade levels (Grade 8-12).",
-    "desc": "Tunes readability metrics to match intended target audience grade levels.",
-    "explain": "Tunes readability metrics to match intended target audience grade levels."
+    "prompt": "Optimize Flesch-Kincaid Readability score: Adjust sentence length and syllabic complexity to match target reader grade levels (Grade 8-12)."
   },
   {
     "id": "idm-phrasal-verb-harmonizer",
     "icon": "🧩",
     "name": "Phrasal Verb & Collocation Harmonizer",
-    "category": "idioms",
-    "description": "Harmonizes natural phrasal verbs and native speaker collocations.",
+    "desc": "Harmonizes natural phrasal verbs and native speaker collocations.",
+    "explain": "Harmonizes natural phrasal verbs and native speaker collocations.",
     "layer": "idioms",
     "requires": [],
-    "prompt": "Harmonize Phrasal Verbs & Collocations: Ensure natural word partnerships and idiomatic verb combinations native speakers use naturally.",
-    "desc": "Harmonizes natural phrasal verbs and native speaker collocations.",
-    "explain": "Harmonizes natural phrasal verbs and native speaker collocations."
+    "prompt": "Harmonize Phrasal Verbs & Collocations: Ensure natural word partnerships and idiomatic verb combinations native speakers use naturally."
   },
   {
     "id": "idm-metaphor-naturalizer",
     "icon": "🎨",
     "name": "Metaphor & Simile Naturalizer",
-    "category": "idioms",
-    "description": "Replaces translated tropes with elegant target-language metaphors.",
+    "desc": "Replaces translated tropes with elegant target-language metaphors.",
+    "explain": "Replaces translated tropes with elegant target-language metaphors.",
     "layer": "idioms",
     "requires": [
       "idm-phrasal-verb-harmonizer"
     ],
-    "prompt": "Naturalize Metaphors & Similes: Replace awkward direct translations of tropes with culturally resonant, elegant target-language imagery.",
-    "desc": "Replaces translated tropes with elegant target-language metaphors.",
-    "explain": "Replaces translated tropes with elegant target-language metaphors."
+    "prompt": "Naturalize Metaphors & Similes: Replace awkward direct translations of tropes with culturally resonant, elegant target-language imagery."
   },
   {
     "id": "idm-false-friends-filter",
     "icon": "⚠️",
     "name": "False Friends & Cognates Filter",
-    "category": "idioms",
-    "description": "Corrects deceptive cognates that look similar across dfferent languages but mean different things.",
+    "desc": "Corrects deceptive cognates that look similar across dfferent languages but mean different things.",
+    "explain": "Corrects deceptive cognates that look similar across dfferent languages but mean different things.",
     "layer": "idioms",
     "requires": [
       "idm-phrasal-verb-harmonizer"
     ],
-    "prompt": "Screen for False Friends (False Cognates): Identify and fix deceptive terms that look similar across languages but carry divergent meanings.",
-    "desc": "Corrects deceptive cognates that look similar across dfferent languages but mean different things.",
-    "explain": "Corrects deceptive cognates that look similar across dfferent languages but mean different things."
+    "prompt": "Screen for False Friends (False Cognates): Identify and fix deceptive terms that look similar across languages but carry divergent meanings."
   },
   {
     "id": "idm-proverbial-equivalents",
     "icon": "📜",
     "name": "Proverbial Cross-Cultural Matcher",
-    "category": "idioms",
-    "description": "Maps source proverbs to equivalent ancestral wisdom sayings in the target language.",
+    "desc": "Maps source proverbs to equivalent ancestral wisdom sayings in the target language.",
+    "explain": "Maps source proverbs to equivalent ancestral wisdom sayings in the target language.",
     "layer": "idioms",
     "requires": [
       "idm-phrasal-verb-harmonizer"
     ],
-    "prompt": "Find Proverbial Equivalents: Replace word-for-word proverb translations with matching ancestral wisdom sayings native to the target culture.",
-    "desc": "Maps source proverbs to equivalent ancestral wisdom sayings in the target language.",
-    "explain": "Maps source proverbs to equivalent ancestral wisdom sayings in the target language."
+    "prompt": "Find Proverbial Equivalents: Replace word-for-word proverb translations with matching ancestral wisdom sayings native to the target culture."
   },
   {
     "id": "idm-nuance-spectrum-mapper",
     "icon": "🌈",
     "name": "Lexical Connotation Spectrum Mapper",
-    "category": "idioms",
-    "description": "Maps emotional connotations and sub-textual tones of near-synonyms.",
+    "desc": "Maps emotional connotations and sub-textual tones of near-synonyms.",
+    "explain": "Maps emotional connotations and sub-textual tones of near-synonyms.",
     "layer": "idioms",
     "requires": [
       "idm-metaphor-naturalizer"
     ],
-    "prompt": "Map Lexical Connotations: Analyze underlying emotional tones (positive, negative, neutral) of candidate synonyms and select the exact fit.",
-    "desc": "Maps emotional connotations and sub-textual tones of near-synonyms.",
-    "explain": "Maps emotional connotations and sub-textual tones of near-synonyms."
+    "prompt": "Map Lexical Connotations: Analyze underlying emotional tones (positive, negative, neutral) of candidate synonyms and select the exact fit."
   },
   {
     "id": "idm-humor-pun-translator",
     "icon": "🃏",
     "name": "Humor & Wordplay Transcreation",
-    "category": "idioms",
-    "description": "Re-invents untranslatable puns and jokes using target language linguistic mechanics.",
+    "desc": "Re-invents untranslatable puns and jokes using target language linguistic mechanics.",
+    "explain": "Re-invents untranslatable puns and jokes using target language linguistic mechanics.",
     "layer": "idioms",
     "requires": [
       "idm-proverbial-equivalents"
     ],
-    "prompt": "Transcreate Humor & Puns: Re-invent untranslatable puns or wordplay using target-language linguistic mechanisms to preserve comedic impact.",
-    "desc": "Re-invents untranslatable puns and jokes using target language linguistic mechanics.",
-    "explain": "Re-invents untranslatable puns and jokes using target language linguistic mechanics."
+    "prompt": "Transcreate Humor & Puns: Re-invent untranslatable puns or wordplay using target-language linguistic mechanisms to preserve comedic impact."
   },
   {
     "id": "ped-socratic-tutor-mode",
     "icon": "🏛️",
     "name": "Socratic Language Coach",
-    "category": "pedagogy",
-    "description": "Guides language acquisition via probing questions rather than passive corrections.",
+    "desc": "Guides language acquisition via probing questions rather than passive corrections.",
+    "explain": "Guides language acquisition via probing questions rather than passive corrections.",
     "layer": "pedagogy",
     "requires": [],
-    "prompt": "Adopt Socratic Language Coach mode: Rather than giving direct answers, ask 2 guiding questions enabling the learner to discover their own linguistic error.",
-    "desc": "Guides language acquisition via probing questions rather than passive corrections.",
-    "explain": "Guides language acquisition via probing questions rather than passive corrections."
+    "prompt": "Adopt Socratic Language Coach mode: Rather than giving direct answers, ask 2 guiding questions enabling the learner to discover their own linguistic error."
   },
   {
     "id": "ped-error-correction-feedback",
     "icon": "📝",
     "name": "Granular Error & Grammar Auditor",
-    "category": "pedagogy",
-    "description": "Provides structured feedback tables detailing syntactic errors and rules.",
+    "desc": "Provides structured feedback tables detailing syntactic errors and rules.",
+    "explain": "Provides structured feedback tables detailing syntactic errors and rules.",
     "layer": "pedagogy",
     "requires": [
       "ped-socratic-tutor-mode"
     ],
-    "prompt": "Generate Granular Error Correction Matrix: Format as a table: [Error | Correction | Underlying Grammar Rule & Explanation].",
-    "desc": "Provides structured feedback tables detailing syntactic errors and rules.",
-    "explain": "Provides structured feedback tables detailing syntactic errors and rules."
+    "prompt": "Generate Granular Error Correction Matrix: Format as a table: [Error | Correction | Underlying Grammar Rule & Explanation]."
   },
   {
     "id": "ped-spaced-recall-builder",
     "icon": "🗂️",
     "name": "Anki Flashcard Generator",
-    "category": "pedagogy",
-    "description": "Compiles vocabulary from text into Anki-ready spaced repetition flashcards.",
+    "desc": "Compiles vocabulary from text into Anki-ready spaced repetition flashcards.",
+    "explain": "Compiles vocabulary from text into Anki-ready spaced repetition flashcards.",
     "layer": "pedagogy",
     "requires": [
       "ped-socratic-tutor-mode"
     ],
-    "prompt": "Build Anki Spaced Repetition Flashcards: Format as Front: [Target Word + Context Sentence Gap] | Back: [Definition + IPA + Usage Hint].",
-    "desc": "Compiles vocabulary from text into Anki-ready spaced repetition flashcards.",
-    "explain": "Compiles vocabulary from text into Anki-ready spaced repetition flashcards."
+    "prompt": "Build Anki Spaced Repetition Flashcards: Format as Front: [Target Word + Context Sentence Gap] | Back: [Definition + IPA + Usage Hint]."
   },
   {
     "id": "ped-contextual-cloze-creator",
     "icon": "🧩",
     "name": "Contextual Cloze Drill Builder",
-    "category": "pedagogy",
-    "description": "Transforms reading prose into gap-fill exercises testing vocabulary retention.",
+    "desc": "Transforms reading prose into gap-fill exercises testing vocabulary retention.",
+    "explain": "Transforms reading prose into gap-fill exercises testing vocabulary retention.",
     "layer": "pedagogy",
     "requires": [
       "ped-socratic-tutor-mode"
     ],
-    "prompt": "Create Contextual Cloze Drills: Strip target vocabulary from prose, replace with numbered gaps, and supply multiple-choice distractors below.",
-    "desc": "Transforms reading prose into gap-fill exercises testing vocabulary retention.",
-    "explain": "Transforms reading prose into gap-fill exercises testing vocabulary retention."
+    "prompt": "Create Contextual Cloze Drills: Strip target vocabulary from prose, replace with numbered gaps, and supply multiple-choice distractors below."
   },
   {
     "id": "ped-pronunciation-ipa-guide",
     "icon": "🗣️",
     "name": "Phonetic IPA & Accent Guide",
-    "category": "pedagogy",
-    "description": "Provides International Phonetic Alphabet (IPA) transcriptions and stress markers.",
+    "desc": "Provides International Phonetic Alphabet (IPA) transcriptions and stress markers.",
+    "explain": "Provides International Phonetic Alphabet (IPA) transcriptions and stress markers.",
     "layer": "pedagogy",
     "requires": [
       "ped-error-correction-feedback"
     ],
-    "prompt": "Generate IPA Pronunciation Guide: Provide International Phonetic Alphabet transcriptions, primary syllable stress markers, and phonetic approximation hints.",
-    "desc": "Provides International Phonetic Alphabet (IPA) transcriptions and stress markers.",
-    "explain": "Provides International Phonetic Alphabet (IPA) transcriptions and stress markers."
+    "prompt": "Generate IPA Pronunciation Guide: Provide International Phonetic Alphabet transcriptions, primary syllable stress markers, and phonetic approximation hints."
   },
   {
     "id": "ped-immersion-scenario-roleplay",
     "icon": "🎭",
     "name": "Interactive Immersion Roleplay",
-    "category": "pedagogy",
-    "description": "Engages users in real-world conversational roleplay scenarios with feedback.",
+    "desc": "Engages users in real-world conversational roleplay scenarios with feedback.",
+    "explain": "Engages users in real-world conversational roleplay scenarios with feedback.",
     "layer": "pedagogy",
     "requires": [
       "ped-socratic-tutor-mode"
     ],
-    "prompt": "Initiate Interactive Immersion Roleplay: Assume character as [Interviewer / Hotel Desk / Server] and guide a multi-turn conversation providing targeted mini-feedback.",
-    "desc": "Engages users in real-world conversational roleplay scenarios with feedback.",
-    "explain": "Engages users in real-world conversational roleplay scenarios with feedback."
+    "prompt": "Initiate Interactive Immersion Roleplay: Assume character as [Interviewer / Hotel Desk / Server] and guide a multi-turn conversation providing targeted mini-feedback."
   }
 ]

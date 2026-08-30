@@ -7,7 +7,7 @@ export const philosophySpec = {
     "derinlik": "orta",
     "format": "diyalektik"
   },
-  "icon": "building2",
+  "icon": "building-2",
   "category": "academia",
   "layers": [
     "logic",
@@ -32,7 +32,17 @@ export const philosophySpec = {
         "logic": "Mantık & Sorgulama",
         "ethics": "Etik & İklem",
         "epistemology": "Epistemoloji & Varlık"
-      }
+      },
+      "categories": {
+        "logic": "Mantık & Akıl Yürütme",
+        "ethics": "Etik & Ahlak Felsefesi",
+        "epistemology": "Epistemoloji & Bilgi",
+        "thought-experiments": "Düşünce Deneyleri",
+        "critique": "Eleştiri & Diyalektik"
+      },
+      "modulesTitle": "Modüller (Module Blocks)",
+      "presetsTitle": "Uzman Hazır Şablonları (System Presets)",
+      "paramsTitle": "Parametreler"
     },
     "en": {
       "title": "Philosophy & Ethics Auditor",
@@ -49,7 +59,17 @@ export const philosophySpec = {
         "logic": "Logic & Inquiry",
         "ethics": "Ethics & Dilemma",
         "epistemology": "Epistemology & Being"
-      }
+      },
+      "categories": {
+        "logic": "Logic & Reasoning",
+        "ethics": "Ethics & Moral Philosophy",
+        "epistemology": "Epistemology & Knowledge",
+        "thought-experiments": "Thought Experiments",
+        "critique": "Critique & Dialectics"
+      },
+      "modulesTitle": "Module Blocks",
+      "presetsTitle": "System Presets",
+      "paramsTitle": "Parameters"
     }
   },
   "optionSets": {
@@ -120,18 +140,82 @@ export const philosophySpec = {
   },
   "compilerTexts": {
     "tr": {
-      "topicHeader": "FELSEFİ İKLEM",
-      "levelHeader": "PROBLEM TİPİ",
-      "modeHeader": "FILOZOF PERSONASI",
-      "depthHeader": "ANALİZ DERİNLİĞİ",
-      "formatHeader": "FELSEFİ FORMAT"
+      "mod": {
+        "sokratik": "Sen Sokratik sorgulama ustasısın. Karşı tarafın tanımlarındaki çelişkileri açığa çıkarır, aporia (çıkmaz) noktalarını gösterirsin.",
+        "stoaci": "Sen Stoacı ve rasyonel bir filozofsundur. Olayları kontrol edilebilir ve edilemez alanlara ayırır, akılcı duruşu temel alırsın.",
+        "pozitivist": "Sen bir mantıksal pozitivistsin. Doğrulanamayan metafizik önermeleri ayıklar, kavramsal açıklık ve formel mantık talep edersin.",
+        "varoluscu": "Sen varoluşçu bir düşünürsün. Özgürlük, sorumluluk, kaygı ve otantik varoluş ikilemlerini incelersin."
+      },
+      "derinlik": {
+        "temel": "Temel kavramları ve argüman hattını sade felsefi dille açıkla.",
+        "orta": "Öncülleri, karşı argümanları ve felsefi gelenekleri dengeli sun.",
+        "derin": "Birincil metin titizliğinde, ontolojik ve epistemolojik temelleri eksiksiz incele."
+      },
+      "format": {
+        "diyalog": "Sokratik diyalog ve sorgulama formatında yapılandır.",
+        "oncul": "Öncül-Sonuç (Premise-Conclusion) formel mantık dizilimi kullan.",
+        "matris": "Etik ve felsefi teorileri karşılaştırma matrisinde göster."
+      },
+      "labels": {
+        "role": "[ROLE]",
+        "goal": "[GOAL]",
+        "context": "[CONTEXT]",
+        "modules": "[ACTIVE MODULES]",
+        "instructions": "[INSTRUCTIONS]",
+        "format": "[OUTPUT FORMAT]",
+        "constraints": "[CONSTRAINTS / SAFETY]"
+      },
+      "contextLabels": {
+        "domain": "Alan:",
+        "level": "Seviye:",
+        "depthRequirement": "Derinlik Gereksinimi:"
+      },
+      "goalTemplate": "\"{{KONU}}\" felsefi problemini temel kavramlarına, epistemik varsayımlarına ve mantıksal sonuçlarına ayırarak derinlemesine sorgulamak.",
+      "constraintsBase": [
+        "Öncüller ile sonuç arasındaki mantıksal bağı netleştir.",
+        "Safsatalardan (fallacies) ve totolojilerden kesinlikle kaçın.",
+        "Karşıt felsefi görüşleri en güçlü halleriyle (steelmanning) ele al."
+      ],
+      "monologueText": "İÇ SES MODU: Yanıt üretmeden önce (<thinking> tagleri içinde) argümanın gizli ontolojik varsayımlarını sorgula."
     },
     "en": {
-      "topicHeader": "PHILOSOPHICAL DILEMMA",
-      "levelHeader": "PROBLEM TYPE",
-      "modeHeader": "PHILOSOPHER PERSONA",
-      "depthHeader": "DEPTH LEVEL",
-      "formatHeader": "PHILOSOPHICAL SYNTAX"
+      "mod": {
+        "sokratik": "You are a master of Socratic elenchus. You expose contradictions in definitions and guide toward productive aporia.",
+        "stoaci": "You are a Stoic rationalist. You divide reality into what is within our control and what is not, emphasizing virtue and reason.",
+        "pozitivist": "You are a logical positivist. You reject ungrounded metaphysics and enforce strict conceptual clarity and formal verification.",
+        "varoluscu": "You are an existential thinker. You explore radical freedom, subjective meaning, anguish, and authentic existence."
+      },
+      "derinlik": {
+        "temel": "Explain core concepts and the main argumentative line in accessible philosophical terms.",
+        "orta": "Present premises, counter-arguments, and historical philosophical lineages with balanced depth.",
+        "derin": "Conduct exhaustive primary-source level analysis with complete ontological and epistemic deconstruction."
+      },
+      "format": {
+        "diyalog": "Structure as a structured Socratic dialogue and dialectical inquiry.",
+        "oncul": "Format as formal premise-conclusion logical arguments.",
+        "matris": "Present as a comparative matrix of ethical/philosophical traditions."
+      },
+      "labels": {
+        "role": "[ROLE]",
+        "goal": "[GOAL]",
+        "context": "[CONTEXT]",
+        "modules": "[ACTIVE MODULES]",
+        "instructions": "[INSTRUCTIONS]",
+        "format": "[OUTPUT FORMAT]",
+        "constraints": "[CONSTRAINTS / SAFETY]"
+      },
+      "contextLabels": {
+        "domain": "Domain:",
+        "level": "Level:",
+        "depthRequirement": "Depth Requirement:"
+      },
+      "goalTemplate": "To deeply investigate the philosophical problem \"{{KONU}}\" by deconstructing its core concepts, epistemic premises, and logical implications.",
+      "constraintsBase": [
+        "Make the deductive or inductive chain explicit and valid.",
+        "Strictly avoid informal and formal fallacies.",
+        "Steelman counter-positions before critiquing them."
+      ],
+      "monologueText": "INTERNAL MONOLOGUE: Before presenting the argument, test for hidden metaphysical assumptions in <thinking> tags."
     }
   },
   "presets": {
@@ -139,15 +223,14 @@ export const philosophySpec = {
       "id": "socratic-aporia",
       "group": "logic",
       "name": {
-        "tr": "🏛️ Sokratik Sorgulama & Aporia",
-        "en": "🏛️ Socratic Aporia Drill"
+        "tr": "Sokratik Sorgulama & Aporia",
+        "en": "Socratic Aporia Drill"
       },
       "desc": {
         "tr": "Varsayımları çelişkiye düşene kadar diyalogla sorgular.",
         "en": "Deconstructs concepts through Socratic questioning."
       },
       "forceModules": [
-        "fallacy-detector",
         "fallacy-detector"
       ],
       "override": {
@@ -163,8 +246,8 @@ export const philosophySpec = {
       "id": "ethical-matrix",
       "group": "ethics",
       "name": {
-        "tr": "⚖️ Etik İklem Karşılaştırması",
-        "en": "⚖️ Ethical Dilemma Matrix"
+        "tr": "Etik İklem Karşılaştırması",
+        "en": "Ethical Dilemma Matrix"
       },
       "desc": {
         "tr": "Faydacılık vs Deontoloji açılarını matriste kıyaslar.",
@@ -187,8 +270,8 @@ export const philosophySpec = {
       "id": "fallacy-hunter",
       "group": "logic",
       "name": {
-        "tr": "🔍 Mantık Hatası Avcısı",
-        "en": "🔍 Logical Fallacy Hunter"
+        "tr": "Mantık Hatası Avcısı",
+        "en": "Logical Fallacy Hunter"
       },
       "desc": {
         "tr": "Argümandaki Strawman ve Ad Hominem hatalarını bulur.",
@@ -211,8 +294,8 @@ export const philosophySpec = {
       "id": "thought-exp",
       "group": "logic",
       "name": {
-        "tr": "🧪 Düşünce Deneyi Simülatörü",
-        "en": "🧪 Thought Experiment"
+        "tr": "Düşünce Deneyi Simülatörü",
+        "en": "Thought Experiment"
       },
       "desc": {
         "tr": "Trolley Problem veya Kavanozdaki Beyin senaryoları.",
@@ -235,8 +318,8 @@ export const philosophySpec = {
       "id": "epistemic-audit",
       "group": "epistemology",
       "name": {
-        "tr": "👁️ Epistemik Bilgi Denetimi",
-        "en": "👁️ Epistemic Knowledge Audit"
+        "tr": "Epistemik Bilgi Denetimi",
+        "en": "Epistemic Knowledge Audit"
       },
       "desc": {
         "tr": "Bilginin kaynağını ve gerekçelendirilmesini inceler.",
@@ -259,8 +342,8 @@ export const philosophySpec = {
       "id": "utilitarian-calc",
       "group": "ethics",
       "name": {
-        "tr": "📊 Faydacı (Utilitarian) Hesap",
-        "en": "📊 Utilitarian Calculation"
+        "tr": "Faydacı (Utilitarian) Hesap",
+        "en": "Utilitarian Calculation"
       },
       "desc": {
         "tr": "Toplam fayda ve acı dengesini hesaplar.",
@@ -283,8 +366,8 @@ export const philosophySpec = {
       "id": "deontological-duty",
       "group": "ethics",
       "name": {
-        "tr": "📜 Ödev Ahlakı & Kant Analizi",
-        "en": "📜 Kantian Duty Ethics"
+        "tr": "Ödev Ahlakı & Kant Analizi",
+        "en": "Kantian Duty Ethics"
       },
       "desc": {
         "tr": "Evrenselleştirilebilirlik ve koşulsuz buyruk testi.",
@@ -307,8 +390,8 @@ export const philosophySpec = {
       "id": "existential-choice",
       "group": "epistemology",
       "name": {
-        "tr": "🌌 Varoluşçu Özgürlük & Sorumluluk",
-        "en": "🌌 Existential Responsibility"
+        "tr": "Varoluşçu Özgürlük & Sorumluluk",
+        "en": "Existential Responsibility"
       },
       "desc": {
         "tr": "Sartre & Beauvoir çerçevesinde otantik seçim.",
@@ -331,8 +414,8 @@ export const philosophySpec = {
       "id": "existential-absurd",
       "group": "epistemology",
       "name": {
-        "tr": "🎭 Camus & Absürdizm Çerçevesi",
-        "en": "🎭 Absurdist Frame (Camus)"
+        "tr": "Camus & Absürdizm Çerçevesi",
+        "en": "Absurdist Frame (Camus)"
       },
       "desc": {
         "tr": "Anlamsızlık karşısında başkaldırı ve yaşam.",
@@ -355,8 +438,8 @@ export const philosophySpec = {
       "id": "stoic-dichotomy",
       "group": "ethics",
       "name": {
-        "tr": "🛡️ Stoacı Kontrol İkiliği",
-        "en": "🛡️ Stoic Control Dichotomy"
+        "tr": "Stoacı Kontrol İkiliği",
+        "en": "Stoic Control Dichotomy"
       },
       "desc": {
         "tr": "Kontrol edilebilir vs edilemez unsurları ayırır.",
@@ -379,8 +462,8 @@ export const philosophySpec = {
       "id": "hermeneutic-circle",
       "group": "logic",
       "name": {
-        "tr": "🔄 Hermeneutik Yorum Döngüsü",
-        "en": "🔄 Hermeneutic Circle"
+        "tr": "Hermeneutik Yorum Döngüsü",
+        "en": "Hermeneutic Circle"
       },
       "desc": {
         "tr": "Parça ve bütün arasındaki anlam ilişkisini çözer.",
@@ -403,8 +486,8 @@ export const philosophySpec = {
       "id": "dialectical-triad",
       "group": "logic",
       "name": {
-        "tr": "⚖️ Tez-Antitez-Sentez Diyalektiği",
-        "en": "⚖️ Dialectical Synthesis"
+        "tr": "Tez-Antitez-Sentez Diyalektiği",
+        "en": "Dialectical Synthesis"
       },
       "desc": {
         "tr": "Hegel diyalektiği ile zıt fikirleri sentezdir.",

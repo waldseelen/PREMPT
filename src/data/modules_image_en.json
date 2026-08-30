@@ -3,408 +3,348 @@
     "id": "medium-oil-painting",
     "icon": "🎨",
     "name": "Oil Painting & Canvas Medium",
-    "category": "medium",
-    "description": "Applies classical impasto oil paint texture and visible brush stroke aesthetics.",
+    "desc": "Applies classical impasto oil paint texture and visible brush stroke aesthetics.",
+    "explain": "Applies classical impasto oil paint texture and visible brush stroke aesthetics.",
     "layer": "medium",
     "requires": [],
-    "prompt": "Set artistic medium to Classical Oil Painting: Specify impasto technique, visible heavy brush strokes, rich layered oil paint, and subtle canvas texture.",
-    "desc": "Applies classical impasto oil paint texture and visible brush stroke aesthetics.",
-    "explain": "Applies classical impasto oil paint texture and visible brush stroke aesthetics."
+    "prompt": "Set artistic medium to Classical Oil Painting: Specify impasto technique, visible heavy brush strokes, rich layered oil paint, and subtle canvas texture."
   },
   {
     "id": "medium-3d-octane",
     "icon": "💎",
     "name": "3D Octane Render Engine",
-    "category": "medium",
-    "description": "Renders photorealistic 3D glass, polished chrome, and ray-traced optics.",
+    "desc": "Renders photorealistic 3D glass, polished chrome, and ray-traced optics.",
+    "explain": "Renders photorealistic 3D glass, polished chrome, and ray-traced optics.",
     "layer": "medium",
     "requires": [
       "medium-oil-painting"
     ],
-    "prompt": "Set medium to 3D Octane Render: Specify ultra-realistic 3D modeling, Cinema4D, ray-traced glass and chrome surfaces, subsurface scattering, and 8K resolution.",
-    "desc": "Renders photorealistic 3D glass, polished chrome, and ray-traced optics.",
-    "explain": "Renders photorealistic 3D glass, polished chrome, and ray-traced optics."
+    "prompt": "Set medium to 3D Octane Render: Specify ultra-realistic 3D modeling, Cinema4D, ray-traced glass and chrome surfaces, subsurface scattering, and 8K resolution."
   },
   {
     "id": "medium-cinematic-film",
     "icon": "📷",
     "name": "35mm Analog Film Photography",
-    "category": "medium",
-    "description": "Injects nostalgic Kodak 35mm film grain and authentic lens characteristics.",
+    "desc": "Injects nostalgic Kodak 35mm film grain and authentic lens characteristics.",
+    "explain": "Injects nostalgic Kodak 35mm film grain and authentic lens characteristics.",
     "layer": "medium",
     "requires": [],
-    "prompt": "Design image as Kodak Portra 400 35mm Analog Film Shot: Include fine organic film grain, natural color science, 50mm f/1.4 lens bokeh, and vintage nostalgia.",
-    "desc": "Injects nostalgic Kodak 35mm film grain and authentic lens characteristics.",
-    "explain": "Injects nostalgic Kodak 35mm film grain and authentic lens characteristics."
+    "prompt": "Design image as Kodak Portra 400 35mm Analog Film Shot: Include fine organic film grain, natural color science, 50mm f/1.4 lens bokeh, and vintage nostalgia."
   },
   {
     "id": "medium-cyberpunk-vector",
     "icon": "👾",
     "name": "Cyberpunk Vector Aesthetic",
-    "category": "medium",
-    "description": "Produces crisp-lined vector illustration with vivid cyberpunk neon accents.",
+    "desc": "Produces crisp-lined vector illustration with vivid cyberpunk neon accents.",
+    "explain": "Produces crisp-lined vector illustration with vivid cyberpunk neon accents.",
     "layer": "medium",
     "requires": [
       "medium-oil-painting"
     ],
-    "prompt": "Set style to Graphic Vector & Cyberpunk: Incorporate clean vector outlines, flat color blocks, vivid neon highlights, and comic book ink detailing.",
-    "desc": "Produces crisp-lined vector illustration with vivid cyberpunk neon accents.",
-    "explain": "Produces crisp-lined vector illustration with vivid cyberpunk neon accents."
+    "prompt": "Set style to Graphic Vector & Cyberpunk: Incorporate clean vector outlines, flat color blocks, vivid neon highlights, and comic book ink detailing."
   },
   {
     "id": "medium-watercolor-wash",
     "icon": "🖌️",
     "name": "Watercolor Wash & Botanical",
-    "category": "medium",
-    "description": "Creates translucent watercolor layers and textured cotton paper absorption.",
+    "desc": "Creates translucent watercolor layers and textured cotton paper absorption.",
+    "explain": "Creates translucent watercolor layers and textured cotton paper absorption.",
     "layer": "medium",
     "requires": [
       "medium-oil-painting"
     ],
-    "prompt": "Set medium to Watercolor Wash: Apply wet-on-wet technique, delicate translucent color layers, bleeding ink edges, and heavy cold-pressed cotton paper texture.",
-    "desc": "Creates translucent watercolor layers and textured cotton paper absorption.",
-    "explain": "Creates translucent watercolor layers and textured cotton paper absorption."
+    "prompt": "Set medium to Watercolor Wash: Apply wet-on-wet technique, delicate translucent color layers, bleeding ink edges, and heavy cold-pressed cotton paper texture."
   },
   {
     "id": "medium-hyperreal-macro",
     "icon": "🔬",
     "name": "Hyper-Realistic Macro Shot",
-    "category": "medium",
-    "description": "Magnifies microscopic surface textures with extreme shallow depth of field.",
+    "desc": "Magnifies microscopic surface textures with extreme shallow depth of field.",
+    "explain": "Magnifies microscopic surface textures with extreme shallow depth of field.",
     "layer": "medium",
     "requires": [
       "medium-cinematic-film"
     ],
-    "prompt": "Configure Macro Photography Spec: Use 100mm Macro f/2.8 settings to reveal microscopic surface details, water droplets, skin pores, and ultra-shallow depth of field.",
-    "desc": "Magnifies microscopic surface textures with extreme shallow depth of field.",
-    "explain": "Magnifies microscopic surface textures with extreme shallow depth of field."
+    "prompt": "Configure Macro Photography Spec: Use 100mm Macro f/2.8 settings to reveal microscopic surface details, water droplets, skin pores, and ultra-shallow depth of field."
   },
   {
     "id": "composition-rule-of-thirds",
     "icon": "📐",
     "name": "Rule of Thirds Framing",
-    "category": "composition",
-    "description": "Positions subjects along grid intersections for visual balance and dynamism.",
+    "desc": "Positions subjects along grid intersections for visual balance and dynamism.",
+    "explain": "Positions subjects along grid intersections for visual balance and dynamism.",
     "layer": "composition",
     "requires": [],
-    "prompt": "Structure composition using Rule of Thirds: Position the primary focal point along grid intersection lines while leaving balanced negative space.",
-    "desc": "Positions subjects along grid intersections for visual balance and dynamism.",
-    "explain": "Positions subjects along grid intersections for visual balance and dynamism."
+    "prompt": "Structure composition using Rule of Thirds: Position the primary focal point along grid intersection lines while leaving balanced negative space."
   },
   {
     "id": "composition-golden-ratio",
     "icon": "🐚",
     "name": "Golden Ratio & Fibonacci Spiral",
-    "category": "composition",
-    "description": "Arranges visual elements along a natural logarithmic Fibonacci spiral.",
+    "desc": "Arranges visual elements along a natural logarithmic Fibonacci spiral.",
+    "explain": "Arranges visual elements along a natural logarithmic Fibonacci spiral.",
     "layer": "composition",
     "requires": [
       "composition-rule-of-thirds"
     ],
-    "prompt": "Arrange elements along the Golden Ratio (Fibonacci Spiral): Create a seamless visual flow guiding the viewer's eye along organic golden spiral curves.",
-    "desc": "Arranges visual elements along a natural logarithmic Fibonacci spiral.",
-    "explain": "Arranges visual elements along a natural logarithmic Fibonacci spiral."
+    "prompt": "Arrange elements along the Golden Ratio (Fibonacci Spiral): Create a seamless visual flow guiding the viewer's eye along organic golden spiral curves."
   },
   {
     "id": "composition-low-angle",
     "icon": "🦅",
     "name": "Dramatic Low-Angle View",
-    "category": "composition",
-    "description": "Places camera low looking up to grant subjects monumental scale and power.",
+    "desc": "Places camera low looking up to grant subjects monumental scale and power.",
+    "explain": "Places camera low looking up to grant subjects monumental scale and power.",
     "layer": "composition",
     "requires": [
       "composition-rule-of-thirds"
     ],
-    "prompt": "Set camera angle to Extreme Low-Angle (Worm's-eye view): Emphasize monumental scale, power, and architectural dominance with wide-angle perspective distortion.",
-    "desc": "Places camera low looking up to grant subjects monumental scale and power.",
-    "explain": "Places camera low looking up to grant subjects monumental scale and power."
+    "prompt": "Set camera angle to Extreme Low-Angle (Worm's-eye view): Emphasize monumental scale, power, and architectural dominance with wide-angle perspective distortion."
   },
   {
     "id": "composition-isometric-grid",
     "icon": "📦",
     "name": "Isometric Architectural Grid",
-    "category": "composition",
-    "description": "Renders scenes from a 45-degree orthographic diorama perspective.",
+    "desc": "Renders scenes from a 45-degree orthographic diorama perspective.",
+    "explain": "Renders scenes from a 45-degree orthographic diorama perspective.",
     "layer": "composition",
     "requires": [
       "composition-rule-of-thirds"
     ],
-    "prompt": "Frame composition as a 3D Isometric Projection: Render the scene from a clean 45-degree angle resembling a detailed miniature diorama box.",
-    "desc": "Renders scenes from a 45-degree orthographic diorama perspective.",
-    "explain": "Renders scenes from a 45-degree orthographic diorama perspective."
+    "prompt": "Frame composition as a 3D Isometric Projection: Render the scene from a clean 45-degree angle resembling a detailed miniature diorama box."
   },
   {
     "id": "composition-leading-lines",
     "icon": "🛣️",
     "name": "Leading Lines & Depth",
-    "category": "composition",
-    "description": "Uses roads, railways, or architectural lines to pull focus toward vanishing points.",
+    "desc": "Uses roads, railways, or architectural lines to pull focus toward vanishing points.",
+    "explain": "Uses roads, railways, or architectural lines to pull focus toward vanishing points.",
     "layer": "composition",
     "requires": [
       "composition-rule-of-thirds"
     ],
-    "prompt": "Incorporate Leading Lines: Use converging roads, corridors, or light beams to draw the viewer's focal attention directly toward the central horizon.",
-    "desc": "Uses roads, railways, or architectural lines to pull focus toward vanishing points.",
-    "explain": "Uses roads, railways, or architectural lines to pull focus toward vanishing points."
+    "prompt": "Incorporate Leading Lines: Use converging roads, corridors, or light beams to draw the viewer's focal attention directly toward the central horizon."
   },
   {
     "id": "composition-symmetry-balance",
     "icon": "🪞",
     "name": "Bilateral Symmetry & Balance",
-    "category": "composition",
-    "description": "Establishes hypnotic center-weighted architectural symmetry.",
+    "desc": "Establishes hypnotic center-weighted architectural symmetry.",
+    "explain": "Establishes hypnotic center-weighted architectural symmetry.",
     "layer": "composition",
     "requires": [
       "composition-golden-ratio"
     ],
-    "prompt": "Enforce Flawless Bilateral Symmetry: Create a center-weighted, Wes Anderson-style architectural composition with perfectly mirrored left-right visual balance.",
-    "desc": "Establishes hypnotic center-weighted architectural symmetry.",
-    "explain": "Establishes hypnotic center-weighted architectural symmetry."
+    "prompt": "Enforce Flawless Bilateral Symmetry: Create a center-weighted, Wes Anderson-style architectural composition with perfectly mirrored left-right visual balance."
   },
   {
     "id": "lighting-volumetric-rays",
     "icon": "☀️",
     "name": "Volumetric God Rays",
-    "category": "lighting",
-    "description": "Injects dramatic sunbeams cutting through atmospheric haze and mist.",
+    "desc": "Injects dramatic sunbeams cutting through atmospheric haze and mist.",
+    "explain": "Injects dramatic sunbeams cutting through atmospheric haze and mist.",
     "layer": "lighting",
     "requires": [],
-    "prompt": "Set lighting to Volumetric Rays (God Rays): Render distinct sunbeams filtering through dusty air, window blinds, or dense forest foliage.",
-    "desc": "Injects dramatic sunbeams cutting through atmospheric haze and mist.",
-    "explain": "Injects dramatic sunbeams cutting through atmospheric haze and mist."
+    "prompt": "Set lighting to Volumetric Rays (God Rays): Render distinct sunbeams filtering through dusty air, window blinds, or dense forest foliage."
   },
   {
     "id": "lighting-cinematic-rim",
     "icon": "🌟",
     "name": "Dramatic Rim Lighting",
-    "category": "lighting",
-    "description": "Places strong backlight to separate subjects from dark backgrounds with glowing contours.",
+    "desc": "Places strong backlight to separate subjects from dark backgrounds with glowing contours.",
+    "explain": "Places strong backlight to separate subjects from dark backgrounds with glowing contours.",
     "layer": "lighting",
     "requires": [
       "lighting-volumetric-rays"
     ],
-    "prompt": "Position intense Rim Lighting (Backlight): Outline the subject's silhouette, hair, and edges with a bright glowing contour line against dark background.",
-    "desc": "Places strong backlight to separate subjects from dark backgrounds with glowing contours.",
-    "explain": "Places strong backlight to separate subjects from dark backgrounds with glowing contours."
+    "prompt": "Position intense Rim Lighting (Backlight): Outline the subject's silhouette, hair, and edges with a bright glowing contour line against dark background."
   },
   {
     "id": "lighting-golden-hour",
     "icon": "🌅",
     "name": "Golden Hour Warm Glow",
-    "category": "lighting",
-    "description": "Casts low-sun warm golden light and soft elongated shadows.",
+    "desc": "Casts low-sun warm golden light and soft elongated shadows.",
+    "explain": "Casts low-sun warm golden light and soft elongated shadows.",
     "layer": "lighting",
     "requires": [
       "lighting-volumetric-rays"
     ],
-    "prompt": "Apply Golden Hour Lighting: Cast warm golden-orange low-angle sunlight, long soft shadows, and high ambient color warmth across the scene.",
-    "desc": "Casts low-sun warm golden light and soft elongated shadows.",
-    "explain": "Casts low-sun warm golden light and soft elongated shadows."
+    "prompt": "Apply Golden Hour Lighting: Cast warm golden-orange low-angle sunlight, long soft shadows, and high ambient color warmth across the scene."
   },
   {
     "id": "lighting-neon-cyber-glow",
     "icon": "🔴",
     "name": "Dual Neon Cyber Glow",
-    "category": "lighting",
-    "description": "Bathes scene in contrasting cyan and magenta neon illumination.",
+    "desc": "Bathes scene in contrasting cyan and magenta neon illumination.",
+    "explain": "Bathes scene in contrasting cyan and magenta neon illumination.",
     "layer": "lighting",
     "requires": [
       "lighting-volumetric-rays"
     ],
-    "prompt": "Incorporate Dual Neon Lighting (Cyan & Magenta): Cast vivid contrasting neon reflections on wet asphalt and reflective glass surfaces.",
-    "desc": "Bathes scene in contrasting cyan and magenta neon illumination.",
-    "explain": "Bathes scene in contrasting cyan and magenta neon illumination."
+    "prompt": "Incorporate Dual Neon Lighting (Cyan & Magenta): Cast vivid contrasting neon reflections on wet asphalt and reflective glass surfaces."
   },
   {
     "id": "lighting-chiaroscuro-contrast",
     "icon": "🌗",
     "name": "Chiaroscuro High Contrast",
-    "category": "lighting",
-    "description": "Creates Caravaggio-esque extreme contrast between pitch darkness and harsh light.",
+    "desc": "Creates Caravaggio-esque extreme contrast between pitch darkness and harsh light.",
+    "explain": "Creates Caravaggio-esque extreme contrast between pitch darkness and harsh light.",
     "layer": "lighting",
     "requires": [
       "lighting-volumetric-rays"
     ],
-    "prompt": "Apply Chiaroscuro Lighting technique: Create intense contrast between deep pitch-black shadows and a single harsh spotlight illuminating key details.",
-    "desc": "Creates Caravaggio-esque extreme contrast between pitch darkness and harsh light.",
-    "explain": "Creates Caravaggio-esque extreme contrast between pitch darkness and harsh light."
+    "prompt": "Apply Chiaroscuro Lighting technique: Create intense contrast between deep pitch-black shadows and a single harsh spotlight illuminating key details."
   },
   {
     "id": "lighting-bioluminescent",
     "icon": "🍄",
     "name": "Bioluminescent Organic Glow",
-    "category": "lighting",
-    "description": "Casts soft cyan-green light emitted by self-luminous organic organisms.",
+    "desc": "Casts soft cyan-green light emitted by self-luminous organic organisms.",
+    "explain": "Casts soft cyan-green light emitted by self-luminous organic organisms.",
     "layer": "lighting",
     "requires": [
       "lighting-neon-cyber-glow"
     ],
-    "prompt": "Set lighting to Bioluminescent Ambient Glow: Illuminate dark environments with self-luminous cyan and teal light emitted by glowing fungi, flora, and marine life.",
-    "desc": "Casts soft cyan-green light emitted by self-luminous organic organisms.",
-    "explain": "Casts soft cyan-green light emitted by self-luminous organic organisms."
+    "prompt": "Set lighting to Bioluminescent Ambient Glow: Illuminate dark environments with self-luminous cyan and teal light emitted by glowing fungi, flora, and marine life."
   },
   {
     "id": "atmosphere-fog-mist",
     "icon": "🌫️",
     "name": "Heavy Fog & Atmospheric Mist",
-    "category": "atmosphere",
-    "description": "Generates atmospheric depth through layered fog and mysterious haze.",
+    "desc": "Generates atmospheric depth through layered fog and mysterious haze.",
+    "explain": "Generates atmospheric depth through layered fog and mysterious haze.",
     "layer": "atmosphere",
     "requires": [],
-    "prompt": "Inject Heavy Atmospheric Fog & Mist: Establish strong aerial perspective where background elements fade mystery into dense layered fog.",
-    "desc": "Generates atmospheric depth through layered fog and mysterious haze.",
-    "explain": "Generates atmospheric depth through layered fog and mysterious haze."
+    "prompt": "Inject Heavy Atmospheric Fog & Mist: Establish strong aerial perspective where background elements fade mystery into dense layered fog."
   },
   {
     "id": "atmosphere-surreal-dream",
     "icon": "☁️",
     "name": "Surreal Dreamscape Dynamics",
-    "category": "atmosphere",
-    "description": "Incorporates Magritte or Dali-esque gravity-defying surrealist elements.",
+    "desc": "Incorporates Magritte or Dali-esque gravity-defying surrealist elements.",
+    "explain": "Incorporates Magritte or Dali-esque gravity-defying surrealist elements.",
     "layer": "atmosphere",
     "requires": [
       "atmosphere-fog-mist"
     ],
-    "prompt": "Set mood to Surreal Dreamscape: Integrate floating islands, melting geometry, or impossible sky colors inspired by Salvador Dali and René Magritte.",
-    "desc": "Incorporates Magritte or Dali-esque gravity-defying surrealist elements.",
-    "explain": "Incorporates Magritte or Dali-esque gravity-defying surrealist elements."
+    "prompt": "Set mood to Surreal Dreamscape: Integrate floating islands, melting geometry, or impossible sky colors inspired by Salvador Dali and René Magritte."
   },
   {
     "id": "atmosphere-dystopian-decay",
     "icon": "🏭",
     "name": "Dystopian Industrial Decay",
-    "category": "atmosphere",
-    "description": "Creates post-apocalyptic overgrown concrete and rusted industrial textures.",
+    "desc": "Creates post-apocalyptic overgrown concrete and rusted industrial textures.",
+    "explain": "Creates post-apocalyptic overgrown concrete and rusted industrial textures.",
     "layer": "atmosphere",
     "requires": [
       "atmosphere-fog-mist"
     ],
-    "prompt": "Apply Dystopian Industrial Decay texture: Render overgrown vine-covered concrete ruins, rusted steel girders, and gloomy overcast post-apocalyptic haze.",
-    "desc": "Creates post-apocalyptic overgrown concrete and rusted industrial textures.",
-    "explain": "Creates post-apocalyptic overgrown concrete and rusted industrial textures."
+    "prompt": "Apply Dystopian Industrial Decay texture: Render overgrown vine-covered concrete ruins, rusted steel girders, and gloomy overcast post-apocalyptic haze."
   },
   {
     "id": "atmosphere-ethereal-fantasy",
     "icon": "✨",
     "name": "Ethereal Fantasy Sparkles",
-    "category": "atmosphere",
-    "description": "Coats environment with magical floating dust particles and soft bloom halos.",
+    "desc": "Coats environment with magical floating dust particles and soft bloom halos.",
+    "explain": "Coats environment with magical floating dust particles and soft bloom halos.",
     "layer": "atmosphere",
     "requires": [
       "atmosphere-fog-mist"
     ],
-    "prompt": "Infuse atmosphere with Ethereal Fantasy Glow: Add floating golden dust motes, soft bloom lens halos, and enchanted fairy-tale atmosphere.",
-    "desc": "Coats environment with magical floating dust particles and soft bloom halos.",
-    "explain": "Coats environment with magical floating dust particles and soft bloom halos."
+    "prompt": "Infuse atmosphere with Ethereal Fantasy Glow: Add floating golden dust motes, soft bloom lens halos, and enchanted fairy-tale atmosphere."
   },
   {
     "id": "atmosphere-retro-synthwave",
     "icon": "🌇",
     "name": "80s Retro Synthwave Vibe",
-    "category": "atmosphere",
-    "description": "Establishes a purple sunset outrun aesthetic with perspective grid lines.",
+    "desc": "Establishes a purple sunset outrun aesthetic with perspective grid lines.",
+    "explain": "Establishes a purple sunset outrun aesthetic with perspective grid lines.",
     "layer": "atmosphere",
     "requires": [
       "atmosphere-fog-mist"
     ],
-    "prompt": "Build an 80s Synthwave / Outrun Atmosphere: Render a vibrant purple/magenta sunset sky, distant wireframe vector grids, and retro-futuristic nostalgia.",
-    "desc": "Establishes a purple sunset outrun aesthetic with perspective grid lines.",
-    "explain": "Establishes a purple sunset outrun aesthetic with perspective grid lines."
+    "prompt": "Build an 80s Synthwave / Outrun Atmosphere: Render a vibrant purple/magenta sunset sky, distant wireframe vector grids, and retro-futuristic nostalgia."
   },
   {
     "id": "atmosphere-film-noir",
     "icon": "🕵️",
     "name": "Gritty Film Noir Mystery",
-    "category": "atmosphere",
-    "description": "Constructs a moody black-and-white atmosphere with venetian blind shadows.",
+    "desc": "Constructs a moody black-and-white atmosphere with venetian blind shadows.",
+    "explain": "Constructs a moody black-and-white atmosphere with venetian blind shadows.",
     "layer": "atmosphere",
     "requires": [
       "atmosphere-dystopian-decay"
     ],
-    "prompt": "Construct a moody Film Noir Atmosphere: Use high-contrast monochrome tones, wet rain-slicked streets, venetian blind shadows, and cigarette smoke haze.",
-    "desc": "Constructs a moody black-and-white atmosphere with venetian blind shadows.",
-    "explain": "Constructs a moody black-and-white atmosphere with venetian blind shadows."
+    "prompt": "Construct a moody Film Noir Atmosphere: Use high-contrast monochrome tones, wet rain-slicked streets, venetian blind shadows, and cigarette smoke haze."
   },
   {
     "id": "parameters-midjourney-v6",
     "icon": "⚙️",
     "name": "Midjourney v6 Flag Protocol",
-    "category": "parameters",
-    "description": "Applies Midjourney v6 photorealism and raw style flags to prompt tail.",
+    "desc": "Applies Midjourney v6 photorealism and raw style flags to prompt tail.",
+    "explain": "Applies Midjourney v6 photorealism and raw style flags to prompt tail.",
     "layer": "parameters",
     "requires": [],
-    "prompt": "Append Midjourney v6 parameter flags to prompt end: `--v 6.0 --style raw --q 2` to lock photorealistic rendering and maximum detail generation.",
-    "desc": "Applies Midjourney v6 photorealism and raw style flags to prompt tail.",
-    "explain": "Applies Midjourney v6 photorealism and raw style flags to prompt tail."
+    "prompt": "Append Midjourney v6 parameter flags to prompt end: `--v 6.0 --style raw --q 2` to lock photorealistic rendering and maximum detail generation."
   },
   {
     "id": "parameters-aspect-ratio",
     "icon": "📐",
     "name": "Aspect Ratio Tuning (--ar 16:9)",
-    "category": "parameters",
-    "description": "Locks aspect ratios for cinematic landscape or vertical mobile viewports.",
+    "desc": "Locks aspect ratios for cinematic landscape or vertical mobile viewports.",
+    "explain": "Locks aspect ratios for cinematic landscape or vertical mobile viewports.",
     "layer": "parameters",
     "requires": [
       "parameters-midjourney-v6"
     ],
-    "prompt": "Define viewport aspect ratio flag: Append `--ar 16:9` for cinematic widescreen or `--ar 9:16` for vertical mobile viewports.",
-    "desc": "Locks aspect ratios for cinematic landscape or vertical mobile viewports.",
-    "explain": "Locks aspect ratios for cinematic landscape or vertical mobile viewports."
+    "prompt": "Define viewport aspect ratio flag: Append `--ar 16:9` for cinematic widescreen or `--ar 9:16` for vertical mobile viewports."
   },
   {
     "id": "parameters-negative-prompt",
     "icon": "🚫",
     "name": "Negative Prompt Filtering",
-    "category": "parameters",
-    "description": "Excludes unwanted anatomical flaws, blur, signatures, and extra limbs.",
+    "desc": "Excludes unwanted anatomical flaws, blur, signatures, and extra limbs.",
+    "explain": "Excludes unwanted anatomical flaws, blur, signatures, and extra limbs.",
     "layer": "parameters",
     "requires": [
       "parameters-midjourney-v6"
     ],
-    "prompt": "Add Negative Prompt exclusion parameters: Append `--no blur, watermark, deformed hands, extra limbs, low resolution, oversaturated, signature`.",
-    "desc": "Excludes unwanted anatomical flaws, blur, signatures, and extra limbs.",
-    "explain": "Excludes unwanted anatomical flaws, blur, signatures, and extra limbs."
+    "prompt": "Add Negative Prompt exclusion parameters: Append `--no blur, watermark, deformed hands, extra limbs, low resolution, oversaturated, signature`."
   },
   {
     "id": "parameters-chaos-stylize",
     "icon": "🎛️",
     "name": "Chaos & Stylize Control",
-    "category": "parameters",
-    "description": "Balances artistic aesthetic quality against creative randomness.",
+    "desc": "Balances artistic aesthetic quality against creative randomness.",
+    "explain": "Balances artistic aesthetic quality against creative randomness.",
     "layer": "parameters",
     "requires": [
       "parameters-aspect-ratio"
     ],
-    "prompt": "Calibrate stylization and variance flags: Set `--stylize 250 --chaos 15` to boost aesthetic fidelity while maintaining controlled creative novelty.",
-    "desc": "Balances artistic aesthetic quality against creative randomness.",
-    "explain": "Balances artistic aesthetic quality against creative randomness."
+    "prompt": "Calibrate stylization and variance flags: Set `--stylize 250 --chaos 15` to boost aesthetic fidelity while maintaining controlled creative novelty."
   },
   {
     "id": "parameters-flux-guidance",
     "icon": "⚡",
     "name": "Flux.1 Guidance & Steps Tuning",
-    "category": "parameters",
-    "description": "Configures Flux.1 guidance scales and step counts for prompt adherence.",
+    "desc": "Configures Flux.1 guidance scales and step counts for prompt adherence.",
+    "explain": "Configures Flux.1 guidance scales and step counts for prompt adherence.",
     "layer": "parameters",
     "requires": [
       "parameters-negative-prompt"
     ],
-    "prompt": "Configure Flux.1 generation parameters: Set `Guidance Scale: 3.5`, `Inference Steps: 35`, and `Prompt Strength: 0.85` for precise text adherence.",
-    "desc": "Configures Flux.1 guidance scales and step counts for prompt adherence.",
-    "explain": "Configures Flux.1 guidance scales and step counts for prompt adherence."
+    "prompt": "Configure Flux.1 generation parameters: Set `Guidance Scale: 3.5`, `Inference Steps: 35`, and `Prompt Strength: 0.85` for precise text adherence."
   },
   {
     "id": "parameters-sdxl-refiner",
     "icon": "🔧",
     "name": "SDXL Refiner & LoRA Weights",
-    "category": "parameters",
-    "description": "Injects SDXL refiner pass and LoRA detail weights for micro-textures.",
+    "desc": "Injects SDXL refiner pass and LoRA detail weights for micro-textures.",
+    "explain": "Injects SDXL refiner pass and LoRA detail weights for micro-textures.",
     "layer": "parameters",
     "requires": [
       "parameters-flux-guidance"
     ],
-    "prompt": "Configure SDXL & LoRA Weights: Add `<lora:detail_enhancer:0.65>`, `Base Denoise: 0.8`, and `Refiner Switch: 0.2` for micro-texture synthesis.",
-    "desc": "Injects SDXL refiner pass and LoRA detail weights for micro-textures.",
-    "explain": "Injects SDXL refiner pass and LoRA detail weights for micro-textures."
+    "prompt": "Configure SDXL & LoRA Weights: Add `<lora:detail_enhancer:0.65>`, `Base Denoise: 0.8`, and `Refiner Switch: 0.2` for micro-texture synthesis."
   }
 ]

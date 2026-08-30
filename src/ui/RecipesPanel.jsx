@@ -4,11 +4,11 @@ import { useShallow } from 'zustand/react/shallow';
 import { getTranslation } from '../locales/i18n';
 import { Bookmark, Save, Trash2, X } from 'lucide-react';
 
-export default function RecipesPanel({ showToast }) {
+export default function RecipesPanel({ showToast, onClose }) {
     const [isAdding, setIsAdding] = useState(false);
     const [name, setName] = useState('');
 
-    const { config, savedRecipes, saveRecipe, loadRecipe, deleteRecipe } = useEngineState(useShallow(state => ({
+    const { config, savedRecipes, saveRecipe, loadRecipe, deleteRecipe } = useEngineState(useShallow((state) => ({
         config: state.config,
         savedRecipes: state.savedRecipes,
         saveRecipe: state.saveRecipe,
@@ -34,15 +34,28 @@ export default function RecipesPanel({ showToast }) {
         showToast?.(t.toastRecipeDeleted);
     };
 
+    const handleLoad = (id) => {
+        loadRecipe(id);
+        showToast?.(t.toastSuccess);
+        onClose?.();
+    };
+
     return (
-        <section className="card delay-3" style={{ marginTop: '12px' }}>
+        <section className="card delay-3" style={{ marginTop: '0', width: '100%' }}>
             <div className="card-title" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <span><span className="dot"></span> {t.recipesTitle}</span>
-                {!isAdding && (
-                    <button className="btn btn-secondary" style={{ padding: '4px 10px', fontSize: '0.75rem' }} onClick={() => setIsAdding(true)}>
-                        <Save size={12} style={{ marginRight: '4px' }} /> {t.btnSaveRecipe}
-                    </button>
-                )}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    {!isAdding && (
+                        <button className="btn btn-secondary" style={{ padding: '4px 10px', fontSize: '0.75rem' }} onClick={() => setIsAdding(true)}>
+                            <Save size={12} style={{ marginRight: '4px' }} /> {t.btnSaveRecipe}
+                        </button>
+                    )}
+                    {onClose && (
+                        <button className="btn btn-secondary" style={{ padding: '4px 8px' }} onClick={onClose} aria-label="Close">
+                            <X size={14} />
+                        </button>
+                    )}
+                </div>
             </div>
 
             {isAdding && (
@@ -73,11 +86,11 @@ export default function RecipesPanel({ showToast }) {
                     {t.recipesEmpty}
                 </p>
             ) : (
-                <div className="presets-row" style={{ marginTop: '8px' }}>
+                <div className="presets-row" style={{ marginTop: '8px', display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
                     {savedRecipes.map((recipe) => (
                         <div key={recipe.id} className="preset-btn" style={{ display: 'flex', alignItems: 'center', gap: '6px', cursor: 'default' }}>
                             <button
-                                onClick={() => loadRecipe(recipe.id)}
+                                onClick={() => handleLoad(recipe.id)}
                                 style={{ display: 'flex', alignItems: 'center', gap: '6px', background: 'none', border: 'none', color: 'inherit', cursor: 'pointer', font: 'inherit', padding: 0 }}
                                 title={t.btnLoadRecipe}
                             >

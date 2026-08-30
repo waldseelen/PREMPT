@@ -183,7 +183,10 @@ export const useEngineState = create(
             // pushDomainRoute itself so the URL still matches.
             saveRecipe: (name) => set((state) => {
                 const payload = serializeState(state, { includeTopic: false });
-                const recipe = { id: crypto.randomUUID(), name, createdAt: Date.now(), payload };
+                const id = typeof crypto !== 'undefined' && crypto.randomUUID
+                    ? crypto.randomUUID()
+                    : (Date.now().toString(36) + Math.random().toString(36).slice(2));
+                const recipe = { id, name, createdAt: Date.now(), payload };
                 const trimmed = [...state.savedRecipes, recipe].slice(-MAX_RECIPES);
                 return { savedRecipes: trimmed };
             }),
@@ -275,6 +278,14 @@ export const useEngineState = create(
                 config: {
                     domain: DEFAULT_DOMAIN,
                     gorunum: 'default',
+                    ...persistedState?.config
+                }
+            }),
+            merge: (persistedState, currentState) => ({
+                ...currentState,
+                ...persistedState,
+                config: {
+                    ...currentState.config,
                     ...persistedState?.config
                 }
             }),

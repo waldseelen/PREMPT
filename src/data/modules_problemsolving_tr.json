@@ -3,414 +3,354 @@
     "id": "root-cause-5-whys",
     "icon": "🕵️",
     "name": "Kök Neden (5 Neden) Analizi",
-    "category": "deconstruction",
-    "description": "Yüzeysel semptomların ötesine geçip sorunun kök nedenine iner.",
+    "desc": "Yüzeysel semptomların ötesine geçip sorunun kök nedenine iner.",
+    "explain": "Yüzeysel semptomların ötesine geçip sorunun kök nedenine iner.",
     "layer": "deconstruction",
     "requires": [],
-    "prompt": "5 Neden (5 Whys) tekniğini uygula: Probleme 'Neden?' sorusunu ardışık 5 kez sorarak semptomları soyup kök nedene (root cause) ulaş.",
-    "desc": "Yüzeysel semptomların ötesine geçip sorunun kök nedenine iner.",
-    "explain": "Yüzeysel semptomların ötesine geçip sorunun kök nedenine iner."
+    "prompt": "5 Neden (5 Whys) tekniğini uygula: Probleme 'Neden?' sorusunu ardışık 5 kez sorarak semptomları soyup kök nedene (root cause) ulaş."
   },
   {
     "id": "problem-boundary-def",
     "icon": "🎯",
     "name": "Problem Sınır Tespiti",
-    "category": "deconstruction",
-    "description": "Neyin problem dahilinde, neyin dışında olduğunu netleştirir.",
+    "desc": "Neyin problem dahilinde, neyin dışında olduğunu netleştirir.",
+    "explain": "Neyin problem dahilinde, neyin dışında olduğunu netleştirir.",
     "layer": "deconstruction",
     "requires": [
       "root-cause-5-whys"
     ],
-    "prompt": "Problemin sınırlarını çiz (In-Scope / Out-of-Scope): Neyi çözmeye çalışıyoruz, neyi kesinlikle çözmeye çalışmıyoruz? Kapsam kaymasını önle.",
-    "desc": "Neyin problem dahilinde, neyin dışında olduğunu netleştirir.",
-    "explain": "Neyin problem dahilinde, neyin dışında olduğunu netleştirir."
+    "prompt": "Problemin sınırlarını çiz (In-Scope / Out-of-Scope): Neyi çözmeye çalışıyoruz, neyi kesinlikle çözmeye çalışmıyoruz? Kapsam kaymasını önle."
   },
   {
     "id": "functional-analysis",
     "icon": "⚙️",
     "name": "Fonksiyonel Sistem Analizi",
-    "category": "deconstruction",
-    "description": "Sistemi bileşenlerine ve fonksiyonel ilişkilerine ayırır.",
+    "desc": "Sistemi bileşenlerine ve fonksiyonel ilişkilerine ayırır.",
+    "explain": "Sistemi bileşenlerine ve fonksiyonel ilişkilerine ayırır.",
     "layer": "deconstruction",
     "requires": [
       "problem-boundary-def"
     ],
-    "prompt": "Sistemin Fonksiyonel Analizini yap: Bileşenleri 'Özne - Eylem - Nesne' olarak ayrıştır. Hangi fonksiyon yetersiz, hangisi aşırı, hangisi zararlı?",
-    "desc": "Sistemi bileşenlerine ve fonksiyonel ilişkilerine ayırır.",
-    "explain": "Sistemi bileşenlerine ve fonksiyonel ilişkilerine ayırır."
+    "prompt": "Sistemin Fonksiyonel Analizini yap: Bileşenleri 'Özne - Eylem - Nesne' olarak ayrıştır. Hangi fonksiyon yetersiz, hangisi aşırı, hangisi zararlı?"
   },
   {
     "id": "constraint-mapping",
     "icon": "🧱",
     "name": "Kısıt Haritalama (TOC)",
-    "category": "deconstruction",
-    "description": "Goldratt Kısıtlar Teorisi ile sistemi yavaşlatan darboğazı bulur.",
+    "desc": "Goldratt Kısıtlar Teorisi ile sistemi yavaşlatan darboğazı bulur.",
+    "explain": "Goldratt Kısıtlar Teorisi ile sistemi yavaşlatan darboğazı bulur.",
     "layer": "deconstruction",
     "requires": [
       "problem-boundary-def"
     ],
-    "prompt": "Kısıtlar Teorisini (Theory of Constraints) uygula: Tüm sistemin akış hızını sınırlayan TEK ana darboğazı (bottleneck) tespit et ve ona odaklan.",
-    "desc": "Goldratt Kısıtlar Teorisi ile sistemi yavaşlatan darboğazı bulur.",
-    "explain": "Goldratt Kısıtlar Teorisi ile sistemi yavaşlatan darboğazı bulur."
+    "prompt": "Kısıtlar Teorisini (Theory of Constraints) uygula: Tüm sistemin akış hızını sınırlayan TEK ana darboğazı (bottleneck) tespit et ve ona odaklan."
   },
   {
     "id": "issue-tree-breakdown",
     "icon": "🌳",
     "name": "Sorun Ağacı (MECE) Ayrıştırma",
-    "category": "deconstruction",
-    "description": "Problemi karşılıklı ayrışık, toplamda kapsayıcı alt parçalara böler.",
+    "desc": "Problemi karşılıklı ayrışık, toplamda kapsayıcı alt parçalara böler.",
+    "explain": "Problemi karşılıklı ayrışık, toplamda kapsayıcı alt parçalara böler.",
     "layer": "deconstruction",
     "requires": [
       "root-cause-5-whys"
     ],
-    "prompt": "Problemi MECE (Mutually Exclusive, Collectively Exhaustive) prensibiyle bir Sorun Ağacına (Issue Tree) böl. Hiçbir alt nedeni çakıştırma ve açık bırakma.",
-    "desc": "Problemi karşılıklı ayrışık, toplamda kapsayıcı alt parçalara böler.",
-    "explain": "Problemi karşılıklı ayrışık, toplamda kapsayıcı alt parçalara böler."
+    "prompt": "Problemi MECE (Mutually Exclusive, Collectively Exhaustive) prensibiyle bir Sorun Ağacına (Issue Tree) böl. Hiçbir alt nedeni çakıştırma ve açık bırakma."
   },
   {
     "id": "system-component-map",
     "icon": "🗺️",
     "name": "Sistem Bileşen Haritası",
-    "category": "deconstruction",
-    "description": "Alt sistemler ve çevre etkileşimlerini haritalandırır.",
+    "desc": "Alt sistemler ve çevre etkileşimlerini haritalandırır.",
+    "explain": "Alt sistemler ve çevre etkileşimlerini haritalandırır.",
     "layer": "deconstruction",
     "requires": [
       "functional-analysis"
     ],
-    "prompt": "Sistemin üst sistem (supersystem), mevcut sistem ve alt sistem (subsystem) düzeylerindeki bileşenler arası malzeme, enerji ve bilgi akışlarını haritalandır.",
-    "desc": "Alt sistemler ve çevre etkileşimlerini haritalandırır.",
-    "explain": "Alt sistemler ve çevre etkileşimlerini haritalandırır."
+    "prompt": "Sistemin üst sistem (supersystem), mevcut sistem ve alt sistem (subsystem) düzeylerindeki bileşenler arası malzeme, enerji ve bilgi akışlarını haritalandır."
   },
   {
     "id": "triz-contradiction-matrix",
     "icon": "⚡",
     "name": "TRIZ Çelişki Matrisi",
-    "category": "triz",
-    "description": "İki parametre arasındaki teknik veya fiziksel çelişkiyi çözer.",
+    "desc": "İki parametre arasındaki teknik veya fiziksel çelişkiyi çözer.",
+    "explain": "İki parametre arasındaki teknik veya fiziksel çelişkiyi çözer.",
     "layer": "triz",
     "requires": [
       "functional-analysis"
     ],
-    "prompt": "TRIZ Çelişki Matrisini uygula: İyileştirilmek istenen parametre (örn: Hız) ile bozulan parametre (örn: Ağırlık) arasındaki çelişkiyi tanımla ve TRIZ'in 40 İnovasyon İlkesinden uygun olanları seç.",
-    "desc": "İki parametre arasındaki teknik veya fiziksel çelişkiyi çözer.",
-    "explain": "İki parametre arasındaki teknik veya fiziksel çelişkiyi çözer."
+    "prompt": "TRIZ Çelişki Matrisini uygula: İyileştirilmek istenen parametre (örn: Hız) ile bozulan parametre (örn: Ağırlık) arasındaki çelişkiyi tanımla ve TRIZ'in 40 İnovasyon İlkesinden uygun olanları seç."
   },
   {
     "id": "triz-ideality-operator",
     "icon": "✨",
     "name": "TRIZ İdeal Nihai Sonuç (IFR)",
-    "category": "triz",
-    "description": "Sistem karmaşıklığını ve maliyetini sıfırlayarak ideal çözüme ulaşır.",
+    "desc": "Sistem karmaşıklığını ve maliyetini sıfırlayarak ideal çözüme ulaşır.",
+    "explain": "Sistem karmaşıklığını ve maliyetini sıfırlayarak ideal çözüme ulaşır.",
     "layer": "triz",
     "requires": [
       "triz-contradiction-matrix"
     ],
-    "prompt": "İdeal Nihai Sonucu (Ideal Final Result - IFR) tanımla: Sistem veya mekanizma karmaşıklık, maliyet ve alan eklemeden fonksiyonu KENDİ KENDİNE nasıl yerine getirebilir?",
-    "desc": "Sistem karmaşıklığını ve maliyetini sıfırlayarak ideal çözüme ulaşır.",
-    "explain": "Sistem karmaşıklığını ve maliyetini sıfırlayarak ideal çözüme ulaşır."
+    "prompt": "İdeal Nihai Sonucu (Ideal Final Result - IFR) tanımla: Sistem veya mekanizma karmaşıklık, maliyet ve alan eklemeden fonksiyonu KENDİ KENDİNE nasıl yerine getirebilir?"
   },
   {
     "id": "triz-resource-inventory",
     "icon": "🎒",
     "name": "TRIZ Kaynak Envanteri",
-    "category": "triz",
-    "description": "Sistemde ve çevrede atıl duran gizli kaynakları keşfeder.",
+    "desc": "Sistemde ve çevrede atıl duran gizli kaynakları keşfeder.",
+    "explain": "Sistemde ve çevrede atıl duran gizli kaynakları keşfeder.",
     "layer": "triz",
     "requires": [
       "triz-ideality-operator"
     ],
-    "prompt": "TRIZ Kaynak Analizi yap: Çevredeki atık ısı, yerçekimi, alan, zaman veya malzeme gibi ÜCRETSİZ ve GİZLİ kaynakları çözüme nasıl dahil edebilirsin?",
-    "desc": "Sistemde ve çevrede atıl duran gizli kaynakları keşfeder.",
-    "explain": "Sistemde ve çevrede atıl duran gizli kaynakları keşfeder."
+    "prompt": "TRIZ Kaynak Analizi yap: Çevredeki atık ısı, yerçekimi, alan, zaman veya malzeme gibi ÜCRETSİZ ve GİZLİ kaynakları çözüme nasıl dahil edebilirsin?"
   },
   {
     "id": "triz-substance-field",
     "icon": "🧲",
     "name": "TRIZ Madde-Alan (Su-Field) Analizi",
-    "category": "triz",
-    "description": "İki madde ve bir alan arasındaki etkileşimi modelleyip iyileştirir.",
+    "desc": "İki madde ve bir alan arasındaki etkileşimi modelleyip iyileştirir.",
+    "explain": "İki madde ve bir alan arasındaki etkileşimi modelleyip iyileştirir.",
     "layer": "triz",
     "requires": [
       "triz-contradiction-matrix"
     ],
-    "prompt": "Madde-Alan (Su-Field) Analizi yap: Problemi $S_1$ (Madde 1), $S_2$ (Madde 2) ve $F$ (Alan) olarak modelle. Zararlı veya yetersiz etkileşimi ortadan kaldıracak yeni bir alan ekle.",
-    "desc": "İki madde ve bir alan arasındaki etkileşimi modelleyip iyileştirir.",
-    "explain": "İki madde ve bir alan arasındaki etkileşimi modelleyip iyileştirir."
+    "prompt": "Madde-Alan (Su-Field) Analizi yap: Problemi $S_1$ (Madde 1), $S_2$ (Madde 2) ve $F$ (Alan) olarak modelle. Zararlı veya yetersiz etkileşimi ortadan kaldıracak yeni bir alan ekle."
   },
   {
     "id": "triz-evolution-lines",
     "icon": "📈",
     "name": "TRIZ Sistem Evrim Eğrileri",
-    "category": "triz",
-    "description": "Teknolojinin evrimleşme kalıplarına (S-Eğrisi) göre geleceği öngörür.",
+    "desc": "Teknolojinin evrimleşme kalıplarına (S-Eğrisi) göre geleceği öngörür.",
+    "explain": "Teknolojinin evrimleşme kalıplarına (S-Eğrisi) göre geleceği öngörür.",
     "layer": "triz",
     "requires": [
       "triz-ideality-operator"
     ],
-    "prompt": "Teknolojik sistemin Evrim Eğrilerini (Lines of System Evolution) incele: Sistem şu an S-Eğrisinin neresinde? Esnekliğe, dinamizme veya mikro-seviyeye geçiş adımını belirle.",
-    "desc": "Teknolojinin evrimleşme kalıplarına (S-Eğrisi) göre geleceği öngörür.",
-    "explain": "Teknolojinin evrimleşme kalıplarına (S-Eğrisi) göre geleceği öngörür."
+    "prompt": "Teknolojik sistemin Evrim Eğrilerini (Lines of System Evolution) incele: Sistem şu an S-Eğrisinin neresinde? Esnekliğe, dinamizme veya mikro-seviyeye geçiş adımını belirle."
   },
   {
     "id": "triz-su-field-analysis",
     "icon": "🌀",
     "name": "TRIZ Standart Çözümler",
-    "category": "triz",
-    "description": "TRIZ'in 76 standart çözüm kalıbını probleme uygular.",
+    "desc": "TRIZ'in 76 standart çözüm kalıbını probleme uygular.",
+    "explain": "TRIZ'in 76 standart çözüm kalıbını probleme uygular.",
     "layer": "triz",
     "requires": [
       "triz-substance-field"
     ],
-    "prompt": "TRIZ'in 76 Standart Çözümünden en uygun 3 tanesini seçip sisteme entegre et: Madde ekleme/çıkarma, alan dönüştürme veya aşama değiştirme ilkelerini dene.",
-    "desc": "TRIZ'in 76 standart çözüm kalıbını probleme uygular.",
-    "explain": "TRIZ'in 76 standart çözüm kalıbını probleme uygular."
+    "prompt": "TRIZ'in 76 Standart Çözümünden en uygun 3 tanesini seçip sisteme entegre et: Madde ekleme/çıkarma, alan dönüştürme veya aşama değiştirme ilkelerini dene."
   },
   {
     "id": "de-bono-6-hats",
     "icon": "🎩",
     "name": "de Bono 6 Düşünme Şapkası",
-    "category": "lateral",
-    "description": "Probleme altı farklı duygusal ve rasyonel açıdan bakar.",
+    "desc": "Probleme altı farklı duygusal ve rasyonel açıdan bakar.",
+    "explain": "Probleme altı farklı duygusal ve rasyonel açıdan bakar.",
     "layer": "lateral",
     "requires": [],
-    "prompt": "6 Düşünme Şapkasını sırayla giy: Beyaz (Veri), Kırmızı (Duygu), Siyah (Risk), Sarı (Fayda), Yeşil (Yaratıcılık), Mavi (Süreç Yönetimi). Her şapka altındaki çıktıları ayrıştır.",
-    "desc": "Probleme altı farklı duygusal ve rasyonel açıdan bakar.",
-    "explain": "Probleme altı farklı duygusal ve rasyonel açıdan bakar."
+    "prompt": "6 Düşünme Şapkasını sırayla giy: Beyaz (Veri), Kırmızı (Duygu), Siyah (Risk), Sarı (Fayda), Yeşil (Yaratıcılık), Mavi (Süreç Yönetimi). Her şapka altındaki çıktıları ayrıştır."
   },
   {
     "id": "random-word-stimulus",
     "icon": "🎲",
     "name": "Rastgele Sözcük / Uyarıcı",
-    "category": "lateral",
-    "description": "Zihni alışılmış düşünme kalıplarından çıkarmak için rastgele bağlantı kurar.",
+    "desc": "Zihni alışılmış düşünme kalıplarından çıkarmak için rastgele bağlantı kurar.",
+    "explain": "Zihni alışılmış düşünme kalıplarından çıkarmak için rastgele bağlantı kurar.",
     "layer": "lateral",
     "requires": [
       "de-bono-6-hats"
     ],
-    "prompt": "Rastgele Uyarıcı (Random Entry) tekniği uygula: Problemle alakası olmayan rastgele bir nesne/sözcük seç ve bu sözcüğün özelliklerini problem alanına zorla bağlayarak radikal fikir üret.",
-    "desc": "Zihni alışılmış düşünme kalıplarından çıkarmak için rastgele bağlantı kurar.",
-    "explain": "Zihni alışılmış düşünme kalıplarından çıkarmak için rastgele bağlantı kurar."
+    "prompt": "Rastgele Uyarıcı (Random Entry) tekniği uygula: Problemle alakası olmayan rastgele bir nesne/sözcük seç ve bu sözcüğün özelliklerini problem alanına zorla bağlayarak radikal fikir üret."
   },
   {
     "id": "provocation-po",
     "icon": "💥",
     "name": "Provokasyon (PO) Tekniği",
-    "category": "lateral",
-    "description": "Absürt ve mantıksız durumlar hayal ederek yeni fikir kanalları açar.",
+    "desc": "Absürt ve mantıksız durumlar hayal ederek yeni fikir kanalları açar.",
+    "explain": "Absürt ve mantıksız durumlar hayal ederek yeni fikir kanalları açar.",
     "layer": "lateral",
     "requires": [
       "de-bono-6-hats"
     ],
-    "prompt": "Provokasyon (PO) cümlesi kur: Gerçekliği tamamen sarsan absürt bir mantık dışı iddia ortaya at (Örn: 'Arabanın tekerlekleri kare olsun'). Bu provokasyondan kaçış köprüsü (stepping stone) kurarak pratik fikir üret.",
-    "desc": "Absürt ve mantıksız durumlar hayal ederek yeni fikir kanalları açar.",
-    "explain": "Absürt ve mantıksız durumlar hayal ederek yeni fikir kanalları açar."
+    "prompt": "Provokasyon (PO) cümlesi kur: Gerçekliği tamamen sarsan absürt bir mantık dışı iddia ortaya at (Örn: 'Arabanın tekerlekleri kare olsun'). Bu provokasyondan kaçış köprüsü (stepping stone) kurarak pratik fikir üret."
   },
   {
     "id": "analogical-transfer",
     "icon": "🧬",
     "name": "Biyotaklit ve Biyoloji Analojisi",
-    "category": "lateral",
-    "description": "Doğadaki ve farklı disiplinlerdeki çözümleri probleme uyarlar.",
+    "desc": "Doğadaki ve farklı disiplinlerdeki çözümleri probleme uyarlar.",
+    "explain": "Doğadaki ve farklı disiplinlerdeki çözümleri probleme uyarlar.",
     "layer": "lateral",
     "requires": [
       "de-bono-6-hats"
     ],
-    "prompt": "Biyotaklit (Biomimicry) veya disiplinler arası analoji kur: Doğadaki hangi canlı veya mekanizma bu problemi evrimsel süreçte zaten çözdü? Çözümü sisteme transfer et.",
-    "desc": "Doğadaki ve farklı disiplinlerdeki çözümleri probleme uyarlar.",
-    "explain": "Doğadaki ve farklı disiplinlerdeki çözümleri probleme uyarlar."
+    "prompt": "Biyotaklit (Biomimicry) veya disiplinler arası analoji kur: Doğadaki hangi canlı veya mekanizma bu problemi evrimsel süreçte zaten çözdü? Çözümü sisteme transfer et."
   },
   {
     "id": "perspective-reversal",
     "icon": "🔄",
     "name": "Perspektif Tersine Çevirme",
-    "category": "lateral",
-    "description": "Problemi rakibin, müşterinin veya nesnenin gözünden görür.",
+    "desc": "Problemi rakibin, müşterinin veya nesnenin gözünden görür.",
+    "explain": "Problemi rakibin, müşterinin veya nesnenin gözünden görür.",
     "layer": "lateral",
     "requires": [
       "de-bono-6-hats"
     ],
-    "prompt": "Perspektif Değiştir: Problemi çözülmek istenen NESNENİN veya RAKİBİN gözünden birinci şahıs diliyle anlat ('Ben bir veri paketiyim ve...' veya 'Ben bu sistemim ve...').",
-    "desc": "Problemi rakibin, müşterinin veya nesnenin gözünden görür.",
-    "explain": "Problemi rakibin, müşterinin veya nesnenin gözünden görür."
+    "prompt": "Perspektif Değiştir: Problemi çözülmek istenen NESNENİN veya RAKİBİN gözünden birinci şahıs diliyle anlat ('Ben bir veri paketiyim ve...' veya 'Ben bu sistemim ve...')."
   },
   {
     "id": "cross-domain-pollination",
     "icon": "🐝",
     "name": "Çapraz Disiplin Tozlaşması",
-    "category": "lateral",
-    "description": "Tamamen farklı bir sektördeki çözüm mimarisini probleme uyarlar.",
+    "desc": "Tamamen farklı bir sektördeki çözüm mimarisini probleme uyarlar.",
+    "explain": "Tamamen farklı bir sektördeki çözüm mimarisini probleme uyarlar.",
     "layer": "lateral",
     "requires": [
       "analogical-transfer"
     ],
-    "prompt": "Çapraz Disiplin Tozlaşması yap: Problemi uzay havacılığı, derin deniz biyolojisi veya video oyunu tasarımı ilkeleriyle yeniden çözmeyi dene.",
-    "desc": "Tamamen farklı bir sektördeki çözüm mimarisini probleme uyarlar.",
-    "explain": "Tamamen farklı bir sektördeki çözüm mimarisini probleme uyarlar."
+    "prompt": "Çapraz Disiplin Tozlaşması yap: Problemi uzay havacılığı, derin deniz biyolojisi veya video oyunu tasarımı ilkeleriyle yeniden çözmeyi dene."
   },
   {
     "id": "scamper-substitute",
     "icon": "🔄",
     "name": "SCAMPER - Substitute (Yer Değiştir)",
-    "category": "scamper",
-    "description": "Malzeme, insan veya süreç bileşenlerini yenileriyle değiştirir.",
+    "desc": "Malzeme, insan veya süreç bileşenlerini yenileriyle değiştirir.",
+    "explain": "Malzeme, insan veya süreç bileşenlerini yenileriyle değiştirir.",
     "layer": "scamper",
     "requires": [],
-    "prompt": "SCAMPER - Substitute (Yer Değiştir): Bu sistemde kullanılan malzemeleri, insanları, adımları veya enerji kaynağını ne ile değiştirebilirsin?",
-    "desc": "Malzeme, insan veya süreç bileşenlerini yenileriyle değiştirir.",
-    "explain": "Malzeme, insan veya süreç bileşenlerini yenileriyle değiştirir."
+    "prompt": "SCAMPER - Substitute (Yer Değiştir): Bu sistemde kullanılan malzemeleri, insanları, adımları veya enerji kaynağını ne ile değiştirebilirsin?"
   },
   {
     "id": "scamper-combine-adapt",
     "icon": "🧩",
     "name": "SCAMPER - Combine & Adapt (Birleştir & Uyarla)",
-    "category": "scamper",
-    "description": "Farklı fonksiyonları birleştirir ve dış çözümleri uyarlar.",
+    "desc": "Farklı fonksiyonları birleştirir ve dış çözümleri uyarlar.",
+    "explain": "Farklı fonksiyonları birleştirir ve dış çözümleri uyarlar.",
     "layer": "scamper",
     "requires": [
       "scamper-substitute"
     ],
-    "prompt": "SCAMPER - Combine & Adapt: Başka hangi ürün, hizmet veya süreci bu sistemle birleştirebilirsin? Başka bir alandaki çözümü buraya nasıl uyarlarsın?",
-    "desc": "Farklı fonksiyonları birleştirir ve dış çözümleri uyarlar.",
-    "explain": "Farklı fonksiyonları birleştirir ve dış çözümleri uyarlar."
+    "prompt": "SCAMPER - Combine & Adapt: Başka hangi ürün, hizmet veya süreci bu sistemle birleştirebilirsin? Başka bir alandaki çözümü buraya nasıl uyarlarsın?"
   },
   {
     "id": "scamper-modify-magnify",
     "icon": "🔍",
     "name": "SCAMPER - Modify & Magnify (Değiştir & Büyüt)",
-    "category": "scamper",
-    "description": "Bileşenlerin boyutunu, frekansını veya önemini abartır/küçültür.",
+    "desc": "Bileşenlerin boyutunu, frekansını veya önemini abartır/küçültür.",
+    "explain": "Bileşenlerin boyutunu, frekansını veya önemini abartır/küçültür.",
     "layer": "scamper",
     "requires": [
       "scamper-combine-adapt"
     ],
-    "prompt": "SCAMPER - Modify/Magnify/Minify: Sistemin bir özelliğini 100 kat büyütürsen veya tamamen mikron seviyesine küçültürsen ne olur?",
-    "desc": "Bileşenlerin boyutunu, frekansını veya önemini abartır/küçültür.",
-    "explain": "Bileşenlerin boyutunu, frekansını veya önemini abartır/küçültür."
+    "prompt": "SCAMPER - Modify/Magnify/Minify: Sistemin bir özelliğini 100 kat büyütürsen veya tamamen mikron seviyesine küçültürsen ne olur?"
   },
   {
     "id": "scamper-put-other-use",
     "icon": "♻️",
     "name": "SCAMPER - Put to Other Use (Başka Amaçla Kullan)",
-    "category": "scamper",
-    "description": "Atıkları veya mevcut sistemi farklı bir pazarda/işlevde değerlendirir.",
+    "desc": "Atıkları veya mevcut sistemi farklı bir pazarda/işlevde değerlendirir.",
+    "explain": "Atıkları veya mevcut sistemi farklı bir pazarda/işlevde değerlendirir.",
     "layer": "scamper",
     "requires": [
       "scamper-modify-magnify"
     ],
-    "prompt": "SCAMPER - Put to Other Use: Bu sistem veya onun ürettiği atık çıktılar tamamen farklı bir sektörde veya pazar segmentinde ne amaçla kullanılabilir?",
-    "desc": "Atıkları veya mevcut sistemi farklı bir pazarda/işlevde değerlendirir.",
-    "explain": "Atıkları veya mevcut sistemi farklı bir pazarda/işlevde değerlendirir."
+    "prompt": "SCAMPER - Put to Other Use: Bu sistem veya onun ürettiği atık çıktılar tamamen farklı bir sektörde veya pazar segmentinde ne amaçla kullanılabilir?"
   },
   {
     "id": "scamper-eliminate-reverse",
     "icon": "✂️",
     "name": "SCAMPER - Eliminate & Reverse (Yok Et & Ters Çevir)",
-    "category": "scamper",
-    "description": "Gereksiz parçaları çıkarır ve adımların sırasını tersine çevirir.",
+    "desc": "Gereksiz parçaları çıkarır ve adımların sırasını tersine çevirir.",
+    "explain": "Gereksiz parçaları çıkarır ve adımların sırasını tersine çevirir.",
     "layer": "scamper",
     "requires": [
       "scamper-put-other-use"
     ],
-    "prompt": "SCAMPER - Eliminate & Rearrange: Sistemin en karmaşık görünen adımını tamamen SİL. Sıralamayı tam tersine çevirirsen ne gerçekleşir?",
-    "desc": "Gereksiz parçaları çıkarır ve adımların sırasını tersine çevirir.",
-    "explain": "Gereksiz parçaları çıkarır ve adımların sırasını tersine çevirir."
+    "prompt": "SCAMPER - Eliminate & Rearrange: Sistemin en karmaşık görünen adımını tamamen SİL. Sıralamayı tam tersine çevirirsen ne gerçekleşir?"
   },
   {
     "id": "scamper-full-matrix",
     "icon": "🎛️",
     "name": "SCAMPER Tam Operatör Matrisi",
-    "category": "scamper",
-    "description": "Tüm SCAMPER adımlarını tek bir fikir üretme matrisinde birleştirir.",
+    "desc": "Tüm SCAMPER adımlarını tek bir fikir üretme matrisinde birleştirir.",
+    "explain": "Tüm SCAMPER adımlarını tek bir fikir üretme matrisinde birleştirir.",
     "layer": "scamper",
     "requires": [
       "scamper-eliminate-reverse"
     ],
-    "prompt": "Tüm SCAMPER operatörlerini kapsayan 7 maddelik yenilikçi fikir matrisini üret ve en radikal 3 fikri filtrele.",
-    "desc": "Tüm SCAMPER adımlarını tek bir fikir üretme matrisinde birleştirir.",
-    "explain": "Tüm SCAMPER adımlarını tek bir fikir üretme matrisinde birleştirir."
+    "prompt": "Tüm SCAMPER operatörlerini kapsayan 7 maddelik yenilikçi fikir matrisini üret ve en radikal 3 fikri filtrele."
   },
   {
     "id": "morphological-matrix",
     "icon": "📊",
     "name": "Morfolojik Analiz Matrisi",
-    "category": "evaluation",
-    "description": "Parametreler ve seçenekler matrisinden yeni konfigürasyonlar türetir.",
+    "desc": "Parametreler ve seçenekler matrisinden yeni konfigürasyonlar türetir.",
+    "explain": "Parametreler ve seçenekler matrisinden yeni konfigürasyonlar türetir.",
     "layer": "evaluation",
     "requires": [
       "issue-tree-breakdown"
     ],
-    "prompt": "Morfolojik Analiz Matrisi oluştur: Sistemin boyutlarını (Eksenler) ve her boyutun alt seçeneklerini yaz. Seçenekleri rastgele kombinleyerek beklenmedik çözümler türet.",
-    "desc": "Parametreler ve seçenekler matrisinden yeni konfigürasyonlar türetir.",
-    "explain": "Parametreler ve seçenekler matrisinden yeni konfigürasyonlar türetir."
+    "prompt": "Morfolojik Analiz Matrisi oluştur: Sistemin boyutlarını (Eksenler) ve her boyutun alt seçeneklerini yaz. Seçenekleri rastgele kombinleyerek beklenmedik çözümler türet."
   },
   {
     "id": "solution-feasibility-grid",
     "icon": "🎯",
     "name": "Çözüm Uygulanabilirlik Matrisi",
-    "category": "evaluation",
-    "description": "Fikirleri Etki, Maliyet ve Süre açısından puanlar.",
+    "desc": "Fikirleri Etki, Maliyet ve Süre açısından puanlar.",
+    "explain": "Fikirleri Etki, Maliyet ve Süre açısından puanlar.",
     "layer": "evaluation",
     "requires": [
       "morphological-matrix"
     ],
-    "prompt": "Üretilen tüm çözümleri Uygulanabilirlik Matrisinde (Etki vs. Kolaylık) derecelendir. Hızlı kazanımları (Quick Wins) ve stratejik hamleleri ayrıştır.",
-    "desc": "Fikirleri Etki, Maliyet ve Süre açısından puanlar.",
-    "explain": "Fikirleri Etki, Maliyet ve Süre açısından puanlar."
+    "prompt": "Üretilen tüm çözümleri Uygulanabilirlik Matrisinde (Etki vs. Kolaylık) derecelendir. Hızlı kazanımları (Quick Wins) ve stratejik hamleleri ayrıştır."
   },
   {
     "id": "failure-mode-effect",
     "icon": "⚠️",
     "name": "FMEA Hata Modları Analizi",
-    "category": "evaluation",
-    "description": "Olası başarısızlıkların risk öncelik puanını (RPN) hesaplar.",
+    "desc": "Olası başarısızlıkların risk öncelik puanını (RPN) hesaplar.",
+    "explain": "Olası başarısızlıkların risk öncelik puanını (RPN) hesaplar.",
     "layer": "evaluation",
     "requires": [
       "solution-feasibility-grid"
     ],
-    "prompt": "FMEA (Failure Mode and Effects Analysis) yap: Çözümün olası hata modlarını, Şiddet (S), Olasılık (O) ve Tespit Edilebilirlik (D) skorlarıyla Risk Öncelik Sayısına ($RPN = S \\times O \\times D$) dönüştür.",
-    "desc": "Olası başarısızlıkların risk öncelik puanını (RPN) hesaplar.",
-    "explain": "Olası başarısızlıkların risk öncelik puanını (RPN) hesaplar."
+    "prompt": "FMEA (Failure Mode and Effects Analysis) yap: Çözümün olası hata modlarını, Şiddet (S), Olasılık (O) ve Tespit Edilebilirlik (D) skorlarıyla Risk Öncelik Sayısına ($RPN = S \\times O \\times D$) dönüştür."
   },
   {
     "id": "trade-off-optimization",
     "icon": "⚖️",
     "name": "Çok Kriterli Optimizasyon",
-    "category": "evaluation",
-    "description": "Çatışan hedefler arasında AHP (Analytic Hierarchy Process) analizi yapar.",
+    "desc": "Çatışan hedefler arasında AHP (Analytic Hierarchy Process) analizi yapar.",
+    "explain": "Çatışan hedefler arasında AHP (Analytic Hierarchy Process) analizi yapar.",
     "layer": "evaluation",
     "requires": [
       "solution-feasibility-grid"
     ],
-    "prompt": "Çok Kriterli Karar Verme (MCDM) uygula: Çözüm alternatiflerini ağırlıklandırılmış kriterlere göre matriste puanlayıp en optimum seçeneği matematiksel olarak seç.",
-    "desc": "Çatışan hedefler arasında AHP (Analytic Hierarchy Process) analizi yapar.",
-    "explain": "Çatışan hedefler arasında AHP (Analytic Hierarchy Process) analizi yapar."
+    "prompt": "Çok Kriterli Karar Verme (MCDM) uygula: Çözüm alternatiflerini ağırlıklandırılmış kriterlere göre matriste puanlayıp en optimum seçeneği matematiksel olarak seç."
   },
   {
     "id": "pilot-experiment-design",
     "icon": "🧪",
     "name": "Pilot Deney Tasarımı",
-    "category": "evaluation",
-    "description": "Çözümü en düşük maliyet ve riskle sahada test edecek pilot protokolü kurar.",
+    "desc": "Çözümü en düşük maliyet ve riskle sahada test edecek pilot protokolü kurar.",
+    "explain": "Çözümü en düşük maliyet ve riskle sahada test edecek pilot protokolü kurar.",
     "layer": "evaluation",
     "requires": [
       "failure-mode-effect"
     ],
-    "prompt": "Çözüm için düşük riskli Pilot Deney Tasarımı yaz: Hipotezi test edecek minimum ölçekli protokolü, kontrol grubunu ve başarı kriterini tanımla.",
-    "desc": "Çözümü en düşük maliyet ve riskle sahada test edecek pilot protokolü kurar.",
-    "explain": "Çözümü en düşük maliyet ve riskle sahada test edecek pilot protokolü kurar."
+    "prompt": "Çözüm için düşük riskli Pilot Deney Tasarımı yaz: Hipotezi test edecek minimum ölçekli protokolü, kontrol grubunu ve başarı kriterini tanımla."
   },
   {
     "id": "solution-impact-matrix",
     "icon": "🚀",
     "name": "Çözüm Etki Haritası",
-    "category": "evaluation",
-    "description": "Çözümün uzun vadeli sistemik dönüşüm potansiyelini raporlar.",
+    "desc": "Çözümün uzun vadeli sistemik dönüşüm potansiyelini raporlar.",
+    "explain": "Çözümün uzun vadeli sistemik dönüşüm potansiyelini raporlar.",
     "layer": "evaluation",
     "requires": [
       "solution-feasibility-grid"
     ],
-    "prompt": "Çözümün uzun vadeli etki ve değer haritasını çıkar: Uygulama sonrası sistemin kazanacağı yeni yetenekleri ve kaldırılacak karmaşıklıkları özetle.",
-    "desc": "Çözümün uzun vadeli sistemik dönüşüm potansiyelini raporlar.",
-    "explain": "Çözümün uzun vadeli sistemik dönüşüm potansiyelini raporlar."
+    "prompt": "Çözümün uzun vadeli etki ve değer haritasını çıkar: Uygulama sonrası sistemin kazanacağı yeni yetenekleri ve kaldırılacak karmaşıklıkları özetle."
   }
 ]

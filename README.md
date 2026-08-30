@@ -51,7 +51,7 @@ npm install
 npm run dev
 
 # Validate module datasets across all 15 domains
-node scripts/validate-modules.mjs
+npm run validate
 
 # Build production bundle (dist/)
 npm run build
@@ -71,6 +71,9 @@ npm run build
 
 ## 📚 Deeper Documentation
 
-- [`ARCHITECTURE.md`](./ARCHITECTURE.md) — Unified 15-domain spec architecture, single viewport layout, compiler pipeline, and file tree.
-- [`PROGRESS.md`](./PROGRESS.md) — Active gate status, verification logs, and session history.
-- [`CLAUDE.md`](./CLAUDE.md) — Development guidelines and rules.
+- [`CLAUDE.md`](./CLAUDE.md) — Canonical rulebook, development guidelines, and invariant engineering standards.
+- [`ARCHITECTURE.md`](./ARCHITECTURE.md) — Structure, boundaries, state shape, compile pipeline, and full file tree.
+- [`MEMORY.md`](./MEMORY.md) — Durable non-obvious facts, traps, and behavioral invariants.
+- [`PROGRESS.md`](./PROGRESS.md) — Gate verification status and chronological session history.
+- [`TASKS.md`](./TASKS.md) — Active execution work queue and acceptance criteria.
+- [`AGENT.md`](./AGENT.md) / [`AGENTS.md`](./AGENTS.md) — Pointer stubs directing all coding agents to `CLAUDE.md`.

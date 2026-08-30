@@ -3,419 +3,359 @@
     "id": "decision-framing",
     "icon": "🎯",
     "name": "Decision Framing",
-    "category": "foundation",
-    "description": "Defines the core boundaries, assumptions, and central question of the decision problem.",
+    "desc": "Defines the core boundaries, assumptions, and central question of the decision problem.",
+    "explain": "Defines the core boundaries, assumptions, and central question of the decision problem.",
     "layer": "foundation",
     "requires": [],
-    "prompt": "Clarify and frame the decision problem: What is the actual core problem to solve? What are the scope, time horizon, and non-negotiable constraint parameters? Reframe the question to avoid solving the wrong problem.",
-    "desc": "Defines the core boundaries, assumptions, and central question of the decision problem.",
-    "explain": "Defines the core boundaries, assumptions, and central question of the decision problem."
+    "prompt": "Clarify and frame the decision problem: What is the actual core problem to solve? What are the scope, time horizon, and non-negotiable constraint parameters? Reframe the question to avoid solving the wrong problem."
   },
   {
     "id": "core-objectives",
     "icon": "📌",
     "name": "Core Objectives",
-    "category": "foundation",
-    "description": "Hierarchically establishes success metrics and non-negotiable goals.",
+    "desc": "Hierarchically establishes success metrics and non-negotiable goals.",
+    "explain": "Hierarchically establishes success metrics and non-negotiable goals.",
     "layer": "foundation",
     "requires": [
       "decision-framing"
     ],
-    "prompt": "Hierarchically list primary non-negotiable objectives (must-haves) and secondary desires (nice-to-haves). Define a concrete, measurable success metric for each objective.",
-    "desc": "Hierarchically establishes success metrics and non-negotiable goals.",
-    "explain": "Hierarchically establishes success metrics and non-negotiable goals."
+    "prompt": "Hierarchically list primary non-negotiable objectives (must-haves) and secondary desires (nice-to-haves). Define a concrete, measurable success metric for each objective."
   },
   {
     "id": "boundary-conditions",
     "icon": "🚧",
     "name": "Boundary Conditions",
-    "category": "foundation",
-    "description": "Sets hard budget, ethical, legal, and operational limits.",
+    "desc": "Sets hard budget, ethical, legal, and operational limits.",
+    "explain": "Sets hard budget, ethical, legal, and operational limits.",
     "layer": "foundation",
     "requires": [
       "decision-framing"
     ],
-    "prompt": "Determine the absolute boundary conditions: What are the budget, time, legal/ethical limits, and technological impossibilities? Mark any solution violating these boundaries as disqualified.",
-    "desc": "Sets hard budget, ethical, legal, and operational limits.",
-    "explain": "Sets hard budget, ethical, legal, and operational limits."
+    "prompt": "Determine the absolute boundary conditions: What are the budget, time, legal/ethical limits, and technological impossibilities? Mark any solution violating these boundaries as disqualified."
   },
   {
     "id": "stakeholder-mapping",
     "icon": "👥",
     "name": "Stakeholder Mapping",
-    "category": "foundation",
-    "description": "Analyzes actors affected by and influencing the decision.",
+    "desc": "Analyzes actors affected by and influencing the decision.",
+    "explain": "Analyzes actors affected by and influencing the decision.",
     "layer": "foundation",
     "requires": [
       "core-objectives"
     ],
-    "prompt": "Map key stakeholders, their authority levels, and gain/loss expectations. Identify who must be included in the decision process and locate potential points of resistance.",
-    "desc": "Analyzes actors affected by and influencing the decision.",
-    "explain": "Analyzes actors affected by and influencing the decision."
+    "prompt": "Map key stakeholders, their authority levels, and gain/loss expectations. Identify who must be included in the decision process and locate potential points of resistance."
   },
   {
     "id": "information-audit",
     "icon": "🔍",
     "name": "Information Audit",
-    "category": "foundation",
-    "description": "Classifies known data, missing information, and irreducible uncertainties.",
+    "desc": "Classifies known data, missing information, and irreducible uncertainties.",
+    "explain": "Classifies known data, missing information, and irreducible uncertainties.",
     "layer": "foundation",
     "requires": [
       "decision-framing"
     ],
-    "prompt": "Conduct an information audit: (a) What do we know (verified data)? (b) What do we not know (known gaps)? (c) What can we not know (uncertainties)? Evaluate the cost/benefit ratio of gathering missing data.",
-    "desc": "Classifies known data, missing information, and irreducible uncertainties.",
-    "explain": "Classifies known data, missing information, and irreducible uncertainties."
+    "prompt": "Conduct an information audit: (a) What do we know (verified data)? (b) What do we not know (known gaps)? (c) What can we not know (uncertainties)? Evaluate the cost/benefit ratio of gathering missing data."
   },
   {
     "id": "reversibility-check",
     "icon": "🔄",
     "name": "Reversibility Assessment",
-    "category": "foundation",
-    "description": "Determines whether the decision is Type 1 (one-way door) or Type 2 (two-way door).",
+    "desc": "Determines whether the decision is Type 1 (one-way door) or Type 2 (two-way door).",
+    "explain": "Determines whether the decision is Type 1 (one-way door) or Type 2 (two-way door).",
     "layer": "foundation",
     "requires": [
       "boundary-conditions"
     ],
-    "prompt": "Assess decision reversibility (Jeff Bezos One-Way vs. Two-Way door test): What is the unwinding cost if this decision is wrong? Is this a flexible decision requiring rapid action, or a strategic one requiring deep analysis?",
-    "desc": "Determines whether the decision is Type 1 (one-way door) or Type 2 (two-way door).",
-    "explain": "Determines whether the decision is Type 1 (one-way door) or Type 2 (two-way door)."
+    "prompt": "Assess decision reversibility (Jeff Bezos One-Way vs. Two-Way door test): What is the unwinding cost if this decision is wrong? Is this a flexible decision requiring rapid action, or a strategic one requiring deep analysis?"
   },
   {
     "id": "second-order-thinking",
     "icon": "🔮",
     "name": "Second-Order Thinking",
-    "category": "analysis",
-    "description": "Maps indirect consequences and ripple effects over time.",
+    "desc": "Maps indirect consequences and ripple effects over time.",
+    "explain": "Maps indirect consequences and ripple effects over time.",
     "layer": "analysis",
     "requires": [
       "decision-framing"
     ],
-    "prompt": "Analyze second- and third-order effects: Beyond immediate outcomes, what butterfly effects will emerge in 6 months and 2 years? How will other system actors react (perverse incentives)?",
-    "desc": "Maps indirect consequences and ripple effects over time.",
-    "explain": "Maps indirect consequences and ripple effects over time."
+    "prompt": "Analyze second- and third-order effects: Beyond immediate outcomes, what butterfly effects will emerge in 6 months and 2 years? How will other system actors react (perverse incentives)?"
   },
   {
     "id": "inversion-method",
     "icon": "🙃",
     "name": "Inversion Method",
-    "category": "analysis",
-    "description": "Shifts perspective from seeking success to systematically avoiding failure.",
+    "desc": "Shifts perspective from seeking success to systematically avoiding failure.",
+    "explain": "Shifts perspective from seeking success to systematically avoiding failure.",
     "layer": "analysis",
     "requires": [
       "decision-framing"
     ],
-    "prompt": "Invert the problem: Instead of trying to succeed, what would guarantee COMPLETE DISASTER for this decision? List these failure modes and design proactive measures to prevent each one.",
-    "desc": "Shifts perspective from seeking success to systematically avoiding failure.",
-    "explain": "Shifts perspective from seeking success to systematically avoiding failure."
+    "prompt": "Invert the problem: Instead of trying to succeed, what would guarantee COMPLETE DISASTER for this decision? List these failure modes and design proactive measures to prevent each one."
   },
   {
     "id": "matrix-2x2",
     "icon": "📐",
     "name": "2x2 Decision Matrix",
-    "category": "analysis",
-    "description": "Visualizes and prioritizes alternatives across two critical axes.",
+    "desc": "Visualizes and prioritizes alternatives across two critical axes.",
+    "explain": "Visualizes and prioritizes alternatives across two critical axes.",
     "layer": "analysis",
     "requires": [
       "core-objectives"
     ],
-    "prompt": "Position alternatives on a 2x2 matrix (e.g., Impact vs. Effort or Risk vs. Return). Clearly define options in each quadrant and balance priorities toward high-value quadrants.",
-    "desc": "Visualizes and prioritizes alternatives across two critical axes.",
-    "explain": "Visualizes and prioritizes alternatives across two critical axes."
+    "prompt": "Position alternatives on a 2x2 matrix (e.g., Impact vs. Effort or Risk vs. Return). Clearly define options in each quadrant and balance priorities toward high-value quadrants."
   },
   {
     "id": "causal-loop-mapping",
     "icon": "♾️",
     "name": "Causal Loop Mapping",
-    "category": "analysis",
-    "description": "Examines systemic feedback dynamics and snowball effects.",
+    "desc": "Examines systemic feedback dynamics and snowball effects.",
+    "explain": "Examines systemic feedback dynamics and snowball effects.",
     "layer": "analysis",
     "requires": [
       "second-order-thinking"
     ],
-    "prompt": "Map reinforcing and balancing feedback loops in the decision space. Highlight actions that generate snowball effects versus those leading to system equilibrium.",
-    "desc": "Examines systemic feedback dynamics and snowball effects.",
-    "explain": "Examines systemic feedback dynamics and snowball effects."
+    "prompt": "Map reinforcing and balancing feedback loops in the decision space. Highlight actions that generate snowball effects versus those leading to system equilibrium."
   },
   {
     "id": "scenario-planning",
     "icon": "🗺️",
     "name": "Scenario Planning",
-    "category": "analysis",
-    "description": "Tests decision resilience across best, worst, and baseline futures.",
+    "desc": "Tests decision resilience across best, worst, and baseline futures.",
+    "explain": "Tests decision resilience across best, worst, and baseline futures.",
     "layer": "analysis",
     "requires": [
       "decision-framing"
     ],
-    "prompt": "Develop three distinct future scenarios: (a) Bull, (b) Base, and (c) Bear. Compare the performance and structural resilience of the decision across all three scenarios.",
-    "desc": "Tests decision resilience across best, worst, and baseline futures.",
-    "explain": "Tests decision resilience across best, worst, and baseline futures."
+    "prompt": "Develop three distinct future scenarios: (a) Bull, (b) Base, and (c) Bear. Compare the performance and structural resilience of the decision across all three scenarios."
   },
   {
     "id": "expected-value-calc",
     "icon": "📊",
     "name": "Expected Value Calculation",
-    "category": "analysis",
-    "description": "Computes probabilistic outcomes weighted by financial/operational impact.",
+    "desc": "Computes probabilistic outcomes weighted by financial/operational impact.",
+    "explain": "Computes probabilistic outcomes weighted by financial/operational impact.",
     "layer": "analysis",
     "requires": [
       "information-audit"
     ],
-    "prompt": "Calculate probabilistic expected value: Multiply possible outcomes by probability weights ($EV = \\sum (p_i \\times v_i)$). Explicitly expose negative tail risks.",
-    "desc": "Computes probabilistic outcomes weighted by financial/operational impact.",
-    "explain": "Computes probabilistic outcomes weighted by financial/operational impact."
+    "prompt": "Calculate probabilistic expected value: Multiply possible outcomes by probability weights ($EV = \\sum (p_i \\times v_i)$). Explicitly expose negative tail risks."
   },
   {
     "id": "opportunity-cost-audit",
     "icon": "⚖️",
     "name": "Opportunity Cost Audit",
-    "category": "tradeoff",
-    "description": "Quantifies the foregone return of the next best alternative.",
+    "desc": "Quantifies the foregone return of the next best alternative.",
+    "explain": "Quantifies the foregone return of the next best alternative.",
     "layer": "tradeoff",
     "requires": [
       "matrix-2x2"
     ],
-    "prompt": "Identify the single best alternative FOREGONE by making this decision. Quantify the opportunity cost of tying up capital, time, and focus in this option.",
-    "desc": "Quantifies the foregone return of the next best alternative.",
-    "explain": "Quantifies the foregone return of the next best alternative."
+    "prompt": "Identify the single best alternative FOREGONE by making this decision. Quantify the opportunity cost of tying up capital, time, and focus in this option."
   },
   {
     "id": "trade-off-dilemma",
     "icon": "🔀",
     "name": "Trade-Off Analysis",
-    "category": "tradeoff",
-    "description": "Forces explicit choices between competing priorities.",
+    "desc": "Forces explicit choices between competing priorities.",
+    "explain": "Forces explicit choices between competing priorities.",
     "layer": "tradeoff",
     "requires": [
       "matrix-2x2"
     ],
-    "prompt": "Explicitly state the primary trade-off: Are we sacrificing speed, quality, budget, or flexibility? Assuming no free lunch, define the accepted negative side effect.",
-    "desc": "Forces explicit choices between competing priorities.",
-    "explain": "Forces explicit choices between competing priorities."
+    "prompt": "Explicitly state the primary trade-off: Are we sacrificing speed, quality, budget, or flexibility? Assuming no free lunch, define the accepted negative side effect."
   },
   {
     "id": "regret-minimization",
     "icon": "⏳",
     "name": "Regret Minimization",
-    "category": "tradeoff",
-    "description": "Selects options that minimize long-term regret from a multi-decade perspective.",
+    "desc": "Selects options that minimize long-term regret from a multi-decade perspective.",
+    "explain": "Selects options that minimize long-term regret from a multi-decade perspective.",
     "layer": "tradeoff",
     "requires": [
       "reversibility-check"
     ],
-    "prompt": "Project yourself to age 80 looking back (Jeff Bezos Regret Minimization Framework): Will you regret NOT making this decision more than trying and failing?",
-    "desc": "Selects options that minimize long-term regret from a multi-decade perspective.",
-    "explain": "Selects options that minimize long-term regret from a multi-decade perspective."
+    "prompt": "Project yourself to age 80 looking back (Jeff Bezos Regret Minimization Framework): Will you regret NOT making this decision more than trying and failing?"
   },
   {
     "id": "skin-in-the-game",
     "icon": "🛡️",
     "name": "Skin in the Game",
-    "category": "tradeoff",
-    "description": "Evaluates whether decision-makers bear direct consequences of failure.",
+    "desc": "Evaluates whether decision-makers bear direct consequences of failure.",
+    "explain": "Evaluates whether decision-makers bear direct consequences of failure.",
     "layer": "tradeoff",
     "requires": [
       "stakeholder-mapping"
     ],
-    "prompt": "Examine decision-maker exposure (Nassim Taleb - Skin in the Game): Who bears the downside cost if this decision fails? Uncover conflicts of interest and asymmetric risk allocation.",
-    "desc": "Evaluates whether decision-makers bear direct consequences of failure.",
-    "explain": "Evaluates whether decision-makers bear direct consequences of failure."
+    "prompt": "Examine decision-maker exposure (Nassim Taleb - Skin in the Game): Who bears the downside cost if this decision fails? Uncover conflicts of interest and asymmetric risk allocation."
   },
   {
     "id": "resource-cap-analysis",
     "icon": "🔋",
     "name": "Resource Bandwidth Cap",
-    "category": "tradeoff",
-    "description": "Assesses limits of cognitive bandwidth, budget, and operational capacity.",
+    "desc": "Assesses limits of cognitive bandwidth, budget, and operational capacity.",
+    "explain": "Assesses limits of cognitive bandwidth, budget, and operational capacity.",
     "layer": "tradeoff",
     "requires": [
       "opportunity-cost-audit"
     ],
-    "prompt": "Evaluate bandwidth and resource limits: Will executing this decision dilute the core focus of the organization or individual? Verify whether sustainable capacity thresholds are breached.",
-    "desc": "Assesses limits of cognitive bandwidth, budget, and operational capacity.",
-    "explain": "Assesses limits of cognitive bandwidth, budget, and operational capacity."
+    "prompt": "Evaluate bandwidth and resource limits: Will executing this decision dilute the core focus of the organization or individual? Verify whether sustainable capacity thresholds are breached."
   },
   {
     "id": "option-value-pricing",
     "icon": "🏷️",
     "name": "Option Value Assessment",
-    "category": "tradeoff",
-    "description": "Prices the ability to unlock future downstream strategic choices.",
+    "desc": "Prices the ability to unlock future downstream strategic choices.",
+    "explain": "Prices the ability to unlock future downstream strategic choices.",
     "layer": "tradeoff",
     "requires": [
       "expected-value-calc"
     ],
-    "prompt": "Evaluate whether this decision unlocks future options: Does it trap us on a single rigid path or confer strategic flexibility to pivot later?",
-    "desc": "Prices the ability to unlock future downstream strategic choices.",
-    "explain": "Prices the ability to unlock future downstream strategic choices."
+    "prompt": "Evaluate whether this decision unlocks future options: Does it trap us on a single rigid path or confer strategic flexibility to pivot later?"
   },
   {
     "id": "confirmation-bias-strip",
     "icon": "🧹",
     "name": "Confirmation Bias Purge",
-    "category": "biases",
-    "description": "Eliminates selective filtering of data supporting pre-existing beliefs.",
+    "desc": "Eliminates selective filtering of data supporting pre-existing beliefs.",
+    "explain": "Eliminates selective filtering of data supporting pre-existing beliefs.",
     "layer": "biases",
     "requires": [
       "inversion-method"
     ],
-    "prompt": "Strip confirmation bias: Find the 3 strongest pieces of evidence or arguments proving this decision is WRONG. Explain why this disconfirming evidence was previously ignored.",
-    "desc": "Eliminates selective filtering of data supporting pre-existing beliefs.",
-    "explain": "Eliminates selective filtering of data supporting pre-existing beliefs."
+    "prompt": "Strip confirmation bias: Find the 3 strongest pieces of evidence or arguments proving this decision is WRONG. Explain why this disconfirming evidence was previously ignored."
   },
   {
     "id": "sunk-cost-filter",
     "icon": "🗑️",
     "name": "Sunk Cost Sanitizer",
-    "category": "biases",
-    "description": "Isolates decision analysis from non-recoverable past investments.",
+    "desc": "Isolates decision analysis from non-recoverable past investments.",
+    "explain": "Isolates decision analysis from non-recoverable past investments.",
     "layer": "biases",
     "requires": [
       "reversibility-check"
     ],
-    "prompt": "Completely excise past spent time, money, and emotional energy (Sunk Cost). If you were entering this situation FRESH TODAY, would you make this exact investment?",
-    "desc": "Isolates decision analysis from non-recoverable past investments.",
-    "explain": "Isolates decision analysis from non-recoverable past investments."
+    "prompt": "Completely excise past spent time, money, and emotional energy (Sunk Cost). If you were entering this situation FRESH TODAY, would you make this exact investment?"
   },
   {
     "id": "availability-heuristic-check",
     "icon": "🧠",
     "name": "Availability Bias Check",
-    "category": "biases",
-    "description": "Prevents recent or emotionally vivid events from distorting risk estimates.",
+    "desc": "Prevents recent or emotionally vivid events from distorting risk estimates.",
+    "explain": "Prevents recent or emotionally vivid events from distorting risk estimates.",
     "layer": "biases",
     "requires": [
       "information-audit"
     ],
-    "prompt": "Detect if the decision is unduly distorted by a recent, vivid, or memorable event. Verify the statistical representativeness of the underlying sample data.",
-    "desc": "Prevents recent or emotionally vivid events from distorting risk estimates.",
-    "explain": "Prevents recent or emotionally vivid events from distorting risk estimates."
+    "prompt": "Detect if the decision is unduly distorted by a recent, vivid, or memorable event. Verify the statistical representativeness of the underlying sample data."
   },
   {
     "id": "survivorship-bias-shield",
     "icon": "🛟",
     "name": "Survivorship Bias Shield",
-    "category": "biases",
-    "description": "Exposes unseen failure data hidden behind success stories.",
+    "desc": "Exposes unseen failure data hidden behind success stories.",
+    "explain": "Exposes unseen failure data hidden behind success stories.",
     "layer": "biases",
     "requires": [
       "scenario-planning"
     ],
-    "prompt": "Ensure focus on success stories does not blind you to the invisible majority of failures (Survivorship Bias). Systematically analyze the unobserved failure graveyard.",
-    "desc": "Exposes unseen failure data hidden behind success stories.",
-    "explain": "Exposes unseen failure data hidden behind success stories."
+    "prompt": "Ensure focus on success stories does not blind you to the invisible majority of failures (Survivorship Bias). Systematically analyze the unobserved failure graveyard."
   },
   {
     "id": "framing-effect-neutralizer",
     "icon": "🖼️",
     "name": "Framing Effect Neutralizer",
-    "category": "biases",
-    "description": "Removes distortions caused by how options or data are phrased.",
+    "desc": "Removes distortions caused by how options or data are phrased.",
+    "explain": "Removes distortions caused by how options or data are phrased.",
     "layer": "biases",
     "requires": [
       "decision-framing"
     ],
-    "prompt": "Rewrite the decision prompt neutrally in two contrasting ways—framed around a 90% success rate vs. a 10% failure rate—to eliminate presentation bias.",
-    "desc": "Removes distortions caused by how options or data are phrased.",
-    "explain": "Removes distortions caused by how options or data are phrased."
+    "prompt": "Rewrite the decision prompt neutrally in two contrasting ways—framed around a 90% success rate vs. a 10% failure rate—to eliminate presentation bias."
   },
   {
     "id": "groupthink-deconstruct",
     "icon": "🗣️",
     "name": "Groupthink Deconstruction",
-    "category": "biases",
-    "description": "Breaks consensus pressure by enforcing a Devil's Advocate role.",
+    "desc": "Breaks consensus pressure by enforcing a Devil's Advocate role.",
+    "explain": "Breaks consensus pressure by enforcing a Devil's Advocate role.",
     "layer": "biases",
     "requires": [
       "stakeholder-mapping"
     ],
-    "prompt": "Enforce a formal 'Devil's Advocate' stance against groupthink. Identify the core consensus assumption accepted without challenge and rigorously dismantle it.",
-    "desc": "Breaks consensus pressure by enforcing a Devil's Advocate role.",
-    "explain": "Breaks consensus pressure by enforcing a Devil's Advocate role."
+    "prompt": "Enforce a formal 'Devil's Advocate' stance against groupthink. Identify the core consensus assumption accepted without challenge and rigorously dismantle it."
   },
   {
     "id": "pre-mortem-analysis",
     "icon": "💀",
     "name": "Pre-Mortem Analysis",
-    "category": "execution",
-    "description": "Assumes future catastrophic failure to pre-emptively fix flaws.",
+    "desc": "Assumes future catastrophic failure to pre-emptively fix flaws.",
+    "explain": "Assumes future catastrophic failure to pre-emptively fix flaws.",
     "layer": "execution",
     "requires": [
       "second-order-thinking",
       "confirmation-bias-strip"
     ],
-    "prompt": "Conduct a Pre-Mortem: Assume it is 2 years in the future and this decision was a CATASTROPHIC FAILURE. Write the autopsy report: What exact root causes led to disaster, and how do we prevent them today?",
-    "desc": "Assumes future catastrophic failure to pre-emptively fix flaws.",
-    "explain": "Assumes future catastrophic failure to pre-emptively fix flaws."
+    "prompt": "Conduct a Pre-Mortem: Assume it is 2 years in the future and this decision was a CATASTROPHIC FAILURE. Write the autopsy report: What exact root causes led to disaster, and how do we prevent them today?"
   },
   {
     "id": "trigger-metrics",
     "icon": "🚨",
     "name": "Trigger Metrics Protocol",
-    "category": "execution",
-    "description": "Sets quantitative early warning indicators to monitor execution.",
+    "desc": "Sets quantitative early warning indicators to monitor execution.",
+    "explain": "Sets quantitative early warning indicators to monitor execution.",
     "layer": "execution",
     "requires": [
       "boundary-conditions"
     ],
-    "prompt": "Define 3 early warning trigger metrics to monitor during execution. Specify exact threshold numbers that automatically mandate executing Plan B.",
-    "desc": "Sets quantitative early warning indicators to monitor execution.",
-    "explain": "Sets quantitative early warning indicators to monitor execution."
+    "prompt": "Define 3 early warning trigger metrics to monitor during execution. Specify exact threshold numbers that automatically mandate executing Plan B."
   },
   {
     "id": "kill-switch-criteria",
     "icon": "🛑",
     "name": "Kill Switch Criteria",
-    "category": "execution",
-    "description": "Establishes non-negotiable conditions for terminating the initiative.",
+    "desc": "Establishes non-negotiable conditions for terminating the initiative.",
+    "explain": "Establishes non-negotiable conditions for terminating the initiative.",
     "layer": "execution",
     "requires": [
       "reversibility-check"
     ],
-    "prompt": "Define unconditional 'Kill Switch' criteria: At what exact threshold of budget overrun, timeline delay, or underperformance will this initiative be terminated immediately?",
-    "desc": "Establishes non-negotiable conditions for terminating the initiative.",
-    "explain": "Establishes non-negotiable conditions for terminating the initiative."
+    "prompt": "Define unconditional 'Kill Switch' criteria: At what exact threshold of budget overrun, timeline delay, or underperformance will this initiative be terminated immediately?"
   },
   {
     "id": "feedback-loop-design",
     "icon": "🔁",
     "name": "Feedback Loop Architecture",
-    "category": "execution",
-    "description": "Establishes systematic post-decision review cadences.",
+    "desc": "Establishes systematic post-decision review cadences.",
+    "explain": "Establishes systematic post-decision review cadences.",
     "layer": "execution",
     "requires": [
       "pre-mortem-analysis"
     ],
-    "prompt": "Design a post-decision feedback loop cadence: Specify metrics to audit at 30, 90, and 180 days, and establish a mechanism to feed learnings back into the engine.",
-    "desc": "Establishes systematic post-decision review cadences.",
-    "explain": "Establishes systematic post-decision review cadences."
+    "prompt": "Design a post-decision feedback loop cadence: Specify metrics to audit at 30, 90, and 180 days, and establish a mechanism to feed learnings back into the engine."
   },
   {
     "id": "decision-journaling",
     "icon": "📓",
     "name": "Decision Journaling",
-    "category": "execution",
-    "description": "Captures baseline assumptions and state of mind for future auditing.",
+    "desc": "Captures baseline assumptions and state of mind for future auditing.",
+    "explain": "Captures baseline assumptions and state of mind for future auditing.",
     "layer": "execution",
     "requires": [
       "decision-framing"
     ],
-    "prompt": "Complete a Decision Log template capturing baseline assumptions, emotional state, and assessed probabilities at the moment of decision to separate outcome luck from decision quality later.",
-    "desc": "Captures baseline assumptions and state of mind for future auditing.",
-    "explain": "Captures baseline assumptions and state of mind for future auditing."
+    "prompt": "Complete a Decision Log template capturing baseline assumptions, emotional state, and assessed probabilities at the moment of decision to separate outcome luck from decision quality later."
   },
   {
     "id": "post-mortem-review",
     "icon": "🔬",
     "name": "Post-Mortem Review",
-    "category": "execution",
-    "description": "Compares actual results with initial predictions to refine heuristics.",
+    "desc": "Compares actual results with initial predictions to refine heuristics.",
+    "explain": "Compares actual results with initial predictions to refine heuristics.",
     "layer": "execution",
     "requires": [
       "feedback-loop-design"
     ],
-    "prompt": "Conduct a Post-Mortem evaluation: Measure variance between predicted and actual outcomes. Identify systematic bias or calibration errors in the decision algorithm.",
-    "desc": "Compares actual results with initial predictions to refine heuristics.",
-    "explain": "Compares actual results with initial predictions to refine heuristics."
+    "prompt": "Conduct a Post-Mortem evaluation: Measure variance between predicted and actual outcomes. Identify systematic bias or calibration errors in the decision algorithm."
   }
 ]

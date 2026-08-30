@@ -32,7 +32,17 @@ export const travelSpec = {
         "curation": "Rota & Keşif",
         "logistics": "Ulaşım & Lojistik",
         "culture": "Kültür & Bütçe"
-      }
+      },
+      "categories": {
+        "curation": "Özgün Seçki & Filtre",
+        "route": "Rota & Lojistik",
+        "culture": "Kültür & Gastronomi",
+        "logistics": "Ulaşım & Zamanlama",
+        "budget": "Bütçe & Güvenlik"
+      },
+      "modulesTitle": "Modüller (Module Blocks)",
+      "presetsTitle": "Uzman Hazır Şablonları (System Presets)",
+      "paramsTitle": "Parametreler"
     },
     "en": {
       "title": "Travel & Experience Architect",
@@ -49,7 +59,17 @@ export const travelSpec = {
         "curation": "Itinerary & Discovery",
         "logistics": "Transport & Logistics",
         "culture": "Culture & Budget"
-      }
+      },
+      "categories": {
+        "curation": "Curation & Hidden Gems",
+        "route": "Route & Logistics",
+        "culture": "Culture & Gastronomy",
+        "logistics": "Transport & Timing",
+        "budget": "Budget & Safety"
+      },
+      "modulesTitle": "Module Blocks",
+      "presetsTitle": "System Presets",
+      "paramsTitle": "Parameters"
     }
   },
   "optionSets": {
@@ -116,18 +136,80 @@ export const travelSpec = {
   },
   "compilerTexts": {
     "tr": {
-      "topicHeader": "SEYAHAT ROTASI",
-      "levelHeader": "PLANLAMA MODU",
-      "modeHeader": "GEZGİN PERSONASI",
-      "depthHeader": "TEMPO",
-      "formatHeader": "ROTA FORMATI"
+      "mod": {
+        "gurme": "Sen yerel kültür ve gastronomi rehberisin. Turist tuzaklarından uzak, otantik lezzet duraklarını ve gizli mahalle lokantalarını bilirsin.",
+        "kulturtarih": "Sen sanat tarihi ve kültürel miras uzmanısın. Şehirlerin mimari, tarihi ve sanatsal dokusunu derinlemesine hikayeleştirerek gezdirirsin.",
+        "slow": "Sen yavaş seyahat (Slow Travel) ve yerel yaşam danışmanısın. Şehri tüketmek yerine yaşayarak deneyimlemeyi, sürdürülebilir ve dingin rotaları benimsersin."
+      },
+      "derinlik": {
+        "yavas": "Günde en fazla 2-3 kaliteli deneyim içeren dingin rota planı.",
+        "dengeli": "Önemli simgeler ile gizli köşeleri dengeleyen standart seyahat planı.",
+        "yogun": "Ulaşım süreleri, rezervasyon saatleri ve bütçe optimizasyonu içeren dakik plan."
+      },
+      "format": {
+        "saatlik": "Saat saat yapılandırılmış detaylı günlük akış formatı kullan.",
+        "bolge": "Bölgelere ve mahallelere göre kümelenmiş keşif rehberi şeklinde sun.",
+        "butcetablo": "Harcama kalemleri ve bütçe tablosu formatında hazırla."
+      },
+      "labels": {
+        "role": "[ROLE]",
+        "goal": "[GOAL]",
+        "context": "[CONTEXT]",
+        "modules": "[ACTIVE MODULES]",
+        "instructions": "[INSTRUCTIONS]",
+        "format": "[OUTPUT FORMAT]",
+        "constraints": "[CONSTRAINTS / SAFETY]"
+      },
+      "contextLabels": {
+        "domain": "Alan:",
+        "level": "Seviye:",
+        "depthRequirement": "Derinlik Gereksinimi:"
+      },
+      "goalTemplate": "\"{{KONU}}\" seyahati için turistik klişelerden arındırılmış, yerel deneyim ve lojistik optimizasyon odaklı kusursuz bir rota tasarlamak.",
+      "constraintsBase": [
+        "Turist tuzaklarından ve aşırı kalabalık ticari noktalardan kaçın.",
+        "Lojistik geçiş sürelerini ve coğrafi yakınlıkları gerçekçi planla.",
+        "Yerel kültüre saygılı ve ekonomik olarak verimli öneriler sun."
+      ],
+      "monologueText": "İÇ SES MODU: Rota çizmeden önce (<thinking> tagleri içinde) yürüme mesafelerini, transfer sürelerini ve yorgunluk faktörünü değerlendir."
     },
     "en": {
-      "topicHeader": "TRAVEL DESTINATION",
-      "levelHeader": "PLANNING MODE",
-      "modeHeader": "TRAVELER PERSONA",
-      "depthHeader": "PACING",
-      "formatHeader": "ITINERARY FORMAT"
+      "mod": {
+        "gurme": "You are an authentic gastronomy and local culture guide. You steer clear of tourist traps, focusing on neighborhood culinary secrets and artisan producers.",
+        "kulturtarih": "You are an art historian and cultural heritage specialist. You narrate architectural, historical, and artistic depth throughout the journey.",
+        "slow": "You are a slow travel and immersive living consultant. You focus on deep place-attachment, mindful itineraries, and sustainable discovery."
+      },
+      "derinlik": {
+        "yavas": "A relaxed itinerary with maximum 2-3 quality experiences per day.",
+        "dengeli": "A balanced plan blending essential landmarks with hidden local gems.",
+        "yogun": "A precise, high-efficiency schedule with transit timing and reservation management."
+      },
+      "format": {
+        "saatlik": "Structure as an hour-by-hour sequential daily itinerary.",
+        "bolge": "Organize by geographic districts and neighborhood walking hubs.",
+        "butcetablo": "Present as a comprehensive expense breakdown and logistics budget matrix."
+      },
+      "labels": {
+        "role": "[ROLE]",
+        "goal": "[GOAL]",
+        "context": "[CONTEXT]",
+        "modules": "[ACTIVE MODULES]",
+        "instructions": "[INSTRUCTIONS]",
+        "format": "[OUTPUT FORMAT]",
+        "constraints": "[CONSTRAINTS / SAFETY]"
+      },
+      "contextLabels": {
+        "domain": "Domain:",
+        "level": "Level:",
+        "depthRequirement": "Depth Requirement:"
+      },
+      "goalTemplate": "To design an authentic, anti-tourist-trap, culturally rich, and logistically optimized travel itinerary for \"{{KONU}}\".",
+      "constraintsBase": [
+        "Filter out tourist traps and overhyped commercial venues.",
+        "Ensure realistic transit times and geographically coherent routing.",
+        "Promote respectful, culturally nuanced, and cost-effective recommendations."
+      ],
+      "monologueText": "INTERNAL MONOLOGUE: Before plotting itinerary, calculate transit friction and walking fatigue curves in <thinking> tags."
     }
   },
   "presets": {
@@ -135,15 +217,14 @@ export const travelSpec = {
       "id": "anti-tourist-route",
       "group": "curation",
       "name": {
-        "tr": "🗺️ Anti-Turist Yerel Gizli Rota",
-        "en": "🗺️ Anti-Tourist Local Gem Route"
+        "tr": "Anti-Turist Yerel Gizli Rota",
+        "en": "Anti-Tourist Local Gem Route"
       },
       "desc": {
         "tr": "Turist tuzaklarından uzak yerel mekanlar.",
         "en": "Bypasses tourist traps to reveal authentic local spots."
       },
       "forceModules": [
-        "cur-anti-tourist-trap-filter",
         "cur-anti-tourist-trap-filter"
       ],
       "override": {
@@ -159,8 +240,8 @@ export const travelSpec = {
       "id": "transit-logistics",
       "group": "logistics",
       "name": {
-        "tr": "🚌 Ulaşım & Lojistik Planı",
-        "en": "🚌 Transit & Logistics Plan"
+        "tr": "Ulaşım & Lojistik Planı",
+        "en": "Transit & Logistics Plan"
       },
       "desc": {
         "tr": "Pas kartlar, trenler ve bavul lojistiği.",
@@ -183,8 +264,8 @@ export const travelSpec = {
       "id": "cultural-etiquette",
       "group": "culture",
       "name": {
-        "tr": "⛩️ Kültürel Görgü & Bahşiş Rehberi",
-        "en": "⛩️ Cultural Etiquette Guide"
+        "tr": "Kültürel Görgü & Bahşiş Rehberi",
+        "en": "Cultural Etiquette Guide"
       },
       "desc": {
         "tr": "Yazısız yerel görgü kuralları ve gelenekler.",
@@ -207,8 +288,8 @@ export const travelSpec = {
       "id": "budget-hacks",
       "group": "culture",
       "name": {
-        "tr": "💡 Bütçe & Harcama Optimize Rehberi",
-        "en": "💡 Travel Budget Hacks"
+        "tr": "Bütçe & Harcama Optimize Rehberi",
+        "en": "Travel Budget Hacks"
       },
       "desc": {
         "tr": "Ucuz bilet ve tasarruflu konaklama.",
@@ -231,8 +312,8 @@ export const travelSpec = {
       "id": "foodie-trail",
       "group": "curation",
       "name": {
-        "tr": "🍜 Yerel Gurme & Lezzet Rotası",
-        "en": "🍜 Local Foodie & Culinary Trail"
+        "tr": "Yerel Gurme & Lezzet Rotası",
+        "en": "Local Foodie & Culinary Trail"
       },
       "desc": {
         "tr": "Sokak lezzetleri ve otantik restoranlar.",
@@ -255,8 +336,8 @@ export const travelSpec = {
       "id": "slow-travel",
       "group": "curation",
       "name": {
-        "tr": "☕ Yavaş & Dinlendirici Şehir Gezisi",
-        "en": "☕ Slow & Relaxed City Exploration"
+        "tr": "Yavaş & Dinlendirici Şehir Gezisi",
+        "en": "Slow & Relaxed City Exploration"
       },
       "desc": {
         "tr": "Koşturmacasız, kafe ve park odaklı gezi.",
@@ -279,8 +360,8 @@ export const travelSpec = {
       "id": "history-trail",
       "group": "curation",
       "name": {
-        "tr": "🏛️ Tarih & Müze Keşif Rotası",
-        "en": "🏛️ History & Museum Trail"
+        "tr": "Tarih & Müze Keşif Rotası",
+        "en": "History & Museum Trail"
       },
       "desc": {
         "tr": "Tarihi yapılar ve sanatsal rotalar.",
@@ -303,8 +384,8 @@ export const travelSpec = {
       "id": "packing-checklist",
       "group": "logistics",
       "name": {
-        "tr": "🧳 Bavul & Ekipman Hazırlık Listesi",
-        "en": "🧳 Packing & Gear Checklist"
+        "tr": "Bavul & Ekipman Hazırlık Listesi",
+        "en": "Packing & Gear Checklist"
       },
       "desc": {
         "tr": "İklime uygun eksiksiz bavul envanteri.",
@@ -327,8 +408,8 @@ export const travelSpec = {
       "id": "safety-scam-shield",
       "group": "culture",
       "name": {
-        "tr": "🛡️ Güvenlik & Dolandırıcılık Kalkanı",
-        "en": "🛡️ Tourist Safety & Scam Shield"
+        "tr": "Güvenlik & Dolandırıcılık Kalkanı",
+        "en": "Tourist Safety & Scam Shield"
       },
       "desc": {
         "tr": "Yaygın dolandırıcılık yöntemlerine dikkat.",
@@ -351,8 +432,8 @@ export const travelSpec = {
       "id": "photo-viewpoints",
       "group": "curation",
       "name": {
-        "tr": "📸 Fotoğraf & Manzara Noktaları",
-        "en": "📸 Scenic Photo Viewpoints"
+        "tr": "Fotoğraf & Manzara Noktaları",
+        "en": "Scenic Photo Viewpoints"
       },
       "desc": {
         "tr": "En iyi manzara ve gün batımı noktaları.",
@@ -375,8 +456,8 @@ export const travelSpec = {
       "id": "family-friendly",
       "group": "logistics",
       "name": {
-        "tr": "👨‍👩‍👧 Çocuklu Aile Seyahat Planı",
-        "en": "👨‍👩‍👧 Family & Kid-Friendly Plan"
+        "tr": "Çocuklu Aile Seyahat Planı",
+        "en": "Family & Kid-Friendly Plan"
       },
       "desc": {
         "tr": "Çocuklar için dinlenme molalı rota.",
@@ -399,8 +480,8 @@ export const travelSpec = {
       "id": "nightlife-events",
       "group": "culture",
       "name": {
-        "tr": "🌃 Gece Hayatı & Etkinlik Rehberi",
-        "en": "🌃 Nightlife & Live Events Guide"
+        "tr": "Gece Hayatı & Etkinlik Rehberi",
+        "en": "Nightlife & Live Events Guide"
       },
       "desc": {
         "tr": "Canlı müzik ve akşam etkinlikleri.",

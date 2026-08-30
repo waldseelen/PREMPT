@@ -3,414 +3,354 @@
     "id": "research-question-def",
     "icon": "🎯",
     "name": "Research Question Definition",
-    "category": "methodology",
-    "description": "Formulates a clear, focused, and empirically answerable academic research question.",
+    "desc": "Formulates a clear, focused, and empirically answerable academic research question.",
+    "explain": "Formulates a clear, focused, and empirically answerable academic research question.",
     "layer": "methodology",
     "requires": [],
-    "prompt": "Structure the primary research question according to FINER criteria (Feasible, Interesting, Novel, Ethical, Relevant). Define exact bounds and derive operational hypotheses ($H_0, H_1$).",
-    "desc": "Formulates a clear, focused, and empirically answerable academic research question.",
-    "explain": "Formulates a clear, focused, and empirically answerable academic research question."
+    "prompt": "Structure the primary research question according to FINER criteria (Feasible, Interesting, Novel, Ethical, Relevant). Define exact bounds and derive operational hypotheses ($H_0, H_1$)."
   },
   {
     "id": "methodology-triangulation",
     "icon": "📐",
     "name": "Methodological Triangulation",
-    "category": "methodology",
-    "description": "Combines multiple research methods to increase empirical validity.",
+    "desc": "Combines multiple research methods to increase empirical validity.",
+    "explain": "Combines multiple research methods to increase empirical validity.",
     "layer": "methodology",
     "requires": [
       "research-question-def"
     ],
-    "prompt": "Design methodological triangulation: Explain how quantitative and qualitative data collection techniques will be integrated to offset single-method bias.",
-    "desc": "Combines multiple research methods to increase empirical validity.",
-    "explain": "Combines multiple research methods to increase empirical validity."
+    "prompt": "Design methodological triangulation: Explain how quantitative and qualitative data collection techniques will be integrated to offset single-method bias."
   },
   {
     "id": "sample-power-analysis",
     "icon": "📊",
     "name": "Sample Power Analysis",
-    "category": "methodology",
-    "description": "Calculates minimum sample size required for statistical significance.",
+    "desc": "Calculates minimum sample size required for statistical significance.",
+    "explain": "Calculates minimum sample size required for statistical significance.",
     "layer": "methodology",
     "requires": [
       "methodology-triangulation"
     ],
-    "prompt": "Define the sample frame and sampling technique. Justify effect size assumptions for Statistical Power Analysis (e.g., $\\alpha = 0.05, 1-\\beta = 0.80$).",
-    "desc": "Calculates minimum sample size required for statistical significance.",
-    "explain": "Calculates minimum sample size required for statistical significance."
+    "prompt": "Define the sample frame and sampling technique. Justify effect size assumptions for Statistical Power Analysis (e.g., $\\alpha = 0.05, 1-\\beta = 0.80$)."
   },
   {
     "id": "variable-operationalization",
     "icon": "🔬",
     "name": "Variable Operationalization",
-    "category": "methodology",
-    "description": "Translates abstract constructs into measurable independent, dependent, and control variables.",
+    "desc": "Translates abstract constructs into measurable independent, dependent, and control variables.",
+    "explain": "Translates abstract constructs into measurable independent, dependent, and control variables.",
     "layer": "methodology",
     "requires": [
       "research-question-def"
     ],
-    "prompt": "Operationalize all study constructs: Define dependent, independent, mediating, and moderating variables. Specify exact measurement scales (Likert, continuous, nominal).",
-    "desc": "Translates abstract constructs into measurable independent, dependent, and control variables.",
-    "explain": "Translates abstract constructs into measurable independent, dependent, and control variables."
+    "prompt": "Operationalize all study constructs: Define dependent, independent, mediating, and moderating variables. Specify exact measurement scales (Likert, continuous, nominal)."
   },
   {
     "id": "quantitative-audit",
     "icon": "🔢",
     "name": "Quantitative Method Audit",
-    "category": "methodology",
-    "description": "Audits econometric and statistical models for underlying assumption compliance.",
+    "desc": "Audits econometric and statistical models for underlying assumption compliance.",
+    "explain": "Audits econometric and statistical models for underlying assumption compliance.",
     "layer": "methodology",
     "requires": [
       "sample-power-analysis"
     ],
-    "prompt": "Audit the quantitative analysis plan: Verify assumptions of statistical tests (ANOVA, Regression, SEM) including normality, homoscedasticity, and multicollinearity.",
-    "desc": "Audits econometric and statistical models for underlying assumption compliance.",
-    "explain": "Audits econometric and statistical models for underlying assumption compliance."
+    "prompt": "Audit the quantitative analysis plan: Verify assumptions of statistical tests (ANOVA, Regression, SEM) including normality, homoscedasticity, and multicollinearity."
   },
   {
     "id": "qualitative-rigor-check",
     "icon": "🗣️",
     "name": "Qualitative Rigor Check",
-    "category": "methodology",
-    "description": "Ensures trustworthiness and auditability in grounded theory or qualitative analysis.",
+    "desc": "Ensures trustworthiness and auditability in grounded theory or qualitative analysis.",
+    "explain": "Ensures trustworthiness and auditability in grounded theory or qualitative analysis.",
     "layer": "methodology",
     "requires": [
       "variable-operationalization"
     ],
-    "prompt": "Verify qualitative methodology rigor using Lincoln & Guba standards: Document protocols for credibility, transferability, dependability, and confirmability.",
-    "desc": "Ensures trustworthiness and auditability in grounded theory or qualitative analysis.",
-    "explain": "Ensures trustworthiness and auditability in grounded theory or qualitative analysis."
+    "prompt": "Verify qualitative methodology rigor using Lincoln & Guba standards: Document protocols for credibility, transferability, dependability, and confirmability."
   },
   {
     "id": "lit-search-strategy",
     "icon": "🔎",
     "name": "Literature Search Strategy",
-    "category": "literature",
-    "description": "Creates systematic Boolean search strings for Web of Science, Scopus, and PubMed.",
+    "desc": "Creates systematic Boolean search strings for Web of Science, Scopus, and PubMed.",
+    "explain": "Creates systematic Boolean search strings for Web of Science, Scopus, and PubMed.",
     "layer": "literature",
     "requires": [
       "research-question-def"
     ],
-    "prompt": "Construct systematic literature search strings using Boolean operators (AND, OR, NOT). Draft inclusion and exclusion criteria following PRISMA protocols.",
-    "desc": "Creates systematic Boolean search strings for Web of Science, Scopus, and PubMed.",
-    "explain": "Creates systematic Boolean search strings for Web of Science, Scopus, and PubMed."
+    "prompt": "Construct systematic literature search strings using Boolean operators (AND, OR, NOT). Draft inclusion and exclusion criteria following PRISMA protocols."
   },
   {
     "id": "lit-gap-identification",
     "icon": "🕳️",
     "name": "Literature Gap Identification",
-    "category": "literature",
-    "description": "Uncovers contradictions, deficiencies, and unexamined areas in current scholarship.",
+    "desc": "Uncovers contradictions, deficiencies, and unexamined areas in current scholarship.",
+    "explain": "Uncovers contradictions, deficiencies, and unexamined areas in current scholarship.",
     "layer": "literature",
     "requires": [
       "lit-search-strategy"
     ],
-    "prompt": "Identify the exact Research Gap in current literature: Specify whether the study addresses a methodological limitation, contradictory findings, or a novel context.",
-    "desc": "Uncovers contradictions, deficiencies, and unexamined areas in current scholarship.",
-    "explain": "Uncovers contradictions, deficiencies, and unexamined areas in current scholarship."
+    "prompt": "Identify the exact Research Gap in current literature: Specify whether the study addresses a methodological limitation, contradictory findings, or a novel context."
   },
   {
     "id": "seminal-vs-recent-audit",
     "icon": "📚",
     "name": "Seminal vs. Recent Audit",
-    "category": "literature",
-    "description": "Balances foundational theoretical papers with recent high-impact publications.",
+    "desc": "Balances foundational theoretical papers with recent high-impact publications.",
+    "explain": "Balances foundational theoretical papers with recent high-impact publications.",
     "layer": "literature",
     "requires": [
       "lit-search-strategy"
     ],
-    "prompt": "Audit the citation matrix: Optimize the balance between foundational theoretical literature (seminal papers) and recent publications from the past 3 years.",
-    "desc": "Balances foundational theoretical papers with recent high-impact publications.",
-    "explain": "Balances foundational theoretical papers with recent high-impact publications."
+    "prompt": "Audit the citation matrix: Optimize the balance between foundational theoretical literature (seminal papers) and recent publications from the past 3 years."
   },
   {
     "id": "theoretical-framework",
     "icon": "🏛️",
     "name": "Theoretical Framework Design",
-    "category": "literature",
-    "description": "Anchors the study within core disciplinary theoretical paradigms.",
+    "desc": "Anchors the study within core disciplinary theoretical paradigms.",
+    "explain": "Anchors the study within core disciplinary theoretical paradigms.",
     "layer": "literature",
     "requires": [
       "lit-gap-identification"
     ],
-    "prompt": "Build the study's theoretical backbone: Identify the primary theory/theories and articulate the logical link between theoretical premises and proposed hypotheses.",
-    "desc": "Anchors the study within core disciplinary theoretical paradigms.",
-    "explain": "Anchors the study within core disciplinary theoretical paradigms."
+    "prompt": "Build the study's theoretical backbone: Identify the primary theory/theories and articulate the logical link between theoretical premises and proposed hypotheses."
   },
   {
     "id": "citation-context-check",
     "icon": "🔗",
     "name": "Citation Context Verification",
-    "category": "literature",
-    "description": "Verifies cited sources are accurately represented without context distortion.",
+    "desc": "Verifies cited sources are accurately represented without context distortion.",
+    "explain": "Verifies cited sources are accurately represented without context distortion.",
     "layer": "literature",
     "requires": [
       "seminal-vs-recent-audit"
     ],
-    "prompt": "Audit citation contexts: Verify that cited works are accurately represented in their original intent and context without misinterpretation or selective bias.",
-    "desc": "Verifies cited sources are accurately represented without context distortion.",
-    "explain": "Verifies cited sources are accurately represented without context distortion."
+    "prompt": "Audit citation contexts: Verify that cited works are accurately represented in their original intent and context without misinterpretation or selective bias."
   },
   {
     "id": "systematic-review-protocol",
     "icon": "📋",
     "name": "Systematic Review Protocol",
-    "category": "literature",
-    "description": "Establishes a PRISMA/Cochrane-compliant systematic review architecture.",
+    "desc": "Establishes a PRISMA/Cochrane-compliant systematic review architecture.",
+    "explain": "Establishes a PRISMA/Cochrane-compliant systematic review architecture.",
     "layer": "literature",
     "requires": [
       "lit-gap-identification"
     ],
-    "prompt": "Draft a PRISMA-compliant Systematic Review Protocol: Include data extraction templates, study flow diagrams, and publication bias assessment methods.",
-    "desc": "Establishes a PRISMA/Cochrane-compliant systematic review architecture.",
-    "explain": "Establishes a PRISMA/Cochrane-compliant systematic review architecture."
+    "prompt": "Draft a PRISMA-compliant Systematic Review Protocol: Include data extraction templates, study flow diagrams, and publication bias assessment methods."
   },
   {
     "id": "academic-tone-c2",
     "icon": "✍️",
     "name": "Academic Tone Elevation (CEFR C2)",
-    "category": "writing",
-    "description": "Elevates prose to formal, precise, objective, C2-level academic prose.",
+    "desc": "Elevates prose to formal, precise, objective, C2-level academic prose.",
+    "explain": "Elevates prose to formal, precise, objective, C2-level academic prose.",
     "layer": "writing",
     "requires": [],
-    "prompt": "Elevate prose to CEFR C2 academic standard: Eliminate informal phrasing and non-standard jargon. Balance passive and active voice to maintain an authoritative, objective tone.",
-    "desc": "Elevates prose to formal, precise, objective, C2-level academic prose.",
-    "explain": "Elevates prose to formal, precise, objective, C2-level academic prose."
+    "prompt": "Elevate prose to CEFR C2 academic standard: Eliminate informal phrasing and non-standard jargon. Balance passive and active voice to maintain an authoritative, objective tone."
   },
   {
     "id": "passive-active-balancer",
     "icon": "⚖️",
     "name": "Voice & Stance Balancer",
-    "category": "writing",
-    "description": "Optimizes active vs. passive voice across paper sections.",
+    "desc": "Optimizes active vs. passive voice across paper sections.",
+    "explain": "Optimizes active vs. passive voice across paper sections.",
     "layer": "writing",
     "requires": [
       "academic-tone-c2"
     ],
-    "prompt": "Calibrate voice across manuscript sections: Maintain objective passive voice in methodology while deploying direct active voice in the introduction and discussion.",
-    "desc": "Optimizes active vs. passive voice across paper sections.",
-    "explain": "Optimizes active vs. passive voice across paper sections."
+    "prompt": "Calibrate voice across manuscript sections: Maintain objective passive voice in methodology while deploying direct active voice in the introduction and discussion."
   },
   {
     "id": "cohesion-transitional-flow",
     "icon": "🌊",
     "name": "Cohesion & Flow Refiner",
-    "category": "writing",
-    "description": "Enhances paragraph transitions and logical discourse markers.",
+    "desc": "Enhances paragraph transitions and logical discourse markers.",
+    "explain": "Enhances paragraph transitions and logical discourse markers.",
     "layer": "writing",
     "requires": [
       "academic-tone-c2"
     ],
-    "prompt": "Strengthen paragraph cohesion and logical transitions: Refine causal, contrastive, and additive academic discourse markers between key arguments.",
-    "desc": "Enhances paragraph transitions and logical discourse markers.",
-    "explain": "Enhances paragraph transitions and logical discourse markers."
+    "prompt": "Strengthen paragraph cohesion and logical transitions: Refine causal, contrastive, and additive academic discourse markers between key arguments."
   },
   {
     "id": "hedging-claim-calibration",
     "icon": "🛡️",
     "name": "Claim Calibration (Hedging)",
-    "category": "writing",
-    "description": "Converts overstatements into epistemically cautious academic claims.",
+    "desc": "Converts overstatements into epistemically cautious academic claims.",
+    "explain": "Converts overstatements into epistemically cautious academic claims.",
     "layer": "writing",
     "requires": [
       "academic-tone-c2"
     ],
-    "prompt": "Calibrate claim strength (Hedging): Replace categorical overstatements (e.g., 'proves that') with epistemically sound scientific hedging (e.g., 'data suggests that under condition X').",
-    "desc": "Converts overstatements into epistemically cautious academic claims.",
-    "explain": "Converts overstatements into epistemically cautious academic claims."
+    "prompt": "Calibrate claim strength (Hedging): Replace categorical overstatements (e.g., 'proves that') with epistemically sound scientific hedging (e.g., 'data suggests that under condition X')."
   },
   {
     "id": "abstract-distillation",
     "icon": "🧪",
     "name": "Abstract Distillation",
-    "category": "writing",
-    "description": "Compresses paper essence into a strict 250-word IMRaD abstract.",
+    "desc": "Compresses paper essence into a strict 250-word IMRaD abstract.",
+    "explain": "Compresses paper essence into a strict 250-word IMRaD abstract.",
     "layer": "writing",
     "requires": [
       "academic-tone-c2"
     ],
-    "prompt": "Draft a 200-250 word Abstract strictly adhering to IMRaD format: Background (1 sentence), Objective (1 sentence), Methods (2 sentences), Key Results (2 sentences), Implications (1 sentence).",
-    "desc": "Compresses paper essence into a strict 250-word IMRaD abstract.",
-    "explain": "Compresses paper essence into a strict 250-word IMRaD abstract."
+    "prompt": "Draft a 200-250 word Abstract strictly adhering to IMRaD format: Background (1 sentence), Objective (1 sentence), Methods (2 sentences), Key Results (2 sentences), Implications (1 sentence)."
   },
   {
     "id": "discussion-implication-craft",
     "icon": "💡",
     "name": "Discussion & Implications",
-    "category": "writing",
-    "description": "Synthesizes empirical findings with broader theoretical and practical implications.",
+    "desc": "Synthesizes empirical findings with broader theoretical and practical implications.",
+    "explain": "Synthesizes empirical findings with broader theoretical and practical implications.",
     "layer": "writing",
     "requires": [
       "hedging-claim-calibration"
     ],
-    "prompt": "Structure the Discussion section: Contextualize findings against existing literature, provide theoretical explanations for unexpected results, and articulate clear policy/practical implications.",
-    "desc": "Synthesizes empirical findings with broader theoretical and practical implications.",
-    "explain": "Synthesizes empirical findings with broader theoretical and practical implications."
+    "prompt": "Structure the Discussion section: Contextualize findings against existing literature, provide theoretical explanations for unexpected results, and articulate clear policy/practical implications."
   },
   {
     "id": "peer-review-response",
     "icon": "📨",
     "name": "Peer Review Response Matrix",
-    "category": "review",
-    "description": "Constructs a rigorous point-by-point author response matrix.",
+    "desc": "Constructs a rigorous point-by-point author response matrix.",
+    "explain": "Constructs a rigorous point-by-point author response matrix.",
     "layer": "review",
     "requires": [
       "research-question-def"
     ],
-    "prompt": "Construct a formal Response to Reviewers matrix: Quote each reviewer comment, articulate the revision rationale, and cite exact page/line numbers where edits were implemented.",
-    "desc": "Constructs a rigorous point-by-point author response matrix.",
-    "explain": "Constructs a rigorous point-by-point author response matrix."
+    "prompt": "Construct a formal Response to Reviewers matrix: Quote each reviewer comment, articulate the revision rationale, and cite exact page/line numbers where edits were implemented."
   },
   {
     "id": "reviewer-critique-deconstruct",
     "icon": "🔍",
     "name": "Reviewer Critique Deconstruction",
-    "category": "review",
-    "description": "Deconstructs harsh or ambiguous reviewer comments into actionable edits.",
+    "desc": "Deconstructs harsh or ambiguous reviewer comments into actionable edits.",
+    "explain": "Deconstructs harsh or ambiguous reviewer comments into actionable edits.",
     "layer": "review",
     "requires": [
       "peer-review-response"
     ],
-    "prompt": "Deconstruct ambiguous reviewer critiques: Identify the core methodological or theoretical concern beneath harsh language and formulate an objective, evidence-based response.",
-    "desc": "Deconstructs harsh or ambiguous reviewer comments into actionable edits.",
-    "explain": "Deconstructs harsh or ambiguous reviewer comments into actionable edits."
+    "prompt": "Deconstruct ambiguous reviewer critiques: Identify the core methodological or theoretical concern beneath harsh language and formulate an objective, evidence-based response."
   },
   {
     "id": "counter-argument-fortification",
     "icon": "🏰",
     "name": "Counter-Argument Fortification",
-    "category": "review",
-    "description": "Pre-empts potential referee objections within the text body.",
+    "desc": "Pre-empts potential referee objections within the text body.",
+    "explain": "Pre-empts potential referee objections within the text body.",
     "layer": "review",
     "requires": [
       "reviewer-critique-deconstruct"
     ],
-    "prompt": "Anticipate 3 major reviewer objections and pre-emptively address them within the manuscript's Limitations or Discussion section to fortify the argument.",
-    "desc": "Pre-empts potential referee objections within the text body.",
-    "explain": "Pre-empts potential referee objections within the text body."
+    "prompt": "Anticipate 3 major reviewer objections and pre-emptively address them within the manuscript's Limitations or Discussion section to fortify the argument."
   },
   {
     "id": "major-revision-roadmap",
     "icon": "🗺️",
     "name": "Major Revision Roadmap",
-    "category": "review",
-    "description": "Establishes a structured execution roadmap for major manuscript overhauls.",
+    "desc": "Establishes a structured execution roadmap for major manuscript overhauls.",
+    "explain": "Establishes a structured execution roadmap for major manuscript overhauls.",
     "layer": "review",
     "requires": [
       "peer-review-response"
     ],
-    "prompt": "Develop an execution roadmap for a Major Revision decision: Prioritize re-analysis, additional literature integration, and structural rewrites across a strict timeline.",
-    "desc": "Establishes a structured execution roadmap for major manuscript overhauls.",
-    "explain": "Establishes a structured execution roadmap for major manuscript overhauls."
+    "prompt": "Develop an execution roadmap for a Major Revision decision: Prioritize re-analysis, additional literature integration, and structural rewrites across a strict timeline."
   },
   {
     "id": "editor-letter-drafting",
     "icon": "✉️",
     "name": "Editor Cover Letter Crafting",
-    "category": "review",
-    "description": "Drafts a compelling submission cover letter to journal editors.",
+    "desc": "Drafts a compelling submission cover letter to journal editors.",
+    "explain": "Drafts a compelling submission cover letter to journal editors.",
     "layer": "review",
     "requires": [
       "major-revision-roadmap"
     ],
-    "prompt": "Draft a professional Journal Cover Letter emphasizing the study's alignment with journal scope, novelty, and broad scientific significance.",
-    "desc": "Drafts a compelling submission cover letter to journal editors.",
-    "explain": "Drafts a compelling submission cover letter to journal editors."
+    "prompt": "Draft a professional Journal Cover Letter emphasizing the study's alignment with journal scope, novelty, and broad scientific significance."
   },
   {
     "id": "double-blind-anonymizer",
     "icon": "🎭",
     "name": "Double-Blind Anonymization",
-    "category": "review",
-    "description": "Strips all self-citations and identifying metadata for peer review.",
+    "desc": "Strips all self-citations and identifying metadata for peer review.",
+    "explain": "Strips all self-citations and identifying metadata for peer review.",
     "layer": "review",
     "requires": [],
-    "prompt": "Anonymize the manuscript for double-blind peer review: Strip author names, institutional affiliations, grant funding details, and self-identifying citation markers.",
-    "desc": "Strips all self-citations and identifying metadata for peer review.",
-    "explain": "Strips all self-citations and identifying metadata for peer review."
+    "prompt": "Anonymize the manuscript for double-blind peer review: Strip author names, institutional affiliations, grant funding details, and self-identifying citation markers."
   },
   {
     "id": "statistical-validity-audit",
     "icon": "📉",
     "name": "Statistical Validity Audit",
-    "category": "validation",
-    "description": "Audits data analysis for methodological flaws and assumption breaches.",
+    "desc": "Audits data analysis for methodological flaws and assumption breaches.",
+    "explain": "Audits data analysis for methodological flaws and assumption breaches.",
     "layer": "validation",
     "requires": [
       "quantitative-audit"
     ],
-    "prompt": "Audit statistical validity: Evaluate Type I and Type II error risks, degrees of freedom, and verify that effect sizes ($R^2$, Cohen's $d$) are reported completely.",
-    "desc": "Audits data analysis for methodological flaws and assumption breaches.",
-    "explain": "Audits data analysis for methodological flaws and assumption breaches."
+    "prompt": "Audit statistical validity: Evaluate Type I and Type II error risks, degrees of freedom, and verify that effect sizes ($R^2$, Cohen's $d$) are reported completely."
   },
   {
     "id": "p-hacking-duster",
     "icon": "🧹",
     "name": "p-Hacking & HARKing Audit",
-    "category": "validation",
-    "description": "Screens analysis for post-hoc hypothesis fitting and data dredging.",
+    "desc": "Screens analysis for post-hoc hypothesis fitting and data dredging.",
+    "explain": "Screens analysis for post-hoc hypothesis fitting and data dredging.",
     "layer": "validation",
     "requires": [
       "statistical-validity-audit"
     ],
-    "prompt": "Screen the paper for p-hacking and HARKing risks: Verify hypotheses were pre-registered or formulated prior to analysis and confirm absence of selective data trimming.",
-    "desc": "Screens analysis for post-hoc hypothesis fitting and data dredging.",
-    "explain": "Screens analysis for post-hoc hypothesis fitting and data dredging."
+    "prompt": "Screen the paper for p-hacking and HARKing risks: Verify hypotheses were pre-registered or formulated prior to analysis and confirm absence of selective data trimming."
   },
   {
     "id": "construct-validity-check",
     "icon": "🧩",
     "name": "Construct Validity Test",
-    "category": "validation",
-    "description": "Verifies that measurement scales accurately reflect intended theoretical concepts.",
+    "desc": "Verifies that measurement scales accurately reflect intended theoretical concepts.",
+    "explain": "Verifies that measurement scales accurately reflect intended theoretical concepts.",
     "layer": "validation",
     "requires": [
       "variable-operationalization"
     ],
-    "prompt": "Evaluate Construct Validity: Analyze convergent and discriminant validity metrics (e.g., AVE, composite reliability) to confirm measurement instrument fidelity.",
-    "desc": "Verifies that measurement scales accurately reflect intended theoretical concepts.",
-    "explain": "Verifies that measurement scales accurately reflect intended theoretical concepts."
+    "prompt": "Evaluate Construct Validity: Analyze convergent and discriminant validity metrics (e.g., AVE, composite reliability) to confirm measurement instrument fidelity."
   },
   {
     "id": "external-validity-bounds",
     "icon": "🌐",
     "name": "External Validity & Generalizability",
-    "category": "validation",
-    "description": "Defines population and contextual boundaries for findings.",
+    "desc": "Defines population and contextual boundaries for findings.",
+    "explain": "Defines population and contextual boundaries for findings.",
     "layer": "validation",
     "requires": [
       "construct-validity-check"
     ],
-    "prompt": "Define External Validity boundaries: Specify exact population, geographical, and temporal limits for findings to guard against unwarranted generalizations.",
-    "desc": "Defines population and contextual boundaries for findings.",
-    "explain": "Defines population and contextual boundaries for findings."
+    "prompt": "Define External Validity boundaries: Specify exact population, geographical, and temporal limits for findings to guard against unwarranted generalizations."
   },
   {
     "id": "ethical-board-compliance",
     "icon": "⚖️",
     "name": "Ethical Board Compliance",
-    "category": "validation",
-    "description": "Audits protocol compliance with IRB, human subjects, and data privacy norms.",
+    "desc": "Audits protocol compliance with IRB, human subjects, and data privacy norms.",
+    "explain": "Audits protocol compliance with IRB, human subjects, and data privacy norms.",
     "layer": "validation",
     "requires": [
       "research-question-def"
     ],
-    "prompt": "Verify IRB ethical compliance: Confirm protocols for human/animal subject consent, data anonymization, and regulatory data privacy (GDPR/IRB) standards.",
-    "desc": "Audits protocol compliance with IRB, human subjects, and data privacy norms.",
-    "explain": "Audits protocol compliance with IRB, human subjects, and data privacy norms."
+    "prompt": "Verify IRB ethical compliance: Confirm protocols for human/animal subject consent, data anonymization, and regulatory data privacy (GDPR/IRB) standards."
   },
   {
     "id": "reproducibility-checklist",
     "icon": "🔄",
     "name": "Reproducibility Protocol",
-    "category": "validation",
-    "description": "Ensures open science compliance with complete code, data, and protocol specs.",
+    "desc": "Ensures open science compliance with complete code, data, and protocol specs.",
+    "explain": "Ensures open science compliance with complete code, data, and protocol specs.",
     "layer": "validation",
     "requires": [
       "statistical-validity-audit"
     ],
-    "prompt": "Complete an Open Science Reproducibility Checklist: Confirm that raw data, analysis scripts (R/Python/Stata), and execution logs are fully documented for replication.",
-    "desc": "Ensures open science compliance with complete code, data, and protocol specs.",
-    "explain": "Ensures open science compliance with complete code, data, and protocol specs."
+    "prompt": "Complete an Open Science Reproducibility Checklist: Confirm that raw data, analysis scripts (R/Python/Stata), and execution logs are fully documented for replication."
   }
 ]

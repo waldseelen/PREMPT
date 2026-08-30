@@ -32,7 +32,17 @@ export const problemsolvingSpec = {
         "triz": "TRIZ Metodolojisi",
         "scamper": "İnovasyon Operatörü",
         "rootcause": "Kök Neden & Analiz"
-      }
+      },
+      "categories": {
+        "deconstruction": "Sorun Ayrıştırma",
+        "triz": "TRIZ & Çelişkiler",
+        "lateral": "Yanal Düşünce",
+        "scamper": "SCAMPER & İnovasyon",
+        "evaluation": "Değerlendirme & Test"
+      },
+      "modulesTitle": "Modüller (Module Blocks)",
+      "presetsTitle": "Uzman Hazır Şablonları (System Presets)",
+      "paramsTitle": "Parametreler"
     },
     "en": {
       "title": "Creative Problem Solving & TRIZ",
@@ -49,7 +59,17 @@ export const problemsolvingSpec = {
         "triz": "TRIZ Methodology",
         "scamper": "Innovation Operators",
         "rootcause": "Root Cause & Analysis"
-      }
+      },
+      "categories": {
+        "deconstruction": "Problem Deconstruction",
+        "triz": "TRIZ & Contradictions",
+        "lateral": "Lateral Thinking",
+        "scamper": "SCAMPER & Innovation",
+        "evaluation": "Evaluation & Testing"
+      },
+      "modulesTitle": "Module Blocks",
+      "presetsTitle": "System Presets",
+      "paramsTitle": "Parameters"
     }
   },
   "optionSets": {
@@ -128,18 +148,86 @@ export const problemsolvingSpec = {
   },
   "compilerTexts": {
     "tr": {
-      "topicHeader": "TIRANLIK / ÇELİŞKİ",
-      "levelHeader": "METODOLOJİ",
-      "modeHeader": "İNOVATÖR ROLÜ",
-      "depthHeader": "ÇÖZÜM DERİNLİĞİ",
-      "formatHeader": "İNOVASYON FORMATI"
+      "mod": {
+        "radikal": "Sen radikal inovasyon ve birinci ilkeler problem çözücüsüsün. Mevcut kabulleri yıkar, sorunu en saf fiziksel sınırlarına indirgersin.",
+        "mimar": "Sen sistemik problem mimarısısın. Tıkanıklıkları (bottlenecks), geri besleme döngülerini ve kök neden ağaçlarını haritalarsın.",
+        "yanal": "Sen yanal (lateral) düşünce ustasısın. Alakasız alanlardan analojiler kurar, tersine çevirme ve kural dışı sıçramalarla çözüm üretirsin.",
+        "yikici": "Sen yıkıcı inovasyon ve tersine mühendislik uzmanısın. Sorunun neden var olduğunu sorgular, problemi çözmek yerine gereksiz kılan çözümler ararsın."
+      },
+      "derinlik": {
+        "temel": "Kök nedeni ve 3 hızlı uygulanabilir çözümü özetle.",
+        "orta": "TRIZ çelişkilerini, SCAMPER dönüşümlerini ve uygulama adımlarını sun.",
+        "derin": "Kapsamlı kök neden ağacı, sistemik ödünleşimler ve test protokolü üret.",
+        "kapsamli": "Uç senaryolar, yan etkiler, kaynak haritası ve pilot doğrulama planı dahil eksiksiz çözüm mimarisi sun."
+      },
+      "format": {
+        "scampertablo": "SCAMPER inovasyon tablosu formatında yapılandır.",
+        "trizmatris": "TRIZ çelişki ve 40 prensip matrisi formatında sun.",
+        "hatscikti": "Hata Ağacı ve Kök Neden şeması formatında hazırla.",
+        "balikkilcigi": "Ishikawa (Balık Kılçığı) neden-sonuç formatında düzenle."
+      },
+      "labels": {
+        "role": "[ROLE]",
+        "goal": "[GOAL]",
+        "context": "[CONTEXT]",
+        "modules": "[ACTIVE MODULES]",
+        "instructions": "[INSTRUCTIONS]",
+        "format": "[OUTPUT FORMAT]",
+        "constraints": "[CONSTRAINTS / SAFETY]"
+      },
+      "contextLabels": {
+        "domain": "Alan:",
+        "level": "Seviye:",
+        "depthRequirement": "Derinlik Gereksinimi:"
+      },
+      "goalTemplate": "\"{{KONU}}\" problemini kök nedenlerine, sistemik çelişkilerine ve çözüm parametrelerine ayırarak yenilikçi ve uygulanabilir çözümler üretmek.",
+      "constraintsBase": [
+        "Semptomları değil, kök nedeni hedef al.",
+        "Çözümlerin yaratacağı ikinci derece yan etkileri belirt.",
+        "Her öneri için ölçülebilir bir doğrulama metriği tanımla."
+      ],
+      "monologueText": "İÇ SES MODU: Çözüm önermeden önce (<thinking> tagleri içinde) sorunu tersine çevirerek ve en az 3 farklı alandan analoji kurarak düşün."
     },
     "en": {
-      "topicHeader": "CONTRADICTION / BOTTLENECK",
-      "levelHeader": "METHODOLOGY",
-      "modeHeader": "INNOVATOR ROLE",
-      "depthHeader": "SOLUTION DEPTH",
-      "formatHeader": "INNOVATION FORMAT"
+      "mod": {
+        "radikal": "You are a radical innovation and first-principles problem solver. You dismantle legacy assumptions and solve from raw constraints.",
+        "mimar": "You are a systems problem architect. You map systemic bottlenecks, vicious cycles, and root-cause trees.",
+        "yanal": "You are a master of lateral thinking. You use cross-domain analogies, provocative operations, and oblique perspectives.",
+        "yikici": "You are a disruptive innovation engineer. You eliminate the conditions that created the problem rather than merely treating it."
+      },
+      "derinlik": {
+        "temel": "Identify the root cause and deliver 3 quick-win actionable solutions.",
+        "orta": "Analyze TRIZ contradictions, apply SCAMPER transforms, and provide implementation steps.",
+        "derin": "Deliver an in-depth root-cause diagram, tradeoff matrix, and testing framework.",
+        "kapsamli": "Provide an exhaustive innovation blueprint including edge cases, side-effect audits, and pilot deployment plans."
+      },
+      "format": {
+        "scampertablo": "Structure as a SCAMPER innovation ideation matrix.",
+        "trizmatris": "Format using TRIZ technical contradiction and inventive principles table.",
+        "hatscikti": "Format as a Fault Tree and Root Cause Analysis breakdown.",
+        "balikkilcigi": "Structure as an Ishikawa (Fishbone) cause-and-effect framework."
+      },
+      "labels": {
+        "role": "[ROLE]",
+        "goal": "[GOAL]",
+        "context": "[CONTEXT]",
+        "modules": "[ACTIVE MODULES]",
+        "instructions": "[INSTRUCTIONS]",
+        "format": "[OUTPUT FORMAT]",
+        "constraints": "[CONSTRAINTS / SAFETY]"
+      },
+      "contextLabels": {
+        "domain": "Domain:",
+        "level": "Level:",
+        "depthRequirement": "Depth Requirement:"
+      },
+      "goalTemplate": "To systematically decompose the problem \"{{KONU}}\" into root causes and systemic contradictions to generate innovative, actionable solutions.",
+      "constraintsBase": [
+        "Target root causes rather than superficial symptoms.",
+        "Explicitly flag potential negative side effects of each fix.",
+        "Provide a concrete validation metric for proposed solutions."
+      ],
+      "monologueText": "INTERNAL MONOLOGUE: Before pitching solutions, invert the problem and explore 3 cross-disciplinary analogies in <thinking> tags."
     }
   },
   "presets": {
@@ -147,15 +235,14 @@ export const problemsolvingSpec = {
       "id": "triz-solver",
       "group": "triz",
       "name": {
-        "tr": "⚡ TRIZ Çelişki Çözücü",
-        "en": "⚡ TRIZ Contradiction Solver"
+        "tr": "TRIZ Çelişki Çözücü",
+        "en": "TRIZ Contradiction Solver"
       },
       "desc": {
         "tr": "İki zıt istek arasındaki çelişkiyi TRIZ ile çözer.",
         "en": "Resolves physical contradictions via 40 TRIZ principles."
       },
       "forceModules": [
-        "root-cause-5-whys",
         "root-cause-5-whys"
       ],
       "override": {
@@ -171,8 +258,8 @@ export const problemsolvingSpec = {
       "id": "scamper-storm",
       "group": "scamper",
       "name": {
-        "tr": "💡 SCAMPER İnovasyon Fırtınası",
-        "en": "💡 SCAMPER Operator Storm"
+        "tr": "SCAMPER İnovasyon Fırtınası",
+        "en": "SCAMPER Operator Storm"
       },
       "desc": {
         "tr": "Değiştir, Birleştir, Uyarla mercekleriyle yeniler.",
@@ -195,8 +282,8 @@ export const problemsolvingSpec = {
       "id": "root-cause",
       "group": "rootcause",
       "name": {
-        "tr": "🔍 5-Whys Kök Neden Analizi",
-        "en": "🔍 5-Whys Root Cause Audit"
+        "tr": "5-Whys Kök Neden Analizi",
+        "en": "5-Whys Root Cause Audit"
       },
       "desc": {
         "tr": "Problemi 5 soruyla temel kök nedenine indirger.",
@@ -219,8 +306,8 @@ export const problemsolvingSpec = {
       "id": "six-hats",
       "group": "rootcause",
       "name": {
-        "tr": "🎩 6 Şapka Sistem Denetimi",
-        "en": "🎩 6 Thinking Hats Audit"
+        "tr": "6 Şapka Sistem Denetimi",
+        "en": "6 Thinking Hats Audit"
       },
       "desc": {
         "tr": "360 derece farklı bakış açılarıyla inceleme.",
@@ -243,8 +330,8 @@ export const problemsolvingSpec = {
       "id": "lateral-jump",
       "group": "scamper",
       "name": {
-        "tr": "🔀 Yanal Düşünce Sıçraması",
-        "en": "🔀 Lateral Thinking Jump"
+        "tr": "Yanal Düşünce Sıçraması",
+        "en": "Lateral Thinking Jump"
       },
       "desc": {
         "tr": "Varsayımları yıkarak radikal çözümler üretir.",
@@ -267,8 +354,8 @@ export const problemsolvingSpec = {
       "id": "first-principles",
       "group": "triz",
       "name": {
-        "tr": "🧱 Birinci İlkelerle Yıkım",
-        "en": "🧱 First Principles Deconstruct"
+        "tr": "Birinci İlkelerle Yıkım",
+        "en": "First Principles Deconstruct"
       },
       "desc": {
         "tr": "Problemi en temel fiziksel doğrularına ayırır.",
@@ -291,8 +378,8 @@ export const problemsolvingSpec = {
       "id": "morphological-matrix",
       "group": "scamper",
       "name": {
-        "tr": "🧩 Morfolojik Analiz Matrisi",
-        "en": "🧩 Morphological Analysis"
+        "tr": "Morfolojik Analiz Matrisi",
+        "en": "Morphological Analysis"
       },
       "desc": {
         "tr": "Parametre kombinasyonlarından yeni fikirler türetir.",
@@ -315,8 +402,8 @@ export const problemsolvingSpec = {
       "id": "bottleneck-audit",
       "group": "rootcause",
       "name": {
-        "tr": "⏳ Darboğaz & Kısıtlar Teorisi",
-        "en": "⏳ Theory of Constraints Audit"
+        "tr": "Darboğaz & Kısıtlar Teorisi",
+        "en": "Theory of Constraints Audit"
       },
       "desc": {
         "tr": "Akışı yavaşlatan ana kısıtı tespit eder.",
@@ -339,8 +426,8 @@ export const problemsolvingSpec = {
       "id": "inversion-thinking",
       "group": "triz",
       "name": {
-        "tr": "🔄 Tersine Düşünme (Inversion)",
-        "en": "🔄 Inversion Thinking Drill"
+        "tr": "Tersine Düşünme (Inversion)",
+        "en": "Inversion Thinking Drill"
       },
       "desc": {
         "tr": "Nasıl başarısız olunacağını kurgulayıp önler.",
@@ -363,8 +450,8 @@ export const problemsolvingSpec = {
       "id": "analogy-transfer",
       "group": "scamper",
       "name": {
-        "tr": "🌉 Sektörler Arası Benzetme",
-        "en": "🌉 Cross-Domain Analogy"
+        "tr": "Sektörler Arası Benzetme",
+        "en": "Cross-Domain Analogy"
       },
       "desc": {
         "tr": "Başka sektördeki çözümü kendi alanına adapte eder.",
@@ -387,8 +474,8 @@ export const problemsolvingSpec = {
       "id": "failure-fmea",
       "group": "rootcause",
       "name": {
-        "tr": "⚠️ FMEA Hata Türleri Analizi",
-        "en": "⚠️ FMEA Failure Mode Analysis"
+        "tr": "FMEA Hata Türleri Analizi",
+        "en": "FMEA Failure Mode Analysis"
       },
       "desc": {
         "tr": "Hata modlarının şiddetini ve olasılığını puanlar.",
@@ -411,8 +498,8 @@ export const problemsolvingSpec = {
       "id": "solution-scoring",
       "group": "rootcause",
       "name": {
-        "tr": "🎯 Çözüm Derecelendirme Matrisi",
-        "en": "🎯 Solution Scoring Matrix"
+        "tr": "Çözüm Derecelendirme Matrisi",
+        "en": "Solution Scoring Matrix"
       },
       "desc": {
         "tr": "Fikirleri fizibilite ve etkiye göre sıralar.",

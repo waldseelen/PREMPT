@@ -282,10 +282,9 @@ export default function DefaultFlow({ onAdvanced, showToast }) {
         <main className="default-flow" aria-label={flow.modeDefault}>
             <header className="default-flow-header">
                 <div className="default-flow-brand">
-                    <div className="default-flow-brand-mark"><Sparkles size={22} /></div>
+                    <div className="default-flow-brand-mark"><Sparkles size={18} /></div>
                     <div>
                         <p className="default-flow-brand-title">{flow.modeDefault}</p>
-                        <p className="default-flow-brand-tagline">{flow.brandTagline}</p>
                     </div>
                 </div>
                 <div className="default-flow-mode-actions">
@@ -323,7 +322,7 @@ export default function DefaultFlow({ onAdvanced, showToast }) {
                 {step === 1 && <button type="button" className="btn btn-secondary" onClick={handleAdvanced}>{flow.startAdvanced}</button>}
                 {step === 2 && <button type="button" className="btn btn-primary" onClick={continueFromTopic}>{flow.continue} <ArrowRight size={16} /></button>}
                 {step === 3 && <button type="button" className="btn btn-primary" onClick={continueFromParameters}>{flow.continue} <ArrowRight size={16} /></button>}
-                {step === 4 && <button type="button" className="btn btn-secondary" onClick={() => setStep(3)}><ArrowLeft size={16} /> {flow.back}</button>}
+                {step === 4 && <button type="button" className="btn btn-secondary" onClick={handleAdvanced}>{flow.startAdvanced}</button>}
             </footer>
         </main>
     );

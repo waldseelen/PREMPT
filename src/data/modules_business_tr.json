@@ -3,410 +3,350 @@
     "id": "val-problem-solution-fit",
     "icon": "🧩",
     "name": "Problem-Çözüm Uyum Stres Testi",
-    "category": "validation",
-    "description": "Çözümün pazardaki gerçek ve acı veren bir soruna denk geldiğini doğrular.",
+    "desc": "Çözümün pazardaki gerçek ve acı veren bir soruna denk geldiğini doğrular.",
+    "explain": "Çözümün pazardaki gerçek ve acı veren bir soruna denk geldiğini doğrular.",
     "layer": "validation",
     "requires": [],
-    "prompt": "Problem-Çözüm Uyumu (Problem-Solution Fit) stres testi yap: Müşterinin çektiği acı (Pain Point) yeterince şiddetli, sık yaşanan ve bütçe ayrılan bir sorun mu?",
-    "desc": "Çözümün pazardaki gerçek ve acı veren bir soruna denk geldiğini doğrular.",
-    "explain": "Çözümün pazardaki gerçek ve acı veren bir soruna denk geldiğini doğrular."
+    "prompt": "Problem-Çözüm Uyumu (Problem-Solution Fit) stres testi yap: Müşterinin çektiği acı (Pain Point) yeterince şiddetli, sık yaşanan ve bütçe ayrılan bir sorun mu?"
   },
   {
     "id": "val-customer-interview-script",
     "icon": "🎙️",
     "name": "Mom Test Müşteri Mülakat Rehberi",
-    "category": "validation",
-    "description": "Müşterinin yalan söylemesini engelleyen Rob Fitzpatrick Mom Test soruları.",
+    "desc": "Müşterinin yalan söylemesini engelleyen Rob Fitzpatrick Mom Test soruları.",
+    "explain": "Müşterinin yalan söylemesini engelleyen Rob Fitzpatrick Mom Test soruları.",
     "layer": "validation",
     "requires": [
       "val-problem-solution-fit"
     ],
-    "prompt": "Rob Fitzpatrick'in 'The Mom Test' ilkelerine uygun Müşteri Mülakat Rehberi yaz: Geleceğe dair sözler veya övgü isteyen soruları sil; geçmişteki gerçek davranışları sorgula.",
-    "desc": "Müşterinin yalan söylemesini engelleyen Rob Fitzpatrick Mom Test soruları.",
-    "explain": "Müşterinin yalan söylemesini engelleyen Rob Fitzpatrick Mom Test soruları."
+    "prompt": "Rob Fitzpatrick'in 'The Mom Test' ilkelerine uygun Müşteri Mülakat Rehberi yaz: Geleceğe dair sözler veya övgü isteyen soruları sil; geçmişteki gerçek davranışları sorgula."
   },
   {
     "id": "val-smoke-test-landing-page",
     "icon": "🧪",
     "name": "MVP Duman Testi (Smoke Test) Şartnamesi",
-    "category": "validation",
-    "description": "Kod yazmadan ürün talebini ölçen Landing Page deneyi tasarlar.",
+    "desc": "Kod yazmadan ürün talebini ölçen Landing Page deneyi tasarlar.",
+    "explain": "Kod yazmadan ürün talebini ölçen Landing Page deneyi tasarlar.",
     "layer": "validation",
     "requires": [
       "val-problem-solution-fit"
     ],
-    "prompt": "MVP Duman Testi (Smoke Test) deneyi tasarla: Kod yazmadan önce talebi doğrulamak için landing page, değer önerisi başlığı ve 'Ön Sipariş / Bekleme Listesi' dönüşüm hunisi kur.",
-    "desc": "Kod yazmadan ürün talebini ölçen Landing Page deneyi tasarlar.",
-    "explain": "Kod yazmadan ürün talebini ölçen Landing Page deneyi tasarlar."
+    "prompt": "MVP Duman Testi (Smoke Test) deneyi tasarla: Kod yazmadan önce talebi doğrulamak için landing page, değer önerisi başlığı ve 'Ön Sipariş / Bekleme Listesi' dönüşüm hunisi kur."
   },
   {
     "id": "val-value-prop-canvas",
     "icon": "💎",
     "name": "Osterwalder Değer Önerisi Tuvali",
-    "category": "validation",
-    "description": "Müşteri işleri, acıları ve kazançları ile ürün özelliklerini eşleştirir.",
+    "desc": "Müşteri işleri, acıları ve kazançları ile ürün özelliklerini eşleştirir.",
+    "explain": "Müşteri işleri, acıları ve kazançları ile ürün özelliklerini eşleştirir.",
     "layer": "validation",
     "requires": [
       "val-problem-solution-fit"
     ],
-    "prompt": "Osterwalder Değer Önerisi Tuvalini (Value Proposition Canvas) doldur: (a) Müşteri İşleri, Acıları, Kazançları ile (b) Ağrı Kesiciler, Kazanç Sağlayıcılar ve Ürün Özelliklerini eşle.",
-    "desc": "Müşteri işleri, acıları ve kazançları ile ürün özelliklerini eşleştirir.",
-    "explain": "Müşteri işleri, acıları ve kazançları ile ürün özelliklerini eşleştirir."
+    "prompt": "Osterwalder Değer Önerisi Tuvalini (Value Proposition Canvas) doldur: (a) Müşteri İşleri, Acıları, Kazançları ile (b) Ağrı Kesiciler, Kazanç Sağlayıcılar ve Ürün Özelliklerini eşle."
   },
   {
     "id": "val-jobs-to-be-done-jtbd",
     "icon": "🎯",
     "name": "Jobs-to-be-Done (JTBD) Çerçevesi",
-    "category": "validation",
-    "description": "Müşterinin ürünü hangi duygusal ve fonksiyonel iş için 'kiraladığını' bulur.",
+    "desc": "Müşterinin ürünü hangi duygusal ve fonksiyonel iş için 'kiraladığını' bulur.",
+    "explain": "Müşterinin ürünü hangi duygusal ve fonksiyonel iş için 'kiraladığını' bulur.",
     "layer": "validation",
     "requires": [
       "val-problem-solution-fit"
     ],
-    "prompt": "Jobs-to-be-Done (JTBD) analizini uygula: Müşteri bu ürünü yaşamındaki hangi fonksiyonel, sosyal ve duygusal değişimi gerçekleştirmek için 'kiralıyor' (hires)?",
-    "desc": "Müşterinin ürünü hangi duygusal ve fonksiyonel iş için 'kiraladığını' bulur.",
-    "explain": "Müşterinin ürünü hangi duygusal ve fonksiyonel iş için 'kiraladığını' bulur."
+    "prompt": "Jobs-to-be-Done (JTBD) analizini uygula: Müşteri bu ürünü yaşamındaki hangi fonksiyonel, sosyal ve duygusal değişimi gerçekleştirmek için 'kiralıyor' (hires)?"
   },
   {
     "id": "val-pivot-or-persevere-audit",
     "icon": "🔄",
     "name": "Pivot vs. Sebat (Persevere) Denetimi",
-    "category": "validation",
-    "description": "Mevcut stratejide ısrar mı edileceğini yoksa yön mü değiştirileceğini ölçer.",
+    "desc": "Mevcut stratejide ısrar mı edileceğini yoksa yön mü değiştirileceğini ölçer.",
+    "explain": "Mevcut stratejide ısrar mı edileceğini yoksa yön mü değiştirileceğini ölçer.",
     "layer": "validation",
     "requires": [
       "val-smoke-test-landing-page"
     ],
-    "prompt": "Pivot vs. Sebat (Persevere) değerlendirmesi yap: Kazanılan müşteri öğrenme verileri ışığında ana hipotezi değiştirmemiz (Pivot) mi gerekir, yoksa optimizasyona devam mı?",
-    "desc": "Mevcut stratejide ısrar mı edileceğini yoksa yön mü değiştirileceğini ölçer.",
-    "explain": "Mevcut stratejide ısrar mı edileceğini yoksa yön mü değiştirileceğini ölçer."
+    "prompt": "Pivot vs. Sebat (Persevere) değerlendirmesi yap: Kazanılan müşteri öğrenme verileri ışığında ana hipotezi değiştirmemiz (Pivot) mi gerekir, yoksa optimizasyona devam mı?"
   },
   {
     "id": "mkt-tam-sam-som-calc",
     "icon": "📊",
     "name": "TAM-SAM-SOM Pazar Büyüklüğü Motoru",
-    "category": "market",
-    "description": "Pazar potansiyelini Taban-Yukarı (Bottom-up) yöntemle hesaplar.",
+    "desc": "Pazar potansiyelini Taban-Yukarı (Bottom-up) yöntemle hesaplar.",
+    "explain": "Pazar potansiyelini Taban-Yukarı (Bottom-up) yöntemle hesaplar.",
     "layer": "market",
     "requires": [],
-    "prompt": "TAM, SAM ve SOM pazar büyüklüklerini hesapla: (TAM: Toplam Adreslenebilir Pazar, SAM: Hizmet Verilebilir Pazar, SOM: Elde Edilebilir Pazar) değerlerini Taban-Yukarı (Bottom-up) veriyle doğrula.",
-    "desc": "Pazar potansiyelini Taban-Yukarı (Bottom-up) yöntemle hesaplar.",
-    "explain": "Pazar potansiyelini Taban-Yukarı (Bottom-up) yöntemle hesaplar."
+    "prompt": "TAM, SAM ve SOM pazar büyüklüklerini hesapla: (TAM: Toplam Adreslenebilir Pazar, SAM: Hizmet Verilebilir Pazar, SOM: Elde Edilebilir Pazar) değerlerini Taban-Yukarı (Bottom-up) veriyle doğrula."
   },
   {
     "id": "mkt-porters-five-forces",
     "icon": "🏛️",
     "name": "Porter'ın 5 Güç Sektör Denetimi",
-    "category": "market",
-    "description": "Sektörün rekabet yoğunluğunu ve kar marjı baskısını analiz eder.",
+    "desc": "Sektörün rekabet yoğunluğunu ve kar marjı baskısını analiz eder.",
+    "explain": "Sektörün rekabet yoğunluğunu ve kar marjı baskısını analiz eder.",
     "layer": "market",
     "requires": [
       "mkt-tam-sam-som-calc"
     ],
-    "prompt": "Porter'ın 5 Güç Modelini (Five Forces) uygula: (1) Yeni girenlerin tehdidi, (2) İkame ürünler, (3) Alıcıların gücü, (4) Tedarikçilerin gücü ve (5) Sektör içi rekabeti puanla.",
-    "desc": "Sektörün rekabet yoğunluğunu ve kar marjı baskısını analiz eder.",
-    "explain": "Sektörün rekabet yoğunluğunu ve kar marjı baskısını analiz eder."
+    "prompt": "Porter'ın 5 Güç Modelini (Five Forces) uygula: (1) Yeni girenlerin tehdidi, (2) İkame ürünler, (3) Alıcıların gücü, (4) Tedarikçilerin gücü ve (5) Sektör içi rekabeti puanla."
   },
   {
     "id": "mkt-pestel-macro-analysis",
     "icon": "🌐",
     "name": "PESTEL Makro Çevre Taraması",
-    "category": "market",
-    "description": "Politik, Ekonomik, Sosyal, Teknolojik, Etik ve Yasal riskleri tarar.",
+    "desc": "Politik, Ekonomik, Sosyal, Teknolojik, Etik ve Yasal riskleri tarar.",
+    "explain": "Politik, Ekonomik, Sosyal, Teknolojik, Etik ve Yasal riskleri tarar.",
     "layer": "market",
     "requires": [
       "mkt-tam-sam-som-calc"
     ],
-    "prompt": "PESTEL Makro Analiz yap: Politik, Ekonomik, Sosyokültürel, Teknolojik, Ekolojik ve Yasal çevre dinamiklerinin iş modeline getirdiği tehdit ve fırsatları haritalandır.",
-    "desc": "Politik, Ekonomik, Sosyal, Teknolojik, Etik ve Yasal riskleri tarar.",
-    "explain": "Politik, Ekonomik, Sosyal, Teknolojik, Etik ve Yasal riskleri tarar."
+    "prompt": "PESTEL Makro Analiz yap: Politik, Ekonomik, Sosyokültürel, Teknolojik, Ekolojik ve Yasal çevre dinamiklerinin iş modeline getirdiği tehdit ve fırsatları haritalandır."
   },
   {
     "id": "mkt-competitor-matrix-positioning",
     "icon": "🗺️",
     "name": "Rakip Konumlandırma Algı Matrisi",
-    "category": "market",
-    "description": "Rakipleri 2 kritik eksende haritalandırıp pazardaki beyaz alanı (White Space) bulur.",
+    "desc": "Rakipleri 2 kritik eksende haritalandırıp pazardaki beyaz alanı (White Space) bulur.",
+    "explain": "Rakipleri 2 kritik eksende haritalandırıp pazardaki beyaz alanı (White Space) bulur.",
     "layer": "market",
     "requires": [
       "mkt-porters-five-forces"
     ],
-    "prompt": "Rakip Konumlandırma Algı Haritası (Perceptual Map) oluştur: Rakipleri 2 stratejik eksende konumlandır ve pazarda kimsenin sahiplenmediği 'Beyaz Alanı' (White Space) tespit et.",
-    "desc": "Rakipleri 2 kritik eksende haritalandırıp pazardaki beyaz alanı (White Space) bulur.",
-    "explain": "Rakipleri 2 kritik eksende haritalandırıp pazardaki beyaz alanı (White Space) bulur."
+    "prompt": "Rakip Konumlandırma Algı Haritası (Perceptual Map) oluştur: Rakipleri 2 stratejik eksende konumlandır ve pazarda kimsenin sahiplenmediği 'Beyaz Alanı' (White Space) tespit et."
   },
   {
     "id": "mkt-blue-ocean-strategy",
     "icon": "🌊",
     "name": "Mavi Okyanus ve ERRC Matrisi",
-    "category": "market",
-    "description": "Rekabeti anlamsız kılmak için Yok Et-Azalt-Yükselt-Yarat (ERRC) matrisi kurar.",
+    "desc": "Rekabeti anlamsız kılmak için Yok Et-Azalt-Yükselt-Yarat (ERRC) matrisi kurar.",
+    "explain": "Rekabeti anlamsız kılmak için Yok Et-Azalt-Yükselt-Yarat (ERRC) matrisi kurar.",
     "layer": "market",
     "requires": [
       "mkt-competitor-matrix-positioning"
     ],
-    "prompt": "Mavi Okyanus Stratejisi (ERRC Grid) uygula: Sektörün kabul ettiği hangi unsurları (a) Yok Edeceğiz, (b) Azaltacağız, (c) Yükselteceğiz ve (d) Yaratacağız?",
-    "desc": "Rekabeti anlamsız kılmak için Yok Et-Azalt-Yükselt-Yarat (ERRC) matrisi kurar.",
-    "explain": "Rekabeti anlamsız kılmak için Yok Et-Azalt-Yükselt-Yarat (ERRC) matrisi kurar."
+    "prompt": "Mavi Okyanus Stratejisi (ERRC Grid) uygula: Sektörün kabul ettiği hangi unsurları (a) Yok Edeceğiz, (b) Azaltacağız, (c) Yükselteceğiz ve (d) Yaratacağız?"
   },
   {
     "id": "mkt-icp-persona-definition",
     "icon": "👤",
     "name": "İdeal Müşteri Profili (ICP) Mimarısı",
-    "category": "market",
-    "description": "En yüksek LTV veren ideal kurumsal/bireysel müşteriyi profiller.",
+    "desc": "En yüksek LTV veren ideal kurumsal/bireysel müşteriyi profiller.",
+    "explain": "En yüksek LTV veren ideal kurumsal/bireysel müşteriyi profiller.",
     "layer": "market",
     "requires": [
       "mkt-tam-sam-som-calc"
     ],
-    "prompt": "İdeal Müşteri Profilini (ICP) tanımla: Şirket ölçeği, bütçesi, karar verici unvanı, kullandığı teknolojiler ve satın alma tetikleyicilerini detaylandır.",
-    "desc": "En yüksek LTV veren ideal kurumsal/bireysel müşteriyi profiller.",
-    "explain": "En yüksek LTV veren ideal kurumsal/bireysel müşteriyi profiller."
+    "prompt": "İdeal Müşteri Profilini (ICP) tanımla: Şirket ölçeği, bütçesi, karar verici unvanı, kullandığı teknolojiler ve satın alma tetikleyicilerini detaylandır."
   },
   {
     "id": "eco-cac-ltv-ratio-check",
     "icon": "⚖️",
     "name": "CAC:LTV Oranı ve Amorti Süresi Denetimi",
-    "category": "unit-economics",
-    "description": "Müşteri edinme maliyeti ile yaşam boyu değer dengesini ($LTV > 3 \\times CAC$) test eder.",
+    "desc": "Müşteri edinme maliyeti ile yaşam boyu değer dengesini ($LTV > 3 \\times CAC$) test eder.",
+    "explain": "Müşteri edinme maliyeti ile yaşam boyu değer dengesini ($LTV > 3 \\times CAC$) test eder.",
     "layer": "unit-economics",
     "requires": [],
-    "prompt": "Birim Ekonomisi (Unit Economics) denetimi yap: Müşteri Edinme Maliyeti (CAC), Müşteri Yaşam Boyu Değeri (LTV) ve CAC Geri Ödeme Süresini (Payback Period) $LTV/CAC \\ge 3$ kuralına göre doğrula.",
-    "desc": "Müşteri edinme maliyeti ile yaşam boyu değer dengesini ($LTV > 3 \\times CAC$) test eder.",
-    "explain": "Müşteri edinme maliyeti ile yaşam boyu değer dengesini ($LTV > 3 \\times CAC$) test eder."
+    "prompt": "Birim Ekonomisi (Unit Economics) denetimi yap: Müşteri Edinme Maliyeti (CAC), Müşteri Yaşam Boyu Değeri (LTV) ve CAC Geri Ödeme Süresini (Payback Period) $LTV/CAC \\ge 3$ kuralına göre doğrula."
   },
   {
     "id": "eco-cohort-retention-curve",
     "icon": "📈",
     "name": "Kohort Elde Tutma (Retention) ve Churn Engine",
-    "category": "unit-economics",
-    "description": "Kullanıcı tutundurma eğrisini inceleyip sızıntılı kova (leaky bucket) sorununu çözer.",
+    "desc": "Kullanıcı tutundurma eğrisini inceleyip sızıntılı kova (leaky bucket) sorununu çözer.",
+    "explain": "Kullanıcı tutundurma eğrisini inceleyip sızıntılı kova (leaky bucket) sorununu çözer.",
     "layer": "unit-economics",
     "requires": [
       "eco-cac-ltv-ratio-check"
     ],
-    "prompt": "Kohort Analizi (Cohort Retention Curve) ve Churn Oranını denetle: Müşteri kaybının (Net Churn) hangi ayda düzleştiğini ve 'sızıntılı kova' problemini nasıl kapatacağını belirle.",
-    "desc": "Kullanıcı tutundurma eğrisini inceleyip sızıntılı kova (leaky bucket) sorununu çözer.",
-    "explain": "Kullanıcı tutundurma eğrisini inceleyip sızıntılı kova (leaky bucket) sorununu çözer."
+    "prompt": "Kohort Analizi (Cohort Retention Curve) ve Churn Oranını denetle: Müşteri kaybının (Net Churn) hangi ayda düzleştiğini ve 'sızıntılı kova' problemini nasıl kapatacağını belirle."
   },
   {
     "id": "eco-pricing-tier-strategy",
     "icon": "🏷️",
     "name": "Değer Tabanlı Fiyatlandırma Stratejisi",
-    "category": "unit-economics",
-    "description": "Maliyet tabanlı yerine müşterinin algıladığı değere göre katmanlı fiyatlama kurar.",
+    "desc": "Maliyet tabanlı yerine müşterinin algıladığı değere göre katmanlı fiyatlama kurar.",
+    "explain": "Maliyet tabanlı yerine müşterinin algıladığı değere göre katmanlı fiyatlama kurar.",
     "layer": "unit-economics",
     "requires": [
       "eco-cac-ltv-ratio-check"
     ],
-    "prompt": "Değer Tabanlı Fiyatlandırma (Value-Based Pricing) modeli kurgula: Ürünü [Good / Better / Best] şeklinde 3 katmanlı pakete böl ve fiyat çapasını (price anchor) tanımla.",
-    "desc": "Maliyet tabanlı yerine müşterinin algıladığı değere göre katmanlı fiyatlama kurar.",
-    "explain": "Maliyet tabanlı yerine müşterinin algıladığı değere göre katmanlı fiyatlama kurar."
+    "prompt": "Değer Tabanlı Fiyatlandırma (Value-Based Pricing) modeli kurgula: Ürünü [Good / Better / Best] şeklinde 3 katmanlı pakete böl ve fiyat çapasını (price anchor) tanımla."
   },
   {
     "id": "eco-gross-margin-breakdown",
     "icon": "📊",
     "name": "Brüt Kar Marjı ve Katkı Payı Denetimi",
-    "category": "unit-economics",
-    "description": "Satışların doğrudan maliyetlerini (COGS) ve brüt marj sürdürülebilirliğini ölçer.",
+    "desc": "Satışların doğrudan maliyetlerini (COGS) ve brüt marj sürdürülebilirliğini ölçer.",
+    "explain": "Satışların doğrudan maliyetlerini (COGS) ve brüt marj sürdürülebilirliğini ölçer.",
     "layer": "unit-economics",
     "requires": [
       "eco-cac-ltv-ratio-check"
     ],
-    "prompt": "Brüt Kar Marjı (Gross Margin) ve COGS kalemlerini analiz et: Yazılım/ürün teslim maliyetlerini düşürerek brüt marjı %70+ seviyesine çıkaracak ölçek ekonomisi adımlarını yaz.",
-    "desc": "Satışların doğrudan maliyetlerini (COGS) ve brüt marj sürdürülebilirliğini ölçer.",
-    "explain": "Satışların doğrudan maliyetlerini (COGS) ve brüt marj sürdürülebilirliğini ölçer."
+    "prompt": "Brüt Kar Marjı (Gross Margin) ve COGS kalemlerini analiz et: Yazılım/ürün teslim maliyetlerini düşürerek brüt marjı %70+ seviyesine çıkaracak ölçek ekonomisi adımlarını yaz."
   },
   {
     "id": "eco-burn-rate-runway-calc",
     "icon": "🔥",
     "name": "Nakit Yakış Hızı (Burn Rate) & Runway",
-    "category": "unit-economics",
-    "description": "Mevcut nakdin kaç ay yeteceğini (Runway) ve net yakış hızını hesaplar.",
+    "desc": "Mevcut nakdin kaç ay yeteceğini (Runway) ve net yakış hızını hesaplar.",
+    "explain": "Mevcut nakdin kaç ay yeteceğini (Runway) ve net yakış hızını hesaplar.",
     "layer": "unit-economics",
     "requires": [
       "eco-cac-ltv-ratio-check"
     ],
-    "prompt": "Nakit Yakış Hızı (Net Burn Rate) ve Runway süresini hesapla: Şirketin kasasındaki nakdin kaç ay yeteceğini ve sıfır nakit gününe (Default Alive vs. Default Dead) kalan süreyi raporla.",
-    "desc": "Mevcut nakdin kaç ay yeteceğini (Runway) ve net yakış hızını hesaplar.",
-    "explain": "Mevcut nakdin kaç ay yeteceğini (Runway) ve net yakış hızını hesaplar."
+    "prompt": "Nakit Yakış Hızı (Net Burn Rate) ve Runway süresini hesapla: Şirketin kasasındaki nakdin kaç ay yeteceğini ve sıfır nakit gününe (Default Alive vs. Default Dead) kalan süreyi raporla."
   },
   {
     "id": "eco-freemium-conversion-funnel",
     "icon": "🧲",
     "name": "Freemium'dan Ücretliye Dönüşüm Hunisi",
-    "category": "unit-economics",
-    "description": "Ücretsiz kullanıcıları ücretli pakete geçiren tetikleyici kısıtları koyar.",
+    "desc": "Ücretsiz kullanıcıları ücretli pakete geçiren tetikleyici kısıtları koyar.",
+    "explain": "Ücretsiz kullanıcıları ücretli pakete geçiren tetikleyici kısıtları koyar.",
     "layer": "unit-economics",
     "requires": [
       "eco-pricing-tier-strategy"
     ],
-    "prompt": "Freemium Dönüşüm Hunisini tasarla: Ücretsiz versiyondaki 'Değer Duvarı' (Paywall) kısıtlarını (kullanım limiti, gelişmiş özellik) kurarak %3-5 dönüşüm oranını hedefle.",
-    "desc": "Ücretsiz kullanıcıları ücretli pakete geçiren tetikleyici kısıtları koyar.",
-    "explain": "Ücretsiz kullanıcıları ücretli pakete geçiren tetikleyici kısıtları koyar."
+    "prompt": "Freemium Dönüşüm Hunisini tasarla: Ücretsiz versiyondaki 'Değer Duvarı' (Paywall) kısıtlarını (kullanım limiti, gelişmiş özellik) kurarak %3-5 dönüşüm oranını hedefle."
   },
   {
     "id": "pit-10-slide-pitch-deck",
     "icon": "📊",
     "name": "10 Slaytlık Yatırımcı Pitch Deck Mimarisi",
-    "category": "pitch",
-    "description": "Sequoia/YC formatında 10 slaytlık yatırımcı sunumu omurgası kurar.",
+    "desc": "Sequoia/YC formatında 10 slaytlık yatırımcı sunumu omurgası kurar.",
+    "explain": "Sequoia/YC formatında 10 slaytlık yatırımcı sunumu omurgası kurar.",
     "layer": "pitch",
     "requires": [],
-    "prompt": "Sequoia Standartlarında 10 Slaytlık Pitch Deck taslağı çıkar: (1. Problem, 2. Çözüm, 3. Pazar, 4. Ürün, 5. Çekim/Traction, 6. İş Modeli, 7. Rekabet, 8. Ekip, 9. Finansallar, 10. Yatırım Talebi).",
-    "desc": "Sequoia/YC formatında 10 slaytlık yatırımcı sunumu omurgası kurar.",
-    "explain": "Sequoia/YC formatında 10 slaytlık yatırımcı sunumu omurgası kurar."
+    "prompt": "Sequoia Standartlarında 10 Slaytlık Pitch Deck taslağı çıkar: (1. Problem, 2. Çözüm, 3. Pazar, 4. Ürün, 5. Çekim/Traction, 6. İş Modeli, 7. Rekabet, 8. Ekip, 9. Finansallar, 10. Yatırım Talebi)."
   },
   {
     "id": "pit-hook-elevator-pitch",
     "icon": "⏱️",
     "name": "30 Saniyelik Asansör Cümlesi (Elevator Pitch)",
-    "category": "pitch",
-    "description": "Girişimin değer önerisini 30 saniyede akılda kalıcı şekilde özetler.",
+    "desc": "Girişimin değer önerisini 30 saniyede akılda kalıcı şekilde özetler.",
+    "explain": "Girişimin değer önerisini 30 saniyede akılda kalıcı şekilde özetler.",
     "layer": "pitch",
     "requires": [
       "pit-10-slide-pitch-deck"
     ],
-    "prompt": "30 Saniyelik Asansör Cümlesi (Elevator Pitch) yaz: 'Biz [Hedef Kitle] için [Sorunu] çözen ve [Farklılaştıran Özellik] sayesinde [Büyük Fayda] sağlayan bir platformuz' kalıbını keskinleştir.",
-    "desc": "Girişimin değer önerisini 30 saniyede akılda kalıcı şekilde özetler.",
-    "explain": "Girişimin değer önerisini 30 saniyede akılda kalıcı şekilde özetler."
+    "prompt": "30 Saniyelik Asansör Cümlesi (Elevator Pitch) yaz: 'Biz [Hedef Kitle] için [Sorunu] çözen ve [Farklılaştıran Özellik] sayesinde [Büyük Fayda] sağlayan bir platformuz' kalıbını keskinleştir."
   },
   {
     "id": "pit-investor-qa-defense",
     "icon": "🛡️",
     "name": "Yatırımcı Soru-Cevap Savunma Matrisi",
-    "category": "pitch",
-    "description": "Yatırımcıların soracağı en zor 5 itiraza hazır yanıtlar kurgular.",
+    "desc": "Yatırımcıların soracağı en zor 5 itiraza hazır yanıtlar kurgular.",
+    "explain": "Yatırımcıların soracağı en zor 5 itiraza hazır yanıtlar kurgular.",
     "layer": "pitch",
     "requires": [
       "pit-10-slide-pitch-deck"
     ],
-    "prompt": "Yatırımcı Soru-Cevap (Q&A Defense) Matrisi hazırla: 'Google yarın bu işi yaparsa ne olur?', 'CAC'niz neden yüksek?' gibi en zor 5 itiraz için veriye dayalı savunma hazırla.",
-    "desc": "Yatırımcıların soracağı en zor 5 itiraza hazır yanıtlar kurgular.",
-    "explain": "Yatırımcıların soracağı en zor 5 itiraza hazır yanıtlar kurgular."
+    "prompt": "Yatırımcı Soru-Cevap (Q&A Defense) Matrisi hazırla: 'Google yarın bu işi yaparsa ne olur?', 'CAC'niz neden yüksek?' gibi en zor 5 itiraz için veriye dayalı savunma hazırla."
   },
   {
     "id": "pit-traction-milestone-roadmap",
     "icon": "🚀",
     "name": "Traction & Yol Haritası Gösterimi",
-    "category": "pitch",
-    "description": "Geçmiş büyüme ivmesini ve gelecekteki 18 aylık kilometre taşlarını sergiler.",
+    "desc": "Geçmiş büyüme ivmesini ve gelecekteki 18 aylık kilometre taşlarını sergiler.",
+    "explain": "Geçmiş büyüme ivmesini ve gelecekteki 18 aylık kilometre taşlarını sergiler.",
     "layer": "pitch",
     "requires": [
       "pit-10-slide-pitch-deck"
     ],
-    "prompt": "Traction ve Kilometre Taşları (Milestones) slaytını kurgula: Aylık Büyüme Oranı (MoM Growth), MRR gelişimi ve alınan yatırımla ulaşılacak 18 aylık ana hedefleri görselleştir.",
-    "desc": "Geçmiş büyüme ivmesini ve gelecekteki 18 aylık kilometre taşlarını sergiler.",
-    "explain": "Geçmiş büyüme ivmesini ve gelecekteki 18 aylık kilometre taşlarını sergiler."
+    "prompt": "Traction ve Kilometre Taşları (Milestones) slaytını kurgula: Aylık Büyüme Oranı (MoM Growth), MRR gelişimi ve alınan yatırımla ulaşılacak 18 aylık ana hedefleri görselleştir."
   },
   {
     "id": "pit-narrative-arc-storytelling",
     "icon": "📖",
     "name": "Girişimci Hikaye Arkı (Storytelling)",
-    "category": "pitch",
-    "description": "Sunumu kuru rakamlardan çıkarıp duygusal ve mantıksal bir hikayeye dönüştürür.",
+    "desc": "Sunumu kuru rakamlardan çıkarıp duygusal ve mantıksal bir hikayeye dönüştürür.",
+    "explain": "Sunumu kuru rakamlardan çıkarıp duygusal ve mantıksal bir hikayeye dönüştürür.",
     "layer": "pitch",
     "requires": [
       "pit-hook-elevator-pitch"
     ],
-    "prompt": "Pitch Deck Narrative Arc (Hikaye Anlatımı) oluştur: Yatırımcıyı duygusal çengel ile yakalayıp, pazar acısıyla yüzleştirip, ürünün kaçınılmaz zaferiyle tamamlanan bir anlatı kur.",
-    "desc": "Sunumu kuru rakamlardan çıkarıp duygusal ve mantıksal bir hikayeye dönüştürür.",
-    "explain": "Sunumu kuru rakamlardan çıkarıp duygusal ve mantıksal bir hikayeye dönüştürür."
+    "prompt": "Pitch Deck Narrative Arc (Hikaye Anlatımı) oluştur: Yatırımcıyı duygusal çengel ile yakalayıp, pazar acısıyla yüzleştirip, ürünün kaçınılmaz zaferiyle tamamlanan bir anlatı kur."
   },
   {
     "id": "pit-data-room-checklist",
     "icon": "📁",
     "name": "Yatırımcı Data Room Hazırlık Listesi",
-    "category": "pitch",
-    "description": "Due-diligence süreci için gerekli hukuki, finansal ve teknik belgeleri düzenler.",
+    "desc": "Due-diligence süreci için gerekli hukuki, finansal ve teknik belgeleri düzenler.",
+    "explain": "Due-diligence süreci için gerekli hukuki, finansal ve teknik belgeleri düzenler.",
     "layer": "pitch",
     "requires": [
       "pit-10-slide-pitch-deck"
     ],
-    "prompt": "Yatırımcı Data Room Kontrol Listesi hazırla: Cap Table, Finansal Model, Müşteri Sözleşmeleri, IP Tescilleri ve Hukuki belgelerin eksiksiz klasör yapısını sun.",
-    "desc": "Due-diligence süreci için gerekli hukuki, finansal ve teknik belgeleri düzenler.",
-    "explain": "Due-diligence süreci için gerekli hukuki, finansal ve teknik belgeleri düzenler."
+    "prompt": "Yatırımcı Data Room Kontrol Listesi hazırla: Cap Table, Finansal Model, Müşteri Sözleşmeleri, IP Tescilleri ve Hukuki belgelerin eksiksiz klasör yapısını sun."
   },
   {
     "id": "rsk-business-pre-mortem",
     "icon": "💀",
     "name": "Şirket İçi İş Pre-Mortem Analizi",
-    "category": "risk",
-    "description": "Girişimin 3 yıl sonra iflas ettiğini varsayıp nedenlerini önceden çözer.",
+    "desc": "Girişimin 3 yıl sonra iflas ettiğini varsayıp nedenlerini önceden çözer.",
+    "explain": "Girişimin 3 yıl sonra iflas ettiğini varsayıp nedenlerini önceden çözer.",
     "layer": "risk",
     "requires": [],
-    "prompt": "İş Modeli Pre-Mortem Analizi yap: Bugünden 3 yıl sonrasındayız ve şirket İFLAS ETTİ. Otopsiyi yap: Bizi iflasa götüren ana riskler (nakit tükenmesi, yanlış kurucu ortak, pazar ilgisizliği) neydi?",
-    "desc": "Girişimin 3 yıl sonra iflas ettiğini varsayıp nedenlerini önceden çözer.",
-    "explain": "Girişimin 3 yıl sonra iflas ettiğini varsayıp nedenlerini önceden çözer."
+    "prompt": "İş Modeli Pre-Mortem Analizi yap: Bugünden 3 yıl sonrasındayız ve şirket İFLAS ETTİ. Otopsiyi yap: Bizi iflasa götüren ana riskler (nakit tükenmesi, yanlış kurucu ortak, pazar ilgisizliği) neydi?"
   },
   {
     "id": "rsk-swot-matrix-action",
     "icon": "🧩",
     "name": "Eyleme Dönüştürülebilir TOWS/SWOT Matrisi",
-    "category": "risk",
-    "description": "Güçlü ve zayıf yönleri fırsat ve tehditlerle çaprazlayıp strateji üretir.",
+    "desc": "Güçlü ve zayıf yönleri fırsat ve tehditlerle çaprazlayıp strateji üretir.",
+    "explain": "Güçlü ve zayıf yönleri fırsat ve tehditlerle çaprazlayıp strateji üretir.",
     "layer": "risk",
     "requires": [
       "rsk-business-pre-mortem"
     ],
-    "prompt": "TOWS Matrisi (Eyleme Dönüştürülebilir SWOT) oluştur: Güçlü Yanları Fırsatlarla (SO), Zayıf Yanları Tehditlerle (WT) çaprazlayarak somut stratejik elem adımları yaz.",
-    "desc": "Güçlü ve zayıf yönleri fırsat ve tehditlerle çaprazlayıp strateji üretir.",
-    "explain": "Güçlü ve zayıf yönleri fırsat ve tehditlerle çaprazlayıp strateji üretir."
+    "prompt": "TOWS Matrisi (Eyleme Dönüştürülebilir SWOT) oluştur: Güçlü Yanları Fırsatlarla (SO), Zayıf Yanları Tehditlerle (WT) çaprazlayarak somut stratejik elem adımları yaz."
   },
   {
     "id": "rsk-regulatory-moat-check",
     "icon": "🏰",
     "name": "Yasal & Fikri Mülkiyet Hendek (Moat) Analizi",
-    "category": "risk",
-    "description": "Patent, marka tescili ve regülasyon uyumu ile rekabet avantajı savunması.",
+    "desc": "Patent, marka tescili ve regülasyon uyumu ile rekabet avantajı savunması.",
+    "explain": "Patent, marka tescili ve regülasyon uyumu ile rekabet avantajı savunması.",
     "layer": "risk",
     "requires": [
       "rsk-business-pre-mortem"
     ],
-    "prompt": "Rekabetçi Hendek (Defensibility / Economic Moat) analizi yap: Girişimi rakiplerin taklit etmesini engelleyecek Şebeke Etkisi (Network Effects), Patent/IP veya Yüksek Geçiş Maliyeti engelini kur.",
-    "desc": "Patent, marka tescili ve regülasyon uyumu ile rekabet avantajı savunması.",
-    "explain": "Patent, marka tescili ve regülasyon uyumu ile rekabet avantajı savunması."
+    "prompt": "Rekabetçi Hendek (Defensibility / Economic Moat) analizi yap: Girişimi rakiplerin taklit etmesini engelleyecek Şebeke Etkisi (Network Effects), Patent/IP veya Yüksek Geçiş Maliyeti engelini kur."
   },
   {
     "id": "rsk-single-point-failure",
     "icon": "⚠️",
     "name": "Operasyonel Tek Nokta Hata (SPOF) Taraması",
-    "category": "risk",
-    "description": "Sistemi çökertebilecek tek bir tedarikçiye veya kişiye bağımlılığı bulur.",
+    "desc": "Sistemi çökertebilecek tek bir tedarikçiye veya kişiye bağımlılığı bulur.",
+    "explain": "Sistemi çökertebilecek tek bir tedarikçiye veya kişiye bağımlılığı bulur.",
     "layer": "risk",
     "requires": [
       "rsk-business-pre-mortem"
     ],
-    "prompt": "Tek Nokta Hata (Single Point of Failure - SPOF) taraması yap: Şirketin kilit bir tedarikçiye, tek bir kilit çalışana veya bağımlı olunan tek bir kanala olan kırılganlığını tespit et.",
-    "desc": "Sistemi çökertebilecek tek bir tedarikçiye veya kişiye bağımlılığı bulur.",
-    "explain": "Sistemi çökertebilecek tek bir tedarikçiye veya kişiye bağımlılığı bulur."
+    "prompt": "Tek Nokta Hata (Single Point of Failure - SPOF) taraması yap: Şirketin kilit bir tedarikçiye, tek bir kilit çalışana veya bağımlı olunan tek bir kanala olan kırılganlığını tespit et."
   },
   {
     "id": "rsk-scenario-financial-stress",
     "icon": "📉",
     "name": "Finansal Stres Senaryosu (Bear/Base/Bull)",
-    "category": "risk",
-    "description": "Gelirlerin %50 düştüğü kötümser senaryoda finansal dayanıklılığı test eder.",
+    "desc": "Gelirlerin %50 düştüğü kötümser senaryoda finansal dayanıklılığı test eder.",
+    "explain": "Gelirlerin %50 düştüğü kötümser senaryoda finansal dayanıklılığı test eder.",
     "layer": "risk",
     "requires": [
       "rsk-business-pre-mortem"
     ],
-    "prompt": "Finansal Stres Testi (Bear Case Scenario) yap: Gelirlerin beklenenden %50 düşük gerçekleştiği ve maliyetlerin %20 arttığı kötü senaryoda şirketin hayatta kalma planını çıkar.",
-    "desc": "Gelirlerin %50 düştüğü kötümser senaryoda finansal dayanıklılığı test eder.",
-    "explain": "Gelirlerin %50 düştüğü kötümser senaryoda finansal dayanıklılığı test eder."
+    "prompt": "Finansal Stres Testi (Bear Case Scenario) yap: Gelirlerin beklenenden %50 düşük gerçekleştiği ve maliyetlerin %20 arttığı kötü senaryoda şirketin hayatta kalma planını çıkar."
   },
   {
     "id": "rsk-key-person-dependence",
     "icon": "👥",
     "name": "Kilit Personel ve Tedarikçi Bağımlılık Denetimi",
-    "category": "risk",
-    "description": "Kilit kurucu veya tedarikçi ayrıldığında operasyonun devamlılığını sağlar.",
+    "desc": "Kilit kurucu veya tedarikçi ayrıldığında operasyonun devamlılığını sağlar.",
+    "explain": "Kilit kurucu veya tedarikçi ayrıldığında operasyonun devamlılığını sağlar.",
     "layer": "risk",
     "requires": [
       "rsk-single-point-failure"
     ],
-    "prompt": "Kilit Personel ve Tedarikçi Yedekleme Planı (Key-Person Dependency) hazırlayarak bilgi birikimini şirket içine dokümante etme prosedürünü yaz.",
-    "desc": "Kilit kurucu veya tedarikçi ayrıldığında operasyonun devamlılığını sağlar.",
-    "explain": "Kilit kurucu veya tedarikçi ayrıldığında operasyonun devamlılığını sağlar."
+    "prompt": "Kilit Personel ve Tedarikçi Yedekleme Planı (Key-Person Dependency) hazırlayarak bilgi birikimini şirket içine dokümante etme prosedürünü yaz."
   }
 ]

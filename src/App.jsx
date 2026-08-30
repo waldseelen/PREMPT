@@ -169,8 +169,9 @@ export default function App() {
     }, [config.theme]);
 
     useEffect(() => {
+        const timers = toastTimers.current;
         return () => {
-            toastTimers.current.forEach(clearTimeout);
+            timers.forEach(clearTimeout);
         };
     }, []);
 

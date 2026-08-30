@@ -6,6 +6,7 @@
     --bg-card-hover: rgba(30, 31, 36, 0.85);
     --bg-input: rgba(14, 15, 17, 0.8);
     --border: rgba(255, 255, 255, 0.08);
+    --border-strong: rgba(255, 255, 255, 0.18);
     --border-active: #5e6ad2;
     --text-primary: #f2f2f2;
     --text-secondary: #a0a5ad;
@@ -98,6 +99,7 @@
     --bg-card-hover: rgba(240, 242, 245, 0.9);
     --bg-input: rgba(255, 255, 255, 0.7);
     --border: rgba(0, 0, 0, 0.06);
+    --border-strong: rgba(0, 0, 0, 0.14);
     --border-active: #1a1a1a;
     --text-primary: #1a1a1a;
     --text-secondary: #6e6e73;
@@ -192,6 +194,8 @@
             background: var(--bg-deep);
             color: var(--text-primary);
             height: 100vh;
+            height: 100dvh;
+            min-height: 100dvh;
             overflow: hidden;
             line-height: 1.5;
         }
@@ -208,6 +212,8 @@
             margin: 0 auto;
             padding: 12px 16px;
             height: 100vh;
+            height: 100dvh;
+            min-height: 100dvh;
             display: flex;
             flex-direction: column;
         }
@@ -757,11 +763,11 @@
         }
         .module-card.active {
             background: var(--cat-light, var(--bg-card-hover));
-            border-color: var(--cat-text, var(--text-primary));
-            box-shadow: inset 0 0 0 1px var(--cat-border), 0 4px 12px var(--cat-bg);
+            border-color: var(--cat-text, var(--border-active));
+            box-shadow: inset 0 0 0 1px var(--cat-border, var(--border-active)), 0 4px 12px var(--cat-bg, rgba(94, 106, 210, 0.14));
         }
         .module-card.active .module-icon {
-            color: var(--cat-text, var(--text-primary));
+            color: var(--cat-text, var(--border-active));
         }
         .module-card.suggested {
             border: 1px dashed var(--status-amber);
@@ -972,12 +978,14 @@
         .toast-container {
             position: fixed;
             bottom: 24px; right: 24px;
-            z-index: 9999;
+            z-index: 1000000;
+            pointer-events: none;
             display: flex;
             flex-direction: column-reverse;
             gap: 8px;
         }
         .toast {
+            pointer-events: auto;
             padding: 14px 20px;
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -1204,8 +1212,23 @@
         }
 
         @media (max-width: 1100px) {
+            html, body {
+                overflow-y: auto !important;
+                height: auto !important;
+                min-height: 100vh;
+            }
+            .app {
+                height: auto !important;
+                min-height: 100vh;
+                overflow: visible !important;
+                padding-bottom: 2rem;
+            }
             .layout-grid-3 {
                 grid-template-columns: 260px minmax(0, 1fr);
+            }
+            .categories-container {
+                grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+                gap: 10px;
             }
             .right-sidebar {
                 grid-column: 1 / -1;
@@ -1803,13 +1826,6 @@
         @media (max-width: 767px) {
             .header-tour-btn {
                 display: none !important;
-            }
-        }
-
-        /* Scale down the layout for 125% OS scaling to match the 100% scaling view */
-        @media (max-width: 1550px) and (min-width: 1200px) {
-            body {
-                zoom: 0.8;
             }
         }
 
@@ -2482,29 +2498,40 @@
         padding-top: 0;
     }
     .default-flow-header {
-        align-items: flex-start;
-        flex-direction: column;
-        padding: 16px 0;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 8px 0;
     }
     .default-flow-mode-actions {
-        width: 100%;
+        width: auto;
     }
     .default-mode-pill {
-        flex: 1;
+        flex: initial;
     }
     .default-flow-progress {
         position: sticky;
         top: 0;
         z-index: 30;
-        overflow-x: auto;
-        grid-template-columns: repeat(5, minmax(92px, 1fr));
-        margin-right: -1rem;
-        margin-left: -1rem;
-        border-radius: 0;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 4px;
+        margin: 0 0 12px;
+        padding: 4px;
+        border-radius: 10px;
         backdrop-filter: blur(16px);
     }
     .default-flow-step {
         font-size: 0.7rem;
+        padding: 6px 4px;
+        gap: 4px;
+    }
+    @media (max-width: 480px) {
+        .default-flow-step span:not(.default-flow-step-number) {
+            display: none;
+        }
+        .default-flow-step {
+            justify-content: center;
+        }
     }
     .default-flow-surface {
         min-height: 0;
@@ -3050,7 +3077,7 @@
     }
 
     .default-flow-progress {
-        grid-template-columns: repeat(5, minmax(88px, 1fr));
+        grid-template-columns: repeat(5, minmax(0, 1fr));
     }
 }
 

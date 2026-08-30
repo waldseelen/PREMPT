@@ -1,16 +1,20 @@
+import { useState } from 'react';
 import { useEngineState } from '../store/engineState';
 import { useShallow } from 'zustand/react/shallow';
 import { getTranslation } from '../locales/i18n';
 import { getPresets } from '../engine/presetEngine';
 import { getDomain } from '../domains';
 import { Check, Zap } from 'lucide-react';
+import PortalTooltip from './PortalTooltip';
 
 export default function PresetBar() {
-    const { config, setPreset, activePreset } = useEngineState(useShallow(state => ({
+    const { config, setPreset, activePreset } = useEngineState(useShallow((state) => ({
         config: state.config,
         setPreset: state.setPreset,
         activePreset: state.activePreset
     })));
+    const [hoveredPreset, setHoveredPreset] = useState(null);
+
     const t = getTranslation(config.lang, config.domain);
     const domainDef = getDomain(config.domain);
     const presets = getPresets(config.domain);
@@ -56,18 +60,32 @@ export default function PresetBar() {
                                                 className={`preset-btn ${isActive ? 'active' : ''}`}
                                                 type="button"
                                                 onClick={() => setPreset(key)}
-                                                title={presetName}
+                                                onMouseEnter={(event) => {
+                                                    if (description) {
+                                                        setHoveredPreset({
+                                                            name: presetName,
+                                                            desc: description,
+                                                            rect: event.currentTarget.getBoundingClientRect()
+                                                        });
+                                                    }
+                                                }}
+                                                onMouseLeave={() => setHoveredPreset(null)}
+                                                onFocus={(event) => {
+                                                    if (description) {
+                                                        setHoveredPreset({
+                                                            name: presetName,
+                                                            desc: description,
+                                                            rect: event.currentTarget.getBoundingClientRect()
+                                                        });
+                                                    }
+                                                }}
+                                                onBlur={() => setHoveredPreset(null)}
+                                                aria-label={presetName}
                                                 aria-pressed={isActive}
                                             >
                                                 {isActive ? <Check size={13} aria-hidden="true" /> : <Zap size={13} aria-hidden="true" />}
                                                 <span>{presetName}</span>
                                             </button>
-                                            {description && (
-                                                <div className="module-tooltip preset-tooltip" role="tooltip">
-                                                    <div className="tooltip-title">{presetName}</div>
-                                                    <div className="tooltip-explain">{description}</div>
-                                                </div>
-                                            )}
                                         </div>
                                     );
                                 })}
@@ -82,6 +100,13 @@ export default function PresetBar() {
                     <Check size={14} aria-hidden="true" />
                     <span>“{activePresetName}” {t.presetAppliedDesc || 'şablonu uygulandı.'}</span>
                 </div>
+            )}
+
+            {hoveredPreset && (
+                <PortalTooltip targetRect={hoveredPreset.rect} isOpen={Boolean(hoveredPreset)}>
+                    <div className="tooltip-title">{hoveredPreset.name}</div>
+                    <div className="tooltip-explain">{hoveredPreset.desc}</div>
+                </PortalTooltip>
             )}
         </section>
     );

@@ -32,7 +32,17 @@ export const academicSpec = {
         "research": "Araştırma & Literatür",
         "writing": "Yazım & Metodoloji",
         "review": "Hakem & Denetim"
-      }
+      },
+      "categories": {
+        "methodology": "Metodoloji & Tasarım",
+        "literature": "Literatür & Kuram",
+        "writing": "Akademik Yazım",
+        "review": "Hakem İncelemesi",
+        "validation": "Doğrulama & Etik"
+      },
+      "modulesTitle": "Modüller (Module Blocks)",
+      "presetsTitle": "Uzman Hazır Şablonları (System Presets)",
+      "paramsTitle": "Parametreler"
     },
     "en": {
       "title": "Academic Research & Methodology",
@@ -49,7 +59,17 @@ export const academicSpec = {
         "research": "Research & Literature",
         "writing": "Writing & Methodology",
         "review": "Review & Audit"
-      }
+      },
+      "categories": {
+        "methodology": "Methodology & Design",
+        "literature": "Literature & Theory",
+        "writing": "Academic Writing",
+        "review": "Peer Review",
+        "validation": "Validation & Ethics"
+      },
+      "modulesTitle": "Module Blocks",
+      "presetsTitle": "System Presets",
+      "paramsTitle": "Parameters"
     }
   },
   "optionSets": {
@@ -116,18 +136,80 @@ export const academicSpec = {
   },
   "compilerTexts": {
     "tr": {
-      "topicHeader": "ARAŞTIRMA HIPOTEZİ",
-      "levelHeader": "ÇIKTI HEDEFİ",
-      "modeHeader": "HAKEM PERSPEKTİFİ",
-      "depthHeader": "AKADEMİK SEVİYE",
-      "formatHeader": "YAZIM FORMATI"
+      "mod": {
+        "reviewer2": "Sen en titiz Q1 dergilerinin Hakem 2 (Reviewer #2) personasısın. Metodolojik zayıflıkları, eksik kanıtları ve mantıksal sıçramaları acımasızca tespit edersin.",
+        "ampirik": "Sen ampirik araştırma metodoloğusun. Veri toplama, örneklem geçerliliği, istatistiksel güç ve tekrarlanabilirlik standartlarını denetlersin.",
+        "teorisyen": "Sen kuramsal çerçeve uzmanısın. Hipotezlerin epistemolojik zeminini, kavramsal tanımlarını ve literatürdeki ontolojik konumunu kurgularsın."
+      },
+      "derinlik": {
+        "lisans": "Temel literatür taraması ve açık araştırma sorusu formatında tut.",
+        "doktora": "Kapsamlı kuramsal zemin, metodolojik gerekçelendirme ve karşılaştırmalı analiz sun.",
+        "journal": "Q1 dergi seviyesinde titiz hakem eleştirisi, metodolojik kısıtlar ve etki analizi üret."
+      },
+      "format": {
+        "apa": "APA 7 ve akademik makale yapısına uygun format kullan.",
+        "hakemmatris": "Hakem eleştirisi ve revizyon matrisi formatında hazırla.",
+        "kunye": "Kavramsal çerçeve ve araştırma künyesi formatında yapılandır."
+      },
+      "labels": {
+        "role": "[ROLE]",
+        "goal": "[GOAL]",
+        "context": "[CONTEXT]",
+        "modules": "[ACTIVE MODULES]",
+        "instructions": "[INSTRUCTIONS]",
+        "format": "[OUTPUT FORMAT]",
+        "constraints": "[CONSTRAINTS / SAFETY]"
+      },
+      "contextLabels": {
+        "domain": "Alan:",
+        "level": "Seviye:",
+        "depthRequirement": "Derinlik Gereksinimi:"
+      },
+      "goalTemplate": "\"{{KONU}}\" akademik araştırma konusunu metodolojik titizlik, kuramsal zemin ve literatür disipliniyle incelemek.",
+      "constraintsBase": [
+        "Tüm iddiaları kuramsal veya ampirik temele dayandır.",
+        "Literatürdeki boşluğu (research gap) net olarak tanımla.",
+        "Metodolojik sınırları ve tehditleri (threats to validity) dürüstçe belirt."
+      ],
+      "monologueText": "İÇ SES MODU: Araştırma çerçevesini kurmadan önce (<thinking> tagleri içinde) hipotezin zayıf noktalarını ve alternatif açıklamaları sorgula."
     },
     "en": {
-      "topicHeader": "RESEARCH HYPOTHESIS",
-      "levelHeader": "PAPER TARGET",
-      "modeHeader": "REVIEWER STANCE",
-      "depthHeader": "ACADEMIC RIGOR",
-      "formatHeader": "FORMAT SYNTAX"
+      "mod": {
+        "reviewer2": "You are the hyper-critical Reviewer #2 of a top-tier Q1 academic journal. You spot methodological flaws, unsupported claims, and logic gaps.",
+        "ampirik": "You are an empirical research methodologist. You audit data integrity, sample validity, statistical power, and reproducibility.",
+        "teorisyen": "You are a theoretical framework specialist. You ground hypotheses in rigorous ontology, epistemology, and literature lineage."
+      },
+      "derinlik": {
+        "lisans": "Provide a structured literature overview and clear research question scope.",
+        "doktora": "Deliver comprehensive theoretical grounding, methodological justification, and comparative synthesis.",
+        "journal": "Produce top-tier journal quality critique, validity threats, and scholarly contribution analysis."
+      },
+      "format": {
+        "apa": "Structure using formal academic style (APA 7 standards).",
+        "hakemmatris": "Format as a peer-review commentary and revision matrix.",
+        "kunye": "Format as a structured research proposal and theoretical blueprint."
+      },
+      "labels": {
+        "role": "[ROLE]",
+        "goal": "[GOAL]",
+        "context": "[CONTEXT]",
+        "modules": "[ACTIVE MODULES]",
+        "instructions": "[INSTRUCTIONS]",
+        "format": "[OUTPUT FORMAT]",
+        "constraints": "[CONSTRAINTS / SAFETY]"
+      },
+      "contextLabels": {
+        "domain": "Domain:",
+        "level": "Level:",
+        "depthRequirement": "Depth Requirement:"
+      },
+      "goalTemplate": "To examine the academic research topic \"{{KONU}}\" with methodological rigor, theoretical grounding, and scholarly discipline.",
+      "constraintsBase": [
+        "Ground all assertions in theoretical or empirical evidence.",
+        "Clearly articulate the research gap and contribution.",
+        "Explicitly document limitations and threats to validity."
+      ],
+      "monologueText": "INTERNAL MONOLOGUE: Before structuring findings, evaluate methodological vulnerabilities and rival explanations in <thinking> tags."
     }
   },
   "presets": {
@@ -135,15 +217,14 @@ export const academicSpec = {
       "id": "reviewer2-audit",
       "group": "review",
       "name": {
-        "tr": "⚔️ Reviewer #2 Stres Testi",
-        "en": "⚔️ Reviewer #2 Stress Test"
+        "tr": "Reviewer #2 Stres Testi",
+        "en": "Reviewer #2 Stress Test"
       },
       "desc": {
         "tr": "Metodolojik zayıflıkları en acımasız hakem gözüyle eleştirir.",
         "en": "Audits paper methodology with strict reviewer eyes."
       },
       "forceModules": [
-        "research-question-def",
         "research-question-def"
       ],
       "override": {
@@ -159,8 +240,8 @@ export const academicSpec = {
       "id": "lit-review",
       "group": "research",
       "name": {
-        "tr": "📚 Sistematik Literatür Taraması",
-        "en": "📚 Systematic Lit Review"
+        "tr": "Sistematik Literatür Taraması",
+        "en": "Systematic Lit Review"
       },
       "desc": {
         "tr": "Mevcut akademik literatürü kronolojik ve teorik sınıflar.",
@@ -183,8 +264,8 @@ export const academicSpec = {
       "id": "thesis-builder",
       "group": "writing",
       "name": {
-        "tr": "🏛️ Tez & Makale İskeleti",
-        "en": "🏛️ Thesis & Paper Outline"
+        "tr": "Tez & Makale İskeleti",
+        "en": "Thesis & Paper Outline"
       },
       "desc": {
         "tr": "APA/IEEE formatında hipotez ve bölüm hiyerarşisi kurar.",
@@ -207,8 +288,8 @@ export const academicSpec = {
       "id": "methodology-audit",
       "group": "review",
       "name": {
-        "tr": "🔬 İstatistiksel & Ampirik Denetim",
-        "en": "🔬 Empirical & Stat Audit"
+        "tr": "İstatistiksel & Ampirik Denetim",
+        "en": "Empirical & Stat Audit"
       },
       "desc": {
         "tr": "Veri setindeki ampirik hataları ve p-hacking riskini tarar.",
@@ -231,8 +312,8 @@ export const academicSpec = {
       "id": "hypothesis-test",
       "group": "research",
       "name": {
-        "tr": "🧪 Hipotez & Değişken Kurgusu",
-        "en": "🧪 Hypothesis & Variables"
+        "tr": "Hipotez & Değişken Kurgusu",
+        "en": "Hypothesis & Variables"
       },
       "desc": {
         "tr": "Bağımlı/bağımsız değişkenleri ve hipotezleri tanımlar.",
@@ -255,8 +336,8 @@ export const academicSpec = {
       "id": "citation-map",
       "group": "research",
       "name": {
-        "tr": "🔗 Atıf & DOI Künye Haritası",
-        "en": "🔗 Citation & DOI Map"
+        "tr": "Atıf & DOI Künye Haritası",
+        "en": "Citation & DOI Map"
       },
       "desc": {
         "tr": "Kilit çalışmaları atıf zincirine bağlar.",
@@ -279,8 +360,8 @@ export const academicSpec = {
       "id": "abstract-writer",
       "group": "writing",
       "name": {
-        "tr": "📄 Akademik Abstract (Özet)",
-        "en": "📄 Academic Abstract Builder"
+        "tr": "Akademik Abstract (Özet)",
+        "en": "Academic Abstract Builder"
       },
       "desc": {
         "tr": "250 kelimelik net yayın özeti tasarlar.",
@@ -303,8 +384,8 @@ export const academicSpec = {
       "id": "data-validation",
       "group": "review",
       "name": {
-        "tr": "📊 Veri Doğrulama & Temizlik",
-        "en": "📊 Data Validation Protocol"
+        "tr": "Veri Doğrulama & Temizlik",
+        "en": "Data Validation Protocol"
       },
       "desc": {
         "tr": "Araştırma verilerinin güvenilirliğini test eder.",
@@ -327,8 +408,8 @@ export const academicSpec = {
       "id": "theoretical-frame",
       "group": "writing",
       "name": {
-        "tr": "🧱 Teorik Çerçeve İnşası",
-        "en": "🧱 Theoretical Framework"
+        "tr": "Teorik Çerçeve İnşası",
+        "en": "Theoretical Framework"
       },
       "desc": {
         "tr": "Araştırmanın üzerine oturduğu felsefi altyapı.",
@@ -351,8 +432,8 @@ export const academicSpec = {
       "id": "journal-fit",
       "group": "writing",
       "name": {
-        "tr": "🎯 Q1 Journal Format Adaptasyonu",
-        "en": "🎯 Q1 Journal Adaptation"
+        "tr": "Q1 Journal Format Adaptasyonu",
+        "en": "Q1 Journal Adaptation"
       },
       "desc": {
         "tr": "Hedef derginin yazım ve üslup standartlarına uyarlar.",
@@ -375,8 +456,8 @@ export const academicSpec = {
       "id": "peer-response",
       "group": "review",
       "name": {
-        "tr": "✉️ Hakem Yanıt Mektubu",
-        "en": "✉️ Peer Review Response"
+        "tr": "Hakem Yanıt Mektubu",
+        "en": "Peer Review Response"
       },
       "desc": {
         "tr": "Hakem eleştirilerine kibar ve bilimsel yanıt matrisi.",
@@ -399,8 +480,8 @@ export const academicSpec = {
       "id": "discussion-section",
       "group": "writing",
       "name": {
-        "tr": "🔍 Tartışma & Kısıtlar Bölümü",
-        "en": "🔍 Discussion & Limitations"
+        "tr": "Tartışma & Kısıtlar Bölümü",
+        "en": "Discussion & Limitations"
       },
       "desc": {
         "tr": "Bulguların kısıtlarını ve gelecek çalışmalarını tanımlar.",

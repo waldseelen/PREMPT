@@ -3,410 +3,350 @@
     "id": "persona-role-definition",
     "icon": "🎭",
     "name": "Persona & Role Architecture",
-    "category": "persona",
-    "description": "Establishes agent expertise, domain boundaries, and foundational identity.",
+    "desc": "Establishes agent expertise, domain boundaries, and foundational identity.",
+    "explain": "Establishes agent expertise, domain boundaries, and foundational identity.",
     "layer": "persona",
     "requires": [],
-    "prompt": "Build agent persona: 'You are a Senior [Role] with [X] years of experience in [Domain].' Clearly define operational limits, working philosophy, and disclaimed roles.",
-    "desc": "Establishes agent expertise, domain boundaries, and foundational identity.",
-    "explain": "Establishes agent expertise, domain boundaries, and foundational identity."
+    "prompt": "Build agent persona: 'You are a Senior [Role] with [X] years of experience in [Domain].' Clearly define operational limits, working philosophy, and disclaimed roles."
   },
   {
     "id": "epistemic-stance-setting",
     "icon": "🧠",
     "name": "Epistemic Stance Calibration",
-    "category": "persona",
-    "description": "Sets agent stance toward uncertainty, speculation, and unknowable facts.",
+    "desc": "Sets agent stance toward uncertainty, speculation, and unknowable facts.",
+    "explain": "Sets agent stance toward uncertainty, speculation, and unknowable facts.",
     "layer": "persona",
     "requires": [
       "persona-role-definition"
     ],
-    "prompt": "Calibrate epistemic stance: Set uncertainty tolerance to zero. Force the agent to explicitly state 'I don't know' or request data rather than speculate on unverified facts.",
-    "desc": "Sets agent stance toward uncertainty, speculation, and unknowable facts.",
-    "explain": "Sets agent stance toward uncertainty, speculation, and unknowable facts."
+    "prompt": "Calibrate epistemic stance: Set uncertainty tolerance to zero. Force the agent to explicitly state 'I don't know' or request data rather than speculate on unverified facts."
   },
   {
     "id": "tone-register-locking",
     "icon": "🎙️",
     "name": "Tone & Register Lock",
-    "category": "persona",
-    "description": "Locks communication style and strictly forbids conversational fluff.",
+    "desc": "Locks communication style and strictly forbids conversational fluff.",
+    "explain": "Locks communication style and strictly forbids conversational fluff.",
     "layer": "persona",
     "requires": [
       "persona-role-definition"
     ],
-    "prompt": "Lock communication tone: [Technical / Corporate / Socratic]. Absolutely ban conversational filler ('Great question!', 'Sure, I can help!') and move straight to technical execution.",
-    "desc": "Locks communication style and strictly forbids conversational fluff.",
-    "explain": "Locks communication style and strictly forbids conversational fluff."
+    "prompt": "Lock communication tone: [Technical / Corporate / Socratic]. Absolutely ban conversational filler ('Great question!', 'Sure, I can help!') and move straight to technical execution."
   },
   {
     "id": "domain-expert-profile",
     "icon": "🎓",
     "name": "Domain Expert Profile",
-    "category": "persona",
-    "description": "Injects domain jargon, conceptual frameworks, and mental models into agent persona.",
+    "desc": "Injects domain jargon, conceptual frameworks, and mental models into agent persona.",
+    "explain": "Injects domain jargon, conceptual frameworks, and mental models into agent persona.",
     "layer": "persona",
     "requires": [
       "persona-role-definition"
     ],
-    "prompt": "Inject domain-specific mental models and terminology: Force the agent to reason through C2-level domain jargon and standard industry frameworks.",
-    "desc": "Injects domain jargon, conceptual frameworks, and mental models into agent persona.",
-    "explain": "Injects domain jargon, conceptual frameworks, and mental models into agent persona."
+    "prompt": "Inject domain-specific mental models and terminology: Force the agent to reason through C2-level domain jargon and standard industry frameworks."
   },
   {
     "id": "cognitive-bias-override",
     "icon": "🛠️",
     "name": "Sycophancy Override",
-    "category": "persona",
-    "description": "Overrides default LLM tendency to agree with flawed user premises.",
+    "desc": "Overrides default LLM tendency to agree with flawed user premises.",
+    "explain": "Overrides default LLM tendency to agree with flawed user premises.",
     "layer": "persona",
     "requires": [
       "epistemic-stance-setting"
     ],
-    "prompt": "Inject Sycophancy Override: Instruct the agent to politely but firmly correct flawed user premises or false assumptions rather than validating them.",
-    "desc": "Overrides default LLM tendency to agree with flawed user premises.",
-    "explain": "Overrides default LLM tendency to agree with flawed user premises."
+    "prompt": "Inject Sycophancy Override: Instruct the agent to politely but firmly correct flawed user premises or false assumptions rather than validating them."
   },
   {
     "id": "adaptive-persona-shift",
     "icon": "🔄",
     "name": "Dynamic Persona Shift",
-    "category": "persona",
-    "description": "Enables agent to shift operational modes based on task lifecycle phase.",
+    "desc": "Enables agent to shift operational modes based on task lifecycle phase.",
+    "explain": "Enables agent to shift operational modes based on task lifecycle phase.",
     "layer": "persona",
     "requires": [
       "domain-expert-profile"
     ],
-    "prompt": "Establish dynamic mode switching: Automatically transition the agent from 'Analytical Auditor' during discovery to 'Creative Architect' during synthesis.",
-    "desc": "Enables agent to shift operational modes based on task lifecycle phase.",
-    "explain": "Enables agent to shift operational modes based on task lifecycle phase."
+    "prompt": "Establish dynamic mode switching: Automatically transition the agent from 'Analytical Auditor' during discovery to 'Creative Architect' during synthesis."
   },
   {
     "id": "cot-step-by-step",
     "icon": "🔗",
     "name": "Chain-of-Thought (CoT) Injection",
-    "category": "cot",
-    "description": "Forces step-by-step explicit reasoning before delivering final output.",
+    "desc": "Forces step-by-step explicit reasoning before delivering final output.",
+    "explain": "Forces step-by-step explicit reasoning before delivering final output.",
     "layer": "cot",
     "requires": [],
-    "prompt": "Enforce Chain-of-Thought (CoT): Conduct explicit step-by-step reasoning inside `<thinking>` blocks prior to emitting final answers.",
-    "desc": "Forces step-by-step explicit reasoning before delivering final output.",
-    "explain": "Forces step-by-step explicit reasoning before delivering final output."
+    "prompt": "Enforce Chain-of-Thought (CoT): Conduct explicit step-by-step reasoning inside `<thinking>` blocks prior to emitting final answers."
   },
   {
     "id": "tree-of-thought-prompt",
     "icon": "🌳",
     "name": "Tree-of-Thoughts (ToT) Architecture",
-    "category": "cot",
-    "description": "Generates and evaluates 3 parallel reasoning paths before selecting the optimum.",
+    "desc": "Generates and evaluates 3 parallel reasoning paths before selecting the optimum.",
+    "explain": "Generates and evaluates 3 parallel reasoning paths before selecting the optimum.",
     "layer": "cot",
     "requires": [
       "cot-step-by-step"
     ],
-    "prompt": "Execute Tree-of-Thoughts (ToT): Generate 3 parallel problem-solving paths ($T_1, T_2, T_3$), evaluate feasibility of each, and select the highest-scoring path.",
-    "desc": "Generates and evaluates 3 parallel reasoning paths before selecting the optimum.",
-    "explain": "Generates and evaluates 3 parallel reasoning paths before selecting the optimum."
+    "prompt": "Execute Tree-of-Thoughts (ToT): Generate 3 parallel problem-solving paths ($T_1, T_2, T_3$), evaluate feasibility of each, and select the highest-scoring path."
   },
   {
     "id": "self-reflection-loop",
     "icon": "🪞",
     "name": "Self-Reflection & Correction Loop",
-    "category": "cot",
-    "description": "Requires agent to self-audit generated responses prior to final output.",
+    "desc": "Requires agent to self-audit generated responses prior to final output.",
+    "explain": "Requires agent to self-audit generated responses prior to final output.",
     "layer": "cot",
     "requires": [
       "cot-step-by-step"
     ],
-    "prompt": "Embed a Self-Correction loop: Intercept output inside `<criticism>` blocks to audit for logical fallacies or hallucinated steps before releasing final prose.",
-    "desc": "Requires agent to self-audit generated responses prior to final output.",
-    "explain": "Requires agent to self-audit generated responses prior to final output."
+    "prompt": "Embed a Self-Correction loop: Intercept output inside `<criticism>` blocks to audit for logical fallacies or hallucinated steps before releasing final prose."
   },
   {
     "id": "verification-step-injection",
     "icon": "✅",
     "name": "Intermediate Verification Step",
-    "category": "cot",
-    "description": "Injects explicit sanity checks at each step of complex calculations.",
+    "desc": "Injects explicit sanity checks at each step of complex calculations.",
+    "explain": "Injects explicit sanity checks at each step of complex calculations.",
     "layer": "cot",
     "requires": [
       "cot-step-by-step"
     ],
-    "prompt": "Inject intermediate sanity checks at every logical or mathematical transition step to verify that premises logically support downstream steps.",
-    "desc": "Injects explicit sanity checks at each step of complex calculations.",
-    "explain": "Injects explicit sanity checks at each step of complex calculations."
+    "prompt": "Inject intermediate sanity checks at every logical or mathematical transition step to verify that premises logically support downstream steps."
   },
   {
     "id": "path-divergence-evaluation",
     "icon": "🔀",
     "name": "Path Divergence Report",
-    "category": "cot",
-    "description": "Documents explicit reasons for rejecting alternative reasoning branches.",
+    "desc": "Documents explicit reasons for rejecting alternative reasoning branches.",
+    "explain": "Documents explicit reasons for rejecting alternative reasoning branches.",
     "layer": "cot",
     "requires": [
       "tree-of-thought-prompt"
     ],
-    "prompt": "Document explicit elimination rationale for discarded ToT reasoning branches to render logical decision-making completely transparent.",
-    "desc": "Documents explicit reasons for rejecting alternative reasoning branches.",
-    "explain": "Documents explicit reasons for rejecting alternative reasoning branches."
+    "prompt": "Document explicit elimination rationale for discarded ToT reasoning branches to render logical decision-making completely transparent."
   },
   {
     "id": "reasoning-depth-governor",
     "icon": "🎛️",
     "name": "Reasoning Depth Governor",
-    "category": "cot",
-    "description": "Dynamically modulates CoT reasoning depth based on query complexity.",
+    "desc": "Dynamically modulates CoT reasoning depth based on query complexity.",
+    "explain": "Dynamically modulates CoT reasoning depth based on query complexity.",
     "layer": "cot",
     "requires": [
       "self-reflection-loop"
     ],
-    "prompt": "Dynamically modulate reasoning depth: Deploy direct concise outputs for trivial queries while triggering 5-stage CoT analysis for multi-faceted problems.",
-    "desc": "Dynamically modulates CoT reasoning depth based on query complexity.",
-    "explain": "Dynamically modulates CoT reasoning depth based on query complexity."
+    "prompt": "Dynamically modulate reasoning depth: Deploy direct concise outputs for trivial queries while triggering 5-stage CoT analysis for multi-faceted problems."
   },
   {
     "id": "hallucination-guardrail",
     "icon": "🛡️",
     "name": "Hallucination Guardrail",
-    "category": "guardrails",
-    "description": "Strictly prevents fabrication of unverified facts, citations, or data.",
+    "desc": "Strictly prevents fabrication of unverified facts, citations, or data.",
+    "explain": "Strictly prevents fabrication of unverified facts, citations, or data.",
     "layer": "guardrails",
     "requires": [],
-    "prompt": "Enforce Strict Groundedness: Restrict outputs exclusively to provided context or 100% verified facts. NEVER fabricate names, dates, URLs, or empirical statistics.",
-    "desc": "Strictly prevents fabrication of unverified facts, citations, or data.",
-    "explain": "Strictly prevents fabrication of unverified facts, citations, or data."
+    "prompt": "Enforce Strict Groundedness: Restrict outputs exclusively to provided context or 100% verified facts. NEVER fabricate names, dates, URLs, or empirical statistics."
   },
   {
     "id": "output-format-locking",
     "icon": "🔒",
     "name": "Output Format Locking",
-    "category": "guardrails",
-    "description": "Locks output strictly to JSON, XML, or Markdown schemas without markdown clutter.",
+    "desc": "Locks output strictly to JSON, XML, or Markdown schemas without markdown clutter.",
+    "explain": "Locks output strictly to JSON, XML, or Markdown schemas without markdown clutter.",
     "layer": "guardrails",
     "requires": [
       "hallucination-guardrail"
     ],
-    "prompt": "Lock output format strictly to valid JSON. Start directly with `{` without conversational preambles or postscripts like 'Here is your JSON:'.",
-    "desc": "Locks output strictly to JSON, XML, or Markdown schemas without markdown clutter.",
-    "explain": "Locks output strictly to JSON, XML, or Markdown schemas without markdown clutter."
+    "prompt": "Lock output format strictly to valid JSON. Start directly with `{` without conversational preambles or postscripts like 'Here is your JSON:'."
   },
   {
     "id": "forbidden-phrase-filter",
     "icon": "🚫",
     "name": "Forbidden Phrase Blacklist",
-    "category": "guardrails",
-    "description": "Blacklists ubiquitous AI clichés and meta-commentary.",
+    "desc": "Blacklists ubiquitous AI clichés and meta-commentary.",
+    "explain": "Blacklists ubiquitous AI clichés and meta-commentary.",
     "layer": "guardrails",
     "requires": [
       "output-format-locking"
     ],
-    "prompt": "Enforce Blacklist: Strictly forbid stock AI phrases including 'As an AI model...', 'Delve into', 'Tapestry', and 'In conclusion'.",
-    "desc": "Blacklists ubiquitous AI clichés and meta-commentary.",
-    "explain": "Blacklists ubiquitous AI clichés and meta-commentary."
+    "prompt": "Enforce Blacklist: Strictly forbid stock AI phrases including 'As an AI model...', 'Delve into', 'Tapestry', and 'In conclusion'."
   },
   {
     "id": "claim-source-attribution",
     "icon": "📌",
     "name": "Claim Grounding Attribution",
-    "category": "guardrails",
-    "description": "Forces every factual claim to carry explicit context attributions.",
+    "desc": "Forces every factual claim to carry explicit context attributions.",
+    "explain": "Forces every factual claim to carry explicit context attributions.",
     "layer": "guardrails",
     "requires": [
       "hallucination-guardrail"
     ],
-    "prompt": "Require explicit context citations `[Context ID / Page]` for every factual assertion. Exclude any claim lacking direct context support.",
-    "desc": "Forces every factual claim to carry explicit context attributions.",
-    "explain": "Forces every factual claim to carry explicit context attributions."
+    "prompt": "Require explicit context citations `[Context ID / Page]` for every factual assertion. Exclude any claim lacking direct context support."
   },
   {
     "id": "safety-policy-aligner",
     "icon": "⚖️",
     "name": "Safety & Policy Alignment",
-    "category": "guardrails",
-    "description": "Executes standard neutral refusal protocols upon encountering unsafe prompts.",
+    "desc": "Executes standard neutral refusal protocols upon encountering unsafe prompts.",
+    "explain": "Executes standard neutral refusal protocols upon encountering unsafe prompts.",
     "layer": "guardrails",
     "requires": [
       "forbidden-phrase-filter"
     ],
-    "prompt": "Ensure the agent executes predefined, neutral, professional refusal templates whenever safety or policy boundaries are challenged.",
-    "desc": "Executes standard neutral refusal protocols upon encountering unsafe prompts.",
-    "explain": "Executes standard neutral refusal protocols upon encountering unsafe prompts."
+    "prompt": "Ensure the agent executes predefined, neutral, professional refusal templates whenever safety or policy boundaries are challenged."
   },
   {
     "id": "boundary-breach-fallback",
     "icon": "🚨",
     "name": "Boundary Breach Fallback Protocol",
-    "category": "guardrails",
-    "description": "Triggers clean fallback output if format or guardrails are violated.",
+    "desc": "Triggers clean fallback output if format or guardrails are violated.",
+    "explain": "Triggers clean fallback output if format or guardrails are violated.",
     "layer": "guardrails",
     "requires": [
       "safety-policy-aligner"
     ],
-    "prompt": "Configure fallback triggers: If format rules break or malformed input is received, output `ERROR_CODE_FALLBACK` and gracefully reset agent state.",
-    "desc": "Triggers clean fallback output if format or guardrails are violated.",
-    "explain": "Triggers clean fallback output if format or guardrails are violated."
+    "prompt": "Configure fallback triggers: If format rules break or malformed input is received, output `ERROR_CODE_FALLBACK` and gracefully reset agent state."
   },
   {
     "id": "few-shot-exemplar-design",
     "icon": "💡",
     "name": "Few-Shot Exemplar Design",
-    "category": "fewshot",
-    "description": "Provides gold-standard input-output pairs to guide model performance.",
+    "desc": "Provides gold-standard input-output pairs to guide model performance.",
+    "explain": "Provides gold-standard input-output pairs to guide model performance.",
     "layer": "fewshot",
     "requires": [],
-    "prompt": "Provide 2 gold-standard Few-Shot exemplars:\nInput: [Sample Input]\nOutput: [Ideal Output]. Instruct the model to mirror this exact structure.",
-    "desc": "Provides gold-standard input-output pairs to guide model performance.",
-    "explain": "Provides gold-standard input-output pairs to guide model performance."
+    "prompt": "Provide 2 gold-standard Few-Shot exemplars:\nInput: [Sample Input]\nOutput: [Ideal Output]. Instruct the model to mirror this exact structure."
   },
   {
     "id": "edge-case-few-shot",
     "icon": "🧩",
     "name": "Edge-Case Few-Shot Exemplar",
-    "category": "fewshot",
-    "description": "Demonstrates correct handling of incomplete, malformed, or ambiguous inputs.",
+    "desc": "Demonstrates correct handling of incomplete, malformed, or ambiguous inputs.",
+    "explain": "Demonstrates correct handling of incomplete, malformed, or ambiguous inputs.",
     "layer": "fewshot",
     "requires": [
       "few-shot-exemplar-design"
     ],
-    "prompt": "Include an edge-case Few-Shot example containing malformed/incomplete input, illustrating how the agent gracefully requests missing information.",
-    "desc": "Demonstrates correct handling of incomplete, malformed, or ambiguous inputs.",
-    "explain": "Demonstrates correct handling of incomplete, malformed, or ambiguous inputs."
+    "prompt": "Include an edge-case Few-Shot example containing malformed/incomplete input, illustrating how the agent gracefully requests missing information."
   },
   {
     "id": "negative-example-contrast",
     "icon": "❌",
     "name": "Negative Exemplar Contrast",
-    "category": "fewshot",
-    "description": "Shows anti-patterns and explicit examples of prohibited output formats.",
+    "desc": "Shows anti-patterns and explicit examples of prohibited output formats.",
+    "explain": "Shows anti-patterns and explicit examples of prohibited output formats.",
     "layer": "fewshot",
     "requires": [
       "few-shot-exemplar-design"
     ],
-    "prompt": "Provide 1 explicit 'Negative Example' showing flawed output, annotated with explanations detailing why it breaches performance standards.",
-    "desc": "Shows anti-patterns and explicit examples of prohibited output formats.",
-    "explain": "Shows anti-patterns and explicit examples of prohibited output formats."
+    "prompt": "Provide 1 explicit 'Negative Example' showing flawed output, annotated with explanations detailing why it breaches performance standards."
   },
   {
     "id": "dynamic-context-exemplar",
     "icon": "🔄",
     "name": "Dynamic Context Exemplar",
-    "category": "fewshot",
-    "description": "Constructs variable-driven few-shot templates for dynamic payloads.",
+    "desc": "Constructs variable-driven few-shot templates for dynamic payloads.",
+    "explain": "Constructs variable-driven few-shot templates for dynamic payloads.",
     "layer": "fewshot",
     "requires": [
       "few-shot-exemplar-design"
     ],
-    "prompt": "Construct a parametric Few-Shot template that dynamically adapts based on incoming prompt variable payloads.",
-    "desc": "Constructs variable-driven few-shot templates for dynamic payloads.",
-    "explain": "Constructs variable-driven few-shot templates for dynamic payloads."
+    "prompt": "Construct a parametric Few-Shot template that dynamically adapts based on incoming prompt variable payloads."
   },
   {
     "id": "format-strictness-examples",
     "icon": "📐",
     "name": "Format Strictness Exemplars",
-    "category": "fewshot",
-    "description": "Demonstrates complete schema population for multi-nested JSON structures.",
+    "desc": "Demonstrates complete schema population for multi-nested JSON structures.",
+    "explain": "Demonstrates complete schema population for multi-nested JSON structures.",
     "layer": "fewshot",
     "requires": [
       "few-shot-exemplar-design"
     ],
-    "prompt": "Provide a detailed Few-Shot exemplar illustrating complete schema population for complex multi-nested JSON structures.",
-    "desc": "Demonstrates complete schema population for multi-nested JSON structures.",
-    "explain": "Demonstrates complete schema population for multi-nested JSON structures."
+    "prompt": "Provide a detailed Few-Shot exemplar illustrating complete schema population for complex multi-nested JSON structures."
   },
   {
     "id": "multi-turn-few-shot-chain",
     "icon": "💬",
     "name": "Multi-Turn Dialogue Exemplar",
-    "category": "fewshot",
-    "description": "Illustrates context maintenance across multi-turn conversational exchanges.",
+    "desc": "Illustrates context maintenance across multi-turn conversational exchanges.",
+    "explain": "Illustrates context maintenance across multi-turn conversational exchanges.",
     "layer": "fewshot",
     "requires": [
       "edge-case-few-shot"
     ],
-    "prompt": "Design a multi-turn Few-Shot exemplar spanning 3 conversation turns to demonstrate context tracking across extended exchanges.",
-    "desc": "Illustrates context maintenance across multi-turn conversational exchanges.",
-    "explain": "Illustrates context maintenance across multi-turn conversational exchanges."
+    "prompt": "Design a multi-turn Few-Shot exemplar spanning 3 conversation turns to demonstrate context tracking across extended exchanges."
   },
   {
     "id": "variable-ingestion-schema",
     "icon": "📥",
     "name": "Variable Ingestion Schema",
-    "category": "orchestration",
-    "description": "Defines parametric variable (`{{variable}}`) injection architecture.",
+    "desc": "Defines parametric variable (`{{variable}}`) injection architecture.",
+    "explain": "Defines parametric variable (`{{variable}}`) injection architecture.",
     "layer": "orchestration",
     "requires": [],
-    "prompt": "Define system variable injection schema: `{{USER_INPUT}}`, `{{DOMAIN_CONTEXT}}`, `{{MAX_TOKENS}}`. Establish default fallback behavior for empty variables.",
-    "desc": "Defines parametric variable (`{{variable}}`) injection architecture.",
-    "explain": "Defines parametric variable (`{{variable}}`) injection architecture."
+    "prompt": "Define system variable injection schema: `{{USER_INPUT}}`, `{{DOMAIN_CONTEXT}}`, `{{MAX_TOKENS}}`. Establish default fallback behavior for empty variables."
   },
   {
     "id": "multi-agent-handoff",
     "icon": "🤝",
     "name": "Multi-Agent Handoff Protocol",
-    "category": "orchestration",
-    "description": "Formats standardized handoff payloads for agent-to-agent transitions.",
+    "desc": "Formats standardized handoff payloads for agent-to-agent transitions.",
+    "explain": "Formats standardized handoff payloads for agent-to-agent transitions.",
     "layer": "orchestration",
     "requires": [
       "variable-ingestion-schema"
     ],
-    "prompt": "Configure Handoff Protocol: At task completion, generate handoff payloads structured as `NEXT_AGENT: [Agent_Name]` and `PAYLOAD: [JSON Data]`.",
-    "desc": "Formats standardized handoff payloads for agent-to-agent transitions.",
-    "explain": "Formats standardized handoff payloads for agent-to-agent transitions."
+    "prompt": "Configure Handoff Protocol: At task completion, generate handoff payloads structured as `NEXT_AGENT: [Agent_Name]` and `PAYLOAD: [JSON Data]`."
   },
   {
     "id": "task-decomposition-router",
     "icon": "🔀",
     "name": "Task Decomposition Router",
-    "category": "orchestration",
-    "description": "Decomposes complex goals into parallel tasks routed to specialized agents.",
+    "desc": "Decomposes complex goals into parallel tasks routed to specialized agents.",
+    "explain": "Decomposes complex goals into parallel tasks routed to specialized agents.",
     "layer": "orchestration",
     "requires": [
       "multi-agent-handoff"
     ],
-    "prompt": "Task Decomposition Router: Break primary goals into 3 sub-tasks and map each to specialized downstream agent profiles.",
-    "desc": "Decomposes complex goals into parallel tasks routed to specialized agents.",
-    "explain": "Decomposes complex goals into parallel tasks routed to specialized agents."
+    "prompt": "Task Decomposition Router: Break primary goals into 3 sub-tasks and map each to specialized downstream agent profiles."
   },
   {
     "id": "state-persistence-prompt",
     "icon": "💾",
     "name": "State Persistence Protocol",
-    "category": "orchestration",
-    "description": "Maintains turn-by-turn state in a structured state tracking object.",
+    "desc": "Maintains turn-by-turn state in a structured state tracking object.",
+    "explain": "Maintains turn-by-turn state in a structured state tracking object.",
     "layer": "orchestration",
     "requires": [
       "multi-agent-handoff"
     ],
-    "prompt": "Maintain execution state: Update a persistent `<state>{\"completed_steps\": [], \"pending_steps\": [], \"variables\": {}}</state>` object at each turn.",
-    "desc": "Maintains turn-by-turn state in a structured state tracking object.",
-    "explain": "Maintains turn-by-turn state in a structured state tracking object."
+    "prompt": "Maintain execution state: Update a persistent `<state>{\"completed_steps\": [], \"pending_steps\": [], \"variables\": {}}</state>` object at each turn."
   },
   {
     "id": "response-aggregation-spec",
     "icon": "📑",
     "name": "Response Aggregation & Synthesis",
-    "category": "orchestration",
-    "description": "Aggregates raw outputs from multiple agents into a unified final output.",
+    "desc": "Aggregates raw outputs from multiple agents into a unified final output.",
+    "explain": "Aggregates raw outputs from multiple agents into a unified final output.",
     "layer": "orchestration",
     "requires": [
       "task-decomposition-router"
     ],
-    "prompt": "Aggregate raw outputs from multi-agent sub-tasks, resolve contradictory claims, and synthesize into a single cohesive response.",
-    "desc": "Aggregates raw outputs from multiple agents into a unified final output.",
-    "explain": "Aggregates raw outputs from multiple agents into a unified final output."
+    "prompt": "Aggregate raw outputs from multi-agent sub-tasks, resolve contradictory claims, and synthesize into a single cohesive response."
   },
   {
     "id": "zero-api-prompt-compiler",
     "icon": "⚡",
     "name": "PREMPT Zero-API Compiler Template",
-    "category": "orchestration",
-    "description": "Compiles active modules into a single deterministic master prompt.",
+    "desc": "Compiles active modules into a single deterministic master prompt.",
+    "explain": "Compiles active modules into a single deterministic master prompt.",
     "layer": "orchestration",
     "requires": [
       "response-aggregation-spec"
     ],
-    "prompt": "Sort active module instructions by topological depth, suppress conflicting constraints, and compile the final zero-API master prompt payload.",
-    "desc": "Compiles active modules into a single deterministic master prompt.",
-    "explain": "Compiles active modules into a single deterministic master prompt."
+    "prompt": "Sort active module instructions by topological depth, suppress conflicting constraints, and compile the final zero-API master prompt payload."
   }
 ]

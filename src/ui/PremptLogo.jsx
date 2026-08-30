@@ -1,5 +1,3 @@
-import React from 'react';
-
 /**
  * PremptLogo — Ultra-minimalist Linear/Notion style vector emblem.
  * Pure geometry, zero text/name inside symbol.

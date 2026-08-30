@@ -32,7 +32,17 @@ export const cyberSpec = {
         "threat": "Tehdit & Mimari",
         "appsec": "Uygulama Güvenliği",
         "pentest": "Saldırı & Uyum"
-      }
+      },
+      "categories": {
+        "threat": "Tehdit Modelleme",
+        "appsec": "Uygulama Güvenliği",
+        "audit": "Güvenlik Denetimi",
+        "pentest": "Sızma Testi & Saldırı",
+        "compliance": "Uyum & Standartlar"
+      },
+      "modulesTitle": "Modüller (Module Blocks)",
+      "presetsTitle": "Uzman Hazır Şablonları (System Presets)",
+      "paramsTitle": "Parametreler"
     },
     "en": {
       "title": "Cybersecurity & Threat Architect",
@@ -49,7 +59,17 @@ export const cyberSpec = {
         "threat": "Threat & Architecture",
         "appsec": "Application Security",
         "pentest": "Offensive & Compliance"
-      }
+      },
+      "categories": {
+        "threat": "Threat Modeling",
+        "appsec": "Application Security",
+        "audit": "Security Audit",
+        "pentest": "Pentest & Attack Scenarios",
+        "compliance": "Compliance & Standards"
+      },
+      "modulesTitle": "Module Blocks",
+      "presetsTitle": "System Presets",
+      "paramsTitle": "Parameters"
     }
   },
   "optionSets": {
@@ -116,18 +136,80 @@ export const cyberSpec = {
   },
   "compilerTexts": {
     "tr": {
-      "topicHeader": "HEDEF SİSTEM",
-      "levelHeader": "DENETİM MODU",
-      "modeHeader": "SİBER PERSONA",
-      "depthHeader": "DENETİM DERİNLİĞİ",
-      "formatHeader": "GÜVENLİK ÇIKTISI"
+      "mod": {
+        "red": "Sen ofansif güvenlik ve Red Team uzmanısın. Saldırgan zihniyetiyle mimarideki açıkları, yetki yükseltme yollarını ve istismar zincirlerini tespit edersin.",
+        "blue": "Sen defansif güvenlik ve Blue Team mimarısısın. Derinlemesine savunma (Defense-in-Depth), loglama, anomali tespiti ve sertleştirme protokolleri kurarsın.",
+        "auditor": "Sen siber güvenlik denetçisi ve uyum uzmanısın. OWASP, ISO 27001, SOC2 ve NIST standartları doğrultusunda sistemik riskleri raporlarsın."
+      },
+      "derinlik": {
+        "yuzey": "Genel saldırı yüzeyi ve en kritik 5 güvenlik açığını listele.",
+        "standart": "OWASP Top 10 ve STRIDE tehdit modellemesiyle standart denetim yap.",
+        "derin": "İstismar zincirleri, CVSS skorlaması ve kod seviyesinde iyileştirme kılavuzu içeren kapsamlı analiz sun."
+      },
+      "format": {
+        "stridematris": "STRIDE tehdit ve risk matrisi formatında sun.",
+        "owaspenvanter": "OWASP Top 10 zafiyet envanteri ve CVSS tablosu şeklinde yapılandır.",
+        "pentestsenaryo": "Sızma testi senaryosu ve iyileştirme (remediation) planı formatında hazırla."
+      },
+      "labels": {
+        "role": "[ROLE]",
+        "goal": "[GOAL]",
+        "context": "[CONTEXT]",
+        "modules": "[ACTIVE MODULES]",
+        "instructions": "[INSTRUCTIONS]",
+        "format": "[OUTPUT FORMAT]",
+        "constraints": "[CONSTRAINTS / SAFETY]"
+      },
+      "contextLabels": {
+        "domain": "Alan:",
+        "level": "Seviye:",
+        "depthRequirement": "Derinlik Gereksinimi:"
+      },
+      "goalTemplate": "\"{{KONU}}\" sisteminin siber güvenlik tehdit modellemesini, zafiyet analizini ve savunma stratejisini endüstri standartlarında hazırlamak.",
+      "constraintsBase": [
+        "Tüm güvenlik açıklarını CVSS etki derecelendirmesiyle ilişkilendir.",
+        "Yalnızca tespit değil, somut iyileştirme (remediation) adımı sun.",
+        "Zero Trust ve Least Privilege prensiplerini tavizsiz uygula."
+      ],
+      "monologueText": "İÇ SES MODU: Tehdit analizini çıkarmadan önce (<thinking> tagleri içinde) saldırganın en az dirençli saldırı vektörünü modelle."
     },
     "en": {
-      "topicHeader": "TARGET SYSTEM",
-      "levelHeader": "AUDIT MODE",
-      "modeHeader": "CYBER PERSONA",
-      "depthHeader": "AUDIT DEPTH",
-      "formatHeader": "SECURITY SYNTAX"
+      "mod": {
+        "red": "You are an offensive security and Red Team specialist. You identify exploit chains, privilege escalation paths, and architectural vulnerabilities.",
+        "blue": "You are a defensive security and Blue Team architect. You engineer Defense-in-Depth, SIEM alerting, and system hardening baselines.",
+        "auditor": "You are a cyber compliance and security auditor. You assess controls against OWASP, ISO 27001, SOC2, and NIST cybersecurity frameworks."
+      },
+      "derinlik": {
+        "yuzey": "Map the external attack surface and top critical vulnerabilities.",
+        "standart": "Conduct standard audit using OWASP Top 10 and STRIDE threat modeling.",
+        "derin": "Deliver exhaustive exploit chain analysis, CVSS scoring, and code-level remediation blueprints."
+      },
+      "format": {
+        "stridematris": "Format as a comprehensive STRIDE threat and mitigation matrix.",
+        "owaspenvanter": "Structure as an OWASP Top 10 vulnerability inventory with CVSS vectors.",
+        "pentestsenaryo": "Format as an attack scenario walkthrough and remediation roadmap."
+      },
+      "labels": {
+        "role": "[ROLE]",
+        "goal": "[GOAL]",
+        "context": "[CONTEXT]",
+        "modules": "[ACTIVE MODULES]",
+        "instructions": "[INSTRUCTIONS]",
+        "format": "[OUTPUT FORMAT]",
+        "constraints": "[CONSTRAINTS / SAFETY]"
+      },
+      "contextLabels": {
+        "domain": "Domain:",
+        "level": "Level:",
+        "depthRequirement": "Depth Requirement:"
+      },
+      "goalTemplate": "To develop an industry-standard threat model, vulnerability audit, and defense remediation plan for \"{{KONU}}\".",
+      "constraintsBase": [
+        "Pair every identified risk with actionable remediation guidance.",
+        "Ground all severity claims in standard CVSS 3.1 metrics.",
+        "Enforce Zero Trust and Least Privilege by default."
+      ],
+      "monologueText": "INTERNAL MONOLOGUE: Before detailing vulnerabilities, simulate the path of least resistance for an adversary in <thinking> tags."
     }
   },
   "presets": {
@@ -135,15 +217,14 @@ export const cyberSpec = {
       "id": "stride-threat",
       "group": "threat",
       "name": {
-        "tr": "🛡️ STRIDE Tehdit Modellemesi",
-        "en": "🛡️ STRIDE Threat Model"
+        "tr": "STRIDE Tehdit Modellemesi",
+        "en": "STRIDE Threat Model"
       },
       "desc": {
         "tr": "Spoofing, Tampering ve Elevation vektörlerini haritalandırır.",
         "en": "Maps threat vectors using STRIDE framework."
       },
       "forceModules": [
-        "stride-threat-model",
         "stride-threat-model"
       ],
       "override": {
@@ -159,8 +240,8 @@ export const cyberSpec = {
       "id": "owasp-top10",
       "group": "appsec",
       "name": {
-        "tr": "⚠️ OWASP Top 10 Audit",
-        "en": "⚠️ OWASP Top 10 Audit"
+        "tr": "OWASP Top 10 Audit",
+        "en": "OWASP Top 10 Audit"
       },
       "desc": {
         "tr": "Web/API mimarisini en yaygın 10 zafiyete karşı tarar.",
@@ -183,8 +264,8 @@ export const cyberSpec = {
       "id": "redteam-scenario",
       "group": "pentest",
       "name": {
-        "tr": "⚔️ Red Team Saldırı Senaryosu",
-        "en": "⚔️ Red Team Attack Scenario"
+        "tr": "Red Team Saldırı Senaryosu",
+        "en": "Red Team Attack Scenario"
       },
       "desc": {
         "tr": "Etik hacker gözüyle sızma testi senaryosu.",
@@ -207,8 +288,8 @@ export const cyberSpec = {
       "id": "zero-trust-audit",
       "group": "threat",
       "name": {
-        "tr": "🔐 Zero-Trust Mimari Denetimi",
-        "en": "🔐 Zero-Trust Architecture Audit"
+        "tr": "Zero-Trust Mimari Denetimi",
+        "en": "Zero-Trust Architecture Audit"
       },
       "desc": {
         "tr": "Mikro-segmentasyon ve sürekli doğrulama.",
@@ -231,8 +312,8 @@ export const cyberSpec = {
       "id": "blueteam-hardening",
       "group": "appsec",
       "name": {
-        "tr": "🧱 Blue Team Sistem Sertleştirme",
-        "en": "🧱 Blue Team System Hardening"
+        "tr": "Blue Team Sistem Sertleştirme",
+        "en": "Blue Team System Hardening"
       },
       "desc": {
         "tr": "Sunucu ve OS güvenlik yapılandırması.",
@@ -255,8 +336,8 @@ export const cyberSpec = {
       "id": "incident-response",
       "group": "pentest",
       "name": {
-        "tr": "🚨 Olay Müdahale (Incident Response)",
-        "en": "🚨 Incident Response Playbook"
+        "tr": "Olay Müdahale (Incident Response)",
+        "en": "Incident Response Playbook"
       },
       "desc": {
         "tr": "Veri ihlali anında karantina ve analiz adımları.",
@@ -279,8 +360,8 @@ export const cyberSpec = {
       "id": "api-security-audit",
       "group": "appsec",
       "name": {
-        "tr": "🔑 API Auth & Token Denetimi",
-        "en": "🔑 API Auth & Token Audit"
+        "tr": "API Auth & Token Denetimi",
+        "en": "API Auth & Token Audit"
       },
       "desc": {
         "tr": "OAuth 2.0, JWT ve BOLA zafiyetlerini tarar.",
@@ -303,8 +384,8 @@ export const cyberSpec = {
       "id": "social-engineering",
       "group": "pentest",
       "name": {
-        "tr": "🎣 Phishing & Sosyal Mühendislik",
-        "en": "🎣 Phishing & Social Eng Prep"
+        "tr": "Phishing & Sosyal Mühendislik",
+        "en": "Phishing & Social Eng Prep"
       },
       "desc": {
         "tr": "Çalışan farkındalık ve oltalama testi.",
@@ -327,8 +408,8 @@ export const cyberSpec = {
       "id": "compliance-pci-gdpr",
       "group": "pentest",
       "name": {
-        "tr": "📜 KVKK & ISO 27001 Uyum Raporu",
-        "en": "📜 ISO 27001 & GDPR Audit"
+        "tr": "KVKK & ISO 27001 Uyum Raporu",
+        "en": "ISO 27001 & GDPR Audit"
       },
       "desc": {
         "tr": "Veri gizliliği ve yasal mevzuat uyumu.",
@@ -351,8 +432,8 @@ export const cyberSpec = {
       "id": "malware-reverse",
       "group": "threat",
       "name": {
-        "tr": "🧪 Zararlı Yazılım Analiz İskeleti",
-        "en": "🧪 Malware Analysis Spec"
+        "tr": "Zararlı Yazılım Analiz İskeleti",
+        "en": "Malware Analysis Spec"
       },
       "desc": {
         "tr": "Statik ve dinamik malware inceleme protokolü.",
@@ -375,8 +456,8 @@ export const cyberSpec = {
       "id": "cloud-iam-audit",
       "group": "threat",
       "name": {
-        "tr": "☁️ Cloud IAM & S3 İzin Denetimi",
-        "en": "☁️ Cloud IAM & S3 Bucket Audit"
+        "tr": "Cloud IAM & S3 İzin Denetimi",
+        "en": "Cloud IAM & S3 Bucket Audit"
       },
       "desc": {
         "tr": "AWS/GCP IAM aşırı yetkilendirme taraması.",
@@ -399,8 +480,8 @@ export const cyberSpec = {
       "id": "supply-chain-risk",
       "group": "appsec",
       "name": {
-        "tr": "📦 Tedarik Zinciri (SCA) Riski",
-        "en": "📦 Supply Chain Software Risk"
+        "tr": "Tedarik Zinciri (SCA) Riski",
+        "en": "Supply Chain Software Risk"
       },
       "desc": {
         "tr": "NPM/Pip bağımlılıklarındaki zafiyet taraması.",

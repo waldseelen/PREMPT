@@ -5,9 +5,9 @@
     "name": "Requirements Clarification",
     "desc": "Turn a vague ask into a spec",
     "explain": "Extracts precise functional and non-functional requirements from an ambiguous task description before any code is written.",
+    "layer": "design",
     "requires": [],
-    "prompt": "REQUIREMENTS CLARIFICATION\nBefore proposing any implementation, extract and clarify the real requirements behind this task.\n- Functional Requirements (What must the system do, precisely and testably?)\n- Non-Functional Requirements (Performance, scalability, security, availability constraints implied by the context)\n- Open Questions (Ambiguities you would need to ask a human stakeholder about — list them explicitly instead of silently assuming)\n- Explicit Assumptions (Where you must assume something to proceed, state the assumption and why it's reasonable)\nDo not write code in this step; produce only the clarified requirement set.",
-    "layer": "design"
+    "prompt": "REQUIREMENTS CLARIFICATION\nBefore proposing any implementation, extract and clarify the real requirements behind this task.\n- Functional Requirements (What must the system do, precisely and testably?)\n- Non-Functional Requirements (Performance, scalability, security, availability constraints implied by the context)\n- Open Questions (Ambiguities you would need to ask a human stakeholder about — list them explicitly instead of silently assuming)\n- Explicit Assumptions (Where you must assume something to proceed, state the assumption and why it's reasonable)\nDo not write code in this step; produce only the clarified requirement set."
   },
   {
     "id": "api-design",
@@ -15,9 +15,11 @@
     "name": "API / Interface Design",
     "desc": "Design the contract before the body",
     "explain": "Designs the public interface (functions, endpoints, or types) as a stable contract before the implementation exists.",
-    "requires": ["req-clarify"],
-    "prompt": "API / INTERFACE DESIGN\nDesign the public interface(s) for this task as a stable contract, before writing any internal implementation.\n- Signature Design (Function signatures, endpoint routes/methods, or type definitions — whichever fits the context)\n- Inputs & Outputs (Parameter types, return types, request/response shapes, including error cases)\n- Naming Rationale (Why these names are unambiguous and consistent with the surrounding domain vocabulary)\n- Versioning & Compatibility (How this interface could evolve without breaking existing callers)\nFormat: Present the interface in a code block using the language/framework implied by the context.",
-    "layer": "design"
+    "layer": "design",
+    "requires": [
+      "req-clarify"
+    ],
+    "prompt": "API / INTERFACE DESIGN\nDesign the public interface(s) for this task as a stable contract, before writing any internal implementation.\n- Signature Design (Function signatures, endpoint routes/methods, or type definitions — whichever fits the context)\n- Inputs & Outputs (Parameter types, return types, request/response shapes, including error cases)\n- Naming Rationale (Why these names are unambiguous and consistent with the surrounding domain vocabulary)\n- Versioning & Compatibility (How this interface could evolve without breaking existing callers)\nFormat: Present the interface in a code block using the language/framework implied by the context."
   },
   {
     "id": "data-model",
@@ -25,9 +27,11 @@
     "name": "Data Model & Schema Design",
     "desc": "Shape the data before the logic",
     "explain": "Designs the entities, relationships, and constraints of the data model that the feature will operate on.",
-    "requires": ["req-clarify"],
-    "prompt": "DATA MODEL & SCHEMA DESIGN\nDesign the data model this task requires, before writing logic that operates on it.\n- Entities & Fields (Core entities, their fields, and types)\n- Relationships (One-to-one, one-to-many, many-to-many — and why)\n- Constraints & Invariants (Uniqueness, required fields, valid ranges, referential integrity rules that must always hold)\n- Normalization vs. Denormalization Tradeoff (State which you chose and why, given the likely read/write pattern)\nFormat: Present the schema as a table or a schema/DDL-style code block, whichever fits the context.",
-    "layer": "design"
+    "layer": "design",
+    "requires": [
+      "req-clarify"
+    ],
+    "prompt": "DATA MODEL & SCHEMA DESIGN\nDesign the data model this task requires, before writing logic that operates on it.\n- Entities & Fields (Core entities, their fields, and types)\n- Relationships (One-to-one, one-to-many, many-to-many — and why)\n- Constraints & Invariants (Uniqueness, required fields, valid ranges, referential integrity rules that must always hold)\n- Normalization vs. Denormalization Tradeoff (State which you chose and why, given the likely read/write pattern)\nFormat: Present the schema as a table or a schema/DDL-style code block, whichever fits the context."
   },
   {
     "id": "architecture",
@@ -35,9 +39,11 @@
     "name": "Architecture / System Design",
     "desc": "Components, boundaries, data flow",
     "explain": "Maps the system into components, their responsibilities, and how data and control flow between them.",
-    "requires": ["req-clarify"],
-    "prompt": "ARCHITECTURE / SYSTEM DESIGN\nMap this system or feature into a coherent architecture before implementation begins.\n- Components (List each component/module and its single responsibility)\n- Data & Control Flow (How a request or event moves through the components, step by step)\n- Boundaries (Where this system talks to external systems, databases, or third-party services, and what contract governs each boundary)\n- Key Design Decisions (The 2-3 decisions with the biggest downstream impact, and the alternative you rejected for each)\nFormat: Include a simple ASCII or text-based diagram of the components and their connections inside a code block.",
-    "layer": "design"
+    "layer": "design",
+    "requires": [
+      "req-clarify"
+    ],
+    "prompt": "ARCHITECTURE / SYSTEM DESIGN\nMap this system or feature into a coherent architecture before implementation begins.\n- Components (List each component/module and its single responsibility)\n- Data & Control Flow (How a request or event moves through the components, step by step)\n- Boundaries (Where this system talks to external systems, databases, or third-party services, and what contract governs each boundary)\n- Key Design Decisions (The 2-3 decisions with the biggest downstream impact, and the alternative you rejected for each)\nFormat: Include a simple ASCII or text-based diagram of the components and their connections inside a code block."
   },
   {
     "id": "tech-select",
@@ -45,9 +51,9 @@
     "name": "Tech & Library Selection",
     "desc": "Choose the right tool for the job",
     "explain": "Evaluates candidate languages, frameworks, or libraries against the task's actual constraints instead of defaulting to the most popular option.",
+    "layer": "design",
     "requires": [],
-    "prompt": "TECH & LIBRARY SELECTION\nEvaluate the technology, framework, or library choices relevant to this task.\nFormat: Present the comparison as a markdown table with these columns:\n- | Candidate |\n- | Strengths for This Use Case |\n- | Weaknesses / Risks |\n- | Maturity & Maintenance Signal |\n- | Verdict |\nAfter the table, state your final recommendation and the single biggest reason it wins for this specific context (not in general).",
-    "layer": "design"
+    "prompt": "TECH & LIBRARY SELECTION\nEvaluate the technology, framework, or library choices relevant to this task.\nFormat: Present the comparison as a markdown table with these columns:\n- | Candidate |\n- | Strengths for This Use Case |\n- | Weaknesses / Risks |\n- | Maturity & Maintenance Signal |\n- | Verdict |\nAfter the table, state your final recommendation and the single biggest reason it wins for this specific context (not in general)."
   },
   {
     "id": "concurrency",
@@ -55,9 +61,9 @@
     "name": "Concurrency & Thread-Safety Design",
     "desc": "Design for safe parallel execution",
     "explain": "Designs the concurrency model — what runs in parallel, what must be synchronized, and how shared state is protected — before implementation begins.",
+    "layer": "design",
     "requires": [],
-    "prompt": "CONCURRENCY & THREAD-SAFETY DESIGN\nDesign the concurrency model for this task before writing implementation code.\n- Concurrency Units (What runs in parallel — threads, async tasks, processes, distributed workers? Be specific about the execution model.)\n- Shared State (What state is accessed by more than one concurrency unit, and how is it protected — locks, atomics, immutability, message-passing?)\n- Ordering & Race Conditions (Where could operations interleave in an unexpected order, and what specifically prevents that?)\n- Deadlock/Starvation Risk (Identify any lock ordering or resource contention that could deadlock or starve a unit, and how the design avoids it.)\nFormat: State your chosen concurrency primitives explicitly (e.g. mutex, channel, actor, optimistic locking) and justify why each fits this specific workload.",
-    "layer": "design"
+    "prompt": "CONCURRENCY & THREAD-SAFETY DESIGN\nDesign the concurrency model for this task before writing implementation code.\n- Concurrency Units (What runs in parallel — threads, async tasks, processes, distributed workers? Be specific about the execution model.)\n- Shared State (What state is accessed by more than one concurrency unit, and how is it protected — locks, atomics, immutability, message-passing?)\n- Ordering & Race Conditions (Where could operations interleave in an unexpected order, and what specifically prevents that?)\n- Deadlock/Starvation Risk (Identify any lock ordering or resource contention that could deadlock or starve a unit, and how the design avoids it.)\nFormat: State your chosen concurrency primitives explicitly (e.g. mutex, channel, actor, optimistic locking) and justify why each fits this specific workload."
   },
   {
     "id": "threat-model",
@@ -65,9 +71,9 @@
     "name": "Threat Modeling (STRIDE)",
     "desc": "Map what could go wrong, before it does",
     "explain": "Systematically maps potential threats to the system using the STRIDE framework before implementation, instead of discovering them after an incident.",
+    "layer": "design",
     "requires": [],
-    "prompt": "THREAT MODELING (STRIDE)\nSystematically map the threats to this system using the STRIDE framework, before or alongside implementation.\n- Spoofing (Can an entity impersonate another? Where is identity verified, and how could that verification be bypassed?)\n- Tampering (Where can data or code be modified by an unauthorized party, in transit or at rest?)\n- Repudiation (Can an actor deny having performed an action? What evidence (logs, signatures) would prove they did?)\n- Information Disclosure (Where could sensitive data leak to an unauthorized party, intentionally or by accident?)\n- Denial of Service (What could make this system or a critical dependency unavailable, and how cheaply could an attacker trigger it?)\n- Elevation of Privilege (Can a low-privilege actor gain higher privileges than intended, and through what specific path?)\nFor each category, list only the threats that are actually plausible for this specific system — do not pad the list with generic, inapplicable entries.\nFormat: Present findings as a table with | STRIDE Category | Threat | Likely Entry Point | Mitigation |.",
-    "layer": "design"
+    "prompt": "THREAT MODELING (STRIDE)\nSystematically map the threats to this system using the STRIDE framework, before or alongside implementation.\n- Spoofing (Can an entity impersonate another? Where is identity verified, and how could that verification be bypassed?)\n- Tampering (Where can data or code be modified by an unauthorized party, in transit or at rest?)\n- Repudiation (Can an actor deny having performed an action? What evidence (logs, signatures) would prove they did?)\n- Information Disclosure (Where could sensitive data leak to an unauthorized party, intentionally or by accident?)\n- Denial of Service (What could make this system or a critical dependency unavailable, and how cheaply could an attacker trigger it?)\n- Elevation of Privilege (Can a low-privilege actor gain higher privileges than intended, and through what specific path?)\nFor each category, list only the threats that are actually plausible for this specific system — do not pad the list with generic, inapplicable entries.\nFormat: Present findings as a table with | STRIDE Category | Threat | Likely Entry Point | Mitigation |."
   },
   {
     "id": "auth-design",
@@ -75,9 +81,9 @@
     "name": "Authentication & Authorization Design",
     "desc": "Design who can do what, before you build it",
     "explain": "Designs the authentication and authorization model — how identity is established, how sessions/tokens work, and how permissions are enforced — before implementation.",
+    "layer": "design",
     "requires": [],
-    "prompt": "AUTHENTICATION & AUTHORIZATION DESIGN\nDesign the auth model for this task before implementing it.\n- Authentication (How is identity established — password, OAuth/OIDC, API key, mTLS? What happens on failed attempts — rate limiting, lockout?)\n- Session / Token Model (Stateful sessions or stateless tokens (JWT etc.)? Lifetime, refresh strategy, and revocation — how do you invalidate a compromised session/token before it expires?)\n- Authorization Model (RBAC, ABAC, or resource-level ownership checks — justify the choice for this system's actual permission complexity, not the most sophisticated option available.)\n- Trust Boundaries (Where does the system stop trusting a caller's claimed identity and re-verify? Server-side enforcement points, not just UI-level hiding.)\nFormat: Present the model as a table or structured list, and explicitly state the failure mode for each mechanism (what happens when it's misused or bypassed).",
-    "layer": "design"
+    "prompt": "AUTHENTICATION & AUTHORIZATION DESIGN\nDesign the auth model for this task before implementing it.\n- Authentication (How is identity established — password, OAuth/OIDC, API key, mTLS? What happens on failed attempts — rate limiting, lockout?)\n- Session / Token Model (Stateful sessions or stateless tokens (JWT etc.)? Lifetime, refresh strategy, and revocation — how do you invalidate a compromised session/token before it expires?)\n- Authorization Model (RBAC, ABAC, or resource-level ownership checks — justify the choice for this system's actual permission complexity, not the most sophisticated option available.)\n- Trust Boundaries (Where does the system stop trusting a caller's claimed identity and re-verify? Server-side enforcement points, not just UI-level hiding.)\nFormat: Present the model as a table or structured list, and explicitly state the failure mode for each mechanism (what happens when it's misused or bypassed)."
   },
   {
     "id": "implement",
@@ -85,9 +91,9 @@
     "name": "Implement from Spec",
     "desc": "Write the working implementation",
     "explain": "Writes the actual working implementation, applying the constraints and interfaces defined earlier.",
+    "layer": "build",
     "requires": [],
-    "prompt": "IMPLEMENT FROM SPEC\nImplement this task as working, runnable code.\n- Follow any interfaces, data models, or architecture already established in this conversation; do not silently redesign them.\n- Write complete code, not fragments — no \"...rest of the implementation here\" placeholders.\n- Handle the error paths, not just the happy path.\n- After the code, add a short \"Assumptions Made\" list for anything not explicitly specified.\nFormat: Present the implementation in a properly labeled code block.",
-    "layer": "build"
+    "prompt": "IMPLEMENT FROM SPEC\nImplement this task as working, runnable code.\n- Follow any interfaces, data models, or architecture already established in this conversation; do not silently redesign them.\n- Write complete code, not fragments — no \"...rest of the implementation here\" placeholders.\n- Handle the error paths, not just the happy path.\n- After the code, add a short \"Assumptions Made\" list for anything not explicitly specified.\nFormat: Present the implementation in a properly labeled code block."
   },
   {
     "id": "scaffold",
@@ -95,9 +101,9 @@
     "name": "Scaffold / Boilerplate",
     "desc": "Generate the starting structure",
     "explain": "Generates the initial project or module structure — files, folders, config — so implementation can start immediately.",
+    "layer": "build",
     "requires": [],
-    "prompt": "SCAFFOLD / BOILERPLATE\nGenerate the initial scaffold for this task so implementation can begin immediately.\n- File/Folder Structure (Show the directory tree that should be created)\n- Boilerplate Content (For each file, provide the minimal working starting content — imports, exports, empty handlers — not full business logic)\n- Configuration (Any config files, environment variables, or dependency manifest entries needed to run the scaffold)\n- Next Steps (A short ordered list of what to implement first, second, third)\nFormat: Use a code block for the directory tree, and separate labeled code blocks per file.",
-    "layer": "build"
+    "prompt": "SCAFFOLD / BOILERPLATE\nGenerate the initial scaffold for this task so implementation can begin immediately.\n- File/Folder Structure (Show the directory tree that should be created)\n- Boilerplate Content (For each file, provide the minimal working starting content — imports, exports, empty handlers — not full business logic)\n- Configuration (Any config files, environment variables, or dependency manifest entries needed to run the scaffold)\n- Next Steps (A short ordered list of what to implement first, second, third)\nFormat: Use a code block for the directory tree, and separate labeled code blocks per file."
   },
   {
     "id": "algorithm",
@@ -105,9 +111,9 @@
     "name": "Algorithm Design (+ Big-O)",
     "desc": "Design and analyze the algorithm",
     "explain": "Designs the core algorithm for the problem and formally analyzes its time and space complexity.",
+    "layer": "build",
     "requires": [],
-    "prompt": "ALGORITHM DESIGN (+ BIG-O)\nDesign the core algorithm needed to solve this problem efficiently.\n- Approach (Explain the algorithmic strategy in plain language before any code)\n- Correctness (Briefly justify why this approach produces a correct result, including how it handles the edge cases)\n- Complexity Analysis (State time complexity and space complexity using Big-O notation, and explain which part of the algorithm dominates each)\n- Alternative Approaches (Name at least one alternative algorithm/data structure and state why it was not chosen — usually a complexity or simplicity tradeoff)\nFormat: Provide pseudo-code or a real code implementation, whichever is more useful given the context.",
-    "layer": "build"
+    "prompt": "ALGORITHM DESIGN (+ BIG-O)\nDesign the core algorithm needed to solve this problem efficiently.\n- Approach (Explain the algorithmic strategy in plain language before any code)\n- Correctness (Briefly justify why this approach produces a correct result, including how it handles the edge cases)\n- Complexity Analysis (State time complexity and space complexity using Big-O notation, and explain which part of the algorithm dominates each)\n- Alternative Approaches (Name at least one alternative algorithm/data structure and state why it was not chosen — usually a complexity or simplicity tradeoff)\nFormat: Provide pseudo-code or a real code implementation, whichever is more useful given the context."
   },
   {
     "id": "idioms",
@@ -115,9 +121,9 @@
     "name": "Idiomatic Patterns",
     "desc": "Write it the way this language expects",
     "explain": "Rewrites or reviews code so it follows the idioms, naming conventions, and standard library usage native to its language/framework.",
+    "layer": "build",
     "requires": [],
-    "prompt": "IDIOMATIC PATTERNS\nEvaluate this code (or the code you are about to write) against the idiomatic conventions of its language/framework.\n- Language Idioms (Where does the code use patterns that are unnatural or discouraged in this language, and what is the idiomatic equivalent?)\n- Standard Library Usage (Where is the code reinventing something the standard library or a well-established convention already provides?)\n- Naming & Structure Conventions (Does naming, file organization, and error handling match what an experienced developer in this ecosystem would expect?)\n- Rewrite (Provide the idiomatic version, with inline comments marking what changed and why.)",
-    "layer": "build"
+    "prompt": "IDIOMATIC PATTERNS\nEvaluate this code (or the code you are about to write) against the idiomatic conventions of its language/framework.\n- Language Idioms (Where does the code use patterns that are unnatural or discouraged in this language, and what is the idiomatic equivalent?)\n- Standard Library Usage (Where is the code reinventing something the standard library or a well-established convention already provides?)\n- Naming & Structure Conventions (Does naming, file organization, and error handling match what an experienced developer in this ecosystem would expect?)\n- Rewrite (Provide the idiomatic version, with inline comments marking what changed and why.)"
   },
   {
     "id": "observability",
@@ -125,9 +131,9 @@
     "name": "Observability & Logging",
     "desc": "Instrument it so failures are diagnosable",
     "explain": "Designs what to log, measure, and trace as the code is built, so production issues are diagnosable instead of invisible.",
+    "layer": "build",
     "requires": [],
-    "prompt": "OBSERVABILITY & LOGGING\nDesign the observability instrumentation for this code as you build it, not as an afterthought.\n- Logging (What events must be logged, at what level (debug/info/warn/error), and what context — request id, user id, key parameters — must each log line carry to be useful during an incident?)\n- Metrics (What counters, gauges, or histograms would let you detect this code degrading before a user reports it?)\n- Tracing (If this spans multiple services/functions, what needs a trace span, and what attributes should it carry?)\n- Signal-to-Noise (Explicitly call out what NOT to log — sensitive data, high-volume noise that would drown out real signal.)\nFormat: Show the instrumentation inline in the code (as comments or actual logging/metrics calls), not as a separate abstract list.",
-    "layer": "build"
+    "prompt": "OBSERVABILITY & LOGGING\nDesign the observability instrumentation for this code as you build it, not as an afterthought.\n- Logging (What events must be logged, at what level (debug/info/warn/error), and what context — request id, user id, key parameters — must each log line carry to be useful during an incident?)\n- Metrics (What counters, gauges, or histograms would let you detect this code degrading before a user reports it?)\n- Tracing (If this spans multiple services/functions, what needs a trace span, and what attributes should it carry?)\n- Signal-to-Noise (Explicitly call out what NOT to log — sensitive data, high-volume noise that would drown out real signal.)\nFormat: Show the instrumentation inline in the code (as comments or actual logging/metrics calls), not as a separate abstract list."
   },
   {
     "id": "explain",
@@ -135,9 +141,9 @@
     "name": "Explain This Code",
     "desc": "What does this code actually do?",
     "explain": "Explains what a piece of code does and why it's written that way, section by section.",
+    "layer": "comprehend",
     "requires": [],
-    "prompt": "EXPLAIN THIS CODE\nExplain what this code does, section by section, as if onboarding a competent developer who has never seen it.\n- High-Level Summary (What problem does this code solve, in 2-3 sentences?)\n- Section-by-Section Walkthrough (Go through the meaningful blocks in order; explain what each does and why it's structured that way)\n- Non-Obvious Decisions (Call out anything that looks unusual and explain the likely reason it was written that way)\n- Gotchas (Anything a new reader would likely misunderstand on first read)",
-    "layer": "comprehend"
+    "prompt": "EXPLAIN THIS CODE\nExplain what this code does, section by section, as if onboarding a competent developer who has never seen it.\n- High-Level Summary (What problem does this code solve, in 2-3 sentences?)\n- Section-by-Section Walkthrough (Go through the meaningful blocks in order; explain what each does and why it's structured that way)\n- Non-Obvious Decisions (Call out anything that looks unusual and explain the likely reason it was written that way)\n- Gotchas (Anything a new reader would likely misunderstand on first read)"
   },
   {
     "id": "trace",
@@ -145,9 +151,11 @@
     "name": "Execution Trace",
     "desc": "Follow the run, step by step",
     "explain": "Traces a concrete input through the code's actual execution path, line by line, showing state at each step.",
-    "requires": ["explain"],
-    "prompt": "EXECUTION TRACE\nTrace this code's execution for a concrete, specific input, step by step.\n- Starting State (The exact input and initial variable/state values)\n- Step-by-Step Trace (For each executed line or block, show what changes — variable values, control flow taken, function calls made — in order)\n- Final State (The output and final state at the end of execution)\nFormat: Present the trace as a table with columns | Step | Line/Block | State Change | Notes |, or a numbered sequence if a table doesn't fit the code's shape.",
-    "layer": "comprehend"
+    "layer": "comprehend",
+    "requires": [
+      "explain"
+    ],
+    "prompt": "EXECUTION TRACE\nTrace this code's execution for a concrete, specific input, step by step.\n- Starting State (The exact input and initial variable/state values)\n- Step-by-Step Trace (For each executed line or block, show what changes — variable values, control flow taken, function calls made — in order)\n- Final State (The output and final state at the end of execution)\nFormat: Present the trace as a table with columns | Step | Line/Block | State Change | Notes |, or a numbered sequence if a table doesn't fit the code's shape."
   },
   {
     "id": "codebase-map",
@@ -155,9 +163,9 @@
     "name": "Codebase Map",
     "desc": "Orient in an unfamiliar codebase",
     "explain": "Builds a structural map of an unfamiliar codebase or module set — what exists, how pieces relate, and where to start reading.",
+    "layer": "comprehend",
     "requires": [],
-    "prompt": "CODEBASE MAP\nBuild a structural map of this codebase (or the code/files provided) to help me orient quickly.\n- Module/File Inventory (What are the major files or modules, and what is each one responsible for?)\n- Dependency Relationships (Which parts depend on which — describe the significant edges, not every import)\n- Entry Points (Where would a new contributor start reading to understand the system end-to-end?)\n- Suggested Reading Order (A short ordered list of files/modules to read first, second, third, and why that order minimizes confusion)\nFormat: Include a simple ASCII tree or dependency diagram inside a code block.",
-    "layer": "comprehend"
+    "prompt": "CODEBASE MAP\nBuild a structural map of this codebase (or the code/files provided) to help me orient quickly.\n- Module/File Inventory (What are the major files or modules, and what is each one responsible for?)\n- Dependency Relationships (Which parts depend on which — describe the significant edges, not every import)\n- Entry Points (Where would a new contributor start reading to understand the system end-to-end?)\n- Suggested Reading Order (A short ordered list of files/modules to read first, second, third, and why that order minimizes confusion)\nFormat: Include a simple ASCII tree or dependency diagram inside a code block."
   },
   {
     "id": "compare-approaches",
@@ -165,9 +173,9 @@
     "name": "Approach Comparison",
     "desc": "Weigh implementation strategies",
     "explain": "Compares multiple valid ways to implement the same thing, with an explicit tradeoff analysis and recommendation.",
+    "layer": "comprehend",
     "requires": [],
-    "prompt": "APPROACH COMPARISON\nCompare distinct valid approaches to implementing this task.\nFormat: Present the comparison as a markdown table with these columns:\n- | Approach |\n- | How It Works |\n- | Strengths |\n- | Weaknesses / Risks |\n- | Best Fit When |\nAfter the table, give a clear recommendation for THIS specific context, and name the one condition that would change your recommendation.",
-    "layer": "comprehend"
+    "prompt": "APPROACH COMPARISON\nCompare distinct valid approaches to implementing this task.\nFormat: Present the comparison as a markdown table with these columns:\n- | Approach |\n- | How It Works |\n- | Strengths |\n- | Weaknesses / Risks |\n- | Best Fit When |\nAfter the table, give a clear recommendation for THIS specific context, and name the one condition that would change your recommendation."
   },
   {
     "id": "review",
@@ -175,9 +183,9 @@
     "name": "Code Review",
     "desc": "Senior-level review pass",
     "explain": "Reviews the code the way a senior engineer would in a pull request — correctness, design, and maintainability.",
+    "layer": "harden",
     "requires": [],
-    "prompt": "CODE REVIEW\nReview this code as a senior engineer would in a pull request review.\n- Correctness Issues (Bugs, logic errors, unhandled cases — cite the specific line or block)\n- Design & Maintainability (Anything that will cause pain as the codebase grows: tight coupling, unclear responsibility, missing abstraction)\n- Readability (Naming, structure, or comments that would confuse a future reader)\n- Nitpicks (Minor style issues — clearly separated from the issues above so they don't get equal weight)\nFor each issue, state severity (Blocking / Should-Fix / Nitpick) and a concrete suggested fix. End with an explicit APPROVE / REQUEST CHANGES verdict and why.",
-    "layer": "harden"
+    "prompt": "CODE REVIEW\nReview this code as a senior engineer would in a pull request review.\n- Correctness Issues (Bugs, logic errors, unhandled cases — cite the specific line or block)\n- Design & Maintainability (Anything that will cause pain as the codebase grows: tight coupling, unclear responsibility, missing abstraction)\n- Readability (Naming, structure, or comments that would confuse a future reader)\n- Nitpicks (Minor style issues — clearly separated from the issues above so they don't get equal weight)\nFor each issue, state severity (Blocking / Should-Fix / Nitpick) and a concrete suggested fix. End with an explicit APPROVE / REQUEST CHANGES verdict and why."
   },
   {
     "id": "security",
@@ -185,9 +193,9 @@
     "name": "Security Audit (OWASP)",
     "desc": "Find exploitable weaknesses",
     "explain": "Audits the code for security vulnerabilities using the OWASP Top 10 and related concerns as a checklist.",
+    "layer": "harden",
     "requires": [],
-    "prompt": "SECURITY AUDIT (OWASP)\nAudit this code for security vulnerabilities, using the OWASP Top 10 categories (injection, broken access control, cryptographic failures, etc.) as a checklist where relevant.\n- Vulnerabilities Found (For each: what it is, exactly where in the code, and a concrete exploit scenario showing how it could be abused)\n- Severity (Critical / High / Medium / Low, using impact and exploitability)\n- Remediation (The specific code change or control that fixes it — not general advice)\n- Trust Boundaries (Where does untrusted input enter this system, and is it validated/sanitized at that boundary?)\nFormat: Present findings as a table with | Vulnerability | Location | Severity | Fix |.",
-    "layer": "harden"
+    "prompt": "SECURITY AUDIT (OWASP)\nAudit this code for security vulnerabilities, using the OWASP Top 10 categories (injection, broken access control, cryptographic failures, etc.) as a checklist where relevant.\n- Vulnerabilities Found (For each: what it is, exactly where in the code, and a concrete exploit scenario showing how it could be abused)\n- Severity (Critical / High / Medium / Low, using impact and exploitability)\n- Remediation (The specific code change or control that fixes it — not general advice)\n- Trust Boundaries (Where does untrusted input enter this system, and is it validated/sanitized at that boundary?)\nFormat: Present findings as a table with | Vulnerability | Location | Severity | Fix |."
   },
   {
     "id": "performance",
@@ -195,9 +203,9 @@
     "name": "Performance & Complexity",
     "desc": "Find the bottleneck",
     "explain": "Analyzes the code for performance bottlenecks and complexity issues, and prioritizes fixes by actual impact.",
+    "layer": "harden",
     "requires": [],
-    "prompt": "PERFORMANCE & COMPLEXITY\nAnalyze this code for performance issues.\n- Bottlenecks (Identify the specific operations most likely to dominate runtime or memory — e.g., unnecessary loops, N+1 queries, unbounded allocations)\n- Complexity (State the current time/space complexity of the critical path, and what it would be after your proposed fix)\n- Impact Ranking (Order the issues by expected real-world impact, not by how easy they are to fix)\n- Fix (For the top 1-3 issues, give the specific code change, and the risk/tradeoff it introduces, if any)\nAssume premature optimization is a real risk — do not recommend micro-optimizations unless they address a stated or clearly implied bottleneck.",
-    "layer": "harden"
+    "prompt": "PERFORMANCE & COMPLEXITY\nAnalyze this code for performance issues.\n- Bottlenecks (Identify the specific operations most likely to dominate runtime or memory — e.g., unnecessary loops, N+1 queries, unbounded allocations)\n- Complexity (State the current time/space complexity of the critical path, and what it would be after your proposed fix)\n- Impact Ranking (Order the issues by expected real-world impact, not by how easy they are to fix)\n- Fix (For the top 1-3 issues, give the specific code change, and the risk/tradeoff it introduces, if any)\nAssume premature optimization is a real risk — do not recommend micro-optimizations unless they address a stated or clearly implied bottleneck."
   },
   {
     "id": "tests",
@@ -205,9 +213,9 @@
     "name": "Test Generation",
     "desc": "Cover it before it breaks",
     "explain": "Generates a thorough test suite for the code, organized by test category, not just a handful of happy-path checks.",
+    "layer": "harden",
     "requires": [],
-    "prompt": "TEST GENERATION\nGenerate a thorough test suite for this code.\n- Happy Path Tests (Core expected behavior)\n- Edge Case Tests (Empty input, boundary values, maximum/minimum sizes)\n- Failure/Error Tests (Invalid input, exceptions, external failures — assert the correct error behavior, not just that it doesn't crash)\n- Regression Tests (If applicable, a test that specifically encodes a bug you noticed while reading the code)\nUse the testing framework and conventions implied by the surrounding code/context (or state your assumption if none is given). Each test name should describe the behavior being verified, not the implementation.",
-    "layer": "harden"
+    "prompt": "TEST GENERATION\nGenerate a thorough test suite for this code.\n- Happy Path Tests (Core expected behavior)\n- Edge Case Tests (Empty input, boundary values, maximum/minimum sizes)\n- Failure/Error Tests (Invalid input, exceptions, external failures — assert the correct error behavior, not just that it doesn't crash)\n- Regression Tests (If applicable, a test that specifically encodes a bug you noticed while reading the code)\nUse the testing framework and conventions implied by the surrounding code/context (or state your assumption if none is given). Each test name should describe the behavior being verified, not the implementation."
   },
   {
     "id": "edge-cases",
@@ -215,9 +223,9 @@
     "name": "Edge-Case & Failure Hunt",
     "desc": "Where does this actually break?",
     "explain": "Systematically hunts for inputs and conditions where the code silently produces wrong results or crashes.",
+    "layer": "harden",
     "requires": [],
-    "prompt": "EDGE-CASE & FAILURE HUNT\nSystematically hunt for the inputs and conditions under which this code produces a wrong result or crashes.\n- Boundary Values (Empty, zero, negative, maximum size, single-element cases)\n- Concurrency & Timing (If applicable: race conditions, ordering assumptions, non-atomic operations)\n- External Failure Modes (What happens if a network call times out, a dependency returns malformed data, or a resource is unavailable?)\n- Silent Failures (Cases where the code does NOT crash but produces an incorrect result without any signal — these are the most dangerous)\nFor each case found, state the triggering condition and the actual observed (or inferred) behavior, not just \"this might be an issue.\"",
-    "layer": "harden"
+    "prompt": "EDGE-CASE & FAILURE HUNT\nSystematically hunt for the inputs and conditions under which this code produces a wrong result or crashes.\n- Boundary Values (Empty, zero, negative, maximum size, single-element cases)\n- Concurrency & Timing (If applicable: race conditions, ordering assumptions, non-atomic operations)\n- External Failure Modes (What happens if a network call times out, a dependency returns malformed data, or a resource is unavailable?)\n- Silent Failures (Cases where the code does NOT crash but produces an incorrect result without any signal — these are the most dangerous)\nFor each case found, state the triggering condition and the actual observed (or inferred) behavior, not just \"this might be an issue.\""
   },
   {
     "id": "debug",
@@ -225,9 +233,11 @@
     "name": "Root-Cause Debugging",
     "desc": "From symptom to root cause",
     "explain": "Works backward from an observed bug or error to its root cause using a systematic hypothesis-and-elimination process.",
-    "requires": ["trace"],
-    "prompt": "ROOT-CAUSE DEBUGGING\nDiagnose this bug systematically, working from the observed symptom to the actual root cause.\n- Symptom Restatement (What is actually happening vs. what is expected, precisely)\n- Hypotheses (List 2-4 plausible root causes, ranked by likelihood)\n- Investigation (For the top hypothesis, trace the exact execution path or state that would confirm or rule it out — reference the execution trace if one exists)\n- Root Cause (State the confirmed root cause, not just the symptom)\n- Fix & Regression Guard (The specific code fix, plus a test that would have caught this bug)\nDo not propose a fix before the root cause is identified with evidence, not guesswork.",
-    "layer": "harden"
+    "layer": "harden",
+    "requires": [
+      "trace"
+    ],
+    "prompt": "ROOT-CAUSE DEBUGGING\nDiagnose this bug systematically, working from the observed symptom to the actual root cause.\n- Symptom Restatement (What is actually happening vs. what is expected, precisely)\n- Hypotheses (List 2-4 plausible root causes, ranked by likelihood)\n- Investigation (For the top hypothesis, trace the exact execution path or state that would confirm or rule it out — reference the execution trace if one exists)\n- Root Cause (State the confirmed root cause, not just the symptom)\n- Fix & Regression Guard (The specific code fix, plus a test that would have caught this bug)\nDo not propose a fix before the root cause is identified with evidence, not guesswork."
   },
   {
     "id": "supply-chain",
@@ -235,9 +245,9 @@
     "name": "Dependency & Supply-Chain Audit",
     "desc": "Audit what you're trusting when you import it",
     "explain": "Audits the third-party dependencies this code relies on for known vulnerabilities, maintenance health, and blast radius if one is compromised.",
+    "layer": "harden",
     "requires": [],
-    "prompt": "DEPENDENCY & SUPPLY-CHAIN AUDIT\nAudit the third-party dependencies this code relies on.\n- Known Vulnerabilities (Flag any dependency with known CVEs relevant to how it's actually used here, not just present in the tree.)\n- Maintenance Health (Is each critical dependency actively maintained? What happens to this code if it isn't?)\n- Blast Radius (If a specific dependency were compromised — e.g. a malicious version published — what could an attacker access through it? Minimize what each dependency can reach.)\n- Pinning & Verification (Are versions pinned/locked? Is there integrity verification — checksums, lockfiles, signed packages?)\nFormat: Present findings as a table with | Dependency | Risk | Why | Mitigation |, prioritized by actual exploitability in this codebase, not a generic severity score.",
-    "layer": "harden"
+    "prompt": "DEPENDENCY & SUPPLY-CHAIN AUDIT\nAudit the third-party dependencies this code relies on.\n- Known Vulnerabilities (Flag any dependency with known CVEs relevant to how it's actually used here, not just present in the tree.)\n- Maintenance Health (Is each critical dependency actively maintained? What happens to this code if it isn't?)\n- Blast Radius (If a specific dependency were compromised — e.g. a malicious version published — what could an attacker access through it? Minimize what each dependency can reach.)\n- Pinning & Verification (Are versions pinned/locked? Is there integrity verification — checksums, lockfiles, signed packages?)\nFormat: Present findings as a table with | Dependency | Risk | Why | Mitigation |, prioritized by actual exploitability in this codebase, not a generic severity score."
   },
   {
     "id": "a11y",
@@ -245,9 +255,9 @@
     "name": "Accessibility Audit",
     "desc": "Audit for users who don't use it like you do",
     "explain": "Audits the interface for accessibility — keyboard navigation, screen reader support, color contrast, and other barriers that exclude users.",
+    "layer": "harden",
     "requires": [],
-    "prompt": "ACCESSIBILITY AUDIT\nAudit this interface for accessibility barriers.\n- Keyboard Navigation (Can every interactive element be reached and operated without a mouse? Is focus order logical and focus state visible?)\n- Screen Reader Support (Do interactive elements have accessible names/roles? Are dynamic updates announced? Is semantic HTML used instead of generic divs where it matters?)\n- Visual Accessibility (Color contrast ratios, reliance on color alone to convey information, text scaling/zoom behavior.)\n- Standards Compliance (Map findings to the relevant WCAG success criteria and their conformance level (A/AA/AAA).)\nFormat: Present findings as a table with | Issue | WCAG Criterion | Severity | Fix |, ordered by how completely each issue blocks a given user, not by how easy the fix is.",
-    "layer": "harden"
+    "prompt": "ACCESSIBILITY AUDIT\nAudit this interface for accessibility barriers.\n- Keyboard Navigation (Can every interactive element be reached and operated without a mouse? Is focus order logical and focus state visible?)\n- Screen Reader Support (Do interactive elements have accessible names/roles? Are dynamic updates announced? Is semantic HTML used instead of generic divs where it matters?)\n- Visual Accessibility (Color contrast ratios, reliance on color alone to convey information, text scaling/zoom behavior.)\n- Standards Compliance (Map findings to the relevant WCAG success criteria and their conformance level (A/AA/AAA).)\nFormat: Present findings as a table with | Issue | WCAG Criterion | Severity | Fix |, ordered by how completely each issue blocks a given user, not by how easy the fix is."
   },
   {
     "id": "infra-security",
@@ -255,9 +265,9 @@
     "name": "Container & Infrastructure Security",
     "desc": "Audit the environment the code runs in, not just the code",
     "explain": "Audits the container images, Dockerfiles, and infrastructure-as-code configuration this code runs on for misconfigurations and hardening gaps.",
+    "layer": "harden",
     "requires": [],
-    "prompt": "CONTAINER & INFRASTRUCTURE SECURITY\nAudit the container/infrastructure configuration this code runs on — not the application code itself.\n- Image Hardening (Base image choice, unnecessary packages/tools left in the image, running as root vs. a non-privileged user.)\n- Secrets in Config (Are credentials baked into the image, Dockerfile, or IaC files instead of injected at runtime?)\n- Network Exposure (What ports/services are exposed that don't need to be? Is the network topology least-privilege — can services reach things they have no reason to reach?)\n- IaC Misconfigurations (Overly permissive IAM roles/policies, public-by-default storage, missing encryption-at-rest/in-transit settings.)\nFormat: Present findings as a table with | Finding | Location (file/resource) | Severity | Fix |, prioritized by what's actually reachable from outside the trust boundary, not a generic checklist completion score.",
-    "layer": "harden"
+    "prompt": "CONTAINER & INFRASTRUCTURE SECURITY\nAudit the container/infrastructure configuration this code runs on — not the application code itself.\n- Image Hardening (Base image choice, unnecessary packages/tools left in the image, running as root vs. a non-privileged user.)\n- Secrets in Config (Are credentials baked into the image, Dockerfile, or IaC files instead of injected at runtime?)\n- Network Exposure (What ports/services are exposed that don't need to be? Is the network topology least-privilege — can services reach things they have no reason to reach?)\n- IaC Misconfigurations (Overly permissive IAM roles/policies, public-by-default storage, missing encryption-at-rest/in-transit settings.)\nFormat: Present findings as a table with | Finding | Location (file/resource) | Severity | Fix |, prioritized by what's actually reachable from outside the trust boundary, not a generic checklist completion score."
   },
   {
     "id": "refactor",
@@ -265,9 +275,9 @@
     "name": "Refactor (Behavior-Preserving)",
     "desc": "Improve structure, keep behavior",
     "explain": "Restructures the code for readability and maintainability while formally preserving its external behavior.",
+    "layer": "ship",
     "requires": [],
-    "prompt": "REFACTOR (BEHAVIOR-PRESERVING)\nRefactor this code to improve its structure and readability while strictly preserving its external behavior.\n- Issues Being Addressed (What specifically is wrong with the current structure — duplication, poor naming, mixed responsibilities, deep nesting)\n- Refactored Code (The full rewritten code)\n- Behavior Guarantee (Explicitly state what inputs/outputs you verified stay identical, and flag anything you are not 100% certain preserves behavior)\n- Diff Summary (A short bullet list of what changed and why, so a reviewer doesn't have to re-derive it from the diff)\nDo not introduce new features, dependencies, or behavior changes in this step — that belongs in a separate task.",
-    "layer": "ship"
+    "prompt": "REFACTOR (BEHAVIOR-PRESERVING)\nRefactor this code to improve its structure and readability while strictly preserving its external behavior.\n- Issues Being Addressed (What specifically is wrong with the current structure — duplication, poor naming, mixed responsibilities, deep nesting)\n- Refactored Code (The full rewritten code)\n- Behavior Guarantee (Explicitly state what inputs/outputs you verified stay identical, and flag anything you are not 100% certain preserves behavior)\n- Diff Summary (A short bullet list of what changed and why, so a reviewer doesn't have to re-derive it from the diff)\nDo not introduce new features, dependencies, or behavior changes in this step — that belongs in a separate task."
   },
   {
     "id": "patterns",
@@ -275,9 +285,9 @@
     "name": "Design-Pattern Application",
     "desc": "Apply the right pattern, not a trend",
     "explain": "Identifies whether a known design pattern genuinely fits the problem, and applies it only if it earns its complexity.",
+    "layer": "ship",
     "requires": [],
-    "prompt": "DESIGN-PATTERN APPLICATION\nEvaluate whether a known design pattern genuinely improves this code, and apply it if so.\n- Candidate Pattern(s) (Name the pattern(s) that could plausibly apply, e.g. Strategy, Factory, Observer, Decorator)\n- Fit Justification (Explain precisely which problem in the current code this pattern solves — not just \"this is what Strategy is for\")\n- Complexity Cost (Be honest about the added indirection/abstraction cost, and whether it's justified at this code's current size and change frequency)\n- Implementation (If justified, provide the refactored code applying the pattern. If NOT justified, explicitly say so and explain why the simpler current form is better.)",
-    "layer": "ship"
+    "prompt": "DESIGN-PATTERN APPLICATION\nEvaluate whether a known design pattern genuinely improves this code, and apply it if so.\n- Candidate Pattern(s) (Name the pattern(s) that could plausibly apply, e.g. Strategy, Factory, Observer, Decorator)\n- Fit Justification (Explain precisely which problem in the current code this pattern solves — not just \"this is what Strategy is for\")\n- Complexity Cost (Be honest about the added indirection/abstraction cost, and whether it's justified at this code's current size and change frequency)\n- Implementation (If justified, provide the refactored code applying the pattern. If NOT justified, explicitly say so and explain why the simpler current form is better.)"
   },
   {
     "id": "migration",
@@ -285,9 +295,11 @@
     "name": "Migration / Modernization",
     "desc": "Move to the new thing, safely",
     "explain": "Plans a safe, incremental migration from an old library/version/pattern to a new one without a risky big-bang rewrite.",
-    "requires": ["refactor"],
-    "prompt": "MIGRATION / MODERNIZATION\nPlan a safe migration from the current approach/library/version to the target one.\n- Gap Analysis (What are the concrete breaking changes or behavioral differences between old and new?)\n- Migration Strategy (Prefer an incremental path — e.g. strangler pattern, feature flags, parallel-run — over a big-bang rewrite; justify the chosen strategy)\n- Step-by-Step Plan (Ordered steps, each independently shippable and revertible where possible)\n- Risk & Rollback (For each risky step, state the rollback plan if it goes wrong)\nFormat: Present the step-by-step plan as a numbered list, each step naming what changes and how to verify it before moving to the next.",
-    "layer": "ship"
+    "layer": "ship",
+    "requires": [
+      "refactor"
+    ],
+    "prompt": "MIGRATION / MODERNIZATION\nPlan a safe migration from the current approach/library/version to the target one.\n- Gap Analysis (What are the concrete breaking changes or behavioral differences between old and new?)\n- Migration Strategy (Prefer an incremental path — e.g. strangler pattern, feature flags, parallel-run — over a big-bang rewrite; justify the chosen strategy)\n- Step-by-Step Plan (Ordered steps, each independently shippable and revertible where possible)\n- Risk & Rollback (For each risky step, state the rollback plan if it goes wrong)\nFormat: Present the step-by-step plan as a numbered list, each step naming what changes and how to verify it before moving to the next."
   },
   {
     "id": "docs",
@@ -295,9 +307,9 @@
     "name": "Documentation (Docstrings/README/ADR)",
     "desc": "Write it down properly",
     "explain": "Produces documentation appropriate to the artifact — inline docstrings, a README section, or an architecture decision record.",
+    "layer": "ship",
     "requires": [],
-    "prompt": "DOCUMENTATION (DOCSTRINGS / README / ADR)\nProduce documentation appropriate to this artifact; choose the right format instead of defaulting to prose.\n- If documenting a function/class: Write docstrings/comments covering purpose, parameters, return value, exceptions raised, and a usage example.\n- If documenting a module/project: Write a README section covering what it does, how to use it, and key configuration.\n- If documenting a decision: Write a short Architecture Decision Record (Context, Decision, Consequences, Alternatives Considered).\nWrite for a reader who has the context to run the code but not the context of why it was built this way — the goal is to save them from having to ask you.",
-    "layer": "ship"
+    "prompt": "DOCUMENTATION (DOCSTRINGS / README / ADR)\nProduce documentation appropriate to this artifact; choose the right format instead of defaulting to prose.\n- If documenting a function/class: Write docstrings/comments covering purpose, parameters, return value, exceptions raised, and a usage example.\n- If documenting a module/project: Write a README section covering what it does, how to use it, and key configuration.\n- If documenting a decision: Write a short Architecture Decision Record (Context, Decision, Consequences, Alternatives Considered).\nWrite for a reader who has the context to run the code but not the context of why it was built this way — the goal is to save them from having to ask you."
   },
   {
     "id": "commit-pr",
@@ -305,9 +317,9 @@
     "name": "Commit & PR Message",
     "desc": "Explain the change, not just the diff",
     "explain": "Writes a clear commit message and pull-request description that explains why the change was made, not just what changed.",
+    "layer": "ship",
     "requires": [],
-    "prompt": "COMMIT & PR MESSAGE\nWrite a commit message and pull request description for this change.\n- Commit Message (A concise imperative summary line, followed by a body explaining WHY the change was made — the diff already shows what changed)\n- PR Description (Summary of the change, motivation/context, how it was tested, and any risks or follow-up work a reviewer should know about)\n- Breaking Changes (Explicitly call out any breaking changes and migration steps for consumers, or state 'None' if there are none)\nFollow Conventional Commits style for the commit message subject line unless the context implies a different convention is in use.",
-    "layer": "ship"
+    "prompt": "COMMIT & PR MESSAGE\nWrite a commit message and pull request description for this change.\n- Commit Message (A concise imperative summary line, followed by a body explaining WHY the change was made — the diff already shows what changed)\n- PR Description (Summary of the change, motivation/context, how it was tested, and any risks or follow-up work a reviewer should know about)\n- Breaking Changes (Explicitly call out any breaking changes and migration steps for consumers, or state 'None' if there are none)\nFollow Conventional Commits style for the commit message subject line unless the context implies a different convention is in use."
   },
   {
     "id": "cicd",
@@ -315,8 +327,8 @@
     "name": "CI/CD Pipeline Design",
     "desc": "Design the path from commit to production",
     "explain": "Designs the automated pipeline stages — build, test, security scan, deploy — that take this code from commit to running in production safely.",
+    "layer": "ship",
     "requires": [],
-    "prompt": "CI/CD PIPELINE DESIGN\nDesign the CI/CD pipeline that should carry this code from commit to production.\n- Pipeline Stages (Build, lint, unit tests, integration tests, security/dependency scan, deploy — in what order, and which stages can run in parallel?)\n- Gate Criteria (What must pass for the pipeline to proceed to the next stage? Be specific — e.g. \"90% coverage on changed lines\", not \"good test coverage\".)\n- Deployment Strategy (Blue-green, canary, rolling, or straight replace — justify the choice for this specific workload's risk tolerance.)\n- Rollback Trigger (What automated signal should trigger an automatic rollback, and how fast?)\nFormat: Present the pipeline as an ordered stage list or a simple flow diagram in a code block, plus the concrete config/YAML sketch if a specific CI platform is implied by context.",
-    "layer": "ship"
+    "prompt": "CI/CD PIPELINE DESIGN\nDesign the CI/CD pipeline that should carry this code from commit to production.\n- Pipeline Stages (Build, lint, unit tests, integration tests, security/dependency scan, deploy — in what order, and which stages can run in parallel?)\n- Gate Criteria (What must pass for the pipeline to proceed to the next stage? Be specific — e.g. \"90% coverage on changed lines\", not \"good test coverage\".)\n- Deployment Strategy (Blue-green, canary, rolling, or straight replace — justify the choice for this specific workload's risk tolerance.)\n- Rollback Trigger (What automated signal should trigger an automatic rollback, and how fast?)\nFormat: Present the pipeline as an ordered stage list or a simple flow diagram in a code block, plus the concrete config/YAML sketch if a specific CI platform is implied by context."
   }
 ]

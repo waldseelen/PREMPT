@@ -50,11 +50,19 @@ export default function ParameterHoverMenu({ label, options, placement = 'toolti
         if (!open) return undefined;
 
         const handleViewportChange = () => updatePosition();
+        const handleOutsideClick = (e) => {
+            if (triggerRef.current && !triggerRef.current.contains(e.target)) {
+                closeTooltip();
+            }
+        };
+
         window.addEventListener('resize', handleViewportChange);
         window.addEventListener('scroll', handleViewportChange, true);
+        document.addEventListener('pointerdown', handleOutsideClick);
         return () => {
             window.removeEventListener('resize', handleViewportChange);
             window.removeEventListener('scroll', handleViewportChange, true);
+            document.removeEventListener('pointerdown', handleOutsideClick);
         };
     }, [open, updatePosition]);
 
@@ -68,6 +76,10 @@ export default function ParameterHoverMenu({ label, options, placement = 'toolti
                 tabIndex={0}
                 aria-label={label}
                 aria-describedby={open ? tooltipId : undefined}
+                onClick={() => {
+                    if (open) closeTooltip();
+                    else openTooltip();
+                }}
                 onMouseEnter={openTooltip}
                 onMouseLeave={closeTooltip}
                 onFocus={openTooltip}

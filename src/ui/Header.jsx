@@ -47,13 +47,13 @@ export default function Header({ showDomainSwitcher = true }) {
             </div>
             
                 <div style={{ flex: 1, minWidth: 0, display: 'flex', justifyContent: 'center' }}>
-                    {showDomainSwitcher ? <DomainSwitcher /> : <span className="header-context-label">PREMPT</span>}
+                    {showDomainSwitcher ? <DomainSwitcher /> : <span className="header-context-label">{t.flow?.modeDefault || 'Default'}</span>}
                 </div>
 
             <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexShrink: 0 }}>
                 <button
                     onClick={handleReplayTour}
-                    className="header-icon-btn"
+                    className="header-icon-btn header-tour-btn"
                     title={t.tour?.btnReplay || 'Quick Tour'}
                 >
                     <HelpCircle size={18} strokeWidth={1.5} />

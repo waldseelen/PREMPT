@@ -32,7 +32,17 @@ export const businessSpec = {
         "strategy": "Strateji & Büyüme",
         "finance": "Finans & Birim Maliyet",
         "pitch": "Yatırım & Sunum"
-      }
+      },
+      "categories": {
+        "validation": "İş Modeli Doğrulama",
+        "market": "Pazar & Rekabet",
+        "unit-economics": "Birim Ekonomi & Finans",
+        "pitch": "Yatırımcı Sunumu",
+        "risk": "Risk & Yönetişim"
+      },
+      "modulesTitle": "Modüller (Module Blocks)",
+      "presetsTitle": "Uzman Hazır Şablonları (System Presets)",
+      "paramsTitle": "Parametreler"
     },
     "en": {
       "title": "Business, Startup & Strategy Engine",
@@ -49,7 +59,17 @@ export const businessSpec = {
         "strategy": "Strategy & Growth",
         "finance": "Finance & Unit Economics",
         "pitch": "Pitch & Investment"
-      }
+      },
+      "categories": {
+        "validation": "Business Validation",
+        "market": "Market & Competition",
+        "unit-economics": "Unit Economics & Finance",
+        "pitch": "Investor Pitch",
+        "risk": "Risk & Governance"
+      },
+      "modulesTitle": "Module Blocks",
+      "presetsTitle": "System Presets",
+      "paramsTitle": "Parameters"
     }
   },
   "optionSets": {
@@ -116,18 +136,80 @@ export const businessSpec = {
   },
   "compilerTexts": {
     "tr": {
-      "topicHeader": "İŞ FİKRİ / GİRİŞİM",
-      "levelHeader": "STRATEJİ AŞAMASI",
-      "modeHeader": "STRATEJİST PERSONASI",
-      "depthHeader": "ANALİZ DERİNLİĞİ",
-      "formatHeader": "STRATEJİ ÇIKTISI"
+      "mod": {
+        "vc": "Sen tecrübeli bir Girişim Sermayesi (VC) yatırımcısısın. Pazar büyüklüğü (TAM/SAM), savunulabilirlik (moat), ölçeklenebilirlik ve çıkış stratejilerini sorgularsın.",
+        "ops": "Sen kıdemli bir Operasyon Direktörüsün (COO). Süreç verimliliği, birim maliyetler, tedarik zinciri ve yürütme (execution) risklerine odaklanırsın.",
+        "growth": "Sen veri odaklı bir Büyüme Liderisin (Head of Growth). Müşteri edinme maliyeti (CAC), yaşam boyu değer (LTV), virallik ve dönüşüm hunilerini optimize edersin."
+      },
+      "derinlik": {
+        "temel": "Temel iş modeli tuvali ve ana değer önerisini özetle.",
+        "standart": "Pazar analizi, birim ekonomi ve büyüme kanallarını detaylandır.",
+        "derin": "Yatırımcıya hazır finansal model, hassasiyet analizi, risk matrisi ve operasyonel yol haritası sun."
+      },
+      "format": {
+        "pitchdeck": "10-Slayt Yatırımcı Sunumu (Pitch Deck) iskeleti formatında hazırla.",
+        "swot": "SWOT ve TOWS Strateji matrisi şeklinde sun.",
+        "uniteconomics": "Birim ekonomi ve finansal gösterge tablosu formatında yapılandır."
+      },
+      "labels": {
+        "role": "[ROLE]",
+        "goal": "[GOAL]",
+        "context": "[CONTEXT]",
+        "modules": "[ACTIVE MODULES]",
+        "instructions": "[INSTRUCTIONS]",
+        "format": "[OUTPUT FORMAT]",
+        "constraints": "[CONSTRAINTS / SAFETY]"
+      },
+      "contextLabels": {
+        "domain": "Alan:",
+        "level": "Seviye:",
+        "depthRequirement": "Derinlik Gereksinimi:"
+      },
+      "goalTemplate": "\"{{KONU}}\" iş fikri veya stratejisi için pazar doğrulaması, birim ekonomi ve yatırımcıya hazır büyüme planı oluşturmak.",
+      "constraintsBase": [
+        "Varsayımları değil, pazar gerçeklerini ve birim ekonomiyi temel al.",
+        "LTV/CAC ve geri ödeme (payback) sürelerini net hesapla.",
+        "Haksız rekabet avantajını (unfair advantage / moat) açıkça tanımla."
+      ],
+      "monologueText": "İÇ SES MODU: Stratejiyi kurgulamadan önce (<thinking> tagleri içinde) şirketin batmasına yol açabilecek en büyük 3 nakit akışı ve pazar riskini modelle."
     },
     "en": {
-      "topicHeader": "BUSINESS IDEA",
-      "levelHeader": "STRATEGY STAGE",
-      "modeHeader": "STRATEGIST PERSONA",
-      "depthHeader": "ANALYSIS DEPTH",
-      "formatHeader": "STRATEGY OUTPUT"
+      "mod": {
+        "vc": "You are a seasoned Venture Capital partner. You interrogate TAM/SAM sizing, defensibility moats, unit economics scalability, and return multiples.",
+        "ops": "You are a veteran Chief Operating Officer. You focus on operational efficiency, unit cost containment, margin expansion, and execution bottlenecks.",
+        "growth": "You are a data-driven Growth Leader. You engineer acquisition funnels, viral coefficients, retention cohorts, and LTV/CAC ratios."
+      },
+      "derinlik": {
+        "temel": "Summarize the core business model canvas and value proposition.",
+        "standart": "Deliver market segmentation, unit economics analysis, and distribution strategy.",
+        "derin": "Provide an investor-ready financial model, sensitivity analysis, competitive moat audit, and operational roadmap."
+      },
+      "format": {
+        "pitchdeck": "Format as a standard 10-slide investor pitch deck framework.",
+        "swot": "Structure as an actionable SWOT and TOWS strategic matrix.",
+        "uniteconomics": "Present as a comprehensive unit economics and financial metrics dashboard."
+      },
+      "labels": {
+        "role": "[ROLE]",
+        "goal": "[GOAL]",
+        "context": "[CONTEXT]",
+        "modules": "[ACTIVE MODULES]",
+        "instructions": "[INSTRUCTIONS]",
+        "format": "[OUTPUT FORMAT]",
+        "constraints": "[CONSTRAINTS / SAFETY]"
+      },
+      "contextLabels": {
+        "domain": "Domain:",
+        "level": "Level:",
+        "depthRequirement": "Depth Requirement:"
+      },
+      "goalTemplate": "To construct a market-validated, unit-economics-backed, and investor-ready business and growth strategy for \"{{KONU}}\".",
+      "constraintsBase": [
+        "Anchor strategy in realistic unit economics rather than vanity metrics.",
+        "Quantify LTV/CAC dynamics and cash runway impact.",
+        "Clearly define sustainable competitive moats."
+      ],
+      "monologueText": "INTERNAL MONOLOGUE: Before finalizing strategy, simulate the 3 most lethal cash-flow and competitive risks in <thinking> tags."
     }
   },
   "presets": {
@@ -135,15 +217,14 @@ export const businessSpec = {
       "id": "premortem-business",
       "group": "strategy",
       "name": {
-        "tr": "📊 İş Modeli Pre-Mortem Audit",
-        "en": "📊 Business Model Pre-Mortem"
+        "tr": "İş Modeli Pre-Mortem Audit",
+        "en": "Business Model Pre-Mortem"
       },
       "desc": {
         "tr": "Girişimin batma risklerini önden tespit eder.",
         "en": "Identifies core startup failure risks in advance."
       },
       "forceModules": [
-        "val-problem-solution-fit",
         "val-problem-solution-fit"
       ],
       "override": {
@@ -159,8 +240,8 @@ export const businessSpec = {
       "id": "unit-econ-calc",
       "group": "finance",
       "name": {
-        "tr": "💰 Unit Economics Hesaplayıcı",
-        "en": "💰 Unit Economics Calculator"
+        "tr": "Unit Economics Hesaplayıcı",
+        "en": "Unit Economics Calculator"
       },
       "desc": {
         "tr": "CAC, LTV ve brüt kâr marjı dengesini denetler.",
@@ -183,8 +264,8 @@ export const businessSpec = {
       "id": "pitch-deck-builder",
       "group": "pitch",
       "name": {
-        "tr": "🚀 Investor Pitch Deck İskeleti",
-        "en": "🚀 Investor Pitch Deck Outline"
+        "tr": "Investor Pitch Deck İskeleti",
+        "en": "Investor Pitch Deck Outline"
       },
       "desc": {
         "tr": "10 slaytlık VC sunum kurgusu.",
@@ -207,8 +288,8 @@ export const businessSpec = {
       "id": "swot-pestel",
       "group": "strategy",
       "name": {
-        "tr": "🧭 SWOT & PESTEL Strateji Matrisi",
-        "en": "🧭 SWOT & PESTEL Matrix"
+        "tr": "SWOT & PESTEL Strateji Matrisi",
+        "en": "SWOT & PESTEL Matrix"
       },
       "desc": {
         "tr": "İç ve dış ortam risklerini gruplar.",
@@ -231,8 +312,8 @@ export const businessSpec = {
       "id": "go-to-market",
       "group": "strategy",
       "name": {
-        "tr": "🎯 Go-To-Market (GTM) Planı",
-        "en": "🎯 Go-To-Market (GTM) Plan"
+        "tr": "Go-To-Market (GTM) Planı",
+        "en": "Go-To-Market (GTM) Plan"
       },
       "desc": {
         "tr": "İlk 1000 müşteriye ulaşma stratejisi.",
@@ -255,8 +336,8 @@ export const businessSpec = {
       "id": "pricing-tiers",
       "group": "finance",
       "name": {
-        "tr": "🏷️ Fiyatlandırma & Paket Modeli",
-        "en": "🏷️ Pricing Tiers & Value Metric"
+        "tr": "Fiyatlandırma & Paket Modeli",
+        "en": "Pricing Tiers & Value Metric"
       },
       "desc": {
         "tr": "Freemium, Pro ve Enterprise fiyat yapısı.",
@@ -279,8 +360,8 @@ export const businessSpec = {
       "id": "competitor-moat",
       "group": "strategy",
       "name": {
-        "tr": "🏰 Rekabet & Hendek (Moat) Analizi",
-        "en": "🏰 Competitor Moat Audit"
+        "tr": "Rekabet & Hendek (Moat) Analizi",
+        "en": "Competitor Moat Audit"
       },
       "desc": {
         "tr": "Sürdürülebilir rekabet avantajlarını tespit eder.",
@@ -303,8 +384,8 @@ export const businessSpec = {
       "id": "customer-persona",
       "group": "pitch",
       "name": {
-        "tr": "👤 Müşteri Segment Persona Haritası",
-        "en": "👤 Customer Persona Profile"
+        "tr": "Müşteri Segment Persona Haritası",
+        "en": "Customer Persona Profile"
       },
       "desc": {
         "tr": "İdeal müşteri profilinin acı noktalarını çizer.",
@@ -327,8 +408,8 @@ export const businessSpec = {
       "id": "churn-retention",
       "group": "finance",
       "name": {
-        "tr": "🔄 Churn & Retention Playbook",
-        "en": "🔄 Churn & Retention Playbook"
+        "tr": "Churn & Retention Playbook",
+        "en": "Churn & Retention Playbook"
       },
       "desc": {
         "tr": "Müşteri terk oranını düşürme önlemleri.",
@@ -351,8 +432,8 @@ export const businessSpec = {
       "id": "mvp-scoping",
       "group": "strategy",
       "name": {
-        "tr": "⚡ MVP Özellik Önceliklendirme",
-        "en": "⚡ MVP Feature Scoping"
+        "tr": "MVP Özellik Önceliklendirme",
+        "en": "MVP Feature Scoping"
       },
       "desc": {
         "tr": "İlk versiyonda olması şart temel özellikleri seçer.",
@@ -375,8 +456,8 @@ export const businessSpec = {
       "id": "crisis-pr",
       "group": "pitch",
       "name": {
-        "tr": "🚨 Kriz İletişim & PR Stratejisi",
-        "en": "🚨 Crisis PR Protocol"
+        "tr": "Kriz İletişim & PR Stratejisi",
+        "en": "Crisis PR Protocol"
       },
       "desc": {
         "tr": "Ürün hatası anında müşteri bilgilendirmesi.",
@@ -399,8 +480,8 @@ export const businessSpec = {
       "id": "okr-kpi-framework",
       "group": "strategy",
       "name": {
-        "tr": "🎯 OKR & KPI Hedef Hiyerarşisi",
-        "en": "🎯 OKR & KPI Target Spec"
+        "tr": "OKR & KPI Hedef Hiyerarşisi",
+        "en": "OKR & KPI Target Spec"
       },
       "desc": {
         "tr": "Çeyreklik hedefleri ölçülebilir KPI'lara bağlar.",

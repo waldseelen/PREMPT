@@ -32,7 +32,17 @@ export const imageSpec = {
         "style": "Sanat Tarzı & Estetik",
         "tech": "Kamera & Işık",
         "model": "Parametre & Detay"
-      }
+      },
+      "categories": {
+        "medium": "Medya & Sanat Tarzı",
+        "composition": "Kompozisyon & Kadraj",
+        "lighting": "Işık & Renk",
+        "atmosphere": "Atmosfer & Doku",
+        "parameters": "Render & Parametreler"
+      },
+      "modulesTitle": "Modüller (Module Blocks)",
+      "presetsTitle": "Uzman Hazır Şablonları (System Presets)",
+      "paramsTitle": "Parametreler"
     },
     "en": {
       "title": "Visual & Art Prompt Engineer",
@@ -49,7 +59,17 @@ export const imageSpec = {
         "style": "Art Style & Aesthetic",
         "tech": "Camera & Lighting",
         "model": "Parameters & Detail"
-      }
+      },
+      "categories": {
+        "medium": "Medium & Art Style",
+        "composition": "Composition & Framing",
+        "lighting": "Lighting & Color",
+        "atmosphere": "Atmosphere & Texture",
+        "parameters": "Render & Camera Parameters"
+      },
+      "modulesTitle": "Module Blocks",
+      "presetsTitle": "System Presets",
+      "paramsTitle": "Parameters"
     }
   },
   "optionSets": {
@@ -120,18 +140,82 @@ export const imageSpec = {
   },
   "compilerTexts": {
     "tr": {
-      "topicHeader": "GÖRSEL SAHNE",
-      "levelHeader": "HEDEF MODEL",
-      "modeHeader": "ESTETİK SANAT TARZI",
-      "depthHeader": "DETAY SEVİYESİ",
-      "formatHeader": "EN-BOY ORANI"
+      "mod": {
+        "fotogercekci": "Sen usta bir fotoğrafçı ve görüntü yönetmenisin. Lens tipi, diyafram, sensör dokusu ve doğal ışık dinamikleriyle hiper-gerçekçi sahneler kurarsın.",
+        "yagliboya": "Sen klasik ve modern sanat ustasısın. Fırça darbeleri, impasto tekniği, renk paleti ve ışık-gölge (chiaroscuro) kompozisyonlarıyla görsel tasarlarsın.",
+        "octane": "Sen 3D konsept sanatçısı ve render uzmanısın. Octane, Unreal Engine 5, hacimsel ışıklandırma (volumetric lighting) ve fotogerçekçi materyallerle sahne oluşturursun.",
+        "minimalist": "Sen minimalist görsel tasarımcısın. Negatif alan, sade geometrik formlar, tipografik denge ve çarpıcı renk kontrastlarını yönetirsin."
+      },
+      "derinlik": {
+        "temel": "Temel özne, ana stil ve ışık yönünü içeren temiz prompt üret.",
+        "orta": "Kompozisyon kuralları, kamera açısı ve atmosferik detayları ekle.",
+        "ultra": "Lens milimetresi, film stoğu, mikro dokular, negatif promptlar ve motor parametreleriyle kusursuz profesyonel prompt inşa et."
+      },
+      "format": {
+        "16-9": "16:9 Sinematik geniş ekran en-boy oranında optimize et.",
+        "1-1": "1:1 Kare sosyal medya / portre formatında optimize et.",
+        "9-16": "9:16 Dikey mobil / hikaye formatında optimize et."
+      },
+      "labels": {
+        "role": "[ROLE]",
+        "goal": "[GOAL]",
+        "context": "[CONTEXT]",
+        "modules": "[ACTIVE MODULES]",
+        "instructions": "[INSTRUCTIONS]",
+        "format": "[OUTPUT FORMAT]",
+        "constraints": "[CONSTRAINTS / SAFETY]"
+      },
+      "contextLabels": {
+        "domain": "Alan:",
+        "level": "Seviye:",
+        "depthRequirement": "Derinlik Gereksinimi:"
+      },
+      "goalTemplate": "\"{{KONU}}\" görsel konsepti için kusursuz kompozisyon, ışık, stil ve render parametrelerine sahip yüksek çözünürlüklü prompt oluşturmak.",
+      "constraintsBase": [
+        "Görsel öğeleri ağırlık sırasına göre virgülle ayrılmış net terimlerle belirt.",
+        "İstenmeyen bozulmaları negatif prompt bloğunda açıkça listele.",
+        "Stil ve ışık kaynağını birbiriyle çelişmeyecek şekilde uyumla."
+      ],
+      "monologueText": "İÇ SES MODU: Promptu oluşturmadan önce (<thinking> tagleri içinde) sahnenin odak noktasını, ışık yönünü ve renk uyumunu planla."
     },
     "en": {
-      "topicHeader": "SCENE DESCRIPTION",
-      "levelHeader": "TARGET MODEL",
-      "modeHeader": "AESTHETIC STYLE",
-      "depthHeader": "DETAIL LEVEL",
-      "formatHeader": "ASPECT RATIO"
+      "mod": {
+        "fotogercekci": "You are a master cinematographer and photographer. You engineer hyper-realistic prompts specifying lens focal lengths, f-stops, sensor noise, and natural lighting.",
+        "yagliboya": "You are a master fine artist. You design visual prompts with tangible brushwork, impasto textures, color palettes, and chiaroscuro depth.",
+        "octane": "You are an advanced 3D environment and concept artist. You utilize Octane/Unreal Engine 5 shaders, raytracing, and volumetric lighting.",
+        "minimalist": "You are a minimalist art director. You leverage negative space, disciplined geometry, and high-impact focal contrast."
+      },
+      "derinlik": {
+        "temel": "Generate a focused prompt covering subject, primary style, and ambient lighting.",
+        "orta": "Add precise compositional framing, camera distance, and atmospheric depth cues.",
+        "ultra": "Engineer a production-ready prompt with camera sensor, lens optics, micro-textures, and negative modifier weights."
+      },
+      "format": {
+        "16-9": "Optimize for 16:9 cinematic widescreen aspect ratio.",
+        "1-1": "Optimize for 1:1 square balanced composition.",
+        "9-16": "Optimize for 9:16 vertical mobile framing."
+      },
+      "labels": {
+        "role": "[ROLE]",
+        "goal": "[GOAL]",
+        "context": "[CONTEXT]",
+        "modules": "[ACTIVE MODULES]",
+        "instructions": "[INSTRUCTIONS]",
+        "format": "[OUTPUT FORMAT]",
+        "constraints": "[CONSTRAINTS / SAFETY]"
+      },
+      "contextLabels": {
+        "domain": "Domain:",
+        "level": "Level:",
+        "depthRequirement": "Depth Requirement:"
+      },
+      "goalTemplate": "To engineer a high-precision prompt with master-level composition, lighting, style, and camera parameters for the concept \"{{KONU}}\".",
+      "constraintsBase": [
+        "Order prompt tokens strictly by semantic importance and visual weight.",
+        "Include dedicated negative prompt exclusions to prevent artifacting.",
+        "Ensure lighting physics and stylistic rendering engines do not conflict."
+      ],
+      "monologueText": "INTERNAL MONOLOGUE: Before prompt generation, map the key visual focal point, lighting direction, and chromatic balance in <thinking> tags."
     }
   },
   "presets": {
@@ -139,15 +223,14 @@ export const imageSpec = {
       "id": "cinematic-35mm",
       "group": "tech",
       "name": {
-        "tr": "🎬 Sinematik 35mm Fotogerçekçi",
-        "en": "🎬 Cinematic 35mm Realism"
+        "tr": "Sinematik 35mm Fotogerçekçi",
+        "en": "Cinematic 35mm Realism"
       },
       "desc": {
         "tr": "35mm film dokusu ve doğal ışıklama kurar.",
         "en": "Sets 35mm film grain and natural light."
       },
       "forceModules": [
-        "medium-oil-painting",
         "medium-oil-painting"
       ],
       "override": {
@@ -163,8 +246,8 @@ export const imageSpec = {
       "id": "octane-render",
       "group": "style",
       "name": {
-        "tr": "💎 Octane 3D İzometrik Render",
-        "en": "💎 Octane 3D Isometric Render"
+        "tr": "Octane 3D İzometrik Render",
+        "en": "Octane 3D Isometric Render"
       },
       "desc": {
         "tr": "3D izometrik cam/metal materyaller.",
@@ -187,8 +270,8 @@ export const imageSpec = {
       "id": "cyberpunk-neon",
       "group": "style",
       "name": {
-        "tr": "🌃 Cyberpunk Neon Estetiği",
-        "en": "🌃 Cyberpunk Neon Aesthetic"
+        "tr": "Cyberpunk Neon Estetiği",
+        "en": "Cyberpunk Neon Aesthetic"
       },
       "desc": {
         "tr": "Gece çekimi ve neon ışıklama.",
@@ -211,8 +294,8 @@ export const imageSpec = {
       "id": "minimalist-vector",
       "group": "style",
       "name": {
-        "tr": "🎨 Minimalist Vektör İllüstrasyon",
-        "en": "🎨 Minimalist Vector Art"
+        "tr": "Minimalist Vektör İllüstrasyon",
+        "en": "Minimalist Vector Art"
       },
       "desc": {
         "tr": "Düz renk blokları ve temiz çizgiler.",
@@ -235,8 +318,8 @@ export const imageSpec = {
       "id": "surrealist-oil",
       "group": "style",
       "name": {
-        "tr": "🖼️ Sürrealist Yağlıboya Tablo",
-        "en": "🖼️ Surrealist Oil Painting"
+        "tr": "Sürrealist Yağlıboya Tablo",
+        "en": "Surrealist Oil Painting"
       },
       "desc": {
         "tr": "Dali & Magritte tarzı zengin dokulu tablo.",
@@ -259,8 +342,8 @@ export const imageSpec = {
       "id": "macro-nature",
       "group": "tech",
       "name": {
-        "tr": "🔍 Makro Doğa Fotogerçekçilik",
-        "en": "🔍 Macro Nature Photography"
+        "tr": "Makro Doğa Fotogerçekçilik",
+        "en": "Macro Nature Photography"
       },
       "desc": {
         "tr": "Böcek, su damlası ve detaylı Dof çekimi.",
@@ -283,8 +366,8 @@ export const imageSpec = {
       "id": "anime-shonen",
       "group": "style",
       "name": {
-        "tr": "🗡️ Shonen Anime & Manga Tarzı",
-        "en": "🗡️ Shonen Anime & Manga"
+        "tr": "Shonen Anime & Manga Tarzı",
+        "en": "Shonen Anime & Manga"
       },
       "desc": {
         "tr": "Dinamik aksiyon çizgileri ve anime renklendirme.",
@@ -307,8 +390,8 @@ export const imageSpec = {
       "id": "arch-blueprint",
       "group": "model",
       "name": {
-        "tr": "🏛️ Mimari Render & İç Mekan",
-        "en": "🏛️ Architectural Render"
+        "tr": "Mimari Render & İç Mekan",
+        "en": "Architectural Render"
       },
       "desc": {
         "tr": "İskandinav minimalist iç mekan ve ışık.",
@@ -331,8 +414,8 @@ export const imageSpec = {
       "id": "dark-fantasy",
       "group": "style",
       "name": {
-        "tr": "🐉 Dark Fantasy Dijital İllüstrasyon",
-        "en": "🐉 Dark Fantasy Digital Art"
+        "tr": "Dark Fantasy Dijital İllüstrasyon",
+        "en": "Dark Fantasy Digital Art"
       },
       "desc": {
         "tr": "Eldritch yaratıklar ve kasvetli atmosfer.",
@@ -355,8 +438,8 @@ export const imageSpec = {
       "id": "vintage-film",
       "group": "tech",
       "name": {
-        "tr": "🎞️ 1970 Vintage Film Karesi",
-        "en": "🎞️ 1970s Vintage Film Frame"
+        "tr": "1970 Vintage Film Karesi",
+        "en": "1970s Vintage Film Frame"
       },
       "desc": {
         "tr": "Soluk renkler ve retro Kodachrome estetiği.",
@@ -379,8 +462,8 @@ export const imageSpec = {
       "id": "studio-product",
       "group": "model",
       "name": {
-        "tr": "📦 Stüdyo Ürün Fotoğrafçılığı",
-        "en": "📦 Studio Product Shot"
+        "tr": "Stüdyo Ürün Fotoğrafçılığı",
+        "en": "Studio Product Shot"
       },
       "desc": {
         "tr": "Softbox ışık ve nötr stüdyo fonu.",
@@ -403,8 +486,8 @@ export const imageSpec = {
       "id": "glassmorphism-ui",
       "group": "model",
       "name": {
-        "tr": "📱 UI Glassmorphism Mockup",
-        "en": "📱 Glassmorphism UI Mockup"
+        "tr": "UI Glassmorphism Mockup",
+        "en": "Glassmorphism UI Mockup"
       },
       "desc": {
         "tr": "Bulanık cam paneller ve modern mobil UI.",

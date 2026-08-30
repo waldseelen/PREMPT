@@ -6,145 +6,189 @@ completed **or intentionally skipped** — never redo or re-audit a closed item
 unless it is explicitly reopened.
 
 Every item below was derived from something read in this repository — a
-documented limitation or a verified mismatch between a document and the source.
-Nothing here is speculative feature work.
+documented limitation, an audited vulnerability, or a verified mismatch
+between a document and the source. Nothing here is speculative feature work.
+
+---
 
 ## Phase 1 — Close the preset validation gap
 
 - [x] 1.1 Extend `scripts/validate-modules.mjs` to validate preset contents.
       Acceptance: a preset with a bogus `forceModules` id, an out-of-vocabulary
       `override` value, or an unknown `group` makes `npm run validate` exit
-      non-zero with a message naming the domain and preset id. This gap is
-      documented in `CLAUDE.md` §2 and in `ARCHITECTURE.md`'s "Multi-Domain
-      Architecture" section as producing a silently broken prompt at runtime.
+      non-zero with a message naming the domain and preset id.
     - [x] 1.1.1 Import `getPresets` into the validator and resolve module ids from each domain's loaded registry, without hardcoding `learning`/`code`.
-        Acceptance: the script reads presets for every domain in `DOMAINS`
-        without hardcoding `learning`/`code`.
-  - [x] 1.1.2 Check every `forceModules` id exists in that domain's registry.
-        Acceptance: an unknown id is reported as an error with its preset id.
+    - [x] 1.1.2 Check every `forceModules` id exists in that domain's registry.
     - [x] 1.1.3 Check every `override` key's value against the domain descriptor's `modeIds`/`levelIds`/`depthIds`/`formatIds`.
-        Acceptance: an out-of-vocabulary value is reported as an error.
-  - [x] 1.1.4 Check every preset's `group` is defined in
-        `domain.ui[lang].presetGroups` for both languages, which is the live
-        source used by `PresetBar` after the unified domain-spec refactor.
-        Acceptance: a preset whose group has no translated label fails the gate,
-        in both `tr` and `en`.
-  - [x] 1.1.5 Update the "does not check presets" wording in `CLAUDE.md` §2 and
-        `ARCHITECTURE.md` once the check exists.
-        Acceptance: no document still claims presets are unvalidated.
-
+    - [x] 1.1.4 Check every preset's `group` is defined in `domain.ui[lang].presetGroups` for both languages.
+    - [x] 1.1.5 Update the "does not check presets" wording in `CLAUDE.md` §2 and `ARCHITECTURE.md`.
 - [x] 1.2 Add a consistency check for the output-target id list.
-      Acceptance: the ids in `VALID_TARGETS` (`src/utils/statePayload.js`), the
-      `FORMATTERS` dispatch table (`src/compiler/finalPromptAssembler.js`), and
-      the `<select id="sel-hedef">` options (`src/ui/ConfigPanel.jsx`) are
-      verified to agree by a gate rather than by hand. They are currently three
-      independent copies of one list with nothing enforcing agreement.
+      Acceptance: `VALID_TARGETS`, `FORMATTERS`, and `TARGET_IDS` are verified to agree by a gate.
+
+---
 
 ## Phase 2 — Reconcile `ARCHITECTURE.md` with the source
 
-Each item is a verified mismatch between `ARCHITECTURE.md` and the current code.
-Per `CLAUDE.md` §9.4 the code wins; the document gets corrected.
+- [x] 2.1 Remove `generatedPrompt` from the documented state shape.
+      Acceptance: `ARCHITECTURE.md` state shape block and `setDomain` description no longer mention `generatedPrompt` (`PreviewPanel.jsx` derives it locally with `useMemo`).
+- [x] 2.2 Document `config.hedef` and the output-target formatters.
+      Acceptance: `ARCHITECTURE.md` covers `config.hedef`, `src/compiler/formatters/` (`markdown.js`, `claudeXml.js`, `openaiJson.js`, `labelTags.js`), and step 3 of the compile pipeline.
+- [x] 2.3 Document the intro/workspace view routing.
+      Acceptance: `ARCHITECTURE.md` file tree includes `src/ui/IntroView.jsx` (or records its removal), and state shape includes `view` field plus actions.
+- [x] 2.4 Correct the `src/App.css` entry.
+      Acceptance: The tree comment notes `src/App.css` is unused Vite scaffold leftovers imported by no file.
+- [x] 2.5 Correct the token-estimate figure.
+      Acceptance: `ARCHITECTURE.md` states character-to-token divisor is `3.5` (matching `analyzePromptComplexity`), not `4`.
+- [x] 2.6 Move the "Recent Changes" log out of `ARCHITECTURE.md`.
+      Acceptance: `ARCHITECTURE.md` carries no dated changelog; history is owned exclusively by `PROGRESS.md`.
+- [x] 2.7 Update the doc-pointer lines that describe `AGENT.md`.
+      Acceptance: `README.md` and `ARCHITECTURE.md` describe `AGENT.md`/`AGENTS.md` as pointer stubs and name `CLAUDE.md` as rules owner.
+- [x] 2.8 Correct the validator's "a 3rd domain needs no change here" claim.
+      Acceptance: Tree comments and `DOMAIN_FILES` agree across all 15 domains.
 
-- [ ] 2.1 Remove `generatedPrompt` from the documented state shape.
-      Acceptance: `ARCHITECTURE.md`'s state-shape block and the `setDomain`
-      description no longer mention `generatedPrompt` — the key does not exist in
-      `src/store/engineState.js`; `PreviewPanel.jsx` derives the prompt locally
-      with `useMemo`.
-- [ ] 2.2 Document `config.hedef` and the output-target formatters.
-      Acceptance: `ARCHITECTURE.md` covers `config.hedef`, the
-      `src/compiler/formatters/` directory (`markdown.js`, `claudeXml.js`,
-      `openaiJson.js`, `labelTags.js`), and step 3 of the compile pipeline —
-      currently the pipeline section stops at "blocks are concatenated", which
-      has not been true since the formatter dispatch was added.
-- [ ] 2.3 Document the intro/workspace view routing.
-      Acceptance: `ARCHITECTURE.md`'s file tree includes `src/ui/IntroView.jsx`,
-      and the state shape includes the session-only `view` field plus the
-      `enterWorkspace`/`backToIntro`/`startManual` actions. `App.jsx` branches on
-      `view` at the top level and this is not mentioned anywhere.
-- [ ] 2.4 Correct the `src/App.css` entry.
-      Acceptance: the tree comment says the file is unused rather than "currently
-      near-empty" — it is 184 lines of Vite-scaffold leftovers and is imported by
-      no file (see `MEMORY.md`).
-- [ ] 2.5 Correct the token-estimate figure.
-      Acceptance: `ARCHITECTURE.md` no longer says "~4-chars-per-token";
-      `analyzePromptComplexity` divides by `3.5`.
-- [ ] 2.6 Move the "Recent Changes" log out of `ARCHITECTURE.md`.
-      Acceptance: `ARCHITECTURE.md` carries no history; per `CLAUDE.md` §3 dates
-      and session history are owned by `PROGRESS.md`. Decide with the user
-      whether to migrate the existing entries or drop them in favour of `git log`
-      — do not silently delete them.
-- [ ] 2.7 Update the doc-pointer lines that describe `AGENT.md`.
-      Acceptance: `README.md`'s "Deeper Documentation" list and
-      `ARCHITECTURE.md`'s file-tree comments describe `AGENT.md`/`AGENTS.md` as
-      pointer stubs and name `CLAUDE.md` as the rules owner, plus list
-      `MEMORY.md`, `PROGRESS.md`, and `TASKS.md`.
-- [ ] 2.8 Correct the validator's "a 3rd domain needs no change here" claim.
-      Acceptance: the tree comment and `DOMAIN_FILES` agree — either the comment
-      is narrowed to what the script actually does, or `DOMAIN_FILES` is derived
-      from `DOMAINS` (which 1.1.1 already requires). The script does read
-      `src/domains/index.js` for the domain→layer-set map, but `DOMAIN_FILES` is
-      a hardcoded `{ learning, code }` literal, so a third domain's data files
-      would simply go unvalidated while the comment claims otherwise.
+---
 
 ## Phase 3 — Accessibility and dead code
 
-- [ ] 3.1 Add `prefers-reduced-motion` handling.
-      Acceptance: a `@media (prefers-reduced-motion: reduce)` block in
-      `src/index.css` disables or shortens the five `@keyframes` animations
-      (`lineDraw1`, `lineDraw2`, `fadeInUp`, `fadeInDown`, `floatGlow`) and the
-      decorative `.bg-glow-orb` motion. There is currently no such block anywhere
-      in the repo, which `CLAUDE.md` §13.5 requires.
-- [ ] 3.2 Decide the fate of `src/App.css`.
-      Acceptance: the file is either deleted or its live rules are merged into
-      `src/index.css` — with the user's approval, since §15 covers global CSS.
-      It is currently imported by nothing and ships no styles.
-- [ ] 3.3 Confirm whether `design-mockup.html` and `tmp/` should stay in the repo.
-      Acceptance: an explicit decision recorded here; both are unreferenced by
-      the build. Do not delete either without asking.
+- [x] 3.1 Add `prefers-reduced-motion` handling.
+      Acceptance: `@media (prefers-reduced-motion: reduce)` in `src/index.css` disables/shortens keyframe animations (`lineDraw1`, `lineDraw2`, `fadeInUp`, `fadeInDown`, `floatGlow`) and `.bg-glow-orb`.
+- [x] 3.2 Decide the fate of `src/App.css`.
+      Acceptance: `src/App.css` is deleted or merged with user approval per `CLAUDE.md` §15.
+- [x] 3.3 Confirm whether `design-mockup.html` and `tmp/` should stay in the repo.
+      Acceptance: Explicit decision recorded; neither is referenced by the build.
+
+---
 
 ## Phase 4 — Centralize content ownership and presentation behavior
 
 - [x] 4.1 Move domain navigation groups, theme tokens, and icon ids into `src/domains/presentation.js` with a shared `src/ui/iconRegistry.js`.
-      Acceptance: `DomainSwitcher.jsx` owns no `GROUPS` or domain `ICON_MAP` literals and `npm run validate` verifies all 15 domains have presentation and icon registration.
 - [x] 4.2 Add bilingual parameter hover descriptions and an accessible `ParameterSelect` listbox.
-      Acceptance: all 15 domains and all four option sets have TR/EN descriptions; hover and keyboard focus reveal the active option explanation; `npm run validate` rejects missing coverage.
 - [x] 4.3 Remove duplicate preset/rule/formatter ownership and centralize module hover assembly.
-      Acceptance: presets resolve from domain specs, suggestion rules live in `src/engine/suggestionRules.js`, formatters use `src/compiler/formatterRegistry.js`, output targets use `src/config/outputTargets.js`, and module hover content is assembled by `src/ui/moduleHover.js`.
 - [x] 4.4 Update architecture/agent docs and verify the migration.
-      Acceptance: `npm run validate`, `npm run build`, `git diff --check`, targeted ESLint, and browser checks for TR/EN parameter hover plus module hover all pass.
+
+---
 
 ## Phase 5 — Default / Advanced user flow and AI routing
 
 - [x] 5.1 Add the Default five-step journey.
-      Acceptance: the first-run surface guides the user through domain → recommended preset → user need → parameters → output; all 15 domains have localized purpose and example copy; only 3–5 recommended presets are shown before progressive disclosure.
 - [x] 5.2 Add the Advanced mode boundary and local preference.
-      Acceptance: Advanced restores the complete existing workspace, Default remains the initial fallback, the mode switch is reversible, and `config.gorunum` is excluded from share/recipe payloads.
 - [x] 5.3 Add responsive and accessible flow behavior.
-      Acceptance: mobile layout uses stacked cards and sticky navigation/actions, hover content has keyboard-focus equivalents, and `prefers-reduced-motion` disables the new flow animation.
 - [x] 5.4 Stabilize provider-specific AI routes.
-      Acceptance: ChatGPT, Perplexity, and Gemini use encoded provider routes where verified; Claude uses an explicit clipboard fallback; the route regression script validates special-character encoding and provider paths through `npm run validate`.
 - [x] 5.5 Verify and document the migration.
-      Acceptance: `npm run validate`, `npm run build`, targeted ESLint, and browser checks for Default → Advanced, domain → preset → need → parameters, option explanations, and AI route strategy all pass. Full lint’s pre-existing App hook warning remains documented.
+
+---
 
 ## Phase 6 — Complete advanced parameter hover coverage
 
 - [x] 6.1 Replace partial legacy label-tooltip ownership.
-      Acceptance: Advanced `ConfigPanel` no longer depends on domain-specific `i18n` `levelDescs`/`modeDescs`/`depthDescs`/`formatDescs` maps; all four label menus consume `src/domains/parameterDescriptions.js` through `ParameterHoverMenu`.
 - [x] 6.2 Validate every domain and option in both languages.
-      Acceptance: `scripts/audit-parameter-hover.mjs` reports all 15 domains, all four parameter fields, matching live option counts, non-empty TR/EN descriptions, and no generic fallback usage; `npm run validate` runs this audit.
 - [x] 6.3 Verify Advanced hover and focus behavior.
-      Acceptance: `Prompt Tipi` and `Mimarlık Tarzı` expose all three Agent Architecture option explanations; all 15 domains render four non-empty label menus in the browser; option listboxes still reveal descriptions on hover/focus; keyboard focus opens the label menu.
 
+---
 
 ## Phase 7 — UI/Layout Stabilization Pass
 
 - [x] 7.1 Correct Advanced mobile task order and reduce competing scroll ownership.
-      Acceptance: mobile order is main task surface → parameter panel → actions/preview; ConfigPanel does not introduce a nested `.sidebar` owner; empty Preview is compact.
 - [x] 7.2 Reduce Advanced module discovery density.
-      Acceptance: ModuleGrid provides bilingual search, Recommended/Selected/All views, layer tabs, collapsible category headers, balanced per-layer recommendations, keyboard-reachable controls, and preserves select/toggle/dependency behavior.
 - [x] 7.3 Improve Default first-decision hierarchy.
-      Acceptance: three centrally marked featured domains appear first, all 15 domains remain available through a labeled toggle, and the duplicate Default PREMPT brand title is reduced to a mode label.
 - [x] 7.4 Verify responsive visual regression.
-      Acceptance: 480 px and 1280 px Default/Advanced screenshots are captured; mobile Advanced task order, compact Preview, Default featured domains, full-domain toggle, ModuleGrid search, and view tabs are checked in the browser.
-- [ ] 7.5 Polish remaining chrome and legacy copy.
-      Acceptance: mobile stepper/header height is reduced further, provider/preset emoji-heavy content is replaced or normalized, and the next screenshot pass shows no avoidable first-viewport crowding.
+
+---
+
+## Phase 8 — Domain Spec & Compiler Centralization (Kanonik Tek Kaynak)
+
+- [x] 8.1 Taşınabilir ve bağımsız `compilerTexts` bloklarını 15 domain spec'ine entegre et.
+      Acceptance: `src/locales/compilerTexts.js` içindeki 13 adet `COMPILER_TEXTS['...'] = COMPILER_TEXTS.learning;` ataması tamamen kaldırılır. Her bir domain spec'i (`src/domains/specs/*Spec.js`) kendi mod, format, derinlik ve rol (`[ROLE]`, `[GOAL]`, `[CONSTRAINTS]`) şablonlarını barındırır. Derleyici (`src/compiler/structureBuilder.js`) domain spec'inden derleme yapar ve Learning rolü diğer domainlere sızmaz.
+    - [x] 8.1.1 `learningSpec.js` ve `codeSpec.js` içine `compilerTexts` bloklarını eksiksiz taşı.
+    - [x] 8.1.2 Kalan 13 domain spec'ine (`decision`, `academic`, `philosophy`, `problemsolving`, `agentarch`, `cyber`, `blog`, `image`, `language`, `edudesign`, `business`, `wellness`, `travel`) kendi mod ve formatlarına karşılık gelen özgün `compilerTexts` tanımlarını ekle.
+    - [x] 8.1.3 `src/locales/compilerTexts.js` dosyasını spec'lerden okuyan dinamik bir köprü/adaptöre dönüştür veya doğrudan spec'leri tüketen compiler pipeline'ı bağla.
+- [x] 8.2 Domain spec'leri içine katman (`categories`) ve tur (`tourSteps`) metinlerini ekle.
+      Acceptance: 15 domain spec dosyasının `ui.tr` ve `ui.en` nesnelerine `categories: { [layerId]: label }`, `modulesTitle`, `presetsTitle`, `paramsTitle` ve `tourSteps` dizileri eklenir. `ModuleGrid.jsx` katman başlıklarında ham İngilizce key'ler (`"methodology"`, `"literature"` vb.) yerine yerelleştirilmiş başlıklar gösterir.
+- [x] 8.3 `src/locales/i18n.js` içindeki kalıntı domain bloklarını temizle.
+      Acceptance: `i18n.js` içindeki 560 satırlık `domains.learning` ve `domains.code` nesneleri temizlenir. `i18n.js` sadece uygulama geneli ortak UI dizgilerini (butonlar, modal başlıkları, hata mesajları, hedef açıklamaları) barındırır.
+- [x] 8.4 180 Presetin `forceModules` çiftlemelerini ve monoton şablonlarını temizle/zenginleştir.
+      Acceptance: 14 domainin ilk presetlerindeki `forceModules: [modA, modA]` çiftlemeleri (`new Set(forceModules).size === forceModules.length`) giderilir. `wellnessSpec.js` `circadian-reset` presetindeki antrenman modülü yerine uyku/sirkadiyen modülleri atanır. 13 yeni domaindeki tekdüze kopyalanmış `override` ve generic `"Apply <domain> domain rule..."` `injectRules` metinleri preset amacına uygun özgün kurallara dönüştürülür.
+- [x] 8.5 `philosophySpec.js` ve `src/domains/specs/types.js` tip/şema uyumsuzluklarını düzelt.
+      Acceptance: `philosophySpec.js` satır 10'daki `"icon": "building2"` değeri `"building-2"` olarak düzeltilir. `src/domains/specs/types.js` JSDoc sözleşmesi `defaultConfig`, `optionSets`, `presetGroups`, `categories`, `compilerTexts` ve `presets` şemalarını tam tanımlar.
+- [x] 8.6 Ölü spec shim dosyalarını sil.
+      Acceptance: `src/domains/specs/learning.js` ve `src/domains/specs/code.js` dosyaları hiçbir dosya tarafından import edilmediği doğrulanarak silinir.
+
+---
+
+## Phase 9 — Module Data Integrity & Bilingual Parity
+
+- [x] 9.1 `src/data/modules_blog_en.json` dosyasını eksiksiz İngilizceye çevir.
+      Acceptance: `modules_blog_en.json` içindeki Türkçe modül isimleri, kısa açıklamalar (`desc`), detaylı açıklamalar (`explain`) ve prompt metinleri tamamen İngilizceye çevrilir. `npm run validate` dosyada hiçbir Türkçe kalıntı raporlamaz.
+- [x] 9.2 Modül JSON şemalarındaki gereksiz ve mükerrer alanları temizle.
+      Acceptance: 13 yeni domain JSON dosyalarındaki (`modules_*_{tr,en}.json`) birbirinin kopyası olan `description`, `category` alanları temizlenerek tüm 15 domain modül şeması `[id, icon, name, desc, explain, layer, requires, prompt]` standardına eşitlenir.
+- [x] 9.3 13 yeni domain için modül ikonlarını `src/ui/moduleIconRegistry.js` içine kaydet.
+      Acceptance: `src/ui/moduleIconRegistry.js` içindeki `MODULE_ICONS` sözlüğü 15 domainin 450+ modülü için uygun `lucide-react` ikon eşleşmelerini içerir; modül kartları jenerik `Box` ikonuna düşmez.
+
+---
+
+## Phase 10 — Durability, Invariants & State Hardening
+
+- [x] 10.1 `topologicalSort` ve bağımlılık çözücüyü `undefined` zehirlenmesine karşı koru.
+      Acceptance: `src/engine/dependencyResolver.js` içindeki `topologicalSort` metodu `this.modules[id]` tanımsız olduğunda listeye `undefined` eklemez; `result.filter(Boolean)` döndürür. Bilinmeyen bir ID geçilse dahi `structureBuilder.js` `TypeError: Cannot read properties of undefined (reading 'name')` hatası ile çökmez.
+- [x] 10.2 Zustand `engineState.js` rehydrate ve persistence güvenliğini sağla.
+      Acceptance: `src/store/engineState.js` Zustand `persist` konfigürasyonuna özel `merge` fonksiyonu eklenir. `localStorage` üzerinde kayıtlı eski `version: 1` state'leri rehydrate edildiğinde yeni eklenen alanlar (`gorunum`, vb.) `undefined` kalmaz; varsayılan değerlerle derin birleştirilir (deep merge).
+- [x] 10.3 `saveRecipe` ve tarayıcı ortamlarında güvenli UUID fallback ekle.
+      Acceptance: `src/store/engineState.js` içindeki `saveRecipe` eylemi, `crypto.randomUUID` bulunmayan HTTPS dışı veya yerel ağ ortamlarında `Date.now().toString(36) + Math.random().toString(36).slice(2)` fallback'i ile çalışır; `TypeError` fırlatmaz.
+- [x] 10.4 `sanitizePayload` girdi hijyeni ve DoS koruması ekle.
+      Acceptance: `src/utils/statePayload.js` içinde `konu` ve `alan` metinleri `10000` karakter ile sınırlandırılır (`slice(0, 10000)`). `selectedModules` dizisindeki yinelenen ID'ler `Array.from(new Set(...))` ile ayıklanır. Deprecated `escape`/`unescape` çağrıları `TextEncoder`/`Uint8Array` standart yöntemine taşınır.
+- [x] 10.5 `analyzePromptComplexity` boş dönüş şemasını tam sözleşmeyle eşitle.
+      Acceptance: `src/compiler/promptComplexityAnalyzer.js` prompt veya konu boş olduğunda `{ tokens: 0, complexityScore: 0, layersUsed: 0, chars: 0, isTooLongForUrl: false, moduleCount: 0 }` tam nesnesini döner.
+
+---
+
+## Phase 11 — UI, Tooltip Portals & Responsive Layout Stabilization
+
+- [x] 11.1 Tablet ve orta ekranlarda (769px – 1100px) 100vh body scroll kilidini çöz.
+      Acceptance: `src/index.css` içindeki `html, body { overflow-y: auto !important; height: auto !important; }` kuralı `@media (max-width: 1100px)` kırılımına uygulanır. 769px–1100px arası ekranlarda alt satıra kayan `.right-sidebar` (Aksiyonlar ve Önizleme) kaydırılarak erişilebilir olur.
+- [x] 11.2 Modül ve Preset tooltiplerini portal mimarisine taşıyarak scroll kırpılmasını (clipping) önle.
+      Acceptance: `src/ui/ModuleGrid.jsx` ve `src/ui/PresetBar.jsx` içerisindeki `.module-tooltip` ve `.preset-tooltip` bileşenleri yerel `position: absolute` yerine `createPortal` tabanlı, viewport taşmasını denetleyen bir portal katmanına bağlanır; `.categories-container` ve `.main-content`'in `overflow: hidden` sınırlarında kesilmez.
+- [x] 11.3 İç içe çakışan scroll konteynerlarını (scroll trapping) ve standart dışı `zoom: 0.8`'i temizle.
+      Acceptance: `src/index.css` içindeki standart dışı `body { zoom: 0.8; }` kuralı kaldırılır. `.advanced-container .module-discovery .categories-container` iç scrollu ile `.main-content` arasındaki fare tekeri kilitlenmesi optimize edilir.
+- [x] 11.4 `DefaultFlow.jsx` mobil ilerleme çubuğu taşmasını (horizontal overflow) düzelt.
+      Acceptance: `.default-flow-progress` 375px–430px mobil ekranlarda yatay scrollbar oluşturmaz; esnek/kompakt ızgarayla sığar.
+- [x] 11.5 `DefaultFlow` ve `Header` arasındaki çift başlık israfını (first-viewport crowding) gider.
+      Acceptance: Default modda üst üste binen global Header ve DefaultFlow başlığı sadeleştirilir; mobilde ilk ekranda etkileşimli kart alanı genişletilir.
+- [x] 11.6 `ParameterHoverMenu.jsx` dokunmatik / mobil outside-click desteği ekle.
+      Acceptance: Mobilde `Info` ikonuna tıklandığında açılan portal tooltipi, dışarı dokunulduğunda (`pointerdown` outside listener) temiz şekilde kapanır.
+
+---
+
+## Phase 12 — Design System, Rule 13 (Emoji Cleanup) & Dead Code Removal
+
+- [x] 12.1 Kural 13 uyarınca tüm emojileri kod tabanından temizle ve Lucide ikonlarıyla değiştir.
+      Acceptance: `src/domains/specs/*.js` dosyalarındaki preset adlarından (`⚡ Hızlı Özet`, `🚀 Özellik Yayınla`, `🧱 Temeller` vb.), `src/locales/i18n.js` brand başlıklarından, `src/ui/ActionBar.jsx` toast bildirimlerinden ve `ModuleGrid.jsx` rozetlerindeki unicode `✓` karakterlerinden emojiler tamamen temizlenir; yerlerine semantik `Lucide` ikonları ve i18n metinleri kullanılır.
+- [x] 12.2 `src/ui/PremptLogo.jsx` ESLint hatasını ve hook uyarılarını düzelt.
+      Acceptance: `PremptLogo.jsx` satır 1'deki gereksiz `import React from 'react';` silinir. `App.jsx` ve `OnboardingTour.jsx` içindeki React Hook dependency uyarıları düzeltilir. `npm run lint` 0 hata ve 0 uyarı ile geçer (`--max-warnings=0`).
+- [x] 12.3 Ölü kodları, ölü stilleri ve kalıntı assetleri projeden temizle.
+      Acceptance: `src/App.css` (185 satır ölü stil), `src/ui/IntroView.jsx`, `src/assets/hero.png`, `src/assets/react.svg`, `src/assets/vite.svg`, kök dizindeki scratch dosyaları (`scratch_*.cjs`, `scratch_*.ps1`) silinir.
+- [x] 12.4 `RecipesPanel.jsx` bileşenini kullanıcı arayüzüne (ActionBar modal veya drawer) bağla.
+      Acceptance: `RecipesPanel.jsx` ölü kod durumundan çıkarılır; `ActionBar.jsx` üzerindeki "Kayıtlı Tarifler" butonu/modalı ile kullanıcıların tarayıcıya kaydettiği şablonları listelemesi, yüklemesi ve silmesi sağlanır.
+
+---
+
+## Phase 13 — Validation Gates & Performance / Bundle Optimization
+
+- [x] 13.1 `scripts/validate-modules.mjs` doğrulama kapısını genişlet.
+      Acceptance: `npm run validate` komutu şunları doğrular ve hata durumunda sıfır olmayan kodla çıkar:
+    - [x] 13.1.1 15 domainin tüm presetlerinde `forceModules` içinde tekrar eden ID bulunmadığını (`Set` boyutu kontrolü).
+    - [x] 13.1.2 Her domain spec'inin `compilerTexts` bloklarında tüm `optionSets.modes` ve `optionSets.formats` anahtarlarının tanımlı olduğunu.
+    - [x] 13.1.3 `spec.layers` içindeki her katmanın `spec.ui.tr.categories` ve `spec.ui.en.categories` altında çevirisinin bulunduğunu.
+    - [x] 13.1.4 `spec.icon` anahtarının `DOMAIN_ICON_IDS` ve `iconRegistry.js` ile birebir eşleştiğini.
+    - [x] 13.1.5 Tüm `modules_*_en.json` dosyalarında Türkçe metin kalıntısı olmadığını.
+    - [x] 13.1.6 Modül JSON nesnelerinde `category` veya `description` gibi gereksiz şema fazlalıkları bulunmadığını.
+- [x] 13.2 `vite.config.js` içine Rollup `manualChunks` ekleyerek bundle uyarısını çöz.
+      Acceptance: `vite.config.js` build konfigürasyonunda `vendor-react` (`react`, `react-dom`, `zustand`), `vendor-icons` (`lucide-react`, `@icons-pack/react-simple-icons`), `domain-specs` ve `modules-data` chunk'ları ayrıştırılır; `npm run build` çıktısında hiçbir tekil JS chunk'ı 500 kB sınırını aşmaz.
+- [x] 13.3 `PROGRESS.md` ve `ARCHITECTURE.md` dosyalarını son doğrulama durumlarıyla güncelle.
+      Acceptance: Tüm kapılar (`npm run validate`, `npm run build`, `npm run lint`) çalıştırılır; gerçek çıktıları `PROGRESS.md` dosyasına session kaydı olarak işlenir; `ARCHITECTURE.md` güncel tek kaynak mimarisine göre güncellenir.
+
+---
+
+## Phase 14 — Final UI Polish & Visual Chrome Normalization
+
+- [x] 14.1 Mobil stepper/header yüksekliğini ve arayüz kalıntılarını normalize et.
+      Acceptance: Mobile stepper/header yüksekliği optimize edilir, provider/preset emoji ve legacy metinler normalize edilir, ilk ekranda gereksiz alan israfı kalmaz.

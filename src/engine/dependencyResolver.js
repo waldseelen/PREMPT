@@ -49,7 +49,9 @@ export class DependencyGraph {
                 
                 visiting.delete(id);
                 visited.add(id);
-                result.push(this.modules[id]);
+                if (this.modules[id]) {
+                    result.push(this.modules[id]);
+                }
             }
         };
 
@@ -57,7 +59,7 @@ export class DependencyGraph {
             visit(id);
         }
 
-        return result;
+        return result.filter(Boolean);
     }
 }
 

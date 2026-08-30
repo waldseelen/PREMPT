@@ -3,416 +3,356 @@
     "id": "audience-intent-triage",
     "icon": "🎯",
     "name": "Kitle ve Niyet Triyajı",
-    "category": "triage",
-    "description": "Okuyucunun arama niyetini (Search Intent) ve uzmanlık seviyesini belirler.",
+    "desc": "Okuyucunun arama niyetini (Search Intent) ve uzmanlık seviyesini belirler.",
+    "explain": "Okuyucunun arama niyetini (Search Intent) ve uzmanlık seviyesini belirler.",
     "layer": "triage",
     "requires": [],
-    "prompt": "Hedef kitle ve arama niyeti (Search Intent) triyajı yap: Okuyucu kim? (Yeni başlayan, uygulayıcı, karar verici). Aradığı şey bilgi mi (informational), çözüm mü (transactional) yoksa karşılaştırma mı?",
-    "desc": "Okuyucunun arama niyetini (Search Intent) ve uzmanlık seviyesini belirler.",
-    "explain": "Okuyucunun arama niyetini (Search Intent) ve uzmanlık seviyesini belirler."
+    "prompt": "Hedef kitle ve arama niyeti (Search Intent) triyajı yap: Okuyucu kim? (Yeni başlayan, uygulayıcı, karar verici). Aradığı şey bilgi mi (informational), çözüm mü (transactional) yoksa karşılaştırma mı?"
   },
   {
     "id": "thesis-sharpener",
     "icon": "🗡️",
     "name": "Tez ve Ana Fikir Keskinleştirici",
-    "category": "triage",
-    "description": "Yazının tek bir güçlü, savunulabilir ve radikal iddiasını belirler.",
+    "desc": "Yazının tek bir güçlü, savunulabilir ve radikal iddiasını belirler.",
+    "explain": "Yazının tek bir güçlü, savunulabilir ve radikal iddiasını belirler.",
     "layer": "triage",
     "requires": [
       "audience-intent-triage"
     ],
-    "prompt": "Yazının Ana İddiasını (Thesis Statement) keskinleştir: Yazı tek bir cümleyle neyi savunuyor? Jenerik ve herkesin bildiği doğrular yerine aykırı veya özgün açıyı (unique angle) ön plana çıkar.",
-    "desc": "Yazının tek bir güçlü, savunulabilir ve radikal iddiasını belirler.",
-    "explain": "Yazının tek bir güçlü, savunulabilir ve radikal iddiasını belirler."
+    "prompt": "Yazının Ana İddiasını (Thesis Statement) keskinleştir: Yazı tek bir cümleyle neyi savunuyor? Jenerik ve herkesin bildiği doğrular yerine aykırı veya özgün açıyı (unique angle) ön plana çıkar."
   },
   {
     "id": "core-hook-extractor",
     "icon": "🪝",
     "name": "Kritik Çengel (Hook) Çıkarıcı",
-    "category": "triage",
-    "description": "İlk 3 saniyede okuyucunun dikkatini kilitleyen çengeller tasarlar.",
+    "desc": "İlk 3 saniyede okuyucunun dikkatini kilitleyen çengeller tasarlar.",
+    "explain": "İlk 3 saniyede okuyucunun dikkatini kilitleyen çengeller tasarlar.",
     "layer": "triage",
     "requires": [
       "thesis-sharpener"
     ],
-    "prompt": "Giriş paragrafı için 3 alternatif Çengel (Hook) oluştur: (a) Şaşırtıcı bir istatistik, (b) Zihinsel bir paradoks veya counter-intuitive soru, (c) Doğrudan yüksek gerilimli mikro-hikaye.",
-    "desc": "İlk 3 saniyede okuyucunun dikkatini kilitleyen çengeller tasarlar.",
-    "explain": "İlk 3 saniyede okuyucunun dikkatini kilitleyen çengeller tasarlar."
+    "prompt": "Giriş paragrafı için 3 alternatif Çengel (Hook) oluştur: (a) Şaşırtıcı bir istatistik, (b) Zihinsel bir paradoks veya counter-intuitive soru, (c) Doğrudan yüksek gerilimli mikro-hikaye."
   },
   {
     "id": "tone-authority-setter",
     "icon": "🎙️",
     "name": "Ton ve Otorite Ayarlayıcı",
-    "category": "triage",
-    "description": "Metnin editoryal duruşunu (pragmatik, samimi, akademik) ayarlar.",
+    "desc": "Metnin editoryal duruşunu (pragmatik, samimi, akademik) ayarlar.",
+    "explain": "Metnin editoryal duruşunu (pragmatik, samimi, akademik) ayarlar.",
     "layer": "triage",
     "requires": [
       "audience-intent-triage"
     ],
-    "prompt": "Editoryal tonu ayarla: Konu uzmanı ama kibirsiz, pragmatik ve doğrudan sadede gelen 'Senior Editor' üslubu kur. Pazarlamacı (salesy) dili tamamen reddet.",
-    "desc": "Metnin editoryal duruşunu (pragmatik, samimi, akademik) ayarlar.",
-    "explain": "Metnin editoryal duruşunu (pragmatik, samimi, akademik) ayarlar."
+    "prompt": "Editoryal tonu ayarla: Konu uzmanı ama kibirsiz, pragmatik ve doğrudan sadede gelen 'Senior Editor' üslubu kur. Pazarlamacı (salesy) dili tamamen reddet."
   },
   {
     "id": "value-prop-alignment",
     "icon": "💎",
     "name": "Değer Önerisi Hizalaması",
-    "category": "triage",
-    "description": "Okuyucunun yazıyı okuduktan sonra kazanacağı somut çıktıyı netleştirir.",
+    "desc": "Okuyucunun yazıyı okuduktan sonra kazanacağı somut çıktıyı netleştirir.",
+    "explain": "Okuyucunun yazıyı okuduktan sonra kazanacağı somut çıktıyı netleştirir.",
     "layer": "triage",
     "requires": [
       "thesis-sharpener"
     ],
-    "prompt": "Okuyucunun 'Bu yazıyı okumak bana ne kazandıracak?' sorusuna yanıt ver: Okuma sonunda cebinde götüreceği 3 somut uygulanabilir çıktıyı (actionable takeaways) tanımla.",
-    "desc": "Okuyucunun yazıyı okuduktan sonra kazanacağı somut çıktıyı netleştirir.",
-    "explain": "Okuyucunun yazıyı okuduktan sonra kazanacağı somut çıktıyı netleştirir."
+    "prompt": "Okuyucunun 'Bu yazıyı okumak bana ne kazandıracak?' sorusuna yanıt ver: Okuma sonunda cebinde götüreceği 3 somut uygulanabilir çıktıyı (actionable takeaways) tanımla."
   },
   {
     "id": "content-angle-pivot",
     "icon": "🔄",
     "name": "İçerik Açısı (Angle) Pivotu",
-    "category": "triage",
-    "description": "Sıradan bir konuyu radikal ve özgün bir perspektife kaydırır.",
+    "desc": "Sıradan bir konuyu radikal ve özgün bir perspektife kaydırır.",
+    "explain": "Sıradan bir konuyu radikal ve özgün bir perspektife kaydırır.",
     "layer": "triage",
     "requires": [
       "core-hook-extractor"
     ],
-    "prompt": "İçerik açısını kaydır: Sektördeki 100 benzer blog yazısından farklı olarak, bu konuyu hangi radikal veya unutulmuş lens arkasından inceleyeceğiz?",
-    "desc": "Sıradan bir konuyu radikal ve özgün bir perspektife kaydırır.",
-    "explain": "Sıradan bir konuyu radikal ve özgün bir perspektife kaydırır."
+    "prompt": "İçerik açısını kaydır: Sektördeki 100 benzer blog yazısından farklı olarak, bu konuyu hangi radikal veya unutulmuş lens arkasından inceleyeceğiz?"
   },
   {
     "id": "evidence-hierarchy-audit",
     "icon": "📊",
     "name": "Kanıt Hiyerarşisi Denetimi (BLOG.md)",
-    "category": "evidence",
-    "description": "İddiaları SAĞLAM, KÜÇÜLDÜ, TARTIŞMALI, BİLİNMİYOR veya ÇÖKTÜ olarak etiketler.",
+    "desc": "İddiaları SAĞLAM, KÜÇÜLDÜ, TARTIŞMALI, BİLİNMİYOR veya ÇÖKTÜ olarak etiketler.",
+    "explain": "İddiaları SAĞLAM, KÜÇÜLDÜ, TARTIŞMALI, BİLİNMİYOR veya ÇÖKTÜ olarak etiketler.",
     "layer": "evidence",
     "requires": [
       "thesis-sharpener"
     ],
-    "prompt": "BLOG.md Kanıt Hiyerarşisi denetimi yap: Yazıdaki tüm iddiaları incele ve her birini etiketle: [SAĞLAM] (doğrulanmış ampirik veri), [KÜÇÜLDÜ] (sınırlı geçerlilik), [TARTIŞMALI] (akademik anlaşmazlık), [BİLİNMİYOR] (yeterli veri yok), [ÇÖKTÜ] (yanlışlanmış iddia).",
-    "desc": "İddiaları SAĞLAM, KÜÇÜLDÜ, TARTIŞMALI, BİLİNMİYOR veya ÇÖKTÜ olarak etiketler.",
-    "explain": "İddiaları SAĞLAM, KÜÇÜLDÜ, TARTIŞMALI, BİLİNMİYOR veya ÇÖKTÜ olarak etiketler."
+    "prompt": "BLOG.md Kanıt Hiyerarşisi denetimi yap: Yazıdaki tüm iddiaları incele ve her birini etiketle: [SAĞLAM] (doğrulanmış ampirik veri), [KÜÇÜLDÜ] (sınırlı geçerlilik), [TARTIŞMALI] (akademik anlaşmazlık), [BİLİNMİYOR] (yeterli veri yok), [ÇÖKTÜ] (yanlışlanmış iddia)."
   },
   {
     "id": "claim-verification-grid",
     "icon": "🔍",
     "name": "İddia Doğrulama Matrisi",
-    "category": "evidence",
-    "description": "Soyut iddiaları somut vaka çalışmaları ve istatistiklerle destekler.",
+    "desc": "Soyut iddiaları somut vaka çalışmaları ve istatistiklerle destekler.",
+    "explain": "Soyut iddiaları somut vaka çalışmaları ve istatistiklerle destekler.",
     "layer": "evidence",
     "requires": [
       "evidence-hierarchy-audit"
     ],
-    "prompt": "İddia Doğrulama Matrisi kur: Metindeki her soyut tez için en az 1 adet ampirik veri, vaka çalışması veya sektör örneği eşleştir.",
-    "desc": "Soyut iddiaları somut vaka çalışmaları ve istatistiklerle destekler.",
-    "explain": "Soyut iddiaları somut vaka çalışmaları ve istatistiklerle destekler."
+    "prompt": "İddia Doğrulama Matrisi kur: Metindeki her soyut tez için en az 1 adet ampirik veri, vaka çalışması veya sektör örneği eşleştir."
   },
   {
     "id": "data-citation-scrubber",
     "icon": "🧹",
     "name": "Veri ve Atıf Ayıklayıcı",
-    "category": "evidence",
-    "description": "Tarihi geçmiş, kaynağı belirsiz veya uydurma istatistikleri temizler.",
+    "desc": "Tarihi geçmiş, kaynağı belirsiz veya uydurma istatistikleri temizler.",
+    "explain": "Tarihi geçmiş, kaynağı belirsiz veya uydurma istatistikleri temizler.",
     "layer": "evidence",
     "requires": [
       "claim-verification-grid"
     ],
-    "prompt": "İstatistik ve veri temizliği yap: Kaynağı gösterilmeyen tüm 'araştırmalara göre' veya 'uzmanlar diyor ki' gibi yuvarlak lafları sil. Yerine spesifik rapor ve yıl ismi koy.",
-    "desc": "Tarihi geçmiş, kaynağı belirsiz veya uydurma istatistikleri temizler.",
-    "explain": "Tarihi geçmiş, kaynağı belirsiz veya uydurma istatistikleri temizler."
+    "prompt": "İstatistik ve veri temizliği yap: Kaynağı gösterilmeyen tüm 'araştırmalara göre' veya 'uzmanlar diyor ki' gibi yuvarlak lafları sil. Yerine spesifik rapor ve yıl ismi koy."
   },
   {
     "id": "anecdotal-evidence-test",
     "icon": "📖",
     "name": "Anekdotsal Kanıt Testi",
-    "category": "evidence",
-    "description": "Tekil hikayelerin genelleme gibi sunulmasını engeller.",
+    "desc": "Tekil hikayelerin genelleme gibi sunulmasını engeller.",
+    "explain": "Tekil hikayelerin genelleme gibi sunulmasını engeller.",
     "layer": "evidence",
     "requires": [
       "evidence-hierarchy-audit"
     ],
-    "prompt": "Anekdotsal kanıt kontrolü yap: Kişisel deneyim veya tekil başarı hikayelerinin sistematik bir kural gibi sunulup sunulmadığını denetle.",
-    "desc": "Tekil hikayelerin genelleme gibi sunulmasını engeller.",
-    "explain": "Tekil hikayelerin genelleme gibi sunulmasını engeller."
+    "prompt": "Anekdotsal kanıt kontrolü yap: Kişisel deneyim veya tekil başarı hikayelerinin sistematik bir kural gibi sunulup sunulmadığını denetle."
   },
   {
     "id": "expert-quote-integration",
     "icon": "💬",
     "name": "Uzman Görüşü ve Alıntı Entegrasyonu",
-    "category": "evidence",
-    "description": "Alanında otorite isimlerin nitelikli görüşlerini metne yedirir.",
+    "desc": "Alanında otorite isimlerin nitelikli görüşlerini metne yedirir.",
+    "explain": "Alanında otorite isimlerin nitelikli görüşlerini metne yedirir.",
     "layer": "evidence",
     "requires": [
       "data-citation-scrubber"
     ],
-    "prompt": "Metne tanınmış sektör uzmanlarının veya akademisyenlerin 2 adet doğrudan, yüksek etki gücüne sahip alıntısını entegre et.",
-    "desc": "Alanında otorite isimlerin nitelikli görüşlerini metne yedirir.",
-    "explain": "Alanında otorite isimlerin nitelikli görüşlerini metne yedirir."
+    "prompt": "Metne tanınmış sektör uzmanlarının veya akademisyenlerin 2 adet doğrudan, yüksek etki gücüne sahip alıntısını entegre et."
   },
   {
     "id": "counter-evidence-check",
     "icon": "⚖️",
     "name": "Karşıt Kanıt Taraması",
-    "category": "evidence",
-    "description": "Savunulan teze zıt ampirik verileri açıkça kabul eder ve tartışır.",
+    "desc": "Savunulan teze zıt ampirik verileri açıkça kabul eder ve tartışır.",
+    "explain": "Savunulan teze zıt ampirik verileri açıkça kabul eder ve tartışır.",
     "layer": "evidence",
     "requires": [
       "claim-verification-grid"
     ],
-    "prompt": "Savunulan teze zıt düşen en güçlü ampirik veriyi tespit et ve metin içinde bu karşıt kanıtı adil bir şekilde tartışarak tezini güçlendir.",
-    "desc": "Savunulan teze zıt ampirik verileri açıkça kabul eder ve tartışır.",
-    "explain": "Savunulan teze zıt ampirik verileri açıkça kabul eder ve tartışır."
+    "prompt": "Savunulan teze zıt düşen en güçlü ampirik veriyi tespit et ve metin içinde bu karşıt kanıtı adil bir şekilde tartışarak tezini güçlendir."
   },
   {
     "id": "steelman-counter-arg",
     "icon": "🛡️",
     "name": "Karşıt Görüşü Steelman Etme",
-    "category": "dialectic",
-    "description": "Okuyucunun olası itirazlarını samimiyetle ve en güçlü haliyle ele alır.",
+    "desc": "Okuyucunun olası itirazlarını samimiyetle ve en güçlü haliyle ele alır.",
+    "explain": "Okuyucunun olası itirazlarını samimiyetle ve en güçlü haliyle ele alır.",
     "layer": "dialectic",
     "requires": [
       "thesis-sharpener"
     ],
-    "prompt": "Okuyucunun aklına gelecek en büyük 2 itirazı 'Steelman' ederek yazının içine yerleştir: Karşı argümanı haklı yönleriyle kabul et, ardından ana tezin neden hala geçerli olduğunu göster.",
-    "desc": "Okuyucunun olası itirazlarını samimiyetle ve en güçlü haliyle ele alır.",
-    "explain": "Okuyucunun olası itirazlarını samimiyetle ve en güçlü haliyle ele alır."
+    "prompt": "Okuyucunun aklına gelecek en büyük 2 itirazı 'Steelman' ederek yazının içine yerleştir: Karşı argümanı haklı yönleriyle kabul et, ardından ana tezin neden hala geçerli olduğunu göster."
   },
   {
     "id": "dialectic-synthesis-flow",
     "icon": "☯️",
     "name": "Diyalektik Akış (Tez-Antitez-Sentez)",
-    "category": "dialectic",
-    "description": "Yazıyı yüzeysel bir listeden derin bir diyalektik anlatıya dönüştürür.",
+    "desc": "Yazıyı yüzeysel bir listeden derin bir diyalektik anlatıya dönüştürür.",
+    "explain": "Yazıyı yüzeysel bir listeden derin bir diyalektik anlatıya dönüştürür.",
     "layer": "dialectic",
     "requires": [
       "steelman-counter-arg"
     ],
-    "prompt": "Yazının ana gövdesini diyalektik akışla kurgula: (a) Yaygın Kabul (Tez), (b) Kırılma Noktası ve İtiraz (Antitez), (c) Yeni Bütüncül Yaklaşım (Sentez).",
-    "desc": "Yazıyı yüzeysel bir listeden derin bir diyalektik anlatıya dönüştürür.",
-    "explain": "Yazıyı yüzeysel bir listeden derin bir diyalektik anlatıya dönüştürür."
+    "prompt": "Yazının ana gövdesini diyalektik akışla kurgula: (a) Yaygın Kabul (Tez), (b) Kırılma Noktası ve İtiraz (Antitez), (c) Yeni Bütüncül Yaklaşım (Sentez)."
   },
   {
     "id": "nuance-injector",
     "icon": "🎨",
     "name": "Nüans Enjektörü",
-    "category": "dialectic",
-    "description": "Siyah-beyaz anlatıları gri alanlar ve koşullu geçerlilikle zenginleştirir.",
+    "desc": "Siyah-beyaz anlatıları gri alanlar ve koşullu geçerlilikle zenginleştirir.",
+    "explain": "Siyah-beyaz anlatıları gri alanlar ve koşullu geçerlilikle zenginleştirir.",
     "layer": "dialectic",
     "requires": [
       "dialectic-synthesis-flow"
     ],
-    "prompt": "Metne nüans kat: 'Bu yaklaşım her zaman çalışır' demek yerine, hangi koşullarda (bağlam, ölçek, bütçe) İŞLEMEDİĞİNİ gösteren gri alanları ekle.",
-    "desc": "Siyah-beyaz anlatıları gri alanlar ve koşullu geçerlilikle zenginleştirir.",
-    "explain": "Siyah-beyaz anlatıları gri alanlar ve koşullu geçerlilikle zenginleştirir."
+    "prompt": "Metne nüans kat: 'Bu yaklaşım her zaman çalışır' demek yerine, hangi koşullarda (bağlam, ölçek, bütçe) İŞLEMEDİĞİNİ gösteren gri alanları ekle."
   },
   {
     "id": "cognitive-dissonance-hook",
     "icon": "⚡",
     "name": "Bilişsel Çelişki Kurgusu",
-    "category": "dialectic",
-    "description": "Okuyucunun mevcut kabullerini sarsarak merak uyandırır.",
+    "desc": "Okuyucunun mevcut kabullerini sarsarak merak uyandırır.",
+    "explain": "Okuyucunun mevcut kabullerini sarsarak merak uyandırır.",
     "layer": "dialectic",
     "requires": [
       "steelman-counter-arg"
     ],
-    "prompt": "Bilişsel Çelişki (Cognitive Dissonance) yarat: Okuyucunun doğru bildiği bir uygulamanın aslında ona nasıl zarar verdiğini göstererek zihinsel bir kıvılcım çak.",
-    "desc": "Okuyucunun mevcut kabullerini sarsarak merak uyandırır.",
-    "explain": "Okuyucunun mevcut kabullerini sarsarak merak uyandırır."
+    "prompt": "Bilişsel Çelişki (Cognitive Dissonance) yarat: Okuyucunun doğru bildiği bir uygulamanın aslında ona nasıl zarar verdiğini göstererek zihinsel bir kıvılcım çak."
   },
   {
     "id": "paradox-resolution-narrative",
     "icon": "🧩",
     "name": "Paradox Çözüm Anlatısı",
-    "category": "dialectic",
-    "description": "Sektörel bir çelişkiyi veya paradoksu çözüme kavuşturan hikaye dizilimi.",
+    "desc": "Sektörel bir çelişkiyi veya paradoksu çözüme kavuşturan hikaye dizilimi.",
+    "explain": "Sektörel bir çelişkiyi veya paradoksu çözüme kavuşturan hikaye dizilimi.",
     "layer": "dialectic",
     "requires": [
       "dialectic-synthesis-flow"
     ],
-    "prompt": "Konunun göbeğindeki sektörel paradoksu tanımla ve yazının sonunda bu paradoksu çözen zihinsel modeli sun.",
-    "desc": "Sektörel bir çelişkiyi veya paradoksu çözüme kavuşturan hikaye dizilimi.",
-    "explain": "Sektörel bir çelişkiyi veya paradoksu çözüme kavuşturan hikaye dizilimi."
+    "prompt": "Konunun göbeğindeki sektörel paradoksu tanımla ve yazının sonunda bu paradoksu çözen zihinsel modeli sun."
   },
   {
     "id": "multiple-perspectives-grid",
     "icon": "🌐",
     "name": "Çoklu Perspektif Matrisi",
-    "category": "dialectic",
-    "description": "Konuyu geliştirici, yönetici ve müşteri gözünden eşzamanlı değerlendirir.",
+    "desc": "Konuyu geliştirici, yönetici ve müşteri gözünden eşzamanlı değerlendirir.",
+    "explain": "Konuyu geliştirici, yönetici ve müşteri gözünden eşzamanlı değerlendirir.",
     "layer": "dialectic",
     "requires": [
       "nuance-injector"
     ],
-    "prompt": "Konuyu 3 farklı aktörün (Örn: Geliştirici, CEO, Müşteri) penceresinden aynı anda değerlendiren çok katmanlı bir analiz paragrafı ekle.",
-    "desc": "Konuyu geliştirici, yönetici ve müşteri gözünden eşzamanlı değerlendirir.",
-    "explain": "Konuyu geliştirici, yönetici ve müşteri gözünden eşzamanlı değerlendirir."
+    "prompt": "Konuyu 3 farklı aktörün (Örn: Geliştirici, CEO, Müşteri) penceresinden aynı anda değerlendiren çok katmanlı bir analiz paragrafı ekle."
   },
   {
     "id": "outline-builder-notes",
     "icon": "📝",
     "name": "Taslak Mimarı ve YAZIM NOTU (BLOG.md)",
-    "category": "structure",
-    "description": "Her alt başlığa [YAZIM NOTU: Ton/Amaç] direktifleri ekleyerek taslağı kurar.",
+    "desc": "Her alt başlığa [YAZIM NOTU: Ton/Amaç] direktifleri ekleyerek taslağı kurar.",
+    "explain": "Her alt başlığa [YAZIM NOTU: Ton/Amaç] direktifleri ekleyerek taslağı kurar.",
     "layer": "structure",
     "requires": [],
-    "prompt": "BLOG.md standartlarında Taslak (Outline) oluştur: Her H2 ve H3 alt başlığının altına dikli parantez içinde `[YAZIM NOTU: Bu bölümde X verisi verilecek, ton sert olacak ve Y klisesinden kaçınılacak]` talimatı ekle.",
-    "desc": "Her alt başlığa [YAZIM NOTU: Ton/Amaç] direktifleri ekleyerek taslağı kurar.",
-    "explain": "Her alt başlığa [YAZIM NOTU: Ton/Amaç] direktifleri ekleyerek taslağı kurar."
+    "prompt": "BLOG.md standartlarında Taslak (Outline) oluştur: Her H2 ve H3 alt başlığının altına dikli parantez içinde `[YAZIM NOTU: Bu bölümde X verisi verilecek, ton sert olacak ve Y klisesinden kaçınılacak]` talimatı ekle."
   },
   {
     "id": "section-transition-pacing",
     "icon": "⏱️",
     "name": "Bölüm Geçişleri ve Tempo (Pacing)",
-    "category": "structure",
-    "description": "Uzun metinlerde okuyucunun kopmasını engelleyen ritmik geçişler kurar.",
+    "desc": "Uzun metinlerde okuyucunun kopmasını engelleyen ritmik geçişler kurar.",
+    "explain": "Uzun metinlerde okuyucunun kopmasını engelleyen ritmik geçişler kurar.",
     "layer": "structure",
     "requires": [
       "outline-builder-notes"
     ],
-    "prompt": "Bölüm geçişlerini ve okuma temposunu düzenle: Uzun ve derin analiz paragraflarının ardından kısa, vurucu ve özetleyici tek cümlelik geçişler yerleştir.",
-    "desc": "Uzun metinlerde okuyucunun kopmasını engelleyen ritmik geçişler kurar.",
-    "explain": "Uzun metinlerde okuyucunun kopmasını engelleyen ritmik geçişler kurar."
+    "prompt": "Bölüm geçişlerini ve okuma temposunu düzenle: Uzun ve derin analiz paragraflarının ardından kısa, vurucu ve özetleyici tek cümlelik geçişler yerleştir."
   },
   {
     "id": "pyramid-principle",
     "icon": "🔺",
     "name": "Piramit İlkesi (Minto Pyramid)",
-    "category": "structure",
-    "description": "Önce ana sonucu/çözümü söyler, ardından destekleyici nedenlere inip detayı verir.",
+    "desc": "Önce ana sonucu/çözümü söyler, ardından destekleyici nedenlere inip detayı verir.",
+    "explain": "Önce ana sonucu/çözümü söyler, ardından destekleyici nedenlere inip detayı verir.",
     "layer": "structure",
     "requires": [
       "outline-builder-notes"
     ],
-    "prompt": "McKinsey Piramit İlkesini (Minto Pyramid Principle) uygula: Her paragrafın ve bölümün İLK cümlesinde ana mesajı/sonucu ver, ardından gelen cümlelerde kanıt ve detaylandır.",
-    "desc": "Önce ana sonucu/çözümü söyler, ardından destekleyici nedenlere inip detayı verir.",
-    "explain": "Önce ana sonucu/çözümü söyler, ardından destekleyici nedenlere inip detayı verir."
+    "prompt": "McKinsey Piramit İlkesini (Minto Pyramid Principle) uygula: Her paragrafın ve bölümün İLK cümlesinde ana mesajı/sonucu ver, ardından gelen cümlelerde kanıt ve detaylandır."
   },
   {
     "id": "skimmability-formatter",
     "icon": "👀",
     "name": "Gözle Taranabilirlik (Skimmability) Formatı",
-    "category": "structure",
-    "description": "Kalın vurgular, maddeler ve çağrı kutuları (callout) ile taranabilirlik sağlar.",
+    "desc": "Kalın vurgular, maddeler ve çağrı kutuları (callout) ile taranabilirlik sağlar.",
+    "explain": "Kalın vurgular, maddeler ve çağrı kutuları (callout) ile taranabilirlik sağlar.",
     "layer": "structure",
     "requires": [
       "section-transition-pacing"
     ],
-    "prompt": "Metni gözle taranabilir yap: Yalnızca anahtar kavramları **koyu** yaz, uzun listeleri maddelere böl ve en kritik mesajı `> Callout Kutusu` içine al.",
-    "desc": "Kalın vurgular, maddeler ve çağrı kutuları (callout) ile taranabilirlik sağlar.",
-    "explain": "Kalın vurgular, maddeler ve çağrı kutuları (callout) ile taranabilirlik sağlar."
+    "prompt": "Metni gözle taranabilir yap: Yalnızca anahtar kavramları **koyu** yaz, uzun listeleri maddelere böl ve en kritik mesajı `> Callout Kutusu` içine al."
   },
   {
     "id": "key-takeaway-distiller",
     "icon": "💡",
     "name": "Özet Notlar (TL;DR) Kutusu",
-    "category": "structure",
-    "description": "Yazının başında veya sonunda 3 maddelik yönetici özeti çıkarır.",
+    "desc": "Yazının başında veya sonunda 3 maddelik yönetici özeti çıkarır.",
+    "explain": "Yazının başında veya sonunda 3 maddelik yönetici özeti çıkarır.",
     "layer": "structure",
     "requires": [
       "pyramid-principle"
     ],
-    "prompt": "Yazının hemen girişine '3 Cümlede Özet (TL;DR)' kutusu ekle. Acelesi olan okuyucunun ana fikri 5 saniyede almasını sağla.",
-    "desc": "Yazının başında veya sonunda 3 maddelik yönetici özeti çıkarır.",
-    "explain": "Yazının başında veya sonunda 3 maddelik yönetici özeti çıkarır."
+    "prompt": "Yazının hemen girişine '3 Cümlede Özet (TL;DR)' kutusu ekle. Acelesi olan okuyucunun ana fikri 5 saniyede almasını sağla."
   },
   {
     "id": "article-closure-callout",
     "icon": "🚀",
     "name": "Kapanış ve Eylem Çağrısı (CTA)",
-    "category": "structure",
-    "description": "Satış odaklı olmayan, entelektüel bir tartışma veya eylem çağrısı tasarlar.",
+    "desc": "Satış odaklı olmayan, entelektüel bir tartışma veya eylem çağrısı tasarlar.",
+    "explain": "Satış odaklı olmayan, entelektüel bir tartışma veya eylem çağrısı tasarlar.",
     "layer": "structure",
     "requires": [
       "key-takeaway-distiller"
     ],
-    "prompt": "Kapanış bölümünü kurgula: Pazarlamacı CTA'ları yerine, okuyucuyu kendi sistemini sorgulamaya davet eden entelektüel bir kapanış sorusu veya uygulama adımı yaz.",
-    "desc": "Satış odaklı olmayan, entelektüel bir tartışma veya eylem çağrısı tasarlar.",
-    "explain": "Satış odaklı olmayan, entelektüel bir tartışma veya eylem çağrısı tasarlar."
+    "prompt": "Kapanış bölümünü kurgula: Pazarlamacı CTA'ları yerine, okuyucuyu kendi sistemini sorgulamaya davet eden entelektüel bir kapanış sorusu veya uygulama adımı yaz."
   },
   {
     "id": "pop-culture-cliche-filter",
     "icon": "🚫",
     "name": "Pop-Kültür ve AI Klişe Filtresi",
-    "category": "anti-patterns",
-    "description": "'Game-changer', 'Revolutionary', 'Delve', 'Unpack' gibi klişeleri bıçak gibi keser.",
+    "desc": "'Game-changer', 'Revolutionary', 'Delve', 'Unpack' gibi klişeleri bıçak gibi keser.",
+    "explain": "'Game-changer', 'Revolutionary', 'Delve', 'Unpack' gibi klişeleri bıçak gibi keser.",
     "layer": "anti-patterns",
     "requires": [
       "tone-authority-setter"
     ],
-    "prompt": "Metinden tüm pazarlama klişelerini ve AI jargonu lafları temizle: 'Oyunun kurallarını değiştiren', 'Devrim niteliğinde', 'Derinlemesine incelemek', 'Gelecek burada' gibi lafları tamamen sil.",
-    "desc": "'Game-changer', 'Revolutionary', 'Delve', 'Unpack' gibi klişeleri bıçak gibi keser.",
-    "explain": "'Game-changer', 'Revolutionary', 'Delve', 'Unpack' gibi klişeleri bıçak gibi keser."
+    "prompt": "Metinden tüm pazarlama klişelerini ve AI jargonu lafları temizle: 'Oyunun kurallarını değiştiren', 'Devrim niteliğinde', 'Derinlemesine incelemek', 'Gelecek burada' gibi lafları tamamen sil."
   },
   {
     "id": "ai-jargon-slasher",
     "icon": "⚔️",
     "name": "Yapay Zeka Metin İzleri Temizliği",
-    "category": "anti-patterns",
-    "description": "LLM metinlerinin karakteristik bağlaçlarını ve simetrik yapısını kırar.",
+    "desc": "LLM metinlerinin karakteristik bağlaçlarını ve simetrik yapısını kırar.",
+    "explain": "LLM metinlerinin karakteristik bağlaçlarını ve simetrik yapısını kırar.",
     "layer": "anti-patterns",
     "requires": [
       "pop-culture-cliche-filter"
     ],
-    "prompt": "AI yapaylığını sil: 'Öte yandan', 'Sonuç olarak', 'Bununla birlikte' gibi aşırı kullanılan bağlaçları azalt. Paragraf uzunluklarını insan ritmine uygun şekilde rasgeleleştir.",
-    "desc": "LLM metinlerinin karakteristik bağlaçlarını ve simetrik yapısını kırar.",
-    "explain": "LLM metinlerinin karakteristik bağlaçlarını ve simetrik yapısını kırar."
+    "prompt": "AI yapaylığını sil: 'Öte yandan', 'Sonuç olarak', 'Bununla birlikte' gibi aşırı kullanılan bağlaçları azalt. Paragraf uzunluklarını insan ritmine uygun şekilde rasgeleleştir."
   },
   {
     "id": "fluff-sentence-remover",
     "icon": "✂️",
     "name": "Laf Kalabalığı (Fluff) Budayıcı",
-    "category": "anti-patterns",
-    "description": "Anlama katkısı sağlamayan tüm dolgu cümlelerini çıkarır.",
+    "desc": "Anlama katkısı sağlamayan tüm dolgu cümlelerini çıkarır.",
+    "explain": "Anlama katkısı sağlamayan tüm dolgu cümlelerini çıkarır.",
     "layer": "anti-patterns",
     "requires": [
       "ai-jargon-slasher"
     ],
-    "prompt": "Sıkı Metin Budaması: Sıfır bilgi değeri taşıyan, sadece yer kaplayan tüm dolgu cümlelerini sil. Metni en az %20 oranında kısaltarak yoğunlaştır.",
-    "desc": "Anlama katkısı sağlamayan tüm dolgu cümlelerini çıkarır.",
-    "explain": "Anlama katkısı sağlamayan tüm dolgu cümlelerini çıkarır."
+    "prompt": "Sıkı Metin Budaması: Sıfır bilgi değeri taşıyan, sadece yer kaplayan tüm dolgu cümlelerini sil. Metni en az %20 oranında kısaltarak yoğunlaştır."
   },
   {
     "id": "passive-voice-trimmer",
     "icon": "🧹",
     "name": "Edilgen Dili Etken Dile Çevirme",
-    "category": "anti-patterns",
-    "description": "Yazının enerjisini düşüren edilgen cümleleri doğrudan etken eylemlere dönüştürür.",
+    "desc": "Yazının enerjisini düşüren edilgen cümleleri doğrudan etken eylemlere dönüştürür.",
+    "explain": "Yazının enerjisini düşüren edilgen cümleleri doğrudan etken eylemlere dönüştürür.",
     "layer": "anti-patterns",
     "requires": [
       "fluff-sentence-remover"
     ],
-    "prompt": "Cümlelerdeki edilgen (passive) çatıları aktif ve canlı etken eylemlere dönüştür. (Örn: 'Sistem tarafından hata yapıldı' -> 'Sistem hata yaptı').",
-    "desc": "Yazının enerjisini düşüren edilgen cümleleri doğrudan etken eylemlere dönüştürür.",
-    "explain": "Yazının enerjisini düşüren edilgen cümleleri doğrudan etken eylemlere dönüştürür."
+    "prompt": "Cümlelerdeki edilgen (passive) çatıları aktif ve canlı etken eylemlere dönüştür. (Örn: 'Sistem tarafından hata yapıldı' -> 'Sistem hata yaptı')."
   },
   {
     "id": "clickbait-de-escalator",
     "icon": "🧯",
     "name": "Tık Tuzağı (Clickbait) Nötrleme",
-    "category": "anti-patterns",
-    "description": "Aşırı abartılı başlık ve iddiaları editoryal dürüstlük seviyesine çeker.",
+    "desc": "Aşırı abartılı başlık ve iddiaları editoryal dürüstlük seviyesine çeker.",
+    "explain": "Aşırı abartılı başlık ve iddiaları editoryal dürüstlük seviyesine çeker.",
     "layer": "anti-patterns",
     "requires": [
       "pop-culture-cliche-filter"
     ],
-    "prompt": "Başlık ve alt başlıklardaki tık tuzağı (clickbait) abartılarını temizle. Başlığı yazının GERÇEKTEN sunduğu içerikle %100 dürüst seviyeye hizala.",
-    "desc": "Aşırı abartılı başlık ve iddiaları editoryal dürüstlük seviyesine çeker.",
-    "explain": "Aşırı abartılı başlık ve iddiaları editoryal dürüstlük seviyesine çeker."
+    "prompt": "Başlık ve alt başlıklardaki tık tuzağı (clickbait) abartılarını temizle. Başlığı yazının GERÇEKTEN sunduğu içerikle %100 dürüst seviyeye hizala."
   },
   {
     "id": "repetition-purger",
     "icon": "🔄",
     "name": "Tekrar ve Tautology Temizliği",
-    "category": "anti-patterns",
-    "description": "Farklı kelimelerle aynı şeyi söyleyen yinelenen paragrafları siler.",
+    "desc": "Farklı kelimelerle aynı şeyi söyleyen yinelenen paragrafları siler.",
+    "explain": "Farklı kelimelerle aynı şeyi söyleyen yinelenen paragrafları siler.",
     "layer": "anti-patterns",
     "requires": [
       "fluff-sentence-remover"
     ],
-    "prompt": "Metindeki fikir tekrarlarını (Tautology) ve farklı kelimelerle aynı düşünceyi geveleyen tüm paragrafları tespit edip tek bir güçlü cümleye indirge.",
-    "desc": "Farklı kelimelerle aynı şeyi söyleyen yinelenen paragrafları siler.",
-    "explain": "Farklı kelimelerle aynı şeyi söyleyen yinelenen paragrafları siler."
+    "prompt": "Metindeki fikir tekrarlarını (Tautology) ve farklı kelimelerle aynı düşünceyi geveleyen tüm paragrafları tespit edip tek bir güçlü cümleye indirge."
   }
 ]

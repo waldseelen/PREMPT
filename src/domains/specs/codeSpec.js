@@ -32,7 +32,17 @@ export const codeSpec = {
         "build": "Geliştir & Kur",
         "review": "İncele & Sertleştir",
         "understand": "Anla & Öğren"
-      }
+      },
+      "categories": {
+        "design": "Sistem Tasarımı",
+        "build": "İnşa & İmplementasyon",
+        "comprehend": "Kod Anlama & Analiz",
+        "harden": "Güvenlik & Dayanıklılık",
+        "ship": "Dağıtım & Operasyon"
+      },
+      "modulesTitle": "Modüller (Module Blocks)",
+      "presetsTitle": "Uzman Hazır Şablonları (System Presets)",
+      "paramsTitle": "Parametreler"
     },
     "en": {
       "title": "Parametric Code Engineer",
@@ -49,7 +59,17 @@ export const codeSpec = {
         "build": "Build & Construct",
         "review": "Review & Harden",
         "understand": "Understand & Learn"
-      }
+      },
+      "categories": {
+        "design": "System Design",
+        "build": "Build & Implementation",
+        "comprehend": "Comprehension & Analysis",
+        "harden": "Hardening & Security",
+        "ship": "Shipping & Ops"
+      },
+      "modulesTitle": "Module Blocks",
+      "presetsTitle": "System Presets",
+      "paramsTitle": "Parameters"
     }
   },
   "optionSets": {
@@ -132,18 +152,88 @@ export const codeSpec = {
   },
   "compilerTexts": {
     "tr": {
-      "topicHeader": "YAZILIM GÖREVİ",
-      "levelHeader": "HEDEF OLGUNLUK",
-      "modeHeader": "MÜHENDİSLİK PERSONASI",
-      "depthHeader": "ANALİZ DERİNLİĞİ",
-      "formatHeader": "KOD ÇIKTI FORMATI"
+      "mod": {
+        "senior": "Sen kıdemli bir yazılım mühendisisin. Kod kalitesini, sürdürülebilirliği ve doğru mühendislik ödünleşimlerini önceliklendirirsin.",
+        "reviewer": "Sen titiz bir kod inceleme uzmanısın. Pull request'leri doğruluk, tasarım ve okunabilirlik açısından eleştirel gözle değerlendirirsin.",
+        "architect": "Sen bir yazılım mimarısın. Sistemleri bileşenlere ayırır, sınırları tanımlar ve uzun vadeli mimari kararları gerekçelendirirsin.",
+        "pair": "Sen deneyimli bir eş programlama (pair programming) ortağısın. Düşünce sürecini paylaşır, alternatifleri tartışır ve birlikte en iyi çözüme ulaşırsın.",
+        "security": "Sen bir uygulama güvenliği mühendisisin. Her kod parçasını bir saldırganın gözünden değerlendirir, istismar edilebilir zayıflıkları önceliklendirirsin."
+      },
+      "derinlik": {
+        "temel": "Açıklamaları kısa tut; sadece temel yaklaşımı ve sonucu ver, ayrıntıya girme.",
+        "orta": "Makul düzeyde detay ver; ana mantığı ve önemli tasarım kararlarını açıkla, aşırı ayrıntıya boğma.",
+        "derin": "Kapsamlı bir analiz yap; edge case'leri, alternatifleri ve gerekçeleri örneklerle destekle.",
+        "kapsamli": "Mümkün olan en derin ve kapsamlı analizi yap; hiçbir edge case'i, riski veya alternatifi atlama."
+      },
+      "format": {
+        "explained": "Kodu, her önemli bloğun hemen altında kısa açıklamalarla birlikte ver.",
+        "full": "Kesilmemiş, tam ve çalıştırılabilir dosya içeriğini ver; parça veya yer tutucu kullanma.",
+        "diff": "Değişikliği unified diff formatında (+/- satırlarıyla) sun.",
+        "stepwise": "Çözümü adım adım, her adımda ne yapıldığını ve nedenini açıklayarak ilerlet."
+      },
+      "labels": {
+        "role": "[ROLE]",
+        "goal": "[GOAL]",
+        "context": "[CONTEXT]",
+        "modules": "[ACTIVE MODULES]",
+        "instructions": "[INSTRUCTIONS]",
+        "format": "[OUTPUT FORMAT]",
+        "constraints": "[CONSTRAINTS / SAFETY]"
+      },
+      "contextLabels": {
+        "domain": "Alan:",
+        "level": "Seviye:",
+        "depthRequirement": "Derinlik Gereksinimi:"
+      },
+      "goalTemplate": "\"{{KONU}}\" görevini doğru, sürdürülebilir ve production'a hazır bir mühendislik çözümüyle tamamlamak.",
+      "constraintsBase": [
+        "Doğrudan çözüme gir, gereksiz giriş cümlesi yazma.",
+        "Varsayımda bulunduğun her yerde bunu açıkça belirt, sessizce varsayma.",
+        "Kodu her zaman çalışır ve eksiksiz ver; '...geri kalanı burada' gibi yer tutucu bırakma."
+      ],
+      "monologueText": "İÇ SES MODU: Kod yazmadan veya bir karar vermeden önce, en az 3 alternatif yaklaşımı (<thinking> tagleri içerisinde) değerlendir ve en iyisini seç. Ancak nihai kullanıcı çıktısına bu iç sesi yansıtma."
     },
     "en": {
-      "topicHeader": "SOFTWARE TASK",
-      "levelHeader": "TARGET MATURITY",
-      "modeHeader": "ENGINEERING PERSONA",
-      "depthHeader": "ANALYSIS DEPTH",
-      "formatHeader": "CODE OUTPUT FORMAT"
+      "mod": {
+        "senior": "You are a senior software engineer. You prioritize code quality, maintainability, and sound engineering tradeoffs.",
+        "reviewer": "You are a meticulous code review specialist. You evaluate pull requests critically for correctness, design, and readability.",
+        "architect": "You are a software architect. You decompose systems into components, define boundaries, and justify long-term architectural decisions.",
+        "pair": "You are an experienced pair-programming partner. You share your reasoning, discuss alternatives, and work toward the best solution together.",
+        "security": "You are an application security engineer. You evaluate every piece of code through an attacker's mindset, prioritizing exploitable weaknesses."
+      },
+      "derinlik": {
+        "temel": "Keep it brief; give only the core approach and result, skip the detail.",
+        "orta": "Provide a moderate level of detail; explain the main logic and key design decisions without over-explaining.",
+        "derin": "Perform a thorough analysis; support edge cases, alternatives, and rationale with examples.",
+        "kapsamli": "Perform the most exhaustive analysis possible; do not skip any edge case, risk, or alternative."
+      },
+      "format": {
+        "explained": "Present the code with short explanations directly under each significant block.",
+        "full": "Provide the complete, uncut, runnable file content; no fragments or placeholders.",
+        "diff": "Present the change as a unified diff (+/- lines).",
+        "stepwise": "Build the solution step by step, explaining what is done and why at each step."
+      },
+      "labels": {
+        "role": "[ROLE]",
+        "goal": "[GOAL]",
+        "context": "[CONTEXT]",
+        "modules": "[ACTIVE MODULES]",
+        "instructions": "[INSTRUCTIONS]",
+        "format": "[OUTPUT FORMAT]",
+        "constraints": "[CONSTRAINTS / SAFETY]"
+      },
+      "contextLabels": {
+        "domain": "Domain:",
+        "level": "Level:",
+        "depthRequirement": "Depth Requirement:"
+      },
+      "goalTemplate": "To complete the task \"{{KONU}}\" with a correct, maintainable, production-ready engineering solution.",
+      "constraintsBase": [
+        "Get straight to the solution, no unnecessary preamble.",
+        "Explicitly flag every assumption you make — never assume silently.",
+        "Always give complete, runnable code; never leave '...rest of the implementation here' placeholders."
+      ],
+      "monologueText": "INTERNAL MONOLOGUE: Before writing code or making a decision, evaluate at least 3 alternative approaches using your internal monologue (<thinking> tags) and select the best one. Do not show this internal monologue in the final output."
     }
   },
   "presets": {
@@ -151,15 +241,14 @@ export const codeSpec = {
       "id": "ship-feature",
       "group": "build",
       "name": {
-        "tr": "🚀 Özellik Yayınla",
-        "en": "🚀 Ship Feature"
+        "tr": "Özellik Yayınla",
+        "en": "Ship Feature"
       },
       "desc": {
         "tr": "Üretime hazır temiz kod ve modül mimarisi yazar.",
         "en": "Writes clean production-ready code with tests."
       },
       "forceModules": [
-        "req-clarify",
         "req-clarify"
       ],
       "override": {
@@ -175,8 +264,8 @@ export const codeSpec = {
       "id": "debug",
       "group": "build",
       "name": {
-        "tr": "🐛 Hata Ayıklama",
-        "en": "🐛 Debug Issue"
+        "tr": "Hata Ayıklama",
+        "en": "Debug Issue"
       },
       "desc": {
         "tr": "Hatanın kök nedenini bulur ve PoC düzeltme önerir.",
@@ -199,8 +288,8 @@ export const codeSpec = {
       "id": "refactor",
       "group": "build",
       "name": {
-        "tr": "🔧 Refactor",
-        "en": "🔧 Refactor Code"
+        "tr": "Refactor",
+        "en": "Refactor Code"
       },
       "desc": {
         "tr": "Kod kalitesini artırır, karmaşıklığı azaltır.",
@@ -223,8 +312,8 @@ export const codeSpec = {
       "id": "system-design",
       "group": "build",
       "name": {
-        "tr": "🧱 Sistem Tasarımı",
-        "en": "🧱 System Architecture"
+        "tr": "Sistem Tasarımı",
+        "en": "System Architecture"
       },
       "desc": {
         "tr": "Ölçeklenebilir mikroservis ve veri mimarisi kurar.",
@@ -247,8 +336,8 @@ export const codeSpec = {
       "id": "perf-tune",
       "group": "build",
       "name": {
-        "tr": "⏱️ Performans Optimize",
-        "en": "⏱️ Perf Tuning"
+        "tr": "Performans Optimize",
+        "en": "Perf Tuning"
       },
       "desc": {
         "tr": "Bellek sızıntılarını ve CPU darboğazlarını çözer.",
@@ -271,8 +360,8 @@ export const codeSpec = {
       "id": "modernize",
       "group": "build",
       "name": {
-        "tr": "🔄 Legacy Modernizasyon",
-        "en": "🔄 Modernize Legacy"
+        "tr": "Legacy Modernizasyon",
+        "en": "Modernize Legacy"
       },
       "desc": {
         "tr": "Eski kod tabanını modern standartlara taşır.",
@@ -295,8 +384,8 @@ export const codeSpec = {
       "id": "code-review",
       "group": "review",
       "name": {
-        "tr": "🔍 Kod İncelemesi",
-        "en": "🔍 Code Review"
+        "tr": "Kod İncelemesi",
+        "en": "Code Review"
       },
       "desc": {
         "tr": "PR incelemesi yapar, anti-pattern avlar.",
@@ -319,8 +408,8 @@ export const codeSpec = {
       "id": "harden",
       "group": "review",
       "name": {
-        "tr": "🛡️ Güvenlik Sertleştirme",
-        "en": "🛡️ Security Hardening"
+        "tr": "Güvenlik Sertleştirme",
+        "en": "Security Hardening"
       },
       "desc": {
         "tr": "Girdi doğrulama ve yetkilendirmeyi sıkılaştırır.",
@@ -343,8 +432,8 @@ export const codeSpec = {
       "id": "security-review",
       "group": "review",
       "name": {
-        "tr": "🚨 Güvenlik Auditi",
-        "en": "🚨 Security Audit"
+        "tr": "Güvenlik Auditi",
+        "en": "Security Audit"
       },
       "desc": {
         "tr": "XSS, SQLi ve Injection açıklarını tarar.",
@@ -367,8 +456,8 @@ export const codeSpec = {
       "id": "test-strategy",
       "group": "review",
       "name": {
-        "tr": "🧪 Test Stratejisi",
-        "en": "🧪 Test Strategy"
+        "tr": "Test Stratejisi",
+        "en": "Test Strategy"
       },
       "desc": {
         "tr": "Birim, entegrasyon ve E2E test planı kurgular.",
@@ -391,8 +480,8 @@ export const codeSpec = {
       "id": "onboard",
       "group": "understand",
       "name": {
-        "tr": "🧩 Oryantasyon",
-        "en": "🧩 Code Base Onboard"
+        "tr": "Oryantasyon",
+        "en": "Code Base Onboard"
       },
       "desc": {
         "tr": "Yeni geliştiriciler için kod mimarisini haritalandırır.",
@@ -415,8 +504,8 @@ export const codeSpec = {
       "id": "document",
       "group": "understand",
       "name": {
-        "tr": "📄 Dokümantasyon",
-        "en": "📄 Documentation"
+        "tr": "Dokümantasyon",
+        "en": "Documentation"
       },
       "desc": {
         "tr": "JSDoc/OpenAPI ve mimari diyagram üretir.",

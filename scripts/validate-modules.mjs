@@ -1,7 +1,8 @@
 // Validates prompt module data and domain preset contracts for every domain.
 // Guards against silent drift: TR/EN parity, broken `requires`, missing fields,
 // invalid layers, duplicate ids, invalid preset contracts, parameter hover
-// coverage, presentation registration, and shared output-target vocabulary.
+// coverage, presentation registration, compilerTexts completeness, layer translations,
+// and shared output-target vocabulary.
 // Exits non-zero on any error.
 
 import { readFileSync } from 'node:fs';
@@ -86,6 +87,14 @@ function validateFile(file, modules, validLayers) {
             if (ids.has(m.id)) errors.push(`${where}: duplicate id "${m.id}"`);
             ids.add(m.id);
         }
+
+        // Reject obsolete legacy properties
+        if (m && Object.prototype.hasOwnProperty.call(m, 'category')) {
+            errors.push(`${where}: obsolete property "category" should be removed`);
+        }
+        if (m && Object.prototype.hasOwnProperty.call(m, 'description')) {
+            errors.push(`${where}: obsolete property "description" should be removed`);
+        }
     });
 
     // Broken `requires` references.
@@ -130,6 +139,9 @@ function validatePreset(domainId, presetId, preset, domain, registryIds) {
     if (!Array.isArray(preset.forceModules)) {
         errors.push(`${where}: "forceModules" must be an array`);
     } else {
+        if (new Set(preset.forceModules).size !== preset.forceModules.length) {
+            errors.push(`${where}: "forceModules" contains duplicate module IDs`);
+        }
         for (const moduleId of preset.forceModules) {
             if (!registryIds.has(moduleId)) {
                 errors.push(`${where}: "forceModules" points to unknown module id "${moduleId}"`);
@@ -180,6 +192,55 @@ function validateParameterDescriptions(domainId, domain) {
                 if (typeof description[lang] !== 'string' || description[lang].trim() === '') {
                     errors.push(`Parameter descriptions[${domainId}/${field}/${optionId}]: missing ${lang} text`);
                 }
+            }
+        }
+    }
+}
+
+function validateCompilerTexts(domainId, domain) {
+    const compilerTexts = domain.compilerTexts;
+    if (!compilerTexts) {
+        errors.push(`CompilerTexts[${domainId}]: missing compilerTexts object on domain spec`);
+        return;
+    }
+
+    for (const lang of PRESET_LANGS) {
+        const langTexts = compilerTexts[lang];
+        if (!langTexts) {
+            errors.push(`CompilerTexts[${domainId}]: missing ${lang} compiler texts`);
+            continue;
+        }
+
+        const modeIds = Object.keys(domain.optionSets?.modes || {});
+        for (const modeId of modeIds) {
+            if (typeof langTexts.mod?.[modeId] !== 'string' || langTexts.mod[modeId].trim() === '') {
+                errors.push(`CompilerTexts[${domainId}/${lang}]: missing mod text for mode "${modeId}"`);
+            }
+        }
+
+        const formatIds = Object.keys(domain.optionSets?.formats || {});
+        for (const formatId of formatIds) {
+            if (typeof langTexts.format?.[formatId] !== 'string' || langTexts.format[formatId].trim() === '') {
+                errors.push(`CompilerTexts[${domainId}/${lang}]: missing format text for format "${formatId}"`);
+            }
+        }
+
+        if (typeof langTexts.goalTemplate !== 'string' || !langTexts.goalTemplate.includes('{{KONU}}')) {
+            errors.push(`CompilerTexts[${domainId}/${lang}]: goalTemplate is missing or lacks {{KONU}} placeholder`);
+        }
+
+        if (!Array.isArray(langTexts.constraintsBase) || langTexts.constraintsBase.length === 0) {
+            errors.push(`CompilerTexts[${domainId}/${lang}]: constraintsBase must be a non-empty array`);
+        }
+    }
+}
+
+function validateCategories(domainId, domain) {
+    for (const layer of domain.layers) {
+        for (const lang of PRESET_LANGS) {
+            const label = domain.ui?.[lang]?.categories?.[layer];
+            if (typeof label !== 'string' || label.trim() === '') {
+                errors.push(`Categories[${domainId}/${lang}]: missing category label for layer "${layer}"`);
             }
         }
     }
@@ -280,7 +341,7 @@ function validateOutputTargets() {
 }
 
 // --- Run ---
-console.log('Validating prompt module data, preset contracts, parameter descriptions, presentation, and output targets...');
+console.log('Validating prompt module data, preset contracts, parameter descriptions, compiler texts, presentation, and output targets...');
 validatePresentation();
 validateOutputTargets();
 
@@ -307,6 +368,8 @@ for (const [domainId, files] of Object.entries(DOMAIN_FILES)) {
 
     const registryModules = en || tr;
     validateParameterDescriptions(domainId, domain);
+    validateCompilerTexts(domainId, domain);
+    validateCategories(domainId, domain);
     if (registryModules) validatePresets(domainId, domain, registryModules);
 }
 
@@ -321,4 +384,4 @@ if (errors.length) {
     process.exit(1);
 }
 
-console.log('\n✓ All module, preset, parameter, presentation, and output-target checks passed.');
+console.log('\n✓ All module, preset, parameter, compiler, presentation, and output-target checks passed.');
