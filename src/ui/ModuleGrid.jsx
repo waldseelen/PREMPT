@@ -10,7 +10,7 @@ import { getModuleIcon } from './moduleIconRegistry';
 import { getModuleHoverModel } from './moduleHover';
 import PortalTooltip from './PortalTooltip';
 
-const VIEW_KEYS = ['recommended', 'selected', 'all'];
+const VIEW_KEYS = ['all', 'recommended', 'selected'];
 
 export default function ModuleGrid() {
     const { config, selectedModules, setModules, toggleModule, dependencyHints } = useEngineState(useShallow((state) => ({
@@ -24,7 +24,7 @@ export default function ModuleGrid() {
     const modules = getModuleRegistry(config.domain, config.lang);
     const t = getTranslation(config.lang, config.domain);
     const layers = getDomain(config.domain).layers;
-    const [view, setView] = useState('recommended');
+    const [view, setView] = useState('all');
     const [query, setQuery] = useState('');
     const [activeLayer, setActiveLayer] = useState('all');
     const [expandedLayers, setExpandedLayers] = useState(() => new Set(layers));

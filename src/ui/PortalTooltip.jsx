@@ -13,8 +13,8 @@ export default function PortalTooltip({ targetRect, children, isOpen }) {
 
     // Calculate vertical position: prefer above, fallback to below if near screen top
     const spaceAbove = targetRect.top;
-    const placeBelow = spaceAbove < 170;
-    const top = placeBelow ? targetRect.bottom + 8 : targetRect.top - 8;
+    const placeBelow = spaceAbove < 180;
+    const top = placeBelow ? targetRect.bottom + 10 : targetRect.top - 10;
     const transform = placeBelow ? 'translateX(-50%)' : 'translateX(-50%) translateY(-100%)';
 
     // Calculate horizontal center, clamped to viewport boundaries
@@ -23,7 +23,7 @@ export default function PortalTooltip({ targetRect, children, isOpen }) {
 
     return createPortal(
         <div
-            className="module-tooltip portal-tooltip"
+            className="portal-tooltip"
             style={{
                 position: 'fixed',
                 top: `${top}px`,
