@@ -5,6 +5,7 @@ import { Sun, Moon, HelpCircle } from 'lucide-react';
 import { getNextTheme, getThemeLabel } from '../config/theme';
 import DomainSwitcher from './DomainSwitcher';
 import PremptLogo from './PremptLogo';
+import ModeTogglePill from './ModeTogglePill';
 
 export default function Header({ showDomainSwitcher = true }) {
     const { config, view, setTheme, setConfig, startTour, enterWorkspace } = useEngineState(useShallow(state => ({
@@ -46,11 +47,12 @@ export default function Header({ showDomainSwitcher = true }) {
                 </div>
             </div>
             
-                <div style={{ flex: 1, minWidth: 0, display: 'flex', justifyContent: 'center' }}>
-                    {showDomainSwitcher ? <DomainSwitcher /> : <span className="header-context-label">{t.flow?.modeDefault || 'Default'}</span>}
-                </div>
+            <div style={{ flex: 1, minWidth: 0, display: 'flex', justifyContent: 'center' }}>
+                {showDomainSwitcher ? <DomainSwitcher /> : <DomainSwitcher />}
+            </div>
 
             <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexShrink: 0 }}>
+                <ModeTogglePill />
                 <button
                     onClick={handleReplayTour}
                     className="header-icon-btn header-tour-btn"

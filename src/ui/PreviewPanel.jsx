@@ -43,7 +43,7 @@ export default function PreviewPanel() {
                             <Zap size={12} /> {stats.complexityScore} {t.statComplexity}
                         </span>
                         <span className="stat-chip" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
-                            <Hash size={12} /> {stats.charCount} ({stats.tokenEstimate} tok)
+                            <Hash size={12} /> {stats.chars} ({stats.tokens} tok)
                         </span>
                     </div>
                 )}

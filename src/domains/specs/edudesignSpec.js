@@ -442,7 +442,7 @@ export const edudesignSpec = {
       }
     },
     "diagnostic-exit-ticket": {
-      "id": "formative-exit-tickets",
+      "id": "diagnostic-exit-ticket",
       "group": "assessment",
       "icon": "zap",
       "name": {

@@ -1,13 +1,13 @@
-import { useRef, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import { useEngineState } from '../store/engineState';
 import { useShallow } from 'zustand/react/shallow';
-import { assembleFinalPrompt } from '../compiler/finalPromptAssembler';
+import { assembleFinalPrompt, analyzePromptComplexity } from '../compiler/finalPromptAssembler';
 import { copyToClipboard, openInAI } from '../utils/aiRouter';
 import { serializeState, sanitizePayload, encodePayloadToParam } from '../utils/statePayload';
 import { getDomain } from '../domains';
 import { SiGooglegemini, SiAnthropic, SiPerplexity, SiOpenaigym } from '@icons-pack/react-simple-icons';
 import { getTranslation } from '../locales/i18n';
-import { Copy, RotateCcw, Share2, Download, Upload, X, ExternalLink, Bookmark } from 'lucide-react';
+import { Copy, RotateCcw, Share2, Download, Upload, X, ExternalLink, Bookmark, Hash, AlertTriangle, Check } from 'lucide-react';
 import RecipesPanel from './RecipesPanel';
 
 export default function ActionBar({ showToast }) {
@@ -15,13 +15,20 @@ export default function ActionBar({ showToast }) {
     const [showGeminiModal, setShowGeminiModal] = useState(false);
     const [showRecipesModal, setShowRecipesModal] = useState(false);
 
-    const { clearAll, applySharedState, lang, domain } = useEngineState(useShallow((state) => ({
+    const { clearAll, applySharedState, config, selectedModules, injectedRules } = useEngineState(useShallow((state) => ({
         clearAll: state.clearAll,
         applySharedState: state.applySharedState,
-        lang: state.config.lang,
-        domain: state.config.domain
+        config: state.config,
+        selectedModules: state.selectedModules,
+        injectedRules: state.injectedRules
     })));
+    const lang = config.lang;
+    const domain = config.domain;
     const t = getTranslation(lang, domain);
+
+    const stats = useMemo(() => {
+        return analyzePromptComplexity({ config, selectedModules, injectedRules });
+    }, [config, selectedModules, injectedRules]);
 
     const executeGeminiLaunch = () => {
         const currentState = useEngineState.getState();
@@ -141,6 +148,26 @@ export default function ActionBar({ showToast }) {
 
     return (
         <div className="actions-bar advanced-actions" style={{ display: 'flex', flexDirection: 'column', gap: '8px', width: '100%', marginBottom: '16px' }}>
+            {/* Live Token & URL Safety Status Badge */}
+            <div className="action-live-token-bar" role="status" aria-live="polite">
+                <div className={`action-token-badge ${stats.isTooLongForUrl ? 'is-warning' : 'is-safe'}`}>
+                    <Hash size={12} className="badge-hash-icon" aria-hidden="true" />
+                    <span className="badge-tokens-text">~{stats.tokens} tok</span>
+                    <span className="badge-separator">·</span>
+                    {stats.isTooLongForUrl ? (
+                        <span className="badge-status-text warning">
+                            <AlertTriangle size={12} aria-hidden="true" />
+                            {t.urlExceeded || (lang === 'en' ? 'URL Limit Exceeded (Will Copy)' : 'URL Sınırı Aşıldı (Kopyalanacak)')}
+                        </span>
+                    ) : (
+                        <span className="badge-status-text safe">
+                            <Check size={12} aria-hidden="true" />
+                            {t.urlSafe || (lang === 'en' ? 'URL Safe' : 'URL Güvenli')}
+                        </span>
+                    )}
+                </div>
+            </div>
+
             {/* Row 1: Reset, Copy */}
             <div className="advanced-action-row advanced-primary-actions" style={{ display: 'flex', gap: '8px', width: '100%' }}>
                 <button className="btn btn-secondary" style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }} onClick={() => { clearAll(); showToast(t.toastReset); }}>

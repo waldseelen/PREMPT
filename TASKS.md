@@ -192,3 +192,37 @@ between a document and the source. Nothing here is speculative feature work.
 
 - [x] 14.1 Mobil stepper/header yüksekliğini ve arayüz kalıntılarını normalize et.
       Acceptance: Mobile stepper/header yüksekliği optimize edilir, provider/preset emoji ve legacy metinler normalize edilir, ilk ekranda gereksiz alan israfı kalmaz.
+
+---
+
+## Phase 15 — Progressive Unified Workspace Refactor & Preset Hardening
+
+- [x] 15.1 Intent-First Unified Core Workspace (L0 Layer - R1)
+      Acceptance: Replace rigid 5-step stepper in `DefaultFlow.jsx` with unified single-viewport intent-driven view (`TopicInput`, 3 Hero Presets per domain via `HeroPresetSelector` + 9 expandable presets, `ActionBar` with 1-click execution actions for ChatGPT, Claude, Perplexity, Gemini, Copy, live token estimation and URL-length safety guards, preserving deep-link query parameters and pathname routing).
+    - [x] 15.1.1 Build `TopicInput.jsx` with prominent hero input, keyboard shortcuts (Ctrl+Enter / Cmd+Enter).
+    - [x] 15.1.2 Build `HeroPresetSelector.jsx` with 3 hero action cards and categorized popover (`understand`, `analyze`, `apply`) for remaining 9 presets.
+    - [x] 15.1.3 Integrate live token complexity badge & URL safety indicator in `ActionBar.jsx`.
+    - [x] 15.1.4 Preserve deep-link parameters (`?preset=...`, `?modules=...`, `?konu=...`, `?share=...`) and pathname routing.
+- [x] 15.2 Contextual Tuning via Interactive Parameter Chips (L1 Layer - R2)
+      Acceptance: Replace static `<select>` form dropdowns in default configuration with inline, keyboard- and touch-accessible parameter chips (`ParameterChip.jsx`, `ParameterChipsBar.jsx`) for `seviye`, `mod`, `derinlik`, `format`, and `hedef`, displaying option labels and bilingual descriptions from `parameterDescriptions.js`, dispatching compiler updates to canonical Turkish state keys in real time.
+    - [x] 15.2.1 Build accessible `ParameterChip.jsx` with WAI-ARIA popover and focus trap/keyboard navigation.
+    - [x] 15.2.2 Build `ParameterChipsBar.jsx` reading and setting canonical Turkish keys in `engineState.js`.
+    - [x] 15.2.3 Ensure full TR/EN bilingual parity for option labels and descriptions.
+- [x] 15.3 Collapsible Granular Inspector & Eject Mechanism (L2 Layer - R3)
+      Acceptance: Provide accessible accordion/drawer (`CollapsibleInspector.jsx`, `ActiveModuleBadgeRow.jsx`) summarizing active modules in a compact badge row, embedding 457-module DAG grid (`ModuleGrid.jsx`), topological prerequisite auto-resolution toggle, active constraint rules (`injectedRules`), token complexity metrics, "Eject / Remix" behavior preserving injectedRules on module modification, and `ModeTogglePill` in Header switching smoothly between Progressive and 3-column Cockpit mode with zero state loss.
+    - [x] 15.3.1 Build `ActiveModuleBadgeRow.jsx` summarizing selected modules and eject trigger.
+    - [x] 15.3.2 Build `CollapsibleInspector.jsx` embedding `ModuleGrid`, DAG auto-resolve toggle, injectedRules list, and token metrics.
+    - [x] 15.3.3 Implement `ejectPreset` in `engineState.js` and preserve `injectedRules` during manual edits and overrides.
+    - [x] 15.3.4 Add `ModeTogglePill.jsx` to Header for instantaneous switching between Progressive and Cockpit modes.
+- [x] 15.4 Design System, Rule 13, and Bilingual Compliance (R4)
+      Acceptance: Pure vanilla CSS in `src/index.css` respecting theme CSS custom properties and glassmorphism, zero external CSS/UI frameworks, strict Rule 13 compliance (zero Unicode emoji; Lucide-react exclusively), 100% TR/EN lockstep parity in `i18n.js` and domain specs, and responsive mobile/tablet layout (`100dvh`, touch outside-click support, no horizontal scroll).
+    - [x] 15.4.1 Implement vanilla CSS styles in `src/index.css` for chips, popovers, badges, inspector, and responsive layouts.
+    - [x] 15.4.2 Enforce Rule 13 zero-emoji compliance across all UI components, toasts, and presets.
+    - [x] 15.4.3 Synchronize 100% TR/EN bilingual parity in `src/locales/i18n.js`.
+    - [x] 15.4.4 Ensure responsive mobile and tablet viewport support with `100dvh` and touch outside-click handlers.
+- [x] 15.5 Preset Key/ID Alignment & Final Hardening (Iteration 3)
+      Acceptance: Align `edudesignSpec.js:445` preset id (`diagnostic-exit-ticket`), harden `engineState.js` `setPreset` to resolve by both key and inner id, and extend `scripts/validate-modules.mjs` with `preset.id === presetKey` invariant across all 15 domains.
+    - [x] 15.5.1 Fix `src/domains/specs/edudesignSpec.js:445` preset id to `"diagnostic-exit-ticket"`.
+    - [x] 15.5.2 Harden `src/store/engineState.js` `setPreset` to resolve by dictionary key or inner `preset.id`.
+    - [x] 15.5.3 Extend `scripts/validate-modules.mjs` `validatePreset` to assert `preset.id === presetKey`.
+    - [x] 15.5.4 Verify all quality gates (`lint`, `validate`, `build`, `test-e2e.mjs`, `test-challenger2-stress.mjs`).

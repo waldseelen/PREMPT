@@ -30,7 +30,7 @@ export function buildPromptStructure(state, sortedModules) {
 
     // 2. [GOAL] — goalTemplate carries a {{KONU}} placeholder for the topic/task text.
     const goalTmpl = texts.goalTemplate || (lang === 'en' ? 'Complete the task "{{KONU}}".' : '"{{KONU}}" görevini tamamla.');
-    structure[labels.goal] = goalTmpl.replaceAll('{{KONU}}', config.konu || '');
+    structure[labels.goal] = goalTmpl.replaceAll('{{KONU}}', () => config.konu || '');
 
     // 3. [CONTEXT] — labels come from the active domain's compiler text bundle
     // so this respects `lang` instead of always printing English.
@@ -45,7 +45,7 @@ export function buildPromptStructure(state, sortedModules) {
     // 5. [INSTRUCTIONS] (Tasks grouped by layers or topologically)
     const taskPrompts = sortedModules.map((m, index) => {
         // {{ALAN}} is a domain-injection token used intentionally by structural mapping modules.
-        const parsedPrompt = m.prompt ? m.prompt.replaceAll('{{ALAN}}', alanText) : '';
+        const parsedPrompt = m.prompt ? m.prompt.replaceAll('{{ALAN}}', () => alanText) : '';
         return `Step ${index + 1} (${m.layer.toUpperCase()}): ${parsedPrompt}`;
     });
     structure[labels.instructions] = taskPrompts.join('\n\n');

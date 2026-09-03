@@ -10,16 +10,43 @@ current checkout (`CLAUDE.md` §7.1).
 
 | Gate | Command | Result | Last actually run |
 | --- | --- | --- | --- |
-| Lint | `npm run lint` | ✅ PASSED — 0 errors, 0 warnings across the entire repository | 2026-08-30 |
-| Build | `npm run build` | ✅ PASSED — 755ms; all chunks under 500 kB with zero Vite chunk warnings | 2026-08-30 |
-| Module, preset, parameter, presentation, hover, and target validation | `npm run validate` | ✅ PASSED — all 15 domains, bilingual modules, 180 presets, TR/EN option descriptions, 15 presentation registrations, compiler texts completeness, layer categories, and central output targets | 2026-08-30 |
+| Lint | `npm run lint` | ✅ PASSED — 0 errors, 0 warnings under `--max-warnings=0` across repository | 2026-09-03 |
+| Build | `npm run build` | ✅ PASSED — 854ms; all chunks under 500 kB with zero Vite chunk warnings | 2026-09-03 |
+| Module, preset, parameter, presentation, hover, and target validation | `npm run validate` | ✅ PASSED — all 15 domains, bilingual modules, 180 presets (including preset.id === key parity), TR/EN option descriptions, 15 presentation registrations, compiler texts completeness, layer categories, and central output targets | 2026-09-03 |
+| E2E Test Suite | `node scripts/test-e2e.mjs` | ✅ PASSED — 116/116 tests passing across Tiers 1-4 with zero failures | 2026-09-03 |
+| Challenger 2 Empirical Stress Test | `node scripts/test-challenger2-stress.mjs` | ✅ PASSED — 34/34 stress tests passing across Suites 1-4 with zero failures | 2026-09-03 |
 
 Notes on the gates themselves (not results):
 
-- **Module, Preset, Parameter, Presentation, and Target Validation:** Validates bilingual module schemas, all domain preset contracts (with duplicate detection), every domain parameter hover description, presentation/icon registration, compilerTexts completeness for all modes/formats, category translation coverage, and the central output-target vocabulary across all 15 domains.
+- **Module, Preset, Parameter, Presentation, and Target Validation:** Validates bilingual module schemas, all domain preset contracts (with duplicate detection and strict id === key parity), every domain parameter hover description, presentation/icon registration, compilerTexts completeness for all modes/formats, category translation coverage, and the central output-target vocabulary across all 15 domains.
 - **Build Gate:** Compiles Vite production bundle into `dist/` with functional `manualChunks` code-splitting (`vendor-react`, `vendor-state`, `vendor-icons`, `domain-specs`, `modules-data`). Verified 0 errors and 0 chunk warnings.
+- **E2E & Stress Test Gates:** `scripts/test-e2e.mjs` (116 tests) exercises functional workflows, edge cases, deep links, and persistence. `scripts/test-challenger2-stress.mjs` (34 tests) stresses preset eject purity across all 180 presets, URL bounds, DAG cycle resilience, and Rule 13 emoji cleanliness.
 
 ## Session History
+
+### 2026-09-03 — Progressive Unified Workspace Refactor & Preset Hardening (Phase 15, Milestone 1)
+
+#### What Changed
+1. **Progressive Unified Workspace Implementation (R1 - R4):**
+   - **L0 Intent-First Core:** Replaced the rigid 5-step stepper in `DefaultFlow.jsx` with a single-viewport intent-driven workspace containing `TopicInput.jsx` (hero prompt/topic input with keyboard shortcuts), `HeroPresetSelector.jsx` (top 3 curated hero presets + categorized popover for the remaining 9 presets across all 15 domains), and `ActionBar.jsx` (immediate 1-click execution actions for ChatGPT, Claude, Perplexity, Gemini, Copy, with live token estimation and URL-safety length guards).
+   - **L1 Contextual Tuning:** Added interactive parameter chips (`ParameterChip.jsx`, `ParameterChipsBar.jsx`) for `seviye`, `mod`, `derinlik`, `format`, and `hedef`, featuring accessible WAI-ARIA popovers sourcing descriptions from `parameterDescriptions.js` and dispatching live updates to canonical Turkish state keys.
+   - **L2 Granular Inspector & Eject Mechanism:** Built `ActiveModuleBadgeRow.jsx` and `CollapsibleInspector.jsx` embedding the 457-module `ModuleGrid.jsx`, topological prerequisite auto-resolution toggle, active constraint rules (`injectedRules`), and token complexity metrics.
+   - **Preset Eject / Remix Semantics:** Implemented `ejectPreset()` and preserved `injectedRules` on manual module customization (`toggleModule`, `setModules`) in `src/store/engineState.js`.
+   - **Cockpit Mode Toggle:** Added `ModeTogglePill.jsx` to Header enabling instantaneous switching between Progressive Unified view and 3-column Cockpit layout (`layout-grid-3`) with zero state loss.
+   - **Design System & Styling:** Pure vanilla CSS in `src/index.css` adhering to existing CSS custom properties and glassmorphism.
+   - **Rule 13 Compliance & Bilingual Parity:** 0 Unicode emojis across all files (Lucide icons exclusively) and 100% TR/EN lockstep parity in `src/locales/i18n.js`.
+
+2. **Preset Key/ID Alignment & Final Hardening (Iteration 3):**
+   - **Data Alignment in `edudesignSpec.js`:** Fixed line 445 preset id from `"formative-exit-tickets"` to `"diagnostic-exit-ticket"`, strictly aligning with the dictionary key and title.
+   - **Resolution Hardening in `engineState.js`:** Updated `setPreset` to resolve target preset by dictionary key or inner `preset.id`, making preset application resilient to key or id invocations.
+   - **Validation Gate Extension in `validate-modules.mjs`:** Added assertion checking that `preset.id === presetId` for all 180 presets across all 15 domains, preventing future key/id divergence.
+
+#### What Was Verified
+- `npm run lint`: passed with 0 errors and 0 warnings under `--max-warnings=0`.
+- `npm run validate`: passed with 0 errors across all 15 domains, 457 modules, and 180 presets (with id === key parity verified).
+- `npm run build`: production bundle compiled in 854ms; all chunks under 500 kB with 0 warnings.
+- `node scripts/test-e2e.mjs`: passed 116/116 tests across Tiers 1-4 with 0 failures.
+- `node scripts/test-challenger2-stress.mjs`: passed 34/34 empirical stress tests across Suites 1-4 with 100% success rate.
 
 ### 2026-08-30 — 15 Domain Centralization, System Durability, Tooltip Portals & Production Hardening (Phase 8 - 14)
 

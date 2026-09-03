@@ -32,7 +32,7 @@ export default function App() {
 
     // Mount-time URL Query & Path handling
     useEffect(() => {
-        const { config: currentConfig, setDomain, setPreset, setModules, setGorunum: applyGorunum, applySharedState } = useEngineState.getState();
+        const { config: currentConfig, setDomain, setPreset, setModules, applySharedState } = useEngineState.getState();
         const params = new URLSearchParams(window.location.search);
         const shareParam = params.get('share');
 
@@ -58,13 +58,11 @@ export default function App() {
         const presetParam = params.get('preset');
         if (presetParam) {
             setPreset(presetParam);
-            applyGorunum('advanced');
         } else {
             const modulesParam = params.get('modules') || params.get('mods');
             if (modulesParam) {
                 const moduleList = modulesParam.split(',').map((m) => m.trim()).filter(Boolean);
                 setModules(moduleList);
-                applyGorunum('advanced');
             }
         }
 
@@ -186,7 +184,7 @@ export default function App() {
             <div className="app">
                 <div className="bg-glow-orb orb-1"></div>
                 <div className="bg-glow-orb orb-2"></div>
-                <Header showDomainSwitcher={isAdvanced} />
+                <Header showDomainSwitcher={true} />
                 
                 {isAdvanced ? (
                     <main className="container advanced-container" style={{ paddingTop: '16px' }}>

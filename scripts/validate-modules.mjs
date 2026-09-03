@@ -169,6 +169,10 @@ function validatePreset(domainId, presetId, preset, domain, registryIds) {
         return;
     }
 
+    if (preset.id !== presetId) {
+        errors.push(`${where}: preset id "${preset.id}" does not match dictionary key "${presetId}"`);
+    }
+
     if (!Array.isArray(preset.forceModules)) {
         errors.push(`${where}: "forceModules" must be an array`);
     } else {

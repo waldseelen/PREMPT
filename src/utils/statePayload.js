@@ -46,8 +46,20 @@ export function sanitizePayload(raw, lang = 'tr') {
         ? Array.from(new Set(raw.selectedModules.filter((id) => validIds.has(id))))
         : [];
 
-    const fallbackOrValid = (value, validList, fallback) =>
-        validList.includes(value) ? value : fallback;
+    const resolveOptionIds = (explicitIds, optionSet) => {
+        if (Array.isArray(explicitIds)) return explicitIds;
+        if (Array.isArray(optionSet)) return optionSet;
+        if (optionSet && typeof optionSet === 'object') return Object.keys(optionSet);
+        return [];
+    };
+
+    const levelIds = resolveOptionIds(domainDescriptor?.levelIds, domainDescriptor?.optionSets?.levels);
+    const modeIds = resolveOptionIds(domainDescriptor?.modeIds, domainDescriptor?.optionSets?.modes);
+    const depthIds = resolveOptionIds(domainDescriptor?.depthIds, domainDescriptor?.optionSets?.depths);
+    const formatIds = resolveOptionIds(domainDescriptor?.formatIds, domainDescriptor?.optionSets?.formats);
+
+    const fallbackOrValid = (val, validList, fallback) =>
+        Array.isArray(validList) && validList.includes(val) ? val : fallback;
 
     const presets = getPresets(domainId);
     const activePreset = raw?.activePreset && presets[raw.activePreset] ? raw.activePreset : null;
@@ -55,10 +67,10 @@ export function sanitizePayload(raw, lang = 'tr') {
     const sanitized = {
         version: PAYLOAD_VERSION,
         domain: domainId,
-        seviye: fallbackOrValid(raw?.seviye, domainDescriptor.levelIds, domainDescriptor.defaultConfig.seviye),
-        mod: fallbackOrValid(raw?.mod, domainDescriptor.modeIds, domainDescriptor.defaultConfig.mod),
-        derinlik: fallbackOrValid(raw?.derinlik, domainDescriptor.depthIds, domainDescriptor.defaultConfig.derinlik),
-        format: fallbackOrValid(raw?.format, domainDescriptor.formatIds, domainDescriptor.defaultConfig.format),
+        seviye: fallbackOrValid(raw?.seviye, levelIds, domainDescriptor?.defaultConfig?.seviye),
+        mod: fallbackOrValid(raw?.mod, modeIds, domainDescriptor?.defaultConfig?.mod),
+        derinlik: fallbackOrValid(raw?.derinlik, depthIds, domainDescriptor?.defaultConfig?.derinlik),
+        format: fallbackOrValid(raw?.format, formatIds, domainDescriptor?.defaultConfig?.format),
         hedef: fallbackOrValid(raw?.hedef, OUTPUT_TARGETS, OUTPUT_TARGETS[0]),
         monolog: typeof raw?.monolog === 'boolean' ? raw.monolog : false,
         autoResolveDeps: typeof raw?.autoResolveDeps === 'boolean' ? raw.autoResolveDeps : true,

@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { resolveDependencies } from '../engine/dependencyResolver';
-import { applyPreset } from '../engine/presetEngine';
+import { applyPreset, getPresets } from '../engine/presetEngine';
 import { getDomain, DEFAULT_DOMAIN } from '../domains';
 import { pushDomainRoute } from '../utils/domainRoute';
 import { serializeState, sanitizePayload } from '../utils/statePayload';
@@ -10,7 +10,7 @@ const MAX_RECIPES = 20;
 
 export const useEngineState = create(
     persist(
-        (set) => ({
+        (set, get) => ({
             // 1. Core Configuration (Input State)
             config: {
                 domain: DEFAULT_DOMAIN,
@@ -109,6 +109,13 @@ export const useEngineState = create(
                 dependencyHints: []
             }),
 
+            // Detaches active preset name (Eject/Remix) while preserving all
+            // injectedRules, selectedModules, and configuration overrides.
+            ejectPreset: () => set((state) => {
+                if (!state.activePreset) return {};
+                return { activePreset: null };
+            }),
+
             toggleModule: (id) => set((state) => {
                 const domain = state.config.domain ?? DEFAULT_DOMAIN;
                 const isSelected = state.selectedModules.includes(id);
@@ -130,24 +137,29 @@ export const useEngineState = create(
 
                 return {
                     selectedModules: newModules,
-                    activePreset: null, // User override breaks the pure preset
-                    injectedRules: [],
+                    activePreset: null, // User override breaks the pure preset (eject semantics)
+                    injectedRules: state.injectedRules,
                     dependencyHints
                 };
             }),
 
             setPreset: (presetId) => set((state) => {
+                if (!presetId || typeof presetId !== 'string') return {};
                 const domain = state.config.domain ?? DEFAULT_DOMAIN;
-                const presetResult = applyPreset(presetId, domain);
+                const availablePresets = getPresets(domain);
+                const targetPreset = availablePresets[presetId] || Object.values(availablePresets).find(p => p?.id === presetId);
+                if (!targetPreset) return {};
+                const targetPresetId = targetPreset.id || presetId;
+                const presetResult = (availablePresets[targetPresetId] ? applyPreset(targetPresetId, domain) : targetPreset) || targetPreset;
 
-                let newModules = presetResult.forceModules;
+                let newModules = presetResult.forceModules || targetPreset.forceModules || [];
                 let dependencyHints = [];
 
                 if (state.config.autoResolveDeps) {
                     const resolved = resolveDependencies(newModules, domain, state.config.lang);
                     if (resolved.length > newModules.length) {
                         const added = resolved.filter(x => !newModules.includes(x));
-                        dependencyHints = [`Preset '${presetId}' applied -> +[${added.join(', ')}]`];
+                        dependencyHints = [`Preset '${targetPresetId}' applied -> +[${added.join(', ')}]`];
                     }
                     newModules = resolved;
                 }
@@ -155,13 +167,17 @@ export const useEngineState = create(
                 const newConfig = { ...state.config, ...presetResult.override };
 
                 return {
-                    activePreset: presetId,
+                    activePreset: targetPresetId,
                     selectedModules: newModules,
-                    injectedRules: presetResult.injectRules || [],
+                    injectedRules: presetResult.injectRules || targetPreset.injectRules || [],
                     config: newConfig,
                     dependencyHints
                 };
             }),
+
+            applyPreset: function (presetId) {
+                return this.setPreset?.(presetId) || get()?.setPreset(presetId);
+            },
 
             setModules: (moduleIds) => set((state) => {
                 const domain = state.config.domain ?? DEFAULT_DOMAIN;
@@ -172,7 +188,7 @@ export const useEngineState = create(
                 return {
                     selectedModules: newModules,
                     activePreset: null,
-                    injectedRules: [],
+                    injectedRules: state.injectedRules,
                     dependencyHints: []
                 };
             }),
