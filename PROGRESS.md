@@ -22,10 +22,12 @@ Notes on the gates themselves (not results):
 - **Build Gate:** Compiles Vite production bundle into `dist/` with functional `manualChunks` code-splitting (`vendor-react`, `vendor-state`, `vendor-icons`, `domain-specs`, `modules-data`). Verified 0 errors and 0 chunk warnings.
 - **E2E & Stress Test Gates:** `scripts/test-e2e.mjs` (116 tests) exercises functional workflows, edge cases, deep links, and persistence. `scripts/test-challenger2-stress.mjs` (34 tests) stresses preset eject purity across all 180 presets, URL bounds, DAG cycle resilience, and Rule 13 emoji cleanliness.
 
-## Handoff — gelecek ajanlar için son durum
+## Handoff — gelecek ajanlar için son durum (workstream kapandı)
 
 - **Yapılan:** Phase 16 (`16.1–16.9`), Phase 17 (`17.1–17.8`) ve Phase 18 (`18.1–18.10`) tamamlandı —
   `TASKS.md`'de açık madde kalmadı. Detaylar aşağıdaki oturum kayıtlarında, bulgu kaynağı `bad.md`'de.
+- **Kapanış durumu:** tüm kapılar yeşil, çalışma ağacı temiz, `origin/main`'e push edildi. Yeni iş buradan değil,
+  yeni faz olarak açılır; kapalı madde yeniden açılmadan.
 - **Bilinen eksikler (manuel doğrulama bekler, headless harness yok):** kontrast değişikliği sonrası light/dark
   görsel turu; tooltip/kart/modal/toast klavye + ekran-okuyucu turu. React-render otomasyonu yok (dep onayı gerekir).
 - **Kapılar:** yukarıdaki tablo güncel — hepsi bu checkout'ta koşuldu ve yeşil (`validate` 0 error; warning'ler
