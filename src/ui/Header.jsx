@@ -8,13 +8,11 @@ import PremptLogo from './PremptLogo';
 import ModeTogglePill from './ModeTogglePill';
 
 export default function Header({ showDomainSwitcher = true }) {
-    const { config, view, setTheme, setConfig, startTour, enterWorkspace } = useEngineState(useShallow(state => ({
+    const { config, setTheme, setConfig, startTour } = useEngineState(useShallow(state => ({
         config: state.config,
-        view: state.view,
         setTheme: state.setTheme,
         setConfig: state.setConfig,
-        startTour: state.startTour,
-        enterWorkspace: state.enterWorkspace
+        startTour: state.startTour
     })));
     const t = getTranslation(config.lang, config.domain);
 
@@ -23,7 +21,6 @@ export default function Header({ showDomainSwitcher = true }) {
     };
 
     const handleReplayTour = () => {
-        if (view !== 'workspace') enterWorkspace();
         startTour();
     };
 

@@ -60,7 +60,7 @@ export function copyToClipboard(text, onSuccess, onError) {
     });
 }
 
-export function openInAI(aiName, prompt, onLengthWarning, onSuccessCopy) {
+export function openInAI(aiName, prompt, onLengthWarning, onSuccessCopy, onCopyError) {
     if (!prompt || !aiName || !Object.hasOwn(AI_STRATEGIES, aiName)) return;
     const strategy = AI_STRATEGIES[aiName];
 
@@ -91,7 +91,12 @@ export function openInAI(aiName, prompt, onLengthWarning, onSuccessCopy) {
             }
         },
         (err) => {
+            // A failed copy used to end in console.warn only, leaving the user
+            // with a success toast for an action that never delivered — most
+            // critical on the Claude path, where the clipboard is the only
+            // delivery channel (Phase 16.8).
             console.warn('Clipboard copy failed:', err);
+            if (onCopyError) onCopyError(err);
         }
     );
 }

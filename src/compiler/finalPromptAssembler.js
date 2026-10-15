@@ -1,5 +1,5 @@
 import { buildPromptStructure } from './structureBuilder';
-import { sortDependencies } from '../engine/dependencyResolver';
+import { safeSortDependencies } from '../engine/dependencyResolver';
 import { getFormatter } from './formatterRegistry';
 
 // `forceTarget` lets a caller render markdown regardless of the user's
@@ -10,8 +10,9 @@ export function assembleFinalPrompt(state, { forceTarget } = {}) {
         return '';
     }
 
-    // 1. Sort the resolved modules Topologically
-    const sortedModules = sortDependencies(state.selectedModules, state.config.domain, state.config.lang);
+    // 1. Sort the resolved modules Topologically (cycle-safe: a corrupt
+    // requires chain degrades to registry order instead of crashing render)
+    const sortedModules = safeSortDependencies(state.selectedModules, state.config.domain, state.config.lang);
 
     // 2. Build the structured blocks AST
     const structure = buildPromptStructure(state, sortedModules);
@@ -20,7 +21,7 @@ export function assembleFinalPrompt(state, { forceTarget } = {}) {
     return getFormatter(forceTarget || state.config.hedef)(structure);
 }
 
-export function analyzePromptComplexity(state) {
+export function analyzePromptComplexity(state, { forceTarget } = {}) {
     if (!state?.config?.konu?.trim() || !Array.isArray(state?.selectedModules) || state.selectedModules.length === 0) {
         return {
             chars: 0,
@@ -32,12 +33,15 @@ export function analyzePromptComplexity(state) {
         };
     }
 
-    const sortedModules = sortDependencies(state.selectedModules, state.config.domain, state.config.lang);
+    const sortedModules = safeSortDependencies(state.selectedModules, state.config.domain, state.config.lang);
     const structure = buildPromptStructure(state, sortedModules);
 
     // Same formatter as the real output, so stats (chars/tokens/URL-length
-    // warning) reflect what will actually be copied/sent.
-    const fullText = getFormatter(state.config.hedef)(structure);
+    // warning) reflect what will actually be copied/sent. Callers that force a
+    // different render target (ActionBar's AI buttons) pass the same
+    // forceTarget they send with, otherwise the badge measures a
+    // representation the user never sees (Phase 16.7).
+    const fullText = getFormatter(forceTarget || state.config.hedef)(structure);
     const chars = fullText.length;
     const tokens = Math.round(chars / 3.5);
 

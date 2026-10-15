@@ -40,7 +40,7 @@ export const i18n = {
     paramsTitle: 'Parametreler',
     moduleFilterEmpty: 'Arama kriterine uygun modül bulunamadı.',
 
-    // Two-view flow (intro <-> workspace) & Tier B target-format selector
+    // Single-viewport workspace chrome & Tier B target-format selector
     btnOpenWorkspace: 'Çalışma alanını aç',
     btnStartManual: 'Modülleri kendim seçeceğim',
     btnBackToIntro: 'Konuyu değiştir',
@@ -224,7 +224,7 @@ export const i18n = {
     paramsTitle: 'Parameters',
     moduleFilterEmpty: 'No modules found matching your search.',
 
-    // Two-view flow (intro <-> workspace) & Tier B target-format selector
+    // Single-viewport workspace chrome & Tier B target-format selector
     btnOpenWorkspace: 'Open workspace',
     btnStartManual: "I'll pick modules myself",
     btnBackToIntro: 'Change topic',

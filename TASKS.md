@@ -31,14 +31,14 @@ unless it is explicitly reopened.
 - [x] 16.5 `?modules=` ham-id ıraksamasını kapat (A4.6).
       Acceptance: bilinmeyen modül id'si state'te tutulmaz veya UI'da "bilinmeyen modül atlandı" olarak işaretlenir;
       chip/URL ile prompt içeriği birebir eşleşir.
-- [ ] 16.6 `view`/`gorunum` ikiliğini tekilleştir (A5).
+- [x] 16.6 `view`/`gorunum` ikiliğini tekilleştir (A5).
       Acceptance: `view` ya kaldırılır ya render'a bağlanır; `Header` tour-mantığı `gorunum`'a taşınır; tarif/paylaşım
       alıcının `gorunum` tercihini zorlamaz; ölü `backToIntro`/intro yorumları temizlenir.
-- [ ] 16.7 Derleyici ölçüm tutarlılığı (A7.2).
+- [x] 16.7 Derleyici ölçüm tutarlılığı (A7.2).
       Acceptance: `analyzePromptComplexity` `forceTarget` parametresi alır; `ActionBar` ölçümü gönderilen temsille yapar.
-- [ ] 16.8 Kopya-hatası geri bildirimi (A8.1).
+- [x] 16.8 Kopya-hatası geri bildirimi (A8.1).
       Acceptance: pano yazımı başarısız olursa kullanıcıya hata toast'ı gösterilir (özellikle Claude yolu).
-- [ ] 16.9 Döngüsel-bağımlılık dayanıklılığı (A6.1).
+- [x] 16.9 Döngüsel-bağımlılık dayanıklılığı (A6.1).
       Acceptance: `sortDependencies` throw'u assemble/analyze katmanında yakalanır, panel hata durumunu gösterir,
       uygulama düşmez (yapay döngülü registry testi).
 

@@ -71,7 +71,7 @@ const { getDomain, DEFAULT_DOMAIN, DOMAINS } = await import('../src/domains/inde
 const { getPresets } = await import('../src/engine/presetEngine.js');
 const { PARAMETER_DESCRIPTIONS, getParameterDescription } = await import('../src/domains/parameterDescriptions.js');
 const { getModuleRegistry, getModuleById } = await import('../src/engine/moduleRegistry.js');
-const { resolveDependencies, sortDependencies, DependencyGraph } = await import('../src/engine/dependencyResolver.js');
+const { resolveDependencies, sortDependencies, DependencyGraph, withCycleFallback, safeSortDependencies } = await import('../src/engine/dependencyResolver.js');
 const { assembleFinalPrompt, analyzePromptComplexity } = await import('../src/compiler/finalPromptAssembler.js');
 const { AI_STRATEGIES } = await import('../src/utils/aiRouter.js');
 const { pathToDomain } = await import('../src/utils/domainRoute.js');
@@ -1498,6 +1498,78 @@ await suite('Phase 16: URL / State / Payload Integrity', async () => {
         const { clean, warnings } = sanitizePayloadWithWarnings({ domain: 'learning', hedef: 'bogus_target' }, 'tr');
         assert.equal(clean.hedef, 'markdown');
         assert.ok(warnings.some((w) => w.code === 'invalid-option' && w.field === 'hedef'));
+    });
+
+    await test('T16.8: store no longer carries the dead view/intro flow (16.6)', () => {
+        resetStore('learning');
+        const state = useEngineState.getState();
+        assert.ok(!('view' in state), 'view field must be removed');
+        assert.equal(typeof state.enterWorkspace, 'undefined');
+        assert.equal(typeof state.backToIntro, 'undefined');
+        assert.equal(typeof state.startManual, 'undefined');
+    });
+
+    await test('T16.9: loadRecipe and share-restore preserve the recipient gorunum (16.6)', () => {
+        resetStore('learning');
+        const store = useEngineState.getState();
+        store.setGorunum('default');
+        store.setPreset(Object.keys(getPresets('learning'))[0]);
+        store.saveRecipe('Gorunum Recipe');
+        const recipeId = useEngineState.getState().savedRecipes[0].id;
+        store.setGorunum('advanced');
+        store.loadRecipe(recipeId);
+        assert.equal(useEngineState.getState().config.gorunum, 'advanced');
+    });
+
+    await test('T16.10: analyzePromptComplexity honors forceTarget (16.7)', () => {
+        resetStore('learning');
+        const store = useEngineState.getState();
+        store.setConfig('konu', 'Ölçüm Konusu');
+        store.setModules(['eli5']);
+        const jsonState = { ...useEngineState.getState(), config: { ...useEngineState.getState().config, hedef: 'openai-json' } };
+        const forced = analyzePromptComplexity(jsonState, { forceTarget: 'markdown' });
+        const natural = analyzePromptComplexity({ ...jsonState, config: { ...jsonState.config, hedef: 'markdown' } });
+        assert.equal(forced.chars, natural.chars);
+        assert.equal(forced.tokens, natural.tokens);
+    });
+
+    await test('T16.11: openInAI reports clipboard failure via onCopyError (16.8)', async () => {
+        const { openInAI } = await import('../src/utils/aiRouter.js');
+        const origOpen = globalThis.window.open;
+        const origWrite = globalThis.navigator.clipboard.writeText;
+        globalThis.window.open = () => {};
+        globalThis.navigator.clipboard.writeText = async () => { throw new Error('denied'); };
+        try {
+            let reported = null;
+            openInAI('claude', 'x'.repeat(10), () => {}, () => {}, (err) => { reported = err; });
+            await new Promise((r) => setTimeout(r, 20));
+            assert.ok(reported instanceof Error, 'onCopyError must fire on clipboard failure');
+        } finally {
+            globalThis.window.open = origOpen;
+            globalThis.navigator.clipboard.writeText = origWrite;
+        }
+    });
+
+    await test('T16.12: cyclic registry degrades to registry order instead of crashing (16.9)', () => {
+        const cyclic = new DependencyGraph([
+            { id: 'a', requires: ['b'] },
+            { id: 'b', requires: ['a'] }
+        ]);
+        assert.throws(() => cyclic.topologicalSort(['a', 'b']), /Döngüsel Bağımlılık/);
+        const fallback = withCycleFallback(() => cyclic.topologicalSort(['a', 'b']), () => ['fallback']);
+        assert.deepEqual(fallback, ['fallback']);
+        const passthrough = withCycleFallback(() => ['ok'], () => ['fallback']);
+        assert.deepEqual(passthrough, ['ok']);
+    });
+
+    await test('T16.13: safeSortDependencies matches sortDependencies on healthy data (16.9)', () => {
+        resetStore('learning');
+        const store = useEngineState.getState();
+        store.setModules(['eli5', 'kalibrasyon', 'onkosul']);
+        const ids = useEngineState.getState().selectedModules;
+        const safe = safeSortDependencies(ids, 'learning', 'tr').map((m) => m.id);
+        const strict = sortDependencies(ids, 'learning', 'tr').map((m) => m.id);
+        assert.deepEqual(safe, strict);
     });
 });
 

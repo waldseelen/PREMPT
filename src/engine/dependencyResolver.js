@@ -82,3 +82,27 @@ export function resolveDependencies(selectedIds, domain = 'learning', lang = 'tr
 export function sortDependencies(resolvedIds, domain = 'learning', lang = 'tr') {
     return getGraph(domain, lang).topologicalSort(resolvedIds);
 }
+
+// Runs a sort function with a registry-order fallback: a circular `requires`
+// chain must degrade to an unordered-but-complete prompt, never to a render
+// crash that takes down the whole app (Phase 16.9). The throwing contract of
+// topologicalSort itself is preserved (validator + stress tests rely on it).
+export function withCycleFallback(sortFn, fallback) {
+    try {
+        return sortFn();
+    } catch (err) {
+        console.warn('Dependency sort hit a cycle, falling back to registry order:', err?.message || err);
+        return fallback();
+    }
+}
+
+// Cycle-safe variant used by the compile path (finalPromptAssembler). Outside
+// the compile path, sortDependencies keeps its throwing contract so corrupt
+// data stays loud in tests and validators.
+export function safeSortDependencies(resolvedIds, domain = 'learning', lang = 'tr') {
+    const registry = getModuleRegistry(domain, lang);
+    return withCycleFallback(
+        () => getGraph(domain, lang).topologicalSort(resolvedIds),
+        () => registry.filter((m) => resolvedIds.includes(m.id))
+    );
+}

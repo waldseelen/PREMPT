@@ -13,7 +13,7 @@ current checkout (`CLAUDE.md` §7.1).
 | Lint | `npm run lint` | ✅ PASSED — 0 errors, 0 warnings under `--max-warnings=0` across repository | 2026-10-15 |
 | Build | `npm run build` | ✅ PASSED — 43s; all chunks under 500 kB with zero Vite chunk warnings | 2026-10-15 |
 | Module, preset, parameter, presentation, hover, and target validation | `npm run validate` | ✅ PASSED — all 15 domains, bilingual modules, 180 presets (including preset.id === key parity), TR/EN option descriptions, 15 presentation registrations, compiler texts completeness, layer categories, and central output targets | 2026-10-15 |
-| E2E Test Suite | `node scripts/test-e2e.mjs` | ✅ PASSED — 123/123 tests passing across Tiers 1-4 + Phase 16 suite with zero failures | 2026-10-15 |
+| E2E Test Suite | `node scripts/test-e2e.mjs` | ✅ PASSED — 129/129 tests passing across Tiers 1-4 + Phase 16 suite with zero failures | 2026-10-15 |
 | Challenger 2 Empirical Stress Test | `node scripts/test-challenger2-stress.mjs` | ✅ PASSED — 34/34 stress tests passing across Suites 1-4 with zero failures | 2026-10-15 |
 
 Notes on the gates themselves (not results):
@@ -24,30 +24,63 @@ Notes on the gates themselves (not results):
 
 ## Session History
 
-### 2026-10-15 — Phase 16.1–16.5 URL / State / Payload Integrity
+### 2026-10-15 — Phase 16 URL / State / Payload Integrity (16.1–16.9, tamamı)
+
+#### Background
+Development resumed with a full negative-findings pass: `TASKS.md` Phase 1–15 cleared (history kept in
+`git log -- TASKS.md`), three parallel review agents swept state/payload/URL, bilingual-data/validator, and
+UI/test-maintenance scopes, and the synthesis was recorded in `bad.md` (Sections A/B/C with severities).
+`TASKS.md` Phase 16–18 (30 items) was derived from `bad.md` only. This session executed all of Phase 16.
 
 #### What Changed
 1. **URL override sanitization (16.1):** `App.jsx` mount effect now routes `?seviye/?mod/?derinlik/?format/?hedef/?konu/?alan`
-   through `sanitizePayloadWithWarnings` (same contract as share/import); invalid `?domain/?preset` and unknown
-   `?modules=` ids produce warning toasts instead of silent no-ops. Overrides intentionally do not eject
-   `activePreset` (deep links carry `?preset=` + values together; ejecting would break preset round-trips).
-2. **`hedef` URL round-trip (16.2):** sync effect writes `?hedef=` when non-default, mount reads and validates it.
+   through the new `sanitizePayloadWithWarnings` (`src/utils/statePayload.js`, same contract as share/import);
+   invalid `?domain/?preset` and unknown `?modules=` ids produce warning toasts instead of silent no-ops/fallbacks.
+   New TR/EN strings: `toastUrlParamsFixed`, `toastUnknownPreset`, `toastUnknownModules`. Overrides intentionally do
+   not eject `activePreset` (deep links carry `?preset=` + values together; ejecting would break preset round-trips).
+2. **`hedef` URL round-trip (16.2):** URL-sync effect writes `?hedef=` when non-default and watches `config.hedef`;
+   mount reads and validates it — the output target no longer silently drops out of copied URLs.
 3. **Preset-rule contamination (16.3):** `serializeState`/`sanitizePayload` now carry `injectedRules` (optional field,
-   legacy payloads sanitize to `[]`); `loadRecipe`/`applySharedState` restore the saved rule set instead of leaking
-   the previous session's rules. `toggleModule`/`ejectPreset` preservation kept (locked by stress/e2e tests);
-   visible side implemented as a kept-rules badge in `ActiveModuleBadgeRow.jsx` with TR/EN `keptRulesBadge` strings.
+   capped at 2000 chars/line, deduped; legacy payloads sanitize to `[]`); `loadRecipe`/`applySharedState` restore the
+   saved rule set instead of leaking the previous session's rules. `toggleModule`/`ejectPreset` preservation kept
+   (locked by stress/e2e eject-purity tests); the visible side is a kept-rules badge (`ShieldCheck` +
+   `injectedRules.length`) in `ActiveModuleBadgeRow.jsx` with TR/EN `keptRulesBadge` strings, reusing the
+   `badge-preset-tag` style (no new CSS).
 4. **Share integrity feedback (16.4):** `handleShare` shows `toastShareFail` when encoding yields `''` instead of
-   copying a bare link with a success toast; JSON import reports `toastImportWarnings` when values were corrected.
-5. **Unknown module ids (16.5):** `setModules` filters unknown ids defensively; `?modules=` path warns with dropped ids.
-6. **Tests:** 7 new `T16.x` tests appended to `scripts/test-e2e.mjs` (payload rule round-trip, warnings taxonomy,
-   recipe rule restore, unknown-id filtering, encode failure, hedef fallback).
+   copying a bare `?share=` link with a success toast; JSON import reports `toastImportWarnings` when values were
+   corrected (`sanitizePayloadWithWarnings` warnings taxonomy: `unknown-domain`, `dropped-modules`, `invalid-option`,
+   `invalid-preset`, `invalid-rules`; `sanitizePayload` keeps its old signature as a `.clean` wrapper, so no caller
+   or test broke).
+5. **Unknown module ids (16.5):** `setModules` filters unknown ids against the domain registry (valid ids unaffected);
+   the `?modules=` path warns naming the dropped ids.
+6. **`view`/`gorunum` unification (16.6):** removed the dead `view` field and `enterWorkspace`/`backToIntro`/`startManual`
+   actions from `engineState.js` (zero callers; `Header` tour guard simplified to `startTour()`); `loadRecipe` and
+   `applySharedState` no longer force `gorunum='advanced'` — the recipient's view preference is preserved via the
+   existing `...state.config` spread; stale "Two-view flow" i18n comments corrected (dead `btnOpenWorkspace`/
+   `btnStartManual`/`btnBackToIntro` keys left for Phase 18.9 cleanup).
+7. **Complexity/target consistency (16.7):** `analyzePromptComplexity(state, { forceTarget })` added;
+   `ActionBar` badge measures the markdown representation the AI buttons actually send under `openai-json`
+   (previously it measured the JSON payload the user never sees).
+8. **Copy-failure feedback (16.8):** `openInAI` accepts optional `onCopyError` (still `console.warn`s); both AI-button
+   paths (`handleOpenAI`, Gemini) toast `toastCopyFail` on failure — critical for Claude, where clipboard is the only
+   delivery channel. Signature is backward compatible (existing tests/callers unchanged).
+9. **Cycle resilience (16.9):** new `withCycleFallback`/`safeSortDependencies` in `dependencyResolver.js`, adopted by
+   both compile entry points (`assembleFinalPrompt`, `analyzePromptComplexity`); a corrupt `requires` cycle now
+   degrades to registry order instead of crashing render through the app-level `ErrorBoundary`. `topologicalSort`'s
+   throwing contract is preserved (stress test + validator rely on it).
+10. **Tests:** 13 new `T16.x` tests in `scripts/test-e2e.mjs` — payload rule round-trip, legacy-payload `[]` default,
+    warnings taxonomy, recipe rule-restore (stale-rule pollution case), unknown-id filtering, encode-failure `''`,
+    hedef fallback, dead-view removal, gorunum preservation, forceTarget parity, copy-error callback (mocked failing
+    clipboard), cycle fallback + healthy-data parity.
 
 #### What Was Verified
 - `npm run lint`: 0 errors, 0 warnings.
 - `npm run validate`: passed across all 15 domains.
-- `node scripts/test-e2e.mjs`: 123/123 passing (116 existing + 7 new).
+- `node scripts/test-e2e.mjs`: 129/129 passing (116 existing + 13 new).
 - `node scripts/test-challenger2-stress.mjs`: 34/34 passing (eject-preservation contracts intact).
 - `npm run build`: success, all chunks under 500 kB.
+- Mid-session incidents, both repaired before gating: an edit briefly dropped `ejectPreset` (restored, covered by
+  `T1.9.4`/stress eject tests) and duplicated `startTour` (caught by `npm run lint` `no-dupe-keys`, removed).
 
 ### 2026-09-03 — Progressive Unified Workspace Refactor & Preset Hardening (Phase 15, Milestone 1)
 

@@ -27,7 +27,10 @@ export default function ActionBar({ showToast }) {
     const t = getTranslation(lang, domain);
 
     const stats = useMemo(() => {
-        return analyzePromptComplexity({ config, selectedModules, injectedRules });
+        // Measure what the AI buttons will actually send: under the openai-json
+        // target they deliver markdown, so the badge must measure markdown too.
+        const effectiveTarget = config.hedef === 'openai-json' ? 'markdown' : undefined;
+        return analyzePromptComplexity({ config, selectedModules, injectedRules }, effectiveTarget ? { forceTarget: effectiveTarget } : undefined);
     }, [config, selectedModules, injectedRules]);
 
     const executeGeminiLaunch = () => {
@@ -44,7 +47,8 @@ export default function ActionBar({ showToast }) {
                 } else {
                     showToast('Gemini açıldı! Prompt PANOYA KOPYALANDI — Kutuda Ctrl+V yapın.', 'success');
                 }
-            }
+            },
+            () => showToast(t.toastCopyFail, 'warn')
         );
     };
 
@@ -93,7 +97,8 @@ export default function ActionBar({ showToast }) {
                 } else {
                     showToast(`${name} açıldı! Prompt PANOYA KOPYALANDI — Kutuda Ctrl+V (Yapıştır) yapın.`, 'success');
                 }
-            }
+            },
+            () => showToast(t.toastCopyFail, 'warn')
         );
     };
 

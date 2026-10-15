@@ -51,13 +51,6 @@ export const useEngineState = create(
             // (see partialize below).
             savedRecipes: [],
 
-            // 5. View routing (session-only, NOT persisted — see partialize).
-            // 'intro' = topic + preset-first entry, 'workspace' = fine-tune +
-            // live preview. Kept as a sibling of `config`, same reasoning as
-            // `savedRecipes`: setDomain() must not reset it (switching domain
-            // mid-workspace should not kick the user back to intro).
-            view: 'workspace',
-
             // Actions
             setConfig: (key, value) => set((state) => {
                 const newConfig = { ...state.config, [key]: value };
@@ -95,20 +88,6 @@ export const useEngineState = create(
             setGorunum: (mode) => set((state) => ({
                 config: { ...state.config, gorunum: mode === 'advanced' ? 'advanced' : 'default' }
             })),
-
-            // --- View routing ---
-            enterWorkspace: () => set({ view: 'workspace' }),
-            backToIntro: () => set({ view: 'intro' }),
-            // "Modülleri kendim seçeceğim" — explicit empty/manual entry so
-            // preset-first never becomes preset-mandatory. Leaves konu/alan
-            // untouched (unlike clearAll, which also wipes topic text).
-            startManual: () => set({
-                view: 'workspace',
-                selectedModules: [],
-                activePreset: null,
-                injectedRules: [],
-                dependencyHints: []
-            }),
 
             // Detaches active preset name (Eject/Remix) while preserving all
             // injectedRules, selectedModules, and configuration overrides.
@@ -237,8 +216,7 @@ export const useEngineState = create(
                         format: clean.format,
                         hedef: clean.hedef,
                         monolog: clean.monolog,
-                        autoResolveDeps: clean.autoResolveDeps,
-                        gorunum: 'advanced'
+                        autoResolveDeps: clean.autoResolveDeps
                     },
                     selectedModules: clean.selectedModules,
                     activePreset: clean.activePreset,
@@ -246,7 +224,6 @@ export const useEngineState = create(
                     // previous session's rules leak into the loaded setup
                     // (Phase 16.3). Old payloads sanitize injectedRules to [].
                     injectedRules: clean.injectedRules,
-                    view: 'workspace',
                     dependencyHints: []
                 };
             }),
@@ -271,14 +248,12 @@ export const useEngineState = create(
                         format: clean.format,
                         hedef: clean.hedef,
                         monolog: clean.monolog,
-                        autoResolveDeps: clean.autoResolveDeps,
-                        gorunum: 'advanced'
+                        autoResolveDeps: clean.autoResolveDeps
                     },
                     selectedModules: clean.selectedModules,
                     activePreset: clean.activePreset,
                     // Same rule-restore contract as loadRecipe (Phase 16.3).
                     injectedRules: clean.injectedRules,
-                    view: 'workspace',
                     dependencyHints: []
                 };
             }),
