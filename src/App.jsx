@@ -12,10 +12,12 @@ import Toast from './ui/Toast';
 import OnboardingTour from './ui/OnboardingTour';
 import { ErrorBoundary } from './ui/ErrorBoundary';
 import { useEngineState } from './store/engineState';
-import { getDomain } from './domains';
+import { getDomain, DOMAINS } from './domains';
+import { getPresets } from './engine/presetEngine';
+import { getModuleRegistry } from './engine/moduleRegistry';
 import { getTranslation } from './locales/i18n';
 import { pathToDomain } from './utils/domainRoute';
-import { decodePayloadFromParam, sanitizePayload } from './utils/statePayload';
+import { decodePayloadFromParam, sanitizePayloadWithWarnings } from './utils/statePayload';
 import { ArrowLeft } from 'lucide-react';
 import './index.css';
 
@@ -30,17 +32,33 @@ export default function App() {
         setGorunum: state.setGorunum
     })));
 
-    // Mount-time URL Query & Path handling
+    // Mount-time URL Query & Path handling. Every externally-sourced value
+    // goes through the same sanitize contract as share/import (Phase 16.1):
+    // unknown ids fall back silently no more — the user gets a warning toast.
     useEffect(() => {
         const { config: currentConfig, setDomain, setPreset, setModules, applySharedState } = useEngineState.getState();
         const params = new URLSearchParams(window.location.search);
         const shareParam = params.get('share');
 
+        // Local notifier using only the stable setState setter and ref, so this
+        // []-deps effect stays exhaustive-deps clean without a suppression.
+        const notifyWarn = (msg) => {
+            const id = Date.now() + Math.random();
+            setToasts((prev) => [{ id, msg, type: 'warn' }, ...prev]);
+            const timerId = setTimeout(() => {
+                setToasts((prev) => prev.filter((t) => t.id !== id));
+                toastTimers.current.delete(id);
+            }, 4000);
+            toastTimers.current.set(id, timerId);
+        };
+        const t0 = getTranslation(currentConfig.lang, currentConfig.domain);
+
         if (shareParam) {
             const decoded = decodePayloadFromParam(shareParam);
             if (decoded) {
-                const clean = sanitizePayload(decoded, currentConfig.lang);
+                const { clean, warnings } = sanitizePayloadWithWarnings(decoded, currentConfig.lang);
                 applySharedState(clean);
+                if (warnings.length > 0) notifyWarn(t0.toastUrlParamsFixed);
                 return;
             }
         }
@@ -50,19 +68,38 @@ export default function App() {
         const pathDomain = pathToDomain(window.location.pathname);
         const targetDomain = queryDomain || pathDomain;
 
+        if (queryDomain && !Object.hasOwn(DOMAINS, queryDomain)) {
+            notifyWarn(t0.toastUrlParamsFixed);
+        }
         if (targetDomain && targetDomain !== (currentConfig.domain ?? 'learning')) {
             setDomain(targetDomain);
         }
+        const resolvedDomain = useEngineState.getState().config.domain;
 
         // 2. Preset or custom modules parameters (?preset=... or ?modules=...)
         const presetParam = params.get('preset');
         if (presetParam) {
-            setPreset(presetParam);
+            const available = getPresets(resolvedDomain);
+            const known = available[presetParam] || Object.values(available).find((p) => p?.id === presetParam);
+            if (known) {
+                setPreset(presetParam);
+            } else {
+                notifyWarn(t0.toastUnknownPreset);
+            }
         } else {
             const modulesParam = params.get('modules') || params.get('mods');
             if (modulesParam) {
                 const moduleList = modulesParam.split(',').map((m) => m.trim()).filter(Boolean);
-                setModules(moduleList);
+                const validIds = new Set(
+                    getModuleRegistry(resolvedDomain, useEngineState.getState().config.lang).map((m) => m.id)
+                );
+                const dropped = moduleList.filter((id) => !validIds.has(id));
+                if (dropped.length > 0) {
+                    notifyWarn(`${t0.toastUnknownModules} (${dropped.slice(0, 3).join(', ')}${dropped.length > 3 ? '…' : ''})`);
+                }
+                // setModules filters defensively again; passing only known ids
+                // keeps the warning above accurate.
+                setModules(moduleList.filter((id) => validIds.has(id)));
             }
         }
 
@@ -86,13 +123,42 @@ export default function App() {
         const format = params.get('format');
         if (format !== null) overrides.format = format;
 
+        const hedef = params.get('hedef');
+        if (hedef !== null) overrides.hedef = hedef;
+
         const lang = params.get('lang');
         if (lang !== null && (lang === 'tr' || lang === 'en')) overrides.lang = lang;
 
         if (Object.keys(overrides).length > 0) {
+            const cur = useEngineState.getState().config;
+            const raw = {
+                domain: resolvedDomain,
+                seviye: overrides.seviye ?? cur.seviye,
+                mod: overrides.mod ?? cur.mod,
+                derinlik: overrides.derinlik ?? cur.derinlik,
+                format: overrides.format ?? cur.format,
+                hedef: overrides.hedef ?? cur.hedef
+            };
+            if (overrides.konu !== undefined) raw.konu = overrides.konu;
+            if (overrides.alan !== undefined) raw.alan = overrides.alan;
+            const { clean, warnings } = sanitizePayloadWithWarnings(raw, cur.lang);
+            const applied = {};
+            for (const key of Object.keys(overrides)) {
+                if (key === 'lang') {
+                    applied[key] = overrides.lang;
+                } else {
+                    applied[key] = clean[key];
+                }
+            }
+            // NOTE: overrides intentionally do not eject activePreset. Deep links
+            // always carry ?preset= together with the preset's own values, so
+            // ejecting here would break every shared preset round-trip.
             useEngineState.setState((state) => ({
-                config: { ...state.config, ...overrides }
+                config: { ...state.config, ...applied }
             }));
+            if (warnings.some((w) => w.field && w.field in overrides)) {
+                notifyWarn(t0.toastUrlParamsFixed);
+            }
         }
     }, []);
 
@@ -110,6 +176,9 @@ export default function App() {
                 if (config.seviye && config.seviye !== 'otomatik') params.set('seviye', config.seviye);
                 if (config.derinlik && config.derinlik !== 'orta') params.set('derinlik', config.derinlik);
                 if (config.format && config.format !== 'markdown') params.set('format', config.format);
+                // config.hedef is part of the compiled output: without it a
+                // copied URL silently loses the output target on reopen (Phase 16.2).
+                if (config.hedef && config.hedef !== 'markdown') params.set('hedef', config.hedef);
                 
                 if (activePreset) {
                     params.set('preset', activePreset);
@@ -130,7 +199,7 @@ export default function App() {
         }, 250);
 
         return () => clearTimeout(timer);
-    }, [config.domain, config.konu, config.alan, config.mod, config.seviye, config.derinlik, config.format, activePreset, selectedModules]);
+    }, [config.domain, config.konu, config.alan, config.mod, config.seviye, config.derinlik, config.format, config.hedef, activePreset, selectedModules]);
 
     // Browser back/forward navigation
     useEffect(() => {

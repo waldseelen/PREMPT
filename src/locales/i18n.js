@@ -105,6 +105,12 @@ export const i18n = {
     btnImport: 'İçe Aktar',
     toastImportSuccess: 'Ayarlar içe aktarıldı!',
     toastImportFail: 'Geçersiz veya bozuk dosya.',
+    toastShareFail: 'Paylaşım linki oluşturulamadı.',
+    toastImportWarnings: 'Ayarlar içe aktarıldı; geçersiz değerler varsayılanlara döndürüldü.',
+    toastUrlParamsFixed: 'Linkteki geçersiz ayarlar varsayılanlara döndürüldü.',
+    toastUnknownPreset: 'Linkteki şablon bulunamadı, atlandı.',
+    toastUnknownModules: 'Bilinmeyen modüller atlandı.',
+    keptRulesBadge: 'Özel kural korunuyor',
 
     // Intelligence & UI Strings
     systemIntelligence: 'Sistem Zekası:',
@@ -283,6 +289,12 @@ export const i18n = {
     btnImport: 'Import',
     toastImportSuccess: 'Settings imported!',
     toastImportFail: 'Invalid or corrupted file.',
+    toastShareFail: 'Could not create the share link.',
+    toastImportWarnings: 'Settings imported; invalid values were reset to defaults.',
+    toastUrlParamsFixed: 'Invalid settings in the link were reset to defaults.',
+    toastUnknownPreset: 'The preset in the link was not found, skipped.',
+    toastUnknownModules: 'Unknown modules were skipped.',
+    keptRulesBadge: 'custom rule kept',
 
     // Intelligence & UI Strings
     systemIntelligence: 'System Intelligence:',

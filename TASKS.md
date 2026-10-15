@@ -12,23 +12,23 @@ unless it is explicitly reopened.
 
 ## Phase 16 — URL / state / payload bütünlüğü (bad.md Bölüm A)
 
-- [ ] 16.1 URL override'larını sanitize et (A4.1).
+- [x] 16.1 URL override'larını sanitize et (A4.1).
       Acceptance: `App.jsx` mount override bloğu ham `setState` yerine alan-whitelist + `sanitizePayload`
       eşdeğeri doğrulamadan geçer; geçersiz `?mod/?format/?seviye/?derinlik` domain-default'a düşer ve kullanıcıya
       bildirilir; `?hedef=` ya desteklenir ya da dokümante şekilde yok sayılır; `?konu/?alan` 10000 sınırına uyar.
-  - [ ] 16.1.1 `?seviye/?mod/?derinlik/?format/?konu/?alan` için doğrulama yolu ekle (share/import yoluyla aynı sözleşme).
-  - [ ] 16.1.2 Geçersiz `?domain/?preset/?modules` durumlarında sessiz no-op yerine toast/uyarı göster.
-- [ ] 16.2 `hedef`'i URL kanonik durumuna dahil et (A4.4).
+  - [x] 16.1.1 `?seviye/?mod/?derinlik/?format/?konu/?alan` için doğrulama yolu ekle (share/import yoluyla aynı sözleşme).
+  - [x] 16.1.2 Geçersiz `?domain/?preset/?modules` durumlarında sessiz no-op yerine toast/uyarı göster.
+- [x] 16.2 `hedef`'i URL kanonik durumuna dahil et (A4.4).
       Acceptance: sync efekti `hedef != 'markdown'` iken `?hedef=` yazar, mount onu okur; paylaşım → kopyalanan
       URL → yeniden açma döngüsünde `config.hedef` korunur (openai-json round-trip testi).
-- [ ] 16.3 Preset-kural bulaşmasını kapat (A2.1–A2.3).
+- [x] 16.3 Preset-kural bulaşmasını kapat (A2.1–A2.3).
       Acceptance: `toggleModule` müdahalesinde `injectedRules` ya temizlenir ya da "özel kurallar korundu" rozetiyle
       açıkça gösterilir (karar kayıtlı); `serializeState` + `loadRecipe` + `applySharedState` kural setini taşır/sıfırlar;
       Tarif-B yükleme sonrası prompt'ta Tarif-A kuralı kalmaz (testli).
-- [ ] 16.4 Paylaşım bütünlük bildirimi (A3.1–A3.2).
+- [x] 16.4 Paylaşım bütünlük bildirimi (A3.1–A3.2).
       Acceptance: `sanitizePayload` düşürdüğü/ikame ettiği alanlar için `warnings[]` döner; share/import akışı bunları
       toast/liste ile gösterir; `encodePayloadToParam === ''` ise paylaşım hata toast'ı verir, bozuk link kopyalanmaz.
-- [ ] 16.5 `?modules=` ham-id ıraksamasını kapat (A4.6).
+- [x] 16.5 `?modules=` ham-id ıraksamasını kapat (A4.6).
       Acceptance: bilinmeyen modül id'si state'te tutulmaz veya UI'da "bilinmeyen modül atlandı" olarak işaretlenir;
       chip/URL ile prompt içeriği birebir eşleşir.
 - [ ] 16.6 `view`/`gorunum` ikiliğini tekilleştir (A5).

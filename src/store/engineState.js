@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { resolveDependencies } from '../engine/dependencyResolver';
+import { getModuleRegistry } from '../engine/moduleRegistry';
 import { applyPreset, getPresets } from '../engine/presetEngine';
 import { getDomain, DEFAULT_DOMAIN } from '../domains';
 import { pushDomainRoute } from '../utils/domainRoute';
@@ -181,7 +182,13 @@ export const useEngineState = create(
 
             setModules: (moduleIds) => set((state) => {
                 const domain = state.config.domain ?? DEFAULT_DOMAIN;
-                let newModules = moduleIds;
+                // Defensive: unknown ids (e.g. from a hand-edited ?modules= URL)
+                // are dropped here so they can never linger in state while the
+                // compiler silently omits them (Phase 16.5). Valid ids pass through.
+                const validIds = new Set(getModuleRegistry(domain, state.config.lang).map((m) => m.id));
+                let newModules = Array.isArray(moduleIds)
+                    ? moduleIds.filter((id) => validIds.has(id))
+                    : [];
                 if (state.config.autoResolveDeps) {
                     newModules = resolveDependencies(newModules, domain, state.config.lang);
                 }
@@ -235,6 +242,10 @@ export const useEngineState = create(
                     },
                     selectedModules: clean.selectedModules,
                     activePreset: clean.activePreset,
+                    // Restore the saved rule set exactly: without this the
+                    // previous session's rules leak into the loaded setup
+                    // (Phase 16.3). Old payloads sanitize injectedRules to [].
+                    injectedRules: clean.injectedRules,
                     view: 'workspace',
                     dependencyHints: []
                 };
@@ -265,6 +276,8 @@ export const useEngineState = create(
                     },
                     selectedModules: clean.selectedModules,
                     activePreset: clean.activePreset,
+                    // Same rule-restore contract as loadRecipe (Phase 16.3).
+                    injectedRules: clean.injectedRules,
                     view: 'workspace',
                     dependencyHints: []
                 };

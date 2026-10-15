@@ -3,7 +3,7 @@ import { useEngineState } from '../store/engineState';
 import { useShallow } from 'zustand/react/shallow';
 import { assembleFinalPrompt, analyzePromptComplexity } from '../compiler/finalPromptAssembler';
 import { copyToClipboard, openInAI } from '../utils/aiRouter';
-import { serializeState, sanitizePayload, encodePayloadToParam } from '../utils/statePayload';
+import { serializeState, sanitizePayloadWithWarnings, encodePayloadToParam } from '../utils/statePayload';
 import { getDomain } from '../domains';
 import { SiGooglegemini, SiAnthropic, SiPerplexity, SiOpenaigym } from '@icons-pack/react-simple-icons';
 import { getTranslation } from '../locales/i18n';
@@ -101,6 +101,13 @@ export default function ActionBar({ showToast }) {
         const currentState = useEngineState.getState();
         const payload = serializeState(currentState, { includeTopic: true });
         const param = encodePayloadToParam(payload);
+        // encodePayloadToParam returns '' when serialization fails: copying a
+        // bare ?share= link with a success toast would strand the recipient
+        // on an empty state with no explanation (Phase 16.4).
+        if (!param) {
+            showToast(t.toastShareFail, 'warn');
+            return;
+        }
         const route = getDomain(currentState.config.domain).route;
         const url = `${window.location.origin}/${route}?share=${param}`;
         const isLong = url.length > 2000;
@@ -135,9 +142,9 @@ export default function ActionBar({ showToast }) {
         reader.onload = () => {
             try {
                 const raw = JSON.parse(reader.result);
-                const clean = sanitizePayload(raw, useEngineState.getState().config.lang);
+                const { clean, warnings } = sanitizePayloadWithWarnings(raw, useEngineState.getState().config.lang);
                 applySharedState(clean);
-                showToast(t.toastImportSuccess);
+                showToast(warnings.length > 0 ? t.toastImportWarnings : t.toastImportSuccess, warnings.length > 0 ? 'warn' : 'success');
             } catch {
                 showToast(t.toastImportFail, 'warn');
             }

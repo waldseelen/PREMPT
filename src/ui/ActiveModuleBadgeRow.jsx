@@ -4,13 +4,14 @@ import { useEngineState } from '../store/engineState';
 import { getModuleRegistry } from '../engine/moduleRegistry';
 import { getModuleIcon } from './moduleIconRegistry';
 import { getTranslation } from '../locales/i18n';
-import { SlidersHorizontal, ChevronDown, ChevronUp, X, Sparkles, Unlock } from 'lucide-react';
+import { SlidersHorizontal, ChevronDown, ChevronUp, X, Sparkles, Unlock, ShieldCheck } from 'lucide-react';
 
 export default function ActiveModuleBadgeRow({ isExpanded, onToggleExpand }) {
-    const { config, selectedModules, activePreset, toggleModule, ejectPreset } = useEngineState(useShallow(state => ({
+    const { config, selectedModules, activePreset, injectedRules, toggleModule, ejectPreset } = useEngineState(useShallow(state => ({
         config: state.config,
         selectedModules: state.selectedModules,
         activePreset: state.activePreset,
+        injectedRules: state.injectedRules,
         toggleModule: state.toggleModule,
         ejectPreset: state.ejectPreset
     })));
@@ -43,6 +44,20 @@ export default function ActiveModuleBadgeRow({ isExpanded, onToggleExpand }) {
                             <Unlock size={11} aria-hidden="true" />
                             <span>{t.ejectBtn || (config.lang === 'en' ? 'Customize' : 'Özelleştir')}</span>
                         </button>
+                    </span>
+                )}
+                {/* Ejected/remixed rules stay in the compiled prompt by design
+                    (toggleModule/ejectPreset preserve them); without a visible
+                    marker the user never knows stale preset rules still apply
+                    (Phase 16.3). */}
+                {!activePreset && injectedRules.length > 0 && (
+                    <span
+                        className="badge-preset-tag"
+                        title={injectedRules.join('\n')}
+                        aria-label={`${injectedRules.length} ${t.keptRulesBadge || (config.lang === 'en' ? 'custom rule kept' : 'Özel kural korunuyor')}`}
+                    >
+                        <ShieldCheck size={12} aria-hidden="true" />
+                        <span className="badge-preset-name">{injectedRules.length} {t.keptRulesBadge || (config.lang === 'en' ? 'custom rule kept' : 'Özel kural korunuyor')}</span>
                     </span>
                 )}
             </div>

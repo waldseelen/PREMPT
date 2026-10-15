@@ -78,6 +78,7 @@ const { pathToDomain } = await import('../src/utils/domainRoute.js');
 const {
     serializeState,
     sanitizePayload,
+    sanitizePayloadWithWarnings,
     encodePayloadToParam,
     decodePayloadFromParam
 } = await import('../src/utils/statePayload.js');
@@ -1426,6 +1427,77 @@ await suite('Tier 4: Real-World Application Scenarios', async () => {
         const enPrompt = assembleFinalPrompt(enState);
         assert.ok(enPrompt.includes('Japonya 14 Günlük Rota'));
         assert.ok(enPrompt.includes('[ROLE]'));
+    });
+});
+
+// ============================================================================
+// PHASE 16: URL / State / Payload Integrity (bad.md Bölüm A)
+// ============================================================================
+
+await suite('Phase 16: URL / State / Payload Integrity', async () => {
+    await test('T16.1: serializeState carries injectedRules; sanitize round-trip preserves them', () => {
+        resetStore('learning');
+        const store = useEngineState.getState();
+        const presetEntry = Object.entries(getPresets('learning')).find(([, p]) => Array.isArray(p.injectRules) && p.injectRules.length > 0);
+        store.setPreset(presetEntry[0]);
+        const payload = serializeState(useEngineState.getState(), { includeTopic: true });
+        assert.deepEqual(payload.injectedRules, presetEntry[1].injectRules);
+        const { clean, warnings } = sanitizePayloadWithWarnings(payload, 'tr');
+        assert.deepEqual(clean.injectedRules, presetEntry[1].injectRules);
+        assert.deepEqual(warnings, []);
+    });
+
+    await test('T16.2: payload without injectedRules (legacy) sanitizes to []', () => {
+        const { clean } = sanitizePayloadWithWarnings({ domain: 'learning', selectedModules: ['eli5'] }, 'tr');
+        assert.deepEqual(clean.injectedRules, []);
+    });
+
+    await test('T16.3: warnings report unknown domain, dropped modules, and invalid options', () => {
+        const { clean, warnings } = sanitizePayloadWithWarnings({
+            domain: 'nope_domain',
+            seviye: 'bogus_level',
+            selectedModules: ['eli5', 'fake_module_xyz_123'],
+            activePreset: 'nope_preset'
+        }, 'tr');
+        assert.equal(clean.domain, 'learning');
+        assert.deepEqual(clean.selectedModules, ['eli5']);
+        const codes = warnings.map((w) => w.code);
+        assert.ok(codes.includes('unknown-domain'), 'expected unknown-domain warning');
+        assert.ok(codes.includes('dropped-modules'), 'expected dropped-modules warning');
+        assert.ok(codes.includes('invalid-option'), 'expected invalid-option warning');
+        assert.ok(codes.includes('invalid-preset'), 'expected invalid-preset warning');
+        const dropped = warnings.find((w) => w.code === 'dropped-modules');
+        assert.deepEqual(dropped.ids, ['fake_module_xyz_123']);
+    });
+
+    await test('T16.4: loadRecipe restores the saved rule set instead of leaking previous rules', () => {
+        resetStore('learning');
+        const store = useEngineState.getState();
+        const presetEntry = Object.entries(getPresets('learning')).find(([, p]) => Array.isArray(p.injectRules) && p.injectRules.length > 0);
+        store.setPreset(presetEntry[0]);
+        store.saveRecipe('Rules Recipe');
+        const recipeId = useEngineState.getState().savedRecipes[0].id;
+        // Pollute the session with a different rule set, then reload.
+        useEngineState.setState({ injectedRules: ['STALE RULE'] });
+        store.loadRecipe(recipeId);
+        assert.deepEqual(useEngineState.getState().injectedRules, presetEntry[1].injectRules);
+    });
+
+    await test('T16.5: setModules drops unknown ids instead of keeping phantom selection', () => {
+        resetStore('learning');
+        const store = useEngineState.getState();
+        store.setModules(['eli5', 'unknown_id_999']);
+        assert.deepEqual(useEngineState.getState().selectedModules, ['eli5']);
+    });
+
+    await test('T16.6: encodePayloadToParam returns empty string when serialization throws', () => {
+        assert.equal(encodePayloadToParam({ broken: BigInt(1) }), '');
+    });
+
+    await test('T16.7: invalid ?hedef=-style value falls back to markdown with a warning', () => {
+        const { clean, warnings } = sanitizePayloadWithWarnings({ domain: 'learning', hedef: 'bogus_target' }, 'tr');
+        assert.equal(clean.hedef, 'markdown');
+        assert.ok(warnings.some((w) => w.code === 'invalid-option' && w.field === 'hedef'));
     });
 });
 
