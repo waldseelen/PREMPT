@@ -5,7 +5,7 @@ import { createPortal } from 'react-dom';
  * positioning it relative to the target element's bounding rect.
  * Completely immune to parent overflow: hidden/auto scroll clipping.
  */
-export default function PortalTooltip({ targetRect, children, isOpen }) {
+export default function PortalTooltip({ targetRect, children, isOpen, tooltipId }) {
     if (!isOpen || !targetRect || typeof document === 'undefined') return null;
 
     const viewportWidth = window.innerWidth;
@@ -24,6 +24,8 @@ export default function PortalTooltip({ targetRect, children, isOpen }) {
     return createPortal(
         <div
             className="portal-tooltip"
+            id={tooltipId}
+            role="tooltip"
             style={{
                 position: 'fixed',
                 top: `${top}px`,

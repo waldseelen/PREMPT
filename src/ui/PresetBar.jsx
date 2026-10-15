@@ -63,6 +63,7 @@ export default function PresetBar() {
                                                 onMouseEnter={(event) => {
                                                     if (description) {
                                                         setHoveredPreset({
+                                                            key,
                                                             name: presetName,
                                                             desc: description,
                                                             rect: event.currentTarget.getBoundingClientRect()
@@ -73,6 +74,7 @@ export default function PresetBar() {
                                                 onFocus={(event) => {
                                                     if (description) {
                                                         setHoveredPreset({
+                                                            key,
                                                             name: presetName,
                                                             desc: description,
                                                             rect: event.currentTarget.getBoundingClientRect()
@@ -82,6 +84,7 @@ export default function PresetBar() {
                                                 onBlur={() => setHoveredPreset(null)}
                                                 aria-label={presetName}
                                                 aria-pressed={isActive}
+                                                aria-describedby={hoveredPreset ? `preset-tip-${key}` : undefined}
                                             >
                                                 {isActive ? <Check size={13} aria-hidden="true" /> : <Zap size={13} aria-hidden="true" />}
                                                 <span>{presetName}</span>
@@ -103,7 +106,7 @@ export default function PresetBar() {
             )}
 
             {hoveredPreset && (
-                <PortalTooltip targetRect={hoveredPreset.rect} isOpen={Boolean(hoveredPreset)}>
+                <PortalTooltip targetRect={hoveredPreset.rect} isOpen={Boolean(hoveredPreset)} tooltipId={`preset-tip-${hoveredPreset.key}`}>
                     <div className="tooltip-title">{hoveredPreset.name}</div>
                     <div className="tooltip-explain">{hoveredPreset.desc}</div>
                 </PortalTooltip>

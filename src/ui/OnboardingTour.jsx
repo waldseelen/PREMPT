@@ -160,7 +160,8 @@ export default function OnboardingTour() {
     const handleNext = () => {
         if (isLast) {
             setCurrentStep(0);
-            localStorage.setItem('prompter-tour-completed', 'true');
+            // Persisted via completeTour() (config.tourCompleted) — no direct
+            // localStorage write (Phase 18.8).
             completeTour();
         } else {
             setCurrentStep((prev) => prev + 1);
@@ -175,7 +176,6 @@ export default function OnboardingTour() {
 
     const handleSkip = () => {
         setCurrentStep(0);
-        localStorage.setItem('prompter-tour-completed', 'true');
         completeTour();
     };
 
@@ -205,19 +205,13 @@ export default function OnboardingTour() {
                 <div className="tour-card-footer">
                     <div className="tour-dots">
                         {steps.map((_, idx) => (
-                            <span 
-                                key={idx} 
+                            <button
+                                key={idx}
+                                type="button"
                                 className={`tour-dot ${idx === safeIndex ? 'active' : ''}`}
                                 onClick={() => setCurrentStep(idx)}
-                                role="button"
-                                tabIndex={0}
-                                onKeyDown={(e) => {
-                                    if (e.key === 'Enter' || e.key === ' ') {
-                                        e.preventDefault();
-                                        setCurrentStep(idx);
-                                    }
-                                }}
                                 aria-label={`Step ${idx + 1}`}
+                                aria-current={idx === safeIndex ? 'step' : undefined}
                             />
                         ))}
                     </div>

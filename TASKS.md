@@ -8,9 +8,8 @@ unless it is explicitly reopened.
 > Reset: Phase 1–15 tamamlananlar temizlendi, geçmiş `git log -- TASKS.md` içinde korunur.
 > Aşağıdaki fazlar yalnızca `bad.md` bulgularından türetildi.
 >
-> Gelecek ajanlara not: Phase 16 (`16.1–16.9`) ve Phase 17 (`17.1–17.8`) tamamlandı (`[x]`).
-> Tek açık faz Phase 18 (`18.1–18.10`, 10 madde) — kaynağı `bad.md` Bölüm C, oturum detayları `PROGRESS.md`'de.
-> Kapalı maddeyi yeniden açma; yeni string TR+EN birlikte ekle; kapıları koşmadan `[x]` işaretleme.
+> Gelecek ajanlara not: Phase 16 (`16.1–16.9`), Phase 17 (`17.1–17.8`) ve Phase 18 (`18.1–18.10`)
+> tamamlandı — açık madde kalmadı. Yeni iş `PROGRESS.md` Handoff bölümünden devam eder.
 
 ---
 
@@ -82,35 +81,35 @@ unless it is explicitly reopened.
 
 ## Phase 18 — Test / eşik / CSS / a11y / bakım borcu (bad.md Bölüm C)
 
-- [ ] 18.1 Eşik üçlüsünü tek sabite bağla (A7.3 + C1.3).
+- [x] 18.1 Eşik üçlüsünü tek sabite bağla (A7.3 + C1.3).
       Acceptance: 2000/3800/4000 yerine `src/config/` altında tek limit modülü; üç tüketici (`finalPromptAssembler`,
       `aiRouter`, `ActionBar`) oradan import eder; üç eşiğin tutarlılığını çapraz kontrol eden test eklenir, e2e+stress geçer.
-- [ ] 18.2 `test` scripti + CI kapısı (C1.1 + C1.4).
+- [x] 18.2 `test` scripti + CI kapısı (C1.1 + C1.4).
       Acceptance: `package.json`'a `test` scripti eklenir (e2e + stress koşar, exit kodu yayılır); `.github/workflows/`
       altında `lint + validate + test` koşan workflow eklenir; validator kapsam-dışı listesi dokümanda adlandırılır (§7.8).
-- [ ] 18.3 Mock-theater temizliği (C1.2).
+- [x] 18.3 Mock-theater temizliği (C1.2).
       Acceptance: clipboard/popup testleri gerçek `copyToClipboard` fallback zincirini ve `openInAI` sıralama sözleşmesini
       çalıştırır (sadece mock-kendi-kendini-doğrulama kalmaz); sentetik-DAG testleri gerçek registry taramasıyla birlikte
       işaretlenir; UI/render/a11y için en az duman testi eklenir veya eksiklik `PROGRESS.md`'de kayıtlı borç olur.
-- [ ] 18.4 Light-mode kontrast onarımı (C3.5).
+- [x] 18.4 Light-mode kontrast onarımı (C3.5).
       Acceptance: `--text-muted` (light) kontrastı ≥4.5:1 olur (hesap + manuel tur); placeholder ve ikincil metinler dahil.
-- [ ] 18.5 CSS animasyon + ölü stil temizliği (C3.1–C3.2).
+- [x] 18.5 CSS animasyon + ölü stil temizliği (C3.1–C3.2).
       Acceptance: `drawerFadeIn` ya tanımlanır ya üç kullanım silinir; ölü `intro-*`/`.footer` CSS'i silinir;
       `grep drawerFadeIn` tanım+kullanım eşleşir; build+lint geçer.
-- [ ] 18.6 z-index + hardcoded renk borcu (C3.3–C3.4).
+- [x] 18.6 z-index + hardcoded renk borcu (C3.3–C3.4).
       Acceptance: merkezi z-index ölçeği/token tanımlanır, hover `!important` yükseltmeler kaldırılır; `!important`
       tooltip bloklarındaki hardcoded renkler tema token'larına taşınır (light/dark görsel tur).
-- [ ] 18.7 Tooltip + odak a11y (C6 + C2.5).
+- [x] 18.7 Tooltip + odak a11y (C6 + C2.5).
       Acceptance: `PortalTooltip` `role="tooltip"` + `aria-describedby` ile tetikleyiciye bağlanır; modül kartı gerçek
       `<button>` olur; Toast `role/alert` çelişkisi giderilir; modal focus-trap/geri-dönüş odağı doğrulanır.
-- [ ] 18.8 Katmanlama kuralını denetlenebilir yaz (C2.1–C2.3).
+- [x] 18.8 Katmanlama kuralını denetlenebilir yaz (C2.1–C2.3).
       Acceptance: CLAUDE.md §5.1 "ui salt-okunur compiler çağrısı yapabilir, engine yazma yolu kullanamaz" şeklinde
       netleşir veya istisna §5.1'e taşınır; `App.jsx` override + `ActionBar` storage yazımı action'lara taşınır;
       `ModuleGrid` UI-gömülü öneri politikası engine'e taşınır veya karar kayıtlanır.
-- [ ] 18.9 Ölü kod + doküman-drift temizliği (C4–C5).
+- [x] 18.9 Ölü kod + doküman-drift temizliği (C4–C5).
       Acceptance: `Header.jsx:51` ölü ternary, `backToIntro`/intro yorumları, kök scratch/mockup/legacy dosyaları için
       "silindi/tutuldu-gerekçesi" kararı kayıtlı ve uygulanmış; CLAUDE.md §5.2/§5.3 15-domain gerçekliğine güncellenir;
       §2 test scriptlerini anlatır; MEMORY.md `App.css`/`tmp`/share-`replaceState` satırları düzeltilir;
       ARCHITECTURE.md ağacı 7 yeni UI bileşenini içerir.
-- [ ] 18.10 Ölü bağımlılık + marka kontrolü (C7).
+- [x] 18.10 Ölü bağımlılık + marka kontrolü (C7).
       Acceptance: `@types/*` kaldırılır (build+lint geçer); `SiOpenaigym` ChatGPT buton markası doğrulanır/düzeltilir.

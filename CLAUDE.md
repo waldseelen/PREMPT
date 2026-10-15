@@ -190,6 +190,13 @@ ui/  →  store/  →  engine/  →  compiler/  →  data/
                 utils/, locales/   (cross-cutting; read by store/engine/compiler/ui)
 ```
 
+`src/ui/` may call **read-only** compiler entry points (`assembleFinalPrompt`,
+`analyzePromptComplexity`) to render what already exists — it never resolves
+dependencies, never writes state except through a store action, and never
+touches `localStorage` directly. All "thinking" (dependency resolution,
+suggestions, prompt assembly, presets) lives in `src/engine/` and
+`src/compiler/`; all state transitions live in `src/store/` actions.
+
 - `src/domains/` — declarative per-domain descriptors (`id`, `route`, ordered
   `layers`, `optionSets` (`levels`/`modes`/`depths`/`formats`), `defaultConfig`).
   Structural facts only; no translated text, no logic. `optionSets` is the
@@ -248,11 +255,12 @@ is the join key, so renaming one breaks the lookup silently.
 
 ## 6. Absolute rules for this repository
 
-1. **UI components stay dumb.** No prompt-text computation, no dependency
-   resolution, no length/complexity math, no state mutation beyond calling a
-   store action. All "thinking" lives in `src/engine/` and `src/compiler/`.
-   Without this the layering in §5.1 stops being checkable and the same
-   derivation ends up in two places that drift.
+1. **UI components stay dumb.** No dependency resolution, no length/complexity
+   math of their own, no state mutation beyond calling a store action, no direct
+   `localStorage` access. Calling the read-only compiler entry points
+   (`assembleFinalPrompt`, `analyzePromptComplexity`) to render current state is
+   allowed — that is rendering, not thinking. All "thinking" lives in
+   `src/engine/` and `src/compiler/`.
    (`src/ui/PreviewPanel.jsx` calls `analyzePromptComplexity`; it does not
    compute stats itself.)
 2. **No logic in `src/data/*.json`.** Modules are strictly configuration
@@ -263,7 +271,7 @@ is the join key, so renaming one breaks the lookup silently.
    (`src/data/modules_en.json`)
 3. **No God components.** Split by responsibility along the existing component
    boundaries (`ConfigPanel`, `ModuleGrid`, `PresetBar`, `ActionBar`,
-   `PreviewPanel`, `RecipesPanel`, `IntroView`). The test is unrelated concerns
+   `PreviewPanel`, `RecipesPanel`, `DefaultFlow`, `CollapsibleInspector`). The test is unrelated concerns
    sharing a file, not a line count — do not merge feature areas back into
    `App.jsx`, which is the composition root and owns only effects and layout.
 4. **Do not introduce React Context or Redux.** Zustand is the state manager and

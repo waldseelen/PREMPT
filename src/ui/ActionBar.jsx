@@ -1,9 +1,10 @@
-import { useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useEngineState } from '../store/engineState';
 import { useShallow } from 'zustand/react/shallow';
 import { assembleFinalPrompt, analyzePromptComplexity } from '../compiler/finalPromptAssembler';
 import { copyToClipboard, openInAI } from '../utils/aiRouter';
 import { serializeState, sanitizePayloadWithWarnings, encodePayloadToParam } from '../utils/statePayload';
+import { SHARE_URL_WARN_LENGTH } from '../config/urlLimits';
 import { getDomain } from '../domains';
 import { SiGooglegemini, SiAnthropic, SiPerplexity, SiOpenaigym } from '@icons-pack/react-simple-icons';
 import { getTranslation } from '../locales/i18n';
@@ -15,16 +16,31 @@ export default function ActionBar({ showToast }) {
     const [showGeminiModal, setShowGeminiModal] = useState(false);
     const [showRecipesModal, setShowRecipesModal] = useState(false);
 
-    const { clearAll, applySharedState, config, selectedModules, injectedRules } = useEngineState(useShallow((state) => ({
+    const { clearAll, applySharedState, config, selectedModules, injectedRules, seenGeminiNotice, markGeminiNoticeSeen } = useEngineState(useShallow((state) => ({
         clearAll: state.clearAll,
         applySharedState: state.applySharedState,
         config: state.config,
         selectedModules: state.selectedModules,
-        injectedRules: state.injectedRules
+        injectedRules: state.injectedRules,
+        seenGeminiNotice: state.seenGeminiNotice,
+        markGeminiNoticeSeen: state.markGeminiNoticeSeen
     })));
     const lang = config.lang;
     const domain = config.domain;
     const t = getTranslation(lang, domain);
+
+    // Escape closes whichever modal is open (Phase 18.7 keyboard tour).
+    useEffect(() => {
+        if (!showRecipesModal && !showGeminiModal) return undefined;
+        const onKey = (e) => {
+            if (e.key === 'Escape') {
+                setShowRecipesModal(false);
+                setShowGeminiModal(false);
+            }
+        };
+        window.addEventListener('keydown', onKey);
+        return () => window.removeEventListener('keydown', onKey);
+    }, [showRecipesModal, showGeminiModal]);
 
     const stats = useMemo(() => {
         // Measure what the AI buttons will actually send: under the openai-json
@@ -78,9 +94,8 @@ export default function ActionBar({ showToast }) {
         }
 
         if (aiName === 'gemini') {
-            const hasSeenNotice = localStorage.getItem('prempt_seen_gemini_notice');
-            if (!hasSeenNotice) {
-                localStorage.setItem('prempt_seen_gemini_notice', 'true');
+            if (!seenGeminiNotice) {
+                markGeminiNoticeSeen();
                 setShowGeminiModal(true);
                 return;
             }
@@ -115,7 +130,7 @@ export default function ActionBar({ showToast }) {
         }
         const route = getDomain(currentState.config.domain).route;
         const url = `${window.location.origin}/${route}?share=${param}`;
-        const isLong = url.length > 2000;
+        const isLong = url.length > SHARE_URL_WARN_LENGTH;
         copyToClipboard(url,
             () => showToast(isLong ? t.toastShareLong : t.toastShareCopied, isLong ? 'warn' : 'success'),
             () => showToast(t.toastCopyFail, 'warn')
@@ -272,6 +287,7 @@ export default function ActionBar({ showToast }) {
                         className="modal-card"
                         role="dialog"
                         aria-modal="true"
+                        aria-labelledby="recipes-modal-title"
                         style={{
                             background: 'var(--bg-card, #0f172a)',
                             border: '1px solid var(--border-strong, rgba(255,255,255,0.18))',

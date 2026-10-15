@@ -43,7 +43,7 @@ export default function RecipesPanel({ showToast, onClose }) {
     return (
         <section className="card delay-3" style={{ marginTop: '0', width: '100%' }}>
             <div className="card-title" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span><span className="dot"></span> {t.recipesTitle}</span>
+                <span id="recipes-modal-title"><span className="dot"></span> {t.recipesTitle}</span>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                     {!isAdding && (
                         <button className="btn btn-secondary" style={{ padding: '4px 10px', fontSize: '0.75rem' }} onClick={() => setIsAdding(true)}>

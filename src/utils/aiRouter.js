@@ -1,3 +1,5 @@
+import { isPromptUrlSafe } from '../config/urlLimits.js';
+
 export const AI_STRATEGIES = {
     chatgpt: {
         getBaseUrl: () => 'https://chatgpt.com/',
@@ -70,7 +72,8 @@ export function openInAI(aiName, prompt, onLengthWarning, onSuccessCopy, onCopyE
 
     if (strategy.supportsQuery && strategy.getPromptUrl) {
         const promptUrl = strategy.getPromptUrl(prompt);
-        if (promptUrl.length > 4000) {
+        // Same single limit the preview badge estimates against (Phase 18.1).
+        if (!isPromptUrlSafe(promptUrl)) {
             isTooLongForUrl = true;
         } else {
             urlToOpen = promptUrl;

@@ -32,7 +32,6 @@ export const i18n = {
     previewModules: 'modül',
     previewWarning: 'Uyarı: Bu prompt URL üzerinden taşınamayacak kadar uzun (>4000 karakter). Doğrudan AI butonlarına tıkladığınızda önce panoya kopyalanacak, ardından AI sayfası boş açılacaktır. Oraya yapıştırmanız (Ctrl+V) gerekecektir.',
     previewEmpty: 'Bir konu girip modül seçtiğinizde prompt burada canlı olarak görünecek.',
-    footer: 'Tüm veriler tarayıcınızda (Local Storage) kalır, hiçbir sunucuya gönderilmez.',
 
     // Common panel titles (fallback if domain spec does not provide)
     modulesTitle: 'Modüller (Module Blocks)',
@@ -41,9 +40,6 @@ export const i18n = {
     moduleFilterEmpty: 'Arama kriterine uygun modül bulunamadı.',
 
     // Single-viewport workspace chrome & Tier B target-format selector
-    btnOpenWorkspace: 'Çalışma alanını aç',
-    btnStartManual: 'Modülleri kendim seçeceğim',
-    btnBackToIntro: 'Konuyu değiştir',
     flow: {
       brandTitle: 'PREMPT — Parametric Prompting Operating System',
       brandTagline: 'Kötü AI yanıtlarını daha oluşmadan önle.',
@@ -215,7 +211,6 @@ export const i18n = {
     previewModules: 'modules',
     previewWarning: 'Warning: This prompt is too long to be passed via URL (>4000 chars). It will be copied to your clipboard and the AI page will open blank. You will need to paste it (Ctrl+V) there.',
     previewEmpty: 'The prompt will appear live here once you enter a topic and select modules.',
-    footer: 'All data stays in your browser (Local Storage), nothing is sent to any server.',
 
     // Common panel titles (fallback if domain spec does not provide)
     modulesTitle: 'Module Blocks',
@@ -224,9 +219,6 @@ export const i18n = {
     moduleFilterEmpty: 'No modules found matching your search.',
 
     // Single-viewport workspace chrome & Tier B target-format selector
-    btnOpenWorkspace: 'Open workspace',
-    btnStartManual: "I'll pick modules myself",
-    btnBackToIntro: 'Change topic',
     flow: {
       brandTitle: 'PREMPT — Parametric Prompting Operating System',
       brandTagline: 'Pre-empt bad AI answers before they happen.',

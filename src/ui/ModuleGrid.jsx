@@ -35,6 +35,9 @@ export default function ModuleGrid() {
     const suggestionIds = useMemo(() => new Set(suggestions.map((suggestion) => suggestion.id)), [suggestions]);
     const recommendedIds = useMemo(() => {
         if (suggestionIds.size > 0) return suggestionIds;
+        // Engine has no rules for this domain (see SUGGESTION_RULES): fall back
+        // to a layer cross-section here, in the open, rather than hiding the
+        // gap. The UI labels this case via noRulesHint (Phase 17.5).
         return new Set(layers.flatMap((layer) => modules.filter((module) => module.layer === layer).slice(0, 2).map((module) => module.id)));
     }, [layers, modules, suggestionIds]);
 
@@ -223,8 +226,9 @@ export default function ModuleGrid() {
                                         ].filter(Boolean).join(' ');
 
                                         return (
-                                            <div
+                                            <button
                                                 key={mod.id}
+                                                type="button"
                                                 className={cardClasses}
                                                 onClick={() => toggleModule(mod.id)}
                                                 onMouseEnter={(event) => {
@@ -243,15 +247,8 @@ export default function ModuleGrid() {
                                                     setHoveredId(null);
                                                     setHoveredTarget(null);
                                                 }}
-                                                role="button"
-                                                tabIndex={0}
                                                 aria-pressed={isActive}
-                                                onKeyDown={(event) => {
-                                                    if (event.key === 'Enter' || event.key === ' ') {
-                                                        event.preventDefault();
-                                                        toggleModule(mod.id);
-                                                    }
-                                                }}
+                                                aria-describedby={hoveredId === mod.id ? `module-tip-${mod.id}` : undefined}
                                                 style={{ position: 'relative' }}
                                             >
                                                 <div className="module-icon"><Icon size={18} strokeWidth={1.5} /></div>
@@ -262,7 +259,7 @@ export default function ModuleGrid() {
                                                         {isSuggested && !isActive && <span className="status-badge status-badge-amber">AI</span>}
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </button>
                                         );
                                     })}
                                 </div>
@@ -276,7 +273,7 @@ export default function ModuleGrid() {
             </div>
 
             {hoveredTarget && (
-                <PortalTooltip targetRect={hoveredTarget.rect} isOpen={Boolean(hoveredTarget)}>
+                <PortalTooltip targetRect={hoveredTarget.rect} isOpen={Boolean(hoveredTarget)} tooltipId={`module-tip-${hoveredTarget.id}`}>
                     {(() => {
                         const hover = getModuleHoverModel(hoveredTarget.mod, modules, t);
                         const TooltipIcon = getModuleIcon(hoveredTarget.mod.id);

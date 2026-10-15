@@ -1,6 +1,7 @@
 import { buildPromptStructure } from './structureBuilder';
 import { safeSortDependencies } from '../engine/dependencyResolver';
 import { getFormatter } from './formatterRegistry';
+import { isPromptTextUrlSafe } from '../config/urlLimits';
 
 // `forceTarget` lets a caller render markdown regardless of the user's
 // selected config.hedef — used by ActionBar's AI deep-link buttons, which
@@ -48,12 +49,9 @@ export function analyzePromptComplexity(state, { forceTarget } = {}) {
     const uniqueLayers = new Set(sortedModules.map((m) => m.layer)).size;
     const complexityScore = Math.min(100, Math.round((sortedModules.length * 10) + (uniqueLayers * 5) + (state.config.monolog ? 20 : 0)));
 
-    let isTooLongForUrl;
-    try {
-        isTooLongForUrl = encodeURIComponent(fullText).length > 3800;
-    } catch {
-        isTooLongForUrl = chars > 2000;
-    }
+    // Same decision as the router's: estimated final-URL length against the
+    // single PROMPT_URL_MAX_LENGTH (Phase 18.1), not a separate magic number.
+    const isTooLongForUrl = !isPromptTextUrlSafe(fullText);
 
     return {
         chars,

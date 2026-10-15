@@ -312,7 +312,7 @@ await suite('Tier 1: L0 Action Bar', async () => {
         assert.equal(AI_STRATEGIES.claude.getBaseUrl(), 'https://claude.ai/new');
     });
 
-    await test('T1.3.4: URL-length guard (>3800 encoded chars) accurately flags isTooLongForUrl: true', () => {
+    await test('T1.3.4: URL-length guard (single PROMPT_URL_MAX_LENGTH) accurately flags isTooLongForUrl: true', () => {
         resetStore('learning');
         const store = useEngineState.getState();
         store.setConfig('konu', 'A'.repeat(5000));
@@ -856,7 +856,7 @@ await suite('Tier 2: Empty vs 10,000 Char Topic Boundaries', async () => {
 
 // --- Area 2: Extremely long prompts exceeding URL limits ---
 await suite('Tier 2: Extremely Long Prompts & URL Limits', async () => {
-    await test('T2.2.1: Small prompt (encoded length < 3800) sets isTooLongForUrl: false', () => {
+    await test('T2.2.1: Small prompt (within PROMPT_URL_MAX_LENGTH) sets isTooLongForUrl: false', () => {
         resetStore('learning');
         const store = useEngineState.getState();
         store.setConfig('konu', 'Kısa başlık');
@@ -865,7 +865,7 @@ await suite('Tier 2: Extremely Long Prompts & URL Limits', async () => {
         assert.equal(stats.isTooLongForUrl, false);
     });
 
-    await test('T2.2.2: Prompt with encoded length >= 3800 sets isTooLongForUrl: true', () => {
+    await test('T2.2.2: Over-limit prompt sets isTooLongForUrl: true', () => {
         resetStore('learning');
         const store = useEngineState.getState();
         store.setConfig('konu', 'Uzun Konu '.repeat(400));
@@ -874,12 +874,25 @@ await suite('Tier 2: Extremely Long Prompts & URL Limits', async () => {
         assert.equal(stats.isTooLongForUrl, true);
     });
 
-    await test('T2.2.3: openInAI clipboard write fallback contract functions properly on long prompts', async () => {
-        const longPrompt = 'Huge Prompt '.repeat(500);
-        assert.ok(encodeURIComponent(longPrompt).length > 3800);
-        await globalThis.navigator.clipboard.writeText(longPrompt);
-        const copied = await globalThis.navigator.clipboard.readText();
-        assert.equal(copied, longPrompt);
+    await test('T2.2.3: real copyToClipboard resolves success and reports failure honestly (18.3)', async () => {
+        const { copyToClipboard } = await import('../src/utils/aiRouter.js');
+        // Success path through the mocked browser clipboard.
+        let ok = false;
+        copyToClipboard('Gerçek pano yazımı', () => { ok = true; }, () => {});
+        await new Promise((r) => setTimeout(r, 20));
+        assert.equal(ok, true, 'real copyToClipboard must call onSuccess on write');
+        assert.equal(await globalThis.navigator.clipboard.readText(), 'Gerçek pano yazımı');
+        // Failure path: a denying clipboard must reach onError, not silence.
+        const origWrite = globalThis.navigator.clipboard.writeText;
+        globalThis.navigator.clipboard.writeText = async () => { throw new Error('denied'); };
+        try {
+            let reported = null;
+            copyToClipboard('x', () => {}, (err) => { reported = err; });
+            await new Promise((r) => setTimeout(r, 20));
+            assert.ok(reported instanceof Error, 'real copyToClipboard must call onError on failure');
+        } finally {
+            globalThis.navigator.clipboard.writeText = origWrite;
+        }
     });
 
     await test('T2.2.4: Selecting all modules in a domain compiles without stack overflow', () => {
@@ -1031,7 +1044,7 @@ await suite('Tier 2: Unknown Module IDs Handling', async () => {
 });
 
 // --- Area 6: Missing or undefined requires in DAG ---
-await suite('Tier 2: Missing or Undefined DAG Requires', async () => {
+await suite('Tier 2: Missing or Undefined DAG Requires (unit-level: synthetic 2-3 node graphs; full-registry DAG is covered by npm run validate + stress Suite 3)', async () => {
     await test('T2.6.1: Modules with empty requires: [] sort cleanly and deterministically', () => {
         const mockModules = [
             { id: 'm1', name: 'Module 1', layer: 'core', requires: [] },
@@ -1630,6 +1643,28 @@ await suite('Phase 17: Data / Bilingual / Validator Coverage', async () => {
         const { SUGGESTION_RULES } = await import('../src/engine/suggestionRules.js');
         const uncovered = Object.keys(DOMAINS).filter((id) => !(SUGGESTION_RULES[id] || []).length);
         assert.deepEqual(uncovered.sort(), Object.keys(DOMAINS).filter((id) => id !== 'learning' && id !== 'code').sort());
+    });
+});
+
+// ============================================================================
+// PHASE 18: Test / Threshold / CSS / A11y / Maintenance (bad.md Bölüm C)
+// ============================================================================
+
+await suite('Phase 18: Test / Threshold / CSS / A11y / Maintenance', async () => {
+    await test('T18.1: badge estimate and router decision agree — badge-safe always means query-attached (18.1)', async () => {
+        const { isPromptTextUrlSafe, isPromptUrlSafe, PROMPT_URL_MAX_LENGTH } = await import('../src/config/urlLimits.js');
+        assert.equal(PROMPT_URL_MAX_LENGTH, 4000);
+        for (const size of [100, 2000, 3700, 3790, 3810, 3900, 5000]) {
+            const text = 'A'.repeat(size);
+            const badgeSafe = isPromptTextUrlSafe(text);
+            const routerUrl = AI_STRATEGIES.chatgpt.getPromptUrl(text);
+            const routerSafe = isPromptUrlSafe(routerUrl);
+            if (badgeSafe) {
+                assert.equal(routerSafe, true, `badge-safe at ${size} chars must imply router attaches the query`);
+            }
+        }
+        assert.equal(isPromptTextUrlSafe('A'.repeat(5000)), false);
+        assert.equal(isPromptUrlSafe(AI_STRATEGIES.chatgpt.getPromptUrl('A'.repeat(5000))), false);
     });
 });
 

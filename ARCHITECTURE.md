@@ -26,7 +26,7 @@ ui/  →  store/  →  engine/  →  compiler/  →  data/
                    utils/, locales/  (cross-cutting, read by store/engine/compiler/ui)
 ```
 
-`src/ui/` never computes prompt text, resolves dependencies, or mutates state directly — it only reads Zustand state and calls store actions. All "thinking" (dependency resolution, suggestions, prompt assembly, presets) lives in `src/engine/` and `src/compiler/`.
+`src/ui/` never resolves dependencies or mutates state directly — it only reads Zustand state, calls store actions, and may call the read-only compiler entry points (`assembleFinalPrompt`, `analyzePromptComplexity`) to render current state. All "thinking" (dependency resolution, suggestions, prompt assembly, presets) lives in `src/engine/` and `src/compiler/`.
 
 ### Central content ownership
 
@@ -111,18 +111,26 @@ PREMPT/
     ├── utils/                        # aiRouter.js, domainRoute.js, statePayload.js
     └── ui/                           # Default wizard and Advanced workspace components
         ├── DefaultFlow.jsx           # Five-step default journey with progressive disclosure
-        ├── Header.jsx                # Header title + optional DomainSwitcher + lang/theme controls
+        ├── Header.jsx                # Header title + DomainSwitcher + lang/theme controls
         ├── DomainSwitcher.jsx        # Horizontal navigation driven by domains/presentation.js
+        ├── ModeTogglePill.jsx        # Default/Advanced workspace mode toggle
+        ├── HeroPresetSelector.jsx    # Top-3 hero presets + popover for the rest
+        ├── TopicInput.jsx            # Topic and domain expertise inputs
         ├── ParameterSelect.jsx       # Accessible option dropdown with hover/focus explanations
+        ├── ParameterChip.jsx         # Inline parameter chip with WAI-ARIA popover
+        ├── ParameterChipsBar.jsx     # Chip row bound to canonical Turkish config keys
         ├── ParameterHoverMenu.jsx    # Advanced label hover/focus menu from centralized descriptions
         ├── PresetBar.jsx             # 12-preset per domain rendering with overflow protection
+        ├── ActiveModuleBadgeRow.jsx  # Compact active-module badges + preset eject trigger
+        ├── CollapsibleInspector.jsx  # Accordion embedding ModuleGrid, rules, token metrics
         ├── ModuleGrid.jsx            # Module card grid with centralized module hover model & Lucide icons
         ├── ConfigPanel.jsx           # Dynamic parameter selectors driven by domain specs and descriptions
-        ├── TopicInput.jsx            # Topic and domain expertise inputs
         ├── ActionBar.jsx             # Reset, Copy, AI router buttons, Share/Export/Import & Recipes Modal
         ├── PreviewPanel.jsx          # Live prompt preview & token complexity stats
         ├── RecipesPanel.jsx          # Saved recipes management
         ├── PortalTooltip.jsx         # createPortal-based tooltip immune to parent overflow clipping
+        ├── Toast.jsx                 # Transient toast notifications (role=status)
+        ├── PremptLogo.jsx            # Brand logo mark
         ├── moduleIconRegistry.js     # 457-module Lucide icon mapping registry
         └── OnboardingTour.jsx        # Step-by-step interactive onboarding tour (on-demand via Help icon)
 ```
@@ -140,16 +148,16 @@ Single Zustand store with `persist` middleware (`learning-os-engine-storage`):
     gorunum,                         // 'default' | 'advanced'; UI preference persisted locally only
     konu, alan,                      // topic text, domain expertise text
     seviye, mod, derinlik, format,   // option-set values derived from domain spec
-    hedef,                           // output target id ('markdown' | 'claude-xml' | 'openai-json' | 'label-tags')
+    hedef,                           // output target id ('markdown' | 'claude-xml' | 'openai-json')
     monolog, autoResolveDeps,        // booleans
     theme, lang, tourCompleted       // UI environment
   },
-  view: 'workspace',                 // Single unified viewport ('workspace')
   selectedModules: [],               // array of module ids (session-only)
   activePreset: null,                // active preset id or null (session-only)
   injectedRules: [],                 // extra constraint lines (session-only)
   dependencyHints: [],               // transitive closure hints (session-only)
   showTour: false,                   // tour visibility (session-only)
+  seenGeminiNotice: false,           // one-shot extension-notice flag (session-only)
   savedRecipes: []                   // saved recipe templates (persisted)
 }
 ```

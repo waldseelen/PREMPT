@@ -153,9 +153,7 @@ export default function App() {
             // NOTE: overrides intentionally do not eject activePreset. Deep links
             // always carry ?preset= together with the preset's own values, so
             // ejecting here would break every shared preset round-trip.
-            useEngineState.setState((state) => ({
-                config: { ...state.config, ...applied }
-            }));
+            useEngineState.getState().applyUrlConfig(applied);
             if (warnings.some((w) => w.field && w.field in overrides)) {
                 notifyWarn(t0.toastUrlParamsFixed);
             }
@@ -253,7 +251,7 @@ export default function App() {
             <div className="app">
                 <div className="bg-glow-orb orb-1"></div>
                 <div className="bg-glow-orb orb-2"></div>
-                <Header showDomainSwitcher={true} />
+                <Header />
                 
                 {isAdvanced ? (
                     <main className="container advanced-container" style={{ paddingTop: '16px' }}>

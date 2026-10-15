@@ -1,5 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
+/* ══════════════ Z-INDEX SCALE (Phase 18.6 — read before adding a layer) ══════════════
+   Content flow ............ 0–1      (cards, orbs; orbs create their own context via filter)
+   Inline bars ............. 20–30    (control bars, sticky bits)
+   Dropdowns/popovers ...... 100–101  (card menus), 1000–1002 (hero/chip popovers)
+   Drawers ................. 20000–20002 (preset drawer 20001, hovered wrapper lift 20002)
+   Hover lifts (load-bearing) 9999 / 20002 with !important: a hovered card/wrapper
+                             must outrank sibling stacking contexts or its tooltip
+                             renders underneath them. Do NOT drop the !important —
+                             the breakage shows only in real browsers, never in review.
+   Tooltips ................ 99999 (legacy absolute) / 999999 (portal, fixed)
+   Tour highlight .......... 10001 (above workspace, below modals by design)
+   Modals .................. 999999 (inline) — same tier as portal tooltips
+   Toasts .................. 1000000 (top; wins over tooltips by design — transient
+                             confirmation must stay visible even mid-hover)
+   rule: new layers slot INTO this table; never invent a value between tiers. */
+
 :root[data-theme="dark"] {
     --bg-deep: #07090e;
     --bg-card: rgba(23, 24, 27, 0.75);
@@ -10,7 +26,8 @@
     --border-active: #5e6ad2;
     --text-primary: #f2f2f2;
     --text-secondary: #a0a5ad;
-    --text-muted: #5e6167;
+    /* WCAG AA: 6.12:1 on --bg-deep (Phase 18.4). */
+    --text-muted: #8a8f96;
     --accent-1: #5e6ad2;
     --accent-2: #8a8f98;
     --accent-3: #5c626c;
@@ -103,7 +120,8 @@
     --border-active: #1a1a1a;
     --text-primary: #1a1a1a;
     --text-secondary: #6e6e73;
-    --text-muted: #a1a1aa;
+    /* WCAG AA: 5.22:1 on --bg-deep (Phase 18.4). */
+    --text-muted: #64686f;
     --accent-1: #5e6ad2;
     --accent-2: #6e6e73;
     --accent-3: #a1a1aa;
@@ -754,6 +772,10 @@
             cursor: pointer;
             transition: all var(--transition);
             user-select: none;
+            /* Neutralize native <button> defaults (Phase 18.7 card conversion). */
+            font: inherit;
+            color: inherit;
+            text-align: left;
         }
         .module-card:hover {
             border-color: var(--cat-text, var(--border-active));
@@ -801,6 +823,11 @@
             color: var(--status-amber);
             border: 1px solid var(--status-amber-border);
         }
+        /* Light-theme badge/inline text must pass AA on the tinted fills
+           (Phase 18 follow-up audit: base tokens only reach ~3-3.8:1 here). */
+        [data-theme="light"] .status-badge-emerald { color: #065f46; }
+        [data-theme="light"] .status-badge-amber { color: #92400e; }
+        [data-theme="light"] .module-inline-reqs { color: #047857; }
         .module-inline-reqs {
             font-size: 0.68rem;
             color: var(--status-emerald);
@@ -880,6 +907,19 @@
             transition: all var(--transition);
             text-decoration: none;
             white-space: nowrap;
+        }
+        /* Single visible keyboard-focus ring (Phase 18.7): every natively
+           focusable control shares it, so Tab users never rely on the
+           browser default varying per engine. */
+        .btn:focus-visible,
+        .module-card:focus-visible,
+        .preset-btn:focus-visible,
+        .header-icon-btn:focus-visible,
+        .chip-remove-btn:focus-visible,
+        .view-pill:focus-visible,
+        .module-view-tab:focus-visible {
+            outline: 2px solid var(--border-active);
+            outline-offset: 2px;
         }
         .btn-primary {
             background: var(--text-primary);
@@ -997,24 +1037,7 @@
         }
 
         /* ══════════════════════ FOOTER ══════════════════════ */
-        .footer {
-            text-align: left;
-            padding-top: 2rem;
-            color: var(--text-muted);
-            font-size: 0.75rem;
-            letter-spacing: 0.5px;
-        }
-        .footer a { color: var(--accent-1); text-decoration: none; }
-
         /* ══════════════════════ ANIMATIONS ══════════════════════ */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(24px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-24px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
         .delay-1 { animation-delay: 0.1s; }
         .delay-2 { animation-delay: 0.2s; }
         .delay-3 { animation-delay: 0.3s; }
@@ -1111,75 +1134,7 @@
             border-radius: 4px;
         }
 
-        /* ══════════════════════ INTRO VIEW ══════════════════════ */
-        .intro-container {
-            max-width: 720px;
-            margin: 0 auto;
-            width: 100%;
-            overflow-y: auto;
-            padding-bottom: 24px;
-        }
-        .intro-view {
-            display: flex;
-            flex-direction: column;
-        }
-        .intro-preview .intro-pills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 12px;
-        }
-        .intro-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 6px 10px;
-            border: 1px solid var(--border);
-            border-radius: 999px;
-            background: var(--bg-input);
-            font-size: 0.76rem;
-            color: var(--text-secondary);
-        }
-        .intro-pill-dot {
-            display: inline-block;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
-        .cat-dot-foundation { background: var(--color-foundation); }
-        .cat-dot-mechanism { background: var(--color-mechanism); }
-        .cat-dot-context { background: var(--color-context); }
-        .cat-dot-boundaries { background: var(--color-boundaries); }
-        .cat-dot-application { background: var(--color-application); }
-        .cat-dot-design { background: var(--color-design); }
-        .cat-dot-build { background: var(--color-build); }
-        .cat-dot-comprehend { background: var(--color-comprehend); }
-        .cat-dot-harden { background: var(--color-harden); }
-        .cat-dot-ship { background: var(--color-ship); }
-        .intro-meta {
-            display: flex;
-            gap: 14px;
-            flex-wrap: wrap;
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-            font-family: 'JetBrains Mono', monospace;
-        }
-        .intro-meta span {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-        }
-        .intro-actions {
-            display: flex;
-            gap: 10px;
-            margin-top: 4px;
-            flex-wrap: wrap;
-        }
-        .intro-cta {
-            flex: 1;
-            min-width: 220px;
-        }
+        /* ══════════════════════ INTRO VIEW (removed Phase 18.5: IntroView.jsx deleted, no JSX references) ══════════════════════ */
 
         /* ══════════════════════ WORKSPACE TOPBAR ══════════════════════ */
         .workspace-topbar {
@@ -1378,7 +1333,8 @@
         }
 
         [data-theme="light"] .module-tooltip .tooltip-reqs {
-            color: #059669 !important;
+            /* WCAG AA: 5.48:1 on white (Phase 18 follow-up audit). */
+            color: #047857 !important;
             border-top-color: rgba(0, 0, 0, 0.15) !important;
         }
         
@@ -1736,6 +1692,10 @@
             background: var(--border);
             cursor: pointer;
             transition: var(--transition);
+            /* Neutralize native <button> defaults (Phase 18 tour-dot conversion). */
+            border: none;
+            padding: 0;
+            font: inherit;
         }
 
         .tour-dot.active {
@@ -3861,7 +3821,6 @@
     -webkit-backdrop-filter: blur(20px);
     padding: 8px;
     z-index: 1002;
-    animation: drawerFadeIn 0.18s ease-out;
 }
 
 .hero-popover-header {
@@ -4113,7 +4072,6 @@
     -webkit-backdrop-filter: blur(16px);
     padding: 6px;
     z-index: 1001;
-    animation: drawerFadeIn 0.15s ease-out;
 }
 
 .parameter-chip-popover.align-left {
@@ -4310,7 +4268,6 @@
     background: var(--bg-card);
     padding: 14px;
     margin-top: 10px;
-    animation: drawerFadeIn 0.2s ease-out;
 }
 
 .inspector-toolbar {

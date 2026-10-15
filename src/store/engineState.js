@@ -259,6 +259,18 @@ export const useEngineState = create(
             }),
 
             startTour: () => set({ showTour: true }),
+            // Applies pre-sanitized externally-sourced config values (URL
+            // overrides). The only sanctioned path for outside writes — UI
+            // never calls setState directly (Phase 18.8).
+            applyUrlConfig: (patch) => set((state) => ({
+                config: { ...state.config, ...patch }
+            })),
+
+            // One-shot UI flag for the Gemini extension notice. Session-only
+            // (not persisted, not shared) so ActionBar never touches
+            // localStorage directly (Phase 18.8).
+            seenGeminiNotice: false,
+            markGeminiNoticeSeen: () => set({ seenGeminiNotice: true }),
             completeTour: () => set((state) => ({
                 showTour: false,
                 config: { ...state.config, tourCompleted: true }

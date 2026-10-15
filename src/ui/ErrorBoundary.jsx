@@ -27,9 +27,11 @@ export class ErrorBoundary extends Component {
                             type="button"
                             className="btn btn-secondary"
                             onClick={() => {
+                                // Sanctioned exception to the no-direct-storage rule
+                                // (CLAUDE.md §5.1): an error boundary cannot call
+                                // store actions — the store may be the broken part.
                                 try {
                                     localStorage.removeItem('learning-os-engine-storage');
-                                    localStorage.removeItem('prompter-tour-completed');
                                 } catch (e) {
                                     console.warn('Could not clear localStorage:', e);
                                 }

@@ -11,14 +11,11 @@ and layout belong in `ARCHITECTURE.md`; binding rules belong in `CLAUDE.md`.
 - `legacy/learning-os.html` is a self-contained, pre-React single-file version of
   this app. Nothing imports it and it is not referenced by `index.html`,
   `vite.config.js`, or any source file — it is **not part of the build**. Read it
-  as historical reference only; changing it changes nothing that ships.
-- `src/App.css` is imported by **nothing**. `main.jsx` imports `./index.css` and
-  `App.jsx` also imports `./index.css`; no file imports `App.css`. It still
-  contains Vite-scaffold leftovers (`.counter`, `.hero`, …), so it reads like
-  live styling but has zero effect on the rendered app. All real styling is in
+  as historical reference only; changing it changes nothing that ships. Kept
+  deliberately (Phase 18.9 decision); the deleted root scratch files
+  (`design-mockup.html`, `scratch_*`) were unreferenced and are git-kept.
+- `src/App.css` does not exist (deleted Phase 12.3). All styling is in
   `src/index.css`.
-- `design-mockup.html` at the repo root and the contents of `tmp/` are not
-  referenced by the build either.
 
 ## Silent-fallback helpers — nothing throws where you expect it to
 
@@ -125,9 +122,10 @@ circular `requires` chain. It surfaces as a render error caught by
 - `copyToClipboard` has a `document.execCommand('copy')` textarea fallback for
   environments without `navigator.clipboard` (non-secure contexts). It is dead on
   HTTPS and load-bearing on plain HTTP.
-- `App.jsx`'s mount effect strips `?share=` from the URL with `replaceState`
-  **before** attempting to decode it, so a corrupt payload cannot get stuck
-  re-failing on every reload.
+- A corrupt `?share=` payload decodes to `null` and the mount effect silently
+  takes the non-share path, so it cannot get stuck re-failing on every reload
+  (there is no pre-decode `replaceState` strip; the URL-sync effect rewrites
+  the URL 250ms later anyway).
 - The share-link and pathname-sync paths live in **one** effect with an explicit
   branch, not two effects. Split apart, the pathname sync's `setDomain` would
   wipe the share payload's modules right after `applySharedState` set them.

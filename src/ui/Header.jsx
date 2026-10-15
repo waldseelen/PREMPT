@@ -7,7 +7,7 @@ import DomainSwitcher from './DomainSwitcher';
 import PremptLogo from './PremptLogo';
 import ModeTogglePill from './ModeTogglePill';
 
-export default function Header({ showDomainSwitcher = true }) {
+export default function Header() {
     const { config, setTheme, setConfig, startTour } = useEngineState(useShallow(state => ({
         config: state.config,
         setTheme: state.setTheme,
@@ -45,7 +45,7 @@ export default function Header({ showDomainSwitcher = true }) {
             </div>
             
             <div style={{ flex: 1, minWidth: 0, display: 'flex', justifyContent: 'center' }}>
-                {showDomainSwitcher ? <DomainSwitcher /> : <DomainSwitcher />}
+                <DomainSwitcher />
             </div>
 
             <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexShrink: 0 }}>

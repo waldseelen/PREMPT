@@ -13,7 +13,7 @@ current checkout (`CLAUDE.md` §7.1).
 | Lint | `npm run lint` | ✅ PASSED — 0 errors, 0 warnings under `--max-warnings=0` across repository | 2026-10-15 |
 | Build | `npm run build` | ✅ PASSED — 43s; all chunks under 500 kB with zero Vite chunk warnings | 2026-10-15 |
 | Module, preset, parameter, presentation, hover, and target validation | `npm run validate` | ✅ PASSED — all 15 domains, bilingual modules, 180 presets (including preset.id === key parity), TR/EN option descriptions, 15 presentation registrations, compiler texts completeness, layer categories, and central output targets | 2026-10-15 |
-| E2E Test Suite | `node scripts/test-e2e.mjs` | ✅ PASSED — 134/134 tests passing across Tiers 1-4 + Phase 16-17 suites with zero failures | 2026-10-15 |
+| E2E Test Suite | `node scripts/test-e2e.mjs` | ✅ PASSED — 135/135 tests passing across Tiers 1-4 + Phase 16-18 suites with zero failures | 2026-10-15 |
 | Challenger 2 Empirical Stress Test | `node scripts/test-challenger2-stress.mjs` | ✅ PASSED — 34/34 stress tests passing across Suites 1-4 with zero failures | 2026-10-15 |
 
 Notes on the gates themselves (not results):
@@ -24,17 +24,70 @@ Notes on the gates themselves (not results):
 
 ## Handoff — gelecek ajanlar için son durum
 
-- **Yapılan:** Phase 16 (`16.1–16.9`, URL/state/payload bütünlüğü) ve Phase 17 (`17.1–17.8`, veri/bilingual/validator
-  kapsamı) tamamlandı ve `[x]` işaretlendi. Detaylar aşağıdaki oturum kayıtlarında, bulgu kaynağı `bad.md`'de.
-- **Kalan tek faz:** Phase 18 (UI/test/CSS/a11y/bakım borcu) — `TASKS.md`'de 10 açık madde (`18.1–18.10`), kaynağı
-  `bad.md` Bölüm C. Yeni işe buradan başla; kapalı maddeleri yeniden açma.
-- **Kapılar:** yukarıdaki tablo güncel — hepsi bu checkout'ta koşuldu ve yeşil (`validate` 0 error / 328 warning;
-  warning'lerin tamamı envanterli kapsam listesi, detay `PROGRESS.md` Phase 17 kaydında).
-- **Çalışma sözleşmesi:** biten her madde için kapıları koş (`lint`, `validate`, `test-e2e`, `stress`, `build`);
-  sonucu buraya tek satır + tek tarihli oturum girişi olarak işle; kullanıcı metni değişirse TR+EN birlikte
-  (`T1.12.3` parity testi kırılır yoksa); commit/push kullanıcı onaysız yapılmaz.
+- **Yapılan:** Phase 16 (`16.1–16.9`), Phase 17 (`17.1–17.8`) ve Phase 18 (`18.1–18.10`) tamamlandı —
+  `TASKS.md`'de açık madde kalmadı. Detaylar aşağıdaki oturum kayıtlarında, bulgu kaynağı `bad.md`'de.
+- **Bilinen eksikler (manuel doğrulama bekler, headless harness yok):** kontrast değişikliği sonrası light/dark
+  görsel turu; tooltip/kart/modal/toast klavye + ekran-okuyucu turu. React-render otomasyonu yok (dep onayı gerekir).
+- **Kapılar:** yukarıdaki tablo güncel — hepsi bu checkout'ta koşuldu ve yeşil (`validate` 0 error; warning'ler
+  envanterli kapsam listesi).
 
 ## Session History
+
+### 2026-10-15 — Phase 18 test / threshold / CSS / a11y / maintenance (18.1–18.10, tamamı)
+
+#### What Changed
+1. **CSS dead code (18.5):** deleted undefined-`drawerFadeIn` usages (`index.css` 3 sites), unused
+   `@keyframes fadeInUp/Down`, the whole INTRO VIEW block, `.footer`, and the unreferenced `footer` i18n key
+   (TR+EN together). Zero references remain; `lint` clean.
+2. **Light contrast (18.4):** `--text-muted` darkened to computed AA-safe values — light `#a1a1aa`→`#64686f`
+   (2.39:1→5.22:1 on `#f5f7fa`), dark `#5e6167`→`#8a8f96` (3.21:1→6.12:1 on `#07090e`). Manual light/dark tour pending.
+3. **z-index scale + color audit (18.6):** added a layer table comment at the top of `index.css`; audited all ~50
+   hardcoded colors — every one is dual-mode safe (white-on-accent, tooltip dark/light pairs, dark-overridden
+   portal), so no visual churn. The hover `!important` lifts are load-bearing for tooltip visibility (removal would
+   break only in real browsers), documented as such instead of removed.
+4. **Tooltip + focus a11y (18.7):** `PortalTooltip` gained `role="tooltip"` + `tooltipId`; module cards are real
+   `<button>`s now (native Enter/Space, `aria-describedby` wired in `ModuleGrid` + `PresetBar`); `Toast` contradiction
+   fixed to `role="status"`; `.module-card` neutralizes native button defaults. Full keyboard/screen-reader tour pending.
+5. **Threshold unification (18.1):** new `src/config/urlLimits.js` (`PROMPT_URL_MAX_LENGTH = 4000`,
+   `SHARE_URL_WARN_LENGTH = 2000`, `isPromptUrlSafe`/`isPromptTextUrlSafe` with the historical 3800 derived as
+   4000−200 margin, behavior-identical); badge, router, and share-link all consume it. Old magic numbers gone from
+   `src/`; `T1.3.4`/`T2.2.x` titles updated; new `T18.1` cross-test proves badge-safe always implies query-attached.
+6. **Dead deps + brand (18.10):** `@types/react`, `@types/react-dom` removed (`npm install` re-synced the lockfile);
+   `SiOpenaigym` stays — the installed `@icons-pack` version exports no correct ChatGPT mark, and adding/upgrading
+   a dependency needs user approval. `build` + `lint` green.
+7. **Layering rule + refactor (18.8):** `CLAUDE.md` §5.1/§6.1 and `ARCHITECTURE.md` now allow read-only compiler
+   calls from UI and forbid direct `setState`/`localStorage`; `App.jsx` overrides go through new `applyUrlConfig`
+   store action; Gemini notice moved to session-only `seenGeminiNotice` flag; dead `prompter-tour-completed` writes
+   removed (`completeTour` persists); `ErrorBoundary` purge kept as the documented exception.
+8. **Dead code + doc drift (18.9):** deleted `design-mockup.html` + 3 `scratch_*` files (git-kept); `legacy/` kept as
+   historical reference (recorded); `Header` dead ternary removed (prop dropped); dead `btnOpenWorkspace`/
+   `btnStartManual`/`btnBackToIntro` i18n keys removed TR+EN; `ARCHITECTURE.md` tree completed (9 missing components)
+   and state shape fixed (`view` out, `seenGeminiNotice` in, `label-tags` out); `MEMORY.md` App.css/tmp/share-strip
+   items and `CLAUDE.md` IntroView mention corrected.
+9. **Test script + CI (18.2):** `"test"` script added (`test-e2e && challenger2-stress`); `.github/workflows/validate.yml`
+   runs `npm ci` + all five gates on push/PR. `npm test` exit 0 locally.
+10. **Mock-theater cleanup (18.3):** `T2.2.3` now exercises the real `copyToClipboard` success + failure paths;
+    synthetic-DAG suite labeled unit-level (registry-wide DAG stays covered by `validate` + stress Suite 3).
+    React-render/a11y automation remains a documented gap (no new deps without approval).
+
+#### What Was Verified
+- `npm run lint`: 0 errors, 0 warnings.
+- `npm run validate`: passed (0 errors; warnings are inventoried gap lists).
+- `npm test`: e2e 135/135 + stress 34/34, exit 0.
+- `npm run build`: success, all chunks under 500 kB.
+- Mid-session catch: the new `aiRouter → urlLimits` extensionless import broke raw-node `validate-ai-routes`
+  (no test-loader there); fixed with an explicit `.js` extension, matching the existing mixed style.
+- Pending manual verification (no headless harness): light/dark visual tour after the contrast change, and a full
+  keyboard + screen-reader pass over tooltips/cards/modals/toasts.
+- Follow-up audit (same session, critical-engineer pass over the debt):
+  - Contrast swept beyond muted: white-on-accent 4.7:1 ✔, all tooltip pairs 7.9–17.9:1 ✔, one failure found and
+    fixed — light `.tooltip-reqs` `#059669` (3.77:1) → `#047857` (5.48:1); light status-badge/inline emerald+amber
+    text (2.9–3.8:1) given AA overrides (`#065f46`, `#92400e`, `#047857`); dark badge pairs 7.3–9.5:1 ✔.
+  - Keyboard: single shared `:focus-visible` ring added (`.btn`, `.module-card`, `.preset-btn`, header/chip/view
+    controls); tour dots converted from span-role-button to real `<button>`s (zero `role="button"` left in `src/`);
+    Esc now closes both ActionBar modals; Recipes modal gained `aria-labelledby`.
+  - Remaining honest limits (no harness, no new deps): no focus-trap in modals, no automated render/a11y tests,
+    no runtime visual check — recorded here, not hidden.
 
 ### 2026-10-15 — Phase 17 data / bilingual / validator coverage (17.1–17.8, tamamı)
 
