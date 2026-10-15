@@ -1,9 +1,12 @@
 // Validates prompt module data and domain preset contracts for every domain.
 // Guards against silent drift: TR/EN parity, broken `requires`, missing fields,
-// invalid layers, duplicate ids, invalid preset contracts, parameter hover
-// coverage, presentation registration, compilerTexts completeness, layer translations,
-// and shared output-target vocabulary.
-// Exits non-zero on any error.
+// invalid layers, duplicate ids, unsubstituted prompt tokens, invalid preset
+// contracts, parameter hover coverage, presentation registration (including icon
+// resolution), compilerTexts completeness (including depth/labels/monologue and
+// tr/en structure), layer translations, shared output-target vocabulary
+// (FORMATTERS ↔ OUTPUT_TARGETS ↔ i18n.targets), and module icon coverage.
+// Icon-render contract: getModuleIcon(MODULE_ICONS) is the only render source;
+// the `icon` field in JSON is inert data. Exits non-zero on any error.
 
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -14,6 +17,8 @@ import { PARAMETER_DESCRIPTIONS } from '../src/domains/parameterDescriptions.js'
 import { DOMAIN_GROUPS, DOMAIN_ICON_IDS } from '../src/domains/presentation.js';
 import { OUTPUT_TARGETS } from '../src/config/outputTargets.js';
 import { MODULE_ICONS } from '../src/ui/moduleIconRegistry.js';
+import { ICONS } from '../src/ui/iconRegistry.js';
+import { SUGGESTION_RULES } from '../src/engine/suggestionRules.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const dataDir = join(__dirname, '..', 'src', 'data');
@@ -87,6 +92,19 @@ function validateFile(file, modules, validLayers) {
         // Emoji assertion (Rule 13).
         if (m && m.icon && EMOJI_REGEX.test(m.icon)) {
             errors.push(`${where}: raw Unicode emoji "${m.icon}" forbidden in data catalog (Rule 13)`);
+        }
+
+        // Prompt-token allowlist (Phase 17.1): structureBuilder substitutes only
+        // {{KONU}} and {{ALAN}}. Any other {{TOKEN}} reaches the final prompt
+        // literally, so it is a data error, not content.
+        for (const field of ['prompt', 'desc', 'explain']) {
+            const text = m && typeof m[field] === 'string' ? m[field] : '';
+            const tokens = text.match(/\{\{[A-Z_]+\}\}/g) || [];
+            for (const token of new Set(tokens)) {
+                if (token !== '{{KONU}}' && token !== '{{ALAN}}') {
+                    errors.push(`${where}: field "${field}" contains unsubstituted token "${token}" (allowed: {{KONU}}, {{ALAN}})`);
+                }
+            }
         }
 
         // Duplicate ids.
@@ -208,6 +226,24 @@ function validatePreset(domainId, presetId, preset, domain, registryIds) {
             errors.push(`${where}: group "${preset.group}" has no translated label for ${lang}`);
         }
     }
+
+    // Structural injectRules gate (Phase 17.2): absence and template filler
+    // are warnings, not errors — the rule prose itself is human-curated
+    // content work tracked separately, but the gap must stay visible. Only a
+    // present-but-malformed value (non-array, empty rule string) is an error.
+    if (preset.injectRules === undefined || (Array.isArray(preset.injectRules) && preset.injectRules.length === 0)) {
+        warnings.push(`${where}: "injectRules" is missing or empty — preset injects no constraint rules`);
+    } else if (!Array.isArray(preset.injectRules)) {
+        errors.push(`${where}: "injectRules" must be an array`);
+    } else {
+        for (const rule of preset.injectRules) {
+            if (typeof rule !== 'string' || rule.trim() === '') {
+                errors.push(`${where}: "injectRules" contains an empty rule`);
+            } else if (/^Apply \w+ domain rule for /.test(rule)) {
+                warnings.push(`${where}: "injectRules" looks like unedited template filler: "${rule}"`);
+            }
+        }
+    }
 }
 
 function validateParameterDescriptions(domainId, domain) {
@@ -262,12 +298,41 @@ function validateCompilerTexts(domainId, domain) {
             }
         }
 
+        const depthIds = Object.keys(domain.optionSets?.depths || {});
+        for (const depthId of depthIds) {
+            if (typeof langTexts.derinlik?.[depthId] !== 'string' || langTexts.derinlik[depthId].trim() === '') {
+                errors.push(`CompilerTexts[${domainId}/${lang}]: missing derinlik text for depth "${depthId}"`);
+            }
+        }
+
+        for (const section of ['labels', 'contextLabels']) {
+            if (!langTexts[section] || typeof langTexts[section] !== 'object') {
+                errors.push(`CompilerTexts[${domainId}/${lang}]: missing ${section} object`);
+            }
+        }
+
+        if (typeof langTexts.monologueText !== 'string' || langTexts.monologueText.trim() === '') {
+            errors.push(`CompilerTexts[${domainId}/${lang}]: monologueText is missing or empty`);
+        }
+
         if (typeof langTexts.goalTemplate !== 'string' || !langTexts.goalTemplate.includes('{{KONU}}')) {
             errors.push(`CompilerTexts[${domainId}/${lang}]: goalTemplate is missing or lacks {{KONU}} placeholder`);
         }
 
         if (!Array.isArray(langTexts.constraintsBase) || langTexts.constraintsBase.length === 0) {
             errors.push(`CompilerTexts[${domainId}/${lang}]: constraintsBase must be a non-empty array`);
+        }
+    }
+
+    // TR/EN structural parity on the spec's OWN bundle (not the merged
+    // getCompilerTexts output, where the learning fallback masks gaps).
+    const trTexts = compilerTexts.tr || {};
+    const enTexts = compilerTexts.en || {};
+    for (const section of ['mod', 'derinlik', 'format', 'labels', 'contextLabels']) {
+        const trKeys = Object.keys(trTexts[section] || {}).sort();
+        const enKeys = Object.keys(enTexts[section] || {}).sort();
+        if (trKeys.length !== enKeys.length || trKeys.some((k, i) => k !== enKeys[i])) {
+            errors.push(`CompilerTexts[${domainId}]: tr/en key mismatch in "${section}" (tr=[${trKeys.join(', ')}], en=[${enKeys.join(', ')}])`);
         }
     }
 }
@@ -292,12 +357,28 @@ function validatePresentation() {
         }
         if (!DOMAIN_ICON_IDS[domainId]) {
             errors.push(`Presentation[${domainId}]: icon id is missing from DOMAIN_ICON_IDS`);
+        } else if (!ICONS[DOMAIN_ICON_IDS[domainId]]) {
+            errors.push(`Presentation[${domainId}]: icon id "${DOMAIN_ICON_IDS[domainId]}" does not resolve in iconRegistry ICONS`);
         }
     }
     if (new Set(presentationIds).size !== presentationIds.length) {
         errors.push('Presentation: DOMAIN_GROUPS contains duplicate domain ids');
     }
     console.log(`  presentation: ${presentationIds.length} domains and ${Object.keys(DOMAIN_ICON_IDS).length} icons`);
+}
+
+function validateSuggestionCoverage() {
+    // Rule-less domains are not an error, but the "recommended" tab degrades
+    // to a layer cross-section there — keep the list visible (Phase 17.5).
+    const uncovered = Object.keys(DOMAINS).filter(
+        (id) => !Array.isArray(SUGGESTION_RULES[id]) || SUGGESTION_RULES[id].length === 0
+    );
+    for (const id of uncovered) {
+        warnings.push(`Suggestions[${id}]: no SUGGESTION_RULES — "recommended" tab shows a layer cross-section`);
+    }
+    if (uncovered.length > 0) {
+        console.log(`  ${uncovered.length} domain(s) without suggestion rules (listed as warnings).`);
+    }
 }
 
 function validatePresets(domainId, domain, modules) {
@@ -372,6 +453,26 @@ function validateOutputTargets() {
         }
     }
 
+    // i18n.targets (both languages) must offer exactly the selectable targets:
+    // a label with no formatter (or a formatter with no label) is a silent
+    // dead end in the UI (Phase 17.3).
+    const i18nSource = readSource(join('locales', 'i18n.js'), 'i18n.targets');
+    if (i18nSource) {
+        const blocks = [...i18nSource.matchAll(/targets:\s*\{([^}]*)\}/g)];
+        if (blocks.length === 0) {
+            errors.push('Output targets: no targets blocks found in i18n.js');
+        }
+        for (const [index, block] of blocks.entries()) {
+            const ids = block[1]
+                .split(String.fromCharCode(10))
+                .map((line) => line.trim().split(':')[0].replace(/^['"]|['"]$/g, ''))
+                .filter((id) => id && id !== ',');
+            if (ids.length !== OUTPUT_TARGETS.length || ids.some((id, i) => id !== OUTPUT_TARGETS[i])) {
+                errors.push(`Output targets: i18n.js targets block #${index + 1} [${ids.join(', ')}] does not match OUTPUT_TARGETS [${OUTPUT_TARGETS.join(', ')}]`);
+            }
+        }
+    }
+
     if (errors.length === 0) {
         console.log(`  ids: ${OUTPUT_TARGETS.join(', ')} (central registry + formatter/consumer checks)`);
     }
@@ -413,12 +514,22 @@ function validateModuleIconRegistry(allFoundModuleIds) {
     if (missingCount === 0) {
         console.log(`  ✓ All ${allFoundModuleIds.size} unique modules are registered in moduleIconRegistry.js with semantic Lucide icons.`);
     }
+    // Orphan entries (an icon mapping with no module behind it) are harmless
+    // but mislead the next author into thinking the module exists (Phase 17.6).
+    const orphans = Object.keys(MODULE_ICONS).filter((id) => !allFoundModuleIds.has(id));
+    for (const id of orphans) {
+        warnings.push(`moduleIconRegistry: orphan icon mapping "${id}" has no matching module id`);
+    }
+    if (orphans.length > 0) {
+        console.log(`  ${orphans.length} orphan icon mapping(s) listed as warnings.`);
+    }
 }
 
 // --- Run ---
 console.log('Validating prompt module data, preset contracts, parameter descriptions, compiler texts, presentation, and output targets...');
 validatePresentation();
 validateOutputTargets();
+validateSuggestionCoverage();
 
 const allFoundModuleIds = new Set();
 

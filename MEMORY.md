@@ -48,6 +48,9 @@ and layout belong in `ARCHITECTURE.md`; binding rules belong in `CLAUDE.md`.
   silently. The `icon` field inside the module JSON (an emoji) is required and
   non-empty-checked by `scripts/validate-modules.mjs`, but **no code reads it**;
   it is inert data, so filling it in does not give the new module an icon.
+  Orphan `MODULE_ICONS` entries (no matching module id) are reported as
+  validator warnings; the render source contract is restated at the top of
+  `moduleIconRegistry.js`.
 - `assembleFinalPrompt` returns the empty string `""` — not `null`, not a
   partial prompt — when `config.konu` is empty or `selectedModules` is empty.
   Every caller must treat `""` as "nothing to do"; `ActionBar` and `PreviewPanel`
@@ -70,12 +73,13 @@ circular `requires` chain. It surfaces as a render error caught by
 - `config.hedef` is global and domain-agnostic, while `seviye`/`mod`/`derinlik`/
   `format` are domain-scoped. `hedef` is deliberately absent from every domain
   descriptor's `defaultConfig` so `setDomain`'s spread cannot reset it.
-- The valid `hedef` ids are declared **three times**, in three files,
-  deliberately: `VALID_TARGETS` in `src/utils/statePayload.js`, the `FORMATTERS`
-  dispatch table in `src/compiler/finalPromptAssembler.js`, and the module-level
-  `TARGET_IDS` literal in `src/ui/ConfigPanel.jsx` (kept local so `ui/` does not
-  import from `compiler/`). Adding an output target means editing all three.
-  Nothing checks that they agree.
+- The valid `hedef` ids live in exactly one place: `OUTPUT_TARGETS` in
+  `src/config/outputTargets.js`, consumed by `FORMATTERS`
+  (`src/compiler/formatterRegistry.js`), `ConfigPanel.jsx`, and `statePayload.js`.
+  `validateOutputTargets` (`scripts/validate-modules.mjs`) checks the three-way
+  parity `i18n.targets ↔ OUTPUT_TARGETS ↔ FORMATTERS`. `labelTags.js` is not a
+  fourth target: it is a shared label→tag map used by the Claude/OpenAI
+  formatters, and `i18n.targets` offers exactly the three selectable ids.
 
 ## Persistence behavior
 
@@ -146,13 +150,11 @@ circular `requires` chain. It surfaces as a render error caught by
   `src/engine/presetEngine.js` regardless of the UI language — `structureBuilder`
   appends each one to the constraints block as `PRESET RULE: <string>`, untranslated
   and not routed through `compilerTexts.js`.
-- `'otomatik'` is reused as a level id across both domains on purpose, so
+- `'otomatik'` is reused as a level id across domains on purpose, so
   `structureBuilder`'s "the AI will determine this" special case can stay
-  domain-agnostic. It is the *only* overlap between the two `levelIds` lists;
-  `modeIds` and `formatIds` are disjoint. The `depthIds` lists, by contrast, are
-  **identical** in both descriptors (`orta`, `temel`, `derin`,
-  `kapsamli`), so `sanitizePayload`'s `fallbackOrValid(raw?.derinlik, …)` accepts
-  a `derinlik` carried over from the other domain without flagging it.
+  domain-agnostic. The option vocabulary lives in each spec's `optionSets`
+  (`levels`/`modes`/`depths`/`formats`) — no spec defines separate `*Ids` lists
+  (Phase 17.7 removed the legacy fallback branches).
 - `intelligenceLayer.js` rules are domain-scoped because they reference concrete
   module ids; a Learning rule evaluated in the Code domain would suggest a module
   id that does not exist and break the compiler downstream.

@@ -67,17 +67,19 @@ export function sanitizePayloadWithWarnings(raw, lang = 'tr') {
     }
     const selectedModules = Array.from(new Set(rawModules.filter((id) => validIds.has(id))));
 
-    const resolveOptionIds = (explicitIds, optionSet) => {
-        if (Array.isArray(explicitIds)) return explicitIds;
+    // Single source: optionSets on the domain spec. (No spec defines
+    // levelIds/modeIds/depthIds/formatIds; the legacy explicit-array branch
+    // was removed in Phase 17.7 so a second vocabulary cannot silently exist.)
+    const resolveOptionIds = (optionSet) => {
         if (Array.isArray(optionSet)) return optionSet;
         if (optionSet && typeof optionSet === 'object') return Object.keys(optionSet);
         return [];
     };
 
-    const levelIds = resolveOptionIds(domainDescriptor?.levelIds, domainDescriptor?.optionSets?.levels);
-    const modeIds = resolveOptionIds(domainDescriptor?.modeIds, domainDescriptor?.optionSets?.modes);
-    const depthIds = resolveOptionIds(domainDescriptor?.depthIds, domainDescriptor?.optionSets?.depths);
-    const formatIds = resolveOptionIds(domainDescriptor?.formatIds, domainDescriptor?.optionSets?.formats);
+    const levelIds = resolveOptionIds(domainDescriptor?.optionSets?.levels);
+    const modeIds = resolveOptionIds(domainDescriptor?.optionSets?.modes);
+    const depthIds = resolveOptionIds(domainDescriptor?.optionSets?.depths);
+    const formatIds = resolveOptionIds(domainDescriptor?.optionSets?.formats);
 
     const fallbackOrValid = (val, validList, fallback, field) => {
         if (Array.isArray(validList) && validList.includes(val)) return val;

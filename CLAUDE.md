@@ -191,8 +191,9 @@ ui/  →  store/  →  engine/  →  compiler/  →  data/
 ```
 
 - `src/domains/` — declarative per-domain descriptors (`id`, `route`, ordered
-  `layers`, `modeIds`/`levelIds`/`depthIds`/`formatIds`, `defaultConfig`).
-  Structural facts only; no translated text, no logic.
+  `layers`, `optionSets` (`levels`/`modes`/`depths`/`formats`), `defaultConfig`).
+  Structural facts only; no translated text, no logic. `optionSets` is the
+  single vocabulary source; no spec defines separate `*Ids` lists.
 - `src/ui/` — dumb renderer. Reads Zustand state, calls store actions, nothing else.
 - `src/store/` — `engineState.js`, the single Zustand store and the only source
   of truth for app state.

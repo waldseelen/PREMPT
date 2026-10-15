@@ -1574,8 +1574,64 @@ await suite('Phase 16: URL / State / Payload Integrity', async () => {
 });
 
 // ============================================================================
-// TEST RUNNER SUMMARY & EXIT CODE
+// PHASE 17: Data / Bilingual / Validator Coverage (bad.md Bölüm B)
 // ============================================================================
+
+await suite('Phase 17: Data / Bilingual / Validator Coverage', async () => {
+    await test('T17.1: i18n.targets key set equals OUTPUT_TARGETS in both languages (17.3)', async () => {
+        const { OUTPUT_TARGETS } = await import('../src/config/outputTargets.js');
+        for (const lang of ['tr', 'en']) {
+            assert.deepEqual(Object.keys(i18n[lang].targets), [...OUTPUT_TARGETS]);
+        }
+    });
+
+    await test('T17.2: no unsubstituted prompt tokens outside the {{KONU}}/{{ALAN}} allowlist (17.1)', () => {
+        const dataDir = join(rootDir, 'src', 'data');
+        const files = readdirSync(dataDir).filter((f) => f.endsWith('.json'));
+        assert.ok(files.length >= 30, 'Should have at least 30 module JSON files');
+        for (const file of files) {
+            const parsed = JSON.parse(readFileSync(join(dataDir, file), 'utf8'));
+            for (const mod of parsed) {
+                for (const field of ['prompt', 'desc', 'explain']) {
+                    const tokens = (mod[field] || '').match(/\{\{[A-Z_]+\}\}/g) || [];
+                    for (const token of new Set(tokens)) {
+                        assert.ok(token === '{{KONU}}' || token === '{{ALAN}}', `${file}/${mod.id}.${field} has unsubstituted token ${token}`);
+                    }
+                }
+            }
+        }
+    });
+
+    await test('T17.3: every spec bundles derinlik/labels/monologueText for its own depths in both languages (17.4)', () => {
+        for (const domainId of Object.keys(DOMAINS)) {
+            const spec = DOMAINS[domainId];
+            const depthIds = Object.keys(spec.optionSets?.depths || {});
+            assert.ok(depthIds.length > 0, `${domainId} has no depths`);
+            for (const lang of ['tr', 'en']) {
+                const bundle = spec.compilerTexts?.[lang];
+                assert.ok(bundle, `${domainId}/${lang} bundle missing`);
+                for (const id of depthIds) {
+                    assert.ok(bundle.derinlik?.[id]?.trim(), `${domainId}/${lang} derinlik "${id}" missing`);
+                }
+                assert.ok(bundle.labels && typeof bundle.labels === 'object', `${domainId}/${lang} labels missing`);
+                assert.ok(typeof bundle.monologueText === 'string' && bundle.monologueText.trim(), `${domainId}/${lang} monologueText missing`);
+            }
+            assert.deepEqual(Object.keys(spec.compilerTexts.tr.derinlik).sort(), Object.keys(spec.compilerTexts.en.derinlik).sort(), `${domainId} derinlik tr/en mismatch`);
+        }
+    });
+
+    await test('T17.4: getIcon falls back instead of returning undefined (17.8)', async () => {
+        const { getIcon } = await import('../src/ui/iconRegistry.js');
+        assert.ok(getIcon('graduation-cap'), 'known icon resolves');
+        assert.ok(getIcon('no-such-icon-xyz'), 'unknown icon must fall back, not undefined');
+    });
+
+    await test('T17.5: suggestion-rule coverage gap is exactly the 13 rule-less domains (17.5)', async () => {
+        const { SUGGESTION_RULES } = await import('../src/engine/suggestionRules.js');
+        const uncovered = Object.keys(DOMAINS).filter((id) => !(SUGGESTION_RULES[id] || []).length);
+        assert.deepEqual(uncovered.sort(), Object.keys(DOMAINS).filter((id) => id !== 'learning' && id !== 'code').sort());
+    });
+});
 
 console.log('\n================================================================');
 console.log(` Test Execution Complete: ${totalTests} total tests across Tiers 1-4`);

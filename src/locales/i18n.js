@@ -78,14 +78,12 @@ export const i18n = {
     targets: {
       markdown: 'Markdown',
       'claude-xml': 'Claude XML',
-      'openai-json': 'OpenAI JSON',
-      'label-tags': 'Etiket Blokları'
+      'openai-json': 'OpenAI JSON'
     },
     targetDescs: {
       markdown: 'Markdown: Başlıklı, düz metin. Her AI sohbetine doğrudan yapıştırılabilir.',
       'claude-xml': 'Claude XML: Blokları <role>/<instructions> gibi etiketlere sarar. Yapıştırılabilir düz metindir.',
-      'openai-json': 'OpenAI JSON: Sistem mesajı JSON nesnesi üretir. API ve kopyalama amaçlıdır.',
-      'label-tags': 'Etiket Blokları: [ROLE] ve [GOAL] gibi açık etiket blokları kullanır.'
+      'openai-json': 'OpenAI JSON: Sistem mesajı JSON nesnesi üretir. API ve kopyalama amaçlıdır.'
     },
 
     // Recipes & Sharing
@@ -125,6 +123,7 @@ export const i18n = {
     emptyStateHint: 'Henüz modül seçmedin. Yukarıdaki hazır şablonlardan biriyle hızlıca başlayabilir veya aşağıdan elle modül seçebilirsin.',
     moduleSearchPlaceholder: 'Modül ara...',
     moduleViewRecommended: 'Önerilen',
+    noRulesHint: 'Bu alan için öneri kuralı yok — katman başına kesit gösteriliyor.',
     moduleViewSelected: 'Seçilenler',
     moduleViewAll: 'Tümü',
     moduleCategoryAll: 'Tüm kategoriler',
@@ -262,14 +261,12 @@ export const i18n = {
     targets: {
       markdown: 'Markdown',
       'claude-xml': 'Claude XML',
-      'openai-json': 'OpenAI JSON',
-      'label-tags': 'Label Tags'
+      'openai-json': 'OpenAI JSON'
     },
     targetDescs: {
       markdown: 'Markdown: Headed plain text. Pastes directly into any AI chat.',
       'claude-xml': 'Claude XML: Wraps blocks in tags like <role>/<instructions>. Still plain, pasteable text.',
-      'openai-json': 'OpenAI JSON: Produces a system-message JSON object. API and copy use only.',
-      'label-tags': 'Label Tags: Uses bracketed tag blocks like [ROLE] and [GOAL].'
+      'openai-json': 'OpenAI JSON: Produces a system-message JSON object. API and copy use only.'
     },
 
     // Recipes & Sharing
@@ -309,6 +306,7 @@ export const i18n = {
     emptyStateHint: "You haven't selected any modules yet. Start quickly with one of the presets above, or pick modules manually below.",
     moduleSearchPlaceholder: 'Search modules...',
     moduleViewRecommended: 'Recommended',
+    noRulesHint: 'No suggestion rules for this domain yet — showing a cross-section per layer.',
     moduleViewSelected: 'Selected',
     moduleViewAll: 'All',
     moduleCategoryAll: 'All categories',

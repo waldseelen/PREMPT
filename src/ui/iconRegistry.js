@@ -1,7 +1,7 @@
 import {
     GraduationCap, Brain, Zap, Beaker, Building2, Backpack,
     Code, Bot, Shield, FileText, Palette, Globe,
-    Briefcase, Heart, Plane
+    Briefcase, Heart, Plane, Box
 } from 'lucide-react';
 
 export const ICONS = {
@@ -23,5 +23,7 @@ export const ICONS = {
 };
 
 export function getIcon(iconId) {
-    return ICONS[iconId];
+    // Same generic fallback as getModuleIcon: a wrong DOMAIN_ICON_IDS entry
+    // degrades to a neutral icon instead of crashing DomainSwitcher (Phase 17.8).
+    return ICONS[iconId] || Box;
 }

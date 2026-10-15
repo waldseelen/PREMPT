@@ -7,6 +7,10 @@ unless it is explicitly reopened.
 
 > Reset: Phase 1–15 tamamlananlar temizlendi, geçmiş `git log -- TASKS.md` içinde korunur.
 > Aşağıdaki fazlar yalnızca `bad.md` bulgularından türetildi.
+>
+> Gelecek ajanlara not: Phase 16 (`16.1–16.9`) ve Phase 17 (`17.1–17.8`) tamamlandı (`[x]`).
+> Tek açık faz Phase 18 (`18.1–18.10`, 10 madde) — kaynağı `bad.md` Bölüm C, oturum detayları `PROGRESS.md`'de.
+> Kapalı maddeyi yeniden açma; yeni string TR+EN birlikte ekle; kapıları koşmadan `[x]` işaretleme.
 
 ---
 
@@ -46,31 +50,31 @@ unless it is explicitly reopened.
 
 ## Phase 17 — Veri / bilingual / validator kapsamı (bad.md Bölüm B)
 
-- [ ] 17.1 Prompt-token allowlist (B1.2).
+- [x] 17.1 Prompt-token allowlist (B1.2).
       Acceptance: `structureBuilder`'ın ikame ettiği `{{KONU}}`/`{{ALAN}}` dışında `{{...}}` içeren modül prompt'u
       `npm run validate`'de hata verir (agentarch `variable-ingestion-schema` için istisna kararı kayıtlı);
       tarama tek fonksiyonda, TR/EN ayrı raporlanır.
-- [ ] 17.2 `injectRules` yapısal kapısı (B2.3).
+- [x] 17.2 `injectRules` yapısal kapısı (B2.3).
       Acceptance: validator `injectRules` array-oluşunu, boş-olmamasını ve placeholder-regex
       (`/^Apply \w+ domain rule for /`) yakalamasını ekler; 168 placeholder + 12 boş `edudesign` listelenir ve
       gerçek kurallarla değiştirilince kapı yeşile döner.
-- [ ] 17.3 `label-tags` kararı + vocab parity (B3.1).
+- [x] 17.3 `label-tags` kararı + vocab parity (B3.1).
       Acceptance: ya `i18n.targets/targetDescs`'ten `label-tags` çıkarılır ya 4. formatter eklenip `OUTPUT_TARGETS`
       4'lenir; validator `i18n.targets ↔ OUTPUT_TARGETS ↔ FORMATTERS` üçlü parity denetler; `MEMORY.md:73-78` ve
       `ARCHITECTURE.md` formatter listesi düzeltilir.
-- [ ] 17.4 `compilerTexts` tam-kapsam denetimi (B2.4).
+- [x] 17.4 `compilerTexts` tam-kapsam denetimi (B2.4).
       Acceptance: `derinlik.*`, `labels`, `contextLabels`, `monologueText` ve TR/EN yapısal parity validator'a eklenir;
       learning-fallback'a güvenen yeni domain validasyondan geçemez (own-bundle eksikse hata).
-- [ ] 17.5 Öneri-boşluğu görünürlüğü (B2.5).
+- [x] 17.5 Öneri-boşluğu görünürlüğü (B2.5).
       Acceptance: 13 kural-kapsanmayan domain ya `SUGGESTION_RULES`'a kurallar eklenerek kapatılır ya `ModuleGrid`
       fallback'i "öneri yok" diye etiketlenir; `npm run validate` çıktısında hangi domain'in önerisiz olduğu görülür.
-- [ ] 17.6 `icon` atıllığı + ikon kaydı sözleşmesi (B1.1).
+- [x] 17.6 `icon` atıllığı + ikon kaydı sözleşmesi (B1.1).
       Acceptance: ya modül JSON `icon` alanı kaldırılır/kullanılır ya da "ikon `MODULE_ICONS`'tan gelir" dokümanda tek
       kaynaktan yazılır; yeni modülde `MODULE_ICONS` girişi validator tarafından denetlenir.
-- [ ] 17.7 Ölü option-set dallarını netleştir (B2.1).
+- [x] 17.7 Ölü option-set dallarını netleştir (B2.1).
       Acceptance: `levelIds/modeIds/depthIds/formatIds` ya speclere eklenir ya `ConfigPanel`/`statePayload` fallback
       dalları + doküman anlatımı sadeleştirilir ("çift-kaynak" riski kapatılır).
-- [ ] 17.8 `getIcon` güvenli hale getir (B3.2).
+- [x] 17.8 `getIcon` güvenli hale getir (B3.2).
       Acceptance: bilinmeyen ikon id'si `undefined` yerine güvenli fallback döner veya validator `ICONS` varlığını
       denetler; yanlış id render crash'i yapmaz (testli).
 

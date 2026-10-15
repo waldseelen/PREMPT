@@ -287,7 +287,7 @@
     "explain": "Defines parametric variable (`{{variable}}`) injection architecture.",
     "layer": "orchestration",
     "requires": [],
-    "prompt": "Define system variable injection schema: `{{USER_INPUT}}`, `{{DOMAIN_CONTEXT}}`, `{{MAX_TOKENS}}`. Establish default fallback behavior for empty variables."
+    "prompt": "Define a system variable injection schema: user-input, domain-context, and max-tokens variables (rendered as double-brace placeholders in the output). Establish default fallback behavior for empty variables."
   },
   {
     "id": "multi-agent-handoff",

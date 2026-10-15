@@ -20,10 +20,12 @@ export default function ConfigPanel() {
     const t = getTranslation(config.lang, config.domain);
     const domain = getDomain(config.domain);
 
-    const levelIds = domain.levelIds || Object.keys(domain.optionSets?.levels || {}) || [];
-    const modeIds = domain.modeIds || Object.keys(domain.optionSets?.modes || {}) || [];
-    const depthIds = domain.depthIds || Object.keys(domain.optionSets?.depths || {}) || [];
-    const formatIds = domain.formatIds || Object.keys(domain.optionSets?.formats || {}) || [];
+    // Single source: optionSets on the domain spec (Phase 17.7 — no spec
+    // defines levelIds/modeIds/depthIds/formatIds, so no legacy branch).
+    const levelIds = Object.keys(domain.optionSets?.levels || {});
+    const modeIds = Object.keys(domain.optionSets?.modes || {});
+    const depthIds = Object.keys(domain.optionSets?.depths || {});
+    const formatIds = Object.keys(domain.optionSets?.formats || {});
 
     const getOptionLabel = (optionsMap, id) => {
         const val = optionsMap?.[id];

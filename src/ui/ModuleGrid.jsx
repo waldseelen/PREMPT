@@ -116,6 +116,16 @@ export default function ModuleGrid() {
                 </div>
             )}
 
+            {/* 13 domains ship no SUGGESTION_RULES: the "recommended" tab then
+                shows a layer cross-section, not rule output. Say so instead of
+                implying engine recommendations (Phase 17.5). */}
+            {view === 'recommended' && suggestionIds.size === 0 && (
+                <div className="dependency-alert" role="status">
+                    <Lightbulb size={14} />
+                    <span>{t.noRulesHint || (config.lang === 'en' ? 'No suggestion rules for this domain yet — showing a cross-section per layer.' : 'Bu alan için öneri kuralı yok — katman başına kesit gösteriliyor.')}</span>
+                </div>
+            )}
+
             <div className="module-control-bar">
                 <div className="module-filter-row">
                     <label className="module-search-input" aria-label={t.moduleSearchPlaceholder || 'Modül ara'}>

@@ -13,7 +13,7 @@ current checkout (`CLAUDE.md` §7.1).
 | Lint | `npm run lint` | ✅ PASSED — 0 errors, 0 warnings under `--max-warnings=0` across repository | 2026-10-15 |
 | Build | `npm run build` | ✅ PASSED — 43s; all chunks under 500 kB with zero Vite chunk warnings | 2026-10-15 |
 | Module, preset, parameter, presentation, hover, and target validation | `npm run validate` | ✅ PASSED — all 15 domains, bilingual modules, 180 presets (including preset.id === key parity), TR/EN option descriptions, 15 presentation registrations, compiler texts completeness, layer categories, and central output targets | 2026-10-15 |
-| E2E Test Suite | `node scripts/test-e2e.mjs` | ✅ PASSED — 129/129 tests passing across Tiers 1-4 + Phase 16 suite with zero failures | 2026-10-15 |
+| E2E Test Suite | `node scripts/test-e2e.mjs` | ✅ PASSED — 134/134 tests passing across Tiers 1-4 + Phase 16-17 suites with zero failures | 2026-10-15 |
 | Challenger 2 Empirical Stress Test | `node scripts/test-challenger2-stress.mjs` | ✅ PASSED — 34/34 stress tests passing across Suites 1-4 with zero failures | 2026-10-15 |
 
 Notes on the gates themselves (not results):
@@ -22,7 +22,56 @@ Notes on the gates themselves (not results):
 - **Build Gate:** Compiles Vite production bundle into `dist/` with functional `manualChunks` code-splitting (`vendor-react`, `vendor-state`, `vendor-icons`, `domain-specs`, `modules-data`). Verified 0 errors and 0 chunk warnings.
 - **E2E & Stress Test Gates:** `scripts/test-e2e.mjs` (116 tests) exercises functional workflows, edge cases, deep links, and persistence. `scripts/test-challenger2-stress.mjs` (34 tests) stresses preset eject purity across all 180 presets, URL bounds, DAG cycle resilience, and Rule 13 emoji cleanliness.
 
+## Handoff — gelecek ajanlar için son durum
+
+- **Yapılan:** Phase 16 (`16.1–16.9`, URL/state/payload bütünlüğü) ve Phase 17 (`17.1–17.8`, veri/bilingual/validator
+  kapsamı) tamamlandı ve `[x]` işaretlendi. Detaylar aşağıdaki oturum kayıtlarında, bulgu kaynağı `bad.md`'de.
+- **Kalan tek faz:** Phase 18 (UI/test/CSS/a11y/bakım borcu) — `TASKS.md`'de 10 açık madde (`18.1–18.10`), kaynağı
+  `bad.md` Bölüm C. Yeni işe buradan başla; kapalı maddeleri yeniden açma.
+- **Kapılar:** yukarıdaki tablo güncel — hepsi bu checkout'ta koşuldu ve yeşil (`validate` 0 error / 328 warning;
+  warning'lerin tamamı envanterli kapsam listesi, detay `PROGRESS.md` Phase 17 kaydında).
+- **Çalışma sözleşmesi:** biten her madde için kapıları koş (`lint`, `validate`, `test-e2e`, `stress`, `build`);
+  sonucu buraya tek satır + tek tarihli oturum girişi olarak işle; kullanıcı metni değişirse TR+EN birlikte
+  (`T1.12.3` parity testi kırılır yoksa); commit/push kullanıcı onaysız yapılmaz.
+
 ## Session History
+
+### 2026-10-15 — Phase 17 data / bilingual / validator coverage (17.1–17.8, tamamı)
+
+#### What Changed
+1. **label-tags decision + vocab parity (17.3):** removed the unselectable 4th `label-tags` entry from
+   `i18n[tr,en].targets` + `targetDescs` (only `src/` references; `ConfigPanel` renders from `OUTPUT_TARGETS`, no UI
+   behavior change); `validateOutputTargets` now checks three-way parity `i18n.targets ↔ OUTPUT_TARGETS ↔
+   FORMATTERS` (both language blocks, order-sensitive); stale `MEMORY.md` hedef-vocab item and `ARCHITECTURE.md`
+   `labelTags.js` tree comment corrected.
+2. **compilerTexts full coverage (17.4):** `validateCompilerTexts` now checks `derinlik.*` against the spec's own
+   `optionSets.depths`, `labels`/`contextLabels` presence, non-empty `monologueText`, and TR/EN structural key parity
+   for `mod`/`derinlik`/`format`/`labels`/`contextLabels` — read from the spec's own bundle, not the
+   learning-merged `getCompilerTexts` output that masks gaps. Data was complete; gate stays green.
+3. **Prompt-token allowlist (17.1):** `validateFile` errors on any `{{TOKEN}}` outside `{{KONU}}`/`{{ALAN}}` in
+   `prompt`/`desc`/`explain`; fixed the one offender (`agentarch variable-ingestion-schema` TR+EN rephrased to
+   name the variables without literal braces, meaning preserved).
+4. **injectRules structural gate, warnings variant (17.2):** missing/empty array and `/^Apply \w+ domain rule for /`
+   filler are validator **warnings** (180 flagged: 12 empty `edudesign` + 168 placeholders); present-but-malformed
+   values stay errors. Full prose rewrite remains separate human content work (Rule 13). Gate stays green.
+5. **Suggestion-gap visibility (17.5):** new `validateSuggestionCoverage` lists the 13 rule-less domains as warnings;
+   `ModuleGrid` recommended tab shows a `noRulesHint` note (new TR/EN key) instead of implying engine output.
+6. **Icon contract (17.6):** render-source contract restated in `moduleIconRegistry.js` header + validator header +
+   `MEMORY.md` (JSON `icon` is inert); `validateModuleIconRegistry` reports 136 orphan mappings as warnings.
+7. **Dead option-set branches (17.7):** removed `levelIds/modeIds/depthIds/formatIds` fallback branches from
+   `statePayload.js`, `ConfigPanel.jsx`, and the missed third occurrence in `ParameterChipsBar.jsx`; `optionSets` is
+   now the single vocabulary source in code and in `CLAUDE.md §5.1` / `MEMORY.md` wording.
+8. **getIcon fallback (17.8):** unknown domain icon ids degrade to `Box` (same generic as module icons) instead of
+   crashing `DomainSwitcher`; validator checks every `DOMAIN_ICON_IDS` value resolves in `ICONS` (15/15 clean).
+9. **Tests:** `T17.2`–`T17.5` e2e (token allowlist file sweep, spec depth/labels/monologue per-domain check, getIcon
+   fallback, exact 13-domain rule gap) alongside the earlier `T17.1` targets parity.
+
+#### What Was Verified
+- `npm run lint`: 0 errors, 0 warnings.
+- `npm run validate`: passed across all 15 domains (0 errors, 328 warnings — all inventoried gap lists).
+- `node scripts/test-e2e.mjs`: 134/134 passing (129 existing + 5 new).
+- `node scripts/test-challenger2-stress.mjs`: 34/34 passing.
+- `npm run build`: success, all chunks under 500 kB.
 
 ### 2026-10-15 — Phase 16 URL / State / Payload Integrity (16.1–16.9, tamamı)
 

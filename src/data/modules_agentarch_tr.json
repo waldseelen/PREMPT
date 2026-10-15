@@ -287,7 +287,7 @@
     "explain": "Sistem promptuna parametrik degiskenlerin (`{{variable}}`) nasil besleneceğini belirler.",
     "layer": "orchestration",
     "requires": [],
-    "prompt": "Prompt değişkenlerini tanımla: `{{USER_INPUT}}`, `{{DOMAIN_CONTEXT}}`, `{{MAX_TOKENS}}`. Değişkenlerin boş gelmesi durumunda varsayılan değer atama mantığını kur."
+    "prompt": "Prompt değişkenlerini tanımla: kullanıcı girdisi, alan bağlamı ve azami jeton değişkenleri (çıktıda çift süslü parantezli yer tutucu olarak yazılır). Değişkenlerin boş gelmesi durumunda varsayılan değer atama mantığını kur."
   },
   {
     "id": "multi-agent-handoff",

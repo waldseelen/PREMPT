@@ -105,7 +105,7 @@ PREMPT/
     │       ├── markdown.js           # Standard Markdown format
     │       ├── claudeXml.js          # Claude-optimized XML tag format
     │       ├── openaiJson.js         # OpenAI API system/user payload format
-    │       └── labelTags.js          # Labeled tag block format
+    │       └── labelTags.js          # Shared label→tag map used by claudeXml/openaiJson (not a target)
     ├── store/                        # Zustand store (engineState.js)
     ├── locales/                      # Shared UI strings (i18n.js) & compiler text adapter (compilerTexts.js)
     ├── utils/                        # aiRouter.js, domainRoute.js, statePayload.js
